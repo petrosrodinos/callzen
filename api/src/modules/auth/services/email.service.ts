@@ -44,6 +44,7 @@ export class EmailAuthService {
           data: {
             email: dto.email.toLowerCase(),
             full_name: dto.full_name,
+            preferred_language: dto.preferred_language,
             password: hashedPassword,
             role: AuthRoles.USER,
           },

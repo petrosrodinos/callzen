@@ -29,7 +29,8 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "debug:dev": "node node_modules/dotenv-cli/cli.js -e .env.development -- node --inspect-brk -r tsconfig-paths/register -r ts-node/register ./node_modules/@nestjs/cli/bin/nest.js start --watch"
+    "debug:dev": "node node_modules/dotenv-cli/cli.js -e .env.development -- node --inspect-brk -r tsconfig-paths/register -r ts-node/register ./node_modules/@nestjs/cli/bin/nest.js start --watch",
+    "translate:templates": "node node_modules/dotenv-cli/cli.js -e .env.staging -- npx ts-node -r tsconfig-paths/register scripts/translate-templates.ts"
   },
   "dependencies": {
     "@ai-sdk/openai": "^4.0.101",

@@ -25,6 +25,7 @@ export const SignUpSchema = z
                 message: "Password must be at least 6 characters long",
             }),
         confirm_password: z.string(),
+        preferred_language: z.string().min(2, { message: "Please select a language" }),
     })
     .refine((data) => data.password === data.confirm_password, {
         message: "Passwords don't match.",

@@ -151,6 +151,7 @@ model User {
   updated_at DateTime @updatedAt
 
   interface_language     String             @default("en")
+  preferred_language     String             @default("en")
   output_language_mode   OutputLanguageMode @default(CONVERSATION)
   consent_line           String?
   keep_recordings        Boolean            @default(true)

@@ -15,7 +15,6 @@ import {
     getPermissionCatalog,
     getRoles,
     inviteMember,
-    leaveOrganisation,
     removeMember,
     resendInvitation,
     resetRolePermissions,
@@ -117,20 +116,6 @@ export const useDeleteOrganisation = () => {
         },
         onError: (error) => {
             toast({ title: "Could not delete the organisation", description: error.message, variant: "error" });
-        },
-    });
-};
-
-export const useLeaveOrganisation = () => {
-    const cleanup = useLeaveOrDeleteCleanup();
-    return useMutation({
-        mutationFn: leaveOrganisation,
-        onSuccess: async () => {
-            await cleanup();
-            toast({ title: "You left the organisation", duration: 2500 });
-        },
-        onError: (error) => {
-            toast({ title: "Could not leave the organisation", description: error.message, variant: "error" });
         },
     });
 };

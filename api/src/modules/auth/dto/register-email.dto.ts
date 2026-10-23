@@ -2,12 +2,14 @@
 
 import {
   IsEmail,
+  IsIn,
   IsOptional,
   IsString,
   MaxLength,
   MinLength,
 } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
+import { SUPPORTED_LANGUAGE_CODES } from '@/shared/config/languages/languages.config';
 
 export class RegisterEmailDto {
   @ApiProperty({
@@ -36,4 +38,14 @@ export class RegisterEmailDto {
   @IsString()
   @MaxLength(120)
   full_name?: string;
+
+  @ApiProperty({
+    description: 'Preferred language, used for default templates and examples',
+    example: 'el',
+    enum: SUPPORTED_LANGUAGE_CODES,
+    required: false,
+  })
+  @IsOptional()
+  @IsIn(SUPPORTED_LANGUAGE_CODES)
+  preferred_language?: string;
 }

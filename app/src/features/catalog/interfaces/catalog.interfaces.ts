@@ -91,6 +91,7 @@ export interface Catalog {
     practice_templates: PracticeAgentTemplate[];
     default_analysis_criteria: AnalysisCriterion[];
     default_consent_line: string;
+    template_language: string;
     languages: Language[];
     max_conversation_languages: number;
     data_processors: DataProcessor[];

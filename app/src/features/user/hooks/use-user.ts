@@ -21,6 +21,7 @@ export const useUpdateMe = () => {
         mutationFn: updateMe,
         onSuccess: (user) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
+            queryClient.invalidateQueries({ queryKey: ["catalog"] });
             updateUser({ full_name: user.full_name ?? user.email.split("@")[0] });
             toast({ title: "Settings saved", duration: 1500 });
         },

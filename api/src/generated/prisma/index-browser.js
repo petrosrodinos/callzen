@@ -130,6 +130,7 @@ exports.Prisma.UserScalarFieldEnum = {
   created_at: 'created_at',
   updated_at: 'updated_at',
   interface_language: 'interface_language',
+  preferred_language: 'preferred_language',
   output_language_mode: 'output_language_mode',
   consent_line: 'consent_line',
   keep_recordings: 'keep_recordings',

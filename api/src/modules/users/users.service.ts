@@ -11,6 +11,7 @@ import * as bcrypt from 'bcrypt';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
 import { RecordingStorageService } from '@/integrations/storage/recordings/recording-storage.service';
 import { DeleteAccountDto, UpdateUserDto } from './dto/update-user.dto';
+import { getTemplateTranslation } from '@/shared/config/templates/i18n';
 import { DEFAULT_CONSENT_LINE } from '@/shared/config/templates/analysis-criteria.config';
 
 @Injectable()
@@ -100,6 +101,12 @@ export class UsersService {
 
   private sanitize<T extends { password?: string }>(user: T) {
     const { password, ...rest } = user;
-    return { ...rest, default_consent_line: DEFAULT_CONSENT_LINE };
+    const translation = getTemplateTranslation(
+      (user as { preferred_language?: string }).preferred_language,
+    );
+    return {
+      ...rest,
+      default_consent_line: translation?.consent_line ?? DEFAULT_CONSENT_LINE,
+    };
   }
 }

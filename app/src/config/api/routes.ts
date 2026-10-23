@@ -25,7 +25,6 @@ export const ApiRoutes = {
         prefix: "/organisations",
         permissions: "/organisations/permissions",
         detail: (orgId: string) => `/organisations/${orgId}`,
-        leave: (orgId: string) => `/organisations/${orgId}/leave`,
         members: (orgId: string) => `/organisations/${orgId}/members`,
         member: (orgId: string, memberId: string) => `/organisations/${orgId}/members/${memberId}`,
         roles: (orgId: string) => `/organisations/${orgId}/roles`,

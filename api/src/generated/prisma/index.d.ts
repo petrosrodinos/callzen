@@ -2747,6 +2747,7 @@ export namespace Prisma {
     created_at: Date | null
     updated_at: Date | null
     interface_language: string | null
+    preferred_language: string | null
     output_language_mode: $Enums.OutputLanguageMode | null
     consent_line: string | null
     keep_recordings: boolean | null
@@ -2763,6 +2764,7 @@ export namespace Prisma {
     created_at: Date | null
     updated_at: Date | null
     interface_language: string | null
+    preferred_language: string | null
     output_language_mode: $Enums.OutputLanguageMode | null
     consent_line: string | null
     keep_recordings: boolean | null
@@ -2779,6 +2781,7 @@ export namespace Prisma {
     created_at: number
     updated_at: number
     interface_language: number
+    preferred_language: number
     output_language_mode: number
     consent_line: number
     keep_recordings: number
@@ -2797,6 +2800,7 @@ export namespace Prisma {
     created_at?: true
     updated_at?: true
     interface_language?: true
+    preferred_language?: true
     output_language_mode?: true
     consent_line?: true
     keep_recordings?: true
@@ -2813,6 +2817,7 @@ export namespace Prisma {
     created_at?: true
     updated_at?: true
     interface_language?: true
+    preferred_language?: true
     output_language_mode?: true
     consent_line?: true
     keep_recordings?: true
@@ -2829,6 +2834,7 @@ export namespace Prisma {
     created_at?: true
     updated_at?: true
     interface_language?: true
+    preferred_language?: true
     output_language_mode?: true
     consent_line?: true
     keep_recordings?: true
@@ -2918,6 +2924,7 @@ export namespace Prisma {
     created_at: Date
     updated_at: Date
     interface_language: string
+    preferred_language: string
     output_language_mode: $Enums.OutputLanguageMode
     consent_line: string | null
     keep_recordings: boolean
@@ -2951,6 +2958,7 @@ export namespace Prisma {
     created_at?: boolean
     updated_at?: boolean
     interface_language?: boolean
+    preferred_language?: boolean
     output_language_mode?: boolean
     consent_line?: boolean
     keep_recordings?: boolean
@@ -2975,6 +2983,7 @@ export namespace Prisma {
     created_at?: boolean
     updated_at?: boolean
     interface_language?: boolean
+    preferred_language?: boolean
     output_language_mode?: boolean
     consent_line?: boolean
     keep_recordings?: boolean
@@ -2991,6 +3000,7 @@ export namespace Prisma {
     created_at?: boolean
     updated_at?: boolean
     interface_language?: boolean
+    preferred_language?: boolean
     output_language_mode?: boolean
     consent_line?: boolean
     keep_recordings?: boolean
@@ -3007,13 +3017,14 @@ export namespace Prisma {
     created_at?: boolean
     updated_at?: boolean
     interface_language?: boolean
+    preferred_language?: boolean
     output_language_mode?: boolean
     consent_line?: boolean
     keep_recordings?: boolean
     consent_acknowledged_at?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "phone" | "password" | "full_name" | "role" | "created_at" | "updated_at" | "interface_language" | "output_language_mode" | "consent_line" | "keep_recordings" | "consent_acknowledged_at", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "phone" | "password" | "full_name" | "role" | "created_at" | "updated_at" | "interface_language" | "preferred_language" | "output_language_mode" | "consent_line" | "keep_recordings" | "consent_acknowledged_at", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     password_reset_tokens?: boolean | User$password_reset_tokensArgs<ExtArgs>
     assistant_agents?: boolean | User$assistant_agentsArgs<ExtArgs>
@@ -3048,6 +3059,7 @@ export namespace Prisma {
       created_at: Date
       updated_at: Date
       interface_language: string
+      preferred_language: string
       output_language_mode: $Enums.OutputLanguageMode
       consent_line: string | null
       keep_recordings: boolean
@@ -3491,6 +3503,7 @@ export namespace Prisma {
     readonly created_at: FieldRef<"User", 'DateTime'>
     readonly updated_at: FieldRef<"User", 'DateTime'>
     readonly interface_language: FieldRef<"User", 'String'>
+    readonly preferred_language: FieldRef<"User", 'String'>
     readonly output_language_mode: FieldRef<"User", 'OutputLanguageMode'>
     readonly consent_line: FieldRef<"User", 'String'>
     readonly keep_recordings: FieldRef<"User", 'Boolean'>
@@ -21507,6 +21520,7 @@ export namespace Prisma {
     created_at: 'created_at',
     updated_at: 'updated_at',
     interface_language: 'interface_language',
+    preferred_language: 'preferred_language',
     output_language_mode: 'output_language_mode',
     consent_line: 'consent_line',
     keep_recordings: 'keep_recordings',
@@ -22217,6 +22231,7 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"User"> | Date | string
     updated_at?: DateTimeFilter<"User"> | Date | string
     interface_language?: StringFilter<"User"> | string
+    preferred_language?: StringFilter<"User"> | string
     output_language_mode?: EnumOutputLanguageModeFilter<"User"> | $Enums.OutputLanguageMode
     consent_line?: StringNullableFilter<"User"> | string | null
     keep_recordings?: BoolFilter<"User"> | boolean
@@ -22240,6 +22255,7 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrder
     interface_language?: SortOrder
+    preferred_language?: SortOrder
     output_language_mode?: SortOrder
     consent_line?: SortOrderInput | SortOrder
     keep_recordings?: SortOrder
@@ -22266,6 +22282,7 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"User"> | Date | string
     updated_at?: DateTimeFilter<"User"> | Date | string
     interface_language?: StringFilter<"User"> | string
+    preferred_language?: StringFilter<"User"> | string
     output_language_mode?: EnumOutputLanguageModeFilter<"User"> | $Enums.OutputLanguageMode
     consent_line?: StringNullableFilter<"User"> | string | null
     keep_recordings?: BoolFilter<"User"> | boolean
@@ -22289,6 +22306,7 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrder
     interface_language?: SortOrder
+    preferred_language?: SortOrder
     output_language_mode?: SortOrder
     consent_line?: SortOrderInput | SortOrder
     keep_recordings?: SortOrder
@@ -22311,6 +22329,7 @@ export namespace Prisma {
     created_at?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updated_at?: DateTimeWithAggregatesFilter<"User"> | Date | string
     interface_language?: StringWithAggregatesFilter<"User"> | string
+    preferred_language?: StringWithAggregatesFilter<"User"> | string
     output_language_mode?: EnumOutputLanguageModeWithAggregatesFilter<"User"> | $Enums.OutputLanguageMode
     consent_line?: StringNullableWithAggregatesFilter<"User"> | string | null
     keep_recordings?: BoolWithAggregatesFilter<"User"> | boolean
@@ -23858,6 +23877,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     interface_language?: string
+    preferred_language?: string
     output_language_mode?: $Enums.OutputLanguageMode
     consent_line?: string | null
     keep_recordings?: boolean
@@ -23881,6 +23901,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     interface_language?: string
+    preferred_language?: string
     output_language_mode?: $Enums.OutputLanguageMode
     consent_line?: string | null
     keep_recordings?: boolean
@@ -23904,6 +23925,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     interface_language?: StringFieldUpdateOperationsInput | string
+    preferred_language?: StringFieldUpdateOperationsInput | string
     output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
     consent_line?: NullableStringFieldUpdateOperationsInput | string | null
     keep_recordings?: BoolFieldUpdateOperationsInput | boolean
@@ -23927,6 +23949,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     interface_language?: StringFieldUpdateOperationsInput | string
+    preferred_language?: StringFieldUpdateOperationsInput | string
     output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
     consent_line?: NullableStringFieldUpdateOperationsInput | string | null
     keep_recordings?: BoolFieldUpdateOperationsInput | boolean
@@ -23950,6 +23973,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     interface_language?: string
+    preferred_language?: string
     output_language_mode?: $Enums.OutputLanguageMode
     consent_line?: string | null
     keep_recordings?: boolean
@@ -23966,6 +23990,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     interface_language?: StringFieldUpdateOperationsInput | string
+    preferred_language?: StringFieldUpdateOperationsInput | string
     output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
     consent_line?: NullableStringFieldUpdateOperationsInput | string | null
     keep_recordings?: BoolFieldUpdateOperationsInput | boolean
@@ -23982,6 +24007,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     interface_language?: StringFieldUpdateOperationsInput | string
+    preferred_language?: StringFieldUpdateOperationsInput | string
     output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
     consent_line?: NullableStringFieldUpdateOperationsInput | string | null
     keep_recordings?: BoolFieldUpdateOperationsInput | boolean
@@ -25908,6 +25934,7 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrder
     interface_language?: SortOrder
+    preferred_language?: SortOrder
     output_language_mode?: SortOrder
     consent_line?: SortOrder
     keep_recordings?: SortOrder
@@ -25924,6 +25951,7 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrder
     interface_language?: SortOrder
+    preferred_language?: SortOrder
     output_language_mode?: SortOrder
     consent_line?: SortOrder
     keep_recordings?: SortOrder
@@ -25940,6 +25968,7 @@ export namespace Prisma {
     created_at?: SortOrder
     updated_at?: SortOrder
     interface_language?: SortOrder
+    preferred_language?: SortOrder
     output_language_mode?: SortOrder
     consent_line?: SortOrder
     keep_recordings?: SortOrder
@@ -30031,6 +30060,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     interface_language?: string
+    preferred_language?: string
     output_language_mode?: $Enums.OutputLanguageMode
     consent_line?: string | null
     keep_recordings?: boolean
@@ -30053,6 +30083,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     interface_language?: string
+    preferred_language?: string
     output_language_mode?: $Enums.OutputLanguageMode
     consent_line?: string | null
     keep_recordings?: boolean
@@ -30091,6 +30122,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     interface_language?: StringFieldUpdateOperationsInput | string
+    preferred_language?: StringFieldUpdateOperationsInput | string
     output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
     consent_line?: NullableStringFieldUpdateOperationsInput | string | null
     keep_recordings?: BoolFieldUpdateOperationsInput | boolean
@@ -30113,6 +30145,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     interface_language?: StringFieldUpdateOperationsInput | string
+    preferred_language?: StringFieldUpdateOperationsInput | string
     output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
     consent_line?: NullableStringFieldUpdateOperationsInput | string | null
     keep_recordings?: BoolFieldUpdateOperationsInput | boolean
@@ -30166,6 +30199,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     interface_language?: string
+    preferred_language?: string
     output_language_mode?: $Enums.OutputLanguageMode
     consent_line?: string | null
     keep_recordings?: boolean
@@ -30188,6 +30222,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     interface_language?: string
+    preferred_language?: string
     output_language_mode?: $Enums.OutputLanguageMode
     consent_line?: string | null
     keep_recordings?: boolean
@@ -30455,6 +30490,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     interface_language?: StringFieldUpdateOperationsInput | string
+    preferred_language?: StringFieldUpdateOperationsInput | string
     output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
     consent_line?: NullableStringFieldUpdateOperationsInput | string | null
     keep_recordings?: BoolFieldUpdateOperationsInput | boolean
@@ -30477,6 +30513,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     interface_language?: StringFieldUpdateOperationsInput | string
+    preferred_language?: StringFieldUpdateOperationsInput | string
     output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
     consent_line?: NullableStringFieldUpdateOperationsInput | string | null
     keep_recordings?: BoolFieldUpdateOperationsInput | boolean
@@ -30562,6 +30599,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     interface_language?: string
+    preferred_language?: string
     output_language_mode?: $Enums.OutputLanguageMode
     consent_line?: string | null
     keep_recordings?: boolean
@@ -30584,6 +30622,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     interface_language?: string
+    preferred_language?: string
     output_language_mode?: $Enums.OutputLanguageMode
     consent_line?: string | null
     keep_recordings?: boolean
@@ -30818,6 +30857,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     interface_language?: StringFieldUpdateOperationsInput | string
+    preferred_language?: StringFieldUpdateOperationsInput | string
     output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
     consent_line?: NullableStringFieldUpdateOperationsInput | string | null
     keep_recordings?: BoolFieldUpdateOperationsInput | boolean
@@ -30840,6 +30880,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     interface_language?: StringFieldUpdateOperationsInput | string
+    preferred_language?: StringFieldUpdateOperationsInput | string
     output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
     consent_line?: NullableStringFieldUpdateOperationsInput | string | null
     keep_recordings?: BoolFieldUpdateOperationsInput | boolean
@@ -30982,6 +31023,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     interface_language?: string
+    preferred_language?: string
     output_language_mode?: $Enums.OutputLanguageMode
     consent_line?: string | null
     keep_recordings?: boolean
@@ -31004,6 +31046,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     interface_language?: string
+    preferred_language?: string
     output_language_mode?: $Enums.OutputLanguageMode
     consent_line?: string | null
     keep_recordings?: boolean
@@ -31384,6 +31427,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     interface_language?: StringFieldUpdateOperationsInput | string
+    preferred_language?: StringFieldUpdateOperationsInput | string
     output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
     consent_line?: NullableStringFieldUpdateOperationsInput | string | null
     keep_recordings?: BoolFieldUpdateOperationsInput | boolean
@@ -31406,6 +31450,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     interface_language?: StringFieldUpdateOperationsInput | string
+    preferred_language?: StringFieldUpdateOperationsInput | string
     output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
     consent_line?: NullableStringFieldUpdateOperationsInput | string | null
     keep_recordings?: BoolFieldUpdateOperationsInput | boolean
@@ -32500,6 +32545,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     interface_language?: string
+    preferred_language?: string
     output_language_mode?: $Enums.OutputLanguageMode
     consent_line?: string | null
     keep_recordings?: boolean
@@ -32522,6 +32568,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     interface_language?: string
+    preferred_language?: string
     output_language_mode?: $Enums.OutputLanguageMode
     consent_line?: string | null
     keep_recordings?: boolean
@@ -32597,6 +32644,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     interface_language?: StringFieldUpdateOperationsInput | string
+    preferred_language?: StringFieldUpdateOperationsInput | string
     output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
     consent_line?: NullableStringFieldUpdateOperationsInput | string | null
     keep_recordings?: BoolFieldUpdateOperationsInput | boolean
@@ -32619,6 +32667,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     interface_language?: StringFieldUpdateOperationsInput | string
+    preferred_language?: StringFieldUpdateOperationsInput | string
     output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
     consent_line?: NullableStringFieldUpdateOperationsInput | string | null
     keep_recordings?: BoolFieldUpdateOperationsInput | boolean
@@ -33187,6 +33236,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     interface_language?: string
+    preferred_language?: string
     output_language_mode?: $Enums.OutputLanguageMode
     consent_line?: string | null
     keep_recordings?: boolean
@@ -33209,6 +33259,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     interface_language?: string
+    preferred_language?: string
     output_language_mode?: $Enums.OutputLanguageMode
     consent_line?: string | null
     keep_recordings?: boolean
@@ -33284,6 +33335,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     interface_language?: StringFieldUpdateOperationsInput | string
+    preferred_language?: StringFieldUpdateOperationsInput | string
     output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
     consent_line?: NullableStringFieldUpdateOperationsInput | string | null
     keep_recordings?: BoolFieldUpdateOperationsInput | boolean
@@ -33306,6 +33358,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     interface_language?: StringFieldUpdateOperationsInput | string
+    preferred_language?: StringFieldUpdateOperationsInput | string
     output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
     consent_line?: NullableStringFieldUpdateOperationsInput | string | null
     keep_recordings?: BoolFieldUpdateOperationsInput | boolean
@@ -33427,6 +33480,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     interface_language?: string
+    preferred_language?: string
     output_language_mode?: $Enums.OutputLanguageMode
     consent_line?: string | null
     keep_recordings?: boolean
@@ -33449,6 +33503,7 @@ export namespace Prisma {
     created_at?: Date | string
     updated_at?: Date | string
     interface_language?: string
+    preferred_language?: string
     output_language_mode?: $Enums.OutputLanguageMode
     consent_line?: string | null
     keep_recordings?: boolean
@@ -33524,6 +33579,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     interface_language?: StringFieldUpdateOperationsInput | string
+    preferred_language?: StringFieldUpdateOperationsInput | string
     output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
     consent_line?: NullableStringFieldUpdateOperationsInput | string | null
     keep_recordings?: BoolFieldUpdateOperationsInput | boolean
@@ -33546,6 +33602,7 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
     interface_language?: StringFieldUpdateOperationsInput | string
+    preferred_language?: StringFieldUpdateOperationsInput | string
     output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
     consent_line?: NullableStringFieldUpdateOperationsInput | string | null
     keep_recordings?: BoolFieldUpdateOperationsInput | boolean

@@ -10,6 +10,7 @@ export interface User {
     full_name: string | null;
     role: RoleType;
     interface_language: string;
+    preferred_language: string;
     output_language_mode: OutputLanguageMode;
     consent_line: string | null;
     keep_recordings: boolean;
@@ -22,6 +23,7 @@ export interface User {
 export interface UpdateUserDto {
     full_name?: string;
     interface_language?: string;
+    preferred_language?: string;
     output_language_mode?: OutputLanguageMode;
     consent_line?: string;
     keep_recordings?: boolean;

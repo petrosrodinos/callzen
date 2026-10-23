@@ -102,13 +102,6 @@ export class OrganisationsController {
     return this.organisations.remove(ctx, dto);
   }
 
-  @Post(':orgId/leave')
-  @UseGuards(OrgGuard)
-  @ApiOperation({ summary: 'Leave the organisation' })
-  leave(@Param('orgId', ParseUUIDPipe) _orgId: string, @Org() ctx: OrgContext) {
-    return this.organisations.leave(ctx);
-  }
-
   @Get(':orgId/members')
   @UseGuards(OrgGuard)
   @RequirePermissions(Permissions.MEMBERS_VIEW)

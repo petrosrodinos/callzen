@@ -75,21 +75,12 @@ export class OrganisationsService {
     );
   }
 
-  async leave(ctx: OrgContext) {
-    if (ctx.role === OrgRole.OWNER)
-      await this.assertAnotherOwner(ctx.organisationId, ctx.userId);
-    await this.prisma.membership.delete({
-      where: {
-        organisation_id_user_id: {
-          organisation_id: ctx.organisationId,
-          user_id: ctx.userId,
-        },
-      },
-    });
-    return { left: true };
-  }
-
   async remove(ctx: OrgContext, dto: DeleteOrganisationDto) {
+    const memberships = await this.prisma.membership.count({
+      where: { user_id: ctx.userId },
+    });
+    if (memberships <= 1)
+      throw new BadRequestException('You cannot delete your only organisation');
     const organisation = await this.prisma.organisation.findUnique({
       where: { id: ctx.organisationId },
     });

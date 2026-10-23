@@ -10,6 +10,7 @@ import { Switch } from "@/components/ui/switch";
 import { FormSection } from "@/components/ui/form-section";
 import { FormSelectField } from "@/components/ui/form-select-field";
 import { FormSkeleton } from "@/components/ui/page-skeletons";
+import { LanguageSelect } from "@/components/ui/language-select";
 import { ThemeSwitch } from "@/components/ui/theme-switch";
 import {
   Form,
@@ -21,7 +22,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useMe, useUpdateMe } from "@/features/user/hooks/use-user";
-import { useCatalog } from "@/features/catalog/hooks/use-catalog";
 import { OutputLanguageModeFormOptions } from "@/config/constants/dropdowns/users/output-language-mode-form.options";
 import { usePageMetadata } from "@/hooks/use-page-metadata";
 import { SettingsNav } from "./components/settings-nav";
@@ -33,7 +33,6 @@ import {
 const SettingsPage: FC = () => {
   usePageMetadata({ title: "Settings" });
   const { data: me, isPending } = useMe();
-  const { data: catalog } = useCatalog();
   const updateMe = useUpdateMe();
 
   const form = useForm<PreferencesFormValues>({
@@ -41,6 +40,7 @@ const SettingsPage: FC = () => {
     defaultValues: {
       full_name: "",
       interface_language: "en",
+      preferred_language: "en",
       output_language_mode: "CONVERSATION",
       consent_line: "",
       keep_recordings: true,
@@ -52,6 +52,7 @@ const SettingsPage: FC = () => {
       form.reset({
         full_name: me.full_name ?? "",
         interface_language: me.interface_language,
+        preferred_language: me.preferred_language,
         output_language_mode: me.output_language_mode,
         consent_line: me.consent_line ?? "",
         keep_recordings: me.keep_recordings,
@@ -59,13 +60,8 @@ const SettingsPage: FC = () => {
     }
   }, [form, me]);
 
-  const languages = (catalog?.languages ?? []).map((language) => ({
-    id: language.code,
-    label: language.name,
-  }));
-
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="mx-auto max-w-4xl">
       <PageHeader title="Settings" />
       <SettingsNav />
       {isPending ? (
@@ -110,11 +106,27 @@ const SettingsPage: FC = () => {
               description="Calls and practice can happen in many languages."
             >
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <FormSelectField
+                <FormField
                   control={form.control}
                   name="interface_language"
-                  label="Your language"
-                  options={languages}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Your language</FormLabel>
+                      <LanguageSelect value={field.value} onValueChange={field.onChange} ariaLabel="Your language" />
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="preferred_language"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Templates & examples in</FormLabel>
+                      <LanguageSelect value={field.value} onValueChange={field.onChange} ariaLabel="Templates and examples language" />
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
                 <FormSelectField
                   control={form.control}

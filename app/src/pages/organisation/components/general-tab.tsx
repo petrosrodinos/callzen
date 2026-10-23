@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { LogOut, Save, Trash2 } from "lucide-react";
+import { Save, Trash2 } from "lucide-react";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { FormSection } from "@/components/ui/form-section";
-import ConfirmationDialog from "@/components/ui/confirmation-dialog";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import { useDeleteOrganisation, useLeaveOrganisation, usePermissions, useUpdateOrganisation } from "@/features/organisations/hooks/use-organisations";
+import { useActiveOrganisation, useDeleteOrganisation, usePermissions, useUpdateOrganisation } from "@/features/organisations/hooks/use-organisations";
 import { Permissions, type Organisation } from "@/features/organisations/interfaces/organisations.interfaces";
 import { getOrgRoleLabel, OrgRoleDescriptionOptions } from "@/config/constants/dropdowns/organisations/org-role-form.options";
 import { formatDate } from "@/lib/date";
@@ -17,10 +16,9 @@ import { organisationNameSchema, type OrganisationNameFormValues } from "../vali
 
 export function GeneralTab({ organisation }: { organisation: Organisation }) {
   const { can } = usePermissions();
+  const { organisations } = useActiveOrganisation();
   const update = useUpdateOrganisation();
-  const leave = useLeaveOrganisation();
   const remove = useDeleteOrganisation();
-  const [leaveOpen, setLeaveOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [confirmName, setConfirmName] = useState("");
   const canRename = can(Permissions.ORG_UPDATE);
@@ -60,30 +58,13 @@ export function GeneralTab({ organisation }: { organisation: Organisation }) {
         </div>
       </FormSection>
 
-      <FormSection title="Leave organisation" description="You lose access to this organisation's co-pilots, calls and analyses. Your account and other organisations are unaffected.">
-        <Button variant="outline" onClick={() => setLeaveOpen(true)}>
-          <LogOut /> Leave {organisation.name}
-        </Button>
-      </FormSection>
-
-      {can(Permissions.ORG_DELETE) && (
+      {can(Permissions.ORG_DELETE) && organisations.length > 1 && (
         <FormSection title="Delete organisation" description="Permanently deletes the organisation with all its co-pilots, prospects, calls, recordings and analyses, and removes every member. This cannot be undone." className="border-destructive/40">
           <Button variant="destructive" onClick={() => setDeleteOpen(true)}>
             <Trash2 /> Delete organisation
           </Button>
         </FormSection>
       )}
-
-      <ConfirmationDialog
-        isOpen={leaveOpen}
-        onClose={() => setLeaveOpen(false)}
-        onConfirm={() => leave.mutate(organisation.id, { onSuccess: () => setLeaveOpen(false) })}
-        title={`Leave ${organisation.name}?`}
-        description="You'll need a new invitation to rejoin. Organisations must keep at least one owner, so the last owner can't leave."
-        confirmText="Leave"
-        variant="destructive"
-        isLoading={leave.isPending}
-      />
 
       <Dialog open={deleteOpen} onOpenChange={(open) => !remove.isPending && setDeleteOpen(open)}>
         <DialogContent className="sm:max-w-md">

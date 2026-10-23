@@ -55,34 +55,26 @@ export class MembersService {
     dto: UpdateMemberRoleDto,
   ) {
     const target = await this.getTarget(ctx, membershipId);
+    if (target.user_id === ctx.userId)
+      throw new ForbiddenException('You cannot change your own role');
     if (target.role === dto.role) return { id: target.id, role: target.role };
 
-    if (target.user_id === ctx.userId) {
-      // Owners may step down, but never leave the organisation without an owner.
-      if (ctx.role !== OrgRole.OWNER)
-        throw new ForbiddenException('You cannot change your own role');
+    if (!canActOnRole(ctx.role, target.role))
+      throw new ForbiddenException({
+        message:
+          'You cannot change the role of someone with an equal or higher role',
+        code: 'ROLE_HIERARCHY',
+      });
+    if (!canAssignRole(ctx.role, dto.role))
+      throw new ForbiddenException({
+        message: 'You cannot assign a role equal to or higher than your own',
+        code: 'ROLE_HIERARCHY',
+      });
+    if (target.role === OrgRole.OWNER)
       await this.organisations.assertAnotherOwner(
         ctx.organisationId,
-        ctx.userId,
+        target.user_id,
       );
-    } else {
-      if (!canActOnRole(ctx.role, target.role))
-        throw new ForbiddenException({
-          message:
-            'You cannot change the role of someone with an equal or higher role',
-          code: 'ROLE_HIERARCHY',
-        });
-      if (!canAssignRole(ctx.role, dto.role))
-        throw new ForbiddenException({
-          message: 'You cannot assign a role equal to or higher than your own',
-          code: 'ROLE_HIERARCHY',
-        });
-      if (target.role === OrgRole.OWNER)
-        await this.organisations.assertAnotherOwner(
-          ctx.organisationId,
-          target.user_id,
-        );
-    }
 
     const updated = await this.prisma.membership.update({
       where: { id: membershipId },
@@ -95,7 +87,7 @@ export class MembersService {
     const target = await this.getTarget(ctx, membershipId);
     if (target.user_id === ctx.userId)
       throw new BadRequestException(
-        'Use "Leave organisation" to remove yourself',
+        'You cannot remove yourself from the organisation',
       );
     if (!canActOnRole(ctx.role, target.role))
       throw new ForbiddenException({

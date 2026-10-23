@@ -43,7 +43,7 @@ const PrivacyPage: FC = () => {
   });
 
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="mx-auto max-w-4xl">
       <PageHeader title="Settings" />
       <SettingsNav />
       <div className="space-y-4">

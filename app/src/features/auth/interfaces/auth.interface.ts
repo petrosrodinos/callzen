@@ -8,5 +8,6 @@ export interface SignUpUser {
     email: string;
     password: string;
     full_name?: string;
+    preferred_language?: string;
 }
 

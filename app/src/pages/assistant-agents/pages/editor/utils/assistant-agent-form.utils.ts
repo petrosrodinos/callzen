@@ -24,7 +24,7 @@ export const toFormValues = (
     methodology: source?.methodology ?? "CUSTOM",
     languages: agent?.languages?.length
       ? agent.languages
-      : [agent?.language ?? "en"],
+      : [agent?.language ?? catalog.template_language ?? "en"],
     tone: source?.tone ?? "PROFESSIONAL",
     suggestion_frequency: source?.suggestion_frequency ?? "BALANCED",
     suggestion_length: agent?.suggestion_length ?? "SHORT",

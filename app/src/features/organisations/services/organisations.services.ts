@@ -34,8 +34,6 @@ export const updateOrganisation = ({ orgId, name }: { orgId: string; name: strin
 export const deleteOrganisation = ({ orgId, confirmName }: { orgId: string; confirmName: string }) =>
     wrap<{ deleted: boolean }>(axiosInstance.delete(ApiRoutes.organisations.detail(orgId), { data: { confirm_name: confirmName } }), "Failed to delete the organisation.");
 
-export const leaveOrganisation = (orgId: string) => wrap<{ left: boolean }>(axiosInstance.post(ApiRoutes.organisations.leave(orgId)), "Failed to leave the organisation.");
-
 export const getMembers = (orgId: string) => wrap<Member[]>(axiosInstance.get(ApiRoutes.organisations.members(orgId)), "Failed to load members.");
 
 export const updateMemberRole = ({ orgId, memberId, role }: { orgId: string; memberId: string; role: OrgRole }) =>

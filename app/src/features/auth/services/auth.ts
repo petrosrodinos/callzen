@@ -22,12 +22,13 @@ export const signIn = async (
     }
 };
 
-export const signUp = async ({ email, password, full_name }: SignUpUser): Promise<LoggedInUser> => {
+export const signUp = async ({ email, password, full_name, preferred_language }: SignUpUser): Promise<LoggedInUser> => {
     try {
         const response = await axiosInstance.post(ApiRoutes.auth.email.register, {
             email,
             password,
             full_name,
+            preferred_language,
         });
 
         const auth_response = response.data;

@@ -66,15 +66,15 @@ export function ScriptSection({
         <ol className="space-y-3">
           {fields.map((field, index) => (
             <li key={field.id} className="space-y-3 rounded-lg border p-3">
-              <div className="flex flex-wrap items-end gap-2">
-                <span className="flex size-7 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-primary">
+              <div className="flex items-center gap-2">
+                <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-primary">
                   {index + 1}
                 </span>
                 <FormField
                   control={form.control}
                   name={`script.${index}.stage`}
                   render={({ field: stageField }) => (
-                    <FormItem className="w-40">
+                    <FormItem className="w-40 shrink-0 space-y-0">
                       <Select
                         value={stageField.value}
                         onValueChange={stageField.onChange}
@@ -99,7 +99,7 @@ export function ScriptSection({
                   control={form.control}
                   name={`script.${index}.title`}
                   render={({ field: titleField }) => (
-                    <FormItem className="min-w-40 flex-1">
+                    <FormItem className="min-w-0 flex-1 space-y-0">
                       <FormControl>
                         <Input
                           placeholder="Stage title (optional)"
@@ -110,7 +110,7 @@ export function ScriptSection({
                     </FormItem>
                   )}
                 />
-                <div className="flex gap-1">
+                <div className="flex shrink-0 gap-1">
                   <Button
                     type="button"
                     variant="ghost"

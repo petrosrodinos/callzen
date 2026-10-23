@@ -5,6 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
+import { LanguageFlag } from "@/components/ui/language-flag";
+import { getLanguageFlag } from "@/config/constants/dropdowns/users/preferred-language.options";
 import type { Language } from "@/features/catalog/interfaces/catalog.interfaces";
 
 interface LanguageMultiSelectProps {
@@ -38,6 +40,7 @@ export function LanguageMultiSelect({ languages, value, onChange, max, ariaLabel
           <Badge key={code} variant={index === 0 ? "default" : "secondary"} className="gap-1 py-1 pl-2 pr-1 text-xs">
             <button type="button" onClick={() => makePrimary(code)} disabled={index === 0} className="inline-flex items-center gap-1 disabled:cursor-default" title={index === 0 ? "Primary language" : "Make primary"} aria-label={index === 0 ? `${nameOf(code)} (primary)` : `Make ${nameOf(code)} primary`}>
               {index === 0 && <Star className="size-3 fill-current" />}
+              <LanguageFlag country={getLanguageFlag(code) ?? ""} />
               {nameOf(code)}
             </button>
             {value.length > 1 && (
@@ -67,6 +70,7 @@ export function LanguageMultiSelect({ languages, value, onChange, max, ariaLabel
                   return (
                     <CommandItem key={language.code} value={language.name} disabled={disabled} onSelect={() => toggle(language.code)}>
                       <Check className={cn("size-4", selected ? "opacity-100" : "opacity-0")} />
+                      <LanguageFlag country={getLanguageFlag(language.code) ?? ""} />
                       {language.name}
                       {value[0] === language.code && <span className="ml-auto text-xs text-muted-foreground">Primary</span>}
                     </CommandItem>

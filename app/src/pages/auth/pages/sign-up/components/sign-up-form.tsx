@@ -1,11 +1,13 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { PasswordInput } from "@/components/ui/password-input";
 import { SignUpSchema, type SignUpFormValues } from "../../../validation-schemas/auth";
 import { useSignup } from "@/features/auth/hooks/use-auth";
 import { Button } from "@/components/ui/button";
+import { LanguageSelect } from "@/components/ui/language-select";
+import { detectPreferredLanguage } from "@/config/constants/dropdowns/users/preferred-language.options";
 
 export function SignUpForm() {
   const { mutate, isPending } = useSignup();
@@ -17,11 +19,12 @@ export function SignUpForm() {
       email: new URLSearchParams(window.location.search).get("email") ?? "",
       password: "",
       confirm_password: "",
+      preferred_language: detectPreferredLanguage(),
     },
   });
 
   function onSubmit(data: SignUpFormValues) {
-    mutate({ email: data.email, password: data.password, full_name: data.full_name });
+    mutate({ email: data.email, password: data.password, full_name: data.full_name, preferred_language: data.preferred_language });
   }
 
   return (
@@ -77,6 +80,18 @@ export function SignUpForm() {
                   <FormControl>
                     <Input placeholder="********" {...field} type="password" />
                   </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="preferred_language"
+              render={({ field }) => (
+                <FormItem className="space-y-1">
+                  <FormLabel>Language</FormLabel>
+                  <LanguageSelect value={field.value} onValueChange={field.onChange} />
+                  <FormDescription>Templates and examples will be in this language.</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}

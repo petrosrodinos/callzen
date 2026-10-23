@@ -14,6 +14,7 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { FormSkeleton } from "@/components/ui/page-skeletons";
 import { FormSection } from "@/components/ui/form-section";
 import { FormSelectField } from "@/components/ui/form-select-field";
+import { LanguageSelect } from "@/components/ui/language-select";
 import { MicCheck } from "@/components/ui/live-assist/mic-check";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useAssistantAgents } from "@/features/assistant-agents/hooks/use-assistant-agents";
@@ -262,15 +263,23 @@ const NewCallPage: FC = () => {
                 emptyLabel="None"
                 options={(recentCalls?.data ?? []).map((call) => ({ id: call.id, label: `${call.title ?? call.prospect_name ?? "Call"} · ${formatShortDate(call.started_at)}` }))}
               />
-              <FormSelectField
+              <FormField
                 control={form.control}
                 name="language"
-                label="Conversation language"
-                description={agentLanguageCodes.length > 1 ? "Auto-detect follows whichever of the co-pilot's languages the prospect speaks." : undefined}
-                options={[
-                  ...(agentLanguageCodes.length > 1 ? [{ id: AUTO_LANGUAGE, label: `Auto-detect (${agentLanguageCodes.map(languageLabel).join(", ")})` }] : []),
-                  ...agentLanguageCodes.map((code) => ({ id: code, label: languageLabel(code) })),
-                ]}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Conversation language</FormLabel>
+                    <LanguageSelect
+                      value={field.value}
+                      onValueChange={field.onChange}
+                      ariaLabel="Conversation language"
+                      codes={agentLanguageCodes}
+                      leadingOptions={agentLanguageCodes.length > 1 ? [{ id: AUTO_LANGUAGE, label: `Auto-detect (${agentLanguageCodes.map(languageLabel).join(", ")})` }] : []}
+                    />
+                    {agentLanguageCodes.length > 1 && <FormDescription>Auto-detect follows whichever of the co-pilot's languages the prospect speaks.</FormDescription>}
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
             </div>
           </FormSection>

@@ -2,11 +2,13 @@ import { ApiProperty } from '@nestjs/swagger';
 import {
   IsBoolean,
   IsEnum,
+  IsIn,
   IsOptional,
   IsString,
   MaxLength,
 } from 'class-validator';
 import { OutputLanguageMode } from 'generated/prisma';
+import { SUPPORTED_LANGUAGE_CODES } from '@/shared/config/languages/languages.config';
 
 export class UpdateUserDto {
   @ApiProperty({ required: false })
@@ -20,6 +22,15 @@ export class UpdateUserDto {
   @IsString()
   @MaxLength(10)
   interface_language?: string;
+
+  @ApiProperty({
+    required: false,
+    example: 'el',
+    description: 'Language of default templates and examples',
+  })
+  @IsOptional()
+  @IsIn(SUPPORTED_LANGUAGE_CODES)
+  preferred_language?: string;
 
   @ApiProperty({
     required: false,

@@ -39,6 +39,7 @@ const PrivacyPage = lazy(() => import("@/pages/settings/pages/privacy"));
 const NotFoundPage = lazy(() => import("@/pages/not-found"));
 const OrganisationPage = lazy(() => import("@/pages/organisation"));
 const InvitePage = lazy(() => import("@/pages/invite"));
+const LandingPage = lazy(() => import("@/pages/landing"));
 
 const guarded = (permission: Permission, element: React.ReactNode) =>
   page(
@@ -169,7 +170,7 @@ export default function AppRoutes() {
 
       <Route
         path={RoutePaths.root}
-        element={<Navigate to={RoutePaths.dashboard} replace />}
+        element={page(<LandingPage />)}
       />
       <Route path="*" element={page(<NotFoundPage />)} />
     </Routes>

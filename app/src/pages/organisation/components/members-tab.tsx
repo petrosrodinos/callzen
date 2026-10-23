@@ -47,13 +47,13 @@ export function MembersTab({ organisation }: { organisation: Organisation }) {
               </div>
 
               <div className="flex items-center gap-2 sm:shrink-0">
-                {canManage && (member.can_change_role || (member.is_you && myRole === OrgRoles.OWNER)) ? (
+                {canManage && member.can_change_role ? (
                   <Select value={member.role} onValueChange={(value) => updateRole.mutate({ orgId: organisation.id, memberId: member.id, role: value as OrgRole })} disabled={updateRole.isPending}>
                     <SelectTrigger className="h-9 w-full sm:w-32" aria-label={`Role of ${member.full_name || member.email}`}>
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      {(member.is_you ? [OrgRoles.OWNER, OrgRoles.ADMIN, OrgRoles.MEMBER] : roleChoices).map((choice) => (
+                      {roleChoices.map((choice) => (
                         <SelectItem key={choice} value={choice}>
                           {getOrgRoleLabel(choice)}
                         </SelectItem>

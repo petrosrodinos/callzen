@@ -1,6 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ChartNoAxesCombined, ShieldCheck, UserRound } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Routes } from "@/routes/routes";
 
 const ITEMS = [
@@ -14,28 +14,22 @@ const ITEMS = [
 ];
 
 export function SettingsNav() {
+  const { pathname } = useLocation();
+  const active = ITEMS.find((item) => item.to === pathname)?.to ?? Routes.settings.root;
+
   return (
-    <nav
-      className="-mx-4 mb-6 flex gap-1 overflow-x-auto border-b px-4 sm:mx-0 sm:px-0"
-      aria-label="Settings sections"
-    >
-      {ITEMS.map((item) => (
-        <NavLink
-          key={item.to}
-          to={item.to}
-          end
-          className={({ isActive }) =>
-            cn(
-              "-mb-px inline-flex shrink-0 items-center gap-2 border-b-2 px-3 py-2 text-sm font-medium transition-colors",
-              isActive
-                ? "border-primary text-foreground"
-                : "border-transparent text-muted-foreground hover:text-foreground",
-            )
-          }
-        >
-          <item.icon className="size-4" /> {item.label}
-        </NavLink>
-      ))}
-    </nav>
+    <Tabs value={active} className="mb-5">
+      <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+        <TabsList className="w-max" aria-label="Settings sections">
+          {ITEMS.map((item) => (
+            <TabsTrigger key={item.to} value={item.to} className="gap-1.5" asChild>
+              <Link to={item.to}>
+                <item.icon className="size-4" /> {item.label}
+              </Link>
+            </TabsTrigger>
+          ))}
+        </TabsList>
+      </div>
+    </Tabs>
   );
 }

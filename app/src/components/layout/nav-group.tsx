@@ -17,7 +17,7 @@ export function NavGroup({ title, items }: NavGroup) {
         {items.map((item: any) => {
           const key = `${item.title}-${item.url}`;
 
-          if (!item.items) return <SidebarMenuLink key={key} item={item} href={location.pathname} />;
+          if (!item.items) return <SidebarMenuLink key={key} item={item} href={location.pathname} active={isLinkActive(location.pathname, item, items)} />;
 
           if (state === "collapsed") return <SidebarMenuCollapsedDropdown key={key} item={item} href={location.pathname} />;
 
@@ -30,11 +30,18 @@ export function NavGroup({ title, items }: NavGroup) {
 
 const NavBadge = ({ children }: { children: ReactNode }) => <Badge className="rounded-full px-1 py-0 text-xs">{children}</Badge>;
 
-const SidebarMenuLink = ({ item, href }: { item: NavLink; href: string }) => {
+// A link is active on its own path and any subpage (e.g. /assistant-agents/new), unless a sibling link matches more specifically.
+function isLinkActive(pathname: string, item: NavLink, siblings: NavItem[]) {
+  const matches = (url?: string) => !!url && (pathname === url || pathname.startsWith(`${url}/`));
+  if (!matches(item.url)) return false;
+  return !siblings.some((s) => s !== item && !("items" in s && s.items) && matches(s.url) && s.url.length > item.url.length);
+}
+
+const SidebarMenuLink = ({ item, active }: { item: NavLink; href: string; active: boolean }) => {
   const { setOpenMobile } = useSidebar();
   return (
     <SidebarMenuItem>
-      <SidebarMenuButton asChild isActive={checkIsActive(href, item)} tooltip={item.title}>
+      <SidebarMenuButton asChild isActive={active} tooltip={item.title}>
         <Link to={item.url} onClick={() => setOpenMobile(false)}>
           {item.icon && <item.icon />}
           <span>{item.title}</span>
