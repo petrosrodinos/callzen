@@ -28,6 +28,46 @@ export type PasswordResetToken = $Result.DefaultSelection<Prisma.$PasswordResetT
  * 
  */
 export type Document = $Result.DefaultSelection<Prisma.$DocumentPayload>
+/**
+ * Model AssistantAgent
+ * 
+ */
+export type AssistantAgent = $Result.DefaultSelection<Prisma.$AssistantAgentPayload>
+/**
+ * Model PracticeAgent
+ * 
+ */
+export type PracticeAgent = $Result.DefaultSelection<Prisma.$PracticeAgentPayload>
+/**
+ * Model Call
+ * 
+ */
+export type Call = $Result.DefaultSelection<Prisma.$CallPayload>
+/**
+ * Model TranscriptSegment
+ * 
+ */
+export type TranscriptSegment = $Result.DefaultSelection<Prisma.$TranscriptSegmentPayload>
+/**
+ * Model Suggestion
+ * 
+ */
+export type Suggestion = $Result.DefaultSelection<Prisma.$SuggestionPayload>
+/**
+ * Model Bookmark
+ * 
+ */
+export type Bookmark = $Result.DefaultSelection<Prisma.$BookmarkPayload>
+/**
+ * Model CallAnalysis
+ * 
+ */
+export type CallAnalysis = $Result.DefaultSelection<Prisma.$CallAnalysisPayload>
+/**
+ * Model UsageEvent
+ * 
+ */
+export type UsageEvent = $Result.DefaultSelection<Prisma.$UsageEventPayload>
 
 /**
  * Enums
@@ -56,6 +96,153 @@ export const DocumentType: {
 
 export type DocumentType = (typeof DocumentType)[keyof typeof DocumentType]
 
+
+export const OutputLanguageMode: {
+  CONVERSATION: 'CONVERSATION',
+  INTERFACE: 'INTERFACE'
+};
+
+export type OutputLanguageMode = (typeof OutputLanguageMode)[keyof typeof OutputLanguageMode]
+
+
+export const SuggestionFrequency: {
+  OBJECTIONS_ONLY: 'OBJECTIONS_ONLY',
+  BALANCED: 'BALANCED',
+  CONSTANT: 'CONSTANT'
+};
+
+export type SuggestionFrequency = (typeof SuggestionFrequency)[keyof typeof SuggestionFrequency]
+
+
+export const SuggestionLength: {
+  SHORT: 'SHORT',
+  MEDIUM: 'MEDIUM'
+};
+
+export type SuggestionLength = (typeof SuggestionLength)[keyof typeof SuggestionLength]
+
+
+export const LeadTemperature: {
+  COLD: 'COLD',
+  WARM: 'WARM'
+};
+
+export type LeadTemperature = (typeof LeadTemperature)[keyof typeof LeadTemperature]
+
+
+export const VoiceProvider: {
+  OPENAI_REALTIME: 'OPENAI_REALTIME',
+  BROWSER: 'BROWSER'
+};
+
+export type VoiceProvider = (typeof VoiceProvider)[keyof typeof VoiceProvider]
+
+
+export const CallKind: {
+  LIVE: 'LIVE',
+  PRACTICE: 'PRACTICE'
+};
+
+export type CallKind = (typeof CallKind)[keyof typeof CallKind]
+
+
+export const CallType: {
+  ONLINE_MEETING: 'ONLINE_MEETING',
+  MICROPHONE: 'MICROPHONE',
+  PRACTICE: 'PRACTICE'
+};
+
+export type CallType = (typeof CallType)[keyof typeof CallType]
+
+
+export const CallStatus: {
+  IN_PROGRESS: 'IN_PROGRESS',
+  ANALYZING: 'ANALYZING',
+  ANALYZED: 'ANALYZED',
+  ANALYSIS_FAILED: 'ANALYSIS_FAILED',
+  ENDED: 'ENDED'
+};
+
+export type CallStatus = (typeof CallStatus)[keyof typeof CallStatus]
+
+
+export const CallOutcome: {
+  MEETING_BOOKED: 'MEETING_BOOKED',
+  DEAL_WON: 'DEAL_WON',
+  FOLLOW_UP: 'FOLLOW_UP',
+  LOST: 'LOST',
+  NO_DECISION: 'NO_DECISION',
+  GATEKEEPER: 'GATEKEEPER',
+  CUSTOM: 'CUSTOM'
+};
+
+export type CallOutcome = (typeof CallOutcome)[keyof typeof CallOutcome]
+
+
+export const CallEndReason: {
+  USER: 'USER',
+  PROSPECT_HUNG_UP: 'PROSPECT_HUNG_UP',
+  TIME_LIMIT: 'TIME_LIMIT',
+  INTERRUPTED: 'INTERRUPTED'
+};
+
+export type CallEndReason = (typeof CallEndReason)[keyof typeof CallEndReason]
+
+
+export const Speaker: {
+  USER: 'USER',
+  PROSPECT: 'PROSPECT',
+  UNKNOWN: 'UNKNOWN'
+};
+
+export type Speaker = (typeof Speaker)[keyof typeof Speaker]
+
+
+export const SuggestionType: {
+  OPENER: 'OPENER',
+  DISCOVERY_QUESTION: 'DISCOVERY_QUESTION',
+  OBJECTION_RESPONSE: 'OBJECTION_RESPONSE',
+  VALUE_STATEMENT: 'VALUE_STATEMENT',
+  BUYING_SIGNAL: 'BUYING_SIGNAL',
+  NEXT_STEP: 'NEXT_STEP',
+  REMINDER: 'REMINDER',
+  WARNING: 'WARNING',
+  CONSENT: 'CONSENT',
+  ANSWER: 'ANSWER'
+};
+
+export type SuggestionType = (typeof SuggestionType)[keyof typeof SuggestionType]
+
+
+export const SuggestionStatus: {
+  SHOWN: 'SHOWN',
+  DISMISSED: 'DISMISSED',
+  PINNED: 'PINNED'
+};
+
+export type SuggestionStatus = (typeof SuggestionStatus)[keyof typeof SuggestionStatus]
+
+
+export const SuggestionFeedback: {
+  UP: 'UP',
+  DOWN: 'DOWN'
+};
+
+export type SuggestionFeedback = (typeof SuggestionFeedback)[keyof typeof SuggestionFeedback]
+
+
+export const UsageKind: {
+  SUGGESTION: 'SUGGESTION',
+  ASK: 'ASK',
+  ANALYSIS: 'ANALYSIS',
+  PRACTICE_TURN: 'PRACTICE_TURN',
+  PRACTICE_VOICE: 'PRACTICE_VOICE',
+  TRANSCRIPTION: 'TRANSCRIPTION',
+  GENERATION: 'GENERATION'
+};
+
+export type UsageKind = (typeof UsageKind)[keyof typeof UsageKind]
+
 }
 
 export type AuthRole = $Enums.AuthRole
@@ -65,6 +252,66 @@ export const AuthRole: typeof $Enums.AuthRole
 export type DocumentType = $Enums.DocumentType
 
 export const DocumentType: typeof $Enums.DocumentType
+
+export type OutputLanguageMode = $Enums.OutputLanguageMode
+
+export const OutputLanguageMode: typeof $Enums.OutputLanguageMode
+
+export type SuggestionFrequency = $Enums.SuggestionFrequency
+
+export const SuggestionFrequency: typeof $Enums.SuggestionFrequency
+
+export type SuggestionLength = $Enums.SuggestionLength
+
+export const SuggestionLength: typeof $Enums.SuggestionLength
+
+export type LeadTemperature = $Enums.LeadTemperature
+
+export const LeadTemperature: typeof $Enums.LeadTemperature
+
+export type VoiceProvider = $Enums.VoiceProvider
+
+export const VoiceProvider: typeof $Enums.VoiceProvider
+
+export type CallKind = $Enums.CallKind
+
+export const CallKind: typeof $Enums.CallKind
+
+export type CallType = $Enums.CallType
+
+export const CallType: typeof $Enums.CallType
+
+export type CallStatus = $Enums.CallStatus
+
+export const CallStatus: typeof $Enums.CallStatus
+
+export type CallOutcome = $Enums.CallOutcome
+
+export const CallOutcome: typeof $Enums.CallOutcome
+
+export type CallEndReason = $Enums.CallEndReason
+
+export const CallEndReason: typeof $Enums.CallEndReason
+
+export type Speaker = $Enums.Speaker
+
+export const Speaker: typeof $Enums.Speaker
+
+export type SuggestionType = $Enums.SuggestionType
+
+export const SuggestionType: typeof $Enums.SuggestionType
+
+export type SuggestionStatus = $Enums.SuggestionStatus
+
+export const SuggestionStatus: typeof $Enums.SuggestionStatus
+
+export type SuggestionFeedback = $Enums.SuggestionFeedback
+
+export const SuggestionFeedback: typeof $Enums.SuggestionFeedback
+
+export type UsageKind = $Enums.UsageKind
+
+export const UsageKind: typeof $Enums.UsageKind
 
 /**
  * ##  Prisma Client ʲˢ
@@ -216,6 +463,86 @@ export class PrismaClient<
     * ```
     */
   get document(): Prisma.DocumentDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.assistantAgent`: Exposes CRUD operations for the **AssistantAgent** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more AssistantAgents
+    * const assistantAgents = await prisma.assistantAgent.findMany()
+    * ```
+    */
+  get assistantAgent(): Prisma.AssistantAgentDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.practiceAgent`: Exposes CRUD operations for the **PracticeAgent** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PracticeAgents
+    * const practiceAgents = await prisma.practiceAgent.findMany()
+    * ```
+    */
+  get practiceAgent(): Prisma.PracticeAgentDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.call`: Exposes CRUD operations for the **Call** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Calls
+    * const calls = await prisma.call.findMany()
+    * ```
+    */
+  get call(): Prisma.CallDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.transcriptSegment`: Exposes CRUD operations for the **TranscriptSegment** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TranscriptSegments
+    * const transcriptSegments = await prisma.transcriptSegment.findMany()
+    * ```
+    */
+  get transcriptSegment(): Prisma.TranscriptSegmentDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.suggestion`: Exposes CRUD operations for the **Suggestion** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Suggestions
+    * const suggestions = await prisma.suggestion.findMany()
+    * ```
+    */
+  get suggestion(): Prisma.SuggestionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.bookmark`: Exposes CRUD operations for the **Bookmark** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Bookmarks
+    * const bookmarks = await prisma.bookmark.findMany()
+    * ```
+    */
+  get bookmark(): Prisma.BookmarkDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.callAnalysis`: Exposes CRUD operations for the **CallAnalysis** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CallAnalyses
+    * const callAnalyses = await prisma.callAnalysis.findMany()
+    * ```
+    */
+  get callAnalysis(): Prisma.CallAnalysisDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.usageEvent`: Exposes CRUD operations for the **UsageEvent** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more UsageEvents
+    * const usageEvents = await prisma.usageEvent.findMany()
+    * ```
+    */
+  get usageEvent(): Prisma.UsageEventDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -665,7 +992,15 @@ export namespace Prisma {
   export const ModelName: {
     User: 'User',
     PasswordResetToken: 'PasswordResetToken',
-    Document: 'Document'
+    Document: 'Document',
+    AssistantAgent: 'AssistantAgent',
+    PracticeAgent: 'PracticeAgent',
+    Call: 'Call',
+    TranscriptSegment: 'TranscriptSegment',
+    Suggestion: 'Suggestion',
+    Bookmark: 'Bookmark',
+    CallAnalysis: 'CallAnalysis',
+    UsageEvent: 'UsageEvent'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -681,7 +1016,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "passwordResetToken" | "document"
+      modelProps: "user" | "passwordResetToken" | "document" | "assistantAgent" | "practiceAgent" | "call" | "transcriptSegment" | "suggestion" | "bookmark" | "callAnalysis" | "usageEvent"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -907,6 +1242,598 @@ export namespace Prisma {
           }
         }
       }
+      AssistantAgent: {
+        payload: Prisma.$AssistantAgentPayload<ExtArgs>
+        fields: Prisma.AssistantAgentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AssistantAgentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AssistantAgentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AssistantAgentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AssistantAgentPayload>
+          }
+          findFirst: {
+            args: Prisma.AssistantAgentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AssistantAgentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AssistantAgentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AssistantAgentPayload>
+          }
+          findMany: {
+            args: Prisma.AssistantAgentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AssistantAgentPayload>[]
+          }
+          create: {
+            args: Prisma.AssistantAgentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AssistantAgentPayload>
+          }
+          createMany: {
+            args: Prisma.AssistantAgentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AssistantAgentCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AssistantAgentPayload>[]
+          }
+          delete: {
+            args: Prisma.AssistantAgentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AssistantAgentPayload>
+          }
+          update: {
+            args: Prisma.AssistantAgentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AssistantAgentPayload>
+          }
+          deleteMany: {
+            args: Prisma.AssistantAgentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AssistantAgentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AssistantAgentUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AssistantAgentPayload>[]
+          }
+          upsert: {
+            args: Prisma.AssistantAgentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AssistantAgentPayload>
+          }
+          aggregate: {
+            args: Prisma.AssistantAgentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAssistantAgent>
+          }
+          groupBy: {
+            args: Prisma.AssistantAgentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AssistantAgentGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AssistantAgentCountArgs<ExtArgs>
+            result: $Utils.Optional<AssistantAgentCountAggregateOutputType> | number
+          }
+        }
+      }
+      PracticeAgent: {
+        payload: Prisma.$PracticeAgentPayload<ExtArgs>
+        fields: Prisma.PracticeAgentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PracticeAgentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PracticeAgentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PracticeAgentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PracticeAgentPayload>
+          }
+          findFirst: {
+            args: Prisma.PracticeAgentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PracticeAgentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PracticeAgentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PracticeAgentPayload>
+          }
+          findMany: {
+            args: Prisma.PracticeAgentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PracticeAgentPayload>[]
+          }
+          create: {
+            args: Prisma.PracticeAgentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PracticeAgentPayload>
+          }
+          createMany: {
+            args: Prisma.PracticeAgentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PracticeAgentCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PracticeAgentPayload>[]
+          }
+          delete: {
+            args: Prisma.PracticeAgentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PracticeAgentPayload>
+          }
+          update: {
+            args: Prisma.PracticeAgentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PracticeAgentPayload>
+          }
+          deleteMany: {
+            args: Prisma.PracticeAgentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PracticeAgentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PracticeAgentUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PracticeAgentPayload>[]
+          }
+          upsert: {
+            args: Prisma.PracticeAgentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PracticeAgentPayload>
+          }
+          aggregate: {
+            args: Prisma.PracticeAgentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePracticeAgent>
+          }
+          groupBy: {
+            args: Prisma.PracticeAgentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PracticeAgentGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PracticeAgentCountArgs<ExtArgs>
+            result: $Utils.Optional<PracticeAgentCountAggregateOutputType> | number
+          }
+        }
+      }
+      Call: {
+        payload: Prisma.$CallPayload<ExtArgs>
+        fields: Prisma.CallFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CallFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CallFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload>
+          }
+          findFirst: {
+            args: Prisma.CallFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CallFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload>
+          }
+          findMany: {
+            args: Prisma.CallFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload>[]
+          }
+          create: {
+            args: Prisma.CallCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload>
+          }
+          createMany: {
+            args: Prisma.CallCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CallCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload>[]
+          }
+          delete: {
+            args: Prisma.CallDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload>
+          }
+          update: {
+            args: Prisma.CallUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload>
+          }
+          deleteMany: {
+            args: Prisma.CallDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CallUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CallUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload>[]
+          }
+          upsert: {
+            args: Prisma.CallUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallPayload>
+          }
+          aggregate: {
+            args: Prisma.CallAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCall>
+          }
+          groupBy: {
+            args: Prisma.CallGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CallGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CallCountArgs<ExtArgs>
+            result: $Utils.Optional<CallCountAggregateOutputType> | number
+          }
+        }
+      }
+      TranscriptSegment: {
+        payload: Prisma.$TranscriptSegmentPayload<ExtArgs>
+        fields: Prisma.TranscriptSegmentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TranscriptSegmentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TranscriptSegmentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TranscriptSegmentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TranscriptSegmentPayload>
+          }
+          findFirst: {
+            args: Prisma.TranscriptSegmentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TranscriptSegmentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TranscriptSegmentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TranscriptSegmentPayload>
+          }
+          findMany: {
+            args: Prisma.TranscriptSegmentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TranscriptSegmentPayload>[]
+          }
+          create: {
+            args: Prisma.TranscriptSegmentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TranscriptSegmentPayload>
+          }
+          createMany: {
+            args: Prisma.TranscriptSegmentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TranscriptSegmentCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TranscriptSegmentPayload>[]
+          }
+          delete: {
+            args: Prisma.TranscriptSegmentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TranscriptSegmentPayload>
+          }
+          update: {
+            args: Prisma.TranscriptSegmentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TranscriptSegmentPayload>
+          }
+          deleteMany: {
+            args: Prisma.TranscriptSegmentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TranscriptSegmentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.TranscriptSegmentUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TranscriptSegmentPayload>[]
+          }
+          upsert: {
+            args: Prisma.TranscriptSegmentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TranscriptSegmentPayload>
+          }
+          aggregate: {
+            args: Prisma.TranscriptSegmentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTranscriptSegment>
+          }
+          groupBy: {
+            args: Prisma.TranscriptSegmentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TranscriptSegmentGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TranscriptSegmentCountArgs<ExtArgs>
+            result: $Utils.Optional<TranscriptSegmentCountAggregateOutputType> | number
+          }
+        }
+      }
+      Suggestion: {
+        payload: Prisma.$SuggestionPayload<ExtArgs>
+        fields: Prisma.SuggestionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SuggestionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SuggestionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SuggestionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SuggestionPayload>
+          }
+          findFirst: {
+            args: Prisma.SuggestionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SuggestionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SuggestionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SuggestionPayload>
+          }
+          findMany: {
+            args: Prisma.SuggestionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SuggestionPayload>[]
+          }
+          create: {
+            args: Prisma.SuggestionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SuggestionPayload>
+          }
+          createMany: {
+            args: Prisma.SuggestionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SuggestionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SuggestionPayload>[]
+          }
+          delete: {
+            args: Prisma.SuggestionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SuggestionPayload>
+          }
+          update: {
+            args: Prisma.SuggestionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SuggestionPayload>
+          }
+          deleteMany: {
+            args: Prisma.SuggestionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SuggestionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SuggestionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SuggestionPayload>[]
+          }
+          upsert: {
+            args: Prisma.SuggestionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SuggestionPayload>
+          }
+          aggregate: {
+            args: Prisma.SuggestionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSuggestion>
+          }
+          groupBy: {
+            args: Prisma.SuggestionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SuggestionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SuggestionCountArgs<ExtArgs>
+            result: $Utils.Optional<SuggestionCountAggregateOutputType> | number
+          }
+        }
+      }
+      Bookmark: {
+        payload: Prisma.$BookmarkPayload<ExtArgs>
+        fields: Prisma.BookmarkFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BookmarkFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookmarkPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BookmarkFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookmarkPayload>
+          }
+          findFirst: {
+            args: Prisma.BookmarkFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookmarkPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BookmarkFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookmarkPayload>
+          }
+          findMany: {
+            args: Prisma.BookmarkFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookmarkPayload>[]
+          }
+          create: {
+            args: Prisma.BookmarkCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookmarkPayload>
+          }
+          createMany: {
+            args: Prisma.BookmarkCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BookmarkCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookmarkPayload>[]
+          }
+          delete: {
+            args: Prisma.BookmarkDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookmarkPayload>
+          }
+          update: {
+            args: Prisma.BookmarkUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookmarkPayload>
+          }
+          deleteMany: {
+            args: Prisma.BookmarkDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BookmarkUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BookmarkUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookmarkPayload>[]
+          }
+          upsert: {
+            args: Prisma.BookmarkUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BookmarkPayload>
+          }
+          aggregate: {
+            args: Prisma.BookmarkAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBookmark>
+          }
+          groupBy: {
+            args: Prisma.BookmarkGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BookmarkGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BookmarkCountArgs<ExtArgs>
+            result: $Utils.Optional<BookmarkCountAggregateOutputType> | number
+          }
+        }
+      }
+      CallAnalysis: {
+        payload: Prisma.$CallAnalysisPayload<ExtArgs>
+        fields: Prisma.CallAnalysisFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CallAnalysisFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallAnalysisPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CallAnalysisFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallAnalysisPayload>
+          }
+          findFirst: {
+            args: Prisma.CallAnalysisFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallAnalysisPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CallAnalysisFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallAnalysisPayload>
+          }
+          findMany: {
+            args: Prisma.CallAnalysisFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallAnalysisPayload>[]
+          }
+          create: {
+            args: Prisma.CallAnalysisCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallAnalysisPayload>
+          }
+          createMany: {
+            args: Prisma.CallAnalysisCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CallAnalysisCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallAnalysisPayload>[]
+          }
+          delete: {
+            args: Prisma.CallAnalysisDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallAnalysisPayload>
+          }
+          update: {
+            args: Prisma.CallAnalysisUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallAnalysisPayload>
+          }
+          deleteMany: {
+            args: Prisma.CallAnalysisDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CallAnalysisUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CallAnalysisUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallAnalysisPayload>[]
+          }
+          upsert: {
+            args: Prisma.CallAnalysisUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CallAnalysisPayload>
+          }
+          aggregate: {
+            args: Prisma.CallAnalysisAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCallAnalysis>
+          }
+          groupBy: {
+            args: Prisma.CallAnalysisGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CallAnalysisGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CallAnalysisCountArgs<ExtArgs>
+            result: $Utils.Optional<CallAnalysisCountAggregateOutputType> | number
+          }
+        }
+      }
+      UsageEvent: {
+        payload: Prisma.$UsageEventPayload<ExtArgs>
+        fields: Prisma.UsageEventFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.UsageEventFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsageEventPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.UsageEventFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsageEventPayload>
+          }
+          findFirst: {
+            args: Prisma.UsageEventFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsageEventPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.UsageEventFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsageEventPayload>
+          }
+          findMany: {
+            args: Prisma.UsageEventFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsageEventPayload>[]
+          }
+          create: {
+            args: Prisma.UsageEventCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsageEventPayload>
+          }
+          createMany: {
+            args: Prisma.UsageEventCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.UsageEventCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsageEventPayload>[]
+          }
+          delete: {
+            args: Prisma.UsageEventDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsageEventPayload>
+          }
+          update: {
+            args: Prisma.UsageEventUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsageEventPayload>
+          }
+          deleteMany: {
+            args: Prisma.UsageEventDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.UsageEventUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.UsageEventUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsageEventPayload>[]
+          }
+          upsert: {
+            args: Prisma.UsageEventUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$UsageEventPayload>
+          }
+          aggregate: {
+            args: Prisma.UsageEventAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUsageEvent>
+          }
+          groupBy: {
+            args: Prisma.UsageEventGroupByArgs<ExtArgs>
+            result: $Utils.Optional<UsageEventGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.UsageEventCountArgs<ExtArgs>
+            result: $Utils.Optional<UsageEventCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1033,6 +1960,14 @@ export namespace Prisma {
     user?: UserOmit
     passwordResetToken?: PasswordResetTokenOmit
     document?: DocumentOmit
+    assistantAgent?: AssistantAgentOmit
+    practiceAgent?: PracticeAgentOmit
+    call?: CallOmit
+    transcriptSegment?: TranscriptSegmentOmit
+    suggestion?: SuggestionOmit
+    bookmark?: BookmarkOmit
+    callAnalysis?: CallAnalysisOmit
+    usageEvent?: UsageEventOmit
   }
 
   /* Types for Logging */
@@ -1114,10 +2049,18 @@ export namespace Prisma {
 
   export type UserCountOutputType = {
     password_reset_tokens: number
+    assistant_agents: number
+    practice_agents: number
+    calls: number
+    usage_events: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     password_reset_tokens?: boolean | UserCountOutputTypeCountPassword_reset_tokensArgs
+    assistant_agents?: boolean | UserCountOutputTypeCountAssistant_agentsArgs
+    practice_agents?: boolean | UserCountOutputTypeCountPractice_agentsArgs
+    calls?: boolean | UserCountOutputTypeCountCallsArgs
+    usage_events?: boolean | UserCountOutputTypeCountUsage_eventsArgs
   }
 
   // Custom InputTypes
@@ -1136,6 +2079,154 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountPassword_reset_tokensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PasswordResetTokenWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountAssistant_agentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AssistantAgentWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountPractice_agentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PracticeAgentWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountCallsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CallWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountUsage_eventsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UsageEventWhereInput
+  }
+
+
+  /**
+   * Count Type AssistantAgentCountOutputType
+   */
+
+  export type AssistantAgentCountOutputType = {
+    calls: number
+    practice_agents: number
+  }
+
+  export type AssistantAgentCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    calls?: boolean | AssistantAgentCountOutputTypeCountCallsArgs
+    practice_agents?: boolean | AssistantAgentCountOutputTypeCountPractice_agentsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * AssistantAgentCountOutputType without action
+   */
+  export type AssistantAgentCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AssistantAgentCountOutputType
+     */
+    select?: AssistantAgentCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * AssistantAgentCountOutputType without action
+   */
+  export type AssistantAgentCountOutputTypeCountCallsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CallWhereInput
+  }
+
+  /**
+   * AssistantAgentCountOutputType without action
+   */
+  export type AssistantAgentCountOutputTypeCountPractice_agentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PracticeAgentWhereInput
+  }
+
+
+  /**
+   * Count Type PracticeAgentCountOutputType
+   */
+
+  export type PracticeAgentCountOutputType = {
+    calls: number
+  }
+
+  export type PracticeAgentCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    calls?: boolean | PracticeAgentCountOutputTypeCountCallsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PracticeAgentCountOutputType without action
+   */
+  export type PracticeAgentCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PracticeAgentCountOutputType
+     */
+    select?: PracticeAgentCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PracticeAgentCountOutputType without action
+   */
+  export type PracticeAgentCountOutputTypeCountCallsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CallWhereInput
+  }
+
+
+  /**
+   * Count Type CallCountOutputType
+   */
+
+  export type CallCountOutputType = {
+    segments: number
+    suggestions: number
+    bookmarks: number
+  }
+
+  export type CallCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    segments?: boolean | CallCountOutputTypeCountSegmentsArgs
+    suggestions?: boolean | CallCountOutputTypeCountSuggestionsArgs
+    bookmarks?: boolean | CallCountOutputTypeCountBookmarksArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CallCountOutputType without action
+   */
+  export type CallCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CallCountOutputType
+     */
+    select?: CallCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CallCountOutputType without action
+   */
+  export type CallCountOutputTypeCountSegmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TranscriptSegmentWhereInput
+  }
+
+  /**
+   * CallCountOutputType without action
+   */
+  export type CallCountOutputTypeCountSuggestionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SuggestionWhereInput
+  }
+
+  /**
+   * CallCountOutputType without action
+   */
+  export type CallCountOutputTypeCountBookmarksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BookmarkWhereInput
   }
 
 
@@ -1158,9 +2249,15 @@ export namespace Prisma {
     email: string | null
     phone: string | null
     password: string | null
+    full_name: string | null
     role: $Enums.AuthRole | null
     created_at: Date | null
     updated_at: Date | null
+    interface_language: string | null
+    output_language_mode: $Enums.OutputLanguageMode | null
+    consent_line: string | null
+    keep_recordings: boolean | null
+    consent_acknowledged_at: Date | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -1168,9 +2265,15 @@ export namespace Prisma {
     email: string | null
     phone: string | null
     password: string | null
+    full_name: string | null
     role: $Enums.AuthRole | null
     created_at: Date | null
     updated_at: Date | null
+    interface_language: string | null
+    output_language_mode: $Enums.OutputLanguageMode | null
+    consent_line: string | null
+    keep_recordings: boolean | null
+    consent_acknowledged_at: Date | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -1178,9 +2281,15 @@ export namespace Prisma {
     email: number
     phone: number
     password: number
+    full_name: number
     role: number
     created_at: number
     updated_at: number
+    interface_language: number
+    output_language_mode: number
+    consent_line: number
+    keep_recordings: number
+    consent_acknowledged_at: number
     _all: number
   }
 
@@ -1190,9 +2299,15 @@ export namespace Prisma {
     email?: true
     phone?: true
     password?: true
+    full_name?: true
     role?: true
     created_at?: true
     updated_at?: true
+    interface_language?: true
+    output_language_mode?: true
+    consent_line?: true
+    keep_recordings?: true
+    consent_acknowledged_at?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -1200,9 +2315,15 @@ export namespace Prisma {
     email?: true
     phone?: true
     password?: true
+    full_name?: true
     role?: true
     created_at?: true
     updated_at?: true
+    interface_language?: true
+    output_language_mode?: true
+    consent_line?: true
+    keep_recordings?: true
+    consent_acknowledged_at?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -1210,9 +2331,15 @@ export namespace Prisma {
     email?: true
     phone?: true
     password?: true
+    full_name?: true
     role?: true
     created_at?: true
     updated_at?: true
+    interface_language?: true
+    output_language_mode?: true
+    consent_line?: true
+    keep_recordings?: true
+    consent_acknowledged_at?: true
     _all?: true
   }
 
@@ -1293,9 +2420,15 @@ export namespace Prisma {
     email: string
     phone: string | null
     password: string
+    full_name: string | null
     role: $Enums.AuthRole
     created_at: Date
     updated_at: Date
+    interface_language: string
+    output_language_mode: $Enums.OutputLanguageMode
+    consent_line: string | null
+    keep_recordings: boolean
+    consent_acknowledged_at: Date | null
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
@@ -1320,10 +2453,20 @@ export namespace Prisma {
     email?: boolean
     phone?: boolean
     password?: boolean
+    full_name?: boolean
     role?: boolean
     created_at?: boolean
     updated_at?: boolean
+    interface_language?: boolean
+    output_language_mode?: boolean
+    consent_line?: boolean
+    keep_recordings?: boolean
+    consent_acknowledged_at?: boolean
     password_reset_tokens?: boolean | User$password_reset_tokensArgs<ExtArgs>
+    assistant_agents?: boolean | User$assistant_agentsArgs<ExtArgs>
+    practice_agents?: boolean | User$practice_agentsArgs<ExtArgs>
+    calls?: boolean | User$callsArgs<ExtArgs>
+    usage_events?: boolean | User$usage_eventsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1332,9 +2475,15 @@ export namespace Prisma {
     email?: boolean
     phone?: boolean
     password?: boolean
+    full_name?: boolean
     role?: boolean
     created_at?: boolean
     updated_at?: boolean
+    interface_language?: boolean
+    output_language_mode?: boolean
+    consent_line?: boolean
+    keep_recordings?: boolean
+    consent_acknowledged_at?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1342,9 +2491,15 @@ export namespace Prisma {
     email?: boolean
     phone?: boolean
     password?: boolean
+    full_name?: boolean
     role?: boolean
     created_at?: boolean
     updated_at?: boolean
+    interface_language?: boolean
+    output_language_mode?: boolean
+    consent_line?: boolean
+    keep_recordings?: boolean
+    consent_acknowledged_at?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -1352,14 +2507,24 @@ export namespace Prisma {
     email?: boolean
     phone?: boolean
     password?: boolean
+    full_name?: boolean
     role?: boolean
     created_at?: boolean
     updated_at?: boolean
+    interface_language?: boolean
+    output_language_mode?: boolean
+    consent_line?: boolean
+    keep_recordings?: boolean
+    consent_acknowledged_at?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "phone" | "password" | "role" | "created_at" | "updated_at", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "phone" | "password" | "full_name" | "role" | "created_at" | "updated_at" | "interface_language" | "output_language_mode" | "consent_line" | "keep_recordings" | "consent_acknowledged_at", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     password_reset_tokens?: boolean | User$password_reset_tokensArgs<ExtArgs>
+    assistant_agents?: boolean | User$assistant_agentsArgs<ExtArgs>
+    practice_agents?: boolean | User$practice_agentsArgs<ExtArgs>
+    calls?: boolean | User$callsArgs<ExtArgs>
+    usage_events?: boolean | User$usage_eventsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1369,15 +2534,25 @@ export namespace Prisma {
     name: "User"
     objects: {
       password_reset_tokens: Prisma.$PasswordResetTokenPayload<ExtArgs>[]
+      assistant_agents: Prisma.$AssistantAgentPayload<ExtArgs>[]
+      practice_agents: Prisma.$PracticeAgentPayload<ExtArgs>[]
+      calls: Prisma.$CallPayload<ExtArgs>[]
+      usage_events: Prisma.$UsageEventPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       email: string
       phone: string | null
       password: string
+      full_name: string | null
       role: $Enums.AuthRole
       created_at: Date
       updated_at: Date
+      interface_language: string
+      output_language_mode: $Enums.OutputLanguageMode
+      consent_line: string | null
+      keep_recordings: boolean
+      consent_acknowledged_at: Date | null
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -1773,6 +2948,10 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     password_reset_tokens<T extends User$password_reset_tokensArgs<ExtArgs> = {}>(args?: Subset<T, User$password_reset_tokensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PasswordResetTokenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    assistant_agents<T extends User$assistant_agentsArgs<ExtArgs> = {}>(args?: Subset<T, User$assistant_agentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssistantAgentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    practice_agents<T extends User$practice_agentsArgs<ExtArgs> = {}>(args?: Subset<T, User$practice_agentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PracticeAgentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    calls<T extends User$callsArgs<ExtArgs> = {}>(args?: Subset<T, User$callsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    usage_events<T extends User$usage_eventsArgs<ExtArgs> = {}>(args?: Subset<T, User$usage_eventsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsageEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1806,9 +2985,15 @@ export namespace Prisma {
     readonly email: FieldRef<"User", 'String'>
     readonly phone: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
+    readonly full_name: FieldRef<"User", 'String'>
     readonly role: FieldRef<"User", 'AuthRole'>
     readonly created_at: FieldRef<"User", 'DateTime'>
     readonly updated_at: FieldRef<"User", 'DateTime'>
+    readonly interface_language: FieldRef<"User", 'String'>
+    readonly output_language_mode: FieldRef<"User", 'OutputLanguageMode'>
+    readonly consent_line: FieldRef<"User", 'String'>
+    readonly keep_recordings: FieldRef<"User", 'Boolean'>
+    readonly consent_acknowledged_at: FieldRef<"User", 'DateTime'>
   }
     
 
@@ -2223,6 +3408,102 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: PasswordResetTokenScalarFieldEnum | PasswordResetTokenScalarFieldEnum[]
+  }
+
+  /**
+   * User.assistant_agents
+   */
+  export type User$assistant_agentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AssistantAgent
+     */
+    select?: AssistantAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AssistantAgent
+     */
+    omit?: AssistantAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AssistantAgentInclude<ExtArgs> | null
+    where?: AssistantAgentWhereInput
+    orderBy?: AssistantAgentOrderByWithRelationInput | AssistantAgentOrderByWithRelationInput[]
+    cursor?: AssistantAgentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AssistantAgentScalarFieldEnum | AssistantAgentScalarFieldEnum[]
+  }
+
+  /**
+   * User.practice_agents
+   */
+  export type User$practice_agentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PracticeAgent
+     */
+    select?: PracticeAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PracticeAgent
+     */
+    omit?: PracticeAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PracticeAgentInclude<ExtArgs> | null
+    where?: PracticeAgentWhereInput
+    orderBy?: PracticeAgentOrderByWithRelationInput | PracticeAgentOrderByWithRelationInput[]
+    cursor?: PracticeAgentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PracticeAgentScalarFieldEnum | PracticeAgentScalarFieldEnum[]
+  }
+
+  /**
+   * User.calls
+   */
+  export type User$callsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Call
+     */
+    select?: CallSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Call
+     */
+    omit?: CallOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallInclude<ExtArgs> | null
+    where?: CallWhereInput
+    orderBy?: CallOrderByWithRelationInput | CallOrderByWithRelationInput[]
+    cursor?: CallWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CallScalarFieldEnum | CallScalarFieldEnum[]
+  }
+
+  /**
+   * User.usage_events
+   */
+  export type User$usage_eventsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsageEvent
+     */
+    select?: UsageEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsageEvent
+     */
+    omit?: UsageEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsageEventInclude<ExtArgs> | null
+    where?: UsageEventWhereInput
+    orderBy?: UsageEventOrderByWithRelationInput | UsageEventOrderByWithRelationInput[]
+    cursor?: UsageEventWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UsageEventScalarFieldEnum | UsageEventScalarFieldEnum[]
   }
 
   /**
@@ -4407,6 +5688,10499 @@ export namespace Prisma {
 
 
   /**
+   * Model AssistantAgent
+   */
+
+  export type AggregateAssistantAgent = {
+    _count: AssistantAgentCountAggregateOutputType | null
+    _avg: AssistantAgentAvgAggregateOutputType | null
+    _sum: AssistantAgentSumAggregateOutputType | null
+    _min: AssistantAgentMinAggregateOutputType | null
+    _max: AssistantAgentMaxAggregateOutputType | null
+  }
+
+  export type AssistantAgentAvgAggregateOutputType = {
+    alternatives_count: number | null
+  }
+
+  export type AssistantAgentSumAggregateOutputType = {
+    alternatives_count: number | null
+  }
+
+  export type AssistantAgentMinAggregateOutputType = {
+    id: string | null
+    user_id: string | null
+    name: string | null
+    description: string | null
+    call_goal: string | null
+    instructions: string | null
+    knowledge: string | null
+    methodology: string | null
+    language: string | null
+    tone: string | null
+    suggestion_frequency: $Enums.SuggestionFrequency | null
+    suggestion_length: $Enums.SuggestionLength | null
+    alternatives_count: number | null
+    realtime_model: string | null
+    analysis_model: string | null
+    consent_line: string | null
+    suggest_consent_line: boolean | null
+    template_key: string | null
+    is_default: boolean | null
+    archived_at: Date | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type AssistantAgentMaxAggregateOutputType = {
+    id: string | null
+    user_id: string | null
+    name: string | null
+    description: string | null
+    call_goal: string | null
+    instructions: string | null
+    knowledge: string | null
+    methodology: string | null
+    language: string | null
+    tone: string | null
+    suggestion_frequency: $Enums.SuggestionFrequency | null
+    suggestion_length: $Enums.SuggestionLength | null
+    alternatives_count: number | null
+    realtime_model: string | null
+    analysis_model: string | null
+    consent_line: string | null
+    suggest_consent_line: boolean | null
+    template_key: string | null
+    is_default: boolean | null
+    archived_at: Date | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type AssistantAgentCountAggregateOutputType = {
+    id: number
+    user_id: number
+    name: number
+    description: number
+    call_goal: number
+    script: number
+    instructions: number
+    knowledge: number
+    objection_library: number
+    methodology: number
+    language: number
+    tone: number
+    suggestion_frequency: number
+    suggestion_length: number
+    alternatives_count: number
+    realtime_model: number
+    analysis_model: number
+    analysis_criteria: number
+    consent_line: number
+    suggest_consent_line: number
+    template_key: number
+    is_default: number
+    archived_at: number
+    created_at: number
+    updated_at: number
+    _all: number
+  }
+
+
+  export type AssistantAgentAvgAggregateInputType = {
+    alternatives_count?: true
+  }
+
+  export type AssistantAgentSumAggregateInputType = {
+    alternatives_count?: true
+  }
+
+  export type AssistantAgentMinAggregateInputType = {
+    id?: true
+    user_id?: true
+    name?: true
+    description?: true
+    call_goal?: true
+    instructions?: true
+    knowledge?: true
+    methodology?: true
+    language?: true
+    tone?: true
+    suggestion_frequency?: true
+    suggestion_length?: true
+    alternatives_count?: true
+    realtime_model?: true
+    analysis_model?: true
+    consent_line?: true
+    suggest_consent_line?: true
+    template_key?: true
+    is_default?: true
+    archived_at?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type AssistantAgentMaxAggregateInputType = {
+    id?: true
+    user_id?: true
+    name?: true
+    description?: true
+    call_goal?: true
+    instructions?: true
+    knowledge?: true
+    methodology?: true
+    language?: true
+    tone?: true
+    suggestion_frequency?: true
+    suggestion_length?: true
+    alternatives_count?: true
+    realtime_model?: true
+    analysis_model?: true
+    consent_line?: true
+    suggest_consent_line?: true
+    template_key?: true
+    is_default?: true
+    archived_at?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type AssistantAgentCountAggregateInputType = {
+    id?: true
+    user_id?: true
+    name?: true
+    description?: true
+    call_goal?: true
+    script?: true
+    instructions?: true
+    knowledge?: true
+    objection_library?: true
+    methodology?: true
+    language?: true
+    tone?: true
+    suggestion_frequency?: true
+    suggestion_length?: true
+    alternatives_count?: true
+    realtime_model?: true
+    analysis_model?: true
+    analysis_criteria?: true
+    consent_line?: true
+    suggest_consent_line?: true
+    template_key?: true
+    is_default?: true
+    archived_at?: true
+    created_at?: true
+    updated_at?: true
+    _all?: true
+  }
+
+  export type AssistantAgentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AssistantAgent to aggregate.
+     */
+    where?: AssistantAgentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AssistantAgents to fetch.
+     */
+    orderBy?: AssistantAgentOrderByWithRelationInput | AssistantAgentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AssistantAgentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AssistantAgents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AssistantAgents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned AssistantAgents
+    **/
+    _count?: true | AssistantAgentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AssistantAgentAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AssistantAgentSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AssistantAgentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AssistantAgentMaxAggregateInputType
+  }
+
+  export type GetAssistantAgentAggregateType<T extends AssistantAgentAggregateArgs> = {
+        [P in keyof T & keyof AggregateAssistantAgent]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAssistantAgent[P]>
+      : GetScalarType<T[P], AggregateAssistantAgent[P]>
+  }
+
+
+
+
+  export type AssistantAgentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AssistantAgentWhereInput
+    orderBy?: AssistantAgentOrderByWithAggregationInput | AssistantAgentOrderByWithAggregationInput[]
+    by: AssistantAgentScalarFieldEnum[] | AssistantAgentScalarFieldEnum
+    having?: AssistantAgentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AssistantAgentCountAggregateInputType | true
+    _avg?: AssistantAgentAvgAggregateInputType
+    _sum?: AssistantAgentSumAggregateInputType
+    _min?: AssistantAgentMinAggregateInputType
+    _max?: AssistantAgentMaxAggregateInputType
+  }
+
+  export type AssistantAgentGroupByOutputType = {
+    id: string
+    user_id: string
+    name: string
+    description: string | null
+    call_goal: string | null
+    script: JsonValue
+    instructions: string | null
+    knowledge: string | null
+    objection_library: JsonValue
+    methodology: string | null
+    language: string
+    tone: string
+    suggestion_frequency: $Enums.SuggestionFrequency
+    suggestion_length: $Enums.SuggestionLength
+    alternatives_count: number
+    realtime_model: string
+    analysis_model: string
+    analysis_criteria: JsonValue
+    consent_line: string | null
+    suggest_consent_line: boolean
+    template_key: string | null
+    is_default: boolean
+    archived_at: Date | null
+    created_at: Date
+    updated_at: Date
+    _count: AssistantAgentCountAggregateOutputType | null
+    _avg: AssistantAgentAvgAggregateOutputType | null
+    _sum: AssistantAgentSumAggregateOutputType | null
+    _min: AssistantAgentMinAggregateOutputType | null
+    _max: AssistantAgentMaxAggregateOutputType | null
+  }
+
+  type GetAssistantAgentGroupByPayload<T extends AssistantAgentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AssistantAgentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AssistantAgentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AssistantAgentGroupByOutputType[P]>
+            : GetScalarType<T[P], AssistantAgentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AssistantAgentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    name?: boolean
+    description?: boolean
+    call_goal?: boolean
+    script?: boolean
+    instructions?: boolean
+    knowledge?: boolean
+    objection_library?: boolean
+    methodology?: boolean
+    language?: boolean
+    tone?: boolean
+    suggestion_frequency?: boolean
+    suggestion_length?: boolean
+    alternatives_count?: boolean
+    realtime_model?: boolean
+    analysis_model?: boolean
+    analysis_criteria?: boolean
+    consent_line?: boolean
+    suggest_consent_line?: boolean
+    template_key?: boolean
+    is_default?: boolean
+    archived_at?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    calls?: boolean | AssistantAgent$callsArgs<ExtArgs>
+    practice_agents?: boolean | AssistantAgent$practice_agentsArgs<ExtArgs>
+    _count?: boolean | AssistantAgentCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["assistantAgent"]>
+
+  export type AssistantAgentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    name?: boolean
+    description?: boolean
+    call_goal?: boolean
+    script?: boolean
+    instructions?: boolean
+    knowledge?: boolean
+    objection_library?: boolean
+    methodology?: boolean
+    language?: boolean
+    tone?: boolean
+    suggestion_frequency?: boolean
+    suggestion_length?: boolean
+    alternatives_count?: boolean
+    realtime_model?: boolean
+    analysis_model?: boolean
+    analysis_criteria?: boolean
+    consent_line?: boolean
+    suggest_consent_line?: boolean
+    template_key?: boolean
+    is_default?: boolean
+    archived_at?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["assistantAgent"]>
+
+  export type AssistantAgentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    name?: boolean
+    description?: boolean
+    call_goal?: boolean
+    script?: boolean
+    instructions?: boolean
+    knowledge?: boolean
+    objection_library?: boolean
+    methodology?: boolean
+    language?: boolean
+    tone?: boolean
+    suggestion_frequency?: boolean
+    suggestion_length?: boolean
+    alternatives_count?: boolean
+    realtime_model?: boolean
+    analysis_model?: boolean
+    analysis_criteria?: boolean
+    consent_line?: boolean
+    suggest_consent_line?: boolean
+    template_key?: boolean
+    is_default?: boolean
+    archived_at?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["assistantAgent"]>
+
+  export type AssistantAgentSelectScalar = {
+    id?: boolean
+    user_id?: boolean
+    name?: boolean
+    description?: boolean
+    call_goal?: boolean
+    script?: boolean
+    instructions?: boolean
+    knowledge?: boolean
+    objection_library?: boolean
+    methodology?: boolean
+    language?: boolean
+    tone?: boolean
+    suggestion_frequency?: boolean
+    suggestion_length?: boolean
+    alternatives_count?: boolean
+    realtime_model?: boolean
+    analysis_model?: boolean
+    analysis_criteria?: boolean
+    consent_line?: boolean
+    suggest_consent_line?: boolean
+    template_key?: boolean
+    is_default?: boolean
+    archived_at?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+  }
+
+  export type AssistantAgentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "name" | "description" | "call_goal" | "script" | "instructions" | "knowledge" | "objection_library" | "methodology" | "language" | "tone" | "suggestion_frequency" | "suggestion_length" | "alternatives_count" | "realtime_model" | "analysis_model" | "analysis_criteria" | "consent_line" | "suggest_consent_line" | "template_key" | "is_default" | "archived_at" | "created_at" | "updated_at", ExtArgs["result"]["assistantAgent"]>
+  export type AssistantAgentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    calls?: boolean | AssistantAgent$callsArgs<ExtArgs>
+    practice_agents?: boolean | AssistantAgent$practice_agentsArgs<ExtArgs>
+    _count?: boolean | AssistantAgentCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type AssistantAgentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type AssistantAgentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $AssistantAgentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "AssistantAgent"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      calls: Prisma.$CallPayload<ExtArgs>[]
+      practice_agents: Prisma.$PracticeAgentPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      user_id: string
+      name: string
+      description: string | null
+      call_goal: string | null
+      script: Prisma.JsonValue
+      instructions: string | null
+      knowledge: string | null
+      objection_library: Prisma.JsonValue
+      methodology: string | null
+      language: string
+      tone: string
+      suggestion_frequency: $Enums.SuggestionFrequency
+      suggestion_length: $Enums.SuggestionLength
+      alternatives_count: number
+      realtime_model: string
+      analysis_model: string
+      analysis_criteria: Prisma.JsonValue
+      consent_line: string | null
+      suggest_consent_line: boolean
+      template_key: string | null
+      is_default: boolean
+      archived_at: Date | null
+      created_at: Date
+      updated_at: Date
+    }, ExtArgs["result"]["assistantAgent"]>
+    composites: {}
+  }
+
+  type AssistantAgentGetPayload<S extends boolean | null | undefined | AssistantAgentDefaultArgs> = $Result.GetResult<Prisma.$AssistantAgentPayload, S>
+
+  type AssistantAgentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AssistantAgentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AssistantAgentCountAggregateInputType | true
+    }
+
+  export interface AssistantAgentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AssistantAgent'], meta: { name: 'AssistantAgent' } }
+    /**
+     * Find zero or one AssistantAgent that matches the filter.
+     * @param {AssistantAgentFindUniqueArgs} args - Arguments to find a AssistantAgent
+     * @example
+     * // Get one AssistantAgent
+     * const assistantAgent = await prisma.assistantAgent.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AssistantAgentFindUniqueArgs>(args: SelectSubset<T, AssistantAgentFindUniqueArgs<ExtArgs>>): Prisma__AssistantAgentClient<$Result.GetResult<Prisma.$AssistantAgentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one AssistantAgent that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AssistantAgentFindUniqueOrThrowArgs} args - Arguments to find a AssistantAgent
+     * @example
+     * // Get one AssistantAgent
+     * const assistantAgent = await prisma.assistantAgent.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AssistantAgentFindUniqueOrThrowArgs>(args: SelectSubset<T, AssistantAgentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AssistantAgentClient<$Result.GetResult<Prisma.$AssistantAgentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AssistantAgent that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AssistantAgentFindFirstArgs} args - Arguments to find a AssistantAgent
+     * @example
+     * // Get one AssistantAgent
+     * const assistantAgent = await prisma.assistantAgent.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AssistantAgentFindFirstArgs>(args?: SelectSubset<T, AssistantAgentFindFirstArgs<ExtArgs>>): Prisma__AssistantAgentClient<$Result.GetResult<Prisma.$AssistantAgentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first AssistantAgent that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AssistantAgentFindFirstOrThrowArgs} args - Arguments to find a AssistantAgent
+     * @example
+     * // Get one AssistantAgent
+     * const assistantAgent = await prisma.assistantAgent.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AssistantAgentFindFirstOrThrowArgs>(args?: SelectSubset<T, AssistantAgentFindFirstOrThrowArgs<ExtArgs>>): Prisma__AssistantAgentClient<$Result.GetResult<Prisma.$AssistantAgentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more AssistantAgents that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AssistantAgentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AssistantAgents
+     * const assistantAgents = await prisma.assistantAgent.findMany()
+     * 
+     * // Get first 10 AssistantAgents
+     * const assistantAgents = await prisma.assistantAgent.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const assistantAgentWithIdOnly = await prisma.assistantAgent.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AssistantAgentFindManyArgs>(args?: SelectSubset<T, AssistantAgentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssistantAgentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a AssistantAgent.
+     * @param {AssistantAgentCreateArgs} args - Arguments to create a AssistantAgent.
+     * @example
+     * // Create one AssistantAgent
+     * const AssistantAgent = await prisma.assistantAgent.create({
+     *   data: {
+     *     // ... data to create a AssistantAgent
+     *   }
+     * })
+     * 
+     */
+    create<T extends AssistantAgentCreateArgs>(args: SelectSubset<T, AssistantAgentCreateArgs<ExtArgs>>): Prisma__AssistantAgentClient<$Result.GetResult<Prisma.$AssistantAgentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many AssistantAgents.
+     * @param {AssistantAgentCreateManyArgs} args - Arguments to create many AssistantAgents.
+     * @example
+     * // Create many AssistantAgents
+     * const assistantAgent = await prisma.assistantAgent.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AssistantAgentCreateManyArgs>(args?: SelectSubset<T, AssistantAgentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many AssistantAgents and returns the data saved in the database.
+     * @param {AssistantAgentCreateManyAndReturnArgs} args - Arguments to create many AssistantAgents.
+     * @example
+     * // Create many AssistantAgents
+     * const assistantAgent = await prisma.assistantAgent.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many AssistantAgents and only return the `id`
+     * const assistantAgentWithIdOnly = await prisma.assistantAgent.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AssistantAgentCreateManyAndReturnArgs>(args?: SelectSubset<T, AssistantAgentCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssistantAgentPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a AssistantAgent.
+     * @param {AssistantAgentDeleteArgs} args - Arguments to delete one AssistantAgent.
+     * @example
+     * // Delete one AssistantAgent
+     * const AssistantAgent = await prisma.assistantAgent.delete({
+     *   where: {
+     *     // ... filter to delete one AssistantAgent
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AssistantAgentDeleteArgs>(args: SelectSubset<T, AssistantAgentDeleteArgs<ExtArgs>>): Prisma__AssistantAgentClient<$Result.GetResult<Prisma.$AssistantAgentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one AssistantAgent.
+     * @param {AssistantAgentUpdateArgs} args - Arguments to update one AssistantAgent.
+     * @example
+     * // Update one AssistantAgent
+     * const assistantAgent = await prisma.assistantAgent.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AssistantAgentUpdateArgs>(args: SelectSubset<T, AssistantAgentUpdateArgs<ExtArgs>>): Prisma__AssistantAgentClient<$Result.GetResult<Prisma.$AssistantAgentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more AssistantAgents.
+     * @param {AssistantAgentDeleteManyArgs} args - Arguments to filter AssistantAgents to delete.
+     * @example
+     * // Delete a few AssistantAgents
+     * const { count } = await prisma.assistantAgent.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AssistantAgentDeleteManyArgs>(args?: SelectSubset<T, AssistantAgentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AssistantAgents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AssistantAgentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AssistantAgents
+     * const assistantAgent = await prisma.assistantAgent.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AssistantAgentUpdateManyArgs>(args: SelectSubset<T, AssistantAgentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more AssistantAgents and returns the data updated in the database.
+     * @param {AssistantAgentUpdateManyAndReturnArgs} args - Arguments to update many AssistantAgents.
+     * @example
+     * // Update many AssistantAgents
+     * const assistantAgent = await prisma.assistantAgent.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more AssistantAgents and only return the `id`
+     * const assistantAgentWithIdOnly = await prisma.assistantAgent.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AssistantAgentUpdateManyAndReturnArgs>(args: SelectSubset<T, AssistantAgentUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssistantAgentPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one AssistantAgent.
+     * @param {AssistantAgentUpsertArgs} args - Arguments to update or create a AssistantAgent.
+     * @example
+     * // Update or create a AssistantAgent
+     * const assistantAgent = await prisma.assistantAgent.upsert({
+     *   create: {
+     *     // ... data to create a AssistantAgent
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AssistantAgent we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AssistantAgentUpsertArgs>(args: SelectSubset<T, AssistantAgentUpsertArgs<ExtArgs>>): Prisma__AssistantAgentClient<$Result.GetResult<Prisma.$AssistantAgentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of AssistantAgents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AssistantAgentCountArgs} args - Arguments to filter AssistantAgents to count.
+     * @example
+     * // Count the number of AssistantAgents
+     * const count = await prisma.assistantAgent.count({
+     *   where: {
+     *     // ... the filter for the AssistantAgents we want to count
+     *   }
+     * })
+    **/
+    count<T extends AssistantAgentCountArgs>(
+      args?: Subset<T, AssistantAgentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AssistantAgentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a AssistantAgent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AssistantAgentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AssistantAgentAggregateArgs>(args: Subset<T, AssistantAgentAggregateArgs>): Prisma.PrismaPromise<GetAssistantAgentAggregateType<T>>
+
+    /**
+     * Group by AssistantAgent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AssistantAgentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AssistantAgentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AssistantAgentGroupByArgs['orderBy'] }
+        : { orderBy?: AssistantAgentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AssistantAgentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAssistantAgentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the AssistantAgent model
+   */
+  readonly fields: AssistantAgentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for AssistantAgent.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AssistantAgentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    calls<T extends AssistantAgent$callsArgs<ExtArgs> = {}>(args?: Subset<T, AssistantAgent$callsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    practice_agents<T extends AssistantAgent$practice_agentsArgs<ExtArgs> = {}>(args?: Subset<T, AssistantAgent$practice_agentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PracticeAgentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the AssistantAgent model
+   */
+  interface AssistantAgentFieldRefs {
+    readonly id: FieldRef<"AssistantAgent", 'String'>
+    readonly user_id: FieldRef<"AssistantAgent", 'String'>
+    readonly name: FieldRef<"AssistantAgent", 'String'>
+    readonly description: FieldRef<"AssistantAgent", 'String'>
+    readonly call_goal: FieldRef<"AssistantAgent", 'String'>
+    readonly script: FieldRef<"AssistantAgent", 'Json'>
+    readonly instructions: FieldRef<"AssistantAgent", 'String'>
+    readonly knowledge: FieldRef<"AssistantAgent", 'String'>
+    readonly objection_library: FieldRef<"AssistantAgent", 'Json'>
+    readonly methodology: FieldRef<"AssistantAgent", 'String'>
+    readonly language: FieldRef<"AssistantAgent", 'String'>
+    readonly tone: FieldRef<"AssistantAgent", 'String'>
+    readonly suggestion_frequency: FieldRef<"AssistantAgent", 'SuggestionFrequency'>
+    readonly suggestion_length: FieldRef<"AssistantAgent", 'SuggestionLength'>
+    readonly alternatives_count: FieldRef<"AssistantAgent", 'Int'>
+    readonly realtime_model: FieldRef<"AssistantAgent", 'String'>
+    readonly analysis_model: FieldRef<"AssistantAgent", 'String'>
+    readonly analysis_criteria: FieldRef<"AssistantAgent", 'Json'>
+    readonly consent_line: FieldRef<"AssistantAgent", 'String'>
+    readonly suggest_consent_line: FieldRef<"AssistantAgent", 'Boolean'>
+    readonly template_key: FieldRef<"AssistantAgent", 'String'>
+    readonly is_default: FieldRef<"AssistantAgent", 'Boolean'>
+    readonly archived_at: FieldRef<"AssistantAgent", 'DateTime'>
+    readonly created_at: FieldRef<"AssistantAgent", 'DateTime'>
+    readonly updated_at: FieldRef<"AssistantAgent", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * AssistantAgent findUnique
+   */
+  export type AssistantAgentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AssistantAgent
+     */
+    select?: AssistantAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AssistantAgent
+     */
+    omit?: AssistantAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AssistantAgentInclude<ExtArgs> | null
+    /**
+     * Filter, which AssistantAgent to fetch.
+     */
+    where: AssistantAgentWhereUniqueInput
+  }
+
+  /**
+   * AssistantAgent findUniqueOrThrow
+   */
+  export type AssistantAgentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AssistantAgent
+     */
+    select?: AssistantAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AssistantAgent
+     */
+    omit?: AssistantAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AssistantAgentInclude<ExtArgs> | null
+    /**
+     * Filter, which AssistantAgent to fetch.
+     */
+    where: AssistantAgentWhereUniqueInput
+  }
+
+  /**
+   * AssistantAgent findFirst
+   */
+  export type AssistantAgentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AssistantAgent
+     */
+    select?: AssistantAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AssistantAgent
+     */
+    omit?: AssistantAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AssistantAgentInclude<ExtArgs> | null
+    /**
+     * Filter, which AssistantAgent to fetch.
+     */
+    where?: AssistantAgentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AssistantAgents to fetch.
+     */
+    orderBy?: AssistantAgentOrderByWithRelationInput | AssistantAgentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AssistantAgents.
+     */
+    cursor?: AssistantAgentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AssistantAgents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AssistantAgents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AssistantAgents.
+     */
+    distinct?: AssistantAgentScalarFieldEnum | AssistantAgentScalarFieldEnum[]
+  }
+
+  /**
+   * AssistantAgent findFirstOrThrow
+   */
+  export type AssistantAgentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AssistantAgent
+     */
+    select?: AssistantAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AssistantAgent
+     */
+    omit?: AssistantAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AssistantAgentInclude<ExtArgs> | null
+    /**
+     * Filter, which AssistantAgent to fetch.
+     */
+    where?: AssistantAgentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AssistantAgents to fetch.
+     */
+    orderBy?: AssistantAgentOrderByWithRelationInput | AssistantAgentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for AssistantAgents.
+     */
+    cursor?: AssistantAgentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AssistantAgents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AssistantAgents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AssistantAgents.
+     */
+    distinct?: AssistantAgentScalarFieldEnum | AssistantAgentScalarFieldEnum[]
+  }
+
+  /**
+   * AssistantAgent findMany
+   */
+  export type AssistantAgentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AssistantAgent
+     */
+    select?: AssistantAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AssistantAgent
+     */
+    omit?: AssistantAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AssistantAgentInclude<ExtArgs> | null
+    /**
+     * Filter, which AssistantAgents to fetch.
+     */
+    where?: AssistantAgentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of AssistantAgents to fetch.
+     */
+    orderBy?: AssistantAgentOrderByWithRelationInput | AssistantAgentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing AssistantAgents.
+     */
+    cursor?: AssistantAgentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` AssistantAgents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` AssistantAgents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of AssistantAgents.
+     */
+    distinct?: AssistantAgentScalarFieldEnum | AssistantAgentScalarFieldEnum[]
+  }
+
+  /**
+   * AssistantAgent create
+   */
+  export type AssistantAgentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AssistantAgent
+     */
+    select?: AssistantAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AssistantAgent
+     */
+    omit?: AssistantAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AssistantAgentInclude<ExtArgs> | null
+    /**
+     * The data needed to create a AssistantAgent.
+     */
+    data: XOR<AssistantAgentCreateInput, AssistantAgentUncheckedCreateInput>
+  }
+
+  /**
+   * AssistantAgent createMany
+   */
+  export type AssistantAgentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AssistantAgents.
+     */
+    data: AssistantAgentCreateManyInput | AssistantAgentCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * AssistantAgent createManyAndReturn
+   */
+  export type AssistantAgentCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AssistantAgent
+     */
+    select?: AssistantAgentSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AssistantAgent
+     */
+    omit?: AssistantAgentOmit<ExtArgs> | null
+    /**
+     * The data used to create many AssistantAgents.
+     */
+    data: AssistantAgentCreateManyInput | AssistantAgentCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AssistantAgentIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * AssistantAgent update
+   */
+  export type AssistantAgentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AssistantAgent
+     */
+    select?: AssistantAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AssistantAgent
+     */
+    omit?: AssistantAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AssistantAgentInclude<ExtArgs> | null
+    /**
+     * The data needed to update a AssistantAgent.
+     */
+    data: XOR<AssistantAgentUpdateInput, AssistantAgentUncheckedUpdateInput>
+    /**
+     * Choose, which AssistantAgent to update.
+     */
+    where: AssistantAgentWhereUniqueInput
+  }
+
+  /**
+   * AssistantAgent updateMany
+   */
+  export type AssistantAgentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AssistantAgents.
+     */
+    data: XOR<AssistantAgentUpdateManyMutationInput, AssistantAgentUncheckedUpdateManyInput>
+    /**
+     * Filter which AssistantAgents to update
+     */
+    where?: AssistantAgentWhereInput
+    /**
+     * Limit how many AssistantAgents to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * AssistantAgent updateManyAndReturn
+   */
+  export type AssistantAgentUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AssistantAgent
+     */
+    select?: AssistantAgentSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the AssistantAgent
+     */
+    omit?: AssistantAgentOmit<ExtArgs> | null
+    /**
+     * The data used to update AssistantAgents.
+     */
+    data: XOR<AssistantAgentUpdateManyMutationInput, AssistantAgentUncheckedUpdateManyInput>
+    /**
+     * Filter which AssistantAgents to update
+     */
+    where?: AssistantAgentWhereInput
+    /**
+     * Limit how many AssistantAgents to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AssistantAgentIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * AssistantAgent upsert
+   */
+  export type AssistantAgentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AssistantAgent
+     */
+    select?: AssistantAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AssistantAgent
+     */
+    omit?: AssistantAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AssistantAgentInclude<ExtArgs> | null
+    /**
+     * The filter to search for the AssistantAgent to update in case it exists.
+     */
+    where: AssistantAgentWhereUniqueInput
+    /**
+     * In case the AssistantAgent found by the `where` argument doesn't exist, create a new AssistantAgent with this data.
+     */
+    create: XOR<AssistantAgentCreateInput, AssistantAgentUncheckedCreateInput>
+    /**
+     * In case the AssistantAgent was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AssistantAgentUpdateInput, AssistantAgentUncheckedUpdateInput>
+  }
+
+  /**
+   * AssistantAgent delete
+   */
+  export type AssistantAgentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AssistantAgent
+     */
+    select?: AssistantAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AssistantAgent
+     */
+    omit?: AssistantAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AssistantAgentInclude<ExtArgs> | null
+    /**
+     * Filter which AssistantAgent to delete.
+     */
+    where: AssistantAgentWhereUniqueInput
+  }
+
+  /**
+   * AssistantAgent deleteMany
+   */
+  export type AssistantAgentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which AssistantAgents to delete
+     */
+    where?: AssistantAgentWhereInput
+    /**
+     * Limit how many AssistantAgents to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * AssistantAgent.calls
+   */
+  export type AssistantAgent$callsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Call
+     */
+    select?: CallSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Call
+     */
+    omit?: CallOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallInclude<ExtArgs> | null
+    where?: CallWhereInput
+    orderBy?: CallOrderByWithRelationInput | CallOrderByWithRelationInput[]
+    cursor?: CallWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CallScalarFieldEnum | CallScalarFieldEnum[]
+  }
+
+  /**
+   * AssistantAgent.practice_agents
+   */
+  export type AssistantAgent$practice_agentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PracticeAgent
+     */
+    select?: PracticeAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PracticeAgent
+     */
+    omit?: PracticeAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PracticeAgentInclude<ExtArgs> | null
+    where?: PracticeAgentWhereInput
+    orderBy?: PracticeAgentOrderByWithRelationInput | PracticeAgentOrderByWithRelationInput[]
+    cursor?: PracticeAgentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PracticeAgentScalarFieldEnum | PracticeAgentScalarFieldEnum[]
+  }
+
+  /**
+   * AssistantAgent without action
+   */
+  export type AssistantAgentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AssistantAgent
+     */
+    select?: AssistantAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AssistantAgent
+     */
+    omit?: AssistantAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AssistantAgentInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PracticeAgent
+   */
+
+  export type AggregatePracticeAgent = {
+    _count: PracticeAgentCountAggregateOutputType | null
+    _avg: PracticeAgentAvgAggregateOutputType | null
+    _sum: PracticeAgentSumAggregateOutputType | null
+    _min: PracticeAgentMinAggregateOutputType | null
+    _max: PracticeAgentMaxAggregateOutputType | null
+  }
+
+  export type PracticeAgentAvgAggregateOutputType = {
+    difficulty: number | null
+    patience: number | null
+    time_limit_minutes: number | null
+  }
+
+  export type PracticeAgentSumAggregateOutputType = {
+    difficulty: number | null
+    patience: number | null
+    time_limit_minutes: number | null
+  }
+
+  export type PracticeAgentMinAggregateOutputType = {
+    id: string | null
+    user_id: string | null
+    name: string | null
+    prospect_name: string | null
+    role_prompt: string | null
+    scenario_context: string | null
+    scenario_type: string | null
+    selling_product: string | null
+    linked_assistant_agent_id: string | null
+    user_objective: string | null
+    lead_temperature: $Enums.LeadTemperature | null
+    difficulty: number | null
+    personality: string | null
+    mood: string | null
+    communication_style: string | null
+    decision_authority: string | null
+    budget: string | null
+    timeline: string | null
+    current_solution: string | null
+    patience: number | null
+    language: string | null
+    accent: string | null
+    industry: string | null
+    company: string | null
+    job_title: string | null
+    age_range: string | null
+    background_story: string | null
+    briefing: string | null
+    voice_provider: $Enums.VoiceProvider | null
+    voice: string | null
+    time_limit_minutes: number | null
+    source_call_id: string | null
+    template_key: string | null
+    archived_at: Date | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type PracticeAgentMaxAggregateOutputType = {
+    id: string | null
+    user_id: string | null
+    name: string | null
+    prospect_name: string | null
+    role_prompt: string | null
+    scenario_context: string | null
+    scenario_type: string | null
+    selling_product: string | null
+    linked_assistant_agent_id: string | null
+    user_objective: string | null
+    lead_temperature: $Enums.LeadTemperature | null
+    difficulty: number | null
+    personality: string | null
+    mood: string | null
+    communication_style: string | null
+    decision_authority: string | null
+    budget: string | null
+    timeline: string | null
+    current_solution: string | null
+    patience: number | null
+    language: string | null
+    accent: string | null
+    industry: string | null
+    company: string | null
+    job_title: string | null
+    age_range: string | null
+    background_story: string | null
+    briefing: string | null
+    voice_provider: $Enums.VoiceProvider | null
+    voice: string | null
+    time_limit_minutes: number | null
+    source_call_id: string | null
+    template_key: string | null
+    archived_at: Date | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type PracticeAgentCountAggregateOutputType = {
+    id: number
+    user_id: number
+    name: number
+    prospect_name: number
+    role_prompt: number
+    scenario_context: number
+    scenario_type: number
+    selling_product: number
+    linked_assistant_agent_id: number
+    user_objective: number
+    lead_temperature: number
+    difficulty: number
+    personality: number
+    mood: number
+    communication_style: number
+    decision_authority: number
+    budget: number
+    timeline: number
+    current_solution: number
+    pain_points: number
+    objections: number
+    hidden_information: number
+    conversion_conditions: number
+    patience: number
+    language: number
+    accent: number
+    industry: number
+    company: number
+    job_title: number
+    age_range: number
+    background_story: number
+    briefing: number
+    voice_provider: number
+    voice: number
+    time_limit_minutes: number
+    source_call_id: number
+    template_key: number
+    archived_at: number
+    created_at: number
+    updated_at: number
+    _all: number
+  }
+
+
+  export type PracticeAgentAvgAggregateInputType = {
+    difficulty?: true
+    patience?: true
+    time_limit_minutes?: true
+  }
+
+  export type PracticeAgentSumAggregateInputType = {
+    difficulty?: true
+    patience?: true
+    time_limit_minutes?: true
+  }
+
+  export type PracticeAgentMinAggregateInputType = {
+    id?: true
+    user_id?: true
+    name?: true
+    prospect_name?: true
+    role_prompt?: true
+    scenario_context?: true
+    scenario_type?: true
+    selling_product?: true
+    linked_assistant_agent_id?: true
+    user_objective?: true
+    lead_temperature?: true
+    difficulty?: true
+    personality?: true
+    mood?: true
+    communication_style?: true
+    decision_authority?: true
+    budget?: true
+    timeline?: true
+    current_solution?: true
+    patience?: true
+    language?: true
+    accent?: true
+    industry?: true
+    company?: true
+    job_title?: true
+    age_range?: true
+    background_story?: true
+    briefing?: true
+    voice_provider?: true
+    voice?: true
+    time_limit_minutes?: true
+    source_call_id?: true
+    template_key?: true
+    archived_at?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type PracticeAgentMaxAggregateInputType = {
+    id?: true
+    user_id?: true
+    name?: true
+    prospect_name?: true
+    role_prompt?: true
+    scenario_context?: true
+    scenario_type?: true
+    selling_product?: true
+    linked_assistant_agent_id?: true
+    user_objective?: true
+    lead_temperature?: true
+    difficulty?: true
+    personality?: true
+    mood?: true
+    communication_style?: true
+    decision_authority?: true
+    budget?: true
+    timeline?: true
+    current_solution?: true
+    patience?: true
+    language?: true
+    accent?: true
+    industry?: true
+    company?: true
+    job_title?: true
+    age_range?: true
+    background_story?: true
+    briefing?: true
+    voice_provider?: true
+    voice?: true
+    time_limit_minutes?: true
+    source_call_id?: true
+    template_key?: true
+    archived_at?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type PracticeAgentCountAggregateInputType = {
+    id?: true
+    user_id?: true
+    name?: true
+    prospect_name?: true
+    role_prompt?: true
+    scenario_context?: true
+    scenario_type?: true
+    selling_product?: true
+    linked_assistant_agent_id?: true
+    user_objective?: true
+    lead_temperature?: true
+    difficulty?: true
+    personality?: true
+    mood?: true
+    communication_style?: true
+    decision_authority?: true
+    budget?: true
+    timeline?: true
+    current_solution?: true
+    pain_points?: true
+    objections?: true
+    hidden_information?: true
+    conversion_conditions?: true
+    patience?: true
+    language?: true
+    accent?: true
+    industry?: true
+    company?: true
+    job_title?: true
+    age_range?: true
+    background_story?: true
+    briefing?: true
+    voice_provider?: true
+    voice?: true
+    time_limit_minutes?: true
+    source_call_id?: true
+    template_key?: true
+    archived_at?: true
+    created_at?: true
+    updated_at?: true
+    _all?: true
+  }
+
+  export type PracticeAgentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PracticeAgent to aggregate.
+     */
+    where?: PracticeAgentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PracticeAgents to fetch.
+     */
+    orderBy?: PracticeAgentOrderByWithRelationInput | PracticeAgentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PracticeAgentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PracticeAgents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PracticeAgents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PracticeAgents
+    **/
+    _count?: true | PracticeAgentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PracticeAgentAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PracticeAgentSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PracticeAgentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PracticeAgentMaxAggregateInputType
+  }
+
+  export type GetPracticeAgentAggregateType<T extends PracticeAgentAggregateArgs> = {
+        [P in keyof T & keyof AggregatePracticeAgent]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePracticeAgent[P]>
+      : GetScalarType<T[P], AggregatePracticeAgent[P]>
+  }
+
+
+
+
+  export type PracticeAgentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PracticeAgentWhereInput
+    orderBy?: PracticeAgentOrderByWithAggregationInput | PracticeAgentOrderByWithAggregationInput[]
+    by: PracticeAgentScalarFieldEnum[] | PracticeAgentScalarFieldEnum
+    having?: PracticeAgentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PracticeAgentCountAggregateInputType | true
+    _avg?: PracticeAgentAvgAggregateInputType
+    _sum?: PracticeAgentSumAggregateInputType
+    _min?: PracticeAgentMinAggregateInputType
+    _max?: PracticeAgentMaxAggregateInputType
+  }
+
+  export type PracticeAgentGroupByOutputType = {
+    id: string
+    user_id: string
+    name: string
+    prospect_name: string | null
+    role_prompt: string
+    scenario_context: string | null
+    scenario_type: string
+    selling_product: string | null
+    linked_assistant_agent_id: string | null
+    user_objective: string | null
+    lead_temperature: $Enums.LeadTemperature
+    difficulty: number
+    personality: string | null
+    mood: string | null
+    communication_style: string | null
+    decision_authority: string | null
+    budget: string | null
+    timeline: string | null
+    current_solution: string | null
+    pain_points: JsonValue
+    objections: JsonValue
+    hidden_information: JsonValue
+    conversion_conditions: JsonValue
+    patience: number
+    language: string
+    accent: string | null
+    industry: string | null
+    company: string | null
+    job_title: string | null
+    age_range: string | null
+    background_story: string | null
+    briefing: string | null
+    voice_provider: $Enums.VoiceProvider
+    voice: string
+    time_limit_minutes: number | null
+    source_call_id: string | null
+    template_key: string | null
+    archived_at: Date | null
+    created_at: Date
+    updated_at: Date
+    _count: PracticeAgentCountAggregateOutputType | null
+    _avg: PracticeAgentAvgAggregateOutputType | null
+    _sum: PracticeAgentSumAggregateOutputType | null
+    _min: PracticeAgentMinAggregateOutputType | null
+    _max: PracticeAgentMaxAggregateOutputType | null
+  }
+
+  type GetPracticeAgentGroupByPayload<T extends PracticeAgentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PracticeAgentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PracticeAgentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PracticeAgentGroupByOutputType[P]>
+            : GetScalarType<T[P], PracticeAgentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PracticeAgentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    name?: boolean
+    prospect_name?: boolean
+    role_prompt?: boolean
+    scenario_context?: boolean
+    scenario_type?: boolean
+    selling_product?: boolean
+    linked_assistant_agent_id?: boolean
+    user_objective?: boolean
+    lead_temperature?: boolean
+    difficulty?: boolean
+    personality?: boolean
+    mood?: boolean
+    communication_style?: boolean
+    decision_authority?: boolean
+    budget?: boolean
+    timeline?: boolean
+    current_solution?: boolean
+    pain_points?: boolean
+    objections?: boolean
+    hidden_information?: boolean
+    conversion_conditions?: boolean
+    patience?: boolean
+    language?: boolean
+    accent?: boolean
+    industry?: boolean
+    company?: boolean
+    job_title?: boolean
+    age_range?: boolean
+    background_story?: boolean
+    briefing?: boolean
+    voice_provider?: boolean
+    voice?: boolean
+    time_limit_minutes?: boolean
+    source_call_id?: boolean
+    template_key?: boolean
+    archived_at?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    linked_assistant_agent?: boolean | PracticeAgent$linked_assistant_agentArgs<ExtArgs>
+    calls?: boolean | PracticeAgent$callsArgs<ExtArgs>
+    _count?: boolean | PracticeAgentCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["practiceAgent"]>
+
+  export type PracticeAgentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    name?: boolean
+    prospect_name?: boolean
+    role_prompt?: boolean
+    scenario_context?: boolean
+    scenario_type?: boolean
+    selling_product?: boolean
+    linked_assistant_agent_id?: boolean
+    user_objective?: boolean
+    lead_temperature?: boolean
+    difficulty?: boolean
+    personality?: boolean
+    mood?: boolean
+    communication_style?: boolean
+    decision_authority?: boolean
+    budget?: boolean
+    timeline?: boolean
+    current_solution?: boolean
+    pain_points?: boolean
+    objections?: boolean
+    hidden_information?: boolean
+    conversion_conditions?: boolean
+    patience?: boolean
+    language?: boolean
+    accent?: boolean
+    industry?: boolean
+    company?: boolean
+    job_title?: boolean
+    age_range?: boolean
+    background_story?: boolean
+    briefing?: boolean
+    voice_provider?: boolean
+    voice?: boolean
+    time_limit_minutes?: boolean
+    source_call_id?: boolean
+    template_key?: boolean
+    archived_at?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    linked_assistant_agent?: boolean | PracticeAgent$linked_assistant_agentArgs<ExtArgs>
+  }, ExtArgs["result"]["practiceAgent"]>
+
+  export type PracticeAgentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    name?: boolean
+    prospect_name?: boolean
+    role_prompt?: boolean
+    scenario_context?: boolean
+    scenario_type?: boolean
+    selling_product?: boolean
+    linked_assistant_agent_id?: boolean
+    user_objective?: boolean
+    lead_temperature?: boolean
+    difficulty?: boolean
+    personality?: boolean
+    mood?: boolean
+    communication_style?: boolean
+    decision_authority?: boolean
+    budget?: boolean
+    timeline?: boolean
+    current_solution?: boolean
+    pain_points?: boolean
+    objections?: boolean
+    hidden_information?: boolean
+    conversion_conditions?: boolean
+    patience?: boolean
+    language?: boolean
+    accent?: boolean
+    industry?: boolean
+    company?: boolean
+    job_title?: boolean
+    age_range?: boolean
+    background_story?: boolean
+    briefing?: boolean
+    voice_provider?: boolean
+    voice?: boolean
+    time_limit_minutes?: boolean
+    source_call_id?: boolean
+    template_key?: boolean
+    archived_at?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    linked_assistant_agent?: boolean | PracticeAgent$linked_assistant_agentArgs<ExtArgs>
+  }, ExtArgs["result"]["practiceAgent"]>
+
+  export type PracticeAgentSelectScalar = {
+    id?: boolean
+    user_id?: boolean
+    name?: boolean
+    prospect_name?: boolean
+    role_prompt?: boolean
+    scenario_context?: boolean
+    scenario_type?: boolean
+    selling_product?: boolean
+    linked_assistant_agent_id?: boolean
+    user_objective?: boolean
+    lead_temperature?: boolean
+    difficulty?: boolean
+    personality?: boolean
+    mood?: boolean
+    communication_style?: boolean
+    decision_authority?: boolean
+    budget?: boolean
+    timeline?: boolean
+    current_solution?: boolean
+    pain_points?: boolean
+    objections?: boolean
+    hidden_information?: boolean
+    conversion_conditions?: boolean
+    patience?: boolean
+    language?: boolean
+    accent?: boolean
+    industry?: boolean
+    company?: boolean
+    job_title?: boolean
+    age_range?: boolean
+    background_story?: boolean
+    briefing?: boolean
+    voice_provider?: boolean
+    voice?: boolean
+    time_limit_minutes?: boolean
+    source_call_id?: boolean
+    template_key?: boolean
+    archived_at?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+  }
+
+  export type PracticeAgentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "name" | "prospect_name" | "role_prompt" | "scenario_context" | "scenario_type" | "selling_product" | "linked_assistant_agent_id" | "user_objective" | "lead_temperature" | "difficulty" | "personality" | "mood" | "communication_style" | "decision_authority" | "budget" | "timeline" | "current_solution" | "pain_points" | "objections" | "hidden_information" | "conversion_conditions" | "patience" | "language" | "accent" | "industry" | "company" | "job_title" | "age_range" | "background_story" | "briefing" | "voice_provider" | "voice" | "time_limit_minutes" | "source_call_id" | "template_key" | "archived_at" | "created_at" | "updated_at", ExtArgs["result"]["practiceAgent"]>
+  export type PracticeAgentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    linked_assistant_agent?: boolean | PracticeAgent$linked_assistant_agentArgs<ExtArgs>
+    calls?: boolean | PracticeAgent$callsArgs<ExtArgs>
+    _count?: boolean | PracticeAgentCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type PracticeAgentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    linked_assistant_agent?: boolean | PracticeAgent$linked_assistant_agentArgs<ExtArgs>
+  }
+  export type PracticeAgentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    linked_assistant_agent?: boolean | PracticeAgent$linked_assistant_agentArgs<ExtArgs>
+  }
+
+  export type $PracticeAgentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PracticeAgent"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      linked_assistant_agent: Prisma.$AssistantAgentPayload<ExtArgs> | null
+      calls: Prisma.$CallPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      user_id: string
+      name: string
+      prospect_name: string | null
+      role_prompt: string
+      scenario_context: string | null
+      scenario_type: string
+      selling_product: string | null
+      linked_assistant_agent_id: string | null
+      user_objective: string | null
+      lead_temperature: $Enums.LeadTemperature
+      difficulty: number
+      personality: string | null
+      mood: string | null
+      communication_style: string | null
+      decision_authority: string | null
+      budget: string | null
+      timeline: string | null
+      current_solution: string | null
+      pain_points: Prisma.JsonValue
+      objections: Prisma.JsonValue
+      hidden_information: Prisma.JsonValue
+      conversion_conditions: Prisma.JsonValue
+      patience: number
+      language: string
+      accent: string | null
+      industry: string | null
+      company: string | null
+      job_title: string | null
+      age_range: string | null
+      background_story: string | null
+      briefing: string | null
+      voice_provider: $Enums.VoiceProvider
+      voice: string
+      time_limit_minutes: number | null
+      source_call_id: string | null
+      template_key: string | null
+      archived_at: Date | null
+      created_at: Date
+      updated_at: Date
+    }, ExtArgs["result"]["practiceAgent"]>
+    composites: {}
+  }
+
+  type PracticeAgentGetPayload<S extends boolean | null | undefined | PracticeAgentDefaultArgs> = $Result.GetResult<Prisma.$PracticeAgentPayload, S>
+
+  type PracticeAgentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PracticeAgentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PracticeAgentCountAggregateInputType | true
+    }
+
+  export interface PracticeAgentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PracticeAgent'], meta: { name: 'PracticeAgent' } }
+    /**
+     * Find zero or one PracticeAgent that matches the filter.
+     * @param {PracticeAgentFindUniqueArgs} args - Arguments to find a PracticeAgent
+     * @example
+     * // Get one PracticeAgent
+     * const practiceAgent = await prisma.practiceAgent.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PracticeAgentFindUniqueArgs>(args: SelectSubset<T, PracticeAgentFindUniqueArgs<ExtArgs>>): Prisma__PracticeAgentClient<$Result.GetResult<Prisma.$PracticeAgentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one PracticeAgent that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PracticeAgentFindUniqueOrThrowArgs} args - Arguments to find a PracticeAgent
+     * @example
+     * // Get one PracticeAgent
+     * const practiceAgent = await prisma.practiceAgent.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PracticeAgentFindUniqueOrThrowArgs>(args: SelectSubset<T, PracticeAgentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PracticeAgentClient<$Result.GetResult<Prisma.$PracticeAgentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PracticeAgent that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PracticeAgentFindFirstArgs} args - Arguments to find a PracticeAgent
+     * @example
+     * // Get one PracticeAgent
+     * const practiceAgent = await prisma.practiceAgent.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PracticeAgentFindFirstArgs>(args?: SelectSubset<T, PracticeAgentFindFirstArgs<ExtArgs>>): Prisma__PracticeAgentClient<$Result.GetResult<Prisma.$PracticeAgentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first PracticeAgent that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PracticeAgentFindFirstOrThrowArgs} args - Arguments to find a PracticeAgent
+     * @example
+     * // Get one PracticeAgent
+     * const practiceAgent = await prisma.practiceAgent.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PracticeAgentFindFirstOrThrowArgs>(args?: SelectSubset<T, PracticeAgentFindFirstOrThrowArgs<ExtArgs>>): Prisma__PracticeAgentClient<$Result.GetResult<Prisma.$PracticeAgentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more PracticeAgents that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PracticeAgentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PracticeAgents
+     * const practiceAgents = await prisma.practiceAgent.findMany()
+     * 
+     * // Get first 10 PracticeAgents
+     * const practiceAgents = await prisma.practiceAgent.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const practiceAgentWithIdOnly = await prisma.practiceAgent.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PracticeAgentFindManyArgs>(args?: SelectSubset<T, PracticeAgentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PracticeAgentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a PracticeAgent.
+     * @param {PracticeAgentCreateArgs} args - Arguments to create a PracticeAgent.
+     * @example
+     * // Create one PracticeAgent
+     * const PracticeAgent = await prisma.practiceAgent.create({
+     *   data: {
+     *     // ... data to create a PracticeAgent
+     *   }
+     * })
+     * 
+     */
+    create<T extends PracticeAgentCreateArgs>(args: SelectSubset<T, PracticeAgentCreateArgs<ExtArgs>>): Prisma__PracticeAgentClient<$Result.GetResult<Prisma.$PracticeAgentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many PracticeAgents.
+     * @param {PracticeAgentCreateManyArgs} args - Arguments to create many PracticeAgents.
+     * @example
+     * // Create many PracticeAgents
+     * const practiceAgent = await prisma.practiceAgent.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PracticeAgentCreateManyArgs>(args?: SelectSubset<T, PracticeAgentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PracticeAgents and returns the data saved in the database.
+     * @param {PracticeAgentCreateManyAndReturnArgs} args - Arguments to create many PracticeAgents.
+     * @example
+     * // Create many PracticeAgents
+     * const practiceAgent = await prisma.practiceAgent.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PracticeAgents and only return the `id`
+     * const practiceAgentWithIdOnly = await prisma.practiceAgent.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PracticeAgentCreateManyAndReturnArgs>(args?: SelectSubset<T, PracticeAgentCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PracticeAgentPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a PracticeAgent.
+     * @param {PracticeAgentDeleteArgs} args - Arguments to delete one PracticeAgent.
+     * @example
+     * // Delete one PracticeAgent
+     * const PracticeAgent = await prisma.practiceAgent.delete({
+     *   where: {
+     *     // ... filter to delete one PracticeAgent
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PracticeAgentDeleteArgs>(args: SelectSubset<T, PracticeAgentDeleteArgs<ExtArgs>>): Prisma__PracticeAgentClient<$Result.GetResult<Prisma.$PracticeAgentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one PracticeAgent.
+     * @param {PracticeAgentUpdateArgs} args - Arguments to update one PracticeAgent.
+     * @example
+     * // Update one PracticeAgent
+     * const practiceAgent = await prisma.practiceAgent.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PracticeAgentUpdateArgs>(args: SelectSubset<T, PracticeAgentUpdateArgs<ExtArgs>>): Prisma__PracticeAgentClient<$Result.GetResult<Prisma.$PracticeAgentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more PracticeAgents.
+     * @param {PracticeAgentDeleteManyArgs} args - Arguments to filter PracticeAgents to delete.
+     * @example
+     * // Delete a few PracticeAgents
+     * const { count } = await prisma.practiceAgent.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PracticeAgentDeleteManyArgs>(args?: SelectSubset<T, PracticeAgentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PracticeAgents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PracticeAgentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PracticeAgents
+     * const practiceAgent = await prisma.practiceAgent.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PracticeAgentUpdateManyArgs>(args: SelectSubset<T, PracticeAgentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PracticeAgents and returns the data updated in the database.
+     * @param {PracticeAgentUpdateManyAndReturnArgs} args - Arguments to update many PracticeAgents.
+     * @example
+     * // Update many PracticeAgents
+     * const practiceAgent = await prisma.practiceAgent.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more PracticeAgents and only return the `id`
+     * const practiceAgentWithIdOnly = await prisma.practiceAgent.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PracticeAgentUpdateManyAndReturnArgs>(args: SelectSubset<T, PracticeAgentUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PracticeAgentPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one PracticeAgent.
+     * @param {PracticeAgentUpsertArgs} args - Arguments to update or create a PracticeAgent.
+     * @example
+     * // Update or create a PracticeAgent
+     * const practiceAgent = await prisma.practiceAgent.upsert({
+     *   create: {
+     *     // ... data to create a PracticeAgent
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PracticeAgent we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PracticeAgentUpsertArgs>(args: SelectSubset<T, PracticeAgentUpsertArgs<ExtArgs>>): Prisma__PracticeAgentClient<$Result.GetResult<Prisma.$PracticeAgentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of PracticeAgents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PracticeAgentCountArgs} args - Arguments to filter PracticeAgents to count.
+     * @example
+     * // Count the number of PracticeAgents
+     * const count = await prisma.practiceAgent.count({
+     *   where: {
+     *     // ... the filter for the PracticeAgents we want to count
+     *   }
+     * })
+    **/
+    count<T extends PracticeAgentCountArgs>(
+      args?: Subset<T, PracticeAgentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PracticeAgentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PracticeAgent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PracticeAgentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PracticeAgentAggregateArgs>(args: Subset<T, PracticeAgentAggregateArgs>): Prisma.PrismaPromise<GetPracticeAgentAggregateType<T>>
+
+    /**
+     * Group by PracticeAgent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PracticeAgentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PracticeAgentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PracticeAgentGroupByArgs['orderBy'] }
+        : { orderBy?: PracticeAgentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PracticeAgentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPracticeAgentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PracticeAgent model
+   */
+  readonly fields: PracticeAgentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PracticeAgent.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PracticeAgentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    linked_assistant_agent<T extends PracticeAgent$linked_assistant_agentArgs<ExtArgs> = {}>(args?: Subset<T, PracticeAgent$linked_assistant_agentArgs<ExtArgs>>): Prisma__AssistantAgentClient<$Result.GetResult<Prisma.$AssistantAgentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    calls<T extends PracticeAgent$callsArgs<ExtArgs> = {}>(args?: Subset<T, PracticeAgent$callsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PracticeAgent model
+   */
+  interface PracticeAgentFieldRefs {
+    readonly id: FieldRef<"PracticeAgent", 'String'>
+    readonly user_id: FieldRef<"PracticeAgent", 'String'>
+    readonly name: FieldRef<"PracticeAgent", 'String'>
+    readonly prospect_name: FieldRef<"PracticeAgent", 'String'>
+    readonly role_prompt: FieldRef<"PracticeAgent", 'String'>
+    readonly scenario_context: FieldRef<"PracticeAgent", 'String'>
+    readonly scenario_type: FieldRef<"PracticeAgent", 'String'>
+    readonly selling_product: FieldRef<"PracticeAgent", 'String'>
+    readonly linked_assistant_agent_id: FieldRef<"PracticeAgent", 'String'>
+    readonly user_objective: FieldRef<"PracticeAgent", 'String'>
+    readonly lead_temperature: FieldRef<"PracticeAgent", 'LeadTemperature'>
+    readonly difficulty: FieldRef<"PracticeAgent", 'Int'>
+    readonly personality: FieldRef<"PracticeAgent", 'String'>
+    readonly mood: FieldRef<"PracticeAgent", 'String'>
+    readonly communication_style: FieldRef<"PracticeAgent", 'String'>
+    readonly decision_authority: FieldRef<"PracticeAgent", 'String'>
+    readonly budget: FieldRef<"PracticeAgent", 'String'>
+    readonly timeline: FieldRef<"PracticeAgent", 'String'>
+    readonly current_solution: FieldRef<"PracticeAgent", 'String'>
+    readonly pain_points: FieldRef<"PracticeAgent", 'Json'>
+    readonly objections: FieldRef<"PracticeAgent", 'Json'>
+    readonly hidden_information: FieldRef<"PracticeAgent", 'Json'>
+    readonly conversion_conditions: FieldRef<"PracticeAgent", 'Json'>
+    readonly patience: FieldRef<"PracticeAgent", 'Int'>
+    readonly language: FieldRef<"PracticeAgent", 'String'>
+    readonly accent: FieldRef<"PracticeAgent", 'String'>
+    readonly industry: FieldRef<"PracticeAgent", 'String'>
+    readonly company: FieldRef<"PracticeAgent", 'String'>
+    readonly job_title: FieldRef<"PracticeAgent", 'String'>
+    readonly age_range: FieldRef<"PracticeAgent", 'String'>
+    readonly background_story: FieldRef<"PracticeAgent", 'String'>
+    readonly briefing: FieldRef<"PracticeAgent", 'String'>
+    readonly voice_provider: FieldRef<"PracticeAgent", 'VoiceProvider'>
+    readonly voice: FieldRef<"PracticeAgent", 'String'>
+    readonly time_limit_minutes: FieldRef<"PracticeAgent", 'Int'>
+    readonly source_call_id: FieldRef<"PracticeAgent", 'String'>
+    readonly template_key: FieldRef<"PracticeAgent", 'String'>
+    readonly archived_at: FieldRef<"PracticeAgent", 'DateTime'>
+    readonly created_at: FieldRef<"PracticeAgent", 'DateTime'>
+    readonly updated_at: FieldRef<"PracticeAgent", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PracticeAgent findUnique
+   */
+  export type PracticeAgentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PracticeAgent
+     */
+    select?: PracticeAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PracticeAgent
+     */
+    omit?: PracticeAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PracticeAgentInclude<ExtArgs> | null
+    /**
+     * Filter, which PracticeAgent to fetch.
+     */
+    where: PracticeAgentWhereUniqueInput
+  }
+
+  /**
+   * PracticeAgent findUniqueOrThrow
+   */
+  export type PracticeAgentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PracticeAgent
+     */
+    select?: PracticeAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PracticeAgent
+     */
+    omit?: PracticeAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PracticeAgentInclude<ExtArgs> | null
+    /**
+     * Filter, which PracticeAgent to fetch.
+     */
+    where: PracticeAgentWhereUniqueInput
+  }
+
+  /**
+   * PracticeAgent findFirst
+   */
+  export type PracticeAgentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PracticeAgent
+     */
+    select?: PracticeAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PracticeAgent
+     */
+    omit?: PracticeAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PracticeAgentInclude<ExtArgs> | null
+    /**
+     * Filter, which PracticeAgent to fetch.
+     */
+    where?: PracticeAgentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PracticeAgents to fetch.
+     */
+    orderBy?: PracticeAgentOrderByWithRelationInput | PracticeAgentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PracticeAgents.
+     */
+    cursor?: PracticeAgentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PracticeAgents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PracticeAgents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PracticeAgents.
+     */
+    distinct?: PracticeAgentScalarFieldEnum | PracticeAgentScalarFieldEnum[]
+  }
+
+  /**
+   * PracticeAgent findFirstOrThrow
+   */
+  export type PracticeAgentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PracticeAgent
+     */
+    select?: PracticeAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PracticeAgent
+     */
+    omit?: PracticeAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PracticeAgentInclude<ExtArgs> | null
+    /**
+     * Filter, which PracticeAgent to fetch.
+     */
+    where?: PracticeAgentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PracticeAgents to fetch.
+     */
+    orderBy?: PracticeAgentOrderByWithRelationInput | PracticeAgentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PracticeAgents.
+     */
+    cursor?: PracticeAgentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PracticeAgents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PracticeAgents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PracticeAgents.
+     */
+    distinct?: PracticeAgentScalarFieldEnum | PracticeAgentScalarFieldEnum[]
+  }
+
+  /**
+   * PracticeAgent findMany
+   */
+  export type PracticeAgentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PracticeAgent
+     */
+    select?: PracticeAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PracticeAgent
+     */
+    omit?: PracticeAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PracticeAgentInclude<ExtArgs> | null
+    /**
+     * Filter, which PracticeAgents to fetch.
+     */
+    where?: PracticeAgentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PracticeAgents to fetch.
+     */
+    orderBy?: PracticeAgentOrderByWithRelationInput | PracticeAgentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PracticeAgents.
+     */
+    cursor?: PracticeAgentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PracticeAgents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PracticeAgents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PracticeAgents.
+     */
+    distinct?: PracticeAgentScalarFieldEnum | PracticeAgentScalarFieldEnum[]
+  }
+
+  /**
+   * PracticeAgent create
+   */
+  export type PracticeAgentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PracticeAgent
+     */
+    select?: PracticeAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PracticeAgent
+     */
+    omit?: PracticeAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PracticeAgentInclude<ExtArgs> | null
+    /**
+     * The data needed to create a PracticeAgent.
+     */
+    data: XOR<PracticeAgentCreateInput, PracticeAgentUncheckedCreateInput>
+  }
+
+  /**
+   * PracticeAgent createMany
+   */
+  export type PracticeAgentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PracticeAgents.
+     */
+    data: PracticeAgentCreateManyInput | PracticeAgentCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PracticeAgent createManyAndReturn
+   */
+  export type PracticeAgentCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PracticeAgent
+     */
+    select?: PracticeAgentSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PracticeAgent
+     */
+    omit?: PracticeAgentOmit<ExtArgs> | null
+    /**
+     * The data used to create many PracticeAgents.
+     */
+    data: PracticeAgentCreateManyInput | PracticeAgentCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PracticeAgentIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PracticeAgent update
+   */
+  export type PracticeAgentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PracticeAgent
+     */
+    select?: PracticeAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PracticeAgent
+     */
+    omit?: PracticeAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PracticeAgentInclude<ExtArgs> | null
+    /**
+     * The data needed to update a PracticeAgent.
+     */
+    data: XOR<PracticeAgentUpdateInput, PracticeAgentUncheckedUpdateInput>
+    /**
+     * Choose, which PracticeAgent to update.
+     */
+    where: PracticeAgentWhereUniqueInput
+  }
+
+  /**
+   * PracticeAgent updateMany
+   */
+  export type PracticeAgentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PracticeAgents.
+     */
+    data: XOR<PracticeAgentUpdateManyMutationInput, PracticeAgentUncheckedUpdateManyInput>
+    /**
+     * Filter which PracticeAgents to update
+     */
+    where?: PracticeAgentWhereInput
+    /**
+     * Limit how many PracticeAgents to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * PracticeAgent updateManyAndReturn
+   */
+  export type PracticeAgentUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PracticeAgent
+     */
+    select?: PracticeAgentSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the PracticeAgent
+     */
+    omit?: PracticeAgentOmit<ExtArgs> | null
+    /**
+     * The data used to update PracticeAgents.
+     */
+    data: XOR<PracticeAgentUpdateManyMutationInput, PracticeAgentUncheckedUpdateManyInput>
+    /**
+     * Filter which PracticeAgents to update
+     */
+    where?: PracticeAgentWhereInput
+    /**
+     * Limit how many PracticeAgents to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PracticeAgentIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * PracticeAgent upsert
+   */
+  export type PracticeAgentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PracticeAgent
+     */
+    select?: PracticeAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PracticeAgent
+     */
+    omit?: PracticeAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PracticeAgentInclude<ExtArgs> | null
+    /**
+     * The filter to search for the PracticeAgent to update in case it exists.
+     */
+    where: PracticeAgentWhereUniqueInput
+    /**
+     * In case the PracticeAgent found by the `where` argument doesn't exist, create a new PracticeAgent with this data.
+     */
+    create: XOR<PracticeAgentCreateInput, PracticeAgentUncheckedCreateInput>
+    /**
+     * In case the PracticeAgent was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PracticeAgentUpdateInput, PracticeAgentUncheckedUpdateInput>
+  }
+
+  /**
+   * PracticeAgent delete
+   */
+  export type PracticeAgentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PracticeAgent
+     */
+    select?: PracticeAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PracticeAgent
+     */
+    omit?: PracticeAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PracticeAgentInclude<ExtArgs> | null
+    /**
+     * Filter which PracticeAgent to delete.
+     */
+    where: PracticeAgentWhereUniqueInput
+  }
+
+  /**
+   * PracticeAgent deleteMany
+   */
+  export type PracticeAgentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PracticeAgents to delete
+     */
+    where?: PracticeAgentWhereInput
+    /**
+     * Limit how many PracticeAgents to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * PracticeAgent.linked_assistant_agent
+   */
+  export type PracticeAgent$linked_assistant_agentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AssistantAgent
+     */
+    select?: AssistantAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AssistantAgent
+     */
+    omit?: AssistantAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AssistantAgentInclude<ExtArgs> | null
+    where?: AssistantAgentWhereInput
+  }
+
+  /**
+   * PracticeAgent.calls
+   */
+  export type PracticeAgent$callsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Call
+     */
+    select?: CallSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Call
+     */
+    omit?: CallOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallInclude<ExtArgs> | null
+    where?: CallWhereInput
+    orderBy?: CallOrderByWithRelationInput | CallOrderByWithRelationInput[]
+    cursor?: CallWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CallScalarFieldEnum | CallScalarFieldEnum[]
+  }
+
+  /**
+   * PracticeAgent without action
+   */
+  export type PracticeAgentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PracticeAgent
+     */
+    select?: PracticeAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PracticeAgent
+     */
+    omit?: PracticeAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PracticeAgentInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Call
+   */
+
+  export type AggregateCall = {
+    _count: CallCountAggregateOutputType | null
+    _avg: CallAvgAggregateOutputType | null
+    _sum: CallSumAggregateOutputType | null
+    _min: CallMinAggregateOutputType | null
+    _max: CallMaxAggregateOutputType | null
+  }
+
+  export type CallAvgAggregateOutputType = {
+    duration_seconds: number | null
+    recording_size: number | null
+  }
+
+  export type CallSumAggregateOutputType = {
+    duration_seconds: number | null
+    recording_size: number | null
+  }
+
+  export type CallMinAggregateOutputType = {
+    id: string | null
+    user_id: string | null
+    kind: $Enums.CallKind | null
+    call_type: $Enums.CallType | null
+    status: $Enums.CallStatus | null
+    assistant_agent_id: string | null
+    practice_agent_id: string | null
+    copilot_enabled: boolean | null
+    title: string | null
+    prospect_name: string | null
+    prospect_company: string | null
+    prospect_role: string | null
+    context_notes: string | null
+    goal: string | null
+    prior_call_id: string | null
+    language: string | null
+    started_at: Date | null
+    ended_at: Date | null
+    duration_seconds: number | null
+    ended_reason: $Enums.CallEndReason | null
+    outcome: $Enums.CallOutcome | null
+    custom_outcome: string | null
+    objective_achieved: boolean | null
+    keep_recording: boolean | null
+    recording_path: string | null
+    recording_mime: string | null
+    recording_size: number | null
+    user_notes: string | null
+    analysis_error: string | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type CallMaxAggregateOutputType = {
+    id: string | null
+    user_id: string | null
+    kind: $Enums.CallKind | null
+    call_type: $Enums.CallType | null
+    status: $Enums.CallStatus | null
+    assistant_agent_id: string | null
+    practice_agent_id: string | null
+    copilot_enabled: boolean | null
+    title: string | null
+    prospect_name: string | null
+    prospect_company: string | null
+    prospect_role: string | null
+    context_notes: string | null
+    goal: string | null
+    prior_call_id: string | null
+    language: string | null
+    started_at: Date | null
+    ended_at: Date | null
+    duration_seconds: number | null
+    ended_reason: $Enums.CallEndReason | null
+    outcome: $Enums.CallOutcome | null
+    custom_outcome: string | null
+    objective_achieved: boolean | null
+    keep_recording: boolean | null
+    recording_path: string | null
+    recording_mime: string | null
+    recording_size: number | null
+    user_notes: string | null
+    analysis_error: string | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type CallCountAggregateOutputType = {
+    id: number
+    user_id: number
+    kind: number
+    call_type: number
+    status: number
+    assistant_agent_id: number
+    practice_agent_id: number
+    copilot_enabled: number
+    title: number
+    prospect_name: number
+    prospect_company: number
+    prospect_role: number
+    context_notes: number
+    goal: number
+    prior_call_id: number
+    language: number
+    started_at: number
+    ended_at: number
+    duration_seconds: number
+    ended_reason: number
+    outcome: number
+    custom_outcome: number
+    objective_achieved: number
+    keep_recording: number
+    recording_path: number
+    recording_mime: number
+    recording_size: number
+    user_notes: number
+    script_progress: number
+    analysis_error: number
+    agent_snapshot: number
+    practice_snapshot: number
+    created_at: number
+    updated_at: number
+    _all: number
+  }
+
+
+  export type CallAvgAggregateInputType = {
+    duration_seconds?: true
+    recording_size?: true
+  }
+
+  export type CallSumAggregateInputType = {
+    duration_seconds?: true
+    recording_size?: true
+  }
+
+  export type CallMinAggregateInputType = {
+    id?: true
+    user_id?: true
+    kind?: true
+    call_type?: true
+    status?: true
+    assistant_agent_id?: true
+    practice_agent_id?: true
+    copilot_enabled?: true
+    title?: true
+    prospect_name?: true
+    prospect_company?: true
+    prospect_role?: true
+    context_notes?: true
+    goal?: true
+    prior_call_id?: true
+    language?: true
+    started_at?: true
+    ended_at?: true
+    duration_seconds?: true
+    ended_reason?: true
+    outcome?: true
+    custom_outcome?: true
+    objective_achieved?: true
+    keep_recording?: true
+    recording_path?: true
+    recording_mime?: true
+    recording_size?: true
+    user_notes?: true
+    analysis_error?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type CallMaxAggregateInputType = {
+    id?: true
+    user_id?: true
+    kind?: true
+    call_type?: true
+    status?: true
+    assistant_agent_id?: true
+    practice_agent_id?: true
+    copilot_enabled?: true
+    title?: true
+    prospect_name?: true
+    prospect_company?: true
+    prospect_role?: true
+    context_notes?: true
+    goal?: true
+    prior_call_id?: true
+    language?: true
+    started_at?: true
+    ended_at?: true
+    duration_seconds?: true
+    ended_reason?: true
+    outcome?: true
+    custom_outcome?: true
+    objective_achieved?: true
+    keep_recording?: true
+    recording_path?: true
+    recording_mime?: true
+    recording_size?: true
+    user_notes?: true
+    analysis_error?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type CallCountAggregateInputType = {
+    id?: true
+    user_id?: true
+    kind?: true
+    call_type?: true
+    status?: true
+    assistant_agent_id?: true
+    practice_agent_id?: true
+    copilot_enabled?: true
+    title?: true
+    prospect_name?: true
+    prospect_company?: true
+    prospect_role?: true
+    context_notes?: true
+    goal?: true
+    prior_call_id?: true
+    language?: true
+    started_at?: true
+    ended_at?: true
+    duration_seconds?: true
+    ended_reason?: true
+    outcome?: true
+    custom_outcome?: true
+    objective_achieved?: true
+    keep_recording?: true
+    recording_path?: true
+    recording_mime?: true
+    recording_size?: true
+    user_notes?: true
+    script_progress?: true
+    analysis_error?: true
+    agent_snapshot?: true
+    practice_snapshot?: true
+    created_at?: true
+    updated_at?: true
+    _all?: true
+  }
+
+  export type CallAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Call to aggregate.
+     */
+    where?: CallWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Calls to fetch.
+     */
+    orderBy?: CallOrderByWithRelationInput | CallOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CallWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Calls from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Calls.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Calls
+    **/
+    _count?: true | CallCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CallAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CallSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CallMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CallMaxAggregateInputType
+  }
+
+  export type GetCallAggregateType<T extends CallAggregateArgs> = {
+        [P in keyof T & keyof AggregateCall]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCall[P]>
+      : GetScalarType<T[P], AggregateCall[P]>
+  }
+
+
+
+
+  export type CallGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CallWhereInput
+    orderBy?: CallOrderByWithAggregationInput | CallOrderByWithAggregationInput[]
+    by: CallScalarFieldEnum[] | CallScalarFieldEnum
+    having?: CallScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CallCountAggregateInputType | true
+    _avg?: CallAvgAggregateInputType
+    _sum?: CallSumAggregateInputType
+    _min?: CallMinAggregateInputType
+    _max?: CallMaxAggregateInputType
+  }
+
+  export type CallGroupByOutputType = {
+    id: string
+    user_id: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status: $Enums.CallStatus
+    assistant_agent_id: string | null
+    practice_agent_id: string | null
+    copilot_enabled: boolean
+    title: string | null
+    prospect_name: string | null
+    prospect_company: string | null
+    prospect_role: string | null
+    context_notes: string | null
+    goal: string | null
+    prior_call_id: string | null
+    language: string
+    started_at: Date
+    ended_at: Date | null
+    duration_seconds: number
+    ended_reason: $Enums.CallEndReason | null
+    outcome: $Enums.CallOutcome | null
+    custom_outcome: string | null
+    objective_achieved: boolean | null
+    keep_recording: boolean
+    recording_path: string | null
+    recording_mime: string | null
+    recording_size: number | null
+    user_notes: string | null
+    script_progress: JsonValue
+    analysis_error: string | null
+    agent_snapshot: JsonValue | null
+    practice_snapshot: JsonValue | null
+    created_at: Date
+    updated_at: Date
+    _count: CallCountAggregateOutputType | null
+    _avg: CallAvgAggregateOutputType | null
+    _sum: CallSumAggregateOutputType | null
+    _min: CallMinAggregateOutputType | null
+    _max: CallMaxAggregateOutputType | null
+  }
+
+  type GetCallGroupByPayload<T extends CallGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CallGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CallGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CallGroupByOutputType[P]>
+            : GetScalarType<T[P], CallGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CallSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    kind?: boolean
+    call_type?: boolean
+    status?: boolean
+    assistant_agent_id?: boolean
+    practice_agent_id?: boolean
+    copilot_enabled?: boolean
+    title?: boolean
+    prospect_name?: boolean
+    prospect_company?: boolean
+    prospect_role?: boolean
+    context_notes?: boolean
+    goal?: boolean
+    prior_call_id?: boolean
+    language?: boolean
+    started_at?: boolean
+    ended_at?: boolean
+    duration_seconds?: boolean
+    ended_reason?: boolean
+    outcome?: boolean
+    custom_outcome?: boolean
+    objective_achieved?: boolean
+    keep_recording?: boolean
+    recording_path?: boolean
+    recording_mime?: boolean
+    recording_size?: boolean
+    user_notes?: boolean
+    script_progress?: boolean
+    analysis_error?: boolean
+    agent_snapshot?: boolean
+    practice_snapshot?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    assistant_agent?: boolean | Call$assistant_agentArgs<ExtArgs>
+    practice_agent?: boolean | Call$practice_agentArgs<ExtArgs>
+    segments?: boolean | Call$segmentsArgs<ExtArgs>
+    suggestions?: boolean | Call$suggestionsArgs<ExtArgs>
+    bookmarks?: boolean | Call$bookmarksArgs<ExtArgs>
+    analysis?: boolean | Call$analysisArgs<ExtArgs>
+    _count?: boolean | CallCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["call"]>
+
+  export type CallSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    kind?: boolean
+    call_type?: boolean
+    status?: boolean
+    assistant_agent_id?: boolean
+    practice_agent_id?: boolean
+    copilot_enabled?: boolean
+    title?: boolean
+    prospect_name?: boolean
+    prospect_company?: boolean
+    prospect_role?: boolean
+    context_notes?: boolean
+    goal?: boolean
+    prior_call_id?: boolean
+    language?: boolean
+    started_at?: boolean
+    ended_at?: boolean
+    duration_seconds?: boolean
+    ended_reason?: boolean
+    outcome?: boolean
+    custom_outcome?: boolean
+    objective_achieved?: boolean
+    keep_recording?: boolean
+    recording_path?: boolean
+    recording_mime?: boolean
+    recording_size?: boolean
+    user_notes?: boolean
+    script_progress?: boolean
+    analysis_error?: boolean
+    agent_snapshot?: boolean
+    practice_snapshot?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    assistant_agent?: boolean | Call$assistant_agentArgs<ExtArgs>
+    practice_agent?: boolean | Call$practice_agentArgs<ExtArgs>
+  }, ExtArgs["result"]["call"]>
+
+  export type CallSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    kind?: boolean
+    call_type?: boolean
+    status?: boolean
+    assistant_agent_id?: boolean
+    practice_agent_id?: boolean
+    copilot_enabled?: boolean
+    title?: boolean
+    prospect_name?: boolean
+    prospect_company?: boolean
+    prospect_role?: boolean
+    context_notes?: boolean
+    goal?: boolean
+    prior_call_id?: boolean
+    language?: boolean
+    started_at?: boolean
+    ended_at?: boolean
+    duration_seconds?: boolean
+    ended_reason?: boolean
+    outcome?: boolean
+    custom_outcome?: boolean
+    objective_achieved?: boolean
+    keep_recording?: boolean
+    recording_path?: boolean
+    recording_mime?: boolean
+    recording_size?: boolean
+    user_notes?: boolean
+    script_progress?: boolean
+    analysis_error?: boolean
+    agent_snapshot?: boolean
+    practice_snapshot?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    assistant_agent?: boolean | Call$assistant_agentArgs<ExtArgs>
+    practice_agent?: boolean | Call$practice_agentArgs<ExtArgs>
+  }, ExtArgs["result"]["call"]>
+
+  export type CallSelectScalar = {
+    id?: boolean
+    user_id?: boolean
+    kind?: boolean
+    call_type?: boolean
+    status?: boolean
+    assistant_agent_id?: boolean
+    practice_agent_id?: boolean
+    copilot_enabled?: boolean
+    title?: boolean
+    prospect_name?: boolean
+    prospect_company?: boolean
+    prospect_role?: boolean
+    context_notes?: boolean
+    goal?: boolean
+    prior_call_id?: boolean
+    language?: boolean
+    started_at?: boolean
+    ended_at?: boolean
+    duration_seconds?: boolean
+    ended_reason?: boolean
+    outcome?: boolean
+    custom_outcome?: boolean
+    objective_achieved?: boolean
+    keep_recording?: boolean
+    recording_path?: boolean
+    recording_mime?: boolean
+    recording_size?: boolean
+    user_notes?: boolean
+    script_progress?: boolean
+    analysis_error?: boolean
+    agent_snapshot?: boolean
+    practice_snapshot?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+  }
+
+  export type CallOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "kind" | "call_type" | "status" | "assistant_agent_id" | "practice_agent_id" | "copilot_enabled" | "title" | "prospect_name" | "prospect_company" | "prospect_role" | "context_notes" | "goal" | "prior_call_id" | "language" | "started_at" | "ended_at" | "duration_seconds" | "ended_reason" | "outcome" | "custom_outcome" | "objective_achieved" | "keep_recording" | "recording_path" | "recording_mime" | "recording_size" | "user_notes" | "script_progress" | "analysis_error" | "agent_snapshot" | "practice_snapshot" | "created_at" | "updated_at", ExtArgs["result"]["call"]>
+  export type CallInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    assistant_agent?: boolean | Call$assistant_agentArgs<ExtArgs>
+    practice_agent?: boolean | Call$practice_agentArgs<ExtArgs>
+    segments?: boolean | Call$segmentsArgs<ExtArgs>
+    suggestions?: boolean | Call$suggestionsArgs<ExtArgs>
+    bookmarks?: boolean | Call$bookmarksArgs<ExtArgs>
+    analysis?: boolean | Call$analysisArgs<ExtArgs>
+    _count?: boolean | CallCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type CallIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    assistant_agent?: boolean | Call$assistant_agentArgs<ExtArgs>
+    practice_agent?: boolean | Call$practice_agentArgs<ExtArgs>
+  }
+  export type CallIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    assistant_agent?: boolean | Call$assistant_agentArgs<ExtArgs>
+    practice_agent?: boolean | Call$practice_agentArgs<ExtArgs>
+  }
+
+  export type $CallPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Call"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      assistant_agent: Prisma.$AssistantAgentPayload<ExtArgs> | null
+      practice_agent: Prisma.$PracticeAgentPayload<ExtArgs> | null
+      segments: Prisma.$TranscriptSegmentPayload<ExtArgs>[]
+      suggestions: Prisma.$SuggestionPayload<ExtArgs>[]
+      bookmarks: Prisma.$BookmarkPayload<ExtArgs>[]
+      analysis: Prisma.$CallAnalysisPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      user_id: string
+      kind: $Enums.CallKind
+      call_type: $Enums.CallType
+      status: $Enums.CallStatus
+      assistant_agent_id: string | null
+      practice_agent_id: string | null
+      copilot_enabled: boolean
+      title: string | null
+      prospect_name: string | null
+      prospect_company: string | null
+      prospect_role: string | null
+      context_notes: string | null
+      goal: string | null
+      prior_call_id: string | null
+      language: string
+      started_at: Date
+      ended_at: Date | null
+      duration_seconds: number
+      ended_reason: $Enums.CallEndReason | null
+      outcome: $Enums.CallOutcome | null
+      custom_outcome: string | null
+      objective_achieved: boolean | null
+      keep_recording: boolean
+      recording_path: string | null
+      recording_mime: string | null
+      recording_size: number | null
+      user_notes: string | null
+      script_progress: Prisma.JsonValue
+      analysis_error: string | null
+      agent_snapshot: Prisma.JsonValue | null
+      practice_snapshot: Prisma.JsonValue | null
+      created_at: Date
+      updated_at: Date
+    }, ExtArgs["result"]["call"]>
+    composites: {}
+  }
+
+  type CallGetPayload<S extends boolean | null | undefined | CallDefaultArgs> = $Result.GetResult<Prisma.$CallPayload, S>
+
+  type CallCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CallFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CallCountAggregateInputType | true
+    }
+
+  export interface CallDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Call'], meta: { name: 'Call' } }
+    /**
+     * Find zero or one Call that matches the filter.
+     * @param {CallFindUniqueArgs} args - Arguments to find a Call
+     * @example
+     * // Get one Call
+     * const call = await prisma.call.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CallFindUniqueArgs>(args: SelectSubset<T, CallFindUniqueArgs<ExtArgs>>): Prisma__CallClient<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Call that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CallFindUniqueOrThrowArgs} args - Arguments to find a Call
+     * @example
+     * // Get one Call
+     * const call = await prisma.call.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CallFindUniqueOrThrowArgs>(args: SelectSubset<T, CallFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CallClient<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Call that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CallFindFirstArgs} args - Arguments to find a Call
+     * @example
+     * // Get one Call
+     * const call = await prisma.call.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CallFindFirstArgs>(args?: SelectSubset<T, CallFindFirstArgs<ExtArgs>>): Prisma__CallClient<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Call that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CallFindFirstOrThrowArgs} args - Arguments to find a Call
+     * @example
+     * // Get one Call
+     * const call = await prisma.call.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CallFindFirstOrThrowArgs>(args?: SelectSubset<T, CallFindFirstOrThrowArgs<ExtArgs>>): Prisma__CallClient<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Calls that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CallFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Calls
+     * const calls = await prisma.call.findMany()
+     * 
+     * // Get first 10 Calls
+     * const calls = await prisma.call.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const callWithIdOnly = await prisma.call.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CallFindManyArgs>(args?: SelectSubset<T, CallFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Call.
+     * @param {CallCreateArgs} args - Arguments to create a Call.
+     * @example
+     * // Create one Call
+     * const Call = await prisma.call.create({
+     *   data: {
+     *     // ... data to create a Call
+     *   }
+     * })
+     * 
+     */
+    create<T extends CallCreateArgs>(args: SelectSubset<T, CallCreateArgs<ExtArgs>>): Prisma__CallClient<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Calls.
+     * @param {CallCreateManyArgs} args - Arguments to create many Calls.
+     * @example
+     * // Create many Calls
+     * const call = await prisma.call.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CallCreateManyArgs>(args?: SelectSubset<T, CallCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Calls and returns the data saved in the database.
+     * @param {CallCreateManyAndReturnArgs} args - Arguments to create many Calls.
+     * @example
+     * // Create many Calls
+     * const call = await prisma.call.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Calls and only return the `id`
+     * const callWithIdOnly = await prisma.call.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CallCreateManyAndReturnArgs>(args?: SelectSubset<T, CallCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Call.
+     * @param {CallDeleteArgs} args - Arguments to delete one Call.
+     * @example
+     * // Delete one Call
+     * const Call = await prisma.call.delete({
+     *   where: {
+     *     // ... filter to delete one Call
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CallDeleteArgs>(args: SelectSubset<T, CallDeleteArgs<ExtArgs>>): Prisma__CallClient<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Call.
+     * @param {CallUpdateArgs} args - Arguments to update one Call.
+     * @example
+     * // Update one Call
+     * const call = await prisma.call.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CallUpdateArgs>(args: SelectSubset<T, CallUpdateArgs<ExtArgs>>): Prisma__CallClient<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Calls.
+     * @param {CallDeleteManyArgs} args - Arguments to filter Calls to delete.
+     * @example
+     * // Delete a few Calls
+     * const { count } = await prisma.call.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CallDeleteManyArgs>(args?: SelectSubset<T, CallDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Calls.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CallUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Calls
+     * const call = await prisma.call.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CallUpdateManyArgs>(args: SelectSubset<T, CallUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Calls and returns the data updated in the database.
+     * @param {CallUpdateManyAndReturnArgs} args - Arguments to update many Calls.
+     * @example
+     * // Update many Calls
+     * const call = await prisma.call.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Calls and only return the `id`
+     * const callWithIdOnly = await prisma.call.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CallUpdateManyAndReturnArgs>(args: SelectSubset<T, CallUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Call.
+     * @param {CallUpsertArgs} args - Arguments to update or create a Call.
+     * @example
+     * // Update or create a Call
+     * const call = await prisma.call.upsert({
+     *   create: {
+     *     // ... data to create a Call
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Call we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CallUpsertArgs>(args: SelectSubset<T, CallUpsertArgs<ExtArgs>>): Prisma__CallClient<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Calls.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CallCountArgs} args - Arguments to filter Calls to count.
+     * @example
+     * // Count the number of Calls
+     * const count = await prisma.call.count({
+     *   where: {
+     *     // ... the filter for the Calls we want to count
+     *   }
+     * })
+    **/
+    count<T extends CallCountArgs>(
+      args?: Subset<T, CallCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CallCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Call.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CallAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CallAggregateArgs>(args: Subset<T, CallAggregateArgs>): Prisma.PrismaPromise<GetCallAggregateType<T>>
+
+    /**
+     * Group by Call.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CallGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CallGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CallGroupByArgs['orderBy'] }
+        : { orderBy?: CallGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CallGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCallGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Call model
+   */
+  readonly fields: CallFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Call.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CallClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    assistant_agent<T extends Call$assistant_agentArgs<ExtArgs> = {}>(args?: Subset<T, Call$assistant_agentArgs<ExtArgs>>): Prisma__AssistantAgentClient<$Result.GetResult<Prisma.$AssistantAgentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    practice_agent<T extends Call$practice_agentArgs<ExtArgs> = {}>(args?: Subset<T, Call$practice_agentArgs<ExtArgs>>): Prisma__PracticeAgentClient<$Result.GetResult<Prisma.$PracticeAgentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    segments<T extends Call$segmentsArgs<ExtArgs> = {}>(args?: Subset<T, Call$segmentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TranscriptSegmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    suggestions<T extends Call$suggestionsArgs<ExtArgs> = {}>(args?: Subset<T, Call$suggestionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SuggestionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    bookmarks<T extends Call$bookmarksArgs<ExtArgs> = {}>(args?: Subset<T, Call$bookmarksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookmarkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    analysis<T extends Call$analysisArgs<ExtArgs> = {}>(args?: Subset<T, Call$analysisArgs<ExtArgs>>): Prisma__CallAnalysisClient<$Result.GetResult<Prisma.$CallAnalysisPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Call model
+   */
+  interface CallFieldRefs {
+    readonly id: FieldRef<"Call", 'String'>
+    readonly user_id: FieldRef<"Call", 'String'>
+    readonly kind: FieldRef<"Call", 'CallKind'>
+    readonly call_type: FieldRef<"Call", 'CallType'>
+    readonly status: FieldRef<"Call", 'CallStatus'>
+    readonly assistant_agent_id: FieldRef<"Call", 'String'>
+    readonly practice_agent_id: FieldRef<"Call", 'String'>
+    readonly copilot_enabled: FieldRef<"Call", 'Boolean'>
+    readonly title: FieldRef<"Call", 'String'>
+    readonly prospect_name: FieldRef<"Call", 'String'>
+    readonly prospect_company: FieldRef<"Call", 'String'>
+    readonly prospect_role: FieldRef<"Call", 'String'>
+    readonly context_notes: FieldRef<"Call", 'String'>
+    readonly goal: FieldRef<"Call", 'String'>
+    readonly prior_call_id: FieldRef<"Call", 'String'>
+    readonly language: FieldRef<"Call", 'String'>
+    readonly started_at: FieldRef<"Call", 'DateTime'>
+    readonly ended_at: FieldRef<"Call", 'DateTime'>
+    readonly duration_seconds: FieldRef<"Call", 'Int'>
+    readonly ended_reason: FieldRef<"Call", 'CallEndReason'>
+    readonly outcome: FieldRef<"Call", 'CallOutcome'>
+    readonly custom_outcome: FieldRef<"Call", 'String'>
+    readonly objective_achieved: FieldRef<"Call", 'Boolean'>
+    readonly keep_recording: FieldRef<"Call", 'Boolean'>
+    readonly recording_path: FieldRef<"Call", 'String'>
+    readonly recording_mime: FieldRef<"Call", 'String'>
+    readonly recording_size: FieldRef<"Call", 'Int'>
+    readonly user_notes: FieldRef<"Call", 'String'>
+    readonly script_progress: FieldRef<"Call", 'Json'>
+    readonly analysis_error: FieldRef<"Call", 'String'>
+    readonly agent_snapshot: FieldRef<"Call", 'Json'>
+    readonly practice_snapshot: FieldRef<"Call", 'Json'>
+    readonly created_at: FieldRef<"Call", 'DateTime'>
+    readonly updated_at: FieldRef<"Call", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Call findUnique
+   */
+  export type CallFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Call
+     */
+    select?: CallSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Call
+     */
+    omit?: CallOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallInclude<ExtArgs> | null
+    /**
+     * Filter, which Call to fetch.
+     */
+    where: CallWhereUniqueInput
+  }
+
+  /**
+   * Call findUniqueOrThrow
+   */
+  export type CallFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Call
+     */
+    select?: CallSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Call
+     */
+    omit?: CallOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallInclude<ExtArgs> | null
+    /**
+     * Filter, which Call to fetch.
+     */
+    where: CallWhereUniqueInput
+  }
+
+  /**
+   * Call findFirst
+   */
+  export type CallFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Call
+     */
+    select?: CallSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Call
+     */
+    omit?: CallOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallInclude<ExtArgs> | null
+    /**
+     * Filter, which Call to fetch.
+     */
+    where?: CallWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Calls to fetch.
+     */
+    orderBy?: CallOrderByWithRelationInput | CallOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Calls.
+     */
+    cursor?: CallWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Calls from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Calls.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Calls.
+     */
+    distinct?: CallScalarFieldEnum | CallScalarFieldEnum[]
+  }
+
+  /**
+   * Call findFirstOrThrow
+   */
+  export type CallFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Call
+     */
+    select?: CallSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Call
+     */
+    omit?: CallOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallInclude<ExtArgs> | null
+    /**
+     * Filter, which Call to fetch.
+     */
+    where?: CallWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Calls to fetch.
+     */
+    orderBy?: CallOrderByWithRelationInput | CallOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Calls.
+     */
+    cursor?: CallWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Calls from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Calls.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Calls.
+     */
+    distinct?: CallScalarFieldEnum | CallScalarFieldEnum[]
+  }
+
+  /**
+   * Call findMany
+   */
+  export type CallFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Call
+     */
+    select?: CallSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Call
+     */
+    omit?: CallOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallInclude<ExtArgs> | null
+    /**
+     * Filter, which Calls to fetch.
+     */
+    where?: CallWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Calls to fetch.
+     */
+    orderBy?: CallOrderByWithRelationInput | CallOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Calls.
+     */
+    cursor?: CallWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Calls from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Calls.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Calls.
+     */
+    distinct?: CallScalarFieldEnum | CallScalarFieldEnum[]
+  }
+
+  /**
+   * Call create
+   */
+  export type CallCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Call
+     */
+    select?: CallSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Call
+     */
+    omit?: CallOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Call.
+     */
+    data: XOR<CallCreateInput, CallUncheckedCreateInput>
+  }
+
+  /**
+   * Call createMany
+   */
+  export type CallCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Calls.
+     */
+    data: CallCreateManyInput | CallCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Call createManyAndReturn
+   */
+  export type CallCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Call
+     */
+    select?: CallSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Call
+     */
+    omit?: CallOmit<ExtArgs> | null
+    /**
+     * The data used to create many Calls.
+     */
+    data: CallCreateManyInput | CallCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Call update
+   */
+  export type CallUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Call
+     */
+    select?: CallSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Call
+     */
+    omit?: CallOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Call.
+     */
+    data: XOR<CallUpdateInput, CallUncheckedUpdateInput>
+    /**
+     * Choose, which Call to update.
+     */
+    where: CallWhereUniqueInput
+  }
+
+  /**
+   * Call updateMany
+   */
+  export type CallUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Calls.
+     */
+    data: XOR<CallUpdateManyMutationInput, CallUncheckedUpdateManyInput>
+    /**
+     * Filter which Calls to update
+     */
+    where?: CallWhereInput
+    /**
+     * Limit how many Calls to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Call updateManyAndReturn
+   */
+  export type CallUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Call
+     */
+    select?: CallSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Call
+     */
+    omit?: CallOmit<ExtArgs> | null
+    /**
+     * The data used to update Calls.
+     */
+    data: XOR<CallUpdateManyMutationInput, CallUncheckedUpdateManyInput>
+    /**
+     * Filter which Calls to update
+     */
+    where?: CallWhereInput
+    /**
+     * Limit how many Calls to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Call upsert
+   */
+  export type CallUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Call
+     */
+    select?: CallSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Call
+     */
+    omit?: CallOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Call to update in case it exists.
+     */
+    where: CallWhereUniqueInput
+    /**
+     * In case the Call found by the `where` argument doesn't exist, create a new Call with this data.
+     */
+    create: XOR<CallCreateInput, CallUncheckedCreateInput>
+    /**
+     * In case the Call was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CallUpdateInput, CallUncheckedUpdateInput>
+  }
+
+  /**
+   * Call delete
+   */
+  export type CallDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Call
+     */
+    select?: CallSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Call
+     */
+    omit?: CallOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallInclude<ExtArgs> | null
+    /**
+     * Filter which Call to delete.
+     */
+    where: CallWhereUniqueInput
+  }
+
+  /**
+   * Call deleteMany
+   */
+  export type CallDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Calls to delete
+     */
+    where?: CallWhereInput
+    /**
+     * Limit how many Calls to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Call.assistant_agent
+   */
+  export type Call$assistant_agentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AssistantAgent
+     */
+    select?: AssistantAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AssistantAgent
+     */
+    omit?: AssistantAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AssistantAgentInclude<ExtArgs> | null
+    where?: AssistantAgentWhereInput
+  }
+
+  /**
+   * Call.practice_agent
+   */
+  export type Call$practice_agentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PracticeAgent
+     */
+    select?: PracticeAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PracticeAgent
+     */
+    omit?: PracticeAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PracticeAgentInclude<ExtArgs> | null
+    where?: PracticeAgentWhereInput
+  }
+
+  /**
+   * Call.segments
+   */
+  export type Call$segmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TranscriptSegment
+     */
+    select?: TranscriptSegmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TranscriptSegment
+     */
+    omit?: TranscriptSegmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TranscriptSegmentInclude<ExtArgs> | null
+    where?: TranscriptSegmentWhereInput
+    orderBy?: TranscriptSegmentOrderByWithRelationInput | TranscriptSegmentOrderByWithRelationInput[]
+    cursor?: TranscriptSegmentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TranscriptSegmentScalarFieldEnum | TranscriptSegmentScalarFieldEnum[]
+  }
+
+  /**
+   * Call.suggestions
+   */
+  export type Call$suggestionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Suggestion
+     */
+    select?: SuggestionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Suggestion
+     */
+    omit?: SuggestionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SuggestionInclude<ExtArgs> | null
+    where?: SuggestionWhereInput
+    orderBy?: SuggestionOrderByWithRelationInput | SuggestionOrderByWithRelationInput[]
+    cursor?: SuggestionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SuggestionScalarFieldEnum | SuggestionScalarFieldEnum[]
+  }
+
+  /**
+   * Call.bookmarks
+   */
+  export type Call$bookmarksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bookmark
+     */
+    select?: BookmarkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bookmark
+     */
+    omit?: BookmarkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookmarkInclude<ExtArgs> | null
+    where?: BookmarkWhereInput
+    orderBy?: BookmarkOrderByWithRelationInput | BookmarkOrderByWithRelationInput[]
+    cursor?: BookmarkWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BookmarkScalarFieldEnum | BookmarkScalarFieldEnum[]
+  }
+
+  /**
+   * Call.analysis
+   */
+  export type Call$analysisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CallAnalysis
+     */
+    select?: CallAnalysisSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CallAnalysis
+     */
+    omit?: CallAnalysisOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallAnalysisInclude<ExtArgs> | null
+    where?: CallAnalysisWhereInput
+  }
+
+  /**
+   * Call without action
+   */
+  export type CallDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Call
+     */
+    select?: CallSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Call
+     */
+    omit?: CallOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model TranscriptSegment
+   */
+
+  export type AggregateTranscriptSegment = {
+    _count: TranscriptSegmentCountAggregateOutputType | null
+    _avg: TranscriptSegmentAvgAggregateOutputType | null
+    _sum: TranscriptSegmentSumAggregateOutputType | null
+    _min: TranscriptSegmentMinAggregateOutputType | null
+    _max: TranscriptSegmentMaxAggregateOutputType | null
+  }
+
+  export type TranscriptSegmentAvgAggregateOutputType = {
+    start_ms: number | null
+    end_ms: number | null
+  }
+
+  export type TranscriptSegmentSumAggregateOutputType = {
+    start_ms: number | null
+    end_ms: number | null
+  }
+
+  export type TranscriptSegmentMinAggregateOutputType = {
+    id: string | null
+    call_id: string | null
+    client_id: string | null
+    speaker: $Enums.Speaker | null
+    text: string | null
+    start_ms: number | null
+    end_ms: number | null
+    created_at: Date | null
+  }
+
+  export type TranscriptSegmentMaxAggregateOutputType = {
+    id: string | null
+    call_id: string | null
+    client_id: string | null
+    speaker: $Enums.Speaker | null
+    text: string | null
+    start_ms: number | null
+    end_ms: number | null
+    created_at: Date | null
+  }
+
+  export type TranscriptSegmentCountAggregateOutputType = {
+    id: number
+    call_id: number
+    client_id: number
+    speaker: number
+    text: number
+    start_ms: number
+    end_ms: number
+    created_at: number
+    _all: number
+  }
+
+
+  export type TranscriptSegmentAvgAggregateInputType = {
+    start_ms?: true
+    end_ms?: true
+  }
+
+  export type TranscriptSegmentSumAggregateInputType = {
+    start_ms?: true
+    end_ms?: true
+  }
+
+  export type TranscriptSegmentMinAggregateInputType = {
+    id?: true
+    call_id?: true
+    client_id?: true
+    speaker?: true
+    text?: true
+    start_ms?: true
+    end_ms?: true
+    created_at?: true
+  }
+
+  export type TranscriptSegmentMaxAggregateInputType = {
+    id?: true
+    call_id?: true
+    client_id?: true
+    speaker?: true
+    text?: true
+    start_ms?: true
+    end_ms?: true
+    created_at?: true
+  }
+
+  export type TranscriptSegmentCountAggregateInputType = {
+    id?: true
+    call_id?: true
+    client_id?: true
+    speaker?: true
+    text?: true
+    start_ms?: true
+    end_ms?: true
+    created_at?: true
+    _all?: true
+  }
+
+  export type TranscriptSegmentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TranscriptSegment to aggregate.
+     */
+    where?: TranscriptSegmentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TranscriptSegments to fetch.
+     */
+    orderBy?: TranscriptSegmentOrderByWithRelationInput | TranscriptSegmentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TranscriptSegmentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TranscriptSegments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TranscriptSegments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TranscriptSegments
+    **/
+    _count?: true | TranscriptSegmentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TranscriptSegmentAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TranscriptSegmentSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TranscriptSegmentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TranscriptSegmentMaxAggregateInputType
+  }
+
+  export type GetTranscriptSegmentAggregateType<T extends TranscriptSegmentAggregateArgs> = {
+        [P in keyof T & keyof AggregateTranscriptSegment]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTranscriptSegment[P]>
+      : GetScalarType<T[P], AggregateTranscriptSegment[P]>
+  }
+
+
+
+
+  export type TranscriptSegmentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TranscriptSegmentWhereInput
+    orderBy?: TranscriptSegmentOrderByWithAggregationInput | TranscriptSegmentOrderByWithAggregationInput[]
+    by: TranscriptSegmentScalarFieldEnum[] | TranscriptSegmentScalarFieldEnum
+    having?: TranscriptSegmentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TranscriptSegmentCountAggregateInputType | true
+    _avg?: TranscriptSegmentAvgAggregateInputType
+    _sum?: TranscriptSegmentSumAggregateInputType
+    _min?: TranscriptSegmentMinAggregateInputType
+    _max?: TranscriptSegmentMaxAggregateInputType
+  }
+
+  export type TranscriptSegmentGroupByOutputType = {
+    id: string
+    call_id: string
+    client_id: string | null
+    speaker: $Enums.Speaker
+    text: string
+    start_ms: number
+    end_ms: number
+    created_at: Date
+    _count: TranscriptSegmentCountAggregateOutputType | null
+    _avg: TranscriptSegmentAvgAggregateOutputType | null
+    _sum: TranscriptSegmentSumAggregateOutputType | null
+    _min: TranscriptSegmentMinAggregateOutputType | null
+    _max: TranscriptSegmentMaxAggregateOutputType | null
+  }
+
+  type GetTranscriptSegmentGroupByPayload<T extends TranscriptSegmentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TranscriptSegmentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TranscriptSegmentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TranscriptSegmentGroupByOutputType[P]>
+            : GetScalarType<T[P], TranscriptSegmentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TranscriptSegmentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    call_id?: boolean
+    client_id?: boolean
+    speaker?: boolean
+    text?: boolean
+    start_ms?: boolean
+    end_ms?: boolean
+    created_at?: boolean
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["transcriptSegment"]>
+
+  export type TranscriptSegmentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    call_id?: boolean
+    client_id?: boolean
+    speaker?: boolean
+    text?: boolean
+    start_ms?: boolean
+    end_ms?: boolean
+    created_at?: boolean
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["transcriptSegment"]>
+
+  export type TranscriptSegmentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    call_id?: boolean
+    client_id?: boolean
+    speaker?: boolean
+    text?: boolean
+    start_ms?: boolean
+    end_ms?: boolean
+    created_at?: boolean
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["transcriptSegment"]>
+
+  export type TranscriptSegmentSelectScalar = {
+    id?: boolean
+    call_id?: boolean
+    client_id?: boolean
+    speaker?: boolean
+    text?: boolean
+    start_ms?: boolean
+    end_ms?: boolean
+    created_at?: boolean
+  }
+
+  export type TranscriptSegmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "call_id" | "client_id" | "speaker" | "text" | "start_ms" | "end_ms" | "created_at", ExtArgs["result"]["transcriptSegment"]>
+  export type TranscriptSegmentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }
+  export type TranscriptSegmentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }
+  export type TranscriptSegmentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }
+
+  export type $TranscriptSegmentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TranscriptSegment"
+    objects: {
+      call: Prisma.$CallPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      call_id: string
+      client_id: string | null
+      speaker: $Enums.Speaker
+      text: string
+      start_ms: number
+      end_ms: number
+      created_at: Date
+    }, ExtArgs["result"]["transcriptSegment"]>
+    composites: {}
+  }
+
+  type TranscriptSegmentGetPayload<S extends boolean | null | undefined | TranscriptSegmentDefaultArgs> = $Result.GetResult<Prisma.$TranscriptSegmentPayload, S>
+
+  type TranscriptSegmentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TranscriptSegmentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TranscriptSegmentCountAggregateInputType | true
+    }
+
+  export interface TranscriptSegmentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TranscriptSegment'], meta: { name: 'TranscriptSegment' } }
+    /**
+     * Find zero or one TranscriptSegment that matches the filter.
+     * @param {TranscriptSegmentFindUniqueArgs} args - Arguments to find a TranscriptSegment
+     * @example
+     * // Get one TranscriptSegment
+     * const transcriptSegment = await prisma.transcriptSegment.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TranscriptSegmentFindUniqueArgs>(args: SelectSubset<T, TranscriptSegmentFindUniqueArgs<ExtArgs>>): Prisma__TranscriptSegmentClient<$Result.GetResult<Prisma.$TranscriptSegmentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one TranscriptSegment that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TranscriptSegmentFindUniqueOrThrowArgs} args - Arguments to find a TranscriptSegment
+     * @example
+     * // Get one TranscriptSegment
+     * const transcriptSegment = await prisma.transcriptSegment.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TranscriptSegmentFindUniqueOrThrowArgs>(args: SelectSubset<T, TranscriptSegmentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TranscriptSegmentClient<$Result.GetResult<Prisma.$TranscriptSegmentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TranscriptSegment that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TranscriptSegmentFindFirstArgs} args - Arguments to find a TranscriptSegment
+     * @example
+     * // Get one TranscriptSegment
+     * const transcriptSegment = await prisma.transcriptSegment.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TranscriptSegmentFindFirstArgs>(args?: SelectSubset<T, TranscriptSegmentFindFirstArgs<ExtArgs>>): Prisma__TranscriptSegmentClient<$Result.GetResult<Prisma.$TranscriptSegmentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first TranscriptSegment that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TranscriptSegmentFindFirstOrThrowArgs} args - Arguments to find a TranscriptSegment
+     * @example
+     * // Get one TranscriptSegment
+     * const transcriptSegment = await prisma.transcriptSegment.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TranscriptSegmentFindFirstOrThrowArgs>(args?: SelectSubset<T, TranscriptSegmentFindFirstOrThrowArgs<ExtArgs>>): Prisma__TranscriptSegmentClient<$Result.GetResult<Prisma.$TranscriptSegmentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more TranscriptSegments that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TranscriptSegmentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TranscriptSegments
+     * const transcriptSegments = await prisma.transcriptSegment.findMany()
+     * 
+     * // Get first 10 TranscriptSegments
+     * const transcriptSegments = await prisma.transcriptSegment.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const transcriptSegmentWithIdOnly = await prisma.transcriptSegment.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TranscriptSegmentFindManyArgs>(args?: SelectSubset<T, TranscriptSegmentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TranscriptSegmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a TranscriptSegment.
+     * @param {TranscriptSegmentCreateArgs} args - Arguments to create a TranscriptSegment.
+     * @example
+     * // Create one TranscriptSegment
+     * const TranscriptSegment = await prisma.transcriptSegment.create({
+     *   data: {
+     *     // ... data to create a TranscriptSegment
+     *   }
+     * })
+     * 
+     */
+    create<T extends TranscriptSegmentCreateArgs>(args: SelectSubset<T, TranscriptSegmentCreateArgs<ExtArgs>>): Prisma__TranscriptSegmentClient<$Result.GetResult<Prisma.$TranscriptSegmentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many TranscriptSegments.
+     * @param {TranscriptSegmentCreateManyArgs} args - Arguments to create many TranscriptSegments.
+     * @example
+     * // Create many TranscriptSegments
+     * const transcriptSegment = await prisma.transcriptSegment.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TranscriptSegmentCreateManyArgs>(args?: SelectSubset<T, TranscriptSegmentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many TranscriptSegments and returns the data saved in the database.
+     * @param {TranscriptSegmentCreateManyAndReturnArgs} args - Arguments to create many TranscriptSegments.
+     * @example
+     * // Create many TranscriptSegments
+     * const transcriptSegment = await prisma.transcriptSegment.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many TranscriptSegments and only return the `id`
+     * const transcriptSegmentWithIdOnly = await prisma.transcriptSegment.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TranscriptSegmentCreateManyAndReturnArgs>(args?: SelectSubset<T, TranscriptSegmentCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TranscriptSegmentPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a TranscriptSegment.
+     * @param {TranscriptSegmentDeleteArgs} args - Arguments to delete one TranscriptSegment.
+     * @example
+     * // Delete one TranscriptSegment
+     * const TranscriptSegment = await prisma.transcriptSegment.delete({
+     *   where: {
+     *     // ... filter to delete one TranscriptSegment
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TranscriptSegmentDeleteArgs>(args: SelectSubset<T, TranscriptSegmentDeleteArgs<ExtArgs>>): Prisma__TranscriptSegmentClient<$Result.GetResult<Prisma.$TranscriptSegmentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one TranscriptSegment.
+     * @param {TranscriptSegmentUpdateArgs} args - Arguments to update one TranscriptSegment.
+     * @example
+     * // Update one TranscriptSegment
+     * const transcriptSegment = await prisma.transcriptSegment.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TranscriptSegmentUpdateArgs>(args: SelectSubset<T, TranscriptSegmentUpdateArgs<ExtArgs>>): Prisma__TranscriptSegmentClient<$Result.GetResult<Prisma.$TranscriptSegmentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more TranscriptSegments.
+     * @param {TranscriptSegmentDeleteManyArgs} args - Arguments to filter TranscriptSegments to delete.
+     * @example
+     * // Delete a few TranscriptSegments
+     * const { count } = await prisma.transcriptSegment.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TranscriptSegmentDeleteManyArgs>(args?: SelectSubset<T, TranscriptSegmentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TranscriptSegments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TranscriptSegmentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TranscriptSegments
+     * const transcriptSegment = await prisma.transcriptSegment.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TranscriptSegmentUpdateManyArgs>(args: SelectSubset<T, TranscriptSegmentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TranscriptSegments and returns the data updated in the database.
+     * @param {TranscriptSegmentUpdateManyAndReturnArgs} args - Arguments to update many TranscriptSegments.
+     * @example
+     * // Update many TranscriptSegments
+     * const transcriptSegment = await prisma.transcriptSegment.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more TranscriptSegments and only return the `id`
+     * const transcriptSegmentWithIdOnly = await prisma.transcriptSegment.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends TranscriptSegmentUpdateManyAndReturnArgs>(args: SelectSubset<T, TranscriptSegmentUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TranscriptSegmentPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one TranscriptSegment.
+     * @param {TranscriptSegmentUpsertArgs} args - Arguments to update or create a TranscriptSegment.
+     * @example
+     * // Update or create a TranscriptSegment
+     * const transcriptSegment = await prisma.transcriptSegment.upsert({
+     *   create: {
+     *     // ... data to create a TranscriptSegment
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TranscriptSegment we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TranscriptSegmentUpsertArgs>(args: SelectSubset<T, TranscriptSegmentUpsertArgs<ExtArgs>>): Prisma__TranscriptSegmentClient<$Result.GetResult<Prisma.$TranscriptSegmentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of TranscriptSegments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TranscriptSegmentCountArgs} args - Arguments to filter TranscriptSegments to count.
+     * @example
+     * // Count the number of TranscriptSegments
+     * const count = await prisma.transcriptSegment.count({
+     *   where: {
+     *     // ... the filter for the TranscriptSegments we want to count
+     *   }
+     * })
+    **/
+    count<T extends TranscriptSegmentCountArgs>(
+      args?: Subset<T, TranscriptSegmentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TranscriptSegmentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TranscriptSegment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TranscriptSegmentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TranscriptSegmentAggregateArgs>(args: Subset<T, TranscriptSegmentAggregateArgs>): Prisma.PrismaPromise<GetTranscriptSegmentAggregateType<T>>
+
+    /**
+     * Group by TranscriptSegment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TranscriptSegmentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TranscriptSegmentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TranscriptSegmentGroupByArgs['orderBy'] }
+        : { orderBy?: TranscriptSegmentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TranscriptSegmentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTranscriptSegmentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TranscriptSegment model
+   */
+  readonly fields: TranscriptSegmentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TranscriptSegment.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TranscriptSegmentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    call<T extends CallDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CallDefaultArgs<ExtArgs>>): Prisma__CallClient<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the TranscriptSegment model
+   */
+  interface TranscriptSegmentFieldRefs {
+    readonly id: FieldRef<"TranscriptSegment", 'String'>
+    readonly call_id: FieldRef<"TranscriptSegment", 'String'>
+    readonly client_id: FieldRef<"TranscriptSegment", 'String'>
+    readonly speaker: FieldRef<"TranscriptSegment", 'Speaker'>
+    readonly text: FieldRef<"TranscriptSegment", 'String'>
+    readonly start_ms: FieldRef<"TranscriptSegment", 'Int'>
+    readonly end_ms: FieldRef<"TranscriptSegment", 'Int'>
+    readonly created_at: FieldRef<"TranscriptSegment", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * TranscriptSegment findUnique
+   */
+  export type TranscriptSegmentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TranscriptSegment
+     */
+    select?: TranscriptSegmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TranscriptSegment
+     */
+    omit?: TranscriptSegmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TranscriptSegmentInclude<ExtArgs> | null
+    /**
+     * Filter, which TranscriptSegment to fetch.
+     */
+    where: TranscriptSegmentWhereUniqueInput
+  }
+
+  /**
+   * TranscriptSegment findUniqueOrThrow
+   */
+  export type TranscriptSegmentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TranscriptSegment
+     */
+    select?: TranscriptSegmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TranscriptSegment
+     */
+    omit?: TranscriptSegmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TranscriptSegmentInclude<ExtArgs> | null
+    /**
+     * Filter, which TranscriptSegment to fetch.
+     */
+    where: TranscriptSegmentWhereUniqueInput
+  }
+
+  /**
+   * TranscriptSegment findFirst
+   */
+  export type TranscriptSegmentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TranscriptSegment
+     */
+    select?: TranscriptSegmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TranscriptSegment
+     */
+    omit?: TranscriptSegmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TranscriptSegmentInclude<ExtArgs> | null
+    /**
+     * Filter, which TranscriptSegment to fetch.
+     */
+    where?: TranscriptSegmentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TranscriptSegments to fetch.
+     */
+    orderBy?: TranscriptSegmentOrderByWithRelationInput | TranscriptSegmentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TranscriptSegments.
+     */
+    cursor?: TranscriptSegmentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TranscriptSegments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TranscriptSegments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TranscriptSegments.
+     */
+    distinct?: TranscriptSegmentScalarFieldEnum | TranscriptSegmentScalarFieldEnum[]
+  }
+
+  /**
+   * TranscriptSegment findFirstOrThrow
+   */
+  export type TranscriptSegmentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TranscriptSegment
+     */
+    select?: TranscriptSegmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TranscriptSegment
+     */
+    omit?: TranscriptSegmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TranscriptSegmentInclude<ExtArgs> | null
+    /**
+     * Filter, which TranscriptSegment to fetch.
+     */
+    where?: TranscriptSegmentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TranscriptSegments to fetch.
+     */
+    orderBy?: TranscriptSegmentOrderByWithRelationInput | TranscriptSegmentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TranscriptSegments.
+     */
+    cursor?: TranscriptSegmentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TranscriptSegments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TranscriptSegments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TranscriptSegments.
+     */
+    distinct?: TranscriptSegmentScalarFieldEnum | TranscriptSegmentScalarFieldEnum[]
+  }
+
+  /**
+   * TranscriptSegment findMany
+   */
+  export type TranscriptSegmentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TranscriptSegment
+     */
+    select?: TranscriptSegmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TranscriptSegment
+     */
+    omit?: TranscriptSegmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TranscriptSegmentInclude<ExtArgs> | null
+    /**
+     * Filter, which TranscriptSegments to fetch.
+     */
+    where?: TranscriptSegmentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TranscriptSegments to fetch.
+     */
+    orderBy?: TranscriptSegmentOrderByWithRelationInput | TranscriptSegmentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TranscriptSegments.
+     */
+    cursor?: TranscriptSegmentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TranscriptSegments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TranscriptSegments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TranscriptSegments.
+     */
+    distinct?: TranscriptSegmentScalarFieldEnum | TranscriptSegmentScalarFieldEnum[]
+  }
+
+  /**
+   * TranscriptSegment create
+   */
+  export type TranscriptSegmentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TranscriptSegment
+     */
+    select?: TranscriptSegmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TranscriptSegment
+     */
+    omit?: TranscriptSegmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TranscriptSegmentInclude<ExtArgs> | null
+    /**
+     * The data needed to create a TranscriptSegment.
+     */
+    data: XOR<TranscriptSegmentCreateInput, TranscriptSegmentUncheckedCreateInput>
+  }
+
+  /**
+   * TranscriptSegment createMany
+   */
+  export type TranscriptSegmentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TranscriptSegments.
+     */
+    data: TranscriptSegmentCreateManyInput | TranscriptSegmentCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TranscriptSegment createManyAndReturn
+   */
+  export type TranscriptSegmentCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TranscriptSegment
+     */
+    select?: TranscriptSegmentSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TranscriptSegment
+     */
+    omit?: TranscriptSegmentOmit<ExtArgs> | null
+    /**
+     * The data used to create many TranscriptSegments.
+     */
+    data: TranscriptSegmentCreateManyInput | TranscriptSegmentCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TranscriptSegmentIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * TranscriptSegment update
+   */
+  export type TranscriptSegmentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TranscriptSegment
+     */
+    select?: TranscriptSegmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TranscriptSegment
+     */
+    omit?: TranscriptSegmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TranscriptSegmentInclude<ExtArgs> | null
+    /**
+     * The data needed to update a TranscriptSegment.
+     */
+    data: XOR<TranscriptSegmentUpdateInput, TranscriptSegmentUncheckedUpdateInput>
+    /**
+     * Choose, which TranscriptSegment to update.
+     */
+    where: TranscriptSegmentWhereUniqueInput
+  }
+
+  /**
+   * TranscriptSegment updateMany
+   */
+  export type TranscriptSegmentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TranscriptSegments.
+     */
+    data: XOR<TranscriptSegmentUpdateManyMutationInput, TranscriptSegmentUncheckedUpdateManyInput>
+    /**
+     * Filter which TranscriptSegments to update
+     */
+    where?: TranscriptSegmentWhereInput
+    /**
+     * Limit how many TranscriptSegments to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * TranscriptSegment updateManyAndReturn
+   */
+  export type TranscriptSegmentUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TranscriptSegment
+     */
+    select?: TranscriptSegmentSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the TranscriptSegment
+     */
+    omit?: TranscriptSegmentOmit<ExtArgs> | null
+    /**
+     * The data used to update TranscriptSegments.
+     */
+    data: XOR<TranscriptSegmentUpdateManyMutationInput, TranscriptSegmentUncheckedUpdateManyInput>
+    /**
+     * Filter which TranscriptSegments to update
+     */
+    where?: TranscriptSegmentWhereInput
+    /**
+     * Limit how many TranscriptSegments to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TranscriptSegmentIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * TranscriptSegment upsert
+   */
+  export type TranscriptSegmentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TranscriptSegment
+     */
+    select?: TranscriptSegmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TranscriptSegment
+     */
+    omit?: TranscriptSegmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TranscriptSegmentInclude<ExtArgs> | null
+    /**
+     * The filter to search for the TranscriptSegment to update in case it exists.
+     */
+    where: TranscriptSegmentWhereUniqueInput
+    /**
+     * In case the TranscriptSegment found by the `where` argument doesn't exist, create a new TranscriptSegment with this data.
+     */
+    create: XOR<TranscriptSegmentCreateInput, TranscriptSegmentUncheckedCreateInput>
+    /**
+     * In case the TranscriptSegment was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TranscriptSegmentUpdateInput, TranscriptSegmentUncheckedUpdateInput>
+  }
+
+  /**
+   * TranscriptSegment delete
+   */
+  export type TranscriptSegmentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TranscriptSegment
+     */
+    select?: TranscriptSegmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TranscriptSegment
+     */
+    omit?: TranscriptSegmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TranscriptSegmentInclude<ExtArgs> | null
+    /**
+     * Filter which TranscriptSegment to delete.
+     */
+    where: TranscriptSegmentWhereUniqueInput
+  }
+
+  /**
+   * TranscriptSegment deleteMany
+   */
+  export type TranscriptSegmentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TranscriptSegments to delete
+     */
+    where?: TranscriptSegmentWhereInput
+    /**
+     * Limit how many TranscriptSegments to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * TranscriptSegment without action
+   */
+  export type TranscriptSegmentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TranscriptSegment
+     */
+    select?: TranscriptSegmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the TranscriptSegment
+     */
+    omit?: TranscriptSegmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TranscriptSegmentInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Suggestion
+   */
+
+  export type AggregateSuggestion = {
+    _count: SuggestionCountAggregateOutputType | null
+    _avg: SuggestionAvgAggregateOutputType | null
+    _sum: SuggestionSumAggregateOutputType | null
+    _min: SuggestionMinAggregateOutputType | null
+    _max: SuggestionMaxAggregateOutputType | null
+  }
+
+  export type SuggestionAvgAggregateOutputType = {
+    at_ms: number | null
+    latency_ms: number | null
+  }
+
+  export type SuggestionSumAggregateOutputType = {
+    at_ms: number | null
+    latency_ms: number | null
+  }
+
+  export type SuggestionMinAggregateOutputType = {
+    id: string | null
+    call_id: string | null
+    type: $Enums.SuggestionType | null
+    text: string | null
+    reason: string | null
+    at_ms: number | null
+    status: $Enums.SuggestionStatus | null
+    feedback: $Enums.SuggestionFeedback | null
+    model: string | null
+    latency_ms: number | null
+    created_at: Date | null
+  }
+
+  export type SuggestionMaxAggregateOutputType = {
+    id: string | null
+    call_id: string | null
+    type: $Enums.SuggestionType | null
+    text: string | null
+    reason: string | null
+    at_ms: number | null
+    status: $Enums.SuggestionStatus | null
+    feedback: $Enums.SuggestionFeedback | null
+    model: string | null
+    latency_ms: number | null
+    created_at: Date | null
+  }
+
+  export type SuggestionCountAggregateOutputType = {
+    id: number
+    call_id: number
+    type: number
+    text: number
+    alternatives: number
+    reason: number
+    info_card: number
+    at_ms: number
+    status: number
+    feedback: number
+    model: number
+    latency_ms: number
+    created_at: number
+    _all: number
+  }
+
+
+  export type SuggestionAvgAggregateInputType = {
+    at_ms?: true
+    latency_ms?: true
+  }
+
+  export type SuggestionSumAggregateInputType = {
+    at_ms?: true
+    latency_ms?: true
+  }
+
+  export type SuggestionMinAggregateInputType = {
+    id?: true
+    call_id?: true
+    type?: true
+    text?: true
+    reason?: true
+    at_ms?: true
+    status?: true
+    feedback?: true
+    model?: true
+    latency_ms?: true
+    created_at?: true
+  }
+
+  export type SuggestionMaxAggregateInputType = {
+    id?: true
+    call_id?: true
+    type?: true
+    text?: true
+    reason?: true
+    at_ms?: true
+    status?: true
+    feedback?: true
+    model?: true
+    latency_ms?: true
+    created_at?: true
+  }
+
+  export type SuggestionCountAggregateInputType = {
+    id?: true
+    call_id?: true
+    type?: true
+    text?: true
+    alternatives?: true
+    reason?: true
+    info_card?: true
+    at_ms?: true
+    status?: true
+    feedback?: true
+    model?: true
+    latency_ms?: true
+    created_at?: true
+    _all?: true
+  }
+
+  export type SuggestionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Suggestion to aggregate.
+     */
+    where?: SuggestionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Suggestions to fetch.
+     */
+    orderBy?: SuggestionOrderByWithRelationInput | SuggestionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SuggestionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Suggestions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Suggestions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Suggestions
+    **/
+    _count?: true | SuggestionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SuggestionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SuggestionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SuggestionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SuggestionMaxAggregateInputType
+  }
+
+  export type GetSuggestionAggregateType<T extends SuggestionAggregateArgs> = {
+        [P in keyof T & keyof AggregateSuggestion]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSuggestion[P]>
+      : GetScalarType<T[P], AggregateSuggestion[P]>
+  }
+
+
+
+
+  export type SuggestionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SuggestionWhereInput
+    orderBy?: SuggestionOrderByWithAggregationInput | SuggestionOrderByWithAggregationInput[]
+    by: SuggestionScalarFieldEnum[] | SuggestionScalarFieldEnum
+    having?: SuggestionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SuggestionCountAggregateInputType | true
+    _avg?: SuggestionAvgAggregateInputType
+    _sum?: SuggestionSumAggregateInputType
+    _min?: SuggestionMinAggregateInputType
+    _max?: SuggestionMaxAggregateInputType
+  }
+
+  export type SuggestionGroupByOutputType = {
+    id: string
+    call_id: string
+    type: $Enums.SuggestionType
+    text: string
+    alternatives: JsonValue
+    reason: string | null
+    info_card: JsonValue | null
+    at_ms: number
+    status: $Enums.SuggestionStatus
+    feedback: $Enums.SuggestionFeedback | null
+    model: string | null
+    latency_ms: number | null
+    created_at: Date
+    _count: SuggestionCountAggregateOutputType | null
+    _avg: SuggestionAvgAggregateOutputType | null
+    _sum: SuggestionSumAggregateOutputType | null
+    _min: SuggestionMinAggregateOutputType | null
+    _max: SuggestionMaxAggregateOutputType | null
+  }
+
+  type GetSuggestionGroupByPayload<T extends SuggestionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SuggestionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SuggestionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SuggestionGroupByOutputType[P]>
+            : GetScalarType<T[P], SuggestionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SuggestionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    call_id?: boolean
+    type?: boolean
+    text?: boolean
+    alternatives?: boolean
+    reason?: boolean
+    info_card?: boolean
+    at_ms?: boolean
+    status?: boolean
+    feedback?: boolean
+    model?: boolean
+    latency_ms?: boolean
+    created_at?: boolean
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["suggestion"]>
+
+  export type SuggestionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    call_id?: boolean
+    type?: boolean
+    text?: boolean
+    alternatives?: boolean
+    reason?: boolean
+    info_card?: boolean
+    at_ms?: boolean
+    status?: boolean
+    feedback?: boolean
+    model?: boolean
+    latency_ms?: boolean
+    created_at?: boolean
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["suggestion"]>
+
+  export type SuggestionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    call_id?: boolean
+    type?: boolean
+    text?: boolean
+    alternatives?: boolean
+    reason?: boolean
+    info_card?: boolean
+    at_ms?: boolean
+    status?: boolean
+    feedback?: boolean
+    model?: boolean
+    latency_ms?: boolean
+    created_at?: boolean
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["suggestion"]>
+
+  export type SuggestionSelectScalar = {
+    id?: boolean
+    call_id?: boolean
+    type?: boolean
+    text?: boolean
+    alternatives?: boolean
+    reason?: boolean
+    info_card?: boolean
+    at_ms?: boolean
+    status?: boolean
+    feedback?: boolean
+    model?: boolean
+    latency_ms?: boolean
+    created_at?: boolean
+  }
+
+  export type SuggestionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "call_id" | "type" | "text" | "alternatives" | "reason" | "info_card" | "at_ms" | "status" | "feedback" | "model" | "latency_ms" | "created_at", ExtArgs["result"]["suggestion"]>
+  export type SuggestionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }
+  export type SuggestionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }
+  export type SuggestionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }
+
+  export type $SuggestionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Suggestion"
+    objects: {
+      call: Prisma.$CallPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      call_id: string
+      type: $Enums.SuggestionType
+      text: string
+      alternatives: Prisma.JsonValue
+      reason: string | null
+      info_card: Prisma.JsonValue | null
+      at_ms: number
+      status: $Enums.SuggestionStatus
+      feedback: $Enums.SuggestionFeedback | null
+      model: string | null
+      latency_ms: number | null
+      created_at: Date
+    }, ExtArgs["result"]["suggestion"]>
+    composites: {}
+  }
+
+  type SuggestionGetPayload<S extends boolean | null | undefined | SuggestionDefaultArgs> = $Result.GetResult<Prisma.$SuggestionPayload, S>
+
+  type SuggestionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SuggestionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SuggestionCountAggregateInputType | true
+    }
+
+  export interface SuggestionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Suggestion'], meta: { name: 'Suggestion' } }
+    /**
+     * Find zero or one Suggestion that matches the filter.
+     * @param {SuggestionFindUniqueArgs} args - Arguments to find a Suggestion
+     * @example
+     * // Get one Suggestion
+     * const suggestion = await prisma.suggestion.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SuggestionFindUniqueArgs>(args: SelectSubset<T, SuggestionFindUniqueArgs<ExtArgs>>): Prisma__SuggestionClient<$Result.GetResult<Prisma.$SuggestionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Suggestion that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SuggestionFindUniqueOrThrowArgs} args - Arguments to find a Suggestion
+     * @example
+     * // Get one Suggestion
+     * const suggestion = await prisma.suggestion.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SuggestionFindUniqueOrThrowArgs>(args: SelectSubset<T, SuggestionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SuggestionClient<$Result.GetResult<Prisma.$SuggestionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Suggestion that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SuggestionFindFirstArgs} args - Arguments to find a Suggestion
+     * @example
+     * // Get one Suggestion
+     * const suggestion = await prisma.suggestion.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SuggestionFindFirstArgs>(args?: SelectSubset<T, SuggestionFindFirstArgs<ExtArgs>>): Prisma__SuggestionClient<$Result.GetResult<Prisma.$SuggestionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Suggestion that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SuggestionFindFirstOrThrowArgs} args - Arguments to find a Suggestion
+     * @example
+     * // Get one Suggestion
+     * const suggestion = await prisma.suggestion.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SuggestionFindFirstOrThrowArgs>(args?: SelectSubset<T, SuggestionFindFirstOrThrowArgs<ExtArgs>>): Prisma__SuggestionClient<$Result.GetResult<Prisma.$SuggestionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Suggestions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SuggestionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Suggestions
+     * const suggestions = await prisma.suggestion.findMany()
+     * 
+     * // Get first 10 Suggestions
+     * const suggestions = await prisma.suggestion.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const suggestionWithIdOnly = await prisma.suggestion.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SuggestionFindManyArgs>(args?: SelectSubset<T, SuggestionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SuggestionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Suggestion.
+     * @param {SuggestionCreateArgs} args - Arguments to create a Suggestion.
+     * @example
+     * // Create one Suggestion
+     * const Suggestion = await prisma.suggestion.create({
+     *   data: {
+     *     // ... data to create a Suggestion
+     *   }
+     * })
+     * 
+     */
+    create<T extends SuggestionCreateArgs>(args: SelectSubset<T, SuggestionCreateArgs<ExtArgs>>): Prisma__SuggestionClient<$Result.GetResult<Prisma.$SuggestionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Suggestions.
+     * @param {SuggestionCreateManyArgs} args - Arguments to create many Suggestions.
+     * @example
+     * // Create many Suggestions
+     * const suggestion = await prisma.suggestion.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SuggestionCreateManyArgs>(args?: SelectSubset<T, SuggestionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Suggestions and returns the data saved in the database.
+     * @param {SuggestionCreateManyAndReturnArgs} args - Arguments to create many Suggestions.
+     * @example
+     * // Create many Suggestions
+     * const suggestion = await prisma.suggestion.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Suggestions and only return the `id`
+     * const suggestionWithIdOnly = await prisma.suggestion.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SuggestionCreateManyAndReturnArgs>(args?: SelectSubset<T, SuggestionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SuggestionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Suggestion.
+     * @param {SuggestionDeleteArgs} args - Arguments to delete one Suggestion.
+     * @example
+     * // Delete one Suggestion
+     * const Suggestion = await prisma.suggestion.delete({
+     *   where: {
+     *     // ... filter to delete one Suggestion
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SuggestionDeleteArgs>(args: SelectSubset<T, SuggestionDeleteArgs<ExtArgs>>): Prisma__SuggestionClient<$Result.GetResult<Prisma.$SuggestionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Suggestion.
+     * @param {SuggestionUpdateArgs} args - Arguments to update one Suggestion.
+     * @example
+     * // Update one Suggestion
+     * const suggestion = await prisma.suggestion.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SuggestionUpdateArgs>(args: SelectSubset<T, SuggestionUpdateArgs<ExtArgs>>): Prisma__SuggestionClient<$Result.GetResult<Prisma.$SuggestionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Suggestions.
+     * @param {SuggestionDeleteManyArgs} args - Arguments to filter Suggestions to delete.
+     * @example
+     * // Delete a few Suggestions
+     * const { count } = await prisma.suggestion.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SuggestionDeleteManyArgs>(args?: SelectSubset<T, SuggestionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Suggestions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SuggestionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Suggestions
+     * const suggestion = await prisma.suggestion.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SuggestionUpdateManyArgs>(args: SelectSubset<T, SuggestionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Suggestions and returns the data updated in the database.
+     * @param {SuggestionUpdateManyAndReturnArgs} args - Arguments to update many Suggestions.
+     * @example
+     * // Update many Suggestions
+     * const suggestion = await prisma.suggestion.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Suggestions and only return the `id`
+     * const suggestionWithIdOnly = await prisma.suggestion.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SuggestionUpdateManyAndReturnArgs>(args: SelectSubset<T, SuggestionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SuggestionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Suggestion.
+     * @param {SuggestionUpsertArgs} args - Arguments to update or create a Suggestion.
+     * @example
+     * // Update or create a Suggestion
+     * const suggestion = await prisma.suggestion.upsert({
+     *   create: {
+     *     // ... data to create a Suggestion
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Suggestion we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SuggestionUpsertArgs>(args: SelectSubset<T, SuggestionUpsertArgs<ExtArgs>>): Prisma__SuggestionClient<$Result.GetResult<Prisma.$SuggestionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Suggestions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SuggestionCountArgs} args - Arguments to filter Suggestions to count.
+     * @example
+     * // Count the number of Suggestions
+     * const count = await prisma.suggestion.count({
+     *   where: {
+     *     // ... the filter for the Suggestions we want to count
+     *   }
+     * })
+    **/
+    count<T extends SuggestionCountArgs>(
+      args?: Subset<T, SuggestionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SuggestionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Suggestion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SuggestionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SuggestionAggregateArgs>(args: Subset<T, SuggestionAggregateArgs>): Prisma.PrismaPromise<GetSuggestionAggregateType<T>>
+
+    /**
+     * Group by Suggestion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SuggestionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SuggestionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SuggestionGroupByArgs['orderBy'] }
+        : { orderBy?: SuggestionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SuggestionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSuggestionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Suggestion model
+   */
+  readonly fields: SuggestionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Suggestion.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SuggestionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    call<T extends CallDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CallDefaultArgs<ExtArgs>>): Prisma__CallClient<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Suggestion model
+   */
+  interface SuggestionFieldRefs {
+    readonly id: FieldRef<"Suggestion", 'String'>
+    readonly call_id: FieldRef<"Suggestion", 'String'>
+    readonly type: FieldRef<"Suggestion", 'SuggestionType'>
+    readonly text: FieldRef<"Suggestion", 'String'>
+    readonly alternatives: FieldRef<"Suggestion", 'Json'>
+    readonly reason: FieldRef<"Suggestion", 'String'>
+    readonly info_card: FieldRef<"Suggestion", 'Json'>
+    readonly at_ms: FieldRef<"Suggestion", 'Int'>
+    readonly status: FieldRef<"Suggestion", 'SuggestionStatus'>
+    readonly feedback: FieldRef<"Suggestion", 'SuggestionFeedback'>
+    readonly model: FieldRef<"Suggestion", 'String'>
+    readonly latency_ms: FieldRef<"Suggestion", 'Int'>
+    readonly created_at: FieldRef<"Suggestion", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Suggestion findUnique
+   */
+  export type SuggestionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Suggestion
+     */
+    select?: SuggestionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Suggestion
+     */
+    omit?: SuggestionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SuggestionInclude<ExtArgs> | null
+    /**
+     * Filter, which Suggestion to fetch.
+     */
+    where: SuggestionWhereUniqueInput
+  }
+
+  /**
+   * Suggestion findUniqueOrThrow
+   */
+  export type SuggestionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Suggestion
+     */
+    select?: SuggestionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Suggestion
+     */
+    omit?: SuggestionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SuggestionInclude<ExtArgs> | null
+    /**
+     * Filter, which Suggestion to fetch.
+     */
+    where: SuggestionWhereUniqueInput
+  }
+
+  /**
+   * Suggestion findFirst
+   */
+  export type SuggestionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Suggestion
+     */
+    select?: SuggestionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Suggestion
+     */
+    omit?: SuggestionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SuggestionInclude<ExtArgs> | null
+    /**
+     * Filter, which Suggestion to fetch.
+     */
+    where?: SuggestionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Suggestions to fetch.
+     */
+    orderBy?: SuggestionOrderByWithRelationInput | SuggestionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Suggestions.
+     */
+    cursor?: SuggestionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Suggestions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Suggestions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Suggestions.
+     */
+    distinct?: SuggestionScalarFieldEnum | SuggestionScalarFieldEnum[]
+  }
+
+  /**
+   * Suggestion findFirstOrThrow
+   */
+  export type SuggestionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Suggestion
+     */
+    select?: SuggestionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Suggestion
+     */
+    omit?: SuggestionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SuggestionInclude<ExtArgs> | null
+    /**
+     * Filter, which Suggestion to fetch.
+     */
+    where?: SuggestionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Suggestions to fetch.
+     */
+    orderBy?: SuggestionOrderByWithRelationInput | SuggestionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Suggestions.
+     */
+    cursor?: SuggestionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Suggestions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Suggestions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Suggestions.
+     */
+    distinct?: SuggestionScalarFieldEnum | SuggestionScalarFieldEnum[]
+  }
+
+  /**
+   * Suggestion findMany
+   */
+  export type SuggestionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Suggestion
+     */
+    select?: SuggestionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Suggestion
+     */
+    omit?: SuggestionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SuggestionInclude<ExtArgs> | null
+    /**
+     * Filter, which Suggestions to fetch.
+     */
+    where?: SuggestionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Suggestions to fetch.
+     */
+    orderBy?: SuggestionOrderByWithRelationInput | SuggestionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Suggestions.
+     */
+    cursor?: SuggestionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Suggestions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Suggestions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Suggestions.
+     */
+    distinct?: SuggestionScalarFieldEnum | SuggestionScalarFieldEnum[]
+  }
+
+  /**
+   * Suggestion create
+   */
+  export type SuggestionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Suggestion
+     */
+    select?: SuggestionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Suggestion
+     */
+    omit?: SuggestionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SuggestionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Suggestion.
+     */
+    data: XOR<SuggestionCreateInput, SuggestionUncheckedCreateInput>
+  }
+
+  /**
+   * Suggestion createMany
+   */
+  export type SuggestionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Suggestions.
+     */
+    data: SuggestionCreateManyInput | SuggestionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Suggestion createManyAndReturn
+   */
+  export type SuggestionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Suggestion
+     */
+    select?: SuggestionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Suggestion
+     */
+    omit?: SuggestionOmit<ExtArgs> | null
+    /**
+     * The data used to create many Suggestions.
+     */
+    data: SuggestionCreateManyInput | SuggestionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SuggestionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Suggestion update
+   */
+  export type SuggestionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Suggestion
+     */
+    select?: SuggestionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Suggestion
+     */
+    omit?: SuggestionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SuggestionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Suggestion.
+     */
+    data: XOR<SuggestionUpdateInput, SuggestionUncheckedUpdateInput>
+    /**
+     * Choose, which Suggestion to update.
+     */
+    where: SuggestionWhereUniqueInput
+  }
+
+  /**
+   * Suggestion updateMany
+   */
+  export type SuggestionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Suggestions.
+     */
+    data: XOR<SuggestionUpdateManyMutationInput, SuggestionUncheckedUpdateManyInput>
+    /**
+     * Filter which Suggestions to update
+     */
+    where?: SuggestionWhereInput
+    /**
+     * Limit how many Suggestions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Suggestion updateManyAndReturn
+   */
+  export type SuggestionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Suggestion
+     */
+    select?: SuggestionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Suggestion
+     */
+    omit?: SuggestionOmit<ExtArgs> | null
+    /**
+     * The data used to update Suggestions.
+     */
+    data: XOR<SuggestionUpdateManyMutationInput, SuggestionUncheckedUpdateManyInput>
+    /**
+     * Filter which Suggestions to update
+     */
+    where?: SuggestionWhereInput
+    /**
+     * Limit how many Suggestions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SuggestionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Suggestion upsert
+   */
+  export type SuggestionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Suggestion
+     */
+    select?: SuggestionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Suggestion
+     */
+    omit?: SuggestionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SuggestionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Suggestion to update in case it exists.
+     */
+    where: SuggestionWhereUniqueInput
+    /**
+     * In case the Suggestion found by the `where` argument doesn't exist, create a new Suggestion with this data.
+     */
+    create: XOR<SuggestionCreateInput, SuggestionUncheckedCreateInput>
+    /**
+     * In case the Suggestion was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SuggestionUpdateInput, SuggestionUncheckedUpdateInput>
+  }
+
+  /**
+   * Suggestion delete
+   */
+  export type SuggestionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Suggestion
+     */
+    select?: SuggestionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Suggestion
+     */
+    omit?: SuggestionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SuggestionInclude<ExtArgs> | null
+    /**
+     * Filter which Suggestion to delete.
+     */
+    where: SuggestionWhereUniqueInput
+  }
+
+  /**
+   * Suggestion deleteMany
+   */
+  export type SuggestionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Suggestions to delete
+     */
+    where?: SuggestionWhereInput
+    /**
+     * Limit how many Suggestions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Suggestion without action
+   */
+  export type SuggestionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Suggestion
+     */
+    select?: SuggestionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Suggestion
+     */
+    omit?: SuggestionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SuggestionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Bookmark
+   */
+
+  export type AggregateBookmark = {
+    _count: BookmarkCountAggregateOutputType | null
+    _avg: BookmarkAvgAggregateOutputType | null
+    _sum: BookmarkSumAggregateOutputType | null
+    _min: BookmarkMinAggregateOutputType | null
+    _max: BookmarkMaxAggregateOutputType | null
+  }
+
+  export type BookmarkAvgAggregateOutputType = {
+    at_ms: number | null
+  }
+
+  export type BookmarkSumAggregateOutputType = {
+    at_ms: number | null
+  }
+
+  export type BookmarkMinAggregateOutputType = {
+    id: string | null
+    call_id: string | null
+    at_ms: number | null
+    label: string | null
+    created_at: Date | null
+  }
+
+  export type BookmarkMaxAggregateOutputType = {
+    id: string | null
+    call_id: string | null
+    at_ms: number | null
+    label: string | null
+    created_at: Date | null
+  }
+
+  export type BookmarkCountAggregateOutputType = {
+    id: number
+    call_id: number
+    at_ms: number
+    label: number
+    created_at: number
+    _all: number
+  }
+
+
+  export type BookmarkAvgAggregateInputType = {
+    at_ms?: true
+  }
+
+  export type BookmarkSumAggregateInputType = {
+    at_ms?: true
+  }
+
+  export type BookmarkMinAggregateInputType = {
+    id?: true
+    call_id?: true
+    at_ms?: true
+    label?: true
+    created_at?: true
+  }
+
+  export type BookmarkMaxAggregateInputType = {
+    id?: true
+    call_id?: true
+    at_ms?: true
+    label?: true
+    created_at?: true
+  }
+
+  export type BookmarkCountAggregateInputType = {
+    id?: true
+    call_id?: true
+    at_ms?: true
+    label?: true
+    created_at?: true
+    _all?: true
+  }
+
+  export type BookmarkAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Bookmark to aggregate.
+     */
+    where?: BookmarkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bookmarks to fetch.
+     */
+    orderBy?: BookmarkOrderByWithRelationInput | BookmarkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BookmarkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bookmarks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bookmarks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Bookmarks
+    **/
+    _count?: true | BookmarkCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BookmarkAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BookmarkSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BookmarkMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BookmarkMaxAggregateInputType
+  }
+
+  export type GetBookmarkAggregateType<T extends BookmarkAggregateArgs> = {
+        [P in keyof T & keyof AggregateBookmark]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBookmark[P]>
+      : GetScalarType<T[P], AggregateBookmark[P]>
+  }
+
+
+
+
+  export type BookmarkGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BookmarkWhereInput
+    orderBy?: BookmarkOrderByWithAggregationInput | BookmarkOrderByWithAggregationInput[]
+    by: BookmarkScalarFieldEnum[] | BookmarkScalarFieldEnum
+    having?: BookmarkScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BookmarkCountAggregateInputType | true
+    _avg?: BookmarkAvgAggregateInputType
+    _sum?: BookmarkSumAggregateInputType
+    _min?: BookmarkMinAggregateInputType
+    _max?: BookmarkMaxAggregateInputType
+  }
+
+  export type BookmarkGroupByOutputType = {
+    id: string
+    call_id: string
+    at_ms: number
+    label: string | null
+    created_at: Date
+    _count: BookmarkCountAggregateOutputType | null
+    _avg: BookmarkAvgAggregateOutputType | null
+    _sum: BookmarkSumAggregateOutputType | null
+    _min: BookmarkMinAggregateOutputType | null
+    _max: BookmarkMaxAggregateOutputType | null
+  }
+
+  type GetBookmarkGroupByPayload<T extends BookmarkGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BookmarkGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BookmarkGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BookmarkGroupByOutputType[P]>
+            : GetScalarType<T[P], BookmarkGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BookmarkSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    call_id?: boolean
+    at_ms?: boolean
+    label?: boolean
+    created_at?: boolean
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bookmark"]>
+
+  export type BookmarkSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    call_id?: boolean
+    at_ms?: boolean
+    label?: boolean
+    created_at?: boolean
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bookmark"]>
+
+  export type BookmarkSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    call_id?: boolean
+    at_ms?: boolean
+    label?: boolean
+    created_at?: boolean
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bookmark"]>
+
+  export type BookmarkSelectScalar = {
+    id?: boolean
+    call_id?: boolean
+    at_ms?: boolean
+    label?: boolean
+    created_at?: boolean
+  }
+
+  export type BookmarkOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "call_id" | "at_ms" | "label" | "created_at", ExtArgs["result"]["bookmark"]>
+  export type BookmarkInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }
+  export type BookmarkIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }
+  export type BookmarkIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }
+
+  export type $BookmarkPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Bookmark"
+    objects: {
+      call: Prisma.$CallPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      call_id: string
+      at_ms: number
+      label: string | null
+      created_at: Date
+    }, ExtArgs["result"]["bookmark"]>
+    composites: {}
+  }
+
+  type BookmarkGetPayload<S extends boolean | null | undefined | BookmarkDefaultArgs> = $Result.GetResult<Prisma.$BookmarkPayload, S>
+
+  type BookmarkCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BookmarkFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BookmarkCountAggregateInputType | true
+    }
+
+  export interface BookmarkDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Bookmark'], meta: { name: 'Bookmark' } }
+    /**
+     * Find zero or one Bookmark that matches the filter.
+     * @param {BookmarkFindUniqueArgs} args - Arguments to find a Bookmark
+     * @example
+     * // Get one Bookmark
+     * const bookmark = await prisma.bookmark.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BookmarkFindUniqueArgs>(args: SelectSubset<T, BookmarkFindUniqueArgs<ExtArgs>>): Prisma__BookmarkClient<$Result.GetResult<Prisma.$BookmarkPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Bookmark that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BookmarkFindUniqueOrThrowArgs} args - Arguments to find a Bookmark
+     * @example
+     * // Get one Bookmark
+     * const bookmark = await prisma.bookmark.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BookmarkFindUniqueOrThrowArgs>(args: SelectSubset<T, BookmarkFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BookmarkClient<$Result.GetResult<Prisma.$BookmarkPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Bookmark that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookmarkFindFirstArgs} args - Arguments to find a Bookmark
+     * @example
+     * // Get one Bookmark
+     * const bookmark = await prisma.bookmark.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BookmarkFindFirstArgs>(args?: SelectSubset<T, BookmarkFindFirstArgs<ExtArgs>>): Prisma__BookmarkClient<$Result.GetResult<Prisma.$BookmarkPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Bookmark that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookmarkFindFirstOrThrowArgs} args - Arguments to find a Bookmark
+     * @example
+     * // Get one Bookmark
+     * const bookmark = await prisma.bookmark.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BookmarkFindFirstOrThrowArgs>(args?: SelectSubset<T, BookmarkFindFirstOrThrowArgs<ExtArgs>>): Prisma__BookmarkClient<$Result.GetResult<Prisma.$BookmarkPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Bookmarks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookmarkFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Bookmarks
+     * const bookmarks = await prisma.bookmark.findMany()
+     * 
+     * // Get first 10 Bookmarks
+     * const bookmarks = await prisma.bookmark.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const bookmarkWithIdOnly = await prisma.bookmark.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BookmarkFindManyArgs>(args?: SelectSubset<T, BookmarkFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookmarkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Bookmark.
+     * @param {BookmarkCreateArgs} args - Arguments to create a Bookmark.
+     * @example
+     * // Create one Bookmark
+     * const Bookmark = await prisma.bookmark.create({
+     *   data: {
+     *     // ... data to create a Bookmark
+     *   }
+     * })
+     * 
+     */
+    create<T extends BookmarkCreateArgs>(args: SelectSubset<T, BookmarkCreateArgs<ExtArgs>>): Prisma__BookmarkClient<$Result.GetResult<Prisma.$BookmarkPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Bookmarks.
+     * @param {BookmarkCreateManyArgs} args - Arguments to create many Bookmarks.
+     * @example
+     * // Create many Bookmarks
+     * const bookmark = await prisma.bookmark.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BookmarkCreateManyArgs>(args?: SelectSubset<T, BookmarkCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Bookmarks and returns the data saved in the database.
+     * @param {BookmarkCreateManyAndReturnArgs} args - Arguments to create many Bookmarks.
+     * @example
+     * // Create many Bookmarks
+     * const bookmark = await prisma.bookmark.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Bookmarks and only return the `id`
+     * const bookmarkWithIdOnly = await prisma.bookmark.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BookmarkCreateManyAndReturnArgs>(args?: SelectSubset<T, BookmarkCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookmarkPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Bookmark.
+     * @param {BookmarkDeleteArgs} args - Arguments to delete one Bookmark.
+     * @example
+     * // Delete one Bookmark
+     * const Bookmark = await prisma.bookmark.delete({
+     *   where: {
+     *     // ... filter to delete one Bookmark
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BookmarkDeleteArgs>(args: SelectSubset<T, BookmarkDeleteArgs<ExtArgs>>): Prisma__BookmarkClient<$Result.GetResult<Prisma.$BookmarkPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Bookmark.
+     * @param {BookmarkUpdateArgs} args - Arguments to update one Bookmark.
+     * @example
+     * // Update one Bookmark
+     * const bookmark = await prisma.bookmark.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BookmarkUpdateArgs>(args: SelectSubset<T, BookmarkUpdateArgs<ExtArgs>>): Prisma__BookmarkClient<$Result.GetResult<Prisma.$BookmarkPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Bookmarks.
+     * @param {BookmarkDeleteManyArgs} args - Arguments to filter Bookmarks to delete.
+     * @example
+     * // Delete a few Bookmarks
+     * const { count } = await prisma.bookmark.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BookmarkDeleteManyArgs>(args?: SelectSubset<T, BookmarkDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Bookmarks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookmarkUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Bookmarks
+     * const bookmark = await prisma.bookmark.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BookmarkUpdateManyArgs>(args: SelectSubset<T, BookmarkUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Bookmarks and returns the data updated in the database.
+     * @param {BookmarkUpdateManyAndReturnArgs} args - Arguments to update many Bookmarks.
+     * @example
+     * // Update many Bookmarks
+     * const bookmark = await prisma.bookmark.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Bookmarks and only return the `id`
+     * const bookmarkWithIdOnly = await prisma.bookmark.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BookmarkUpdateManyAndReturnArgs>(args: SelectSubset<T, BookmarkUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BookmarkPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Bookmark.
+     * @param {BookmarkUpsertArgs} args - Arguments to update or create a Bookmark.
+     * @example
+     * // Update or create a Bookmark
+     * const bookmark = await prisma.bookmark.upsert({
+     *   create: {
+     *     // ... data to create a Bookmark
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Bookmark we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BookmarkUpsertArgs>(args: SelectSubset<T, BookmarkUpsertArgs<ExtArgs>>): Prisma__BookmarkClient<$Result.GetResult<Prisma.$BookmarkPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Bookmarks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookmarkCountArgs} args - Arguments to filter Bookmarks to count.
+     * @example
+     * // Count the number of Bookmarks
+     * const count = await prisma.bookmark.count({
+     *   where: {
+     *     // ... the filter for the Bookmarks we want to count
+     *   }
+     * })
+    **/
+    count<T extends BookmarkCountArgs>(
+      args?: Subset<T, BookmarkCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BookmarkCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Bookmark.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookmarkAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BookmarkAggregateArgs>(args: Subset<T, BookmarkAggregateArgs>): Prisma.PrismaPromise<GetBookmarkAggregateType<T>>
+
+    /**
+     * Group by Bookmark.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BookmarkGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BookmarkGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BookmarkGroupByArgs['orderBy'] }
+        : { orderBy?: BookmarkGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BookmarkGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBookmarkGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Bookmark model
+   */
+  readonly fields: BookmarkFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Bookmark.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BookmarkClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    call<T extends CallDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CallDefaultArgs<ExtArgs>>): Prisma__CallClient<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Bookmark model
+   */
+  interface BookmarkFieldRefs {
+    readonly id: FieldRef<"Bookmark", 'String'>
+    readonly call_id: FieldRef<"Bookmark", 'String'>
+    readonly at_ms: FieldRef<"Bookmark", 'Int'>
+    readonly label: FieldRef<"Bookmark", 'String'>
+    readonly created_at: FieldRef<"Bookmark", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Bookmark findUnique
+   */
+  export type BookmarkFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bookmark
+     */
+    select?: BookmarkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bookmark
+     */
+    omit?: BookmarkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookmarkInclude<ExtArgs> | null
+    /**
+     * Filter, which Bookmark to fetch.
+     */
+    where: BookmarkWhereUniqueInput
+  }
+
+  /**
+   * Bookmark findUniqueOrThrow
+   */
+  export type BookmarkFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bookmark
+     */
+    select?: BookmarkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bookmark
+     */
+    omit?: BookmarkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookmarkInclude<ExtArgs> | null
+    /**
+     * Filter, which Bookmark to fetch.
+     */
+    where: BookmarkWhereUniqueInput
+  }
+
+  /**
+   * Bookmark findFirst
+   */
+  export type BookmarkFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bookmark
+     */
+    select?: BookmarkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bookmark
+     */
+    omit?: BookmarkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookmarkInclude<ExtArgs> | null
+    /**
+     * Filter, which Bookmark to fetch.
+     */
+    where?: BookmarkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bookmarks to fetch.
+     */
+    orderBy?: BookmarkOrderByWithRelationInput | BookmarkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Bookmarks.
+     */
+    cursor?: BookmarkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bookmarks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bookmarks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Bookmarks.
+     */
+    distinct?: BookmarkScalarFieldEnum | BookmarkScalarFieldEnum[]
+  }
+
+  /**
+   * Bookmark findFirstOrThrow
+   */
+  export type BookmarkFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bookmark
+     */
+    select?: BookmarkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bookmark
+     */
+    omit?: BookmarkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookmarkInclude<ExtArgs> | null
+    /**
+     * Filter, which Bookmark to fetch.
+     */
+    where?: BookmarkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bookmarks to fetch.
+     */
+    orderBy?: BookmarkOrderByWithRelationInput | BookmarkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Bookmarks.
+     */
+    cursor?: BookmarkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bookmarks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bookmarks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Bookmarks.
+     */
+    distinct?: BookmarkScalarFieldEnum | BookmarkScalarFieldEnum[]
+  }
+
+  /**
+   * Bookmark findMany
+   */
+  export type BookmarkFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bookmark
+     */
+    select?: BookmarkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bookmark
+     */
+    omit?: BookmarkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookmarkInclude<ExtArgs> | null
+    /**
+     * Filter, which Bookmarks to fetch.
+     */
+    where?: BookmarkWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bookmarks to fetch.
+     */
+    orderBy?: BookmarkOrderByWithRelationInput | BookmarkOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Bookmarks.
+     */
+    cursor?: BookmarkWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bookmarks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bookmarks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Bookmarks.
+     */
+    distinct?: BookmarkScalarFieldEnum | BookmarkScalarFieldEnum[]
+  }
+
+  /**
+   * Bookmark create
+   */
+  export type BookmarkCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bookmark
+     */
+    select?: BookmarkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bookmark
+     */
+    omit?: BookmarkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookmarkInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Bookmark.
+     */
+    data: XOR<BookmarkCreateInput, BookmarkUncheckedCreateInput>
+  }
+
+  /**
+   * Bookmark createMany
+   */
+  export type BookmarkCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Bookmarks.
+     */
+    data: BookmarkCreateManyInput | BookmarkCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Bookmark createManyAndReturn
+   */
+  export type BookmarkCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bookmark
+     */
+    select?: BookmarkSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bookmark
+     */
+    omit?: BookmarkOmit<ExtArgs> | null
+    /**
+     * The data used to create many Bookmarks.
+     */
+    data: BookmarkCreateManyInput | BookmarkCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookmarkIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Bookmark update
+   */
+  export type BookmarkUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bookmark
+     */
+    select?: BookmarkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bookmark
+     */
+    omit?: BookmarkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookmarkInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Bookmark.
+     */
+    data: XOR<BookmarkUpdateInput, BookmarkUncheckedUpdateInput>
+    /**
+     * Choose, which Bookmark to update.
+     */
+    where: BookmarkWhereUniqueInput
+  }
+
+  /**
+   * Bookmark updateMany
+   */
+  export type BookmarkUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Bookmarks.
+     */
+    data: XOR<BookmarkUpdateManyMutationInput, BookmarkUncheckedUpdateManyInput>
+    /**
+     * Filter which Bookmarks to update
+     */
+    where?: BookmarkWhereInput
+    /**
+     * Limit how many Bookmarks to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Bookmark updateManyAndReturn
+   */
+  export type BookmarkUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bookmark
+     */
+    select?: BookmarkSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bookmark
+     */
+    omit?: BookmarkOmit<ExtArgs> | null
+    /**
+     * The data used to update Bookmarks.
+     */
+    data: XOR<BookmarkUpdateManyMutationInput, BookmarkUncheckedUpdateManyInput>
+    /**
+     * Filter which Bookmarks to update
+     */
+    where?: BookmarkWhereInput
+    /**
+     * Limit how many Bookmarks to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookmarkIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Bookmark upsert
+   */
+  export type BookmarkUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bookmark
+     */
+    select?: BookmarkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bookmark
+     */
+    omit?: BookmarkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookmarkInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Bookmark to update in case it exists.
+     */
+    where: BookmarkWhereUniqueInput
+    /**
+     * In case the Bookmark found by the `where` argument doesn't exist, create a new Bookmark with this data.
+     */
+    create: XOR<BookmarkCreateInput, BookmarkUncheckedCreateInput>
+    /**
+     * In case the Bookmark was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BookmarkUpdateInput, BookmarkUncheckedUpdateInput>
+  }
+
+  /**
+   * Bookmark delete
+   */
+  export type BookmarkDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bookmark
+     */
+    select?: BookmarkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bookmark
+     */
+    omit?: BookmarkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookmarkInclude<ExtArgs> | null
+    /**
+     * Filter which Bookmark to delete.
+     */
+    where: BookmarkWhereUniqueInput
+  }
+
+  /**
+   * Bookmark deleteMany
+   */
+  export type BookmarkDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Bookmarks to delete
+     */
+    where?: BookmarkWhereInput
+    /**
+     * Limit how many Bookmarks to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Bookmark without action
+   */
+  export type BookmarkDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bookmark
+     */
+    select?: BookmarkSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bookmark
+     */
+    omit?: BookmarkOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BookmarkInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CallAnalysis
+   */
+
+  export type AggregateCallAnalysis = {
+    _count: CallAnalysisCountAggregateOutputType | null
+    _avg: CallAnalysisAvgAggregateOutputType | null
+    _sum: CallAnalysisSumAggregateOutputType | null
+    _min: CallAnalysisMinAggregateOutputType | null
+    _max: CallAnalysisMaxAggregateOutputType | null
+  }
+
+  export type CallAnalysisAvgAggregateOutputType = {
+    overall_score: number | null
+  }
+
+  export type CallAnalysisSumAggregateOutputType = {
+    overall_score: number | null
+  }
+
+  export type CallAnalysisMinAggregateOutputType = {
+    id: string | null
+    call_id: string | null
+    model: string | null
+    overall_score: number | null
+    verdict: string | null
+    summary: string | null
+    follow_up_draft: string | null
+    error: string | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type CallAnalysisMaxAggregateOutputType = {
+    id: string | null
+    call_id: string | null
+    model: string | null
+    overall_score: number | null
+    verdict: string | null
+    summary: string | null
+    follow_up_draft: string | null
+    error: string | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type CallAnalysisCountAggregateOutputType = {
+    id: number
+    call_id: number
+    model: number
+    overall_score: number
+    verdict: number
+    category_scores: number
+    mistakes: number
+    strengths: number
+    improvements: number
+    metrics: number
+    prospect_insights: number
+    summary: number
+    next_steps: number
+    follow_up_draft: number
+    suggested_practice: number
+    practice_result: number
+    suggestion_usage: number
+    error: number
+    created_at: number
+    updated_at: number
+    _all: number
+  }
+
+
+  export type CallAnalysisAvgAggregateInputType = {
+    overall_score?: true
+  }
+
+  export type CallAnalysisSumAggregateInputType = {
+    overall_score?: true
+  }
+
+  export type CallAnalysisMinAggregateInputType = {
+    id?: true
+    call_id?: true
+    model?: true
+    overall_score?: true
+    verdict?: true
+    summary?: true
+    follow_up_draft?: true
+    error?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type CallAnalysisMaxAggregateInputType = {
+    id?: true
+    call_id?: true
+    model?: true
+    overall_score?: true
+    verdict?: true
+    summary?: true
+    follow_up_draft?: true
+    error?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type CallAnalysisCountAggregateInputType = {
+    id?: true
+    call_id?: true
+    model?: true
+    overall_score?: true
+    verdict?: true
+    category_scores?: true
+    mistakes?: true
+    strengths?: true
+    improvements?: true
+    metrics?: true
+    prospect_insights?: true
+    summary?: true
+    next_steps?: true
+    follow_up_draft?: true
+    suggested_practice?: true
+    practice_result?: true
+    suggestion_usage?: true
+    error?: true
+    created_at?: true
+    updated_at?: true
+    _all?: true
+  }
+
+  export type CallAnalysisAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CallAnalysis to aggregate.
+     */
+    where?: CallAnalysisWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CallAnalyses to fetch.
+     */
+    orderBy?: CallAnalysisOrderByWithRelationInput | CallAnalysisOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CallAnalysisWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CallAnalyses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CallAnalyses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CallAnalyses
+    **/
+    _count?: true | CallAnalysisCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CallAnalysisAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CallAnalysisSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CallAnalysisMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CallAnalysisMaxAggregateInputType
+  }
+
+  export type GetCallAnalysisAggregateType<T extends CallAnalysisAggregateArgs> = {
+        [P in keyof T & keyof AggregateCallAnalysis]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCallAnalysis[P]>
+      : GetScalarType<T[P], AggregateCallAnalysis[P]>
+  }
+
+
+
+
+  export type CallAnalysisGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CallAnalysisWhereInput
+    orderBy?: CallAnalysisOrderByWithAggregationInput | CallAnalysisOrderByWithAggregationInput[]
+    by: CallAnalysisScalarFieldEnum[] | CallAnalysisScalarFieldEnum
+    having?: CallAnalysisScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CallAnalysisCountAggregateInputType | true
+    _avg?: CallAnalysisAvgAggregateInputType
+    _sum?: CallAnalysisSumAggregateInputType
+    _min?: CallAnalysisMinAggregateInputType
+    _max?: CallAnalysisMaxAggregateInputType
+  }
+
+  export type CallAnalysisGroupByOutputType = {
+    id: string
+    call_id: string
+    model: string
+    overall_score: number
+    verdict: string
+    category_scores: JsonValue
+    mistakes: JsonValue
+    strengths: JsonValue
+    improvements: JsonValue
+    metrics: JsonValue
+    prospect_insights: JsonValue
+    summary: string
+    next_steps: JsonValue
+    follow_up_draft: string | null
+    suggested_practice: JsonValue
+    practice_result: JsonValue | null
+    suggestion_usage: JsonValue | null
+    error: string | null
+    created_at: Date
+    updated_at: Date
+    _count: CallAnalysisCountAggregateOutputType | null
+    _avg: CallAnalysisAvgAggregateOutputType | null
+    _sum: CallAnalysisSumAggregateOutputType | null
+    _min: CallAnalysisMinAggregateOutputType | null
+    _max: CallAnalysisMaxAggregateOutputType | null
+  }
+
+  type GetCallAnalysisGroupByPayload<T extends CallAnalysisGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CallAnalysisGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CallAnalysisGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CallAnalysisGroupByOutputType[P]>
+            : GetScalarType<T[P], CallAnalysisGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CallAnalysisSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    call_id?: boolean
+    model?: boolean
+    overall_score?: boolean
+    verdict?: boolean
+    category_scores?: boolean
+    mistakes?: boolean
+    strengths?: boolean
+    improvements?: boolean
+    metrics?: boolean
+    prospect_insights?: boolean
+    summary?: boolean
+    next_steps?: boolean
+    follow_up_draft?: boolean
+    suggested_practice?: boolean
+    practice_result?: boolean
+    suggestion_usage?: boolean
+    error?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["callAnalysis"]>
+
+  export type CallAnalysisSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    call_id?: boolean
+    model?: boolean
+    overall_score?: boolean
+    verdict?: boolean
+    category_scores?: boolean
+    mistakes?: boolean
+    strengths?: boolean
+    improvements?: boolean
+    metrics?: boolean
+    prospect_insights?: boolean
+    summary?: boolean
+    next_steps?: boolean
+    follow_up_draft?: boolean
+    suggested_practice?: boolean
+    practice_result?: boolean
+    suggestion_usage?: boolean
+    error?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["callAnalysis"]>
+
+  export type CallAnalysisSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    call_id?: boolean
+    model?: boolean
+    overall_score?: boolean
+    verdict?: boolean
+    category_scores?: boolean
+    mistakes?: boolean
+    strengths?: boolean
+    improvements?: boolean
+    metrics?: boolean
+    prospect_insights?: boolean
+    summary?: boolean
+    next_steps?: boolean
+    follow_up_draft?: boolean
+    suggested_practice?: boolean
+    practice_result?: boolean
+    suggestion_usage?: boolean
+    error?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["callAnalysis"]>
+
+  export type CallAnalysisSelectScalar = {
+    id?: boolean
+    call_id?: boolean
+    model?: boolean
+    overall_score?: boolean
+    verdict?: boolean
+    category_scores?: boolean
+    mistakes?: boolean
+    strengths?: boolean
+    improvements?: boolean
+    metrics?: boolean
+    prospect_insights?: boolean
+    summary?: boolean
+    next_steps?: boolean
+    follow_up_draft?: boolean
+    suggested_practice?: boolean
+    practice_result?: boolean
+    suggestion_usage?: boolean
+    error?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+  }
+
+  export type CallAnalysisOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "call_id" | "model" | "overall_score" | "verdict" | "category_scores" | "mistakes" | "strengths" | "improvements" | "metrics" | "prospect_insights" | "summary" | "next_steps" | "follow_up_draft" | "suggested_practice" | "practice_result" | "suggestion_usage" | "error" | "created_at" | "updated_at", ExtArgs["result"]["callAnalysis"]>
+  export type CallAnalysisInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }
+  export type CallAnalysisIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }
+  export type CallAnalysisIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    call?: boolean | CallDefaultArgs<ExtArgs>
+  }
+
+  export type $CallAnalysisPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CallAnalysis"
+    objects: {
+      call: Prisma.$CallPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      call_id: string
+      model: string
+      overall_score: number
+      verdict: string
+      category_scores: Prisma.JsonValue
+      mistakes: Prisma.JsonValue
+      strengths: Prisma.JsonValue
+      improvements: Prisma.JsonValue
+      metrics: Prisma.JsonValue
+      prospect_insights: Prisma.JsonValue
+      summary: string
+      next_steps: Prisma.JsonValue
+      follow_up_draft: string | null
+      suggested_practice: Prisma.JsonValue
+      practice_result: Prisma.JsonValue | null
+      suggestion_usage: Prisma.JsonValue | null
+      error: string | null
+      created_at: Date
+      updated_at: Date
+    }, ExtArgs["result"]["callAnalysis"]>
+    composites: {}
+  }
+
+  type CallAnalysisGetPayload<S extends boolean | null | undefined | CallAnalysisDefaultArgs> = $Result.GetResult<Prisma.$CallAnalysisPayload, S>
+
+  type CallAnalysisCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CallAnalysisFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CallAnalysisCountAggregateInputType | true
+    }
+
+  export interface CallAnalysisDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CallAnalysis'], meta: { name: 'CallAnalysis' } }
+    /**
+     * Find zero or one CallAnalysis that matches the filter.
+     * @param {CallAnalysisFindUniqueArgs} args - Arguments to find a CallAnalysis
+     * @example
+     * // Get one CallAnalysis
+     * const callAnalysis = await prisma.callAnalysis.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CallAnalysisFindUniqueArgs>(args: SelectSubset<T, CallAnalysisFindUniqueArgs<ExtArgs>>): Prisma__CallAnalysisClient<$Result.GetResult<Prisma.$CallAnalysisPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CallAnalysis that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CallAnalysisFindUniqueOrThrowArgs} args - Arguments to find a CallAnalysis
+     * @example
+     * // Get one CallAnalysis
+     * const callAnalysis = await prisma.callAnalysis.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CallAnalysisFindUniqueOrThrowArgs>(args: SelectSubset<T, CallAnalysisFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CallAnalysisClient<$Result.GetResult<Prisma.$CallAnalysisPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CallAnalysis that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CallAnalysisFindFirstArgs} args - Arguments to find a CallAnalysis
+     * @example
+     * // Get one CallAnalysis
+     * const callAnalysis = await prisma.callAnalysis.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CallAnalysisFindFirstArgs>(args?: SelectSubset<T, CallAnalysisFindFirstArgs<ExtArgs>>): Prisma__CallAnalysisClient<$Result.GetResult<Prisma.$CallAnalysisPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CallAnalysis that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CallAnalysisFindFirstOrThrowArgs} args - Arguments to find a CallAnalysis
+     * @example
+     * // Get one CallAnalysis
+     * const callAnalysis = await prisma.callAnalysis.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CallAnalysisFindFirstOrThrowArgs>(args?: SelectSubset<T, CallAnalysisFindFirstOrThrowArgs<ExtArgs>>): Prisma__CallAnalysisClient<$Result.GetResult<Prisma.$CallAnalysisPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CallAnalyses that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CallAnalysisFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CallAnalyses
+     * const callAnalyses = await prisma.callAnalysis.findMany()
+     * 
+     * // Get first 10 CallAnalyses
+     * const callAnalyses = await prisma.callAnalysis.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const callAnalysisWithIdOnly = await prisma.callAnalysis.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CallAnalysisFindManyArgs>(args?: SelectSubset<T, CallAnalysisFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallAnalysisPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CallAnalysis.
+     * @param {CallAnalysisCreateArgs} args - Arguments to create a CallAnalysis.
+     * @example
+     * // Create one CallAnalysis
+     * const CallAnalysis = await prisma.callAnalysis.create({
+     *   data: {
+     *     // ... data to create a CallAnalysis
+     *   }
+     * })
+     * 
+     */
+    create<T extends CallAnalysisCreateArgs>(args: SelectSubset<T, CallAnalysisCreateArgs<ExtArgs>>): Prisma__CallAnalysisClient<$Result.GetResult<Prisma.$CallAnalysisPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CallAnalyses.
+     * @param {CallAnalysisCreateManyArgs} args - Arguments to create many CallAnalyses.
+     * @example
+     * // Create many CallAnalyses
+     * const callAnalysis = await prisma.callAnalysis.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CallAnalysisCreateManyArgs>(args?: SelectSubset<T, CallAnalysisCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CallAnalyses and returns the data saved in the database.
+     * @param {CallAnalysisCreateManyAndReturnArgs} args - Arguments to create many CallAnalyses.
+     * @example
+     * // Create many CallAnalyses
+     * const callAnalysis = await prisma.callAnalysis.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CallAnalyses and only return the `id`
+     * const callAnalysisWithIdOnly = await prisma.callAnalysis.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CallAnalysisCreateManyAndReturnArgs>(args?: SelectSubset<T, CallAnalysisCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallAnalysisPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CallAnalysis.
+     * @param {CallAnalysisDeleteArgs} args - Arguments to delete one CallAnalysis.
+     * @example
+     * // Delete one CallAnalysis
+     * const CallAnalysis = await prisma.callAnalysis.delete({
+     *   where: {
+     *     // ... filter to delete one CallAnalysis
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CallAnalysisDeleteArgs>(args: SelectSubset<T, CallAnalysisDeleteArgs<ExtArgs>>): Prisma__CallAnalysisClient<$Result.GetResult<Prisma.$CallAnalysisPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CallAnalysis.
+     * @param {CallAnalysisUpdateArgs} args - Arguments to update one CallAnalysis.
+     * @example
+     * // Update one CallAnalysis
+     * const callAnalysis = await prisma.callAnalysis.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CallAnalysisUpdateArgs>(args: SelectSubset<T, CallAnalysisUpdateArgs<ExtArgs>>): Prisma__CallAnalysisClient<$Result.GetResult<Prisma.$CallAnalysisPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CallAnalyses.
+     * @param {CallAnalysisDeleteManyArgs} args - Arguments to filter CallAnalyses to delete.
+     * @example
+     * // Delete a few CallAnalyses
+     * const { count } = await prisma.callAnalysis.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CallAnalysisDeleteManyArgs>(args?: SelectSubset<T, CallAnalysisDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CallAnalyses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CallAnalysisUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CallAnalyses
+     * const callAnalysis = await prisma.callAnalysis.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CallAnalysisUpdateManyArgs>(args: SelectSubset<T, CallAnalysisUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CallAnalyses and returns the data updated in the database.
+     * @param {CallAnalysisUpdateManyAndReturnArgs} args - Arguments to update many CallAnalyses.
+     * @example
+     * // Update many CallAnalyses
+     * const callAnalysis = await prisma.callAnalysis.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CallAnalyses and only return the `id`
+     * const callAnalysisWithIdOnly = await prisma.callAnalysis.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CallAnalysisUpdateManyAndReturnArgs>(args: SelectSubset<T, CallAnalysisUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallAnalysisPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CallAnalysis.
+     * @param {CallAnalysisUpsertArgs} args - Arguments to update or create a CallAnalysis.
+     * @example
+     * // Update or create a CallAnalysis
+     * const callAnalysis = await prisma.callAnalysis.upsert({
+     *   create: {
+     *     // ... data to create a CallAnalysis
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CallAnalysis we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CallAnalysisUpsertArgs>(args: SelectSubset<T, CallAnalysisUpsertArgs<ExtArgs>>): Prisma__CallAnalysisClient<$Result.GetResult<Prisma.$CallAnalysisPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CallAnalyses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CallAnalysisCountArgs} args - Arguments to filter CallAnalyses to count.
+     * @example
+     * // Count the number of CallAnalyses
+     * const count = await prisma.callAnalysis.count({
+     *   where: {
+     *     // ... the filter for the CallAnalyses we want to count
+     *   }
+     * })
+    **/
+    count<T extends CallAnalysisCountArgs>(
+      args?: Subset<T, CallAnalysisCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CallAnalysisCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CallAnalysis.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CallAnalysisAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CallAnalysisAggregateArgs>(args: Subset<T, CallAnalysisAggregateArgs>): Prisma.PrismaPromise<GetCallAnalysisAggregateType<T>>
+
+    /**
+     * Group by CallAnalysis.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CallAnalysisGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CallAnalysisGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CallAnalysisGroupByArgs['orderBy'] }
+        : { orderBy?: CallAnalysisGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CallAnalysisGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCallAnalysisGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CallAnalysis model
+   */
+  readonly fields: CallAnalysisFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CallAnalysis.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CallAnalysisClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    call<T extends CallDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CallDefaultArgs<ExtArgs>>): Prisma__CallClient<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CallAnalysis model
+   */
+  interface CallAnalysisFieldRefs {
+    readonly id: FieldRef<"CallAnalysis", 'String'>
+    readonly call_id: FieldRef<"CallAnalysis", 'String'>
+    readonly model: FieldRef<"CallAnalysis", 'String'>
+    readonly overall_score: FieldRef<"CallAnalysis", 'Int'>
+    readonly verdict: FieldRef<"CallAnalysis", 'String'>
+    readonly category_scores: FieldRef<"CallAnalysis", 'Json'>
+    readonly mistakes: FieldRef<"CallAnalysis", 'Json'>
+    readonly strengths: FieldRef<"CallAnalysis", 'Json'>
+    readonly improvements: FieldRef<"CallAnalysis", 'Json'>
+    readonly metrics: FieldRef<"CallAnalysis", 'Json'>
+    readonly prospect_insights: FieldRef<"CallAnalysis", 'Json'>
+    readonly summary: FieldRef<"CallAnalysis", 'String'>
+    readonly next_steps: FieldRef<"CallAnalysis", 'Json'>
+    readonly follow_up_draft: FieldRef<"CallAnalysis", 'String'>
+    readonly suggested_practice: FieldRef<"CallAnalysis", 'Json'>
+    readonly practice_result: FieldRef<"CallAnalysis", 'Json'>
+    readonly suggestion_usage: FieldRef<"CallAnalysis", 'Json'>
+    readonly error: FieldRef<"CallAnalysis", 'String'>
+    readonly created_at: FieldRef<"CallAnalysis", 'DateTime'>
+    readonly updated_at: FieldRef<"CallAnalysis", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CallAnalysis findUnique
+   */
+  export type CallAnalysisFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CallAnalysis
+     */
+    select?: CallAnalysisSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CallAnalysis
+     */
+    omit?: CallAnalysisOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallAnalysisInclude<ExtArgs> | null
+    /**
+     * Filter, which CallAnalysis to fetch.
+     */
+    where: CallAnalysisWhereUniqueInput
+  }
+
+  /**
+   * CallAnalysis findUniqueOrThrow
+   */
+  export type CallAnalysisFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CallAnalysis
+     */
+    select?: CallAnalysisSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CallAnalysis
+     */
+    omit?: CallAnalysisOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallAnalysisInclude<ExtArgs> | null
+    /**
+     * Filter, which CallAnalysis to fetch.
+     */
+    where: CallAnalysisWhereUniqueInput
+  }
+
+  /**
+   * CallAnalysis findFirst
+   */
+  export type CallAnalysisFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CallAnalysis
+     */
+    select?: CallAnalysisSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CallAnalysis
+     */
+    omit?: CallAnalysisOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallAnalysisInclude<ExtArgs> | null
+    /**
+     * Filter, which CallAnalysis to fetch.
+     */
+    where?: CallAnalysisWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CallAnalyses to fetch.
+     */
+    orderBy?: CallAnalysisOrderByWithRelationInput | CallAnalysisOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CallAnalyses.
+     */
+    cursor?: CallAnalysisWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CallAnalyses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CallAnalyses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CallAnalyses.
+     */
+    distinct?: CallAnalysisScalarFieldEnum | CallAnalysisScalarFieldEnum[]
+  }
+
+  /**
+   * CallAnalysis findFirstOrThrow
+   */
+  export type CallAnalysisFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CallAnalysis
+     */
+    select?: CallAnalysisSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CallAnalysis
+     */
+    omit?: CallAnalysisOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallAnalysisInclude<ExtArgs> | null
+    /**
+     * Filter, which CallAnalysis to fetch.
+     */
+    where?: CallAnalysisWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CallAnalyses to fetch.
+     */
+    orderBy?: CallAnalysisOrderByWithRelationInput | CallAnalysisOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CallAnalyses.
+     */
+    cursor?: CallAnalysisWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CallAnalyses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CallAnalyses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CallAnalyses.
+     */
+    distinct?: CallAnalysisScalarFieldEnum | CallAnalysisScalarFieldEnum[]
+  }
+
+  /**
+   * CallAnalysis findMany
+   */
+  export type CallAnalysisFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CallAnalysis
+     */
+    select?: CallAnalysisSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CallAnalysis
+     */
+    omit?: CallAnalysisOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallAnalysisInclude<ExtArgs> | null
+    /**
+     * Filter, which CallAnalyses to fetch.
+     */
+    where?: CallAnalysisWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CallAnalyses to fetch.
+     */
+    orderBy?: CallAnalysisOrderByWithRelationInput | CallAnalysisOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CallAnalyses.
+     */
+    cursor?: CallAnalysisWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CallAnalyses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CallAnalyses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CallAnalyses.
+     */
+    distinct?: CallAnalysisScalarFieldEnum | CallAnalysisScalarFieldEnum[]
+  }
+
+  /**
+   * CallAnalysis create
+   */
+  export type CallAnalysisCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CallAnalysis
+     */
+    select?: CallAnalysisSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CallAnalysis
+     */
+    omit?: CallAnalysisOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallAnalysisInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CallAnalysis.
+     */
+    data: XOR<CallAnalysisCreateInput, CallAnalysisUncheckedCreateInput>
+  }
+
+  /**
+   * CallAnalysis createMany
+   */
+  export type CallAnalysisCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CallAnalyses.
+     */
+    data: CallAnalysisCreateManyInput | CallAnalysisCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CallAnalysis createManyAndReturn
+   */
+  export type CallAnalysisCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CallAnalysis
+     */
+    select?: CallAnalysisSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CallAnalysis
+     */
+    omit?: CallAnalysisOmit<ExtArgs> | null
+    /**
+     * The data used to create many CallAnalyses.
+     */
+    data: CallAnalysisCreateManyInput | CallAnalysisCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallAnalysisIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CallAnalysis update
+   */
+  export type CallAnalysisUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CallAnalysis
+     */
+    select?: CallAnalysisSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CallAnalysis
+     */
+    omit?: CallAnalysisOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallAnalysisInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CallAnalysis.
+     */
+    data: XOR<CallAnalysisUpdateInput, CallAnalysisUncheckedUpdateInput>
+    /**
+     * Choose, which CallAnalysis to update.
+     */
+    where: CallAnalysisWhereUniqueInput
+  }
+
+  /**
+   * CallAnalysis updateMany
+   */
+  export type CallAnalysisUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CallAnalyses.
+     */
+    data: XOR<CallAnalysisUpdateManyMutationInput, CallAnalysisUncheckedUpdateManyInput>
+    /**
+     * Filter which CallAnalyses to update
+     */
+    where?: CallAnalysisWhereInput
+    /**
+     * Limit how many CallAnalyses to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CallAnalysis updateManyAndReturn
+   */
+  export type CallAnalysisUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CallAnalysis
+     */
+    select?: CallAnalysisSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CallAnalysis
+     */
+    omit?: CallAnalysisOmit<ExtArgs> | null
+    /**
+     * The data used to update CallAnalyses.
+     */
+    data: XOR<CallAnalysisUpdateManyMutationInput, CallAnalysisUncheckedUpdateManyInput>
+    /**
+     * Filter which CallAnalyses to update
+     */
+    where?: CallAnalysisWhereInput
+    /**
+     * Limit how many CallAnalyses to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallAnalysisIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CallAnalysis upsert
+   */
+  export type CallAnalysisUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CallAnalysis
+     */
+    select?: CallAnalysisSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CallAnalysis
+     */
+    omit?: CallAnalysisOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallAnalysisInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CallAnalysis to update in case it exists.
+     */
+    where: CallAnalysisWhereUniqueInput
+    /**
+     * In case the CallAnalysis found by the `where` argument doesn't exist, create a new CallAnalysis with this data.
+     */
+    create: XOR<CallAnalysisCreateInput, CallAnalysisUncheckedCreateInput>
+    /**
+     * In case the CallAnalysis was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CallAnalysisUpdateInput, CallAnalysisUncheckedUpdateInput>
+  }
+
+  /**
+   * CallAnalysis delete
+   */
+  export type CallAnalysisDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CallAnalysis
+     */
+    select?: CallAnalysisSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CallAnalysis
+     */
+    omit?: CallAnalysisOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallAnalysisInclude<ExtArgs> | null
+    /**
+     * Filter which CallAnalysis to delete.
+     */
+    where: CallAnalysisWhereUniqueInput
+  }
+
+  /**
+   * CallAnalysis deleteMany
+   */
+  export type CallAnalysisDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CallAnalyses to delete
+     */
+    where?: CallAnalysisWhereInput
+    /**
+     * Limit how many CallAnalyses to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CallAnalysis without action
+   */
+  export type CallAnalysisDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CallAnalysis
+     */
+    select?: CallAnalysisSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CallAnalysis
+     */
+    omit?: CallAnalysisOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallAnalysisInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model UsageEvent
+   */
+
+  export type AggregateUsageEvent = {
+    _count: UsageEventCountAggregateOutputType | null
+    _avg: UsageEventAvgAggregateOutputType | null
+    _sum: UsageEventSumAggregateOutputType | null
+    _min: UsageEventMinAggregateOutputType | null
+    _max: UsageEventMaxAggregateOutputType | null
+  }
+
+  export type UsageEventAvgAggregateOutputType = {
+    input_tokens: number | null
+    output_tokens: number | null
+    audio_seconds: number | null
+    cost_usd: number | null
+  }
+
+  export type UsageEventSumAggregateOutputType = {
+    input_tokens: number | null
+    output_tokens: number | null
+    audio_seconds: number | null
+    cost_usd: number | null
+  }
+
+  export type UsageEventMinAggregateOutputType = {
+    id: string | null
+    user_id: string | null
+    call_id: string | null
+    kind: $Enums.UsageKind | null
+    model: string | null
+    input_tokens: number | null
+    output_tokens: number | null
+    audio_seconds: number | null
+    cost_usd: number | null
+    created_at: Date | null
+  }
+
+  export type UsageEventMaxAggregateOutputType = {
+    id: string | null
+    user_id: string | null
+    call_id: string | null
+    kind: $Enums.UsageKind | null
+    model: string | null
+    input_tokens: number | null
+    output_tokens: number | null
+    audio_seconds: number | null
+    cost_usd: number | null
+    created_at: Date | null
+  }
+
+  export type UsageEventCountAggregateOutputType = {
+    id: number
+    user_id: number
+    call_id: number
+    kind: number
+    model: number
+    input_tokens: number
+    output_tokens: number
+    audio_seconds: number
+    cost_usd: number
+    created_at: number
+    _all: number
+  }
+
+
+  export type UsageEventAvgAggregateInputType = {
+    input_tokens?: true
+    output_tokens?: true
+    audio_seconds?: true
+    cost_usd?: true
+  }
+
+  export type UsageEventSumAggregateInputType = {
+    input_tokens?: true
+    output_tokens?: true
+    audio_seconds?: true
+    cost_usd?: true
+  }
+
+  export type UsageEventMinAggregateInputType = {
+    id?: true
+    user_id?: true
+    call_id?: true
+    kind?: true
+    model?: true
+    input_tokens?: true
+    output_tokens?: true
+    audio_seconds?: true
+    cost_usd?: true
+    created_at?: true
+  }
+
+  export type UsageEventMaxAggregateInputType = {
+    id?: true
+    user_id?: true
+    call_id?: true
+    kind?: true
+    model?: true
+    input_tokens?: true
+    output_tokens?: true
+    audio_seconds?: true
+    cost_usd?: true
+    created_at?: true
+  }
+
+  export type UsageEventCountAggregateInputType = {
+    id?: true
+    user_id?: true
+    call_id?: true
+    kind?: true
+    model?: true
+    input_tokens?: true
+    output_tokens?: true
+    audio_seconds?: true
+    cost_usd?: true
+    created_at?: true
+    _all?: true
+  }
+
+  export type UsageEventAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UsageEvent to aggregate.
+     */
+    where?: UsageEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UsageEvents to fetch.
+     */
+    orderBy?: UsageEventOrderByWithRelationInput | UsageEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: UsageEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UsageEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UsageEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned UsageEvents
+    **/
+    _count?: true | UsageEventCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: UsageEventAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: UsageEventSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: UsageEventMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: UsageEventMaxAggregateInputType
+  }
+
+  export type GetUsageEventAggregateType<T extends UsageEventAggregateArgs> = {
+        [P in keyof T & keyof AggregateUsageEvent]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUsageEvent[P]>
+      : GetScalarType<T[P], AggregateUsageEvent[P]>
+  }
+
+
+
+
+  export type UsageEventGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UsageEventWhereInput
+    orderBy?: UsageEventOrderByWithAggregationInput | UsageEventOrderByWithAggregationInput[]
+    by: UsageEventScalarFieldEnum[] | UsageEventScalarFieldEnum
+    having?: UsageEventScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: UsageEventCountAggregateInputType | true
+    _avg?: UsageEventAvgAggregateInputType
+    _sum?: UsageEventSumAggregateInputType
+    _min?: UsageEventMinAggregateInputType
+    _max?: UsageEventMaxAggregateInputType
+  }
+
+  export type UsageEventGroupByOutputType = {
+    id: string
+    user_id: string
+    call_id: string | null
+    kind: $Enums.UsageKind
+    model: string | null
+    input_tokens: number
+    output_tokens: number
+    audio_seconds: number
+    cost_usd: number
+    created_at: Date
+    _count: UsageEventCountAggregateOutputType | null
+    _avg: UsageEventAvgAggregateOutputType | null
+    _sum: UsageEventSumAggregateOutputType | null
+    _min: UsageEventMinAggregateOutputType | null
+    _max: UsageEventMaxAggregateOutputType | null
+  }
+
+  type GetUsageEventGroupByPayload<T extends UsageEventGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<UsageEventGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof UsageEventGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], UsageEventGroupByOutputType[P]>
+            : GetScalarType<T[P], UsageEventGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type UsageEventSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    call_id?: boolean
+    kind?: boolean
+    model?: boolean
+    input_tokens?: boolean
+    output_tokens?: boolean
+    audio_seconds?: boolean
+    cost_usd?: boolean
+    created_at?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["usageEvent"]>
+
+  export type UsageEventSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    call_id?: boolean
+    kind?: boolean
+    model?: boolean
+    input_tokens?: boolean
+    output_tokens?: boolean
+    audio_seconds?: boolean
+    cost_usd?: boolean
+    created_at?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["usageEvent"]>
+
+  export type UsageEventSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    user_id?: boolean
+    call_id?: boolean
+    kind?: boolean
+    model?: boolean
+    input_tokens?: boolean
+    output_tokens?: boolean
+    audio_seconds?: boolean
+    cost_usd?: boolean
+    created_at?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["usageEvent"]>
+
+  export type UsageEventSelectScalar = {
+    id?: boolean
+    user_id?: boolean
+    call_id?: boolean
+    kind?: boolean
+    model?: boolean
+    input_tokens?: boolean
+    output_tokens?: boolean
+    audio_seconds?: boolean
+    cost_usd?: boolean
+    created_at?: boolean
+  }
+
+  export type UsageEventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "call_id" | "kind" | "model" | "input_tokens" | "output_tokens" | "audio_seconds" | "cost_usd" | "created_at", ExtArgs["result"]["usageEvent"]>
+  export type UsageEventInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type UsageEventIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type UsageEventIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $UsageEventPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "UsageEvent"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      user_id: string
+      call_id: string | null
+      kind: $Enums.UsageKind
+      model: string | null
+      input_tokens: number
+      output_tokens: number
+      audio_seconds: number
+      cost_usd: number
+      created_at: Date
+    }, ExtArgs["result"]["usageEvent"]>
+    composites: {}
+  }
+
+  type UsageEventGetPayload<S extends boolean | null | undefined | UsageEventDefaultArgs> = $Result.GetResult<Prisma.$UsageEventPayload, S>
+
+  type UsageEventCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<UsageEventFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: UsageEventCountAggregateInputType | true
+    }
+
+  export interface UsageEventDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UsageEvent'], meta: { name: 'UsageEvent' } }
+    /**
+     * Find zero or one UsageEvent that matches the filter.
+     * @param {UsageEventFindUniqueArgs} args - Arguments to find a UsageEvent
+     * @example
+     * // Get one UsageEvent
+     * const usageEvent = await prisma.usageEvent.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends UsageEventFindUniqueArgs>(args: SelectSubset<T, UsageEventFindUniqueArgs<ExtArgs>>): Prisma__UsageEventClient<$Result.GetResult<Prisma.$UsageEventPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one UsageEvent that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {UsageEventFindUniqueOrThrowArgs} args - Arguments to find a UsageEvent
+     * @example
+     * // Get one UsageEvent
+     * const usageEvent = await prisma.usageEvent.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends UsageEventFindUniqueOrThrowArgs>(args: SelectSubset<T, UsageEventFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UsageEventClient<$Result.GetResult<Prisma.$UsageEventPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first UsageEvent that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UsageEventFindFirstArgs} args - Arguments to find a UsageEvent
+     * @example
+     * // Get one UsageEvent
+     * const usageEvent = await prisma.usageEvent.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends UsageEventFindFirstArgs>(args?: SelectSubset<T, UsageEventFindFirstArgs<ExtArgs>>): Prisma__UsageEventClient<$Result.GetResult<Prisma.$UsageEventPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first UsageEvent that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UsageEventFindFirstOrThrowArgs} args - Arguments to find a UsageEvent
+     * @example
+     * // Get one UsageEvent
+     * const usageEvent = await prisma.usageEvent.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends UsageEventFindFirstOrThrowArgs>(args?: SelectSubset<T, UsageEventFindFirstOrThrowArgs<ExtArgs>>): Prisma__UsageEventClient<$Result.GetResult<Prisma.$UsageEventPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more UsageEvents that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UsageEventFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all UsageEvents
+     * const usageEvents = await prisma.usageEvent.findMany()
+     * 
+     * // Get first 10 UsageEvents
+     * const usageEvents = await prisma.usageEvent.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const usageEventWithIdOnly = await prisma.usageEvent.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends UsageEventFindManyArgs>(args?: SelectSubset<T, UsageEventFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsageEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a UsageEvent.
+     * @param {UsageEventCreateArgs} args - Arguments to create a UsageEvent.
+     * @example
+     * // Create one UsageEvent
+     * const UsageEvent = await prisma.usageEvent.create({
+     *   data: {
+     *     // ... data to create a UsageEvent
+     *   }
+     * })
+     * 
+     */
+    create<T extends UsageEventCreateArgs>(args: SelectSubset<T, UsageEventCreateArgs<ExtArgs>>): Prisma__UsageEventClient<$Result.GetResult<Prisma.$UsageEventPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many UsageEvents.
+     * @param {UsageEventCreateManyArgs} args - Arguments to create many UsageEvents.
+     * @example
+     * // Create many UsageEvents
+     * const usageEvent = await prisma.usageEvent.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends UsageEventCreateManyArgs>(args?: SelectSubset<T, UsageEventCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many UsageEvents and returns the data saved in the database.
+     * @param {UsageEventCreateManyAndReturnArgs} args - Arguments to create many UsageEvents.
+     * @example
+     * // Create many UsageEvents
+     * const usageEvent = await prisma.usageEvent.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many UsageEvents and only return the `id`
+     * const usageEventWithIdOnly = await prisma.usageEvent.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends UsageEventCreateManyAndReturnArgs>(args?: SelectSubset<T, UsageEventCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsageEventPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a UsageEvent.
+     * @param {UsageEventDeleteArgs} args - Arguments to delete one UsageEvent.
+     * @example
+     * // Delete one UsageEvent
+     * const UsageEvent = await prisma.usageEvent.delete({
+     *   where: {
+     *     // ... filter to delete one UsageEvent
+     *   }
+     * })
+     * 
+     */
+    delete<T extends UsageEventDeleteArgs>(args: SelectSubset<T, UsageEventDeleteArgs<ExtArgs>>): Prisma__UsageEventClient<$Result.GetResult<Prisma.$UsageEventPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one UsageEvent.
+     * @param {UsageEventUpdateArgs} args - Arguments to update one UsageEvent.
+     * @example
+     * // Update one UsageEvent
+     * const usageEvent = await prisma.usageEvent.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends UsageEventUpdateArgs>(args: SelectSubset<T, UsageEventUpdateArgs<ExtArgs>>): Prisma__UsageEventClient<$Result.GetResult<Prisma.$UsageEventPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more UsageEvents.
+     * @param {UsageEventDeleteManyArgs} args - Arguments to filter UsageEvents to delete.
+     * @example
+     * // Delete a few UsageEvents
+     * const { count } = await prisma.usageEvent.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends UsageEventDeleteManyArgs>(args?: SelectSubset<T, UsageEventDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UsageEvents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UsageEventUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many UsageEvents
+     * const usageEvent = await prisma.usageEvent.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends UsageEventUpdateManyArgs>(args: SelectSubset<T, UsageEventUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more UsageEvents and returns the data updated in the database.
+     * @param {UsageEventUpdateManyAndReturnArgs} args - Arguments to update many UsageEvents.
+     * @example
+     * // Update many UsageEvents
+     * const usageEvent = await prisma.usageEvent.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more UsageEvents and only return the `id`
+     * const usageEventWithIdOnly = await prisma.usageEvent.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends UsageEventUpdateManyAndReturnArgs>(args: SelectSubset<T, UsageEventUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsageEventPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one UsageEvent.
+     * @param {UsageEventUpsertArgs} args - Arguments to update or create a UsageEvent.
+     * @example
+     * // Update or create a UsageEvent
+     * const usageEvent = await prisma.usageEvent.upsert({
+     *   create: {
+     *     // ... data to create a UsageEvent
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the UsageEvent we want to update
+     *   }
+     * })
+     */
+    upsert<T extends UsageEventUpsertArgs>(args: SelectSubset<T, UsageEventUpsertArgs<ExtArgs>>): Prisma__UsageEventClient<$Result.GetResult<Prisma.$UsageEventPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of UsageEvents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UsageEventCountArgs} args - Arguments to filter UsageEvents to count.
+     * @example
+     * // Count the number of UsageEvents
+     * const count = await prisma.usageEvent.count({
+     *   where: {
+     *     // ... the filter for the UsageEvents we want to count
+     *   }
+     * })
+    **/
+    count<T extends UsageEventCountArgs>(
+      args?: Subset<T, UsageEventCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], UsageEventCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a UsageEvent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UsageEventAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends UsageEventAggregateArgs>(args: Subset<T, UsageEventAggregateArgs>): Prisma.PrismaPromise<GetUsageEventAggregateType<T>>
+
+    /**
+     * Group by UsageEvent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {UsageEventGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends UsageEventGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: UsageEventGroupByArgs['orderBy'] }
+        : { orderBy?: UsageEventGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, UsageEventGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUsageEventGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the UsageEvent model
+   */
+  readonly fields: UsageEventFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for UsageEvent.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__UsageEventClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the UsageEvent model
+   */
+  interface UsageEventFieldRefs {
+    readonly id: FieldRef<"UsageEvent", 'String'>
+    readonly user_id: FieldRef<"UsageEvent", 'String'>
+    readonly call_id: FieldRef<"UsageEvent", 'String'>
+    readonly kind: FieldRef<"UsageEvent", 'UsageKind'>
+    readonly model: FieldRef<"UsageEvent", 'String'>
+    readonly input_tokens: FieldRef<"UsageEvent", 'Int'>
+    readonly output_tokens: FieldRef<"UsageEvent", 'Int'>
+    readonly audio_seconds: FieldRef<"UsageEvent", 'Int'>
+    readonly cost_usd: FieldRef<"UsageEvent", 'Float'>
+    readonly created_at: FieldRef<"UsageEvent", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * UsageEvent findUnique
+   */
+  export type UsageEventFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsageEvent
+     */
+    select?: UsageEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsageEvent
+     */
+    omit?: UsageEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsageEventInclude<ExtArgs> | null
+    /**
+     * Filter, which UsageEvent to fetch.
+     */
+    where: UsageEventWhereUniqueInput
+  }
+
+  /**
+   * UsageEvent findUniqueOrThrow
+   */
+  export type UsageEventFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsageEvent
+     */
+    select?: UsageEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsageEvent
+     */
+    omit?: UsageEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsageEventInclude<ExtArgs> | null
+    /**
+     * Filter, which UsageEvent to fetch.
+     */
+    where: UsageEventWhereUniqueInput
+  }
+
+  /**
+   * UsageEvent findFirst
+   */
+  export type UsageEventFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsageEvent
+     */
+    select?: UsageEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsageEvent
+     */
+    omit?: UsageEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsageEventInclude<ExtArgs> | null
+    /**
+     * Filter, which UsageEvent to fetch.
+     */
+    where?: UsageEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UsageEvents to fetch.
+     */
+    orderBy?: UsageEventOrderByWithRelationInput | UsageEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UsageEvents.
+     */
+    cursor?: UsageEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UsageEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UsageEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UsageEvents.
+     */
+    distinct?: UsageEventScalarFieldEnum | UsageEventScalarFieldEnum[]
+  }
+
+  /**
+   * UsageEvent findFirstOrThrow
+   */
+  export type UsageEventFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsageEvent
+     */
+    select?: UsageEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsageEvent
+     */
+    omit?: UsageEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsageEventInclude<ExtArgs> | null
+    /**
+     * Filter, which UsageEvent to fetch.
+     */
+    where?: UsageEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UsageEvents to fetch.
+     */
+    orderBy?: UsageEventOrderByWithRelationInput | UsageEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for UsageEvents.
+     */
+    cursor?: UsageEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UsageEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UsageEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UsageEvents.
+     */
+    distinct?: UsageEventScalarFieldEnum | UsageEventScalarFieldEnum[]
+  }
+
+  /**
+   * UsageEvent findMany
+   */
+  export type UsageEventFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsageEvent
+     */
+    select?: UsageEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsageEvent
+     */
+    omit?: UsageEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsageEventInclude<ExtArgs> | null
+    /**
+     * Filter, which UsageEvents to fetch.
+     */
+    where?: UsageEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of UsageEvents to fetch.
+     */
+    orderBy?: UsageEventOrderByWithRelationInput | UsageEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing UsageEvents.
+     */
+    cursor?: UsageEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` UsageEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` UsageEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of UsageEvents.
+     */
+    distinct?: UsageEventScalarFieldEnum | UsageEventScalarFieldEnum[]
+  }
+
+  /**
+   * UsageEvent create
+   */
+  export type UsageEventCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsageEvent
+     */
+    select?: UsageEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsageEvent
+     */
+    omit?: UsageEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsageEventInclude<ExtArgs> | null
+    /**
+     * The data needed to create a UsageEvent.
+     */
+    data: XOR<UsageEventCreateInput, UsageEventUncheckedCreateInput>
+  }
+
+  /**
+   * UsageEvent createMany
+   */
+  export type UsageEventCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many UsageEvents.
+     */
+    data: UsageEventCreateManyInput | UsageEventCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * UsageEvent createManyAndReturn
+   */
+  export type UsageEventCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsageEvent
+     */
+    select?: UsageEventSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsageEvent
+     */
+    omit?: UsageEventOmit<ExtArgs> | null
+    /**
+     * The data used to create many UsageEvents.
+     */
+    data: UsageEventCreateManyInput | UsageEventCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsageEventIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * UsageEvent update
+   */
+  export type UsageEventUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsageEvent
+     */
+    select?: UsageEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsageEvent
+     */
+    omit?: UsageEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsageEventInclude<ExtArgs> | null
+    /**
+     * The data needed to update a UsageEvent.
+     */
+    data: XOR<UsageEventUpdateInput, UsageEventUncheckedUpdateInput>
+    /**
+     * Choose, which UsageEvent to update.
+     */
+    where: UsageEventWhereUniqueInput
+  }
+
+  /**
+   * UsageEvent updateMany
+   */
+  export type UsageEventUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update UsageEvents.
+     */
+    data: XOR<UsageEventUpdateManyMutationInput, UsageEventUncheckedUpdateManyInput>
+    /**
+     * Filter which UsageEvents to update
+     */
+    where?: UsageEventWhereInput
+    /**
+     * Limit how many UsageEvents to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * UsageEvent updateManyAndReturn
+   */
+  export type UsageEventUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsageEvent
+     */
+    select?: UsageEventSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsageEvent
+     */
+    omit?: UsageEventOmit<ExtArgs> | null
+    /**
+     * The data used to update UsageEvents.
+     */
+    data: XOR<UsageEventUpdateManyMutationInput, UsageEventUncheckedUpdateManyInput>
+    /**
+     * Filter which UsageEvents to update
+     */
+    where?: UsageEventWhereInput
+    /**
+     * Limit how many UsageEvents to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsageEventIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * UsageEvent upsert
+   */
+  export type UsageEventUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsageEvent
+     */
+    select?: UsageEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsageEvent
+     */
+    omit?: UsageEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsageEventInclude<ExtArgs> | null
+    /**
+     * The filter to search for the UsageEvent to update in case it exists.
+     */
+    where: UsageEventWhereUniqueInput
+    /**
+     * In case the UsageEvent found by the `where` argument doesn't exist, create a new UsageEvent with this data.
+     */
+    create: XOR<UsageEventCreateInput, UsageEventUncheckedCreateInput>
+    /**
+     * In case the UsageEvent was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<UsageEventUpdateInput, UsageEventUncheckedUpdateInput>
+  }
+
+  /**
+   * UsageEvent delete
+   */
+  export type UsageEventDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsageEvent
+     */
+    select?: UsageEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsageEvent
+     */
+    omit?: UsageEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsageEventInclude<ExtArgs> | null
+    /**
+     * Filter which UsageEvent to delete.
+     */
+    where: UsageEventWhereUniqueInput
+  }
+
+  /**
+   * UsageEvent deleteMany
+   */
+  export type UsageEventDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which UsageEvents to delete
+     */
+    where?: UsageEventWhereInput
+    /**
+     * Limit how many UsageEvents to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * UsageEvent without action
+   */
+  export type UsageEventDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsageEvent
+     */
+    select?: UsageEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsageEvent
+     */
+    omit?: UsageEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsageEventInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -4425,9 +16199,15 @@ export namespace Prisma {
     email: 'email',
     phone: 'phone',
     password: 'password',
+    full_name: 'full_name',
     role: 'role',
     created_at: 'created_at',
-    updated_at: 'updated_at'
+    updated_at: 'updated_at',
+    interface_language: 'interface_language',
+    output_language_mode: 'output_language_mode',
+    consent_line: 'consent_line',
+    keep_recordings: 'keep_recordings',
+    consent_acknowledged_at: 'consent_acknowledged_at'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -4460,12 +16240,230 @@ export namespace Prisma {
   export type DocumentScalarFieldEnum = (typeof DocumentScalarFieldEnum)[keyof typeof DocumentScalarFieldEnum]
 
 
+  export const AssistantAgentScalarFieldEnum: {
+    id: 'id',
+    user_id: 'user_id',
+    name: 'name',
+    description: 'description',
+    call_goal: 'call_goal',
+    script: 'script',
+    instructions: 'instructions',
+    knowledge: 'knowledge',
+    objection_library: 'objection_library',
+    methodology: 'methodology',
+    language: 'language',
+    tone: 'tone',
+    suggestion_frequency: 'suggestion_frequency',
+    suggestion_length: 'suggestion_length',
+    alternatives_count: 'alternatives_count',
+    realtime_model: 'realtime_model',
+    analysis_model: 'analysis_model',
+    analysis_criteria: 'analysis_criteria',
+    consent_line: 'consent_line',
+    suggest_consent_line: 'suggest_consent_line',
+    template_key: 'template_key',
+    is_default: 'is_default',
+    archived_at: 'archived_at',
+    created_at: 'created_at',
+    updated_at: 'updated_at'
+  };
+
+  export type AssistantAgentScalarFieldEnum = (typeof AssistantAgentScalarFieldEnum)[keyof typeof AssistantAgentScalarFieldEnum]
+
+
+  export const PracticeAgentScalarFieldEnum: {
+    id: 'id',
+    user_id: 'user_id',
+    name: 'name',
+    prospect_name: 'prospect_name',
+    role_prompt: 'role_prompt',
+    scenario_context: 'scenario_context',
+    scenario_type: 'scenario_type',
+    selling_product: 'selling_product',
+    linked_assistant_agent_id: 'linked_assistant_agent_id',
+    user_objective: 'user_objective',
+    lead_temperature: 'lead_temperature',
+    difficulty: 'difficulty',
+    personality: 'personality',
+    mood: 'mood',
+    communication_style: 'communication_style',
+    decision_authority: 'decision_authority',
+    budget: 'budget',
+    timeline: 'timeline',
+    current_solution: 'current_solution',
+    pain_points: 'pain_points',
+    objections: 'objections',
+    hidden_information: 'hidden_information',
+    conversion_conditions: 'conversion_conditions',
+    patience: 'patience',
+    language: 'language',
+    accent: 'accent',
+    industry: 'industry',
+    company: 'company',
+    job_title: 'job_title',
+    age_range: 'age_range',
+    background_story: 'background_story',
+    briefing: 'briefing',
+    voice_provider: 'voice_provider',
+    voice: 'voice',
+    time_limit_minutes: 'time_limit_minutes',
+    source_call_id: 'source_call_id',
+    template_key: 'template_key',
+    archived_at: 'archived_at',
+    created_at: 'created_at',
+    updated_at: 'updated_at'
+  };
+
+  export type PracticeAgentScalarFieldEnum = (typeof PracticeAgentScalarFieldEnum)[keyof typeof PracticeAgentScalarFieldEnum]
+
+
+  export const CallScalarFieldEnum: {
+    id: 'id',
+    user_id: 'user_id',
+    kind: 'kind',
+    call_type: 'call_type',
+    status: 'status',
+    assistant_agent_id: 'assistant_agent_id',
+    practice_agent_id: 'practice_agent_id',
+    copilot_enabled: 'copilot_enabled',
+    title: 'title',
+    prospect_name: 'prospect_name',
+    prospect_company: 'prospect_company',
+    prospect_role: 'prospect_role',
+    context_notes: 'context_notes',
+    goal: 'goal',
+    prior_call_id: 'prior_call_id',
+    language: 'language',
+    started_at: 'started_at',
+    ended_at: 'ended_at',
+    duration_seconds: 'duration_seconds',
+    ended_reason: 'ended_reason',
+    outcome: 'outcome',
+    custom_outcome: 'custom_outcome',
+    objective_achieved: 'objective_achieved',
+    keep_recording: 'keep_recording',
+    recording_path: 'recording_path',
+    recording_mime: 'recording_mime',
+    recording_size: 'recording_size',
+    user_notes: 'user_notes',
+    script_progress: 'script_progress',
+    analysis_error: 'analysis_error',
+    agent_snapshot: 'agent_snapshot',
+    practice_snapshot: 'practice_snapshot',
+    created_at: 'created_at',
+    updated_at: 'updated_at'
+  };
+
+  export type CallScalarFieldEnum = (typeof CallScalarFieldEnum)[keyof typeof CallScalarFieldEnum]
+
+
+  export const TranscriptSegmentScalarFieldEnum: {
+    id: 'id',
+    call_id: 'call_id',
+    client_id: 'client_id',
+    speaker: 'speaker',
+    text: 'text',
+    start_ms: 'start_ms',
+    end_ms: 'end_ms',
+    created_at: 'created_at'
+  };
+
+  export type TranscriptSegmentScalarFieldEnum = (typeof TranscriptSegmentScalarFieldEnum)[keyof typeof TranscriptSegmentScalarFieldEnum]
+
+
+  export const SuggestionScalarFieldEnum: {
+    id: 'id',
+    call_id: 'call_id',
+    type: 'type',
+    text: 'text',
+    alternatives: 'alternatives',
+    reason: 'reason',
+    info_card: 'info_card',
+    at_ms: 'at_ms',
+    status: 'status',
+    feedback: 'feedback',
+    model: 'model',
+    latency_ms: 'latency_ms',
+    created_at: 'created_at'
+  };
+
+  export type SuggestionScalarFieldEnum = (typeof SuggestionScalarFieldEnum)[keyof typeof SuggestionScalarFieldEnum]
+
+
+  export const BookmarkScalarFieldEnum: {
+    id: 'id',
+    call_id: 'call_id',
+    at_ms: 'at_ms',
+    label: 'label',
+    created_at: 'created_at'
+  };
+
+  export type BookmarkScalarFieldEnum = (typeof BookmarkScalarFieldEnum)[keyof typeof BookmarkScalarFieldEnum]
+
+
+  export const CallAnalysisScalarFieldEnum: {
+    id: 'id',
+    call_id: 'call_id',
+    model: 'model',
+    overall_score: 'overall_score',
+    verdict: 'verdict',
+    category_scores: 'category_scores',
+    mistakes: 'mistakes',
+    strengths: 'strengths',
+    improvements: 'improvements',
+    metrics: 'metrics',
+    prospect_insights: 'prospect_insights',
+    summary: 'summary',
+    next_steps: 'next_steps',
+    follow_up_draft: 'follow_up_draft',
+    suggested_practice: 'suggested_practice',
+    practice_result: 'practice_result',
+    suggestion_usage: 'suggestion_usage',
+    error: 'error',
+    created_at: 'created_at',
+    updated_at: 'updated_at'
+  };
+
+  export type CallAnalysisScalarFieldEnum = (typeof CallAnalysisScalarFieldEnum)[keyof typeof CallAnalysisScalarFieldEnum]
+
+
+  export const UsageEventScalarFieldEnum: {
+    id: 'id',
+    user_id: 'user_id',
+    call_id: 'call_id',
+    kind: 'kind',
+    model: 'model',
+    input_tokens: 'input_tokens',
+    output_tokens: 'output_tokens',
+    audio_seconds: 'audio_seconds',
+    cost_usd: 'cost_usd',
+    created_at: 'created_at'
+  };
+
+  export type UsageEventScalarFieldEnum = (typeof UsageEventScalarFieldEnum)[keyof typeof UsageEventScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const JsonNullValueInput: {
+    JsonNull: typeof JsonNull
+  };
+
+  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
+
+
+  export const NullableJsonNullValueInput: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull
+  };
+
+  export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
   export const QueryMode: {
@@ -4482,6 +16480,15 @@ export namespace Prisma {
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   /**
@@ -4532,6 +16539,27 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'OutputLanguageMode'
+   */
+  export type EnumOutputLanguageModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OutputLanguageMode'>
+    
+
+
+  /**
+   * Reference to a field of type 'OutputLanguageMode[]'
+   */
+  export type ListEnumOutputLanguageModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OutputLanguageMode[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -4560,6 +16588,216 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
+    
+
+
+  /**
+   * Reference to a field of type 'SuggestionFrequency'
+   */
+  export type EnumSuggestionFrequencyFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SuggestionFrequency'>
+    
+
+
+  /**
+   * Reference to a field of type 'SuggestionFrequency[]'
+   */
+  export type ListEnumSuggestionFrequencyFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SuggestionFrequency[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'SuggestionLength'
+   */
+  export type EnumSuggestionLengthFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SuggestionLength'>
+    
+
+
+  /**
+   * Reference to a field of type 'SuggestionLength[]'
+   */
+  export type ListEnumSuggestionLengthFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SuggestionLength[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'LeadTemperature'
+   */
+  export type EnumLeadTemperatureFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LeadTemperature'>
+    
+
+
+  /**
+   * Reference to a field of type 'LeadTemperature[]'
+   */
+  export type ListEnumLeadTemperatureFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'LeadTemperature[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'VoiceProvider'
+   */
+  export type EnumVoiceProviderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VoiceProvider'>
+    
+
+
+  /**
+   * Reference to a field of type 'VoiceProvider[]'
+   */
+  export type ListEnumVoiceProviderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VoiceProvider[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'CallKind'
+   */
+  export type EnumCallKindFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CallKind'>
+    
+
+
+  /**
+   * Reference to a field of type 'CallKind[]'
+   */
+  export type ListEnumCallKindFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CallKind[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'CallType'
+   */
+  export type EnumCallTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CallType'>
+    
+
+
+  /**
+   * Reference to a field of type 'CallType[]'
+   */
+  export type ListEnumCallTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CallType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'CallStatus'
+   */
+  export type EnumCallStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CallStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'CallStatus[]'
+   */
+  export type ListEnumCallStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CallStatus[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'CallEndReason'
+   */
+  export type EnumCallEndReasonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CallEndReason'>
+    
+
+
+  /**
+   * Reference to a field of type 'CallEndReason[]'
+   */
+  export type ListEnumCallEndReasonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CallEndReason[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'CallOutcome'
+   */
+  export type EnumCallOutcomeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CallOutcome'>
+    
+
+
+  /**
+   * Reference to a field of type 'CallOutcome[]'
+   */
+  export type ListEnumCallOutcomeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CallOutcome[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Speaker'
+   */
+  export type EnumSpeakerFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Speaker'>
+    
+
+
+  /**
+   * Reference to a field of type 'Speaker[]'
+   */
+  export type ListEnumSpeakerFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Speaker[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'SuggestionType'
+   */
+  export type EnumSuggestionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SuggestionType'>
+    
+
+
+  /**
+   * Reference to a field of type 'SuggestionType[]'
+   */
+  export type ListEnumSuggestionTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SuggestionType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'SuggestionStatus'
+   */
+  export type EnumSuggestionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SuggestionStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'SuggestionStatus[]'
+   */
+  export type ListEnumSuggestionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SuggestionStatus[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'SuggestionFeedback'
+   */
+  export type EnumSuggestionFeedbackFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SuggestionFeedback'>
+    
+
+
+  /**
+   * Reference to a field of type 'SuggestionFeedback[]'
+   */
+  export type ListEnumSuggestionFeedbackFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SuggestionFeedback[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'UsageKind'
+   */
+  export type EnumUsageKindFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UsageKind'>
+    
+
+
+  /**
+   * Reference to a field of type 'UsageKind[]'
+   */
+  export type ListEnumUsageKindFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UsageKind[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -4584,10 +16822,20 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     phone?: StringNullableFilter<"User"> | string | null
     password?: StringFilter<"User"> | string
+    full_name?: StringNullableFilter<"User"> | string | null
     role?: EnumAuthRoleFilter<"User"> | $Enums.AuthRole
     created_at?: DateTimeFilter<"User"> | Date | string
     updated_at?: DateTimeFilter<"User"> | Date | string
+    interface_language?: StringFilter<"User"> | string
+    output_language_mode?: EnumOutputLanguageModeFilter<"User"> | $Enums.OutputLanguageMode
+    consent_line?: StringNullableFilter<"User"> | string | null
+    keep_recordings?: BoolFilter<"User"> | boolean
+    consent_acknowledged_at?: DateTimeNullableFilter<"User"> | Date | string | null
     password_reset_tokens?: PasswordResetTokenListRelationFilter
+    assistant_agents?: AssistantAgentListRelationFilter
+    practice_agents?: PracticeAgentListRelationFilter
+    calls?: CallListRelationFilter
+    usage_events?: UsageEventListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -4595,10 +16843,20 @@ export namespace Prisma {
     email?: SortOrder
     phone?: SortOrderInput | SortOrder
     password?: SortOrder
+    full_name?: SortOrderInput | SortOrder
     role?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    interface_language?: SortOrder
+    output_language_mode?: SortOrder
+    consent_line?: SortOrderInput | SortOrder
+    keep_recordings?: SortOrder
+    consent_acknowledged_at?: SortOrderInput | SortOrder
     password_reset_tokens?: PasswordResetTokenOrderByRelationAggregateInput
+    assistant_agents?: AssistantAgentOrderByRelationAggregateInput
+    practice_agents?: PracticeAgentOrderByRelationAggregateInput
+    calls?: CallOrderByRelationAggregateInput
+    usage_events?: UsageEventOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -4609,10 +16867,20 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     password?: StringFilter<"User"> | string
+    full_name?: StringNullableFilter<"User"> | string | null
     role?: EnumAuthRoleFilter<"User"> | $Enums.AuthRole
     created_at?: DateTimeFilter<"User"> | Date | string
     updated_at?: DateTimeFilter<"User"> | Date | string
+    interface_language?: StringFilter<"User"> | string
+    output_language_mode?: EnumOutputLanguageModeFilter<"User"> | $Enums.OutputLanguageMode
+    consent_line?: StringNullableFilter<"User"> | string | null
+    keep_recordings?: BoolFilter<"User"> | boolean
+    consent_acknowledged_at?: DateTimeNullableFilter<"User"> | Date | string | null
     password_reset_tokens?: PasswordResetTokenListRelationFilter
+    assistant_agents?: AssistantAgentListRelationFilter
+    practice_agents?: PracticeAgentListRelationFilter
+    calls?: CallListRelationFilter
+    usage_events?: UsageEventListRelationFilter
   }, "id" | "email" | "phone">
 
   export type UserOrderByWithAggregationInput = {
@@ -4620,9 +16888,15 @@ export namespace Prisma {
     email?: SortOrder
     phone?: SortOrderInput | SortOrder
     password?: SortOrder
+    full_name?: SortOrderInput | SortOrder
     role?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    interface_language?: SortOrder
+    output_language_mode?: SortOrder
+    consent_line?: SortOrderInput | SortOrder
+    keep_recordings?: SortOrder
+    consent_acknowledged_at?: SortOrderInput | SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
@@ -4636,9 +16910,15 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     phone?: StringNullableWithAggregatesFilter<"User"> | string | null
     password?: StringWithAggregatesFilter<"User"> | string
+    full_name?: StringNullableWithAggregatesFilter<"User"> | string | null
     role?: EnumAuthRoleWithAggregatesFilter<"User"> | $Enums.AuthRole
     created_at?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updated_at?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    interface_language?: StringWithAggregatesFilter<"User"> | string
+    output_language_mode?: EnumOutputLanguageModeWithAggregatesFilter<"User"> | $Enums.OutputLanguageMode
+    consent_line?: StringNullableWithAggregatesFilter<"User"> | string | null
+    keep_recordings?: BoolWithAggregatesFilter<"User"> | boolean
+    consent_acknowledged_at?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
   }
 
   export type PasswordResetTokenWhereInput = {
@@ -4775,15 +17055,1087 @@ export namespace Prisma {
     created_at?: DateTimeWithAggregatesFilter<"Document"> | Date | string
   }
 
+  export type AssistantAgentWhereInput = {
+    AND?: AssistantAgentWhereInput | AssistantAgentWhereInput[]
+    OR?: AssistantAgentWhereInput[]
+    NOT?: AssistantAgentWhereInput | AssistantAgentWhereInput[]
+    id?: StringFilter<"AssistantAgent"> | string
+    user_id?: StringFilter<"AssistantAgent"> | string
+    name?: StringFilter<"AssistantAgent"> | string
+    description?: StringNullableFilter<"AssistantAgent"> | string | null
+    call_goal?: StringNullableFilter<"AssistantAgent"> | string | null
+    script?: JsonFilter<"AssistantAgent">
+    instructions?: StringNullableFilter<"AssistantAgent"> | string | null
+    knowledge?: StringNullableFilter<"AssistantAgent"> | string | null
+    objection_library?: JsonFilter<"AssistantAgent">
+    methodology?: StringNullableFilter<"AssistantAgent"> | string | null
+    language?: StringFilter<"AssistantAgent"> | string
+    tone?: StringFilter<"AssistantAgent"> | string
+    suggestion_frequency?: EnumSuggestionFrequencyFilter<"AssistantAgent"> | $Enums.SuggestionFrequency
+    suggestion_length?: EnumSuggestionLengthFilter<"AssistantAgent"> | $Enums.SuggestionLength
+    alternatives_count?: IntFilter<"AssistantAgent"> | number
+    realtime_model?: StringFilter<"AssistantAgent"> | string
+    analysis_model?: StringFilter<"AssistantAgent"> | string
+    analysis_criteria?: JsonFilter<"AssistantAgent">
+    consent_line?: StringNullableFilter<"AssistantAgent"> | string | null
+    suggest_consent_line?: BoolFilter<"AssistantAgent"> | boolean
+    template_key?: StringNullableFilter<"AssistantAgent"> | string | null
+    is_default?: BoolFilter<"AssistantAgent"> | boolean
+    archived_at?: DateTimeNullableFilter<"AssistantAgent"> | Date | string | null
+    created_at?: DateTimeFilter<"AssistantAgent"> | Date | string
+    updated_at?: DateTimeFilter<"AssistantAgent"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    calls?: CallListRelationFilter
+    practice_agents?: PracticeAgentListRelationFilter
+  }
+
+  export type AssistantAgentOrderByWithRelationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    call_goal?: SortOrderInput | SortOrder
+    script?: SortOrder
+    instructions?: SortOrderInput | SortOrder
+    knowledge?: SortOrderInput | SortOrder
+    objection_library?: SortOrder
+    methodology?: SortOrderInput | SortOrder
+    language?: SortOrder
+    tone?: SortOrder
+    suggestion_frequency?: SortOrder
+    suggestion_length?: SortOrder
+    alternatives_count?: SortOrder
+    realtime_model?: SortOrder
+    analysis_model?: SortOrder
+    analysis_criteria?: SortOrder
+    consent_line?: SortOrderInput | SortOrder
+    suggest_consent_line?: SortOrder
+    template_key?: SortOrderInput | SortOrder
+    is_default?: SortOrder
+    archived_at?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    user?: UserOrderByWithRelationInput
+    calls?: CallOrderByRelationAggregateInput
+    practice_agents?: PracticeAgentOrderByRelationAggregateInput
+  }
+
+  export type AssistantAgentWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: AssistantAgentWhereInput | AssistantAgentWhereInput[]
+    OR?: AssistantAgentWhereInput[]
+    NOT?: AssistantAgentWhereInput | AssistantAgentWhereInput[]
+    user_id?: StringFilter<"AssistantAgent"> | string
+    name?: StringFilter<"AssistantAgent"> | string
+    description?: StringNullableFilter<"AssistantAgent"> | string | null
+    call_goal?: StringNullableFilter<"AssistantAgent"> | string | null
+    script?: JsonFilter<"AssistantAgent">
+    instructions?: StringNullableFilter<"AssistantAgent"> | string | null
+    knowledge?: StringNullableFilter<"AssistantAgent"> | string | null
+    objection_library?: JsonFilter<"AssistantAgent">
+    methodology?: StringNullableFilter<"AssistantAgent"> | string | null
+    language?: StringFilter<"AssistantAgent"> | string
+    tone?: StringFilter<"AssistantAgent"> | string
+    suggestion_frequency?: EnumSuggestionFrequencyFilter<"AssistantAgent"> | $Enums.SuggestionFrequency
+    suggestion_length?: EnumSuggestionLengthFilter<"AssistantAgent"> | $Enums.SuggestionLength
+    alternatives_count?: IntFilter<"AssistantAgent"> | number
+    realtime_model?: StringFilter<"AssistantAgent"> | string
+    analysis_model?: StringFilter<"AssistantAgent"> | string
+    analysis_criteria?: JsonFilter<"AssistantAgent">
+    consent_line?: StringNullableFilter<"AssistantAgent"> | string | null
+    suggest_consent_line?: BoolFilter<"AssistantAgent"> | boolean
+    template_key?: StringNullableFilter<"AssistantAgent"> | string | null
+    is_default?: BoolFilter<"AssistantAgent"> | boolean
+    archived_at?: DateTimeNullableFilter<"AssistantAgent"> | Date | string | null
+    created_at?: DateTimeFilter<"AssistantAgent"> | Date | string
+    updated_at?: DateTimeFilter<"AssistantAgent"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    calls?: CallListRelationFilter
+    practice_agents?: PracticeAgentListRelationFilter
+  }, "id">
+
+  export type AssistantAgentOrderByWithAggregationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    call_goal?: SortOrderInput | SortOrder
+    script?: SortOrder
+    instructions?: SortOrderInput | SortOrder
+    knowledge?: SortOrderInput | SortOrder
+    objection_library?: SortOrder
+    methodology?: SortOrderInput | SortOrder
+    language?: SortOrder
+    tone?: SortOrder
+    suggestion_frequency?: SortOrder
+    suggestion_length?: SortOrder
+    alternatives_count?: SortOrder
+    realtime_model?: SortOrder
+    analysis_model?: SortOrder
+    analysis_criteria?: SortOrder
+    consent_line?: SortOrderInput | SortOrder
+    suggest_consent_line?: SortOrder
+    template_key?: SortOrderInput | SortOrder
+    is_default?: SortOrder
+    archived_at?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    _count?: AssistantAgentCountOrderByAggregateInput
+    _avg?: AssistantAgentAvgOrderByAggregateInput
+    _max?: AssistantAgentMaxOrderByAggregateInput
+    _min?: AssistantAgentMinOrderByAggregateInput
+    _sum?: AssistantAgentSumOrderByAggregateInput
+  }
+
+  export type AssistantAgentScalarWhereWithAggregatesInput = {
+    AND?: AssistantAgentScalarWhereWithAggregatesInput | AssistantAgentScalarWhereWithAggregatesInput[]
+    OR?: AssistantAgentScalarWhereWithAggregatesInput[]
+    NOT?: AssistantAgentScalarWhereWithAggregatesInput | AssistantAgentScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"AssistantAgent"> | string
+    user_id?: StringWithAggregatesFilter<"AssistantAgent"> | string
+    name?: StringWithAggregatesFilter<"AssistantAgent"> | string
+    description?: StringNullableWithAggregatesFilter<"AssistantAgent"> | string | null
+    call_goal?: StringNullableWithAggregatesFilter<"AssistantAgent"> | string | null
+    script?: JsonWithAggregatesFilter<"AssistantAgent">
+    instructions?: StringNullableWithAggregatesFilter<"AssistantAgent"> | string | null
+    knowledge?: StringNullableWithAggregatesFilter<"AssistantAgent"> | string | null
+    objection_library?: JsonWithAggregatesFilter<"AssistantAgent">
+    methodology?: StringNullableWithAggregatesFilter<"AssistantAgent"> | string | null
+    language?: StringWithAggregatesFilter<"AssistantAgent"> | string
+    tone?: StringWithAggregatesFilter<"AssistantAgent"> | string
+    suggestion_frequency?: EnumSuggestionFrequencyWithAggregatesFilter<"AssistantAgent"> | $Enums.SuggestionFrequency
+    suggestion_length?: EnumSuggestionLengthWithAggregatesFilter<"AssistantAgent"> | $Enums.SuggestionLength
+    alternatives_count?: IntWithAggregatesFilter<"AssistantAgent"> | number
+    realtime_model?: StringWithAggregatesFilter<"AssistantAgent"> | string
+    analysis_model?: StringWithAggregatesFilter<"AssistantAgent"> | string
+    analysis_criteria?: JsonWithAggregatesFilter<"AssistantAgent">
+    consent_line?: StringNullableWithAggregatesFilter<"AssistantAgent"> | string | null
+    suggest_consent_line?: BoolWithAggregatesFilter<"AssistantAgent"> | boolean
+    template_key?: StringNullableWithAggregatesFilter<"AssistantAgent"> | string | null
+    is_default?: BoolWithAggregatesFilter<"AssistantAgent"> | boolean
+    archived_at?: DateTimeNullableWithAggregatesFilter<"AssistantAgent"> | Date | string | null
+    created_at?: DateTimeWithAggregatesFilter<"AssistantAgent"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"AssistantAgent"> | Date | string
+  }
+
+  export type PracticeAgentWhereInput = {
+    AND?: PracticeAgentWhereInput | PracticeAgentWhereInput[]
+    OR?: PracticeAgentWhereInput[]
+    NOT?: PracticeAgentWhereInput | PracticeAgentWhereInput[]
+    id?: StringFilter<"PracticeAgent"> | string
+    user_id?: StringFilter<"PracticeAgent"> | string
+    name?: StringFilter<"PracticeAgent"> | string
+    prospect_name?: StringNullableFilter<"PracticeAgent"> | string | null
+    role_prompt?: StringFilter<"PracticeAgent"> | string
+    scenario_context?: StringNullableFilter<"PracticeAgent"> | string | null
+    scenario_type?: StringFilter<"PracticeAgent"> | string
+    selling_product?: StringNullableFilter<"PracticeAgent"> | string | null
+    linked_assistant_agent_id?: StringNullableFilter<"PracticeAgent"> | string | null
+    user_objective?: StringNullableFilter<"PracticeAgent"> | string | null
+    lead_temperature?: EnumLeadTemperatureFilter<"PracticeAgent"> | $Enums.LeadTemperature
+    difficulty?: IntFilter<"PracticeAgent"> | number
+    personality?: StringNullableFilter<"PracticeAgent"> | string | null
+    mood?: StringNullableFilter<"PracticeAgent"> | string | null
+    communication_style?: StringNullableFilter<"PracticeAgent"> | string | null
+    decision_authority?: StringNullableFilter<"PracticeAgent"> | string | null
+    budget?: StringNullableFilter<"PracticeAgent"> | string | null
+    timeline?: StringNullableFilter<"PracticeAgent"> | string | null
+    current_solution?: StringNullableFilter<"PracticeAgent"> | string | null
+    pain_points?: JsonFilter<"PracticeAgent">
+    objections?: JsonFilter<"PracticeAgent">
+    hidden_information?: JsonFilter<"PracticeAgent">
+    conversion_conditions?: JsonFilter<"PracticeAgent">
+    patience?: IntFilter<"PracticeAgent"> | number
+    language?: StringFilter<"PracticeAgent"> | string
+    accent?: StringNullableFilter<"PracticeAgent"> | string | null
+    industry?: StringNullableFilter<"PracticeAgent"> | string | null
+    company?: StringNullableFilter<"PracticeAgent"> | string | null
+    job_title?: StringNullableFilter<"PracticeAgent"> | string | null
+    age_range?: StringNullableFilter<"PracticeAgent"> | string | null
+    background_story?: StringNullableFilter<"PracticeAgent"> | string | null
+    briefing?: StringNullableFilter<"PracticeAgent"> | string | null
+    voice_provider?: EnumVoiceProviderFilter<"PracticeAgent"> | $Enums.VoiceProvider
+    voice?: StringFilter<"PracticeAgent"> | string
+    time_limit_minutes?: IntNullableFilter<"PracticeAgent"> | number | null
+    source_call_id?: StringNullableFilter<"PracticeAgent"> | string | null
+    template_key?: StringNullableFilter<"PracticeAgent"> | string | null
+    archived_at?: DateTimeNullableFilter<"PracticeAgent"> | Date | string | null
+    created_at?: DateTimeFilter<"PracticeAgent"> | Date | string
+    updated_at?: DateTimeFilter<"PracticeAgent"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    linked_assistant_agent?: XOR<AssistantAgentNullableScalarRelationFilter, AssistantAgentWhereInput> | null
+    calls?: CallListRelationFilter
+  }
+
+  export type PracticeAgentOrderByWithRelationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    name?: SortOrder
+    prospect_name?: SortOrderInput | SortOrder
+    role_prompt?: SortOrder
+    scenario_context?: SortOrderInput | SortOrder
+    scenario_type?: SortOrder
+    selling_product?: SortOrderInput | SortOrder
+    linked_assistant_agent_id?: SortOrderInput | SortOrder
+    user_objective?: SortOrderInput | SortOrder
+    lead_temperature?: SortOrder
+    difficulty?: SortOrder
+    personality?: SortOrderInput | SortOrder
+    mood?: SortOrderInput | SortOrder
+    communication_style?: SortOrderInput | SortOrder
+    decision_authority?: SortOrderInput | SortOrder
+    budget?: SortOrderInput | SortOrder
+    timeline?: SortOrderInput | SortOrder
+    current_solution?: SortOrderInput | SortOrder
+    pain_points?: SortOrder
+    objections?: SortOrder
+    hidden_information?: SortOrder
+    conversion_conditions?: SortOrder
+    patience?: SortOrder
+    language?: SortOrder
+    accent?: SortOrderInput | SortOrder
+    industry?: SortOrderInput | SortOrder
+    company?: SortOrderInput | SortOrder
+    job_title?: SortOrderInput | SortOrder
+    age_range?: SortOrderInput | SortOrder
+    background_story?: SortOrderInput | SortOrder
+    briefing?: SortOrderInput | SortOrder
+    voice_provider?: SortOrder
+    voice?: SortOrder
+    time_limit_minutes?: SortOrderInput | SortOrder
+    source_call_id?: SortOrderInput | SortOrder
+    template_key?: SortOrderInput | SortOrder
+    archived_at?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    user?: UserOrderByWithRelationInput
+    linked_assistant_agent?: AssistantAgentOrderByWithRelationInput
+    calls?: CallOrderByRelationAggregateInput
+  }
+
+  export type PracticeAgentWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: PracticeAgentWhereInput | PracticeAgentWhereInput[]
+    OR?: PracticeAgentWhereInput[]
+    NOT?: PracticeAgentWhereInput | PracticeAgentWhereInput[]
+    user_id?: StringFilter<"PracticeAgent"> | string
+    name?: StringFilter<"PracticeAgent"> | string
+    prospect_name?: StringNullableFilter<"PracticeAgent"> | string | null
+    role_prompt?: StringFilter<"PracticeAgent"> | string
+    scenario_context?: StringNullableFilter<"PracticeAgent"> | string | null
+    scenario_type?: StringFilter<"PracticeAgent"> | string
+    selling_product?: StringNullableFilter<"PracticeAgent"> | string | null
+    linked_assistant_agent_id?: StringNullableFilter<"PracticeAgent"> | string | null
+    user_objective?: StringNullableFilter<"PracticeAgent"> | string | null
+    lead_temperature?: EnumLeadTemperatureFilter<"PracticeAgent"> | $Enums.LeadTemperature
+    difficulty?: IntFilter<"PracticeAgent"> | number
+    personality?: StringNullableFilter<"PracticeAgent"> | string | null
+    mood?: StringNullableFilter<"PracticeAgent"> | string | null
+    communication_style?: StringNullableFilter<"PracticeAgent"> | string | null
+    decision_authority?: StringNullableFilter<"PracticeAgent"> | string | null
+    budget?: StringNullableFilter<"PracticeAgent"> | string | null
+    timeline?: StringNullableFilter<"PracticeAgent"> | string | null
+    current_solution?: StringNullableFilter<"PracticeAgent"> | string | null
+    pain_points?: JsonFilter<"PracticeAgent">
+    objections?: JsonFilter<"PracticeAgent">
+    hidden_information?: JsonFilter<"PracticeAgent">
+    conversion_conditions?: JsonFilter<"PracticeAgent">
+    patience?: IntFilter<"PracticeAgent"> | number
+    language?: StringFilter<"PracticeAgent"> | string
+    accent?: StringNullableFilter<"PracticeAgent"> | string | null
+    industry?: StringNullableFilter<"PracticeAgent"> | string | null
+    company?: StringNullableFilter<"PracticeAgent"> | string | null
+    job_title?: StringNullableFilter<"PracticeAgent"> | string | null
+    age_range?: StringNullableFilter<"PracticeAgent"> | string | null
+    background_story?: StringNullableFilter<"PracticeAgent"> | string | null
+    briefing?: StringNullableFilter<"PracticeAgent"> | string | null
+    voice_provider?: EnumVoiceProviderFilter<"PracticeAgent"> | $Enums.VoiceProvider
+    voice?: StringFilter<"PracticeAgent"> | string
+    time_limit_minutes?: IntNullableFilter<"PracticeAgent"> | number | null
+    source_call_id?: StringNullableFilter<"PracticeAgent"> | string | null
+    template_key?: StringNullableFilter<"PracticeAgent"> | string | null
+    archived_at?: DateTimeNullableFilter<"PracticeAgent"> | Date | string | null
+    created_at?: DateTimeFilter<"PracticeAgent"> | Date | string
+    updated_at?: DateTimeFilter<"PracticeAgent"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    linked_assistant_agent?: XOR<AssistantAgentNullableScalarRelationFilter, AssistantAgentWhereInput> | null
+    calls?: CallListRelationFilter
+  }, "id">
+
+  export type PracticeAgentOrderByWithAggregationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    name?: SortOrder
+    prospect_name?: SortOrderInput | SortOrder
+    role_prompt?: SortOrder
+    scenario_context?: SortOrderInput | SortOrder
+    scenario_type?: SortOrder
+    selling_product?: SortOrderInput | SortOrder
+    linked_assistant_agent_id?: SortOrderInput | SortOrder
+    user_objective?: SortOrderInput | SortOrder
+    lead_temperature?: SortOrder
+    difficulty?: SortOrder
+    personality?: SortOrderInput | SortOrder
+    mood?: SortOrderInput | SortOrder
+    communication_style?: SortOrderInput | SortOrder
+    decision_authority?: SortOrderInput | SortOrder
+    budget?: SortOrderInput | SortOrder
+    timeline?: SortOrderInput | SortOrder
+    current_solution?: SortOrderInput | SortOrder
+    pain_points?: SortOrder
+    objections?: SortOrder
+    hidden_information?: SortOrder
+    conversion_conditions?: SortOrder
+    patience?: SortOrder
+    language?: SortOrder
+    accent?: SortOrderInput | SortOrder
+    industry?: SortOrderInput | SortOrder
+    company?: SortOrderInput | SortOrder
+    job_title?: SortOrderInput | SortOrder
+    age_range?: SortOrderInput | SortOrder
+    background_story?: SortOrderInput | SortOrder
+    briefing?: SortOrderInput | SortOrder
+    voice_provider?: SortOrder
+    voice?: SortOrder
+    time_limit_minutes?: SortOrderInput | SortOrder
+    source_call_id?: SortOrderInput | SortOrder
+    template_key?: SortOrderInput | SortOrder
+    archived_at?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    _count?: PracticeAgentCountOrderByAggregateInput
+    _avg?: PracticeAgentAvgOrderByAggregateInput
+    _max?: PracticeAgentMaxOrderByAggregateInput
+    _min?: PracticeAgentMinOrderByAggregateInput
+    _sum?: PracticeAgentSumOrderByAggregateInput
+  }
+
+  export type PracticeAgentScalarWhereWithAggregatesInput = {
+    AND?: PracticeAgentScalarWhereWithAggregatesInput | PracticeAgentScalarWhereWithAggregatesInput[]
+    OR?: PracticeAgentScalarWhereWithAggregatesInput[]
+    NOT?: PracticeAgentScalarWhereWithAggregatesInput | PracticeAgentScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PracticeAgent"> | string
+    user_id?: StringWithAggregatesFilter<"PracticeAgent"> | string
+    name?: StringWithAggregatesFilter<"PracticeAgent"> | string
+    prospect_name?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    role_prompt?: StringWithAggregatesFilter<"PracticeAgent"> | string
+    scenario_context?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    scenario_type?: StringWithAggregatesFilter<"PracticeAgent"> | string
+    selling_product?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    linked_assistant_agent_id?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    user_objective?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    lead_temperature?: EnumLeadTemperatureWithAggregatesFilter<"PracticeAgent"> | $Enums.LeadTemperature
+    difficulty?: IntWithAggregatesFilter<"PracticeAgent"> | number
+    personality?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    mood?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    communication_style?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    decision_authority?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    budget?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    timeline?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    current_solution?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    pain_points?: JsonWithAggregatesFilter<"PracticeAgent">
+    objections?: JsonWithAggregatesFilter<"PracticeAgent">
+    hidden_information?: JsonWithAggregatesFilter<"PracticeAgent">
+    conversion_conditions?: JsonWithAggregatesFilter<"PracticeAgent">
+    patience?: IntWithAggregatesFilter<"PracticeAgent"> | number
+    language?: StringWithAggregatesFilter<"PracticeAgent"> | string
+    accent?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    industry?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    company?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    job_title?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    age_range?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    background_story?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    briefing?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    voice_provider?: EnumVoiceProviderWithAggregatesFilter<"PracticeAgent"> | $Enums.VoiceProvider
+    voice?: StringWithAggregatesFilter<"PracticeAgent"> | string
+    time_limit_minutes?: IntNullableWithAggregatesFilter<"PracticeAgent"> | number | null
+    source_call_id?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    template_key?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
+    archived_at?: DateTimeNullableWithAggregatesFilter<"PracticeAgent"> | Date | string | null
+    created_at?: DateTimeWithAggregatesFilter<"PracticeAgent"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"PracticeAgent"> | Date | string
+  }
+
+  export type CallWhereInput = {
+    AND?: CallWhereInput | CallWhereInput[]
+    OR?: CallWhereInput[]
+    NOT?: CallWhereInput | CallWhereInput[]
+    id?: StringFilter<"Call"> | string
+    user_id?: StringFilter<"Call"> | string
+    kind?: EnumCallKindFilter<"Call"> | $Enums.CallKind
+    call_type?: EnumCallTypeFilter<"Call"> | $Enums.CallType
+    status?: EnumCallStatusFilter<"Call"> | $Enums.CallStatus
+    assistant_agent_id?: StringNullableFilter<"Call"> | string | null
+    practice_agent_id?: StringNullableFilter<"Call"> | string | null
+    copilot_enabled?: BoolFilter<"Call"> | boolean
+    title?: StringNullableFilter<"Call"> | string | null
+    prospect_name?: StringNullableFilter<"Call"> | string | null
+    prospect_company?: StringNullableFilter<"Call"> | string | null
+    prospect_role?: StringNullableFilter<"Call"> | string | null
+    context_notes?: StringNullableFilter<"Call"> | string | null
+    goal?: StringNullableFilter<"Call"> | string | null
+    prior_call_id?: StringNullableFilter<"Call"> | string | null
+    language?: StringFilter<"Call"> | string
+    started_at?: DateTimeFilter<"Call"> | Date | string
+    ended_at?: DateTimeNullableFilter<"Call"> | Date | string | null
+    duration_seconds?: IntFilter<"Call"> | number
+    ended_reason?: EnumCallEndReasonNullableFilter<"Call"> | $Enums.CallEndReason | null
+    outcome?: EnumCallOutcomeNullableFilter<"Call"> | $Enums.CallOutcome | null
+    custom_outcome?: StringNullableFilter<"Call"> | string | null
+    objective_achieved?: BoolNullableFilter<"Call"> | boolean | null
+    keep_recording?: BoolFilter<"Call"> | boolean
+    recording_path?: StringNullableFilter<"Call"> | string | null
+    recording_mime?: StringNullableFilter<"Call"> | string | null
+    recording_size?: IntNullableFilter<"Call"> | number | null
+    user_notes?: StringNullableFilter<"Call"> | string | null
+    script_progress?: JsonFilter<"Call">
+    analysis_error?: StringNullableFilter<"Call"> | string | null
+    agent_snapshot?: JsonNullableFilter<"Call">
+    practice_snapshot?: JsonNullableFilter<"Call">
+    created_at?: DateTimeFilter<"Call"> | Date | string
+    updated_at?: DateTimeFilter<"Call"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    assistant_agent?: XOR<AssistantAgentNullableScalarRelationFilter, AssistantAgentWhereInput> | null
+    practice_agent?: XOR<PracticeAgentNullableScalarRelationFilter, PracticeAgentWhereInput> | null
+    segments?: TranscriptSegmentListRelationFilter
+    suggestions?: SuggestionListRelationFilter
+    bookmarks?: BookmarkListRelationFilter
+    analysis?: XOR<CallAnalysisNullableScalarRelationFilter, CallAnalysisWhereInput> | null
+  }
+
+  export type CallOrderByWithRelationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    kind?: SortOrder
+    call_type?: SortOrder
+    status?: SortOrder
+    assistant_agent_id?: SortOrderInput | SortOrder
+    practice_agent_id?: SortOrderInput | SortOrder
+    copilot_enabled?: SortOrder
+    title?: SortOrderInput | SortOrder
+    prospect_name?: SortOrderInput | SortOrder
+    prospect_company?: SortOrderInput | SortOrder
+    prospect_role?: SortOrderInput | SortOrder
+    context_notes?: SortOrderInput | SortOrder
+    goal?: SortOrderInput | SortOrder
+    prior_call_id?: SortOrderInput | SortOrder
+    language?: SortOrder
+    started_at?: SortOrder
+    ended_at?: SortOrderInput | SortOrder
+    duration_seconds?: SortOrder
+    ended_reason?: SortOrderInput | SortOrder
+    outcome?: SortOrderInput | SortOrder
+    custom_outcome?: SortOrderInput | SortOrder
+    objective_achieved?: SortOrderInput | SortOrder
+    keep_recording?: SortOrder
+    recording_path?: SortOrderInput | SortOrder
+    recording_mime?: SortOrderInput | SortOrder
+    recording_size?: SortOrderInput | SortOrder
+    user_notes?: SortOrderInput | SortOrder
+    script_progress?: SortOrder
+    analysis_error?: SortOrderInput | SortOrder
+    agent_snapshot?: SortOrderInput | SortOrder
+    practice_snapshot?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    user?: UserOrderByWithRelationInput
+    assistant_agent?: AssistantAgentOrderByWithRelationInput
+    practice_agent?: PracticeAgentOrderByWithRelationInput
+    segments?: TranscriptSegmentOrderByRelationAggregateInput
+    suggestions?: SuggestionOrderByRelationAggregateInput
+    bookmarks?: BookmarkOrderByRelationAggregateInput
+    analysis?: CallAnalysisOrderByWithRelationInput
+  }
+
+  export type CallWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: CallWhereInput | CallWhereInput[]
+    OR?: CallWhereInput[]
+    NOT?: CallWhereInput | CallWhereInput[]
+    user_id?: StringFilter<"Call"> | string
+    kind?: EnumCallKindFilter<"Call"> | $Enums.CallKind
+    call_type?: EnumCallTypeFilter<"Call"> | $Enums.CallType
+    status?: EnumCallStatusFilter<"Call"> | $Enums.CallStatus
+    assistant_agent_id?: StringNullableFilter<"Call"> | string | null
+    practice_agent_id?: StringNullableFilter<"Call"> | string | null
+    copilot_enabled?: BoolFilter<"Call"> | boolean
+    title?: StringNullableFilter<"Call"> | string | null
+    prospect_name?: StringNullableFilter<"Call"> | string | null
+    prospect_company?: StringNullableFilter<"Call"> | string | null
+    prospect_role?: StringNullableFilter<"Call"> | string | null
+    context_notes?: StringNullableFilter<"Call"> | string | null
+    goal?: StringNullableFilter<"Call"> | string | null
+    prior_call_id?: StringNullableFilter<"Call"> | string | null
+    language?: StringFilter<"Call"> | string
+    started_at?: DateTimeFilter<"Call"> | Date | string
+    ended_at?: DateTimeNullableFilter<"Call"> | Date | string | null
+    duration_seconds?: IntFilter<"Call"> | number
+    ended_reason?: EnumCallEndReasonNullableFilter<"Call"> | $Enums.CallEndReason | null
+    outcome?: EnumCallOutcomeNullableFilter<"Call"> | $Enums.CallOutcome | null
+    custom_outcome?: StringNullableFilter<"Call"> | string | null
+    objective_achieved?: BoolNullableFilter<"Call"> | boolean | null
+    keep_recording?: BoolFilter<"Call"> | boolean
+    recording_path?: StringNullableFilter<"Call"> | string | null
+    recording_mime?: StringNullableFilter<"Call"> | string | null
+    recording_size?: IntNullableFilter<"Call"> | number | null
+    user_notes?: StringNullableFilter<"Call"> | string | null
+    script_progress?: JsonFilter<"Call">
+    analysis_error?: StringNullableFilter<"Call"> | string | null
+    agent_snapshot?: JsonNullableFilter<"Call">
+    practice_snapshot?: JsonNullableFilter<"Call">
+    created_at?: DateTimeFilter<"Call"> | Date | string
+    updated_at?: DateTimeFilter<"Call"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    assistant_agent?: XOR<AssistantAgentNullableScalarRelationFilter, AssistantAgentWhereInput> | null
+    practice_agent?: XOR<PracticeAgentNullableScalarRelationFilter, PracticeAgentWhereInput> | null
+    segments?: TranscriptSegmentListRelationFilter
+    suggestions?: SuggestionListRelationFilter
+    bookmarks?: BookmarkListRelationFilter
+    analysis?: XOR<CallAnalysisNullableScalarRelationFilter, CallAnalysisWhereInput> | null
+  }, "id">
+
+  export type CallOrderByWithAggregationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    kind?: SortOrder
+    call_type?: SortOrder
+    status?: SortOrder
+    assistant_agent_id?: SortOrderInput | SortOrder
+    practice_agent_id?: SortOrderInput | SortOrder
+    copilot_enabled?: SortOrder
+    title?: SortOrderInput | SortOrder
+    prospect_name?: SortOrderInput | SortOrder
+    prospect_company?: SortOrderInput | SortOrder
+    prospect_role?: SortOrderInput | SortOrder
+    context_notes?: SortOrderInput | SortOrder
+    goal?: SortOrderInput | SortOrder
+    prior_call_id?: SortOrderInput | SortOrder
+    language?: SortOrder
+    started_at?: SortOrder
+    ended_at?: SortOrderInput | SortOrder
+    duration_seconds?: SortOrder
+    ended_reason?: SortOrderInput | SortOrder
+    outcome?: SortOrderInput | SortOrder
+    custom_outcome?: SortOrderInput | SortOrder
+    objective_achieved?: SortOrderInput | SortOrder
+    keep_recording?: SortOrder
+    recording_path?: SortOrderInput | SortOrder
+    recording_mime?: SortOrderInput | SortOrder
+    recording_size?: SortOrderInput | SortOrder
+    user_notes?: SortOrderInput | SortOrder
+    script_progress?: SortOrder
+    analysis_error?: SortOrderInput | SortOrder
+    agent_snapshot?: SortOrderInput | SortOrder
+    practice_snapshot?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    _count?: CallCountOrderByAggregateInput
+    _avg?: CallAvgOrderByAggregateInput
+    _max?: CallMaxOrderByAggregateInput
+    _min?: CallMinOrderByAggregateInput
+    _sum?: CallSumOrderByAggregateInput
+  }
+
+  export type CallScalarWhereWithAggregatesInput = {
+    AND?: CallScalarWhereWithAggregatesInput | CallScalarWhereWithAggregatesInput[]
+    OR?: CallScalarWhereWithAggregatesInput[]
+    NOT?: CallScalarWhereWithAggregatesInput | CallScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Call"> | string
+    user_id?: StringWithAggregatesFilter<"Call"> | string
+    kind?: EnumCallKindWithAggregatesFilter<"Call"> | $Enums.CallKind
+    call_type?: EnumCallTypeWithAggregatesFilter<"Call"> | $Enums.CallType
+    status?: EnumCallStatusWithAggregatesFilter<"Call"> | $Enums.CallStatus
+    assistant_agent_id?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    practice_agent_id?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    copilot_enabled?: BoolWithAggregatesFilter<"Call"> | boolean
+    title?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    prospect_name?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    prospect_company?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    prospect_role?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    context_notes?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    goal?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    prior_call_id?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    language?: StringWithAggregatesFilter<"Call"> | string
+    started_at?: DateTimeWithAggregatesFilter<"Call"> | Date | string
+    ended_at?: DateTimeNullableWithAggregatesFilter<"Call"> | Date | string | null
+    duration_seconds?: IntWithAggregatesFilter<"Call"> | number
+    ended_reason?: EnumCallEndReasonNullableWithAggregatesFilter<"Call"> | $Enums.CallEndReason | null
+    outcome?: EnumCallOutcomeNullableWithAggregatesFilter<"Call"> | $Enums.CallOutcome | null
+    custom_outcome?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    objective_achieved?: BoolNullableWithAggregatesFilter<"Call"> | boolean | null
+    keep_recording?: BoolWithAggregatesFilter<"Call"> | boolean
+    recording_path?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    recording_mime?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    recording_size?: IntNullableWithAggregatesFilter<"Call"> | number | null
+    user_notes?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    script_progress?: JsonWithAggregatesFilter<"Call">
+    analysis_error?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    agent_snapshot?: JsonNullableWithAggregatesFilter<"Call">
+    practice_snapshot?: JsonNullableWithAggregatesFilter<"Call">
+    created_at?: DateTimeWithAggregatesFilter<"Call"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"Call"> | Date | string
+  }
+
+  export type TranscriptSegmentWhereInput = {
+    AND?: TranscriptSegmentWhereInput | TranscriptSegmentWhereInput[]
+    OR?: TranscriptSegmentWhereInput[]
+    NOT?: TranscriptSegmentWhereInput | TranscriptSegmentWhereInput[]
+    id?: StringFilter<"TranscriptSegment"> | string
+    call_id?: StringFilter<"TranscriptSegment"> | string
+    client_id?: StringNullableFilter<"TranscriptSegment"> | string | null
+    speaker?: EnumSpeakerFilter<"TranscriptSegment"> | $Enums.Speaker
+    text?: StringFilter<"TranscriptSegment"> | string
+    start_ms?: IntFilter<"TranscriptSegment"> | number
+    end_ms?: IntFilter<"TranscriptSegment"> | number
+    created_at?: DateTimeFilter<"TranscriptSegment"> | Date | string
+    call?: XOR<CallScalarRelationFilter, CallWhereInput>
+  }
+
+  export type TranscriptSegmentOrderByWithRelationInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    client_id?: SortOrderInput | SortOrder
+    speaker?: SortOrder
+    text?: SortOrder
+    start_ms?: SortOrder
+    end_ms?: SortOrder
+    created_at?: SortOrder
+    call?: CallOrderByWithRelationInput
+  }
+
+  export type TranscriptSegmentWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    call_id_client_id?: TranscriptSegmentCall_idClient_idCompoundUniqueInput
+    AND?: TranscriptSegmentWhereInput | TranscriptSegmentWhereInput[]
+    OR?: TranscriptSegmentWhereInput[]
+    NOT?: TranscriptSegmentWhereInput | TranscriptSegmentWhereInput[]
+    call_id?: StringFilter<"TranscriptSegment"> | string
+    client_id?: StringNullableFilter<"TranscriptSegment"> | string | null
+    speaker?: EnumSpeakerFilter<"TranscriptSegment"> | $Enums.Speaker
+    text?: StringFilter<"TranscriptSegment"> | string
+    start_ms?: IntFilter<"TranscriptSegment"> | number
+    end_ms?: IntFilter<"TranscriptSegment"> | number
+    created_at?: DateTimeFilter<"TranscriptSegment"> | Date | string
+    call?: XOR<CallScalarRelationFilter, CallWhereInput>
+  }, "id" | "call_id_client_id">
+
+  export type TranscriptSegmentOrderByWithAggregationInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    client_id?: SortOrderInput | SortOrder
+    speaker?: SortOrder
+    text?: SortOrder
+    start_ms?: SortOrder
+    end_ms?: SortOrder
+    created_at?: SortOrder
+    _count?: TranscriptSegmentCountOrderByAggregateInput
+    _avg?: TranscriptSegmentAvgOrderByAggregateInput
+    _max?: TranscriptSegmentMaxOrderByAggregateInput
+    _min?: TranscriptSegmentMinOrderByAggregateInput
+    _sum?: TranscriptSegmentSumOrderByAggregateInput
+  }
+
+  export type TranscriptSegmentScalarWhereWithAggregatesInput = {
+    AND?: TranscriptSegmentScalarWhereWithAggregatesInput | TranscriptSegmentScalarWhereWithAggregatesInput[]
+    OR?: TranscriptSegmentScalarWhereWithAggregatesInput[]
+    NOT?: TranscriptSegmentScalarWhereWithAggregatesInput | TranscriptSegmentScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"TranscriptSegment"> | string
+    call_id?: StringWithAggregatesFilter<"TranscriptSegment"> | string
+    client_id?: StringNullableWithAggregatesFilter<"TranscriptSegment"> | string | null
+    speaker?: EnumSpeakerWithAggregatesFilter<"TranscriptSegment"> | $Enums.Speaker
+    text?: StringWithAggregatesFilter<"TranscriptSegment"> | string
+    start_ms?: IntWithAggregatesFilter<"TranscriptSegment"> | number
+    end_ms?: IntWithAggregatesFilter<"TranscriptSegment"> | number
+    created_at?: DateTimeWithAggregatesFilter<"TranscriptSegment"> | Date | string
+  }
+
+  export type SuggestionWhereInput = {
+    AND?: SuggestionWhereInput | SuggestionWhereInput[]
+    OR?: SuggestionWhereInput[]
+    NOT?: SuggestionWhereInput | SuggestionWhereInput[]
+    id?: StringFilter<"Suggestion"> | string
+    call_id?: StringFilter<"Suggestion"> | string
+    type?: EnumSuggestionTypeFilter<"Suggestion"> | $Enums.SuggestionType
+    text?: StringFilter<"Suggestion"> | string
+    alternatives?: JsonFilter<"Suggestion">
+    reason?: StringNullableFilter<"Suggestion"> | string | null
+    info_card?: JsonNullableFilter<"Suggestion">
+    at_ms?: IntFilter<"Suggestion"> | number
+    status?: EnumSuggestionStatusFilter<"Suggestion"> | $Enums.SuggestionStatus
+    feedback?: EnumSuggestionFeedbackNullableFilter<"Suggestion"> | $Enums.SuggestionFeedback | null
+    model?: StringNullableFilter<"Suggestion"> | string | null
+    latency_ms?: IntNullableFilter<"Suggestion"> | number | null
+    created_at?: DateTimeFilter<"Suggestion"> | Date | string
+    call?: XOR<CallScalarRelationFilter, CallWhereInput>
+  }
+
+  export type SuggestionOrderByWithRelationInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    type?: SortOrder
+    text?: SortOrder
+    alternatives?: SortOrder
+    reason?: SortOrderInput | SortOrder
+    info_card?: SortOrderInput | SortOrder
+    at_ms?: SortOrder
+    status?: SortOrder
+    feedback?: SortOrderInput | SortOrder
+    model?: SortOrderInput | SortOrder
+    latency_ms?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    call?: CallOrderByWithRelationInput
+  }
+
+  export type SuggestionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SuggestionWhereInput | SuggestionWhereInput[]
+    OR?: SuggestionWhereInput[]
+    NOT?: SuggestionWhereInput | SuggestionWhereInput[]
+    call_id?: StringFilter<"Suggestion"> | string
+    type?: EnumSuggestionTypeFilter<"Suggestion"> | $Enums.SuggestionType
+    text?: StringFilter<"Suggestion"> | string
+    alternatives?: JsonFilter<"Suggestion">
+    reason?: StringNullableFilter<"Suggestion"> | string | null
+    info_card?: JsonNullableFilter<"Suggestion">
+    at_ms?: IntFilter<"Suggestion"> | number
+    status?: EnumSuggestionStatusFilter<"Suggestion"> | $Enums.SuggestionStatus
+    feedback?: EnumSuggestionFeedbackNullableFilter<"Suggestion"> | $Enums.SuggestionFeedback | null
+    model?: StringNullableFilter<"Suggestion"> | string | null
+    latency_ms?: IntNullableFilter<"Suggestion"> | number | null
+    created_at?: DateTimeFilter<"Suggestion"> | Date | string
+    call?: XOR<CallScalarRelationFilter, CallWhereInput>
+  }, "id">
+
+  export type SuggestionOrderByWithAggregationInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    type?: SortOrder
+    text?: SortOrder
+    alternatives?: SortOrder
+    reason?: SortOrderInput | SortOrder
+    info_card?: SortOrderInput | SortOrder
+    at_ms?: SortOrder
+    status?: SortOrder
+    feedback?: SortOrderInput | SortOrder
+    model?: SortOrderInput | SortOrder
+    latency_ms?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    _count?: SuggestionCountOrderByAggregateInput
+    _avg?: SuggestionAvgOrderByAggregateInput
+    _max?: SuggestionMaxOrderByAggregateInput
+    _min?: SuggestionMinOrderByAggregateInput
+    _sum?: SuggestionSumOrderByAggregateInput
+  }
+
+  export type SuggestionScalarWhereWithAggregatesInput = {
+    AND?: SuggestionScalarWhereWithAggregatesInput | SuggestionScalarWhereWithAggregatesInput[]
+    OR?: SuggestionScalarWhereWithAggregatesInput[]
+    NOT?: SuggestionScalarWhereWithAggregatesInput | SuggestionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Suggestion"> | string
+    call_id?: StringWithAggregatesFilter<"Suggestion"> | string
+    type?: EnumSuggestionTypeWithAggregatesFilter<"Suggestion"> | $Enums.SuggestionType
+    text?: StringWithAggregatesFilter<"Suggestion"> | string
+    alternatives?: JsonWithAggregatesFilter<"Suggestion">
+    reason?: StringNullableWithAggregatesFilter<"Suggestion"> | string | null
+    info_card?: JsonNullableWithAggregatesFilter<"Suggestion">
+    at_ms?: IntWithAggregatesFilter<"Suggestion"> | number
+    status?: EnumSuggestionStatusWithAggregatesFilter<"Suggestion"> | $Enums.SuggestionStatus
+    feedback?: EnumSuggestionFeedbackNullableWithAggregatesFilter<"Suggestion"> | $Enums.SuggestionFeedback | null
+    model?: StringNullableWithAggregatesFilter<"Suggestion"> | string | null
+    latency_ms?: IntNullableWithAggregatesFilter<"Suggestion"> | number | null
+    created_at?: DateTimeWithAggregatesFilter<"Suggestion"> | Date | string
+  }
+
+  export type BookmarkWhereInput = {
+    AND?: BookmarkWhereInput | BookmarkWhereInput[]
+    OR?: BookmarkWhereInput[]
+    NOT?: BookmarkWhereInput | BookmarkWhereInput[]
+    id?: StringFilter<"Bookmark"> | string
+    call_id?: StringFilter<"Bookmark"> | string
+    at_ms?: IntFilter<"Bookmark"> | number
+    label?: StringNullableFilter<"Bookmark"> | string | null
+    created_at?: DateTimeFilter<"Bookmark"> | Date | string
+    call?: XOR<CallScalarRelationFilter, CallWhereInput>
+  }
+
+  export type BookmarkOrderByWithRelationInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    at_ms?: SortOrder
+    label?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    call?: CallOrderByWithRelationInput
+  }
+
+  export type BookmarkWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: BookmarkWhereInput | BookmarkWhereInput[]
+    OR?: BookmarkWhereInput[]
+    NOT?: BookmarkWhereInput | BookmarkWhereInput[]
+    call_id?: StringFilter<"Bookmark"> | string
+    at_ms?: IntFilter<"Bookmark"> | number
+    label?: StringNullableFilter<"Bookmark"> | string | null
+    created_at?: DateTimeFilter<"Bookmark"> | Date | string
+    call?: XOR<CallScalarRelationFilter, CallWhereInput>
+  }, "id">
+
+  export type BookmarkOrderByWithAggregationInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    at_ms?: SortOrder
+    label?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    _count?: BookmarkCountOrderByAggregateInput
+    _avg?: BookmarkAvgOrderByAggregateInput
+    _max?: BookmarkMaxOrderByAggregateInput
+    _min?: BookmarkMinOrderByAggregateInput
+    _sum?: BookmarkSumOrderByAggregateInput
+  }
+
+  export type BookmarkScalarWhereWithAggregatesInput = {
+    AND?: BookmarkScalarWhereWithAggregatesInput | BookmarkScalarWhereWithAggregatesInput[]
+    OR?: BookmarkScalarWhereWithAggregatesInput[]
+    NOT?: BookmarkScalarWhereWithAggregatesInput | BookmarkScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Bookmark"> | string
+    call_id?: StringWithAggregatesFilter<"Bookmark"> | string
+    at_ms?: IntWithAggregatesFilter<"Bookmark"> | number
+    label?: StringNullableWithAggregatesFilter<"Bookmark"> | string | null
+    created_at?: DateTimeWithAggregatesFilter<"Bookmark"> | Date | string
+  }
+
+  export type CallAnalysisWhereInput = {
+    AND?: CallAnalysisWhereInput | CallAnalysisWhereInput[]
+    OR?: CallAnalysisWhereInput[]
+    NOT?: CallAnalysisWhereInput | CallAnalysisWhereInput[]
+    id?: StringFilter<"CallAnalysis"> | string
+    call_id?: StringFilter<"CallAnalysis"> | string
+    model?: StringFilter<"CallAnalysis"> | string
+    overall_score?: IntFilter<"CallAnalysis"> | number
+    verdict?: StringFilter<"CallAnalysis"> | string
+    category_scores?: JsonFilter<"CallAnalysis">
+    mistakes?: JsonFilter<"CallAnalysis">
+    strengths?: JsonFilter<"CallAnalysis">
+    improvements?: JsonFilter<"CallAnalysis">
+    metrics?: JsonFilter<"CallAnalysis">
+    prospect_insights?: JsonFilter<"CallAnalysis">
+    summary?: StringFilter<"CallAnalysis"> | string
+    next_steps?: JsonFilter<"CallAnalysis">
+    follow_up_draft?: StringNullableFilter<"CallAnalysis"> | string | null
+    suggested_practice?: JsonFilter<"CallAnalysis">
+    practice_result?: JsonNullableFilter<"CallAnalysis">
+    suggestion_usage?: JsonNullableFilter<"CallAnalysis">
+    error?: StringNullableFilter<"CallAnalysis"> | string | null
+    created_at?: DateTimeFilter<"CallAnalysis"> | Date | string
+    updated_at?: DateTimeFilter<"CallAnalysis"> | Date | string
+    call?: XOR<CallScalarRelationFilter, CallWhereInput>
+  }
+
+  export type CallAnalysisOrderByWithRelationInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    model?: SortOrder
+    overall_score?: SortOrder
+    verdict?: SortOrder
+    category_scores?: SortOrder
+    mistakes?: SortOrder
+    strengths?: SortOrder
+    improvements?: SortOrder
+    metrics?: SortOrder
+    prospect_insights?: SortOrder
+    summary?: SortOrder
+    next_steps?: SortOrder
+    follow_up_draft?: SortOrderInput | SortOrder
+    suggested_practice?: SortOrder
+    practice_result?: SortOrderInput | SortOrder
+    suggestion_usage?: SortOrderInput | SortOrder
+    error?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    call?: CallOrderByWithRelationInput
+  }
+
+  export type CallAnalysisWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    call_id?: string
+    AND?: CallAnalysisWhereInput | CallAnalysisWhereInput[]
+    OR?: CallAnalysisWhereInput[]
+    NOT?: CallAnalysisWhereInput | CallAnalysisWhereInput[]
+    model?: StringFilter<"CallAnalysis"> | string
+    overall_score?: IntFilter<"CallAnalysis"> | number
+    verdict?: StringFilter<"CallAnalysis"> | string
+    category_scores?: JsonFilter<"CallAnalysis">
+    mistakes?: JsonFilter<"CallAnalysis">
+    strengths?: JsonFilter<"CallAnalysis">
+    improvements?: JsonFilter<"CallAnalysis">
+    metrics?: JsonFilter<"CallAnalysis">
+    prospect_insights?: JsonFilter<"CallAnalysis">
+    summary?: StringFilter<"CallAnalysis"> | string
+    next_steps?: JsonFilter<"CallAnalysis">
+    follow_up_draft?: StringNullableFilter<"CallAnalysis"> | string | null
+    suggested_practice?: JsonFilter<"CallAnalysis">
+    practice_result?: JsonNullableFilter<"CallAnalysis">
+    suggestion_usage?: JsonNullableFilter<"CallAnalysis">
+    error?: StringNullableFilter<"CallAnalysis"> | string | null
+    created_at?: DateTimeFilter<"CallAnalysis"> | Date | string
+    updated_at?: DateTimeFilter<"CallAnalysis"> | Date | string
+    call?: XOR<CallScalarRelationFilter, CallWhereInput>
+  }, "id" | "call_id">
+
+  export type CallAnalysisOrderByWithAggregationInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    model?: SortOrder
+    overall_score?: SortOrder
+    verdict?: SortOrder
+    category_scores?: SortOrder
+    mistakes?: SortOrder
+    strengths?: SortOrder
+    improvements?: SortOrder
+    metrics?: SortOrder
+    prospect_insights?: SortOrder
+    summary?: SortOrder
+    next_steps?: SortOrder
+    follow_up_draft?: SortOrderInput | SortOrder
+    suggested_practice?: SortOrder
+    practice_result?: SortOrderInput | SortOrder
+    suggestion_usage?: SortOrderInput | SortOrder
+    error?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    _count?: CallAnalysisCountOrderByAggregateInput
+    _avg?: CallAnalysisAvgOrderByAggregateInput
+    _max?: CallAnalysisMaxOrderByAggregateInput
+    _min?: CallAnalysisMinOrderByAggregateInput
+    _sum?: CallAnalysisSumOrderByAggregateInput
+  }
+
+  export type CallAnalysisScalarWhereWithAggregatesInput = {
+    AND?: CallAnalysisScalarWhereWithAggregatesInput | CallAnalysisScalarWhereWithAggregatesInput[]
+    OR?: CallAnalysisScalarWhereWithAggregatesInput[]
+    NOT?: CallAnalysisScalarWhereWithAggregatesInput | CallAnalysisScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"CallAnalysis"> | string
+    call_id?: StringWithAggregatesFilter<"CallAnalysis"> | string
+    model?: StringWithAggregatesFilter<"CallAnalysis"> | string
+    overall_score?: IntWithAggregatesFilter<"CallAnalysis"> | number
+    verdict?: StringWithAggregatesFilter<"CallAnalysis"> | string
+    category_scores?: JsonWithAggregatesFilter<"CallAnalysis">
+    mistakes?: JsonWithAggregatesFilter<"CallAnalysis">
+    strengths?: JsonWithAggregatesFilter<"CallAnalysis">
+    improvements?: JsonWithAggregatesFilter<"CallAnalysis">
+    metrics?: JsonWithAggregatesFilter<"CallAnalysis">
+    prospect_insights?: JsonWithAggregatesFilter<"CallAnalysis">
+    summary?: StringWithAggregatesFilter<"CallAnalysis"> | string
+    next_steps?: JsonWithAggregatesFilter<"CallAnalysis">
+    follow_up_draft?: StringNullableWithAggregatesFilter<"CallAnalysis"> | string | null
+    suggested_practice?: JsonWithAggregatesFilter<"CallAnalysis">
+    practice_result?: JsonNullableWithAggregatesFilter<"CallAnalysis">
+    suggestion_usage?: JsonNullableWithAggregatesFilter<"CallAnalysis">
+    error?: StringNullableWithAggregatesFilter<"CallAnalysis"> | string | null
+    created_at?: DateTimeWithAggregatesFilter<"CallAnalysis"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"CallAnalysis"> | Date | string
+  }
+
+  export type UsageEventWhereInput = {
+    AND?: UsageEventWhereInput | UsageEventWhereInput[]
+    OR?: UsageEventWhereInput[]
+    NOT?: UsageEventWhereInput | UsageEventWhereInput[]
+    id?: StringFilter<"UsageEvent"> | string
+    user_id?: StringFilter<"UsageEvent"> | string
+    call_id?: StringNullableFilter<"UsageEvent"> | string | null
+    kind?: EnumUsageKindFilter<"UsageEvent"> | $Enums.UsageKind
+    model?: StringNullableFilter<"UsageEvent"> | string | null
+    input_tokens?: IntFilter<"UsageEvent"> | number
+    output_tokens?: IntFilter<"UsageEvent"> | number
+    audio_seconds?: IntFilter<"UsageEvent"> | number
+    cost_usd?: FloatFilter<"UsageEvent"> | number
+    created_at?: DateTimeFilter<"UsageEvent"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type UsageEventOrderByWithRelationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    call_id?: SortOrderInput | SortOrder
+    kind?: SortOrder
+    model?: SortOrderInput | SortOrder
+    input_tokens?: SortOrder
+    output_tokens?: SortOrder
+    audio_seconds?: SortOrder
+    cost_usd?: SortOrder
+    created_at?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type UsageEventWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: UsageEventWhereInput | UsageEventWhereInput[]
+    OR?: UsageEventWhereInput[]
+    NOT?: UsageEventWhereInput | UsageEventWhereInput[]
+    user_id?: StringFilter<"UsageEvent"> | string
+    call_id?: StringNullableFilter<"UsageEvent"> | string | null
+    kind?: EnumUsageKindFilter<"UsageEvent"> | $Enums.UsageKind
+    model?: StringNullableFilter<"UsageEvent"> | string | null
+    input_tokens?: IntFilter<"UsageEvent"> | number
+    output_tokens?: IntFilter<"UsageEvent"> | number
+    audio_seconds?: IntFilter<"UsageEvent"> | number
+    cost_usd?: FloatFilter<"UsageEvent"> | number
+    created_at?: DateTimeFilter<"UsageEvent"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type UsageEventOrderByWithAggregationInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    call_id?: SortOrderInput | SortOrder
+    kind?: SortOrder
+    model?: SortOrderInput | SortOrder
+    input_tokens?: SortOrder
+    output_tokens?: SortOrder
+    audio_seconds?: SortOrder
+    cost_usd?: SortOrder
+    created_at?: SortOrder
+    _count?: UsageEventCountOrderByAggregateInput
+    _avg?: UsageEventAvgOrderByAggregateInput
+    _max?: UsageEventMaxOrderByAggregateInput
+    _min?: UsageEventMinOrderByAggregateInput
+    _sum?: UsageEventSumOrderByAggregateInput
+  }
+
+  export type UsageEventScalarWhereWithAggregatesInput = {
+    AND?: UsageEventScalarWhereWithAggregatesInput | UsageEventScalarWhereWithAggregatesInput[]
+    OR?: UsageEventScalarWhereWithAggregatesInput[]
+    NOT?: UsageEventScalarWhereWithAggregatesInput | UsageEventScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"UsageEvent"> | string
+    user_id?: StringWithAggregatesFilter<"UsageEvent"> | string
+    call_id?: StringNullableWithAggregatesFilter<"UsageEvent"> | string | null
+    kind?: EnumUsageKindWithAggregatesFilter<"UsageEvent"> | $Enums.UsageKind
+    model?: StringNullableWithAggregatesFilter<"UsageEvent"> | string | null
+    input_tokens?: IntWithAggregatesFilter<"UsageEvent"> | number
+    output_tokens?: IntWithAggregatesFilter<"UsageEvent"> | number
+    audio_seconds?: IntWithAggregatesFilter<"UsageEvent"> | number
+    cost_usd?: FloatWithAggregatesFilter<"UsageEvent"> | number
+    created_at?: DateTimeWithAggregatesFilter<"UsageEvent"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     email: string
     phone?: string | null
     password: string
+    full_name?: string | null
     role: $Enums.AuthRole
     created_at?: Date | string
     updated_at?: Date | string
+    interface_language?: string
+    output_language_mode?: $Enums.OutputLanguageMode
+    consent_line?: string | null
+    keep_recordings?: boolean
+    consent_acknowledged_at?: Date | string | null
     password_reset_tokens?: PasswordResetTokenCreateNestedManyWithoutUserInput
+    assistant_agents?: AssistantAgentCreateNestedManyWithoutUserInput
+    practice_agents?: PracticeAgentCreateNestedManyWithoutUserInput
+    calls?: CallCreateNestedManyWithoutUserInput
+    usage_events?: UsageEventCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -4791,10 +18143,20 @@ export namespace Prisma {
     email: string
     phone?: string | null
     password: string
+    full_name?: string | null
     role: $Enums.AuthRole
     created_at?: Date | string
     updated_at?: Date | string
+    interface_language?: string
+    output_language_mode?: $Enums.OutputLanguageMode
+    consent_line?: string | null
+    keep_recordings?: boolean
+    consent_acknowledged_at?: Date | string | null
     password_reset_tokens?: PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+    assistant_agents?: AssistantAgentUncheckedCreateNestedManyWithoutUserInput
+    practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutUserInput
+    calls?: CallUncheckedCreateNestedManyWithoutUserInput
+    usage_events?: UsageEventUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -4802,10 +18164,20 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumAuthRoleFieldUpdateOperationsInput | $Enums.AuthRole
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    interface_language?: StringFieldUpdateOperationsInput | string
+    output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    keep_recordings?: BoolFieldUpdateOperationsInput | boolean
+    consent_acknowledged_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     password_reset_tokens?: PasswordResetTokenUpdateManyWithoutUserNestedInput
+    assistant_agents?: AssistantAgentUpdateManyWithoutUserNestedInput
+    practice_agents?: PracticeAgentUpdateManyWithoutUserNestedInput
+    calls?: CallUpdateManyWithoutUserNestedInput
+    usage_events?: UsageEventUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -4813,10 +18185,20 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumAuthRoleFieldUpdateOperationsInput | $Enums.AuthRole
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    interface_language?: StringFieldUpdateOperationsInput | string
+    output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    keep_recordings?: BoolFieldUpdateOperationsInput | boolean
+    consent_acknowledged_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     password_reset_tokens?: PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+    assistant_agents?: AssistantAgentUncheckedUpdateManyWithoutUserNestedInput
+    practice_agents?: PracticeAgentUncheckedUpdateManyWithoutUserNestedInput
+    calls?: CallUncheckedUpdateManyWithoutUserNestedInput
+    usage_events?: UsageEventUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -4824,9 +18206,15 @@ export namespace Prisma {
     email: string
     phone?: string | null
     password: string
+    full_name?: string | null
     role: $Enums.AuthRole
     created_at?: Date | string
     updated_at?: Date | string
+    interface_language?: string
+    output_language_mode?: $Enums.OutputLanguageMode
+    consent_line?: string | null
+    keep_recordings?: boolean
+    consent_acknowledged_at?: Date | string | null
   }
 
   export type UserUpdateManyMutationInput = {
@@ -4834,9 +18222,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumAuthRoleFieldUpdateOperationsInput | $Enums.AuthRole
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    interface_language?: StringFieldUpdateOperationsInput | string
+    output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    keep_recordings?: BoolFieldUpdateOperationsInput | boolean
+    consent_acknowledged_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -4844,9 +18238,15 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumAuthRoleFieldUpdateOperationsInput | $Enums.AuthRole
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    interface_language?: StringFieldUpdateOperationsInput | string
+    output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    keep_recordings?: BoolFieldUpdateOperationsInput | boolean
+    consent_acknowledged_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type PasswordResetTokenCreateInput = {
@@ -4995,6 +18395,1276 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type AssistantAgentCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    call_goal?: string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: string | null
+    knowledge?: string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: string | null
+    language?: string
+    tone?: string
+    suggestion_frequency?: $Enums.SuggestionFrequency
+    suggestion_length?: $Enums.SuggestionLength
+    alternatives_count?: number
+    realtime_model: string
+    analysis_model: string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: string | null
+    suggest_consent_line?: boolean
+    template_key?: string | null
+    is_default?: boolean
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    user: UserCreateNestedOneWithoutAssistant_agentsInput
+    calls?: CallCreateNestedManyWithoutAssistant_agentInput
+    practice_agents?: PracticeAgentCreateNestedManyWithoutLinked_assistant_agentInput
+  }
+
+  export type AssistantAgentUncheckedCreateInput = {
+    id?: string
+    user_id: string
+    name: string
+    description?: string | null
+    call_goal?: string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: string | null
+    knowledge?: string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: string | null
+    language?: string
+    tone?: string
+    suggestion_frequency?: $Enums.SuggestionFrequency
+    suggestion_length?: $Enums.SuggestionLength
+    alternatives_count?: number
+    realtime_model: string
+    analysis_model: string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: string | null
+    suggest_consent_line?: boolean
+    template_key?: string | null
+    is_default?: boolean
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    calls?: CallUncheckedCreateNestedManyWithoutAssistant_agentInput
+    practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutLinked_assistant_agentInput
+  }
+
+  export type AssistantAgentUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    call_goal?: NullableStringFieldUpdateOperationsInput | string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    knowledge?: NullableStringFieldUpdateOperationsInput | string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    tone?: StringFieldUpdateOperationsInput | string
+    suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
+    suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
+    alternatives_count?: IntFieldUpdateOperationsInput | number
+    realtime_model?: StringFieldUpdateOperationsInput | string
+    analysis_model?: StringFieldUpdateOperationsInput | string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    suggest_consent_line?: BoolFieldUpdateOperationsInput | boolean
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    is_default?: BoolFieldUpdateOperationsInput | boolean
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutAssistant_agentsNestedInput
+    calls?: CallUpdateManyWithoutAssistant_agentNestedInput
+    practice_agents?: PracticeAgentUpdateManyWithoutLinked_assistant_agentNestedInput
+  }
+
+  export type AssistantAgentUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    call_goal?: NullableStringFieldUpdateOperationsInput | string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    knowledge?: NullableStringFieldUpdateOperationsInput | string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    tone?: StringFieldUpdateOperationsInput | string
+    suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
+    suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
+    alternatives_count?: IntFieldUpdateOperationsInput | number
+    realtime_model?: StringFieldUpdateOperationsInput | string
+    analysis_model?: StringFieldUpdateOperationsInput | string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    suggest_consent_line?: BoolFieldUpdateOperationsInput | boolean
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    is_default?: BoolFieldUpdateOperationsInput | boolean
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    calls?: CallUncheckedUpdateManyWithoutAssistant_agentNestedInput
+    practice_agents?: PracticeAgentUncheckedUpdateManyWithoutLinked_assistant_agentNestedInput
+  }
+
+  export type AssistantAgentCreateManyInput = {
+    id?: string
+    user_id: string
+    name: string
+    description?: string | null
+    call_goal?: string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: string | null
+    knowledge?: string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: string | null
+    language?: string
+    tone?: string
+    suggestion_frequency?: $Enums.SuggestionFrequency
+    suggestion_length?: $Enums.SuggestionLength
+    alternatives_count?: number
+    realtime_model: string
+    analysis_model: string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: string | null
+    suggest_consent_line?: boolean
+    template_key?: string | null
+    is_default?: boolean
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type AssistantAgentUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    call_goal?: NullableStringFieldUpdateOperationsInput | string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    knowledge?: NullableStringFieldUpdateOperationsInput | string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    tone?: StringFieldUpdateOperationsInput | string
+    suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
+    suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
+    alternatives_count?: IntFieldUpdateOperationsInput | number
+    realtime_model?: StringFieldUpdateOperationsInput | string
+    analysis_model?: StringFieldUpdateOperationsInput | string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    suggest_consent_line?: BoolFieldUpdateOperationsInput | boolean
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    is_default?: BoolFieldUpdateOperationsInput | boolean
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AssistantAgentUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    call_goal?: NullableStringFieldUpdateOperationsInput | string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    knowledge?: NullableStringFieldUpdateOperationsInput | string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    tone?: StringFieldUpdateOperationsInput | string
+    suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
+    suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
+    alternatives_count?: IntFieldUpdateOperationsInput | number
+    realtime_model?: StringFieldUpdateOperationsInput | string
+    analysis_model?: StringFieldUpdateOperationsInput | string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    suggest_consent_line?: BoolFieldUpdateOperationsInput | boolean
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    is_default?: BoolFieldUpdateOperationsInput | boolean
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PracticeAgentCreateInput = {
+    id?: string
+    name: string
+    prospect_name?: string | null
+    role_prompt: string
+    scenario_context?: string | null
+    scenario_type?: string
+    selling_product?: string | null
+    user_objective?: string | null
+    lead_temperature?: $Enums.LeadTemperature
+    difficulty?: number
+    personality?: string | null
+    mood?: string | null
+    communication_style?: string | null
+    decision_authority?: string | null
+    budget?: string | null
+    timeline?: string | null
+    current_solution?: string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: number
+    language?: string
+    accent?: string | null
+    industry?: string | null
+    company?: string | null
+    job_title?: string | null
+    age_range?: string | null
+    background_story?: string | null
+    briefing?: string | null
+    voice_provider?: $Enums.VoiceProvider
+    voice?: string
+    time_limit_minutes?: number | null
+    source_call_id?: string | null
+    template_key?: string | null
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    user: UserCreateNestedOneWithoutPractice_agentsInput
+    linked_assistant_agent?: AssistantAgentCreateNestedOneWithoutPractice_agentsInput
+    calls?: CallCreateNestedManyWithoutPractice_agentInput
+  }
+
+  export type PracticeAgentUncheckedCreateInput = {
+    id?: string
+    user_id: string
+    name: string
+    prospect_name?: string | null
+    role_prompt: string
+    scenario_context?: string | null
+    scenario_type?: string
+    selling_product?: string | null
+    linked_assistant_agent_id?: string | null
+    user_objective?: string | null
+    lead_temperature?: $Enums.LeadTemperature
+    difficulty?: number
+    personality?: string | null
+    mood?: string | null
+    communication_style?: string | null
+    decision_authority?: string | null
+    budget?: string | null
+    timeline?: string | null
+    current_solution?: string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: number
+    language?: string
+    accent?: string | null
+    industry?: string | null
+    company?: string | null
+    job_title?: string | null
+    age_range?: string | null
+    background_story?: string | null
+    briefing?: string | null
+    voice_provider?: $Enums.VoiceProvider
+    voice?: string
+    time_limit_minutes?: number | null
+    source_call_id?: string | null
+    template_key?: string | null
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    calls?: CallUncheckedCreateNestedManyWithoutPractice_agentInput
+  }
+
+  export type PracticeAgentUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role_prompt?: StringFieldUpdateOperationsInput | string
+    scenario_context?: NullableStringFieldUpdateOperationsInput | string | null
+    scenario_type?: StringFieldUpdateOperationsInput | string
+    selling_product?: NullableStringFieldUpdateOperationsInput | string | null
+    user_objective?: NullableStringFieldUpdateOperationsInput | string | null
+    lead_temperature?: EnumLeadTemperatureFieldUpdateOperationsInput | $Enums.LeadTemperature
+    difficulty?: IntFieldUpdateOperationsInput | number
+    personality?: NullableStringFieldUpdateOperationsInput | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    communication_style?: NullableStringFieldUpdateOperationsInput | string | null
+    decision_authority?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableStringFieldUpdateOperationsInput | string | null
+    timeline?: NullableStringFieldUpdateOperationsInput | string | null
+    current_solution?: NullableStringFieldUpdateOperationsInput | string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    job_title?: NullableStringFieldUpdateOperationsInput | string | null
+    age_range?: NullableStringFieldUpdateOperationsInput | string | null
+    background_story?: NullableStringFieldUpdateOperationsInput | string | null
+    briefing?: NullableStringFieldUpdateOperationsInput | string | null
+    voice_provider?: EnumVoiceProviderFieldUpdateOperationsInput | $Enums.VoiceProvider
+    voice?: StringFieldUpdateOperationsInput | string
+    time_limit_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    source_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutPractice_agentsNestedInput
+    linked_assistant_agent?: AssistantAgentUpdateOneWithoutPractice_agentsNestedInput
+    calls?: CallUpdateManyWithoutPractice_agentNestedInput
+  }
+
+  export type PracticeAgentUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role_prompt?: StringFieldUpdateOperationsInput | string
+    scenario_context?: NullableStringFieldUpdateOperationsInput | string | null
+    scenario_type?: StringFieldUpdateOperationsInput | string
+    selling_product?: NullableStringFieldUpdateOperationsInput | string | null
+    linked_assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    user_objective?: NullableStringFieldUpdateOperationsInput | string | null
+    lead_temperature?: EnumLeadTemperatureFieldUpdateOperationsInput | $Enums.LeadTemperature
+    difficulty?: IntFieldUpdateOperationsInput | number
+    personality?: NullableStringFieldUpdateOperationsInput | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    communication_style?: NullableStringFieldUpdateOperationsInput | string | null
+    decision_authority?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableStringFieldUpdateOperationsInput | string | null
+    timeline?: NullableStringFieldUpdateOperationsInput | string | null
+    current_solution?: NullableStringFieldUpdateOperationsInput | string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    job_title?: NullableStringFieldUpdateOperationsInput | string | null
+    age_range?: NullableStringFieldUpdateOperationsInput | string | null
+    background_story?: NullableStringFieldUpdateOperationsInput | string | null
+    briefing?: NullableStringFieldUpdateOperationsInput | string | null
+    voice_provider?: EnumVoiceProviderFieldUpdateOperationsInput | $Enums.VoiceProvider
+    voice?: StringFieldUpdateOperationsInput | string
+    time_limit_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    source_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    calls?: CallUncheckedUpdateManyWithoutPractice_agentNestedInput
+  }
+
+  export type PracticeAgentCreateManyInput = {
+    id?: string
+    user_id: string
+    name: string
+    prospect_name?: string | null
+    role_prompt: string
+    scenario_context?: string | null
+    scenario_type?: string
+    selling_product?: string | null
+    linked_assistant_agent_id?: string | null
+    user_objective?: string | null
+    lead_temperature?: $Enums.LeadTemperature
+    difficulty?: number
+    personality?: string | null
+    mood?: string | null
+    communication_style?: string | null
+    decision_authority?: string | null
+    budget?: string | null
+    timeline?: string | null
+    current_solution?: string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: number
+    language?: string
+    accent?: string | null
+    industry?: string | null
+    company?: string | null
+    job_title?: string | null
+    age_range?: string | null
+    background_story?: string | null
+    briefing?: string | null
+    voice_provider?: $Enums.VoiceProvider
+    voice?: string
+    time_limit_minutes?: number | null
+    source_call_id?: string | null
+    template_key?: string | null
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type PracticeAgentUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role_prompt?: StringFieldUpdateOperationsInput | string
+    scenario_context?: NullableStringFieldUpdateOperationsInput | string | null
+    scenario_type?: StringFieldUpdateOperationsInput | string
+    selling_product?: NullableStringFieldUpdateOperationsInput | string | null
+    user_objective?: NullableStringFieldUpdateOperationsInput | string | null
+    lead_temperature?: EnumLeadTemperatureFieldUpdateOperationsInput | $Enums.LeadTemperature
+    difficulty?: IntFieldUpdateOperationsInput | number
+    personality?: NullableStringFieldUpdateOperationsInput | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    communication_style?: NullableStringFieldUpdateOperationsInput | string | null
+    decision_authority?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableStringFieldUpdateOperationsInput | string | null
+    timeline?: NullableStringFieldUpdateOperationsInput | string | null
+    current_solution?: NullableStringFieldUpdateOperationsInput | string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    job_title?: NullableStringFieldUpdateOperationsInput | string | null
+    age_range?: NullableStringFieldUpdateOperationsInput | string | null
+    background_story?: NullableStringFieldUpdateOperationsInput | string | null
+    briefing?: NullableStringFieldUpdateOperationsInput | string | null
+    voice_provider?: EnumVoiceProviderFieldUpdateOperationsInput | $Enums.VoiceProvider
+    voice?: StringFieldUpdateOperationsInput | string
+    time_limit_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    source_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PracticeAgentUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role_prompt?: StringFieldUpdateOperationsInput | string
+    scenario_context?: NullableStringFieldUpdateOperationsInput | string | null
+    scenario_type?: StringFieldUpdateOperationsInput | string
+    selling_product?: NullableStringFieldUpdateOperationsInput | string | null
+    linked_assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    user_objective?: NullableStringFieldUpdateOperationsInput | string | null
+    lead_temperature?: EnumLeadTemperatureFieldUpdateOperationsInput | $Enums.LeadTemperature
+    difficulty?: IntFieldUpdateOperationsInput | number
+    personality?: NullableStringFieldUpdateOperationsInput | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    communication_style?: NullableStringFieldUpdateOperationsInput | string | null
+    decision_authority?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableStringFieldUpdateOperationsInput | string | null
+    timeline?: NullableStringFieldUpdateOperationsInput | string | null
+    current_solution?: NullableStringFieldUpdateOperationsInput | string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    job_title?: NullableStringFieldUpdateOperationsInput | string | null
+    age_range?: NullableStringFieldUpdateOperationsInput | string | null
+    background_story?: NullableStringFieldUpdateOperationsInput | string | null
+    briefing?: NullableStringFieldUpdateOperationsInput | string | null
+    voice_provider?: EnumVoiceProviderFieldUpdateOperationsInput | $Enums.VoiceProvider
+    voice?: StringFieldUpdateOperationsInput | string
+    time_limit_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    source_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CallCreateInput = {
+    id?: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+    user: UserCreateNestedOneWithoutCallsInput
+    assistant_agent?: AssistantAgentCreateNestedOneWithoutCallsInput
+    practice_agent?: PracticeAgentCreateNestedOneWithoutCallsInput
+    segments?: TranscriptSegmentCreateNestedManyWithoutCallInput
+    suggestions?: SuggestionCreateNestedManyWithoutCallInput
+    bookmarks?: BookmarkCreateNestedManyWithoutCallInput
+    analysis?: CallAnalysisCreateNestedOneWithoutCallInput
+  }
+
+  export type CallUncheckedCreateInput = {
+    id?: string
+    user_id: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    assistant_agent_id?: string | null
+    practice_agent_id?: string | null
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+    segments?: TranscriptSegmentUncheckedCreateNestedManyWithoutCallInput
+    suggestions?: SuggestionUncheckedCreateNestedManyWithoutCallInput
+    bookmarks?: BookmarkUncheckedCreateNestedManyWithoutCallInput
+    analysis?: CallAnalysisUncheckedCreateNestedOneWithoutCallInput
+  }
+
+  export type CallUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutCallsNestedInput
+    assistant_agent?: AssistantAgentUpdateOneWithoutCallsNestedInput
+    practice_agent?: PracticeAgentUpdateOneWithoutCallsNestedInput
+    segments?: TranscriptSegmentUpdateManyWithoutCallNestedInput
+    suggestions?: SuggestionUpdateManyWithoutCallNestedInput
+    bookmarks?: BookmarkUpdateManyWithoutCallNestedInput
+    analysis?: CallAnalysisUpdateOneWithoutCallNestedInput
+  }
+
+  export type CallUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    segments?: TranscriptSegmentUncheckedUpdateManyWithoutCallNestedInput
+    suggestions?: SuggestionUncheckedUpdateManyWithoutCallNestedInput
+    bookmarks?: BookmarkUncheckedUpdateManyWithoutCallNestedInput
+    analysis?: CallAnalysisUncheckedUpdateOneWithoutCallNestedInput
+  }
+
+  export type CallCreateManyInput = {
+    id?: string
+    user_id: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    assistant_agent_id?: string | null
+    practice_agent_id?: string | null
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type CallUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CallUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TranscriptSegmentCreateInput = {
+    id?: string
+    client_id?: string | null
+    speaker: $Enums.Speaker
+    text: string
+    start_ms: number
+    end_ms: number
+    created_at?: Date | string
+    call: CallCreateNestedOneWithoutSegmentsInput
+  }
+
+  export type TranscriptSegmentUncheckedCreateInput = {
+    id?: string
+    call_id: string
+    client_id?: string | null
+    speaker: $Enums.Speaker
+    text: string
+    start_ms: number
+    end_ms: number
+    created_at?: Date | string
+  }
+
+  export type TranscriptSegmentUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    client_id?: NullableStringFieldUpdateOperationsInput | string | null
+    speaker?: EnumSpeakerFieldUpdateOperationsInput | $Enums.Speaker
+    text?: StringFieldUpdateOperationsInput | string
+    start_ms?: IntFieldUpdateOperationsInput | number
+    end_ms?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    call?: CallUpdateOneRequiredWithoutSegmentsNestedInput
+  }
+
+  export type TranscriptSegmentUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    call_id?: StringFieldUpdateOperationsInput | string
+    client_id?: NullableStringFieldUpdateOperationsInput | string | null
+    speaker?: EnumSpeakerFieldUpdateOperationsInput | $Enums.Speaker
+    text?: StringFieldUpdateOperationsInput | string
+    start_ms?: IntFieldUpdateOperationsInput | number
+    end_ms?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TranscriptSegmentCreateManyInput = {
+    id?: string
+    call_id: string
+    client_id?: string | null
+    speaker: $Enums.Speaker
+    text: string
+    start_ms: number
+    end_ms: number
+    created_at?: Date | string
+  }
+
+  export type TranscriptSegmentUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    client_id?: NullableStringFieldUpdateOperationsInput | string | null
+    speaker?: EnumSpeakerFieldUpdateOperationsInput | $Enums.Speaker
+    text?: StringFieldUpdateOperationsInput | string
+    start_ms?: IntFieldUpdateOperationsInput | number
+    end_ms?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TranscriptSegmentUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    call_id?: StringFieldUpdateOperationsInput | string
+    client_id?: NullableStringFieldUpdateOperationsInput | string | null
+    speaker?: EnumSpeakerFieldUpdateOperationsInput | $Enums.Speaker
+    text?: StringFieldUpdateOperationsInput | string
+    start_ms?: IntFieldUpdateOperationsInput | number
+    end_ms?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SuggestionCreateInput = {
+    id?: string
+    type: $Enums.SuggestionType
+    text: string
+    alternatives?: JsonNullValueInput | InputJsonValue
+    reason?: string | null
+    info_card?: NullableJsonNullValueInput | InputJsonValue
+    at_ms: number
+    status?: $Enums.SuggestionStatus
+    feedback?: $Enums.SuggestionFeedback | null
+    model?: string | null
+    latency_ms?: number | null
+    created_at?: Date | string
+    call: CallCreateNestedOneWithoutSuggestionsInput
+  }
+
+  export type SuggestionUncheckedCreateInput = {
+    id?: string
+    call_id: string
+    type: $Enums.SuggestionType
+    text: string
+    alternatives?: JsonNullValueInput | InputJsonValue
+    reason?: string | null
+    info_card?: NullableJsonNullValueInput | InputJsonValue
+    at_ms: number
+    status?: $Enums.SuggestionStatus
+    feedback?: $Enums.SuggestionFeedback | null
+    model?: string | null
+    latency_ms?: number | null
+    created_at?: Date | string
+  }
+
+  export type SuggestionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumSuggestionTypeFieldUpdateOperationsInput | $Enums.SuggestionType
+    text?: StringFieldUpdateOperationsInput | string
+    alternatives?: JsonNullValueInput | InputJsonValue
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    info_card?: NullableJsonNullValueInput | InputJsonValue
+    at_ms?: IntFieldUpdateOperationsInput | number
+    status?: EnumSuggestionStatusFieldUpdateOperationsInput | $Enums.SuggestionStatus
+    feedback?: NullableEnumSuggestionFeedbackFieldUpdateOperationsInput | $Enums.SuggestionFeedback | null
+    model?: NullableStringFieldUpdateOperationsInput | string | null
+    latency_ms?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    call?: CallUpdateOneRequiredWithoutSuggestionsNestedInput
+  }
+
+  export type SuggestionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    call_id?: StringFieldUpdateOperationsInput | string
+    type?: EnumSuggestionTypeFieldUpdateOperationsInput | $Enums.SuggestionType
+    text?: StringFieldUpdateOperationsInput | string
+    alternatives?: JsonNullValueInput | InputJsonValue
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    info_card?: NullableJsonNullValueInput | InputJsonValue
+    at_ms?: IntFieldUpdateOperationsInput | number
+    status?: EnumSuggestionStatusFieldUpdateOperationsInput | $Enums.SuggestionStatus
+    feedback?: NullableEnumSuggestionFeedbackFieldUpdateOperationsInput | $Enums.SuggestionFeedback | null
+    model?: NullableStringFieldUpdateOperationsInput | string | null
+    latency_ms?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SuggestionCreateManyInput = {
+    id?: string
+    call_id: string
+    type: $Enums.SuggestionType
+    text: string
+    alternatives?: JsonNullValueInput | InputJsonValue
+    reason?: string | null
+    info_card?: NullableJsonNullValueInput | InputJsonValue
+    at_ms: number
+    status?: $Enums.SuggestionStatus
+    feedback?: $Enums.SuggestionFeedback | null
+    model?: string | null
+    latency_ms?: number | null
+    created_at?: Date | string
+  }
+
+  export type SuggestionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumSuggestionTypeFieldUpdateOperationsInput | $Enums.SuggestionType
+    text?: StringFieldUpdateOperationsInput | string
+    alternatives?: JsonNullValueInput | InputJsonValue
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    info_card?: NullableJsonNullValueInput | InputJsonValue
+    at_ms?: IntFieldUpdateOperationsInput | number
+    status?: EnumSuggestionStatusFieldUpdateOperationsInput | $Enums.SuggestionStatus
+    feedback?: NullableEnumSuggestionFeedbackFieldUpdateOperationsInput | $Enums.SuggestionFeedback | null
+    model?: NullableStringFieldUpdateOperationsInput | string | null
+    latency_ms?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SuggestionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    call_id?: StringFieldUpdateOperationsInput | string
+    type?: EnumSuggestionTypeFieldUpdateOperationsInput | $Enums.SuggestionType
+    text?: StringFieldUpdateOperationsInput | string
+    alternatives?: JsonNullValueInput | InputJsonValue
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    info_card?: NullableJsonNullValueInput | InputJsonValue
+    at_ms?: IntFieldUpdateOperationsInput | number
+    status?: EnumSuggestionStatusFieldUpdateOperationsInput | $Enums.SuggestionStatus
+    feedback?: NullableEnumSuggestionFeedbackFieldUpdateOperationsInput | $Enums.SuggestionFeedback | null
+    model?: NullableStringFieldUpdateOperationsInput | string | null
+    latency_ms?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BookmarkCreateInput = {
+    id?: string
+    at_ms: number
+    label?: string | null
+    created_at?: Date | string
+    call: CallCreateNestedOneWithoutBookmarksInput
+  }
+
+  export type BookmarkUncheckedCreateInput = {
+    id?: string
+    call_id: string
+    at_ms: number
+    label?: string | null
+    created_at?: Date | string
+  }
+
+  export type BookmarkUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    at_ms?: IntFieldUpdateOperationsInput | number
+    label?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    call?: CallUpdateOneRequiredWithoutBookmarksNestedInput
+  }
+
+  export type BookmarkUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    call_id?: StringFieldUpdateOperationsInput | string
+    at_ms?: IntFieldUpdateOperationsInput | number
+    label?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BookmarkCreateManyInput = {
+    id?: string
+    call_id: string
+    at_ms: number
+    label?: string | null
+    created_at?: Date | string
+  }
+
+  export type BookmarkUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    at_ms?: IntFieldUpdateOperationsInput | number
+    label?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BookmarkUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    call_id?: StringFieldUpdateOperationsInput | string
+    at_ms?: IntFieldUpdateOperationsInput | number
+    label?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CallAnalysisCreateInput = {
+    id?: string
+    model: string
+    overall_score: number
+    verdict: string
+    category_scores?: JsonNullValueInput | InputJsonValue
+    mistakes?: JsonNullValueInput | InputJsonValue
+    strengths?: JsonNullValueInput | InputJsonValue
+    improvements?: JsonNullValueInput | InputJsonValue
+    metrics?: JsonNullValueInput | InputJsonValue
+    prospect_insights?: JsonNullValueInput | InputJsonValue
+    summary: string
+    next_steps?: JsonNullValueInput | InputJsonValue
+    follow_up_draft?: string | null
+    suggested_practice?: JsonNullValueInput | InputJsonValue
+    practice_result?: NullableJsonNullValueInput | InputJsonValue
+    suggestion_usage?: NullableJsonNullValueInput | InputJsonValue
+    error?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    call: CallCreateNestedOneWithoutAnalysisInput
+  }
+
+  export type CallAnalysisUncheckedCreateInput = {
+    id?: string
+    call_id: string
+    model: string
+    overall_score: number
+    verdict: string
+    category_scores?: JsonNullValueInput | InputJsonValue
+    mistakes?: JsonNullValueInput | InputJsonValue
+    strengths?: JsonNullValueInput | InputJsonValue
+    improvements?: JsonNullValueInput | InputJsonValue
+    metrics?: JsonNullValueInput | InputJsonValue
+    prospect_insights?: JsonNullValueInput | InputJsonValue
+    summary: string
+    next_steps?: JsonNullValueInput | InputJsonValue
+    follow_up_draft?: string | null
+    suggested_practice?: JsonNullValueInput | InputJsonValue
+    practice_result?: NullableJsonNullValueInput | InputJsonValue
+    suggestion_usage?: NullableJsonNullValueInput | InputJsonValue
+    error?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type CallAnalysisUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    model?: StringFieldUpdateOperationsInput | string
+    overall_score?: IntFieldUpdateOperationsInput | number
+    verdict?: StringFieldUpdateOperationsInput | string
+    category_scores?: JsonNullValueInput | InputJsonValue
+    mistakes?: JsonNullValueInput | InputJsonValue
+    strengths?: JsonNullValueInput | InputJsonValue
+    improvements?: JsonNullValueInput | InputJsonValue
+    metrics?: JsonNullValueInput | InputJsonValue
+    prospect_insights?: JsonNullValueInput | InputJsonValue
+    summary?: StringFieldUpdateOperationsInput | string
+    next_steps?: JsonNullValueInput | InputJsonValue
+    follow_up_draft?: NullableStringFieldUpdateOperationsInput | string | null
+    suggested_practice?: JsonNullValueInput | InputJsonValue
+    practice_result?: NullableJsonNullValueInput | InputJsonValue
+    suggestion_usage?: NullableJsonNullValueInput | InputJsonValue
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    call?: CallUpdateOneRequiredWithoutAnalysisNestedInput
+  }
+
+  export type CallAnalysisUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    call_id?: StringFieldUpdateOperationsInput | string
+    model?: StringFieldUpdateOperationsInput | string
+    overall_score?: IntFieldUpdateOperationsInput | number
+    verdict?: StringFieldUpdateOperationsInput | string
+    category_scores?: JsonNullValueInput | InputJsonValue
+    mistakes?: JsonNullValueInput | InputJsonValue
+    strengths?: JsonNullValueInput | InputJsonValue
+    improvements?: JsonNullValueInput | InputJsonValue
+    metrics?: JsonNullValueInput | InputJsonValue
+    prospect_insights?: JsonNullValueInput | InputJsonValue
+    summary?: StringFieldUpdateOperationsInput | string
+    next_steps?: JsonNullValueInput | InputJsonValue
+    follow_up_draft?: NullableStringFieldUpdateOperationsInput | string | null
+    suggested_practice?: JsonNullValueInput | InputJsonValue
+    practice_result?: NullableJsonNullValueInput | InputJsonValue
+    suggestion_usage?: NullableJsonNullValueInput | InputJsonValue
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CallAnalysisCreateManyInput = {
+    id?: string
+    call_id: string
+    model: string
+    overall_score: number
+    verdict: string
+    category_scores?: JsonNullValueInput | InputJsonValue
+    mistakes?: JsonNullValueInput | InputJsonValue
+    strengths?: JsonNullValueInput | InputJsonValue
+    improvements?: JsonNullValueInput | InputJsonValue
+    metrics?: JsonNullValueInput | InputJsonValue
+    prospect_insights?: JsonNullValueInput | InputJsonValue
+    summary: string
+    next_steps?: JsonNullValueInput | InputJsonValue
+    follow_up_draft?: string | null
+    suggested_practice?: JsonNullValueInput | InputJsonValue
+    practice_result?: NullableJsonNullValueInput | InputJsonValue
+    suggestion_usage?: NullableJsonNullValueInput | InputJsonValue
+    error?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type CallAnalysisUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    model?: StringFieldUpdateOperationsInput | string
+    overall_score?: IntFieldUpdateOperationsInput | number
+    verdict?: StringFieldUpdateOperationsInput | string
+    category_scores?: JsonNullValueInput | InputJsonValue
+    mistakes?: JsonNullValueInput | InputJsonValue
+    strengths?: JsonNullValueInput | InputJsonValue
+    improvements?: JsonNullValueInput | InputJsonValue
+    metrics?: JsonNullValueInput | InputJsonValue
+    prospect_insights?: JsonNullValueInput | InputJsonValue
+    summary?: StringFieldUpdateOperationsInput | string
+    next_steps?: JsonNullValueInput | InputJsonValue
+    follow_up_draft?: NullableStringFieldUpdateOperationsInput | string | null
+    suggested_practice?: JsonNullValueInput | InputJsonValue
+    practice_result?: NullableJsonNullValueInput | InputJsonValue
+    suggestion_usage?: NullableJsonNullValueInput | InputJsonValue
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CallAnalysisUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    call_id?: StringFieldUpdateOperationsInput | string
+    model?: StringFieldUpdateOperationsInput | string
+    overall_score?: IntFieldUpdateOperationsInput | number
+    verdict?: StringFieldUpdateOperationsInput | string
+    category_scores?: JsonNullValueInput | InputJsonValue
+    mistakes?: JsonNullValueInput | InputJsonValue
+    strengths?: JsonNullValueInput | InputJsonValue
+    improvements?: JsonNullValueInput | InputJsonValue
+    metrics?: JsonNullValueInput | InputJsonValue
+    prospect_insights?: JsonNullValueInput | InputJsonValue
+    summary?: StringFieldUpdateOperationsInput | string
+    next_steps?: JsonNullValueInput | InputJsonValue
+    follow_up_draft?: NullableStringFieldUpdateOperationsInput | string | null
+    suggested_practice?: JsonNullValueInput | InputJsonValue
+    practice_result?: NullableJsonNullValueInput | InputJsonValue
+    suggestion_usage?: NullableJsonNullValueInput | InputJsonValue
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UsageEventCreateInput = {
+    id?: string
+    call_id?: string | null
+    kind: $Enums.UsageKind
+    model?: string | null
+    input_tokens?: number
+    output_tokens?: number
+    audio_seconds?: number
+    cost_usd?: number
+    created_at?: Date | string
+    user: UserCreateNestedOneWithoutUsage_eventsInput
+  }
+
+  export type UsageEventUncheckedCreateInput = {
+    id?: string
+    user_id: string
+    call_id?: string | null
+    kind: $Enums.UsageKind
+    model?: string | null
+    input_tokens?: number
+    output_tokens?: number
+    audio_seconds?: number
+    cost_usd?: number
+    created_at?: Date | string
+  }
+
+  export type UsageEventUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    kind?: EnumUsageKindFieldUpdateOperationsInput | $Enums.UsageKind
+    model?: NullableStringFieldUpdateOperationsInput | string | null
+    input_tokens?: IntFieldUpdateOperationsInput | number
+    output_tokens?: IntFieldUpdateOperationsInput | number
+    audio_seconds?: IntFieldUpdateOperationsInput | number
+    cost_usd?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutUsage_eventsNestedInput
+  }
+
+  export type UsageEventUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    kind?: EnumUsageKindFieldUpdateOperationsInput | $Enums.UsageKind
+    model?: NullableStringFieldUpdateOperationsInput | string | null
+    input_tokens?: IntFieldUpdateOperationsInput | number
+    output_tokens?: IntFieldUpdateOperationsInput | number
+    audio_seconds?: IntFieldUpdateOperationsInput | number
+    cost_usd?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UsageEventCreateManyInput = {
+    id?: string
+    user_id: string
+    call_id?: string | null
+    kind: $Enums.UsageKind
+    model?: string | null
+    input_tokens?: number
+    output_tokens?: number
+    audio_seconds?: number
+    cost_usd?: number
+    created_at?: Date | string
+  }
+
+  export type UsageEventUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    kind?: EnumUsageKindFieldUpdateOperationsInput | $Enums.UsageKind
+    model?: NullableStringFieldUpdateOperationsInput | string | null
+    input_tokens?: IntFieldUpdateOperationsInput | number
+    output_tokens?: IntFieldUpdateOperationsInput | number
+    audio_seconds?: IntFieldUpdateOperationsInput | number
+    cost_usd?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UsageEventUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    kind?: EnumUsageKindFieldUpdateOperationsInput | $Enums.UsageKind
+    model?: NullableStringFieldUpdateOperationsInput | string | null
+    input_tokens?: IntFieldUpdateOperationsInput | number
+    output_tokens?: IntFieldUpdateOperationsInput | number
+    audio_seconds?: IntFieldUpdateOperationsInput | number
+    cost_usd?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -5043,10 +19713,57 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type EnumOutputLanguageModeFilter<$PrismaModel = never> = {
+    equals?: $Enums.OutputLanguageMode | EnumOutputLanguageModeFieldRefInput<$PrismaModel>
+    in?: $Enums.OutputLanguageMode[] | ListEnumOutputLanguageModeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OutputLanguageMode[] | ListEnumOutputLanguageModeFieldRefInput<$PrismaModel>
+    not?: NestedEnumOutputLanguageModeFilter<$PrismaModel> | $Enums.OutputLanguageMode
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type PasswordResetTokenListRelationFilter = {
     every?: PasswordResetTokenWhereInput
     some?: PasswordResetTokenWhereInput
     none?: PasswordResetTokenWhereInput
+  }
+
+  export type AssistantAgentListRelationFilter = {
+    every?: AssistantAgentWhereInput
+    some?: AssistantAgentWhereInput
+    none?: AssistantAgentWhereInput
+  }
+
+  export type PracticeAgentListRelationFilter = {
+    every?: PracticeAgentWhereInput
+    some?: PracticeAgentWhereInput
+    none?: PracticeAgentWhereInput
+  }
+
+  export type CallListRelationFilter = {
+    every?: CallWhereInput
+    some?: CallWhereInput
+    none?: CallWhereInput
+  }
+
+  export type UsageEventListRelationFilter = {
+    every?: UsageEventWhereInput
+    some?: UsageEventWhereInput
+    none?: UsageEventWhereInput
   }
 
   export type SortOrderInput = {
@@ -5058,14 +19775,36 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type AssistantAgentOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PracticeAgentOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CallOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UsageEventOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
     phone?: SortOrder
     password?: SortOrder
+    full_name?: SortOrder
     role?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    interface_language?: SortOrder
+    output_language_mode?: SortOrder
+    consent_line?: SortOrder
+    keep_recordings?: SortOrder
+    consent_acknowledged_at?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -5073,9 +19812,15 @@ export namespace Prisma {
     email?: SortOrder
     phone?: SortOrder
     password?: SortOrder
+    full_name?: SortOrder
     role?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    interface_language?: SortOrder
+    output_language_mode?: SortOrder
+    consent_line?: SortOrder
+    keep_recordings?: SortOrder
+    consent_acknowledged_at?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -5083,9 +19828,15 @@ export namespace Prisma {
     email?: SortOrder
     phone?: SortOrder
     password?: SortOrder
+    full_name?: SortOrder
     role?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    interface_language?: SortOrder
+    output_language_mode?: SortOrder
+    consent_line?: SortOrder
+    keep_recordings?: SortOrder
+    consent_acknowledged_at?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -5148,7 +19899,25 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
+  export type EnumOutputLanguageModeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.OutputLanguageMode | EnumOutputLanguageModeFieldRefInput<$PrismaModel>
+    in?: $Enums.OutputLanguageMode[] | ListEnumOutputLanguageModeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OutputLanguageMode[] | ListEnumOutputLanguageModeFieldRefInput<$PrismaModel>
+    not?: NestedEnumOutputLanguageModeWithAggregatesFilter<$PrismaModel> | $Enums.OutputLanguageMode
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumOutputLanguageModeFilter<$PrismaModel>
+    _max?: NestedEnumOutputLanguageModeFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -5156,7 +19925,10 @@ export namespace Prisma {
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type UserScalarRelationFilter = {
@@ -5189,20 +19961,6 @@ export namespace Prisma {
     expires_at?: SortOrder
     used_at?: SortOrder
     created_at?: SortOrder
-  }
-
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -5292,6 +20050,1037 @@ export namespace Prisma {
     _min?: NestedEnumDocumentTypeFilter<$PrismaModel>
     _max?: NestedEnumDocumentTypeFilter<$PrismaModel>
   }
+  export type JsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type EnumSuggestionFrequencyFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionFrequency | EnumSuggestionFrequencyFieldRefInput<$PrismaModel>
+    in?: $Enums.SuggestionFrequency[] | ListEnumSuggestionFrequencyFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SuggestionFrequency[] | ListEnumSuggestionFrequencyFieldRefInput<$PrismaModel>
+    not?: NestedEnumSuggestionFrequencyFilter<$PrismaModel> | $Enums.SuggestionFrequency
+  }
+
+  export type EnumSuggestionLengthFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionLength | EnumSuggestionLengthFieldRefInput<$PrismaModel>
+    in?: $Enums.SuggestionLength[] | ListEnumSuggestionLengthFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SuggestionLength[] | ListEnumSuggestionLengthFieldRefInput<$PrismaModel>
+    not?: NestedEnumSuggestionLengthFilter<$PrismaModel> | $Enums.SuggestionLength
+  }
+
+  export type AssistantAgentCountOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    call_goal?: SortOrder
+    script?: SortOrder
+    instructions?: SortOrder
+    knowledge?: SortOrder
+    objection_library?: SortOrder
+    methodology?: SortOrder
+    language?: SortOrder
+    tone?: SortOrder
+    suggestion_frequency?: SortOrder
+    suggestion_length?: SortOrder
+    alternatives_count?: SortOrder
+    realtime_model?: SortOrder
+    analysis_model?: SortOrder
+    analysis_criteria?: SortOrder
+    consent_line?: SortOrder
+    suggest_consent_line?: SortOrder
+    template_key?: SortOrder
+    is_default?: SortOrder
+    archived_at?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type AssistantAgentAvgOrderByAggregateInput = {
+    alternatives_count?: SortOrder
+  }
+
+  export type AssistantAgentMaxOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    call_goal?: SortOrder
+    instructions?: SortOrder
+    knowledge?: SortOrder
+    methodology?: SortOrder
+    language?: SortOrder
+    tone?: SortOrder
+    suggestion_frequency?: SortOrder
+    suggestion_length?: SortOrder
+    alternatives_count?: SortOrder
+    realtime_model?: SortOrder
+    analysis_model?: SortOrder
+    consent_line?: SortOrder
+    suggest_consent_line?: SortOrder
+    template_key?: SortOrder
+    is_default?: SortOrder
+    archived_at?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type AssistantAgentMinOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    call_goal?: SortOrder
+    instructions?: SortOrder
+    knowledge?: SortOrder
+    methodology?: SortOrder
+    language?: SortOrder
+    tone?: SortOrder
+    suggestion_frequency?: SortOrder
+    suggestion_length?: SortOrder
+    alternatives_count?: SortOrder
+    realtime_model?: SortOrder
+    analysis_model?: SortOrder
+    consent_line?: SortOrder
+    suggest_consent_line?: SortOrder
+    template_key?: SortOrder
+    is_default?: SortOrder
+    archived_at?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type AssistantAgentSumOrderByAggregateInput = {
+    alternatives_count?: SortOrder
+  }
+  export type JsonWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedJsonFilter<$PrismaModel>
+    _max?: NestedJsonFilter<$PrismaModel>
+  }
+
+  export type EnumSuggestionFrequencyWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionFrequency | EnumSuggestionFrequencyFieldRefInput<$PrismaModel>
+    in?: $Enums.SuggestionFrequency[] | ListEnumSuggestionFrequencyFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SuggestionFrequency[] | ListEnumSuggestionFrequencyFieldRefInput<$PrismaModel>
+    not?: NestedEnumSuggestionFrequencyWithAggregatesFilter<$PrismaModel> | $Enums.SuggestionFrequency
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSuggestionFrequencyFilter<$PrismaModel>
+    _max?: NestedEnumSuggestionFrequencyFilter<$PrismaModel>
+  }
+
+  export type EnumSuggestionLengthWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionLength | EnumSuggestionLengthFieldRefInput<$PrismaModel>
+    in?: $Enums.SuggestionLength[] | ListEnumSuggestionLengthFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SuggestionLength[] | ListEnumSuggestionLengthFieldRefInput<$PrismaModel>
+    not?: NestedEnumSuggestionLengthWithAggregatesFilter<$PrismaModel> | $Enums.SuggestionLength
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSuggestionLengthFilter<$PrismaModel>
+    _max?: NestedEnumSuggestionLengthFilter<$PrismaModel>
+  }
+
+  export type EnumLeadTemperatureFilter<$PrismaModel = never> = {
+    equals?: $Enums.LeadTemperature | EnumLeadTemperatureFieldRefInput<$PrismaModel>
+    in?: $Enums.LeadTemperature[] | ListEnumLeadTemperatureFieldRefInput<$PrismaModel>
+    notIn?: $Enums.LeadTemperature[] | ListEnumLeadTemperatureFieldRefInput<$PrismaModel>
+    not?: NestedEnumLeadTemperatureFilter<$PrismaModel> | $Enums.LeadTemperature
+  }
+
+  export type EnumVoiceProviderFilter<$PrismaModel = never> = {
+    equals?: $Enums.VoiceProvider | EnumVoiceProviderFieldRefInput<$PrismaModel>
+    in?: $Enums.VoiceProvider[] | ListEnumVoiceProviderFieldRefInput<$PrismaModel>
+    notIn?: $Enums.VoiceProvider[] | ListEnumVoiceProviderFieldRefInput<$PrismaModel>
+    not?: NestedEnumVoiceProviderFilter<$PrismaModel> | $Enums.VoiceProvider
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type AssistantAgentNullableScalarRelationFilter = {
+    is?: AssistantAgentWhereInput | null
+    isNot?: AssistantAgentWhereInput | null
+  }
+
+  export type PracticeAgentCountOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    name?: SortOrder
+    prospect_name?: SortOrder
+    role_prompt?: SortOrder
+    scenario_context?: SortOrder
+    scenario_type?: SortOrder
+    selling_product?: SortOrder
+    linked_assistant_agent_id?: SortOrder
+    user_objective?: SortOrder
+    lead_temperature?: SortOrder
+    difficulty?: SortOrder
+    personality?: SortOrder
+    mood?: SortOrder
+    communication_style?: SortOrder
+    decision_authority?: SortOrder
+    budget?: SortOrder
+    timeline?: SortOrder
+    current_solution?: SortOrder
+    pain_points?: SortOrder
+    objections?: SortOrder
+    hidden_information?: SortOrder
+    conversion_conditions?: SortOrder
+    patience?: SortOrder
+    language?: SortOrder
+    accent?: SortOrder
+    industry?: SortOrder
+    company?: SortOrder
+    job_title?: SortOrder
+    age_range?: SortOrder
+    background_story?: SortOrder
+    briefing?: SortOrder
+    voice_provider?: SortOrder
+    voice?: SortOrder
+    time_limit_minutes?: SortOrder
+    source_call_id?: SortOrder
+    template_key?: SortOrder
+    archived_at?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type PracticeAgentAvgOrderByAggregateInput = {
+    difficulty?: SortOrder
+    patience?: SortOrder
+    time_limit_minutes?: SortOrder
+  }
+
+  export type PracticeAgentMaxOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    name?: SortOrder
+    prospect_name?: SortOrder
+    role_prompt?: SortOrder
+    scenario_context?: SortOrder
+    scenario_type?: SortOrder
+    selling_product?: SortOrder
+    linked_assistant_agent_id?: SortOrder
+    user_objective?: SortOrder
+    lead_temperature?: SortOrder
+    difficulty?: SortOrder
+    personality?: SortOrder
+    mood?: SortOrder
+    communication_style?: SortOrder
+    decision_authority?: SortOrder
+    budget?: SortOrder
+    timeline?: SortOrder
+    current_solution?: SortOrder
+    patience?: SortOrder
+    language?: SortOrder
+    accent?: SortOrder
+    industry?: SortOrder
+    company?: SortOrder
+    job_title?: SortOrder
+    age_range?: SortOrder
+    background_story?: SortOrder
+    briefing?: SortOrder
+    voice_provider?: SortOrder
+    voice?: SortOrder
+    time_limit_minutes?: SortOrder
+    source_call_id?: SortOrder
+    template_key?: SortOrder
+    archived_at?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type PracticeAgentMinOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    name?: SortOrder
+    prospect_name?: SortOrder
+    role_prompt?: SortOrder
+    scenario_context?: SortOrder
+    scenario_type?: SortOrder
+    selling_product?: SortOrder
+    linked_assistant_agent_id?: SortOrder
+    user_objective?: SortOrder
+    lead_temperature?: SortOrder
+    difficulty?: SortOrder
+    personality?: SortOrder
+    mood?: SortOrder
+    communication_style?: SortOrder
+    decision_authority?: SortOrder
+    budget?: SortOrder
+    timeline?: SortOrder
+    current_solution?: SortOrder
+    patience?: SortOrder
+    language?: SortOrder
+    accent?: SortOrder
+    industry?: SortOrder
+    company?: SortOrder
+    job_title?: SortOrder
+    age_range?: SortOrder
+    background_story?: SortOrder
+    briefing?: SortOrder
+    voice_provider?: SortOrder
+    voice?: SortOrder
+    time_limit_minutes?: SortOrder
+    source_call_id?: SortOrder
+    template_key?: SortOrder
+    archived_at?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type PracticeAgentSumOrderByAggregateInput = {
+    difficulty?: SortOrder
+    patience?: SortOrder
+    time_limit_minutes?: SortOrder
+  }
+
+  export type EnumLeadTemperatureWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.LeadTemperature | EnumLeadTemperatureFieldRefInput<$PrismaModel>
+    in?: $Enums.LeadTemperature[] | ListEnumLeadTemperatureFieldRefInput<$PrismaModel>
+    notIn?: $Enums.LeadTemperature[] | ListEnumLeadTemperatureFieldRefInput<$PrismaModel>
+    not?: NestedEnumLeadTemperatureWithAggregatesFilter<$PrismaModel> | $Enums.LeadTemperature
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumLeadTemperatureFilter<$PrismaModel>
+    _max?: NestedEnumLeadTemperatureFilter<$PrismaModel>
+  }
+
+  export type EnumVoiceProviderWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.VoiceProvider | EnumVoiceProviderFieldRefInput<$PrismaModel>
+    in?: $Enums.VoiceProvider[] | ListEnumVoiceProviderFieldRefInput<$PrismaModel>
+    notIn?: $Enums.VoiceProvider[] | ListEnumVoiceProviderFieldRefInput<$PrismaModel>
+    not?: NestedEnumVoiceProviderWithAggregatesFilter<$PrismaModel> | $Enums.VoiceProvider
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumVoiceProviderFilter<$PrismaModel>
+    _max?: NestedEnumVoiceProviderFilter<$PrismaModel>
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type EnumCallKindFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallKind | EnumCallKindFieldRefInput<$PrismaModel>
+    in?: $Enums.CallKind[] | ListEnumCallKindFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CallKind[] | ListEnumCallKindFieldRefInput<$PrismaModel>
+    not?: NestedEnumCallKindFilter<$PrismaModel> | $Enums.CallKind
+  }
+
+  export type EnumCallTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallType | EnumCallTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CallType[] | ListEnumCallTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CallType[] | ListEnumCallTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCallTypeFilter<$PrismaModel> | $Enums.CallType
+  }
+
+  export type EnumCallStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallStatus | EnumCallStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.CallStatus[] | ListEnumCallStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CallStatus[] | ListEnumCallStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumCallStatusFilter<$PrismaModel> | $Enums.CallStatus
+  }
+
+  export type EnumCallEndReasonNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallEndReason | EnumCallEndReasonFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CallEndReason[] | ListEnumCallEndReasonFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CallEndReason[] | ListEnumCallEndReasonFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCallEndReasonNullableFilter<$PrismaModel> | $Enums.CallEndReason | null
+  }
+
+  export type EnumCallOutcomeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallOutcome | EnumCallOutcomeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CallOutcome[] | ListEnumCallOutcomeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CallOutcome[] | ListEnumCallOutcomeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCallOutcomeNullableFilter<$PrismaModel> | $Enums.CallOutcome | null
+  }
+
+  export type BoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+  export type JsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type PracticeAgentNullableScalarRelationFilter = {
+    is?: PracticeAgentWhereInput | null
+    isNot?: PracticeAgentWhereInput | null
+  }
+
+  export type TranscriptSegmentListRelationFilter = {
+    every?: TranscriptSegmentWhereInput
+    some?: TranscriptSegmentWhereInput
+    none?: TranscriptSegmentWhereInput
+  }
+
+  export type SuggestionListRelationFilter = {
+    every?: SuggestionWhereInput
+    some?: SuggestionWhereInput
+    none?: SuggestionWhereInput
+  }
+
+  export type BookmarkListRelationFilter = {
+    every?: BookmarkWhereInput
+    some?: BookmarkWhereInput
+    none?: BookmarkWhereInput
+  }
+
+  export type CallAnalysisNullableScalarRelationFilter = {
+    is?: CallAnalysisWhereInput | null
+    isNot?: CallAnalysisWhereInput | null
+  }
+
+  export type TranscriptSegmentOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type SuggestionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BookmarkOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CallCountOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    kind?: SortOrder
+    call_type?: SortOrder
+    status?: SortOrder
+    assistant_agent_id?: SortOrder
+    practice_agent_id?: SortOrder
+    copilot_enabled?: SortOrder
+    title?: SortOrder
+    prospect_name?: SortOrder
+    prospect_company?: SortOrder
+    prospect_role?: SortOrder
+    context_notes?: SortOrder
+    goal?: SortOrder
+    prior_call_id?: SortOrder
+    language?: SortOrder
+    started_at?: SortOrder
+    ended_at?: SortOrder
+    duration_seconds?: SortOrder
+    ended_reason?: SortOrder
+    outcome?: SortOrder
+    custom_outcome?: SortOrder
+    objective_achieved?: SortOrder
+    keep_recording?: SortOrder
+    recording_path?: SortOrder
+    recording_mime?: SortOrder
+    recording_size?: SortOrder
+    user_notes?: SortOrder
+    script_progress?: SortOrder
+    analysis_error?: SortOrder
+    agent_snapshot?: SortOrder
+    practice_snapshot?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type CallAvgOrderByAggregateInput = {
+    duration_seconds?: SortOrder
+    recording_size?: SortOrder
+  }
+
+  export type CallMaxOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    kind?: SortOrder
+    call_type?: SortOrder
+    status?: SortOrder
+    assistant_agent_id?: SortOrder
+    practice_agent_id?: SortOrder
+    copilot_enabled?: SortOrder
+    title?: SortOrder
+    prospect_name?: SortOrder
+    prospect_company?: SortOrder
+    prospect_role?: SortOrder
+    context_notes?: SortOrder
+    goal?: SortOrder
+    prior_call_id?: SortOrder
+    language?: SortOrder
+    started_at?: SortOrder
+    ended_at?: SortOrder
+    duration_seconds?: SortOrder
+    ended_reason?: SortOrder
+    outcome?: SortOrder
+    custom_outcome?: SortOrder
+    objective_achieved?: SortOrder
+    keep_recording?: SortOrder
+    recording_path?: SortOrder
+    recording_mime?: SortOrder
+    recording_size?: SortOrder
+    user_notes?: SortOrder
+    analysis_error?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type CallMinOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    kind?: SortOrder
+    call_type?: SortOrder
+    status?: SortOrder
+    assistant_agent_id?: SortOrder
+    practice_agent_id?: SortOrder
+    copilot_enabled?: SortOrder
+    title?: SortOrder
+    prospect_name?: SortOrder
+    prospect_company?: SortOrder
+    prospect_role?: SortOrder
+    context_notes?: SortOrder
+    goal?: SortOrder
+    prior_call_id?: SortOrder
+    language?: SortOrder
+    started_at?: SortOrder
+    ended_at?: SortOrder
+    duration_seconds?: SortOrder
+    ended_reason?: SortOrder
+    outcome?: SortOrder
+    custom_outcome?: SortOrder
+    objective_achieved?: SortOrder
+    keep_recording?: SortOrder
+    recording_path?: SortOrder
+    recording_mime?: SortOrder
+    recording_size?: SortOrder
+    user_notes?: SortOrder
+    analysis_error?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type CallSumOrderByAggregateInput = {
+    duration_seconds?: SortOrder
+    recording_size?: SortOrder
+  }
+
+  export type EnumCallKindWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallKind | EnumCallKindFieldRefInput<$PrismaModel>
+    in?: $Enums.CallKind[] | ListEnumCallKindFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CallKind[] | ListEnumCallKindFieldRefInput<$PrismaModel>
+    not?: NestedEnumCallKindWithAggregatesFilter<$PrismaModel> | $Enums.CallKind
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCallKindFilter<$PrismaModel>
+    _max?: NestedEnumCallKindFilter<$PrismaModel>
+  }
+
+  export type EnumCallTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallType | EnumCallTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CallType[] | ListEnumCallTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CallType[] | ListEnumCallTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCallTypeWithAggregatesFilter<$PrismaModel> | $Enums.CallType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCallTypeFilter<$PrismaModel>
+    _max?: NestedEnumCallTypeFilter<$PrismaModel>
+  }
+
+  export type EnumCallStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallStatus | EnumCallStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.CallStatus[] | ListEnumCallStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CallStatus[] | ListEnumCallStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumCallStatusWithAggregatesFilter<$PrismaModel> | $Enums.CallStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCallStatusFilter<$PrismaModel>
+    _max?: NestedEnumCallStatusFilter<$PrismaModel>
+  }
+
+  export type EnumCallEndReasonNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallEndReason | EnumCallEndReasonFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CallEndReason[] | ListEnumCallEndReasonFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CallEndReason[] | ListEnumCallEndReasonFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCallEndReasonNullableWithAggregatesFilter<$PrismaModel> | $Enums.CallEndReason | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumCallEndReasonNullableFilter<$PrismaModel>
+    _max?: NestedEnumCallEndReasonNullableFilter<$PrismaModel>
+  }
+
+  export type EnumCallOutcomeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallOutcome | EnumCallOutcomeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CallOutcome[] | ListEnumCallOutcomeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CallOutcome[] | ListEnumCallOutcomeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCallOutcomeNullableWithAggregatesFilter<$PrismaModel> | $Enums.CallOutcome | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumCallOutcomeNullableFilter<$PrismaModel>
+    _max?: NestedEnumCallOutcomeNullableFilter<$PrismaModel>
+  }
+
+  export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedJsonNullableFilter<$PrismaModel>
+    _max?: NestedJsonNullableFilter<$PrismaModel>
+  }
+
+  export type EnumSpeakerFilter<$PrismaModel = never> = {
+    equals?: $Enums.Speaker | EnumSpeakerFieldRefInput<$PrismaModel>
+    in?: $Enums.Speaker[] | ListEnumSpeakerFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Speaker[] | ListEnumSpeakerFieldRefInput<$PrismaModel>
+    not?: NestedEnumSpeakerFilter<$PrismaModel> | $Enums.Speaker
+  }
+
+  export type CallScalarRelationFilter = {
+    is?: CallWhereInput
+    isNot?: CallWhereInput
+  }
+
+  export type TranscriptSegmentCall_idClient_idCompoundUniqueInput = {
+    call_id: string
+    client_id: string
+  }
+
+  export type TranscriptSegmentCountOrderByAggregateInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    client_id?: SortOrder
+    speaker?: SortOrder
+    text?: SortOrder
+    start_ms?: SortOrder
+    end_ms?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type TranscriptSegmentAvgOrderByAggregateInput = {
+    start_ms?: SortOrder
+    end_ms?: SortOrder
+  }
+
+  export type TranscriptSegmentMaxOrderByAggregateInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    client_id?: SortOrder
+    speaker?: SortOrder
+    text?: SortOrder
+    start_ms?: SortOrder
+    end_ms?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type TranscriptSegmentMinOrderByAggregateInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    client_id?: SortOrder
+    speaker?: SortOrder
+    text?: SortOrder
+    start_ms?: SortOrder
+    end_ms?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type TranscriptSegmentSumOrderByAggregateInput = {
+    start_ms?: SortOrder
+    end_ms?: SortOrder
+  }
+
+  export type EnumSpeakerWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Speaker | EnumSpeakerFieldRefInput<$PrismaModel>
+    in?: $Enums.Speaker[] | ListEnumSpeakerFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Speaker[] | ListEnumSpeakerFieldRefInput<$PrismaModel>
+    not?: NestedEnumSpeakerWithAggregatesFilter<$PrismaModel> | $Enums.Speaker
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSpeakerFilter<$PrismaModel>
+    _max?: NestedEnumSpeakerFilter<$PrismaModel>
+  }
+
+  export type EnumSuggestionTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionType | EnumSuggestionTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.SuggestionType[] | ListEnumSuggestionTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SuggestionType[] | ListEnumSuggestionTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumSuggestionTypeFilter<$PrismaModel> | $Enums.SuggestionType
+  }
+
+  export type EnumSuggestionStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionStatus | EnumSuggestionStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.SuggestionStatus[] | ListEnumSuggestionStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SuggestionStatus[] | ListEnumSuggestionStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumSuggestionStatusFilter<$PrismaModel> | $Enums.SuggestionStatus
+  }
+
+  export type EnumSuggestionFeedbackNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionFeedback | EnumSuggestionFeedbackFieldRefInput<$PrismaModel> | null
+    in?: $Enums.SuggestionFeedback[] | ListEnumSuggestionFeedbackFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.SuggestionFeedback[] | ListEnumSuggestionFeedbackFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumSuggestionFeedbackNullableFilter<$PrismaModel> | $Enums.SuggestionFeedback | null
+  }
+
+  export type SuggestionCountOrderByAggregateInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    type?: SortOrder
+    text?: SortOrder
+    alternatives?: SortOrder
+    reason?: SortOrder
+    info_card?: SortOrder
+    at_ms?: SortOrder
+    status?: SortOrder
+    feedback?: SortOrder
+    model?: SortOrder
+    latency_ms?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type SuggestionAvgOrderByAggregateInput = {
+    at_ms?: SortOrder
+    latency_ms?: SortOrder
+  }
+
+  export type SuggestionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    type?: SortOrder
+    text?: SortOrder
+    reason?: SortOrder
+    at_ms?: SortOrder
+    status?: SortOrder
+    feedback?: SortOrder
+    model?: SortOrder
+    latency_ms?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type SuggestionMinOrderByAggregateInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    type?: SortOrder
+    text?: SortOrder
+    reason?: SortOrder
+    at_ms?: SortOrder
+    status?: SortOrder
+    feedback?: SortOrder
+    model?: SortOrder
+    latency_ms?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type SuggestionSumOrderByAggregateInput = {
+    at_ms?: SortOrder
+    latency_ms?: SortOrder
+  }
+
+  export type EnumSuggestionTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionType | EnumSuggestionTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.SuggestionType[] | ListEnumSuggestionTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SuggestionType[] | ListEnumSuggestionTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumSuggestionTypeWithAggregatesFilter<$PrismaModel> | $Enums.SuggestionType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSuggestionTypeFilter<$PrismaModel>
+    _max?: NestedEnumSuggestionTypeFilter<$PrismaModel>
+  }
+
+  export type EnumSuggestionStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionStatus | EnumSuggestionStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.SuggestionStatus[] | ListEnumSuggestionStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SuggestionStatus[] | ListEnumSuggestionStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumSuggestionStatusWithAggregatesFilter<$PrismaModel> | $Enums.SuggestionStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSuggestionStatusFilter<$PrismaModel>
+    _max?: NestedEnumSuggestionStatusFilter<$PrismaModel>
+  }
+
+  export type EnumSuggestionFeedbackNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionFeedback | EnumSuggestionFeedbackFieldRefInput<$PrismaModel> | null
+    in?: $Enums.SuggestionFeedback[] | ListEnumSuggestionFeedbackFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.SuggestionFeedback[] | ListEnumSuggestionFeedbackFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumSuggestionFeedbackNullableWithAggregatesFilter<$PrismaModel> | $Enums.SuggestionFeedback | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumSuggestionFeedbackNullableFilter<$PrismaModel>
+    _max?: NestedEnumSuggestionFeedbackNullableFilter<$PrismaModel>
+  }
+
+  export type BookmarkCountOrderByAggregateInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    at_ms?: SortOrder
+    label?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type BookmarkAvgOrderByAggregateInput = {
+    at_ms?: SortOrder
+  }
+
+  export type BookmarkMaxOrderByAggregateInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    at_ms?: SortOrder
+    label?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type BookmarkMinOrderByAggregateInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    at_ms?: SortOrder
+    label?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type BookmarkSumOrderByAggregateInput = {
+    at_ms?: SortOrder
+  }
+
+  export type CallAnalysisCountOrderByAggregateInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    model?: SortOrder
+    overall_score?: SortOrder
+    verdict?: SortOrder
+    category_scores?: SortOrder
+    mistakes?: SortOrder
+    strengths?: SortOrder
+    improvements?: SortOrder
+    metrics?: SortOrder
+    prospect_insights?: SortOrder
+    summary?: SortOrder
+    next_steps?: SortOrder
+    follow_up_draft?: SortOrder
+    suggested_practice?: SortOrder
+    practice_result?: SortOrder
+    suggestion_usage?: SortOrder
+    error?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type CallAnalysisAvgOrderByAggregateInput = {
+    overall_score?: SortOrder
+  }
+
+  export type CallAnalysisMaxOrderByAggregateInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    model?: SortOrder
+    overall_score?: SortOrder
+    verdict?: SortOrder
+    summary?: SortOrder
+    follow_up_draft?: SortOrder
+    error?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type CallAnalysisMinOrderByAggregateInput = {
+    id?: SortOrder
+    call_id?: SortOrder
+    model?: SortOrder
+    overall_score?: SortOrder
+    verdict?: SortOrder
+    summary?: SortOrder
+    follow_up_draft?: SortOrder
+    error?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type CallAnalysisSumOrderByAggregateInput = {
+    overall_score?: SortOrder
+  }
+
+  export type EnumUsageKindFilter<$PrismaModel = never> = {
+    equals?: $Enums.UsageKind | EnumUsageKindFieldRefInput<$PrismaModel>
+    in?: $Enums.UsageKind[] | ListEnumUsageKindFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UsageKind[] | ListEnumUsageKindFieldRefInput<$PrismaModel>
+    not?: NestedEnumUsageKindFilter<$PrismaModel> | $Enums.UsageKind
+  }
+
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type UsageEventCountOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    call_id?: SortOrder
+    kind?: SortOrder
+    model?: SortOrder
+    input_tokens?: SortOrder
+    output_tokens?: SortOrder
+    audio_seconds?: SortOrder
+    cost_usd?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type UsageEventAvgOrderByAggregateInput = {
+    input_tokens?: SortOrder
+    output_tokens?: SortOrder
+    audio_seconds?: SortOrder
+    cost_usd?: SortOrder
+  }
+
+  export type UsageEventMaxOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    call_id?: SortOrder
+    kind?: SortOrder
+    model?: SortOrder
+    input_tokens?: SortOrder
+    output_tokens?: SortOrder
+    audio_seconds?: SortOrder
+    cost_usd?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type UsageEventMinOrderByAggregateInput = {
+    id?: SortOrder
+    user_id?: SortOrder
+    call_id?: SortOrder
+    kind?: SortOrder
+    model?: SortOrder
+    input_tokens?: SortOrder
+    output_tokens?: SortOrder
+    audio_seconds?: SortOrder
+    cost_usd?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type UsageEventSumOrderByAggregateInput = {
+    input_tokens?: SortOrder
+    output_tokens?: SortOrder
+    audio_seconds?: SortOrder
+    cost_usd?: SortOrder
+  }
+
+  export type EnumUsageKindWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.UsageKind | EnumUsageKindFieldRefInput<$PrismaModel>
+    in?: $Enums.UsageKind[] | ListEnumUsageKindFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UsageKind[] | ListEnumUsageKindFieldRefInput<$PrismaModel>
+    not?: NestedEnumUsageKindWithAggregatesFilter<$PrismaModel> | $Enums.UsageKind
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumUsageKindFilter<$PrismaModel>
+    _max?: NestedEnumUsageKindFilter<$PrismaModel>
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
 
   export type PasswordResetTokenCreateNestedManyWithoutUserInput = {
     create?: XOR<PasswordResetTokenCreateWithoutUserInput, PasswordResetTokenUncheckedCreateWithoutUserInput> | PasswordResetTokenCreateWithoutUserInput[] | PasswordResetTokenUncheckedCreateWithoutUserInput[]
@@ -5300,11 +21089,67 @@ export namespace Prisma {
     connect?: PasswordResetTokenWhereUniqueInput | PasswordResetTokenWhereUniqueInput[]
   }
 
+  export type AssistantAgentCreateNestedManyWithoutUserInput = {
+    create?: XOR<AssistantAgentCreateWithoutUserInput, AssistantAgentUncheckedCreateWithoutUserInput> | AssistantAgentCreateWithoutUserInput[] | AssistantAgentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: AssistantAgentCreateOrConnectWithoutUserInput | AssistantAgentCreateOrConnectWithoutUserInput[]
+    createMany?: AssistantAgentCreateManyUserInputEnvelope
+    connect?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+  }
+
+  export type PracticeAgentCreateNestedManyWithoutUserInput = {
+    create?: XOR<PracticeAgentCreateWithoutUserInput, PracticeAgentUncheckedCreateWithoutUserInput> | PracticeAgentCreateWithoutUserInput[] | PracticeAgentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PracticeAgentCreateOrConnectWithoutUserInput | PracticeAgentCreateOrConnectWithoutUserInput[]
+    createMany?: PracticeAgentCreateManyUserInputEnvelope
+    connect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+  }
+
+  export type CallCreateNestedManyWithoutUserInput = {
+    create?: XOR<CallCreateWithoutUserInput, CallUncheckedCreateWithoutUserInput> | CallCreateWithoutUserInput[] | CallUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutUserInput | CallCreateOrConnectWithoutUserInput[]
+    createMany?: CallCreateManyUserInputEnvelope
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+  }
+
+  export type UsageEventCreateNestedManyWithoutUserInput = {
+    create?: XOR<UsageEventCreateWithoutUserInput, UsageEventUncheckedCreateWithoutUserInput> | UsageEventCreateWithoutUserInput[] | UsageEventUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UsageEventCreateOrConnectWithoutUserInput | UsageEventCreateOrConnectWithoutUserInput[]
+    createMany?: UsageEventCreateManyUserInputEnvelope
+    connect?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+  }
+
   export type PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<PasswordResetTokenCreateWithoutUserInput, PasswordResetTokenUncheckedCreateWithoutUserInput> | PasswordResetTokenCreateWithoutUserInput[] | PasswordResetTokenUncheckedCreateWithoutUserInput[]
     connectOrCreate?: PasswordResetTokenCreateOrConnectWithoutUserInput | PasswordResetTokenCreateOrConnectWithoutUserInput[]
     createMany?: PasswordResetTokenCreateManyUserInputEnvelope
     connect?: PasswordResetTokenWhereUniqueInput | PasswordResetTokenWhereUniqueInput[]
+  }
+
+  export type AssistantAgentUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<AssistantAgentCreateWithoutUserInput, AssistantAgentUncheckedCreateWithoutUserInput> | AssistantAgentCreateWithoutUserInput[] | AssistantAgentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: AssistantAgentCreateOrConnectWithoutUserInput | AssistantAgentCreateOrConnectWithoutUserInput[]
+    createMany?: AssistantAgentCreateManyUserInputEnvelope
+    connect?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+  }
+
+  export type PracticeAgentUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<PracticeAgentCreateWithoutUserInput, PracticeAgentUncheckedCreateWithoutUserInput> | PracticeAgentCreateWithoutUserInput[] | PracticeAgentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PracticeAgentCreateOrConnectWithoutUserInput | PracticeAgentCreateOrConnectWithoutUserInput[]
+    createMany?: PracticeAgentCreateManyUserInputEnvelope
+    connect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+  }
+
+  export type CallUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<CallCreateWithoutUserInput, CallUncheckedCreateWithoutUserInput> | CallCreateWithoutUserInput[] | CallUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutUserInput | CallCreateOrConnectWithoutUserInput[]
+    createMany?: CallCreateManyUserInputEnvelope
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+  }
+
+  export type UsageEventUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<UsageEventCreateWithoutUserInput, UsageEventUncheckedCreateWithoutUserInput> | UsageEventCreateWithoutUserInput[] | UsageEventUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UsageEventCreateOrConnectWithoutUserInput | UsageEventCreateOrConnectWithoutUserInput[]
+    createMany?: UsageEventCreateManyUserInputEnvelope
+    connect?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -5323,6 +21168,18 @@ export namespace Prisma {
     set?: Date | string
   }
 
+  export type EnumOutputLanguageModeFieldUpdateOperationsInput = {
+    set?: $Enums.OutputLanguageMode
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
   export type PasswordResetTokenUpdateManyWithoutUserNestedInput = {
     create?: XOR<PasswordResetTokenCreateWithoutUserInput, PasswordResetTokenUncheckedCreateWithoutUserInput> | PasswordResetTokenCreateWithoutUserInput[] | PasswordResetTokenUncheckedCreateWithoutUserInput[]
     connectOrCreate?: PasswordResetTokenCreateOrConnectWithoutUserInput | PasswordResetTokenCreateOrConnectWithoutUserInput[]
@@ -5335,6 +21192,62 @@ export namespace Prisma {
     update?: PasswordResetTokenUpdateWithWhereUniqueWithoutUserInput | PasswordResetTokenUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: PasswordResetTokenUpdateManyWithWhereWithoutUserInput | PasswordResetTokenUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: PasswordResetTokenScalarWhereInput | PasswordResetTokenScalarWhereInput[]
+  }
+
+  export type AssistantAgentUpdateManyWithoutUserNestedInput = {
+    create?: XOR<AssistantAgentCreateWithoutUserInput, AssistantAgentUncheckedCreateWithoutUserInput> | AssistantAgentCreateWithoutUserInput[] | AssistantAgentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: AssistantAgentCreateOrConnectWithoutUserInput | AssistantAgentCreateOrConnectWithoutUserInput[]
+    upsert?: AssistantAgentUpsertWithWhereUniqueWithoutUserInput | AssistantAgentUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: AssistantAgentCreateManyUserInputEnvelope
+    set?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+    disconnect?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+    delete?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+    connect?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+    update?: AssistantAgentUpdateWithWhereUniqueWithoutUserInput | AssistantAgentUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: AssistantAgentUpdateManyWithWhereWithoutUserInput | AssistantAgentUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: AssistantAgentScalarWhereInput | AssistantAgentScalarWhereInput[]
+  }
+
+  export type PracticeAgentUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PracticeAgentCreateWithoutUserInput, PracticeAgentUncheckedCreateWithoutUserInput> | PracticeAgentCreateWithoutUserInput[] | PracticeAgentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PracticeAgentCreateOrConnectWithoutUserInput | PracticeAgentCreateOrConnectWithoutUserInput[]
+    upsert?: PracticeAgentUpsertWithWhereUniqueWithoutUserInput | PracticeAgentUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PracticeAgentCreateManyUserInputEnvelope
+    set?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    disconnect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    delete?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    connect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    update?: PracticeAgentUpdateWithWhereUniqueWithoutUserInput | PracticeAgentUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PracticeAgentUpdateManyWithWhereWithoutUserInput | PracticeAgentUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PracticeAgentScalarWhereInput | PracticeAgentScalarWhereInput[]
+  }
+
+  export type CallUpdateManyWithoutUserNestedInput = {
+    create?: XOR<CallCreateWithoutUserInput, CallUncheckedCreateWithoutUserInput> | CallCreateWithoutUserInput[] | CallUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutUserInput | CallCreateOrConnectWithoutUserInput[]
+    upsert?: CallUpsertWithWhereUniqueWithoutUserInput | CallUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: CallCreateManyUserInputEnvelope
+    set?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    disconnect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    delete?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    update?: CallUpdateWithWhereUniqueWithoutUserInput | CallUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: CallUpdateManyWithWhereWithoutUserInput | CallUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: CallScalarWhereInput | CallScalarWhereInput[]
+  }
+
+  export type UsageEventUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UsageEventCreateWithoutUserInput, UsageEventUncheckedCreateWithoutUserInput> | UsageEventCreateWithoutUserInput[] | UsageEventUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UsageEventCreateOrConnectWithoutUserInput | UsageEventCreateOrConnectWithoutUserInput[]
+    upsert?: UsageEventUpsertWithWhereUniqueWithoutUserInput | UsageEventUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UsageEventCreateManyUserInputEnvelope
+    set?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+    disconnect?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+    delete?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+    connect?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+    update?: UsageEventUpdateWithWhereUniqueWithoutUserInput | UsageEventUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UsageEventUpdateManyWithWhereWithoutUserInput | UsageEventUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UsageEventScalarWhereInput | UsageEventScalarWhereInput[]
   }
 
   export type PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput = {
@@ -5351,14 +21264,66 @@ export namespace Prisma {
     deleteMany?: PasswordResetTokenScalarWhereInput | PasswordResetTokenScalarWhereInput[]
   }
 
+  export type AssistantAgentUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<AssistantAgentCreateWithoutUserInput, AssistantAgentUncheckedCreateWithoutUserInput> | AssistantAgentCreateWithoutUserInput[] | AssistantAgentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: AssistantAgentCreateOrConnectWithoutUserInput | AssistantAgentCreateOrConnectWithoutUserInput[]
+    upsert?: AssistantAgentUpsertWithWhereUniqueWithoutUserInput | AssistantAgentUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: AssistantAgentCreateManyUserInputEnvelope
+    set?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+    disconnect?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+    delete?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+    connect?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+    update?: AssistantAgentUpdateWithWhereUniqueWithoutUserInput | AssistantAgentUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: AssistantAgentUpdateManyWithWhereWithoutUserInput | AssistantAgentUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: AssistantAgentScalarWhereInput | AssistantAgentScalarWhereInput[]
+  }
+
+  export type PracticeAgentUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PracticeAgentCreateWithoutUserInput, PracticeAgentUncheckedCreateWithoutUserInput> | PracticeAgentCreateWithoutUserInput[] | PracticeAgentUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PracticeAgentCreateOrConnectWithoutUserInput | PracticeAgentCreateOrConnectWithoutUserInput[]
+    upsert?: PracticeAgentUpsertWithWhereUniqueWithoutUserInput | PracticeAgentUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PracticeAgentCreateManyUserInputEnvelope
+    set?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    disconnect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    delete?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    connect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    update?: PracticeAgentUpdateWithWhereUniqueWithoutUserInput | PracticeAgentUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PracticeAgentUpdateManyWithWhereWithoutUserInput | PracticeAgentUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PracticeAgentScalarWhereInput | PracticeAgentScalarWhereInput[]
+  }
+
+  export type CallUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<CallCreateWithoutUserInput, CallUncheckedCreateWithoutUserInput> | CallCreateWithoutUserInput[] | CallUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutUserInput | CallCreateOrConnectWithoutUserInput[]
+    upsert?: CallUpsertWithWhereUniqueWithoutUserInput | CallUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: CallCreateManyUserInputEnvelope
+    set?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    disconnect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    delete?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    update?: CallUpdateWithWhereUniqueWithoutUserInput | CallUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: CallUpdateManyWithWhereWithoutUserInput | CallUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: CallScalarWhereInput | CallScalarWhereInput[]
+  }
+
+  export type UsageEventUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UsageEventCreateWithoutUserInput, UsageEventUncheckedCreateWithoutUserInput> | UsageEventCreateWithoutUserInput[] | UsageEventUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UsageEventCreateOrConnectWithoutUserInput | UsageEventCreateOrConnectWithoutUserInput[]
+    upsert?: UsageEventUpsertWithWhereUniqueWithoutUserInput | UsageEventUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UsageEventCreateManyUserInputEnvelope
+    set?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+    disconnect?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+    delete?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+    connect?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+    update?: UsageEventUpdateWithWhereUniqueWithoutUserInput | UsageEventUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UsageEventUpdateManyWithWhereWithoutUserInput | UsageEventUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UsageEventScalarWhereInput | UsageEventScalarWhereInput[]
+  }
+
   export type UserCreateNestedOneWithoutPassword_reset_tokensInput = {
     create?: XOR<UserCreateWithoutPassword_reset_tokensInput, UserUncheckedCreateWithoutPassword_reset_tokensInput>
     connectOrCreate?: UserCreateOrConnectWithoutPassword_reset_tokensInput
     connect?: UserWhereUniqueInput
-  }
-
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
   }
 
   export type UserUpdateOneRequiredWithoutPassword_reset_tokensNestedInput = {
@@ -5379,6 +21344,526 @@ export namespace Prisma {
 
   export type EnumDocumentTypeFieldUpdateOperationsInput = {
     set?: $Enums.DocumentType
+  }
+
+  export type UserCreateNestedOneWithoutAssistant_agentsInput = {
+    create?: XOR<UserCreateWithoutAssistant_agentsInput, UserUncheckedCreateWithoutAssistant_agentsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAssistant_agentsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type CallCreateNestedManyWithoutAssistant_agentInput = {
+    create?: XOR<CallCreateWithoutAssistant_agentInput, CallUncheckedCreateWithoutAssistant_agentInput> | CallCreateWithoutAssistant_agentInput[] | CallUncheckedCreateWithoutAssistant_agentInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutAssistant_agentInput | CallCreateOrConnectWithoutAssistant_agentInput[]
+    createMany?: CallCreateManyAssistant_agentInputEnvelope
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+  }
+
+  export type PracticeAgentCreateNestedManyWithoutLinked_assistant_agentInput = {
+    create?: XOR<PracticeAgentCreateWithoutLinked_assistant_agentInput, PracticeAgentUncheckedCreateWithoutLinked_assistant_agentInput> | PracticeAgentCreateWithoutLinked_assistant_agentInput[] | PracticeAgentUncheckedCreateWithoutLinked_assistant_agentInput[]
+    connectOrCreate?: PracticeAgentCreateOrConnectWithoutLinked_assistant_agentInput | PracticeAgentCreateOrConnectWithoutLinked_assistant_agentInput[]
+    createMany?: PracticeAgentCreateManyLinked_assistant_agentInputEnvelope
+    connect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+  }
+
+  export type CallUncheckedCreateNestedManyWithoutAssistant_agentInput = {
+    create?: XOR<CallCreateWithoutAssistant_agentInput, CallUncheckedCreateWithoutAssistant_agentInput> | CallCreateWithoutAssistant_agentInput[] | CallUncheckedCreateWithoutAssistant_agentInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutAssistant_agentInput | CallCreateOrConnectWithoutAssistant_agentInput[]
+    createMany?: CallCreateManyAssistant_agentInputEnvelope
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+  }
+
+  export type PracticeAgentUncheckedCreateNestedManyWithoutLinked_assistant_agentInput = {
+    create?: XOR<PracticeAgentCreateWithoutLinked_assistant_agentInput, PracticeAgentUncheckedCreateWithoutLinked_assistant_agentInput> | PracticeAgentCreateWithoutLinked_assistant_agentInput[] | PracticeAgentUncheckedCreateWithoutLinked_assistant_agentInput[]
+    connectOrCreate?: PracticeAgentCreateOrConnectWithoutLinked_assistant_agentInput | PracticeAgentCreateOrConnectWithoutLinked_assistant_agentInput[]
+    createMany?: PracticeAgentCreateManyLinked_assistant_agentInputEnvelope
+    connect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+  }
+
+  export type EnumSuggestionFrequencyFieldUpdateOperationsInput = {
+    set?: $Enums.SuggestionFrequency
+  }
+
+  export type EnumSuggestionLengthFieldUpdateOperationsInput = {
+    set?: $Enums.SuggestionLength
+  }
+
+  export type UserUpdateOneRequiredWithoutAssistant_agentsNestedInput = {
+    create?: XOR<UserCreateWithoutAssistant_agentsInput, UserUncheckedCreateWithoutAssistant_agentsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutAssistant_agentsInput
+    upsert?: UserUpsertWithoutAssistant_agentsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAssistant_agentsInput, UserUpdateWithoutAssistant_agentsInput>, UserUncheckedUpdateWithoutAssistant_agentsInput>
+  }
+
+  export type CallUpdateManyWithoutAssistant_agentNestedInput = {
+    create?: XOR<CallCreateWithoutAssistant_agentInput, CallUncheckedCreateWithoutAssistant_agentInput> | CallCreateWithoutAssistant_agentInput[] | CallUncheckedCreateWithoutAssistant_agentInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutAssistant_agentInput | CallCreateOrConnectWithoutAssistant_agentInput[]
+    upsert?: CallUpsertWithWhereUniqueWithoutAssistant_agentInput | CallUpsertWithWhereUniqueWithoutAssistant_agentInput[]
+    createMany?: CallCreateManyAssistant_agentInputEnvelope
+    set?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    disconnect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    delete?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    update?: CallUpdateWithWhereUniqueWithoutAssistant_agentInput | CallUpdateWithWhereUniqueWithoutAssistant_agentInput[]
+    updateMany?: CallUpdateManyWithWhereWithoutAssistant_agentInput | CallUpdateManyWithWhereWithoutAssistant_agentInput[]
+    deleteMany?: CallScalarWhereInput | CallScalarWhereInput[]
+  }
+
+  export type PracticeAgentUpdateManyWithoutLinked_assistant_agentNestedInput = {
+    create?: XOR<PracticeAgentCreateWithoutLinked_assistant_agentInput, PracticeAgentUncheckedCreateWithoutLinked_assistant_agentInput> | PracticeAgentCreateWithoutLinked_assistant_agentInput[] | PracticeAgentUncheckedCreateWithoutLinked_assistant_agentInput[]
+    connectOrCreate?: PracticeAgentCreateOrConnectWithoutLinked_assistant_agentInput | PracticeAgentCreateOrConnectWithoutLinked_assistant_agentInput[]
+    upsert?: PracticeAgentUpsertWithWhereUniqueWithoutLinked_assistant_agentInput | PracticeAgentUpsertWithWhereUniqueWithoutLinked_assistant_agentInput[]
+    createMany?: PracticeAgentCreateManyLinked_assistant_agentInputEnvelope
+    set?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    disconnect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    delete?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    connect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    update?: PracticeAgentUpdateWithWhereUniqueWithoutLinked_assistant_agentInput | PracticeAgentUpdateWithWhereUniqueWithoutLinked_assistant_agentInput[]
+    updateMany?: PracticeAgentUpdateManyWithWhereWithoutLinked_assistant_agentInput | PracticeAgentUpdateManyWithWhereWithoutLinked_assistant_agentInput[]
+    deleteMany?: PracticeAgentScalarWhereInput | PracticeAgentScalarWhereInput[]
+  }
+
+  export type CallUncheckedUpdateManyWithoutAssistant_agentNestedInput = {
+    create?: XOR<CallCreateWithoutAssistant_agentInput, CallUncheckedCreateWithoutAssistant_agentInput> | CallCreateWithoutAssistant_agentInput[] | CallUncheckedCreateWithoutAssistant_agentInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutAssistant_agentInput | CallCreateOrConnectWithoutAssistant_agentInput[]
+    upsert?: CallUpsertWithWhereUniqueWithoutAssistant_agentInput | CallUpsertWithWhereUniqueWithoutAssistant_agentInput[]
+    createMany?: CallCreateManyAssistant_agentInputEnvelope
+    set?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    disconnect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    delete?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    update?: CallUpdateWithWhereUniqueWithoutAssistant_agentInput | CallUpdateWithWhereUniqueWithoutAssistant_agentInput[]
+    updateMany?: CallUpdateManyWithWhereWithoutAssistant_agentInput | CallUpdateManyWithWhereWithoutAssistant_agentInput[]
+    deleteMany?: CallScalarWhereInput | CallScalarWhereInput[]
+  }
+
+  export type PracticeAgentUncheckedUpdateManyWithoutLinked_assistant_agentNestedInput = {
+    create?: XOR<PracticeAgentCreateWithoutLinked_assistant_agentInput, PracticeAgentUncheckedCreateWithoutLinked_assistant_agentInput> | PracticeAgentCreateWithoutLinked_assistant_agentInput[] | PracticeAgentUncheckedCreateWithoutLinked_assistant_agentInput[]
+    connectOrCreate?: PracticeAgentCreateOrConnectWithoutLinked_assistant_agentInput | PracticeAgentCreateOrConnectWithoutLinked_assistant_agentInput[]
+    upsert?: PracticeAgentUpsertWithWhereUniqueWithoutLinked_assistant_agentInput | PracticeAgentUpsertWithWhereUniqueWithoutLinked_assistant_agentInput[]
+    createMany?: PracticeAgentCreateManyLinked_assistant_agentInputEnvelope
+    set?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    disconnect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    delete?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    connect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    update?: PracticeAgentUpdateWithWhereUniqueWithoutLinked_assistant_agentInput | PracticeAgentUpdateWithWhereUniqueWithoutLinked_assistant_agentInput[]
+    updateMany?: PracticeAgentUpdateManyWithWhereWithoutLinked_assistant_agentInput | PracticeAgentUpdateManyWithWhereWithoutLinked_assistant_agentInput[]
+    deleteMany?: PracticeAgentScalarWhereInput | PracticeAgentScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutPractice_agentsInput = {
+    create?: XOR<UserCreateWithoutPractice_agentsInput, UserUncheckedCreateWithoutPractice_agentsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPractice_agentsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type AssistantAgentCreateNestedOneWithoutPractice_agentsInput = {
+    create?: XOR<AssistantAgentCreateWithoutPractice_agentsInput, AssistantAgentUncheckedCreateWithoutPractice_agentsInput>
+    connectOrCreate?: AssistantAgentCreateOrConnectWithoutPractice_agentsInput
+    connect?: AssistantAgentWhereUniqueInput
+  }
+
+  export type CallCreateNestedManyWithoutPractice_agentInput = {
+    create?: XOR<CallCreateWithoutPractice_agentInput, CallUncheckedCreateWithoutPractice_agentInput> | CallCreateWithoutPractice_agentInput[] | CallUncheckedCreateWithoutPractice_agentInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutPractice_agentInput | CallCreateOrConnectWithoutPractice_agentInput[]
+    createMany?: CallCreateManyPractice_agentInputEnvelope
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+  }
+
+  export type CallUncheckedCreateNestedManyWithoutPractice_agentInput = {
+    create?: XOR<CallCreateWithoutPractice_agentInput, CallUncheckedCreateWithoutPractice_agentInput> | CallCreateWithoutPractice_agentInput[] | CallUncheckedCreateWithoutPractice_agentInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutPractice_agentInput | CallCreateOrConnectWithoutPractice_agentInput[]
+    createMany?: CallCreateManyPractice_agentInputEnvelope
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+  }
+
+  export type EnumLeadTemperatureFieldUpdateOperationsInput = {
+    set?: $Enums.LeadTemperature
+  }
+
+  export type EnumVoiceProviderFieldUpdateOperationsInput = {
+    set?: $Enums.VoiceProvider
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type UserUpdateOneRequiredWithoutPractice_agentsNestedInput = {
+    create?: XOR<UserCreateWithoutPractice_agentsInput, UserUncheckedCreateWithoutPractice_agentsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutPractice_agentsInput
+    upsert?: UserUpsertWithoutPractice_agentsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPractice_agentsInput, UserUpdateWithoutPractice_agentsInput>, UserUncheckedUpdateWithoutPractice_agentsInput>
+  }
+
+  export type AssistantAgentUpdateOneWithoutPractice_agentsNestedInput = {
+    create?: XOR<AssistantAgentCreateWithoutPractice_agentsInput, AssistantAgentUncheckedCreateWithoutPractice_agentsInput>
+    connectOrCreate?: AssistantAgentCreateOrConnectWithoutPractice_agentsInput
+    upsert?: AssistantAgentUpsertWithoutPractice_agentsInput
+    disconnect?: AssistantAgentWhereInput | boolean
+    delete?: AssistantAgentWhereInput | boolean
+    connect?: AssistantAgentWhereUniqueInput
+    update?: XOR<XOR<AssistantAgentUpdateToOneWithWhereWithoutPractice_agentsInput, AssistantAgentUpdateWithoutPractice_agentsInput>, AssistantAgentUncheckedUpdateWithoutPractice_agentsInput>
+  }
+
+  export type CallUpdateManyWithoutPractice_agentNestedInput = {
+    create?: XOR<CallCreateWithoutPractice_agentInput, CallUncheckedCreateWithoutPractice_agentInput> | CallCreateWithoutPractice_agentInput[] | CallUncheckedCreateWithoutPractice_agentInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutPractice_agentInput | CallCreateOrConnectWithoutPractice_agentInput[]
+    upsert?: CallUpsertWithWhereUniqueWithoutPractice_agentInput | CallUpsertWithWhereUniqueWithoutPractice_agentInput[]
+    createMany?: CallCreateManyPractice_agentInputEnvelope
+    set?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    disconnect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    delete?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    update?: CallUpdateWithWhereUniqueWithoutPractice_agentInput | CallUpdateWithWhereUniqueWithoutPractice_agentInput[]
+    updateMany?: CallUpdateManyWithWhereWithoutPractice_agentInput | CallUpdateManyWithWhereWithoutPractice_agentInput[]
+    deleteMany?: CallScalarWhereInput | CallScalarWhereInput[]
+  }
+
+  export type CallUncheckedUpdateManyWithoutPractice_agentNestedInput = {
+    create?: XOR<CallCreateWithoutPractice_agentInput, CallUncheckedCreateWithoutPractice_agentInput> | CallCreateWithoutPractice_agentInput[] | CallUncheckedCreateWithoutPractice_agentInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutPractice_agentInput | CallCreateOrConnectWithoutPractice_agentInput[]
+    upsert?: CallUpsertWithWhereUniqueWithoutPractice_agentInput | CallUpsertWithWhereUniqueWithoutPractice_agentInput[]
+    createMany?: CallCreateManyPractice_agentInputEnvelope
+    set?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    disconnect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    delete?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    update?: CallUpdateWithWhereUniqueWithoutPractice_agentInput | CallUpdateWithWhereUniqueWithoutPractice_agentInput[]
+    updateMany?: CallUpdateManyWithWhereWithoutPractice_agentInput | CallUpdateManyWithWhereWithoutPractice_agentInput[]
+    deleteMany?: CallScalarWhereInput | CallScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutCallsInput = {
+    create?: XOR<UserCreateWithoutCallsInput, UserUncheckedCreateWithoutCallsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCallsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type AssistantAgentCreateNestedOneWithoutCallsInput = {
+    create?: XOR<AssistantAgentCreateWithoutCallsInput, AssistantAgentUncheckedCreateWithoutCallsInput>
+    connectOrCreate?: AssistantAgentCreateOrConnectWithoutCallsInput
+    connect?: AssistantAgentWhereUniqueInput
+  }
+
+  export type PracticeAgentCreateNestedOneWithoutCallsInput = {
+    create?: XOR<PracticeAgentCreateWithoutCallsInput, PracticeAgentUncheckedCreateWithoutCallsInput>
+    connectOrCreate?: PracticeAgentCreateOrConnectWithoutCallsInput
+    connect?: PracticeAgentWhereUniqueInput
+  }
+
+  export type TranscriptSegmentCreateNestedManyWithoutCallInput = {
+    create?: XOR<TranscriptSegmentCreateWithoutCallInput, TranscriptSegmentUncheckedCreateWithoutCallInput> | TranscriptSegmentCreateWithoutCallInput[] | TranscriptSegmentUncheckedCreateWithoutCallInput[]
+    connectOrCreate?: TranscriptSegmentCreateOrConnectWithoutCallInput | TranscriptSegmentCreateOrConnectWithoutCallInput[]
+    createMany?: TranscriptSegmentCreateManyCallInputEnvelope
+    connect?: TranscriptSegmentWhereUniqueInput | TranscriptSegmentWhereUniqueInput[]
+  }
+
+  export type SuggestionCreateNestedManyWithoutCallInput = {
+    create?: XOR<SuggestionCreateWithoutCallInput, SuggestionUncheckedCreateWithoutCallInput> | SuggestionCreateWithoutCallInput[] | SuggestionUncheckedCreateWithoutCallInput[]
+    connectOrCreate?: SuggestionCreateOrConnectWithoutCallInput | SuggestionCreateOrConnectWithoutCallInput[]
+    createMany?: SuggestionCreateManyCallInputEnvelope
+    connect?: SuggestionWhereUniqueInput | SuggestionWhereUniqueInput[]
+  }
+
+  export type BookmarkCreateNestedManyWithoutCallInput = {
+    create?: XOR<BookmarkCreateWithoutCallInput, BookmarkUncheckedCreateWithoutCallInput> | BookmarkCreateWithoutCallInput[] | BookmarkUncheckedCreateWithoutCallInput[]
+    connectOrCreate?: BookmarkCreateOrConnectWithoutCallInput | BookmarkCreateOrConnectWithoutCallInput[]
+    createMany?: BookmarkCreateManyCallInputEnvelope
+    connect?: BookmarkWhereUniqueInput | BookmarkWhereUniqueInput[]
+  }
+
+  export type CallAnalysisCreateNestedOneWithoutCallInput = {
+    create?: XOR<CallAnalysisCreateWithoutCallInput, CallAnalysisUncheckedCreateWithoutCallInput>
+    connectOrCreate?: CallAnalysisCreateOrConnectWithoutCallInput
+    connect?: CallAnalysisWhereUniqueInput
+  }
+
+  export type TranscriptSegmentUncheckedCreateNestedManyWithoutCallInput = {
+    create?: XOR<TranscriptSegmentCreateWithoutCallInput, TranscriptSegmentUncheckedCreateWithoutCallInput> | TranscriptSegmentCreateWithoutCallInput[] | TranscriptSegmentUncheckedCreateWithoutCallInput[]
+    connectOrCreate?: TranscriptSegmentCreateOrConnectWithoutCallInput | TranscriptSegmentCreateOrConnectWithoutCallInput[]
+    createMany?: TranscriptSegmentCreateManyCallInputEnvelope
+    connect?: TranscriptSegmentWhereUniqueInput | TranscriptSegmentWhereUniqueInput[]
+  }
+
+  export type SuggestionUncheckedCreateNestedManyWithoutCallInput = {
+    create?: XOR<SuggestionCreateWithoutCallInput, SuggestionUncheckedCreateWithoutCallInput> | SuggestionCreateWithoutCallInput[] | SuggestionUncheckedCreateWithoutCallInput[]
+    connectOrCreate?: SuggestionCreateOrConnectWithoutCallInput | SuggestionCreateOrConnectWithoutCallInput[]
+    createMany?: SuggestionCreateManyCallInputEnvelope
+    connect?: SuggestionWhereUniqueInput | SuggestionWhereUniqueInput[]
+  }
+
+  export type BookmarkUncheckedCreateNestedManyWithoutCallInput = {
+    create?: XOR<BookmarkCreateWithoutCallInput, BookmarkUncheckedCreateWithoutCallInput> | BookmarkCreateWithoutCallInput[] | BookmarkUncheckedCreateWithoutCallInput[]
+    connectOrCreate?: BookmarkCreateOrConnectWithoutCallInput | BookmarkCreateOrConnectWithoutCallInput[]
+    createMany?: BookmarkCreateManyCallInputEnvelope
+    connect?: BookmarkWhereUniqueInput | BookmarkWhereUniqueInput[]
+  }
+
+  export type CallAnalysisUncheckedCreateNestedOneWithoutCallInput = {
+    create?: XOR<CallAnalysisCreateWithoutCallInput, CallAnalysisUncheckedCreateWithoutCallInput>
+    connectOrCreate?: CallAnalysisCreateOrConnectWithoutCallInput
+    connect?: CallAnalysisWhereUniqueInput
+  }
+
+  export type EnumCallKindFieldUpdateOperationsInput = {
+    set?: $Enums.CallKind
+  }
+
+  export type EnumCallTypeFieldUpdateOperationsInput = {
+    set?: $Enums.CallType
+  }
+
+  export type EnumCallStatusFieldUpdateOperationsInput = {
+    set?: $Enums.CallStatus
+  }
+
+  export type NullableEnumCallEndReasonFieldUpdateOperationsInput = {
+    set?: $Enums.CallEndReason | null
+  }
+
+  export type NullableEnumCallOutcomeFieldUpdateOperationsInput = {
+    set?: $Enums.CallOutcome | null
+  }
+
+  export type NullableBoolFieldUpdateOperationsInput = {
+    set?: boolean | null
+  }
+
+  export type UserUpdateOneRequiredWithoutCallsNestedInput = {
+    create?: XOR<UserCreateWithoutCallsInput, UserUncheckedCreateWithoutCallsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCallsInput
+    upsert?: UserUpsertWithoutCallsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCallsInput, UserUpdateWithoutCallsInput>, UserUncheckedUpdateWithoutCallsInput>
+  }
+
+  export type AssistantAgentUpdateOneWithoutCallsNestedInput = {
+    create?: XOR<AssistantAgentCreateWithoutCallsInput, AssistantAgentUncheckedCreateWithoutCallsInput>
+    connectOrCreate?: AssistantAgentCreateOrConnectWithoutCallsInput
+    upsert?: AssistantAgentUpsertWithoutCallsInput
+    disconnect?: AssistantAgentWhereInput | boolean
+    delete?: AssistantAgentWhereInput | boolean
+    connect?: AssistantAgentWhereUniqueInput
+    update?: XOR<XOR<AssistantAgentUpdateToOneWithWhereWithoutCallsInput, AssistantAgentUpdateWithoutCallsInput>, AssistantAgentUncheckedUpdateWithoutCallsInput>
+  }
+
+  export type PracticeAgentUpdateOneWithoutCallsNestedInput = {
+    create?: XOR<PracticeAgentCreateWithoutCallsInput, PracticeAgentUncheckedCreateWithoutCallsInput>
+    connectOrCreate?: PracticeAgentCreateOrConnectWithoutCallsInput
+    upsert?: PracticeAgentUpsertWithoutCallsInput
+    disconnect?: PracticeAgentWhereInput | boolean
+    delete?: PracticeAgentWhereInput | boolean
+    connect?: PracticeAgentWhereUniqueInput
+    update?: XOR<XOR<PracticeAgentUpdateToOneWithWhereWithoutCallsInput, PracticeAgentUpdateWithoutCallsInput>, PracticeAgentUncheckedUpdateWithoutCallsInput>
+  }
+
+  export type TranscriptSegmentUpdateManyWithoutCallNestedInput = {
+    create?: XOR<TranscriptSegmentCreateWithoutCallInput, TranscriptSegmentUncheckedCreateWithoutCallInput> | TranscriptSegmentCreateWithoutCallInput[] | TranscriptSegmentUncheckedCreateWithoutCallInput[]
+    connectOrCreate?: TranscriptSegmentCreateOrConnectWithoutCallInput | TranscriptSegmentCreateOrConnectWithoutCallInput[]
+    upsert?: TranscriptSegmentUpsertWithWhereUniqueWithoutCallInput | TranscriptSegmentUpsertWithWhereUniqueWithoutCallInput[]
+    createMany?: TranscriptSegmentCreateManyCallInputEnvelope
+    set?: TranscriptSegmentWhereUniqueInput | TranscriptSegmentWhereUniqueInput[]
+    disconnect?: TranscriptSegmentWhereUniqueInput | TranscriptSegmentWhereUniqueInput[]
+    delete?: TranscriptSegmentWhereUniqueInput | TranscriptSegmentWhereUniqueInput[]
+    connect?: TranscriptSegmentWhereUniqueInput | TranscriptSegmentWhereUniqueInput[]
+    update?: TranscriptSegmentUpdateWithWhereUniqueWithoutCallInput | TranscriptSegmentUpdateWithWhereUniqueWithoutCallInput[]
+    updateMany?: TranscriptSegmentUpdateManyWithWhereWithoutCallInput | TranscriptSegmentUpdateManyWithWhereWithoutCallInput[]
+    deleteMany?: TranscriptSegmentScalarWhereInput | TranscriptSegmentScalarWhereInput[]
+  }
+
+  export type SuggestionUpdateManyWithoutCallNestedInput = {
+    create?: XOR<SuggestionCreateWithoutCallInput, SuggestionUncheckedCreateWithoutCallInput> | SuggestionCreateWithoutCallInput[] | SuggestionUncheckedCreateWithoutCallInput[]
+    connectOrCreate?: SuggestionCreateOrConnectWithoutCallInput | SuggestionCreateOrConnectWithoutCallInput[]
+    upsert?: SuggestionUpsertWithWhereUniqueWithoutCallInput | SuggestionUpsertWithWhereUniqueWithoutCallInput[]
+    createMany?: SuggestionCreateManyCallInputEnvelope
+    set?: SuggestionWhereUniqueInput | SuggestionWhereUniqueInput[]
+    disconnect?: SuggestionWhereUniqueInput | SuggestionWhereUniqueInput[]
+    delete?: SuggestionWhereUniqueInput | SuggestionWhereUniqueInput[]
+    connect?: SuggestionWhereUniqueInput | SuggestionWhereUniqueInput[]
+    update?: SuggestionUpdateWithWhereUniqueWithoutCallInput | SuggestionUpdateWithWhereUniqueWithoutCallInput[]
+    updateMany?: SuggestionUpdateManyWithWhereWithoutCallInput | SuggestionUpdateManyWithWhereWithoutCallInput[]
+    deleteMany?: SuggestionScalarWhereInput | SuggestionScalarWhereInput[]
+  }
+
+  export type BookmarkUpdateManyWithoutCallNestedInput = {
+    create?: XOR<BookmarkCreateWithoutCallInput, BookmarkUncheckedCreateWithoutCallInput> | BookmarkCreateWithoutCallInput[] | BookmarkUncheckedCreateWithoutCallInput[]
+    connectOrCreate?: BookmarkCreateOrConnectWithoutCallInput | BookmarkCreateOrConnectWithoutCallInput[]
+    upsert?: BookmarkUpsertWithWhereUniqueWithoutCallInput | BookmarkUpsertWithWhereUniqueWithoutCallInput[]
+    createMany?: BookmarkCreateManyCallInputEnvelope
+    set?: BookmarkWhereUniqueInput | BookmarkWhereUniqueInput[]
+    disconnect?: BookmarkWhereUniqueInput | BookmarkWhereUniqueInput[]
+    delete?: BookmarkWhereUniqueInput | BookmarkWhereUniqueInput[]
+    connect?: BookmarkWhereUniqueInput | BookmarkWhereUniqueInput[]
+    update?: BookmarkUpdateWithWhereUniqueWithoutCallInput | BookmarkUpdateWithWhereUniqueWithoutCallInput[]
+    updateMany?: BookmarkUpdateManyWithWhereWithoutCallInput | BookmarkUpdateManyWithWhereWithoutCallInput[]
+    deleteMany?: BookmarkScalarWhereInput | BookmarkScalarWhereInput[]
+  }
+
+  export type CallAnalysisUpdateOneWithoutCallNestedInput = {
+    create?: XOR<CallAnalysisCreateWithoutCallInput, CallAnalysisUncheckedCreateWithoutCallInput>
+    connectOrCreate?: CallAnalysisCreateOrConnectWithoutCallInput
+    upsert?: CallAnalysisUpsertWithoutCallInput
+    disconnect?: CallAnalysisWhereInput | boolean
+    delete?: CallAnalysisWhereInput | boolean
+    connect?: CallAnalysisWhereUniqueInput
+    update?: XOR<XOR<CallAnalysisUpdateToOneWithWhereWithoutCallInput, CallAnalysisUpdateWithoutCallInput>, CallAnalysisUncheckedUpdateWithoutCallInput>
+  }
+
+  export type TranscriptSegmentUncheckedUpdateManyWithoutCallNestedInput = {
+    create?: XOR<TranscriptSegmentCreateWithoutCallInput, TranscriptSegmentUncheckedCreateWithoutCallInput> | TranscriptSegmentCreateWithoutCallInput[] | TranscriptSegmentUncheckedCreateWithoutCallInput[]
+    connectOrCreate?: TranscriptSegmentCreateOrConnectWithoutCallInput | TranscriptSegmentCreateOrConnectWithoutCallInput[]
+    upsert?: TranscriptSegmentUpsertWithWhereUniqueWithoutCallInput | TranscriptSegmentUpsertWithWhereUniqueWithoutCallInput[]
+    createMany?: TranscriptSegmentCreateManyCallInputEnvelope
+    set?: TranscriptSegmentWhereUniqueInput | TranscriptSegmentWhereUniqueInput[]
+    disconnect?: TranscriptSegmentWhereUniqueInput | TranscriptSegmentWhereUniqueInput[]
+    delete?: TranscriptSegmentWhereUniqueInput | TranscriptSegmentWhereUniqueInput[]
+    connect?: TranscriptSegmentWhereUniqueInput | TranscriptSegmentWhereUniqueInput[]
+    update?: TranscriptSegmentUpdateWithWhereUniqueWithoutCallInput | TranscriptSegmentUpdateWithWhereUniqueWithoutCallInput[]
+    updateMany?: TranscriptSegmentUpdateManyWithWhereWithoutCallInput | TranscriptSegmentUpdateManyWithWhereWithoutCallInput[]
+    deleteMany?: TranscriptSegmentScalarWhereInput | TranscriptSegmentScalarWhereInput[]
+  }
+
+  export type SuggestionUncheckedUpdateManyWithoutCallNestedInput = {
+    create?: XOR<SuggestionCreateWithoutCallInput, SuggestionUncheckedCreateWithoutCallInput> | SuggestionCreateWithoutCallInput[] | SuggestionUncheckedCreateWithoutCallInput[]
+    connectOrCreate?: SuggestionCreateOrConnectWithoutCallInput | SuggestionCreateOrConnectWithoutCallInput[]
+    upsert?: SuggestionUpsertWithWhereUniqueWithoutCallInput | SuggestionUpsertWithWhereUniqueWithoutCallInput[]
+    createMany?: SuggestionCreateManyCallInputEnvelope
+    set?: SuggestionWhereUniqueInput | SuggestionWhereUniqueInput[]
+    disconnect?: SuggestionWhereUniqueInput | SuggestionWhereUniqueInput[]
+    delete?: SuggestionWhereUniqueInput | SuggestionWhereUniqueInput[]
+    connect?: SuggestionWhereUniqueInput | SuggestionWhereUniqueInput[]
+    update?: SuggestionUpdateWithWhereUniqueWithoutCallInput | SuggestionUpdateWithWhereUniqueWithoutCallInput[]
+    updateMany?: SuggestionUpdateManyWithWhereWithoutCallInput | SuggestionUpdateManyWithWhereWithoutCallInput[]
+    deleteMany?: SuggestionScalarWhereInput | SuggestionScalarWhereInput[]
+  }
+
+  export type BookmarkUncheckedUpdateManyWithoutCallNestedInput = {
+    create?: XOR<BookmarkCreateWithoutCallInput, BookmarkUncheckedCreateWithoutCallInput> | BookmarkCreateWithoutCallInput[] | BookmarkUncheckedCreateWithoutCallInput[]
+    connectOrCreate?: BookmarkCreateOrConnectWithoutCallInput | BookmarkCreateOrConnectWithoutCallInput[]
+    upsert?: BookmarkUpsertWithWhereUniqueWithoutCallInput | BookmarkUpsertWithWhereUniqueWithoutCallInput[]
+    createMany?: BookmarkCreateManyCallInputEnvelope
+    set?: BookmarkWhereUniqueInput | BookmarkWhereUniqueInput[]
+    disconnect?: BookmarkWhereUniqueInput | BookmarkWhereUniqueInput[]
+    delete?: BookmarkWhereUniqueInput | BookmarkWhereUniqueInput[]
+    connect?: BookmarkWhereUniqueInput | BookmarkWhereUniqueInput[]
+    update?: BookmarkUpdateWithWhereUniqueWithoutCallInput | BookmarkUpdateWithWhereUniqueWithoutCallInput[]
+    updateMany?: BookmarkUpdateManyWithWhereWithoutCallInput | BookmarkUpdateManyWithWhereWithoutCallInput[]
+    deleteMany?: BookmarkScalarWhereInput | BookmarkScalarWhereInput[]
+  }
+
+  export type CallAnalysisUncheckedUpdateOneWithoutCallNestedInput = {
+    create?: XOR<CallAnalysisCreateWithoutCallInput, CallAnalysisUncheckedCreateWithoutCallInput>
+    connectOrCreate?: CallAnalysisCreateOrConnectWithoutCallInput
+    upsert?: CallAnalysisUpsertWithoutCallInput
+    disconnect?: CallAnalysisWhereInput | boolean
+    delete?: CallAnalysisWhereInput | boolean
+    connect?: CallAnalysisWhereUniqueInput
+    update?: XOR<XOR<CallAnalysisUpdateToOneWithWhereWithoutCallInput, CallAnalysisUpdateWithoutCallInput>, CallAnalysisUncheckedUpdateWithoutCallInput>
+  }
+
+  export type CallCreateNestedOneWithoutSegmentsInput = {
+    create?: XOR<CallCreateWithoutSegmentsInput, CallUncheckedCreateWithoutSegmentsInput>
+    connectOrCreate?: CallCreateOrConnectWithoutSegmentsInput
+    connect?: CallWhereUniqueInput
+  }
+
+  export type EnumSpeakerFieldUpdateOperationsInput = {
+    set?: $Enums.Speaker
+  }
+
+  export type CallUpdateOneRequiredWithoutSegmentsNestedInput = {
+    create?: XOR<CallCreateWithoutSegmentsInput, CallUncheckedCreateWithoutSegmentsInput>
+    connectOrCreate?: CallCreateOrConnectWithoutSegmentsInput
+    upsert?: CallUpsertWithoutSegmentsInput
+    connect?: CallWhereUniqueInput
+    update?: XOR<XOR<CallUpdateToOneWithWhereWithoutSegmentsInput, CallUpdateWithoutSegmentsInput>, CallUncheckedUpdateWithoutSegmentsInput>
+  }
+
+  export type CallCreateNestedOneWithoutSuggestionsInput = {
+    create?: XOR<CallCreateWithoutSuggestionsInput, CallUncheckedCreateWithoutSuggestionsInput>
+    connectOrCreate?: CallCreateOrConnectWithoutSuggestionsInput
+    connect?: CallWhereUniqueInput
+  }
+
+  export type EnumSuggestionTypeFieldUpdateOperationsInput = {
+    set?: $Enums.SuggestionType
+  }
+
+  export type EnumSuggestionStatusFieldUpdateOperationsInput = {
+    set?: $Enums.SuggestionStatus
+  }
+
+  export type NullableEnumSuggestionFeedbackFieldUpdateOperationsInput = {
+    set?: $Enums.SuggestionFeedback | null
+  }
+
+  export type CallUpdateOneRequiredWithoutSuggestionsNestedInput = {
+    create?: XOR<CallCreateWithoutSuggestionsInput, CallUncheckedCreateWithoutSuggestionsInput>
+    connectOrCreate?: CallCreateOrConnectWithoutSuggestionsInput
+    upsert?: CallUpsertWithoutSuggestionsInput
+    connect?: CallWhereUniqueInput
+    update?: XOR<XOR<CallUpdateToOneWithWhereWithoutSuggestionsInput, CallUpdateWithoutSuggestionsInput>, CallUncheckedUpdateWithoutSuggestionsInput>
+  }
+
+  export type CallCreateNestedOneWithoutBookmarksInput = {
+    create?: XOR<CallCreateWithoutBookmarksInput, CallUncheckedCreateWithoutBookmarksInput>
+    connectOrCreate?: CallCreateOrConnectWithoutBookmarksInput
+    connect?: CallWhereUniqueInput
+  }
+
+  export type CallUpdateOneRequiredWithoutBookmarksNestedInput = {
+    create?: XOR<CallCreateWithoutBookmarksInput, CallUncheckedCreateWithoutBookmarksInput>
+    connectOrCreate?: CallCreateOrConnectWithoutBookmarksInput
+    upsert?: CallUpsertWithoutBookmarksInput
+    connect?: CallWhereUniqueInput
+    update?: XOR<XOR<CallUpdateToOneWithWhereWithoutBookmarksInput, CallUpdateWithoutBookmarksInput>, CallUncheckedUpdateWithoutBookmarksInput>
+  }
+
+  export type CallCreateNestedOneWithoutAnalysisInput = {
+    create?: XOR<CallCreateWithoutAnalysisInput, CallUncheckedCreateWithoutAnalysisInput>
+    connectOrCreate?: CallCreateOrConnectWithoutAnalysisInput
+    connect?: CallWhereUniqueInput
+  }
+
+  export type CallUpdateOneRequiredWithoutAnalysisNestedInput = {
+    create?: XOR<CallCreateWithoutAnalysisInput, CallUncheckedCreateWithoutAnalysisInput>
+    connectOrCreate?: CallCreateOrConnectWithoutAnalysisInput
+    upsert?: CallUpsertWithoutAnalysisInput
+    connect?: CallWhereUniqueInput
+    update?: XOR<XOR<CallUpdateToOneWithWhereWithoutAnalysisInput, CallUpdateWithoutAnalysisInput>, CallUncheckedUpdateWithoutAnalysisInput>
+  }
+
+  export type UserCreateNestedOneWithoutUsage_eventsInput = {
+    create?: XOR<UserCreateWithoutUsage_eventsInput, UserUncheckedCreateWithoutUsage_eventsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutUsage_eventsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type EnumUsageKindFieldUpdateOperationsInput = {
+    set?: $Enums.UsageKind
+  }
+
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type UserUpdateOneRequiredWithoutUsage_eventsNestedInput = {
+    create?: XOR<UserCreateWithoutUsage_eventsInput, UserUncheckedCreateWithoutUsage_eventsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutUsage_eventsInput
+    upsert?: UserUpsertWithoutUsage_eventsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutUsage_eventsInput, UserUpdateWithoutUsage_eventsInput>, UserUncheckedUpdateWithoutUsage_eventsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -5425,6 +21910,29 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedEnumOutputLanguageModeFilter<$PrismaModel = never> = {
+    equals?: $Enums.OutputLanguageMode | EnumOutputLanguageModeFieldRefInput<$PrismaModel>
+    in?: $Enums.OutputLanguageMode[] | ListEnumOutputLanguageModeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OutputLanguageMode[] | ListEnumOutputLanguageModeFieldRefInput<$PrismaModel>
+    not?: NestedEnumOutputLanguageModeFilter<$PrismaModel> | $Enums.OutputLanguageMode
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -5507,15 +22015,22 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  export type NestedEnumOutputLanguageModeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.OutputLanguageMode | EnumOutputLanguageModeFieldRefInput<$PrismaModel>
+    in?: $Enums.OutputLanguageMode[] | ListEnumOutputLanguageModeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OutputLanguageMode[] | ListEnumOutputLanguageModeFieldRefInput<$PrismaModel>
+    not?: NestedEnumOutputLanguageModeWithAggregatesFilter<$PrismaModel> | $Enums.OutputLanguageMode
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumOutputLanguageModeFilter<$PrismaModel>
+    _max?: NestedEnumOutputLanguageModeFilter<$PrismaModel>
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -5576,6 +22091,346 @@ export namespace Prisma {
     _max?: NestedEnumDocumentTypeFilter<$PrismaModel>
   }
 
+  export type NestedEnumSuggestionFrequencyFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionFrequency | EnumSuggestionFrequencyFieldRefInput<$PrismaModel>
+    in?: $Enums.SuggestionFrequency[] | ListEnumSuggestionFrequencyFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SuggestionFrequency[] | ListEnumSuggestionFrequencyFieldRefInput<$PrismaModel>
+    not?: NestedEnumSuggestionFrequencyFilter<$PrismaModel> | $Enums.SuggestionFrequency
+  }
+
+  export type NestedEnumSuggestionLengthFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionLength | EnumSuggestionLengthFieldRefInput<$PrismaModel>
+    in?: $Enums.SuggestionLength[] | ListEnumSuggestionLengthFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SuggestionLength[] | ListEnumSuggestionLengthFieldRefInput<$PrismaModel>
+    not?: NestedEnumSuggestionLengthFilter<$PrismaModel> | $Enums.SuggestionLength
+  }
+  export type NestedJsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NestedEnumSuggestionFrequencyWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionFrequency | EnumSuggestionFrequencyFieldRefInput<$PrismaModel>
+    in?: $Enums.SuggestionFrequency[] | ListEnumSuggestionFrequencyFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SuggestionFrequency[] | ListEnumSuggestionFrequencyFieldRefInput<$PrismaModel>
+    not?: NestedEnumSuggestionFrequencyWithAggregatesFilter<$PrismaModel> | $Enums.SuggestionFrequency
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSuggestionFrequencyFilter<$PrismaModel>
+    _max?: NestedEnumSuggestionFrequencyFilter<$PrismaModel>
+  }
+
+  export type NestedEnumSuggestionLengthWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionLength | EnumSuggestionLengthFieldRefInput<$PrismaModel>
+    in?: $Enums.SuggestionLength[] | ListEnumSuggestionLengthFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SuggestionLength[] | ListEnumSuggestionLengthFieldRefInput<$PrismaModel>
+    not?: NestedEnumSuggestionLengthWithAggregatesFilter<$PrismaModel> | $Enums.SuggestionLength
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSuggestionLengthFilter<$PrismaModel>
+    _max?: NestedEnumSuggestionLengthFilter<$PrismaModel>
+  }
+
+  export type NestedEnumLeadTemperatureFilter<$PrismaModel = never> = {
+    equals?: $Enums.LeadTemperature | EnumLeadTemperatureFieldRefInput<$PrismaModel>
+    in?: $Enums.LeadTemperature[] | ListEnumLeadTemperatureFieldRefInput<$PrismaModel>
+    notIn?: $Enums.LeadTemperature[] | ListEnumLeadTemperatureFieldRefInput<$PrismaModel>
+    not?: NestedEnumLeadTemperatureFilter<$PrismaModel> | $Enums.LeadTemperature
+  }
+
+  export type NestedEnumVoiceProviderFilter<$PrismaModel = never> = {
+    equals?: $Enums.VoiceProvider | EnumVoiceProviderFieldRefInput<$PrismaModel>
+    in?: $Enums.VoiceProvider[] | ListEnumVoiceProviderFieldRefInput<$PrismaModel>
+    notIn?: $Enums.VoiceProvider[] | ListEnumVoiceProviderFieldRefInput<$PrismaModel>
+    not?: NestedEnumVoiceProviderFilter<$PrismaModel> | $Enums.VoiceProvider
+  }
+
+  export type NestedEnumLeadTemperatureWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.LeadTemperature | EnumLeadTemperatureFieldRefInput<$PrismaModel>
+    in?: $Enums.LeadTemperature[] | ListEnumLeadTemperatureFieldRefInput<$PrismaModel>
+    notIn?: $Enums.LeadTemperature[] | ListEnumLeadTemperatureFieldRefInput<$PrismaModel>
+    not?: NestedEnumLeadTemperatureWithAggregatesFilter<$PrismaModel> | $Enums.LeadTemperature
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumLeadTemperatureFilter<$PrismaModel>
+    _max?: NestedEnumLeadTemperatureFilter<$PrismaModel>
+  }
+
+  export type NestedEnumVoiceProviderWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.VoiceProvider | EnumVoiceProviderFieldRefInput<$PrismaModel>
+    in?: $Enums.VoiceProvider[] | ListEnumVoiceProviderFieldRefInput<$PrismaModel>
+    notIn?: $Enums.VoiceProvider[] | ListEnumVoiceProviderFieldRefInput<$PrismaModel>
+    not?: NestedEnumVoiceProviderWithAggregatesFilter<$PrismaModel> | $Enums.VoiceProvider
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumVoiceProviderFilter<$PrismaModel>
+    _max?: NestedEnumVoiceProviderFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedEnumCallKindFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallKind | EnumCallKindFieldRefInput<$PrismaModel>
+    in?: $Enums.CallKind[] | ListEnumCallKindFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CallKind[] | ListEnumCallKindFieldRefInput<$PrismaModel>
+    not?: NestedEnumCallKindFilter<$PrismaModel> | $Enums.CallKind
+  }
+
+  export type NestedEnumCallTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallType | EnumCallTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CallType[] | ListEnumCallTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CallType[] | ListEnumCallTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCallTypeFilter<$PrismaModel> | $Enums.CallType
+  }
+
+  export type NestedEnumCallStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallStatus | EnumCallStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.CallStatus[] | ListEnumCallStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CallStatus[] | ListEnumCallStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumCallStatusFilter<$PrismaModel> | $Enums.CallStatus
+  }
+
+  export type NestedEnumCallEndReasonNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallEndReason | EnumCallEndReasonFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CallEndReason[] | ListEnumCallEndReasonFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CallEndReason[] | ListEnumCallEndReasonFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCallEndReasonNullableFilter<$PrismaModel> | $Enums.CallEndReason | null
+  }
+
+  export type NestedEnumCallOutcomeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallOutcome | EnumCallOutcomeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CallOutcome[] | ListEnumCallOutcomeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CallOutcome[] | ListEnumCallOutcomeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCallOutcomeNullableFilter<$PrismaModel> | $Enums.CallOutcome | null
+  }
+
+  export type NestedBoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
+  export type NestedEnumCallKindWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallKind | EnumCallKindFieldRefInput<$PrismaModel>
+    in?: $Enums.CallKind[] | ListEnumCallKindFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CallKind[] | ListEnumCallKindFieldRefInput<$PrismaModel>
+    not?: NestedEnumCallKindWithAggregatesFilter<$PrismaModel> | $Enums.CallKind
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCallKindFilter<$PrismaModel>
+    _max?: NestedEnumCallKindFilter<$PrismaModel>
+  }
+
+  export type NestedEnumCallTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallType | EnumCallTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CallType[] | ListEnumCallTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CallType[] | ListEnumCallTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCallTypeWithAggregatesFilter<$PrismaModel> | $Enums.CallType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCallTypeFilter<$PrismaModel>
+    _max?: NestedEnumCallTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumCallStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallStatus | EnumCallStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.CallStatus[] | ListEnumCallStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CallStatus[] | ListEnumCallStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumCallStatusWithAggregatesFilter<$PrismaModel> | $Enums.CallStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCallStatusFilter<$PrismaModel>
+    _max?: NestedEnumCallStatusFilter<$PrismaModel>
+  }
+
+  export type NestedEnumCallEndReasonNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallEndReason | EnumCallEndReasonFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CallEndReason[] | ListEnumCallEndReasonFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CallEndReason[] | ListEnumCallEndReasonFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCallEndReasonNullableWithAggregatesFilter<$PrismaModel> | $Enums.CallEndReason | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumCallEndReasonNullableFilter<$PrismaModel>
+    _max?: NestedEnumCallEndReasonNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumCallOutcomeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallOutcome | EnumCallOutcomeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.CallOutcome[] | ListEnumCallOutcomeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.CallOutcome[] | ListEnumCallOutcomeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumCallOutcomeNullableWithAggregatesFilter<$PrismaModel> | $Enums.CallOutcome | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumCallOutcomeNullableFilter<$PrismaModel>
+    _max?: NestedEnumCallOutcomeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+  export type NestedJsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NestedEnumSpeakerFilter<$PrismaModel = never> = {
+    equals?: $Enums.Speaker | EnumSpeakerFieldRefInput<$PrismaModel>
+    in?: $Enums.Speaker[] | ListEnumSpeakerFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Speaker[] | ListEnumSpeakerFieldRefInput<$PrismaModel>
+    not?: NestedEnumSpeakerFilter<$PrismaModel> | $Enums.Speaker
+  }
+
+  export type NestedEnumSpeakerWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Speaker | EnumSpeakerFieldRefInput<$PrismaModel>
+    in?: $Enums.Speaker[] | ListEnumSpeakerFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Speaker[] | ListEnumSpeakerFieldRefInput<$PrismaModel>
+    not?: NestedEnumSpeakerWithAggregatesFilter<$PrismaModel> | $Enums.Speaker
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSpeakerFilter<$PrismaModel>
+    _max?: NestedEnumSpeakerFilter<$PrismaModel>
+  }
+
+  export type NestedEnumSuggestionTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionType | EnumSuggestionTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.SuggestionType[] | ListEnumSuggestionTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SuggestionType[] | ListEnumSuggestionTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumSuggestionTypeFilter<$PrismaModel> | $Enums.SuggestionType
+  }
+
+  export type NestedEnumSuggestionStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionStatus | EnumSuggestionStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.SuggestionStatus[] | ListEnumSuggestionStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SuggestionStatus[] | ListEnumSuggestionStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumSuggestionStatusFilter<$PrismaModel> | $Enums.SuggestionStatus
+  }
+
+  export type NestedEnumSuggestionFeedbackNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionFeedback | EnumSuggestionFeedbackFieldRefInput<$PrismaModel> | null
+    in?: $Enums.SuggestionFeedback[] | ListEnumSuggestionFeedbackFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.SuggestionFeedback[] | ListEnumSuggestionFeedbackFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumSuggestionFeedbackNullableFilter<$PrismaModel> | $Enums.SuggestionFeedback | null
+  }
+
+  export type NestedEnumSuggestionTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionType | EnumSuggestionTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.SuggestionType[] | ListEnumSuggestionTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SuggestionType[] | ListEnumSuggestionTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumSuggestionTypeWithAggregatesFilter<$PrismaModel> | $Enums.SuggestionType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSuggestionTypeFilter<$PrismaModel>
+    _max?: NestedEnumSuggestionTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumSuggestionStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionStatus | EnumSuggestionStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.SuggestionStatus[] | ListEnumSuggestionStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.SuggestionStatus[] | ListEnumSuggestionStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumSuggestionStatusWithAggregatesFilter<$PrismaModel> | $Enums.SuggestionStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumSuggestionStatusFilter<$PrismaModel>
+    _max?: NestedEnumSuggestionStatusFilter<$PrismaModel>
+  }
+
+  export type NestedEnumSuggestionFeedbackNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.SuggestionFeedback | EnumSuggestionFeedbackFieldRefInput<$PrismaModel> | null
+    in?: $Enums.SuggestionFeedback[] | ListEnumSuggestionFeedbackFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.SuggestionFeedback[] | ListEnumSuggestionFeedbackFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumSuggestionFeedbackNullableWithAggregatesFilter<$PrismaModel> | $Enums.SuggestionFeedback | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumSuggestionFeedbackNullableFilter<$PrismaModel>
+    _max?: NestedEnumSuggestionFeedbackNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumUsageKindFilter<$PrismaModel = never> = {
+    equals?: $Enums.UsageKind | EnumUsageKindFieldRefInput<$PrismaModel>
+    in?: $Enums.UsageKind[] | ListEnumUsageKindFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UsageKind[] | ListEnumUsageKindFieldRefInput<$PrismaModel>
+    not?: NestedEnumUsageKindFilter<$PrismaModel> | $Enums.UsageKind
+  }
+
+  export type NestedEnumUsageKindWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.UsageKind | EnumUsageKindFieldRefInput<$PrismaModel>
+    in?: $Enums.UsageKind[] | ListEnumUsageKindFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UsageKind[] | ListEnumUsageKindFieldRefInput<$PrismaModel>
+    not?: NestedEnumUsageKindWithAggregatesFilter<$PrismaModel> | $Enums.UsageKind
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumUsageKindFilter<$PrismaModel>
+    _max?: NestedEnumUsageKindFilter<$PrismaModel>
+  }
+
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
   export type PasswordResetTokenCreateWithoutUserInput = {
     id?: string
     token_hash: string
@@ -5599,6 +22454,294 @@ export namespace Prisma {
 
   export type PasswordResetTokenCreateManyUserInputEnvelope = {
     data: PasswordResetTokenCreateManyUserInput | PasswordResetTokenCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type AssistantAgentCreateWithoutUserInput = {
+    id?: string
+    name: string
+    description?: string | null
+    call_goal?: string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: string | null
+    knowledge?: string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: string | null
+    language?: string
+    tone?: string
+    suggestion_frequency?: $Enums.SuggestionFrequency
+    suggestion_length?: $Enums.SuggestionLength
+    alternatives_count?: number
+    realtime_model: string
+    analysis_model: string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: string | null
+    suggest_consent_line?: boolean
+    template_key?: string | null
+    is_default?: boolean
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    calls?: CallCreateNestedManyWithoutAssistant_agentInput
+    practice_agents?: PracticeAgentCreateNestedManyWithoutLinked_assistant_agentInput
+  }
+
+  export type AssistantAgentUncheckedCreateWithoutUserInput = {
+    id?: string
+    name: string
+    description?: string | null
+    call_goal?: string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: string | null
+    knowledge?: string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: string | null
+    language?: string
+    tone?: string
+    suggestion_frequency?: $Enums.SuggestionFrequency
+    suggestion_length?: $Enums.SuggestionLength
+    alternatives_count?: number
+    realtime_model: string
+    analysis_model: string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: string | null
+    suggest_consent_line?: boolean
+    template_key?: string | null
+    is_default?: boolean
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    calls?: CallUncheckedCreateNestedManyWithoutAssistant_agentInput
+    practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutLinked_assistant_agentInput
+  }
+
+  export type AssistantAgentCreateOrConnectWithoutUserInput = {
+    where: AssistantAgentWhereUniqueInput
+    create: XOR<AssistantAgentCreateWithoutUserInput, AssistantAgentUncheckedCreateWithoutUserInput>
+  }
+
+  export type AssistantAgentCreateManyUserInputEnvelope = {
+    data: AssistantAgentCreateManyUserInput | AssistantAgentCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PracticeAgentCreateWithoutUserInput = {
+    id?: string
+    name: string
+    prospect_name?: string | null
+    role_prompt: string
+    scenario_context?: string | null
+    scenario_type?: string
+    selling_product?: string | null
+    user_objective?: string | null
+    lead_temperature?: $Enums.LeadTemperature
+    difficulty?: number
+    personality?: string | null
+    mood?: string | null
+    communication_style?: string | null
+    decision_authority?: string | null
+    budget?: string | null
+    timeline?: string | null
+    current_solution?: string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: number
+    language?: string
+    accent?: string | null
+    industry?: string | null
+    company?: string | null
+    job_title?: string | null
+    age_range?: string | null
+    background_story?: string | null
+    briefing?: string | null
+    voice_provider?: $Enums.VoiceProvider
+    voice?: string
+    time_limit_minutes?: number | null
+    source_call_id?: string | null
+    template_key?: string | null
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    linked_assistant_agent?: AssistantAgentCreateNestedOneWithoutPractice_agentsInput
+    calls?: CallCreateNestedManyWithoutPractice_agentInput
+  }
+
+  export type PracticeAgentUncheckedCreateWithoutUserInput = {
+    id?: string
+    name: string
+    prospect_name?: string | null
+    role_prompt: string
+    scenario_context?: string | null
+    scenario_type?: string
+    selling_product?: string | null
+    linked_assistant_agent_id?: string | null
+    user_objective?: string | null
+    lead_temperature?: $Enums.LeadTemperature
+    difficulty?: number
+    personality?: string | null
+    mood?: string | null
+    communication_style?: string | null
+    decision_authority?: string | null
+    budget?: string | null
+    timeline?: string | null
+    current_solution?: string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: number
+    language?: string
+    accent?: string | null
+    industry?: string | null
+    company?: string | null
+    job_title?: string | null
+    age_range?: string | null
+    background_story?: string | null
+    briefing?: string | null
+    voice_provider?: $Enums.VoiceProvider
+    voice?: string
+    time_limit_minutes?: number | null
+    source_call_id?: string | null
+    template_key?: string | null
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    calls?: CallUncheckedCreateNestedManyWithoutPractice_agentInput
+  }
+
+  export type PracticeAgentCreateOrConnectWithoutUserInput = {
+    where: PracticeAgentWhereUniqueInput
+    create: XOR<PracticeAgentCreateWithoutUserInput, PracticeAgentUncheckedCreateWithoutUserInput>
+  }
+
+  export type PracticeAgentCreateManyUserInputEnvelope = {
+    data: PracticeAgentCreateManyUserInput | PracticeAgentCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CallCreateWithoutUserInput = {
+    id?: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+    assistant_agent?: AssistantAgentCreateNestedOneWithoutCallsInput
+    practice_agent?: PracticeAgentCreateNestedOneWithoutCallsInput
+    segments?: TranscriptSegmentCreateNestedManyWithoutCallInput
+    suggestions?: SuggestionCreateNestedManyWithoutCallInput
+    bookmarks?: BookmarkCreateNestedManyWithoutCallInput
+    analysis?: CallAnalysisCreateNestedOneWithoutCallInput
+  }
+
+  export type CallUncheckedCreateWithoutUserInput = {
+    id?: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    assistant_agent_id?: string | null
+    practice_agent_id?: string | null
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+    segments?: TranscriptSegmentUncheckedCreateNestedManyWithoutCallInput
+    suggestions?: SuggestionUncheckedCreateNestedManyWithoutCallInput
+    bookmarks?: BookmarkUncheckedCreateNestedManyWithoutCallInput
+    analysis?: CallAnalysisUncheckedCreateNestedOneWithoutCallInput
+  }
+
+  export type CallCreateOrConnectWithoutUserInput = {
+    where: CallWhereUniqueInput
+    create: XOR<CallCreateWithoutUserInput, CallUncheckedCreateWithoutUserInput>
+  }
+
+  export type CallCreateManyUserInputEnvelope = {
+    data: CallCreateManyUserInput | CallCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UsageEventCreateWithoutUserInput = {
+    id?: string
+    call_id?: string | null
+    kind: $Enums.UsageKind
+    model?: string | null
+    input_tokens?: number
+    output_tokens?: number
+    audio_seconds?: number
+    cost_usd?: number
+    created_at?: Date | string
+  }
+
+  export type UsageEventUncheckedCreateWithoutUserInput = {
+    id?: string
+    call_id?: string | null
+    kind: $Enums.UsageKind
+    model?: string | null
+    input_tokens?: number
+    output_tokens?: number
+    audio_seconds?: number
+    cost_usd?: number
+    created_at?: Date | string
+  }
+
+  export type UsageEventCreateOrConnectWithoutUserInput = {
+    where: UsageEventWhereUniqueInput
+    create: XOR<UsageEventCreateWithoutUserInput, UsageEventUncheckedCreateWithoutUserInput>
+  }
+
+  export type UsageEventCreateManyUserInputEnvelope = {
+    data: UsageEventCreateManyUserInput | UsageEventCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -5630,14 +22773,221 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"PasswordResetToken"> | Date | string
   }
 
+  export type AssistantAgentUpsertWithWhereUniqueWithoutUserInput = {
+    where: AssistantAgentWhereUniqueInput
+    update: XOR<AssistantAgentUpdateWithoutUserInput, AssistantAgentUncheckedUpdateWithoutUserInput>
+    create: XOR<AssistantAgentCreateWithoutUserInput, AssistantAgentUncheckedCreateWithoutUserInput>
+  }
+
+  export type AssistantAgentUpdateWithWhereUniqueWithoutUserInput = {
+    where: AssistantAgentWhereUniqueInput
+    data: XOR<AssistantAgentUpdateWithoutUserInput, AssistantAgentUncheckedUpdateWithoutUserInput>
+  }
+
+  export type AssistantAgentUpdateManyWithWhereWithoutUserInput = {
+    where: AssistantAgentScalarWhereInput
+    data: XOR<AssistantAgentUpdateManyMutationInput, AssistantAgentUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type AssistantAgentScalarWhereInput = {
+    AND?: AssistantAgentScalarWhereInput | AssistantAgentScalarWhereInput[]
+    OR?: AssistantAgentScalarWhereInput[]
+    NOT?: AssistantAgentScalarWhereInput | AssistantAgentScalarWhereInput[]
+    id?: StringFilter<"AssistantAgent"> | string
+    user_id?: StringFilter<"AssistantAgent"> | string
+    name?: StringFilter<"AssistantAgent"> | string
+    description?: StringNullableFilter<"AssistantAgent"> | string | null
+    call_goal?: StringNullableFilter<"AssistantAgent"> | string | null
+    script?: JsonFilter<"AssistantAgent">
+    instructions?: StringNullableFilter<"AssistantAgent"> | string | null
+    knowledge?: StringNullableFilter<"AssistantAgent"> | string | null
+    objection_library?: JsonFilter<"AssistantAgent">
+    methodology?: StringNullableFilter<"AssistantAgent"> | string | null
+    language?: StringFilter<"AssistantAgent"> | string
+    tone?: StringFilter<"AssistantAgent"> | string
+    suggestion_frequency?: EnumSuggestionFrequencyFilter<"AssistantAgent"> | $Enums.SuggestionFrequency
+    suggestion_length?: EnumSuggestionLengthFilter<"AssistantAgent"> | $Enums.SuggestionLength
+    alternatives_count?: IntFilter<"AssistantAgent"> | number
+    realtime_model?: StringFilter<"AssistantAgent"> | string
+    analysis_model?: StringFilter<"AssistantAgent"> | string
+    analysis_criteria?: JsonFilter<"AssistantAgent">
+    consent_line?: StringNullableFilter<"AssistantAgent"> | string | null
+    suggest_consent_line?: BoolFilter<"AssistantAgent"> | boolean
+    template_key?: StringNullableFilter<"AssistantAgent"> | string | null
+    is_default?: BoolFilter<"AssistantAgent"> | boolean
+    archived_at?: DateTimeNullableFilter<"AssistantAgent"> | Date | string | null
+    created_at?: DateTimeFilter<"AssistantAgent"> | Date | string
+    updated_at?: DateTimeFilter<"AssistantAgent"> | Date | string
+  }
+
+  export type PracticeAgentUpsertWithWhereUniqueWithoutUserInput = {
+    where: PracticeAgentWhereUniqueInput
+    update: XOR<PracticeAgentUpdateWithoutUserInput, PracticeAgentUncheckedUpdateWithoutUserInput>
+    create: XOR<PracticeAgentCreateWithoutUserInput, PracticeAgentUncheckedCreateWithoutUserInput>
+  }
+
+  export type PracticeAgentUpdateWithWhereUniqueWithoutUserInput = {
+    where: PracticeAgentWhereUniqueInput
+    data: XOR<PracticeAgentUpdateWithoutUserInput, PracticeAgentUncheckedUpdateWithoutUserInput>
+  }
+
+  export type PracticeAgentUpdateManyWithWhereWithoutUserInput = {
+    where: PracticeAgentScalarWhereInput
+    data: XOR<PracticeAgentUpdateManyMutationInput, PracticeAgentUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type PracticeAgentScalarWhereInput = {
+    AND?: PracticeAgentScalarWhereInput | PracticeAgentScalarWhereInput[]
+    OR?: PracticeAgentScalarWhereInput[]
+    NOT?: PracticeAgentScalarWhereInput | PracticeAgentScalarWhereInput[]
+    id?: StringFilter<"PracticeAgent"> | string
+    user_id?: StringFilter<"PracticeAgent"> | string
+    name?: StringFilter<"PracticeAgent"> | string
+    prospect_name?: StringNullableFilter<"PracticeAgent"> | string | null
+    role_prompt?: StringFilter<"PracticeAgent"> | string
+    scenario_context?: StringNullableFilter<"PracticeAgent"> | string | null
+    scenario_type?: StringFilter<"PracticeAgent"> | string
+    selling_product?: StringNullableFilter<"PracticeAgent"> | string | null
+    linked_assistant_agent_id?: StringNullableFilter<"PracticeAgent"> | string | null
+    user_objective?: StringNullableFilter<"PracticeAgent"> | string | null
+    lead_temperature?: EnumLeadTemperatureFilter<"PracticeAgent"> | $Enums.LeadTemperature
+    difficulty?: IntFilter<"PracticeAgent"> | number
+    personality?: StringNullableFilter<"PracticeAgent"> | string | null
+    mood?: StringNullableFilter<"PracticeAgent"> | string | null
+    communication_style?: StringNullableFilter<"PracticeAgent"> | string | null
+    decision_authority?: StringNullableFilter<"PracticeAgent"> | string | null
+    budget?: StringNullableFilter<"PracticeAgent"> | string | null
+    timeline?: StringNullableFilter<"PracticeAgent"> | string | null
+    current_solution?: StringNullableFilter<"PracticeAgent"> | string | null
+    pain_points?: JsonFilter<"PracticeAgent">
+    objections?: JsonFilter<"PracticeAgent">
+    hidden_information?: JsonFilter<"PracticeAgent">
+    conversion_conditions?: JsonFilter<"PracticeAgent">
+    patience?: IntFilter<"PracticeAgent"> | number
+    language?: StringFilter<"PracticeAgent"> | string
+    accent?: StringNullableFilter<"PracticeAgent"> | string | null
+    industry?: StringNullableFilter<"PracticeAgent"> | string | null
+    company?: StringNullableFilter<"PracticeAgent"> | string | null
+    job_title?: StringNullableFilter<"PracticeAgent"> | string | null
+    age_range?: StringNullableFilter<"PracticeAgent"> | string | null
+    background_story?: StringNullableFilter<"PracticeAgent"> | string | null
+    briefing?: StringNullableFilter<"PracticeAgent"> | string | null
+    voice_provider?: EnumVoiceProviderFilter<"PracticeAgent"> | $Enums.VoiceProvider
+    voice?: StringFilter<"PracticeAgent"> | string
+    time_limit_minutes?: IntNullableFilter<"PracticeAgent"> | number | null
+    source_call_id?: StringNullableFilter<"PracticeAgent"> | string | null
+    template_key?: StringNullableFilter<"PracticeAgent"> | string | null
+    archived_at?: DateTimeNullableFilter<"PracticeAgent"> | Date | string | null
+    created_at?: DateTimeFilter<"PracticeAgent"> | Date | string
+    updated_at?: DateTimeFilter<"PracticeAgent"> | Date | string
+  }
+
+  export type CallUpsertWithWhereUniqueWithoutUserInput = {
+    where: CallWhereUniqueInput
+    update: XOR<CallUpdateWithoutUserInput, CallUncheckedUpdateWithoutUserInput>
+    create: XOR<CallCreateWithoutUserInput, CallUncheckedCreateWithoutUserInput>
+  }
+
+  export type CallUpdateWithWhereUniqueWithoutUserInput = {
+    where: CallWhereUniqueInput
+    data: XOR<CallUpdateWithoutUserInput, CallUncheckedUpdateWithoutUserInput>
+  }
+
+  export type CallUpdateManyWithWhereWithoutUserInput = {
+    where: CallScalarWhereInput
+    data: XOR<CallUpdateManyMutationInput, CallUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type CallScalarWhereInput = {
+    AND?: CallScalarWhereInput | CallScalarWhereInput[]
+    OR?: CallScalarWhereInput[]
+    NOT?: CallScalarWhereInput | CallScalarWhereInput[]
+    id?: StringFilter<"Call"> | string
+    user_id?: StringFilter<"Call"> | string
+    kind?: EnumCallKindFilter<"Call"> | $Enums.CallKind
+    call_type?: EnumCallTypeFilter<"Call"> | $Enums.CallType
+    status?: EnumCallStatusFilter<"Call"> | $Enums.CallStatus
+    assistant_agent_id?: StringNullableFilter<"Call"> | string | null
+    practice_agent_id?: StringNullableFilter<"Call"> | string | null
+    copilot_enabled?: BoolFilter<"Call"> | boolean
+    title?: StringNullableFilter<"Call"> | string | null
+    prospect_name?: StringNullableFilter<"Call"> | string | null
+    prospect_company?: StringNullableFilter<"Call"> | string | null
+    prospect_role?: StringNullableFilter<"Call"> | string | null
+    context_notes?: StringNullableFilter<"Call"> | string | null
+    goal?: StringNullableFilter<"Call"> | string | null
+    prior_call_id?: StringNullableFilter<"Call"> | string | null
+    language?: StringFilter<"Call"> | string
+    started_at?: DateTimeFilter<"Call"> | Date | string
+    ended_at?: DateTimeNullableFilter<"Call"> | Date | string | null
+    duration_seconds?: IntFilter<"Call"> | number
+    ended_reason?: EnumCallEndReasonNullableFilter<"Call"> | $Enums.CallEndReason | null
+    outcome?: EnumCallOutcomeNullableFilter<"Call"> | $Enums.CallOutcome | null
+    custom_outcome?: StringNullableFilter<"Call"> | string | null
+    objective_achieved?: BoolNullableFilter<"Call"> | boolean | null
+    keep_recording?: BoolFilter<"Call"> | boolean
+    recording_path?: StringNullableFilter<"Call"> | string | null
+    recording_mime?: StringNullableFilter<"Call"> | string | null
+    recording_size?: IntNullableFilter<"Call"> | number | null
+    user_notes?: StringNullableFilter<"Call"> | string | null
+    script_progress?: JsonFilter<"Call">
+    analysis_error?: StringNullableFilter<"Call"> | string | null
+    agent_snapshot?: JsonNullableFilter<"Call">
+    practice_snapshot?: JsonNullableFilter<"Call">
+    created_at?: DateTimeFilter<"Call"> | Date | string
+    updated_at?: DateTimeFilter<"Call"> | Date | string
+  }
+
+  export type UsageEventUpsertWithWhereUniqueWithoutUserInput = {
+    where: UsageEventWhereUniqueInput
+    update: XOR<UsageEventUpdateWithoutUserInput, UsageEventUncheckedUpdateWithoutUserInput>
+    create: XOR<UsageEventCreateWithoutUserInput, UsageEventUncheckedCreateWithoutUserInput>
+  }
+
+  export type UsageEventUpdateWithWhereUniqueWithoutUserInput = {
+    where: UsageEventWhereUniqueInput
+    data: XOR<UsageEventUpdateWithoutUserInput, UsageEventUncheckedUpdateWithoutUserInput>
+  }
+
+  export type UsageEventUpdateManyWithWhereWithoutUserInput = {
+    where: UsageEventScalarWhereInput
+    data: XOR<UsageEventUpdateManyMutationInput, UsageEventUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type UsageEventScalarWhereInput = {
+    AND?: UsageEventScalarWhereInput | UsageEventScalarWhereInput[]
+    OR?: UsageEventScalarWhereInput[]
+    NOT?: UsageEventScalarWhereInput | UsageEventScalarWhereInput[]
+    id?: StringFilter<"UsageEvent"> | string
+    user_id?: StringFilter<"UsageEvent"> | string
+    call_id?: StringNullableFilter<"UsageEvent"> | string | null
+    kind?: EnumUsageKindFilter<"UsageEvent"> | $Enums.UsageKind
+    model?: StringNullableFilter<"UsageEvent"> | string | null
+    input_tokens?: IntFilter<"UsageEvent"> | number
+    output_tokens?: IntFilter<"UsageEvent"> | number
+    audio_seconds?: IntFilter<"UsageEvent"> | number
+    cost_usd?: FloatFilter<"UsageEvent"> | number
+    created_at?: DateTimeFilter<"UsageEvent"> | Date | string
+  }
+
   export type UserCreateWithoutPassword_reset_tokensInput = {
     id?: string
     email: string
     phone?: string | null
     password: string
+    full_name?: string | null
     role: $Enums.AuthRole
     created_at?: Date | string
     updated_at?: Date | string
+    interface_language?: string
+    output_language_mode?: $Enums.OutputLanguageMode
+    consent_line?: string | null
+    keep_recordings?: boolean
+    consent_acknowledged_at?: Date | string | null
+    assistant_agents?: AssistantAgentCreateNestedManyWithoutUserInput
+    practice_agents?: PracticeAgentCreateNestedManyWithoutUserInput
+    calls?: CallCreateNestedManyWithoutUserInput
+    usage_events?: UsageEventCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutPassword_reset_tokensInput = {
@@ -5645,9 +22995,19 @@ export namespace Prisma {
     email: string
     phone?: string | null
     password: string
+    full_name?: string | null
     role: $Enums.AuthRole
     created_at?: Date | string
     updated_at?: Date | string
+    interface_language?: string
+    output_language_mode?: $Enums.OutputLanguageMode
+    consent_line?: string | null
+    keep_recordings?: boolean
+    consent_acknowledged_at?: Date | string | null
+    assistant_agents?: AssistantAgentUncheckedCreateNestedManyWithoutUserInput
+    practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutUserInput
+    calls?: CallUncheckedCreateNestedManyWithoutUserInput
+    usage_events?: UsageEventUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutPassword_reset_tokensInput = {
@@ -5671,9 +23031,19 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumAuthRoleFieldUpdateOperationsInput | $Enums.AuthRole
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    interface_language?: StringFieldUpdateOperationsInput | string
+    output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    keep_recordings?: BoolFieldUpdateOperationsInput | boolean
+    consent_acknowledged_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assistant_agents?: AssistantAgentUpdateManyWithoutUserNestedInput
+    practice_agents?: PracticeAgentUpdateManyWithoutUserNestedInput
+    calls?: CallUpdateManyWithoutUserNestedInput
+    usage_events?: UsageEventUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPassword_reset_tokensInput = {
@@ -5681,9 +23051,2173 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     password?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
     role?: EnumAuthRoleFieldUpdateOperationsInput | $Enums.AuthRole
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    interface_language?: StringFieldUpdateOperationsInput | string
+    output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    keep_recordings?: BoolFieldUpdateOperationsInput | boolean
+    consent_acknowledged_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    assistant_agents?: AssistantAgentUncheckedUpdateManyWithoutUserNestedInput
+    practice_agents?: PracticeAgentUncheckedUpdateManyWithoutUserNestedInput
+    calls?: CallUncheckedUpdateManyWithoutUserNestedInput
+    usage_events?: UsageEventUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutAssistant_agentsInput = {
+    id?: string
+    email: string
+    phone?: string | null
+    password: string
+    full_name?: string | null
+    role: $Enums.AuthRole
+    created_at?: Date | string
+    updated_at?: Date | string
+    interface_language?: string
+    output_language_mode?: $Enums.OutputLanguageMode
+    consent_line?: string | null
+    keep_recordings?: boolean
+    consent_acknowledged_at?: Date | string | null
+    password_reset_tokens?: PasswordResetTokenCreateNestedManyWithoutUserInput
+    practice_agents?: PracticeAgentCreateNestedManyWithoutUserInput
+    calls?: CallCreateNestedManyWithoutUserInput
+    usage_events?: UsageEventCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutAssistant_agentsInput = {
+    id?: string
+    email: string
+    phone?: string | null
+    password: string
+    full_name?: string | null
+    role: $Enums.AuthRole
+    created_at?: Date | string
+    updated_at?: Date | string
+    interface_language?: string
+    output_language_mode?: $Enums.OutputLanguageMode
+    consent_line?: string | null
+    keep_recordings?: boolean
+    consent_acknowledged_at?: Date | string | null
+    password_reset_tokens?: PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+    practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutUserInput
+    calls?: CallUncheckedCreateNestedManyWithoutUserInput
+    usage_events?: UsageEventUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutAssistant_agentsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutAssistant_agentsInput, UserUncheckedCreateWithoutAssistant_agentsInput>
+  }
+
+  export type CallCreateWithoutAssistant_agentInput = {
+    id?: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+    user: UserCreateNestedOneWithoutCallsInput
+    practice_agent?: PracticeAgentCreateNestedOneWithoutCallsInput
+    segments?: TranscriptSegmentCreateNestedManyWithoutCallInput
+    suggestions?: SuggestionCreateNestedManyWithoutCallInput
+    bookmarks?: BookmarkCreateNestedManyWithoutCallInput
+    analysis?: CallAnalysisCreateNestedOneWithoutCallInput
+  }
+
+  export type CallUncheckedCreateWithoutAssistant_agentInput = {
+    id?: string
+    user_id: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    practice_agent_id?: string | null
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+    segments?: TranscriptSegmentUncheckedCreateNestedManyWithoutCallInput
+    suggestions?: SuggestionUncheckedCreateNestedManyWithoutCallInput
+    bookmarks?: BookmarkUncheckedCreateNestedManyWithoutCallInput
+    analysis?: CallAnalysisUncheckedCreateNestedOneWithoutCallInput
+  }
+
+  export type CallCreateOrConnectWithoutAssistant_agentInput = {
+    where: CallWhereUniqueInput
+    create: XOR<CallCreateWithoutAssistant_agentInput, CallUncheckedCreateWithoutAssistant_agentInput>
+  }
+
+  export type CallCreateManyAssistant_agentInputEnvelope = {
+    data: CallCreateManyAssistant_agentInput | CallCreateManyAssistant_agentInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PracticeAgentCreateWithoutLinked_assistant_agentInput = {
+    id?: string
+    name: string
+    prospect_name?: string | null
+    role_prompt: string
+    scenario_context?: string | null
+    scenario_type?: string
+    selling_product?: string | null
+    user_objective?: string | null
+    lead_temperature?: $Enums.LeadTemperature
+    difficulty?: number
+    personality?: string | null
+    mood?: string | null
+    communication_style?: string | null
+    decision_authority?: string | null
+    budget?: string | null
+    timeline?: string | null
+    current_solution?: string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: number
+    language?: string
+    accent?: string | null
+    industry?: string | null
+    company?: string | null
+    job_title?: string | null
+    age_range?: string | null
+    background_story?: string | null
+    briefing?: string | null
+    voice_provider?: $Enums.VoiceProvider
+    voice?: string
+    time_limit_minutes?: number | null
+    source_call_id?: string | null
+    template_key?: string | null
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    user: UserCreateNestedOneWithoutPractice_agentsInput
+    calls?: CallCreateNestedManyWithoutPractice_agentInput
+  }
+
+  export type PracticeAgentUncheckedCreateWithoutLinked_assistant_agentInput = {
+    id?: string
+    user_id: string
+    name: string
+    prospect_name?: string | null
+    role_prompt: string
+    scenario_context?: string | null
+    scenario_type?: string
+    selling_product?: string | null
+    user_objective?: string | null
+    lead_temperature?: $Enums.LeadTemperature
+    difficulty?: number
+    personality?: string | null
+    mood?: string | null
+    communication_style?: string | null
+    decision_authority?: string | null
+    budget?: string | null
+    timeline?: string | null
+    current_solution?: string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: number
+    language?: string
+    accent?: string | null
+    industry?: string | null
+    company?: string | null
+    job_title?: string | null
+    age_range?: string | null
+    background_story?: string | null
+    briefing?: string | null
+    voice_provider?: $Enums.VoiceProvider
+    voice?: string
+    time_limit_minutes?: number | null
+    source_call_id?: string | null
+    template_key?: string | null
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    calls?: CallUncheckedCreateNestedManyWithoutPractice_agentInput
+  }
+
+  export type PracticeAgentCreateOrConnectWithoutLinked_assistant_agentInput = {
+    where: PracticeAgentWhereUniqueInput
+    create: XOR<PracticeAgentCreateWithoutLinked_assistant_agentInput, PracticeAgentUncheckedCreateWithoutLinked_assistant_agentInput>
+  }
+
+  export type PracticeAgentCreateManyLinked_assistant_agentInputEnvelope = {
+    data: PracticeAgentCreateManyLinked_assistant_agentInput | PracticeAgentCreateManyLinked_assistant_agentInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutAssistant_agentsInput = {
+    update: XOR<UserUpdateWithoutAssistant_agentsInput, UserUncheckedUpdateWithoutAssistant_agentsInput>
+    create: XOR<UserCreateWithoutAssistant_agentsInput, UserUncheckedCreateWithoutAssistant_agentsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutAssistant_agentsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutAssistant_agentsInput, UserUncheckedUpdateWithoutAssistant_agentsInput>
+  }
+
+  export type UserUpdateWithoutAssistant_agentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumAuthRoleFieldUpdateOperationsInput | $Enums.AuthRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    interface_language?: StringFieldUpdateOperationsInput | string
+    output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    keep_recordings?: BoolFieldUpdateOperationsInput | boolean
+    consent_acknowledged_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password_reset_tokens?: PasswordResetTokenUpdateManyWithoutUserNestedInput
+    practice_agents?: PracticeAgentUpdateManyWithoutUserNestedInput
+    calls?: CallUpdateManyWithoutUserNestedInput
+    usage_events?: UsageEventUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutAssistant_agentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumAuthRoleFieldUpdateOperationsInput | $Enums.AuthRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    interface_language?: StringFieldUpdateOperationsInput | string
+    output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    keep_recordings?: BoolFieldUpdateOperationsInput | boolean
+    consent_acknowledged_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password_reset_tokens?: PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+    practice_agents?: PracticeAgentUncheckedUpdateManyWithoutUserNestedInput
+    calls?: CallUncheckedUpdateManyWithoutUserNestedInput
+    usage_events?: UsageEventUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type CallUpsertWithWhereUniqueWithoutAssistant_agentInput = {
+    where: CallWhereUniqueInput
+    update: XOR<CallUpdateWithoutAssistant_agentInput, CallUncheckedUpdateWithoutAssistant_agentInput>
+    create: XOR<CallCreateWithoutAssistant_agentInput, CallUncheckedCreateWithoutAssistant_agentInput>
+  }
+
+  export type CallUpdateWithWhereUniqueWithoutAssistant_agentInput = {
+    where: CallWhereUniqueInput
+    data: XOR<CallUpdateWithoutAssistant_agentInput, CallUncheckedUpdateWithoutAssistant_agentInput>
+  }
+
+  export type CallUpdateManyWithWhereWithoutAssistant_agentInput = {
+    where: CallScalarWhereInput
+    data: XOR<CallUpdateManyMutationInput, CallUncheckedUpdateManyWithoutAssistant_agentInput>
+  }
+
+  export type PracticeAgentUpsertWithWhereUniqueWithoutLinked_assistant_agentInput = {
+    where: PracticeAgentWhereUniqueInput
+    update: XOR<PracticeAgentUpdateWithoutLinked_assistant_agentInput, PracticeAgentUncheckedUpdateWithoutLinked_assistant_agentInput>
+    create: XOR<PracticeAgentCreateWithoutLinked_assistant_agentInput, PracticeAgentUncheckedCreateWithoutLinked_assistant_agentInput>
+  }
+
+  export type PracticeAgentUpdateWithWhereUniqueWithoutLinked_assistant_agentInput = {
+    where: PracticeAgentWhereUniqueInput
+    data: XOR<PracticeAgentUpdateWithoutLinked_assistant_agentInput, PracticeAgentUncheckedUpdateWithoutLinked_assistant_agentInput>
+  }
+
+  export type PracticeAgentUpdateManyWithWhereWithoutLinked_assistant_agentInput = {
+    where: PracticeAgentScalarWhereInput
+    data: XOR<PracticeAgentUpdateManyMutationInput, PracticeAgentUncheckedUpdateManyWithoutLinked_assistant_agentInput>
+  }
+
+  export type UserCreateWithoutPractice_agentsInput = {
+    id?: string
+    email: string
+    phone?: string | null
+    password: string
+    full_name?: string | null
+    role: $Enums.AuthRole
+    created_at?: Date | string
+    updated_at?: Date | string
+    interface_language?: string
+    output_language_mode?: $Enums.OutputLanguageMode
+    consent_line?: string | null
+    keep_recordings?: boolean
+    consent_acknowledged_at?: Date | string | null
+    password_reset_tokens?: PasswordResetTokenCreateNestedManyWithoutUserInput
+    assistant_agents?: AssistantAgentCreateNestedManyWithoutUserInput
+    calls?: CallCreateNestedManyWithoutUserInput
+    usage_events?: UsageEventCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutPractice_agentsInput = {
+    id?: string
+    email: string
+    phone?: string | null
+    password: string
+    full_name?: string | null
+    role: $Enums.AuthRole
+    created_at?: Date | string
+    updated_at?: Date | string
+    interface_language?: string
+    output_language_mode?: $Enums.OutputLanguageMode
+    consent_line?: string | null
+    keep_recordings?: boolean
+    consent_acknowledged_at?: Date | string | null
+    password_reset_tokens?: PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+    assistant_agents?: AssistantAgentUncheckedCreateNestedManyWithoutUserInput
+    calls?: CallUncheckedCreateNestedManyWithoutUserInput
+    usage_events?: UsageEventUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutPractice_agentsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutPractice_agentsInput, UserUncheckedCreateWithoutPractice_agentsInput>
+  }
+
+  export type AssistantAgentCreateWithoutPractice_agentsInput = {
+    id?: string
+    name: string
+    description?: string | null
+    call_goal?: string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: string | null
+    knowledge?: string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: string | null
+    language?: string
+    tone?: string
+    suggestion_frequency?: $Enums.SuggestionFrequency
+    suggestion_length?: $Enums.SuggestionLength
+    alternatives_count?: number
+    realtime_model: string
+    analysis_model: string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: string | null
+    suggest_consent_line?: boolean
+    template_key?: string | null
+    is_default?: boolean
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    user: UserCreateNestedOneWithoutAssistant_agentsInput
+    calls?: CallCreateNestedManyWithoutAssistant_agentInput
+  }
+
+  export type AssistantAgentUncheckedCreateWithoutPractice_agentsInput = {
+    id?: string
+    user_id: string
+    name: string
+    description?: string | null
+    call_goal?: string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: string | null
+    knowledge?: string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: string | null
+    language?: string
+    tone?: string
+    suggestion_frequency?: $Enums.SuggestionFrequency
+    suggestion_length?: $Enums.SuggestionLength
+    alternatives_count?: number
+    realtime_model: string
+    analysis_model: string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: string | null
+    suggest_consent_line?: boolean
+    template_key?: string | null
+    is_default?: boolean
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    calls?: CallUncheckedCreateNestedManyWithoutAssistant_agentInput
+  }
+
+  export type AssistantAgentCreateOrConnectWithoutPractice_agentsInput = {
+    where: AssistantAgentWhereUniqueInput
+    create: XOR<AssistantAgentCreateWithoutPractice_agentsInput, AssistantAgentUncheckedCreateWithoutPractice_agentsInput>
+  }
+
+  export type CallCreateWithoutPractice_agentInput = {
+    id?: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+    user: UserCreateNestedOneWithoutCallsInput
+    assistant_agent?: AssistantAgentCreateNestedOneWithoutCallsInput
+    segments?: TranscriptSegmentCreateNestedManyWithoutCallInput
+    suggestions?: SuggestionCreateNestedManyWithoutCallInput
+    bookmarks?: BookmarkCreateNestedManyWithoutCallInput
+    analysis?: CallAnalysisCreateNestedOneWithoutCallInput
+  }
+
+  export type CallUncheckedCreateWithoutPractice_agentInput = {
+    id?: string
+    user_id: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    assistant_agent_id?: string | null
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+    segments?: TranscriptSegmentUncheckedCreateNestedManyWithoutCallInput
+    suggestions?: SuggestionUncheckedCreateNestedManyWithoutCallInput
+    bookmarks?: BookmarkUncheckedCreateNestedManyWithoutCallInput
+    analysis?: CallAnalysisUncheckedCreateNestedOneWithoutCallInput
+  }
+
+  export type CallCreateOrConnectWithoutPractice_agentInput = {
+    where: CallWhereUniqueInput
+    create: XOR<CallCreateWithoutPractice_agentInput, CallUncheckedCreateWithoutPractice_agentInput>
+  }
+
+  export type CallCreateManyPractice_agentInputEnvelope = {
+    data: CallCreateManyPractice_agentInput | CallCreateManyPractice_agentInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutPractice_agentsInput = {
+    update: XOR<UserUpdateWithoutPractice_agentsInput, UserUncheckedUpdateWithoutPractice_agentsInput>
+    create: XOR<UserCreateWithoutPractice_agentsInput, UserUncheckedCreateWithoutPractice_agentsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutPractice_agentsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutPractice_agentsInput, UserUncheckedUpdateWithoutPractice_agentsInput>
+  }
+
+  export type UserUpdateWithoutPractice_agentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumAuthRoleFieldUpdateOperationsInput | $Enums.AuthRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    interface_language?: StringFieldUpdateOperationsInput | string
+    output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    keep_recordings?: BoolFieldUpdateOperationsInput | boolean
+    consent_acknowledged_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password_reset_tokens?: PasswordResetTokenUpdateManyWithoutUserNestedInput
+    assistant_agents?: AssistantAgentUpdateManyWithoutUserNestedInput
+    calls?: CallUpdateManyWithoutUserNestedInput
+    usage_events?: UsageEventUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutPractice_agentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumAuthRoleFieldUpdateOperationsInput | $Enums.AuthRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    interface_language?: StringFieldUpdateOperationsInput | string
+    output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    keep_recordings?: BoolFieldUpdateOperationsInput | boolean
+    consent_acknowledged_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password_reset_tokens?: PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+    assistant_agents?: AssistantAgentUncheckedUpdateManyWithoutUserNestedInput
+    calls?: CallUncheckedUpdateManyWithoutUserNestedInput
+    usage_events?: UsageEventUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type AssistantAgentUpsertWithoutPractice_agentsInput = {
+    update: XOR<AssistantAgentUpdateWithoutPractice_agentsInput, AssistantAgentUncheckedUpdateWithoutPractice_agentsInput>
+    create: XOR<AssistantAgentCreateWithoutPractice_agentsInput, AssistantAgentUncheckedCreateWithoutPractice_agentsInput>
+    where?: AssistantAgentWhereInput
+  }
+
+  export type AssistantAgentUpdateToOneWithWhereWithoutPractice_agentsInput = {
+    where?: AssistantAgentWhereInput
+    data: XOR<AssistantAgentUpdateWithoutPractice_agentsInput, AssistantAgentUncheckedUpdateWithoutPractice_agentsInput>
+  }
+
+  export type AssistantAgentUpdateWithoutPractice_agentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    call_goal?: NullableStringFieldUpdateOperationsInput | string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    knowledge?: NullableStringFieldUpdateOperationsInput | string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    tone?: StringFieldUpdateOperationsInput | string
+    suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
+    suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
+    alternatives_count?: IntFieldUpdateOperationsInput | number
+    realtime_model?: StringFieldUpdateOperationsInput | string
+    analysis_model?: StringFieldUpdateOperationsInput | string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    suggest_consent_line?: BoolFieldUpdateOperationsInput | boolean
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    is_default?: BoolFieldUpdateOperationsInput | boolean
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutAssistant_agentsNestedInput
+    calls?: CallUpdateManyWithoutAssistant_agentNestedInput
+  }
+
+  export type AssistantAgentUncheckedUpdateWithoutPractice_agentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    call_goal?: NullableStringFieldUpdateOperationsInput | string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    knowledge?: NullableStringFieldUpdateOperationsInput | string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    tone?: StringFieldUpdateOperationsInput | string
+    suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
+    suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
+    alternatives_count?: IntFieldUpdateOperationsInput | number
+    realtime_model?: StringFieldUpdateOperationsInput | string
+    analysis_model?: StringFieldUpdateOperationsInput | string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    suggest_consent_line?: BoolFieldUpdateOperationsInput | boolean
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    is_default?: BoolFieldUpdateOperationsInput | boolean
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    calls?: CallUncheckedUpdateManyWithoutAssistant_agentNestedInput
+  }
+
+  export type CallUpsertWithWhereUniqueWithoutPractice_agentInput = {
+    where: CallWhereUniqueInput
+    update: XOR<CallUpdateWithoutPractice_agentInput, CallUncheckedUpdateWithoutPractice_agentInput>
+    create: XOR<CallCreateWithoutPractice_agentInput, CallUncheckedCreateWithoutPractice_agentInput>
+  }
+
+  export type CallUpdateWithWhereUniqueWithoutPractice_agentInput = {
+    where: CallWhereUniqueInput
+    data: XOR<CallUpdateWithoutPractice_agentInput, CallUncheckedUpdateWithoutPractice_agentInput>
+  }
+
+  export type CallUpdateManyWithWhereWithoutPractice_agentInput = {
+    where: CallScalarWhereInput
+    data: XOR<CallUpdateManyMutationInput, CallUncheckedUpdateManyWithoutPractice_agentInput>
+  }
+
+  export type UserCreateWithoutCallsInput = {
+    id?: string
+    email: string
+    phone?: string | null
+    password: string
+    full_name?: string | null
+    role: $Enums.AuthRole
+    created_at?: Date | string
+    updated_at?: Date | string
+    interface_language?: string
+    output_language_mode?: $Enums.OutputLanguageMode
+    consent_line?: string | null
+    keep_recordings?: boolean
+    consent_acknowledged_at?: Date | string | null
+    password_reset_tokens?: PasswordResetTokenCreateNestedManyWithoutUserInput
+    assistant_agents?: AssistantAgentCreateNestedManyWithoutUserInput
+    practice_agents?: PracticeAgentCreateNestedManyWithoutUserInput
+    usage_events?: UsageEventCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutCallsInput = {
+    id?: string
+    email: string
+    phone?: string | null
+    password: string
+    full_name?: string | null
+    role: $Enums.AuthRole
+    created_at?: Date | string
+    updated_at?: Date | string
+    interface_language?: string
+    output_language_mode?: $Enums.OutputLanguageMode
+    consent_line?: string | null
+    keep_recordings?: boolean
+    consent_acknowledged_at?: Date | string | null
+    password_reset_tokens?: PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+    assistant_agents?: AssistantAgentUncheckedCreateNestedManyWithoutUserInput
+    practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutUserInput
+    usage_events?: UsageEventUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutCallsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutCallsInput, UserUncheckedCreateWithoutCallsInput>
+  }
+
+  export type AssistantAgentCreateWithoutCallsInput = {
+    id?: string
+    name: string
+    description?: string | null
+    call_goal?: string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: string | null
+    knowledge?: string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: string | null
+    language?: string
+    tone?: string
+    suggestion_frequency?: $Enums.SuggestionFrequency
+    suggestion_length?: $Enums.SuggestionLength
+    alternatives_count?: number
+    realtime_model: string
+    analysis_model: string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: string | null
+    suggest_consent_line?: boolean
+    template_key?: string | null
+    is_default?: boolean
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    user: UserCreateNestedOneWithoutAssistant_agentsInput
+    practice_agents?: PracticeAgentCreateNestedManyWithoutLinked_assistant_agentInput
+  }
+
+  export type AssistantAgentUncheckedCreateWithoutCallsInput = {
+    id?: string
+    user_id: string
+    name: string
+    description?: string | null
+    call_goal?: string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: string | null
+    knowledge?: string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: string | null
+    language?: string
+    tone?: string
+    suggestion_frequency?: $Enums.SuggestionFrequency
+    suggestion_length?: $Enums.SuggestionLength
+    alternatives_count?: number
+    realtime_model: string
+    analysis_model: string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: string | null
+    suggest_consent_line?: boolean
+    template_key?: string | null
+    is_default?: boolean
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutLinked_assistant_agentInput
+  }
+
+  export type AssistantAgentCreateOrConnectWithoutCallsInput = {
+    where: AssistantAgentWhereUniqueInput
+    create: XOR<AssistantAgentCreateWithoutCallsInput, AssistantAgentUncheckedCreateWithoutCallsInput>
+  }
+
+  export type PracticeAgentCreateWithoutCallsInput = {
+    id?: string
+    name: string
+    prospect_name?: string | null
+    role_prompt: string
+    scenario_context?: string | null
+    scenario_type?: string
+    selling_product?: string | null
+    user_objective?: string | null
+    lead_temperature?: $Enums.LeadTemperature
+    difficulty?: number
+    personality?: string | null
+    mood?: string | null
+    communication_style?: string | null
+    decision_authority?: string | null
+    budget?: string | null
+    timeline?: string | null
+    current_solution?: string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: number
+    language?: string
+    accent?: string | null
+    industry?: string | null
+    company?: string | null
+    job_title?: string | null
+    age_range?: string | null
+    background_story?: string | null
+    briefing?: string | null
+    voice_provider?: $Enums.VoiceProvider
+    voice?: string
+    time_limit_minutes?: number | null
+    source_call_id?: string | null
+    template_key?: string | null
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    user: UserCreateNestedOneWithoutPractice_agentsInput
+    linked_assistant_agent?: AssistantAgentCreateNestedOneWithoutPractice_agentsInput
+  }
+
+  export type PracticeAgentUncheckedCreateWithoutCallsInput = {
+    id?: string
+    user_id: string
+    name: string
+    prospect_name?: string | null
+    role_prompt: string
+    scenario_context?: string | null
+    scenario_type?: string
+    selling_product?: string | null
+    linked_assistant_agent_id?: string | null
+    user_objective?: string | null
+    lead_temperature?: $Enums.LeadTemperature
+    difficulty?: number
+    personality?: string | null
+    mood?: string | null
+    communication_style?: string | null
+    decision_authority?: string | null
+    budget?: string | null
+    timeline?: string | null
+    current_solution?: string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: number
+    language?: string
+    accent?: string | null
+    industry?: string | null
+    company?: string | null
+    job_title?: string | null
+    age_range?: string | null
+    background_story?: string | null
+    briefing?: string | null
+    voice_provider?: $Enums.VoiceProvider
+    voice?: string
+    time_limit_minutes?: number | null
+    source_call_id?: string | null
+    template_key?: string | null
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type PracticeAgentCreateOrConnectWithoutCallsInput = {
+    where: PracticeAgentWhereUniqueInput
+    create: XOR<PracticeAgentCreateWithoutCallsInput, PracticeAgentUncheckedCreateWithoutCallsInput>
+  }
+
+  export type TranscriptSegmentCreateWithoutCallInput = {
+    id?: string
+    client_id?: string | null
+    speaker: $Enums.Speaker
+    text: string
+    start_ms: number
+    end_ms: number
+    created_at?: Date | string
+  }
+
+  export type TranscriptSegmentUncheckedCreateWithoutCallInput = {
+    id?: string
+    client_id?: string | null
+    speaker: $Enums.Speaker
+    text: string
+    start_ms: number
+    end_ms: number
+    created_at?: Date | string
+  }
+
+  export type TranscriptSegmentCreateOrConnectWithoutCallInput = {
+    where: TranscriptSegmentWhereUniqueInput
+    create: XOR<TranscriptSegmentCreateWithoutCallInput, TranscriptSegmentUncheckedCreateWithoutCallInput>
+  }
+
+  export type TranscriptSegmentCreateManyCallInputEnvelope = {
+    data: TranscriptSegmentCreateManyCallInput | TranscriptSegmentCreateManyCallInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SuggestionCreateWithoutCallInput = {
+    id?: string
+    type: $Enums.SuggestionType
+    text: string
+    alternatives?: JsonNullValueInput | InputJsonValue
+    reason?: string | null
+    info_card?: NullableJsonNullValueInput | InputJsonValue
+    at_ms: number
+    status?: $Enums.SuggestionStatus
+    feedback?: $Enums.SuggestionFeedback | null
+    model?: string | null
+    latency_ms?: number | null
+    created_at?: Date | string
+  }
+
+  export type SuggestionUncheckedCreateWithoutCallInput = {
+    id?: string
+    type: $Enums.SuggestionType
+    text: string
+    alternatives?: JsonNullValueInput | InputJsonValue
+    reason?: string | null
+    info_card?: NullableJsonNullValueInput | InputJsonValue
+    at_ms: number
+    status?: $Enums.SuggestionStatus
+    feedback?: $Enums.SuggestionFeedback | null
+    model?: string | null
+    latency_ms?: number | null
+    created_at?: Date | string
+  }
+
+  export type SuggestionCreateOrConnectWithoutCallInput = {
+    where: SuggestionWhereUniqueInput
+    create: XOR<SuggestionCreateWithoutCallInput, SuggestionUncheckedCreateWithoutCallInput>
+  }
+
+  export type SuggestionCreateManyCallInputEnvelope = {
+    data: SuggestionCreateManyCallInput | SuggestionCreateManyCallInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BookmarkCreateWithoutCallInput = {
+    id?: string
+    at_ms: number
+    label?: string | null
+    created_at?: Date | string
+  }
+
+  export type BookmarkUncheckedCreateWithoutCallInput = {
+    id?: string
+    at_ms: number
+    label?: string | null
+    created_at?: Date | string
+  }
+
+  export type BookmarkCreateOrConnectWithoutCallInput = {
+    where: BookmarkWhereUniqueInput
+    create: XOR<BookmarkCreateWithoutCallInput, BookmarkUncheckedCreateWithoutCallInput>
+  }
+
+  export type BookmarkCreateManyCallInputEnvelope = {
+    data: BookmarkCreateManyCallInput | BookmarkCreateManyCallInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CallAnalysisCreateWithoutCallInput = {
+    id?: string
+    model: string
+    overall_score: number
+    verdict: string
+    category_scores?: JsonNullValueInput | InputJsonValue
+    mistakes?: JsonNullValueInput | InputJsonValue
+    strengths?: JsonNullValueInput | InputJsonValue
+    improvements?: JsonNullValueInput | InputJsonValue
+    metrics?: JsonNullValueInput | InputJsonValue
+    prospect_insights?: JsonNullValueInput | InputJsonValue
+    summary: string
+    next_steps?: JsonNullValueInput | InputJsonValue
+    follow_up_draft?: string | null
+    suggested_practice?: JsonNullValueInput | InputJsonValue
+    practice_result?: NullableJsonNullValueInput | InputJsonValue
+    suggestion_usage?: NullableJsonNullValueInput | InputJsonValue
+    error?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type CallAnalysisUncheckedCreateWithoutCallInput = {
+    id?: string
+    model: string
+    overall_score: number
+    verdict: string
+    category_scores?: JsonNullValueInput | InputJsonValue
+    mistakes?: JsonNullValueInput | InputJsonValue
+    strengths?: JsonNullValueInput | InputJsonValue
+    improvements?: JsonNullValueInput | InputJsonValue
+    metrics?: JsonNullValueInput | InputJsonValue
+    prospect_insights?: JsonNullValueInput | InputJsonValue
+    summary: string
+    next_steps?: JsonNullValueInput | InputJsonValue
+    follow_up_draft?: string | null
+    suggested_practice?: JsonNullValueInput | InputJsonValue
+    practice_result?: NullableJsonNullValueInput | InputJsonValue
+    suggestion_usage?: NullableJsonNullValueInput | InputJsonValue
+    error?: string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type CallAnalysisCreateOrConnectWithoutCallInput = {
+    where: CallAnalysisWhereUniqueInput
+    create: XOR<CallAnalysisCreateWithoutCallInput, CallAnalysisUncheckedCreateWithoutCallInput>
+  }
+
+  export type UserUpsertWithoutCallsInput = {
+    update: XOR<UserUpdateWithoutCallsInput, UserUncheckedUpdateWithoutCallsInput>
+    create: XOR<UserCreateWithoutCallsInput, UserUncheckedCreateWithoutCallsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutCallsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutCallsInput, UserUncheckedUpdateWithoutCallsInput>
+  }
+
+  export type UserUpdateWithoutCallsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumAuthRoleFieldUpdateOperationsInput | $Enums.AuthRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    interface_language?: StringFieldUpdateOperationsInput | string
+    output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    keep_recordings?: BoolFieldUpdateOperationsInput | boolean
+    consent_acknowledged_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password_reset_tokens?: PasswordResetTokenUpdateManyWithoutUserNestedInput
+    assistant_agents?: AssistantAgentUpdateManyWithoutUserNestedInput
+    practice_agents?: PracticeAgentUpdateManyWithoutUserNestedInput
+    usage_events?: UsageEventUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutCallsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumAuthRoleFieldUpdateOperationsInput | $Enums.AuthRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    interface_language?: StringFieldUpdateOperationsInput | string
+    output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    keep_recordings?: BoolFieldUpdateOperationsInput | boolean
+    consent_acknowledged_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password_reset_tokens?: PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+    assistant_agents?: AssistantAgentUncheckedUpdateManyWithoutUserNestedInput
+    practice_agents?: PracticeAgentUncheckedUpdateManyWithoutUserNestedInput
+    usage_events?: UsageEventUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type AssistantAgentUpsertWithoutCallsInput = {
+    update: XOR<AssistantAgentUpdateWithoutCallsInput, AssistantAgentUncheckedUpdateWithoutCallsInput>
+    create: XOR<AssistantAgentCreateWithoutCallsInput, AssistantAgentUncheckedCreateWithoutCallsInput>
+    where?: AssistantAgentWhereInput
+  }
+
+  export type AssistantAgentUpdateToOneWithWhereWithoutCallsInput = {
+    where?: AssistantAgentWhereInput
+    data: XOR<AssistantAgentUpdateWithoutCallsInput, AssistantAgentUncheckedUpdateWithoutCallsInput>
+  }
+
+  export type AssistantAgentUpdateWithoutCallsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    call_goal?: NullableStringFieldUpdateOperationsInput | string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    knowledge?: NullableStringFieldUpdateOperationsInput | string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    tone?: StringFieldUpdateOperationsInput | string
+    suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
+    suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
+    alternatives_count?: IntFieldUpdateOperationsInput | number
+    realtime_model?: StringFieldUpdateOperationsInput | string
+    analysis_model?: StringFieldUpdateOperationsInput | string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    suggest_consent_line?: BoolFieldUpdateOperationsInput | boolean
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    is_default?: BoolFieldUpdateOperationsInput | boolean
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutAssistant_agentsNestedInput
+    practice_agents?: PracticeAgentUpdateManyWithoutLinked_assistant_agentNestedInput
+  }
+
+  export type AssistantAgentUncheckedUpdateWithoutCallsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    call_goal?: NullableStringFieldUpdateOperationsInput | string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    knowledge?: NullableStringFieldUpdateOperationsInput | string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    tone?: StringFieldUpdateOperationsInput | string
+    suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
+    suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
+    alternatives_count?: IntFieldUpdateOperationsInput | number
+    realtime_model?: StringFieldUpdateOperationsInput | string
+    analysis_model?: StringFieldUpdateOperationsInput | string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    suggest_consent_line?: BoolFieldUpdateOperationsInput | boolean
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    is_default?: BoolFieldUpdateOperationsInput | boolean
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    practice_agents?: PracticeAgentUncheckedUpdateManyWithoutLinked_assistant_agentNestedInput
+  }
+
+  export type PracticeAgentUpsertWithoutCallsInput = {
+    update: XOR<PracticeAgentUpdateWithoutCallsInput, PracticeAgentUncheckedUpdateWithoutCallsInput>
+    create: XOR<PracticeAgentCreateWithoutCallsInput, PracticeAgentUncheckedCreateWithoutCallsInput>
+    where?: PracticeAgentWhereInput
+  }
+
+  export type PracticeAgentUpdateToOneWithWhereWithoutCallsInput = {
+    where?: PracticeAgentWhereInput
+    data: XOR<PracticeAgentUpdateWithoutCallsInput, PracticeAgentUncheckedUpdateWithoutCallsInput>
+  }
+
+  export type PracticeAgentUpdateWithoutCallsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role_prompt?: StringFieldUpdateOperationsInput | string
+    scenario_context?: NullableStringFieldUpdateOperationsInput | string | null
+    scenario_type?: StringFieldUpdateOperationsInput | string
+    selling_product?: NullableStringFieldUpdateOperationsInput | string | null
+    user_objective?: NullableStringFieldUpdateOperationsInput | string | null
+    lead_temperature?: EnumLeadTemperatureFieldUpdateOperationsInput | $Enums.LeadTemperature
+    difficulty?: IntFieldUpdateOperationsInput | number
+    personality?: NullableStringFieldUpdateOperationsInput | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    communication_style?: NullableStringFieldUpdateOperationsInput | string | null
+    decision_authority?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableStringFieldUpdateOperationsInput | string | null
+    timeline?: NullableStringFieldUpdateOperationsInput | string | null
+    current_solution?: NullableStringFieldUpdateOperationsInput | string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    job_title?: NullableStringFieldUpdateOperationsInput | string | null
+    age_range?: NullableStringFieldUpdateOperationsInput | string | null
+    background_story?: NullableStringFieldUpdateOperationsInput | string | null
+    briefing?: NullableStringFieldUpdateOperationsInput | string | null
+    voice_provider?: EnumVoiceProviderFieldUpdateOperationsInput | $Enums.VoiceProvider
+    voice?: StringFieldUpdateOperationsInput | string
+    time_limit_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    source_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutPractice_agentsNestedInput
+    linked_assistant_agent?: AssistantAgentUpdateOneWithoutPractice_agentsNestedInput
+  }
+
+  export type PracticeAgentUncheckedUpdateWithoutCallsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role_prompt?: StringFieldUpdateOperationsInput | string
+    scenario_context?: NullableStringFieldUpdateOperationsInput | string | null
+    scenario_type?: StringFieldUpdateOperationsInput | string
+    selling_product?: NullableStringFieldUpdateOperationsInput | string | null
+    linked_assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    user_objective?: NullableStringFieldUpdateOperationsInput | string | null
+    lead_temperature?: EnumLeadTemperatureFieldUpdateOperationsInput | $Enums.LeadTemperature
+    difficulty?: IntFieldUpdateOperationsInput | number
+    personality?: NullableStringFieldUpdateOperationsInput | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    communication_style?: NullableStringFieldUpdateOperationsInput | string | null
+    decision_authority?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableStringFieldUpdateOperationsInput | string | null
+    timeline?: NullableStringFieldUpdateOperationsInput | string | null
+    current_solution?: NullableStringFieldUpdateOperationsInput | string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    job_title?: NullableStringFieldUpdateOperationsInput | string | null
+    age_range?: NullableStringFieldUpdateOperationsInput | string | null
+    background_story?: NullableStringFieldUpdateOperationsInput | string | null
+    briefing?: NullableStringFieldUpdateOperationsInput | string | null
+    voice_provider?: EnumVoiceProviderFieldUpdateOperationsInput | $Enums.VoiceProvider
+    voice?: StringFieldUpdateOperationsInput | string
+    time_limit_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    source_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TranscriptSegmentUpsertWithWhereUniqueWithoutCallInput = {
+    where: TranscriptSegmentWhereUniqueInput
+    update: XOR<TranscriptSegmentUpdateWithoutCallInput, TranscriptSegmentUncheckedUpdateWithoutCallInput>
+    create: XOR<TranscriptSegmentCreateWithoutCallInput, TranscriptSegmentUncheckedCreateWithoutCallInput>
+  }
+
+  export type TranscriptSegmentUpdateWithWhereUniqueWithoutCallInput = {
+    where: TranscriptSegmentWhereUniqueInput
+    data: XOR<TranscriptSegmentUpdateWithoutCallInput, TranscriptSegmentUncheckedUpdateWithoutCallInput>
+  }
+
+  export type TranscriptSegmentUpdateManyWithWhereWithoutCallInput = {
+    where: TranscriptSegmentScalarWhereInput
+    data: XOR<TranscriptSegmentUpdateManyMutationInput, TranscriptSegmentUncheckedUpdateManyWithoutCallInput>
+  }
+
+  export type TranscriptSegmentScalarWhereInput = {
+    AND?: TranscriptSegmentScalarWhereInput | TranscriptSegmentScalarWhereInput[]
+    OR?: TranscriptSegmentScalarWhereInput[]
+    NOT?: TranscriptSegmentScalarWhereInput | TranscriptSegmentScalarWhereInput[]
+    id?: StringFilter<"TranscriptSegment"> | string
+    call_id?: StringFilter<"TranscriptSegment"> | string
+    client_id?: StringNullableFilter<"TranscriptSegment"> | string | null
+    speaker?: EnumSpeakerFilter<"TranscriptSegment"> | $Enums.Speaker
+    text?: StringFilter<"TranscriptSegment"> | string
+    start_ms?: IntFilter<"TranscriptSegment"> | number
+    end_ms?: IntFilter<"TranscriptSegment"> | number
+    created_at?: DateTimeFilter<"TranscriptSegment"> | Date | string
+  }
+
+  export type SuggestionUpsertWithWhereUniqueWithoutCallInput = {
+    where: SuggestionWhereUniqueInput
+    update: XOR<SuggestionUpdateWithoutCallInput, SuggestionUncheckedUpdateWithoutCallInput>
+    create: XOR<SuggestionCreateWithoutCallInput, SuggestionUncheckedCreateWithoutCallInput>
+  }
+
+  export type SuggestionUpdateWithWhereUniqueWithoutCallInput = {
+    where: SuggestionWhereUniqueInput
+    data: XOR<SuggestionUpdateWithoutCallInput, SuggestionUncheckedUpdateWithoutCallInput>
+  }
+
+  export type SuggestionUpdateManyWithWhereWithoutCallInput = {
+    where: SuggestionScalarWhereInput
+    data: XOR<SuggestionUpdateManyMutationInput, SuggestionUncheckedUpdateManyWithoutCallInput>
+  }
+
+  export type SuggestionScalarWhereInput = {
+    AND?: SuggestionScalarWhereInput | SuggestionScalarWhereInput[]
+    OR?: SuggestionScalarWhereInput[]
+    NOT?: SuggestionScalarWhereInput | SuggestionScalarWhereInput[]
+    id?: StringFilter<"Suggestion"> | string
+    call_id?: StringFilter<"Suggestion"> | string
+    type?: EnumSuggestionTypeFilter<"Suggestion"> | $Enums.SuggestionType
+    text?: StringFilter<"Suggestion"> | string
+    alternatives?: JsonFilter<"Suggestion">
+    reason?: StringNullableFilter<"Suggestion"> | string | null
+    info_card?: JsonNullableFilter<"Suggestion">
+    at_ms?: IntFilter<"Suggestion"> | number
+    status?: EnumSuggestionStatusFilter<"Suggestion"> | $Enums.SuggestionStatus
+    feedback?: EnumSuggestionFeedbackNullableFilter<"Suggestion"> | $Enums.SuggestionFeedback | null
+    model?: StringNullableFilter<"Suggestion"> | string | null
+    latency_ms?: IntNullableFilter<"Suggestion"> | number | null
+    created_at?: DateTimeFilter<"Suggestion"> | Date | string
+  }
+
+  export type BookmarkUpsertWithWhereUniqueWithoutCallInput = {
+    where: BookmarkWhereUniqueInput
+    update: XOR<BookmarkUpdateWithoutCallInput, BookmarkUncheckedUpdateWithoutCallInput>
+    create: XOR<BookmarkCreateWithoutCallInput, BookmarkUncheckedCreateWithoutCallInput>
+  }
+
+  export type BookmarkUpdateWithWhereUniqueWithoutCallInput = {
+    where: BookmarkWhereUniqueInput
+    data: XOR<BookmarkUpdateWithoutCallInput, BookmarkUncheckedUpdateWithoutCallInput>
+  }
+
+  export type BookmarkUpdateManyWithWhereWithoutCallInput = {
+    where: BookmarkScalarWhereInput
+    data: XOR<BookmarkUpdateManyMutationInput, BookmarkUncheckedUpdateManyWithoutCallInput>
+  }
+
+  export type BookmarkScalarWhereInput = {
+    AND?: BookmarkScalarWhereInput | BookmarkScalarWhereInput[]
+    OR?: BookmarkScalarWhereInput[]
+    NOT?: BookmarkScalarWhereInput | BookmarkScalarWhereInput[]
+    id?: StringFilter<"Bookmark"> | string
+    call_id?: StringFilter<"Bookmark"> | string
+    at_ms?: IntFilter<"Bookmark"> | number
+    label?: StringNullableFilter<"Bookmark"> | string | null
+    created_at?: DateTimeFilter<"Bookmark"> | Date | string
+  }
+
+  export type CallAnalysisUpsertWithoutCallInput = {
+    update: XOR<CallAnalysisUpdateWithoutCallInput, CallAnalysisUncheckedUpdateWithoutCallInput>
+    create: XOR<CallAnalysisCreateWithoutCallInput, CallAnalysisUncheckedCreateWithoutCallInput>
+    where?: CallAnalysisWhereInput
+  }
+
+  export type CallAnalysisUpdateToOneWithWhereWithoutCallInput = {
+    where?: CallAnalysisWhereInput
+    data: XOR<CallAnalysisUpdateWithoutCallInput, CallAnalysisUncheckedUpdateWithoutCallInput>
+  }
+
+  export type CallAnalysisUpdateWithoutCallInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    model?: StringFieldUpdateOperationsInput | string
+    overall_score?: IntFieldUpdateOperationsInput | number
+    verdict?: StringFieldUpdateOperationsInput | string
+    category_scores?: JsonNullValueInput | InputJsonValue
+    mistakes?: JsonNullValueInput | InputJsonValue
+    strengths?: JsonNullValueInput | InputJsonValue
+    improvements?: JsonNullValueInput | InputJsonValue
+    metrics?: JsonNullValueInput | InputJsonValue
+    prospect_insights?: JsonNullValueInput | InputJsonValue
+    summary?: StringFieldUpdateOperationsInput | string
+    next_steps?: JsonNullValueInput | InputJsonValue
+    follow_up_draft?: NullableStringFieldUpdateOperationsInput | string | null
+    suggested_practice?: JsonNullValueInput | InputJsonValue
+    practice_result?: NullableJsonNullValueInput | InputJsonValue
+    suggestion_usage?: NullableJsonNullValueInput | InputJsonValue
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CallAnalysisUncheckedUpdateWithoutCallInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    model?: StringFieldUpdateOperationsInput | string
+    overall_score?: IntFieldUpdateOperationsInput | number
+    verdict?: StringFieldUpdateOperationsInput | string
+    category_scores?: JsonNullValueInput | InputJsonValue
+    mistakes?: JsonNullValueInput | InputJsonValue
+    strengths?: JsonNullValueInput | InputJsonValue
+    improvements?: JsonNullValueInput | InputJsonValue
+    metrics?: JsonNullValueInput | InputJsonValue
+    prospect_insights?: JsonNullValueInput | InputJsonValue
+    summary?: StringFieldUpdateOperationsInput | string
+    next_steps?: JsonNullValueInput | InputJsonValue
+    follow_up_draft?: NullableStringFieldUpdateOperationsInput | string | null
+    suggested_practice?: JsonNullValueInput | InputJsonValue
+    practice_result?: NullableJsonNullValueInput | InputJsonValue
+    suggestion_usage?: NullableJsonNullValueInput | InputJsonValue
+    error?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CallCreateWithoutSegmentsInput = {
+    id?: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+    user: UserCreateNestedOneWithoutCallsInput
+    assistant_agent?: AssistantAgentCreateNestedOneWithoutCallsInput
+    practice_agent?: PracticeAgentCreateNestedOneWithoutCallsInput
+    suggestions?: SuggestionCreateNestedManyWithoutCallInput
+    bookmarks?: BookmarkCreateNestedManyWithoutCallInput
+    analysis?: CallAnalysisCreateNestedOneWithoutCallInput
+  }
+
+  export type CallUncheckedCreateWithoutSegmentsInput = {
+    id?: string
+    user_id: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    assistant_agent_id?: string | null
+    practice_agent_id?: string | null
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+    suggestions?: SuggestionUncheckedCreateNestedManyWithoutCallInput
+    bookmarks?: BookmarkUncheckedCreateNestedManyWithoutCallInput
+    analysis?: CallAnalysisUncheckedCreateNestedOneWithoutCallInput
+  }
+
+  export type CallCreateOrConnectWithoutSegmentsInput = {
+    where: CallWhereUniqueInput
+    create: XOR<CallCreateWithoutSegmentsInput, CallUncheckedCreateWithoutSegmentsInput>
+  }
+
+  export type CallUpsertWithoutSegmentsInput = {
+    update: XOR<CallUpdateWithoutSegmentsInput, CallUncheckedUpdateWithoutSegmentsInput>
+    create: XOR<CallCreateWithoutSegmentsInput, CallUncheckedCreateWithoutSegmentsInput>
+    where?: CallWhereInput
+  }
+
+  export type CallUpdateToOneWithWhereWithoutSegmentsInput = {
+    where?: CallWhereInput
+    data: XOR<CallUpdateWithoutSegmentsInput, CallUncheckedUpdateWithoutSegmentsInput>
+  }
+
+  export type CallUpdateWithoutSegmentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutCallsNestedInput
+    assistant_agent?: AssistantAgentUpdateOneWithoutCallsNestedInput
+    practice_agent?: PracticeAgentUpdateOneWithoutCallsNestedInput
+    suggestions?: SuggestionUpdateManyWithoutCallNestedInput
+    bookmarks?: BookmarkUpdateManyWithoutCallNestedInput
+    analysis?: CallAnalysisUpdateOneWithoutCallNestedInput
+  }
+
+  export type CallUncheckedUpdateWithoutSegmentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    suggestions?: SuggestionUncheckedUpdateManyWithoutCallNestedInput
+    bookmarks?: BookmarkUncheckedUpdateManyWithoutCallNestedInput
+    analysis?: CallAnalysisUncheckedUpdateOneWithoutCallNestedInput
+  }
+
+  export type CallCreateWithoutSuggestionsInput = {
+    id?: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+    user: UserCreateNestedOneWithoutCallsInput
+    assistant_agent?: AssistantAgentCreateNestedOneWithoutCallsInput
+    practice_agent?: PracticeAgentCreateNestedOneWithoutCallsInput
+    segments?: TranscriptSegmentCreateNestedManyWithoutCallInput
+    bookmarks?: BookmarkCreateNestedManyWithoutCallInput
+    analysis?: CallAnalysisCreateNestedOneWithoutCallInput
+  }
+
+  export type CallUncheckedCreateWithoutSuggestionsInput = {
+    id?: string
+    user_id: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    assistant_agent_id?: string | null
+    practice_agent_id?: string | null
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+    segments?: TranscriptSegmentUncheckedCreateNestedManyWithoutCallInput
+    bookmarks?: BookmarkUncheckedCreateNestedManyWithoutCallInput
+    analysis?: CallAnalysisUncheckedCreateNestedOneWithoutCallInput
+  }
+
+  export type CallCreateOrConnectWithoutSuggestionsInput = {
+    where: CallWhereUniqueInput
+    create: XOR<CallCreateWithoutSuggestionsInput, CallUncheckedCreateWithoutSuggestionsInput>
+  }
+
+  export type CallUpsertWithoutSuggestionsInput = {
+    update: XOR<CallUpdateWithoutSuggestionsInput, CallUncheckedUpdateWithoutSuggestionsInput>
+    create: XOR<CallCreateWithoutSuggestionsInput, CallUncheckedCreateWithoutSuggestionsInput>
+    where?: CallWhereInput
+  }
+
+  export type CallUpdateToOneWithWhereWithoutSuggestionsInput = {
+    where?: CallWhereInput
+    data: XOR<CallUpdateWithoutSuggestionsInput, CallUncheckedUpdateWithoutSuggestionsInput>
+  }
+
+  export type CallUpdateWithoutSuggestionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutCallsNestedInput
+    assistant_agent?: AssistantAgentUpdateOneWithoutCallsNestedInput
+    practice_agent?: PracticeAgentUpdateOneWithoutCallsNestedInput
+    segments?: TranscriptSegmentUpdateManyWithoutCallNestedInput
+    bookmarks?: BookmarkUpdateManyWithoutCallNestedInput
+    analysis?: CallAnalysisUpdateOneWithoutCallNestedInput
+  }
+
+  export type CallUncheckedUpdateWithoutSuggestionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    segments?: TranscriptSegmentUncheckedUpdateManyWithoutCallNestedInput
+    bookmarks?: BookmarkUncheckedUpdateManyWithoutCallNestedInput
+    analysis?: CallAnalysisUncheckedUpdateOneWithoutCallNestedInput
+  }
+
+  export type CallCreateWithoutBookmarksInput = {
+    id?: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+    user: UserCreateNestedOneWithoutCallsInput
+    assistant_agent?: AssistantAgentCreateNestedOneWithoutCallsInput
+    practice_agent?: PracticeAgentCreateNestedOneWithoutCallsInput
+    segments?: TranscriptSegmentCreateNestedManyWithoutCallInput
+    suggestions?: SuggestionCreateNestedManyWithoutCallInput
+    analysis?: CallAnalysisCreateNestedOneWithoutCallInput
+  }
+
+  export type CallUncheckedCreateWithoutBookmarksInput = {
+    id?: string
+    user_id: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    assistant_agent_id?: string | null
+    practice_agent_id?: string | null
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+    segments?: TranscriptSegmentUncheckedCreateNestedManyWithoutCallInput
+    suggestions?: SuggestionUncheckedCreateNestedManyWithoutCallInput
+    analysis?: CallAnalysisUncheckedCreateNestedOneWithoutCallInput
+  }
+
+  export type CallCreateOrConnectWithoutBookmarksInput = {
+    where: CallWhereUniqueInput
+    create: XOR<CallCreateWithoutBookmarksInput, CallUncheckedCreateWithoutBookmarksInput>
+  }
+
+  export type CallUpsertWithoutBookmarksInput = {
+    update: XOR<CallUpdateWithoutBookmarksInput, CallUncheckedUpdateWithoutBookmarksInput>
+    create: XOR<CallCreateWithoutBookmarksInput, CallUncheckedCreateWithoutBookmarksInput>
+    where?: CallWhereInput
+  }
+
+  export type CallUpdateToOneWithWhereWithoutBookmarksInput = {
+    where?: CallWhereInput
+    data: XOR<CallUpdateWithoutBookmarksInput, CallUncheckedUpdateWithoutBookmarksInput>
+  }
+
+  export type CallUpdateWithoutBookmarksInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutCallsNestedInput
+    assistant_agent?: AssistantAgentUpdateOneWithoutCallsNestedInput
+    practice_agent?: PracticeAgentUpdateOneWithoutCallsNestedInput
+    segments?: TranscriptSegmentUpdateManyWithoutCallNestedInput
+    suggestions?: SuggestionUpdateManyWithoutCallNestedInput
+    analysis?: CallAnalysisUpdateOneWithoutCallNestedInput
+  }
+
+  export type CallUncheckedUpdateWithoutBookmarksInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    segments?: TranscriptSegmentUncheckedUpdateManyWithoutCallNestedInput
+    suggestions?: SuggestionUncheckedUpdateManyWithoutCallNestedInput
+    analysis?: CallAnalysisUncheckedUpdateOneWithoutCallNestedInput
+  }
+
+  export type CallCreateWithoutAnalysisInput = {
+    id?: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+    user: UserCreateNestedOneWithoutCallsInput
+    assistant_agent?: AssistantAgentCreateNestedOneWithoutCallsInput
+    practice_agent?: PracticeAgentCreateNestedOneWithoutCallsInput
+    segments?: TranscriptSegmentCreateNestedManyWithoutCallInput
+    suggestions?: SuggestionCreateNestedManyWithoutCallInput
+    bookmarks?: BookmarkCreateNestedManyWithoutCallInput
+  }
+
+  export type CallUncheckedCreateWithoutAnalysisInput = {
+    id?: string
+    user_id: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    assistant_agent_id?: string | null
+    practice_agent_id?: string | null
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+    segments?: TranscriptSegmentUncheckedCreateNestedManyWithoutCallInput
+    suggestions?: SuggestionUncheckedCreateNestedManyWithoutCallInput
+    bookmarks?: BookmarkUncheckedCreateNestedManyWithoutCallInput
+  }
+
+  export type CallCreateOrConnectWithoutAnalysisInput = {
+    where: CallWhereUniqueInput
+    create: XOR<CallCreateWithoutAnalysisInput, CallUncheckedCreateWithoutAnalysisInput>
+  }
+
+  export type CallUpsertWithoutAnalysisInput = {
+    update: XOR<CallUpdateWithoutAnalysisInput, CallUncheckedUpdateWithoutAnalysisInput>
+    create: XOR<CallCreateWithoutAnalysisInput, CallUncheckedCreateWithoutAnalysisInput>
+    where?: CallWhereInput
+  }
+
+  export type CallUpdateToOneWithWhereWithoutAnalysisInput = {
+    where?: CallWhereInput
+    data: XOR<CallUpdateWithoutAnalysisInput, CallUncheckedUpdateWithoutAnalysisInput>
+  }
+
+  export type CallUpdateWithoutAnalysisInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutCallsNestedInput
+    assistant_agent?: AssistantAgentUpdateOneWithoutCallsNestedInput
+    practice_agent?: PracticeAgentUpdateOneWithoutCallsNestedInput
+    segments?: TranscriptSegmentUpdateManyWithoutCallNestedInput
+    suggestions?: SuggestionUpdateManyWithoutCallNestedInput
+    bookmarks?: BookmarkUpdateManyWithoutCallNestedInput
+  }
+
+  export type CallUncheckedUpdateWithoutAnalysisInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    segments?: TranscriptSegmentUncheckedUpdateManyWithoutCallNestedInput
+    suggestions?: SuggestionUncheckedUpdateManyWithoutCallNestedInput
+    bookmarks?: BookmarkUncheckedUpdateManyWithoutCallNestedInput
+  }
+
+  export type UserCreateWithoutUsage_eventsInput = {
+    id?: string
+    email: string
+    phone?: string | null
+    password: string
+    full_name?: string | null
+    role: $Enums.AuthRole
+    created_at?: Date | string
+    updated_at?: Date | string
+    interface_language?: string
+    output_language_mode?: $Enums.OutputLanguageMode
+    consent_line?: string | null
+    keep_recordings?: boolean
+    consent_acknowledged_at?: Date | string | null
+    password_reset_tokens?: PasswordResetTokenCreateNestedManyWithoutUserInput
+    assistant_agents?: AssistantAgentCreateNestedManyWithoutUserInput
+    practice_agents?: PracticeAgentCreateNestedManyWithoutUserInput
+    calls?: CallCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutUsage_eventsInput = {
+    id?: string
+    email: string
+    phone?: string | null
+    password: string
+    full_name?: string | null
+    role: $Enums.AuthRole
+    created_at?: Date | string
+    updated_at?: Date | string
+    interface_language?: string
+    output_language_mode?: $Enums.OutputLanguageMode
+    consent_line?: string | null
+    keep_recordings?: boolean
+    consent_acknowledged_at?: Date | string | null
+    password_reset_tokens?: PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+    assistant_agents?: AssistantAgentUncheckedCreateNestedManyWithoutUserInput
+    practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutUserInput
+    calls?: CallUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutUsage_eventsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutUsage_eventsInput, UserUncheckedCreateWithoutUsage_eventsInput>
+  }
+
+  export type UserUpsertWithoutUsage_eventsInput = {
+    update: XOR<UserUpdateWithoutUsage_eventsInput, UserUncheckedUpdateWithoutUsage_eventsInput>
+    create: XOR<UserCreateWithoutUsage_eventsInput, UserUncheckedCreateWithoutUsage_eventsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutUsage_eventsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutUsage_eventsInput, UserUncheckedUpdateWithoutUsage_eventsInput>
+  }
+
+  export type UserUpdateWithoutUsage_eventsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumAuthRoleFieldUpdateOperationsInput | $Enums.AuthRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    interface_language?: StringFieldUpdateOperationsInput | string
+    output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    keep_recordings?: BoolFieldUpdateOperationsInput | boolean
+    consent_acknowledged_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password_reset_tokens?: PasswordResetTokenUpdateManyWithoutUserNestedInput
+    assistant_agents?: AssistantAgentUpdateManyWithoutUserNestedInput
+    practice_agents?: PracticeAgentUpdateManyWithoutUserNestedInput
+    calls?: CallUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutUsage_eventsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumAuthRoleFieldUpdateOperationsInput | $Enums.AuthRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    interface_language?: StringFieldUpdateOperationsInput | string
+    output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    keep_recordings?: BoolFieldUpdateOperationsInput | boolean
+    consent_acknowledged_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password_reset_tokens?: PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+    assistant_agents?: AssistantAgentUncheckedUpdateManyWithoutUserNestedInput
+    practice_agents?: PracticeAgentUncheckedUpdateManyWithoutUserNestedInput
+    calls?: CallUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type PasswordResetTokenCreateManyUserInput = {
@@ -5691,6 +25225,123 @@ export namespace Prisma {
     token_hash: string
     expires_at: Date | string
     used_at?: Date | string | null
+    created_at?: Date | string
+  }
+
+  export type AssistantAgentCreateManyUserInput = {
+    id?: string
+    name: string
+    description?: string | null
+    call_goal?: string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: string | null
+    knowledge?: string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: string | null
+    language?: string
+    tone?: string
+    suggestion_frequency?: $Enums.SuggestionFrequency
+    suggestion_length?: $Enums.SuggestionLength
+    alternatives_count?: number
+    realtime_model: string
+    analysis_model: string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: string | null
+    suggest_consent_line?: boolean
+    template_key?: string | null
+    is_default?: boolean
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type PracticeAgentCreateManyUserInput = {
+    id?: string
+    name: string
+    prospect_name?: string | null
+    role_prompt: string
+    scenario_context?: string | null
+    scenario_type?: string
+    selling_product?: string | null
+    linked_assistant_agent_id?: string | null
+    user_objective?: string | null
+    lead_temperature?: $Enums.LeadTemperature
+    difficulty?: number
+    personality?: string | null
+    mood?: string | null
+    communication_style?: string | null
+    decision_authority?: string | null
+    budget?: string | null
+    timeline?: string | null
+    current_solution?: string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: number
+    language?: string
+    accent?: string | null
+    industry?: string | null
+    company?: string | null
+    job_title?: string | null
+    age_range?: string | null
+    background_story?: string | null
+    briefing?: string | null
+    voice_provider?: $Enums.VoiceProvider
+    voice?: string
+    time_limit_minutes?: number | null
+    source_call_id?: string | null
+    template_key?: string | null
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type CallCreateManyUserInput = {
+    id?: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    assistant_agent_id?: string | null
+    practice_agent_id?: string | null
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type UsageEventCreateManyUserInput = {
+    id?: string
+    call_id?: string | null
+    kind: $Enums.UsageKind
+    model?: string | null
+    input_tokens?: number
+    output_tokens?: number
+    audio_seconds?: number
+    cost_usd?: number
     created_at?: Date | string
   }
 
@@ -5715,6 +25366,973 @@ export namespace Prisma {
     token_hash?: StringFieldUpdateOperationsInput | string
     expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
     used_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AssistantAgentUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    call_goal?: NullableStringFieldUpdateOperationsInput | string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    knowledge?: NullableStringFieldUpdateOperationsInput | string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    tone?: StringFieldUpdateOperationsInput | string
+    suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
+    suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
+    alternatives_count?: IntFieldUpdateOperationsInput | number
+    realtime_model?: StringFieldUpdateOperationsInput | string
+    analysis_model?: StringFieldUpdateOperationsInput | string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    suggest_consent_line?: BoolFieldUpdateOperationsInput | boolean
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    is_default?: BoolFieldUpdateOperationsInput | boolean
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    calls?: CallUpdateManyWithoutAssistant_agentNestedInput
+    practice_agents?: PracticeAgentUpdateManyWithoutLinked_assistant_agentNestedInput
+  }
+
+  export type AssistantAgentUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    call_goal?: NullableStringFieldUpdateOperationsInput | string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    knowledge?: NullableStringFieldUpdateOperationsInput | string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    tone?: StringFieldUpdateOperationsInput | string
+    suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
+    suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
+    alternatives_count?: IntFieldUpdateOperationsInput | number
+    realtime_model?: StringFieldUpdateOperationsInput | string
+    analysis_model?: StringFieldUpdateOperationsInput | string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    suggest_consent_line?: BoolFieldUpdateOperationsInput | boolean
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    is_default?: BoolFieldUpdateOperationsInput | boolean
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    calls?: CallUncheckedUpdateManyWithoutAssistant_agentNestedInput
+    practice_agents?: PracticeAgentUncheckedUpdateManyWithoutLinked_assistant_agentNestedInput
+  }
+
+  export type AssistantAgentUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    call_goal?: NullableStringFieldUpdateOperationsInput | string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    knowledge?: NullableStringFieldUpdateOperationsInput | string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    tone?: StringFieldUpdateOperationsInput | string
+    suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
+    suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
+    alternatives_count?: IntFieldUpdateOperationsInput | number
+    realtime_model?: StringFieldUpdateOperationsInput | string
+    analysis_model?: StringFieldUpdateOperationsInput | string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    suggest_consent_line?: BoolFieldUpdateOperationsInput | boolean
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    is_default?: BoolFieldUpdateOperationsInput | boolean
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PracticeAgentUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role_prompt?: StringFieldUpdateOperationsInput | string
+    scenario_context?: NullableStringFieldUpdateOperationsInput | string | null
+    scenario_type?: StringFieldUpdateOperationsInput | string
+    selling_product?: NullableStringFieldUpdateOperationsInput | string | null
+    user_objective?: NullableStringFieldUpdateOperationsInput | string | null
+    lead_temperature?: EnumLeadTemperatureFieldUpdateOperationsInput | $Enums.LeadTemperature
+    difficulty?: IntFieldUpdateOperationsInput | number
+    personality?: NullableStringFieldUpdateOperationsInput | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    communication_style?: NullableStringFieldUpdateOperationsInput | string | null
+    decision_authority?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableStringFieldUpdateOperationsInput | string | null
+    timeline?: NullableStringFieldUpdateOperationsInput | string | null
+    current_solution?: NullableStringFieldUpdateOperationsInput | string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    job_title?: NullableStringFieldUpdateOperationsInput | string | null
+    age_range?: NullableStringFieldUpdateOperationsInput | string | null
+    background_story?: NullableStringFieldUpdateOperationsInput | string | null
+    briefing?: NullableStringFieldUpdateOperationsInput | string | null
+    voice_provider?: EnumVoiceProviderFieldUpdateOperationsInput | $Enums.VoiceProvider
+    voice?: StringFieldUpdateOperationsInput | string
+    time_limit_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    source_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    linked_assistant_agent?: AssistantAgentUpdateOneWithoutPractice_agentsNestedInput
+    calls?: CallUpdateManyWithoutPractice_agentNestedInput
+  }
+
+  export type PracticeAgentUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role_prompt?: StringFieldUpdateOperationsInput | string
+    scenario_context?: NullableStringFieldUpdateOperationsInput | string | null
+    scenario_type?: StringFieldUpdateOperationsInput | string
+    selling_product?: NullableStringFieldUpdateOperationsInput | string | null
+    linked_assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    user_objective?: NullableStringFieldUpdateOperationsInput | string | null
+    lead_temperature?: EnumLeadTemperatureFieldUpdateOperationsInput | $Enums.LeadTemperature
+    difficulty?: IntFieldUpdateOperationsInput | number
+    personality?: NullableStringFieldUpdateOperationsInput | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    communication_style?: NullableStringFieldUpdateOperationsInput | string | null
+    decision_authority?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableStringFieldUpdateOperationsInput | string | null
+    timeline?: NullableStringFieldUpdateOperationsInput | string | null
+    current_solution?: NullableStringFieldUpdateOperationsInput | string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    job_title?: NullableStringFieldUpdateOperationsInput | string | null
+    age_range?: NullableStringFieldUpdateOperationsInput | string | null
+    background_story?: NullableStringFieldUpdateOperationsInput | string | null
+    briefing?: NullableStringFieldUpdateOperationsInput | string | null
+    voice_provider?: EnumVoiceProviderFieldUpdateOperationsInput | $Enums.VoiceProvider
+    voice?: StringFieldUpdateOperationsInput | string
+    time_limit_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    source_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    calls?: CallUncheckedUpdateManyWithoutPractice_agentNestedInput
+  }
+
+  export type PracticeAgentUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role_prompt?: StringFieldUpdateOperationsInput | string
+    scenario_context?: NullableStringFieldUpdateOperationsInput | string | null
+    scenario_type?: StringFieldUpdateOperationsInput | string
+    selling_product?: NullableStringFieldUpdateOperationsInput | string | null
+    linked_assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    user_objective?: NullableStringFieldUpdateOperationsInput | string | null
+    lead_temperature?: EnumLeadTemperatureFieldUpdateOperationsInput | $Enums.LeadTemperature
+    difficulty?: IntFieldUpdateOperationsInput | number
+    personality?: NullableStringFieldUpdateOperationsInput | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    communication_style?: NullableStringFieldUpdateOperationsInput | string | null
+    decision_authority?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableStringFieldUpdateOperationsInput | string | null
+    timeline?: NullableStringFieldUpdateOperationsInput | string | null
+    current_solution?: NullableStringFieldUpdateOperationsInput | string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    job_title?: NullableStringFieldUpdateOperationsInput | string | null
+    age_range?: NullableStringFieldUpdateOperationsInput | string | null
+    background_story?: NullableStringFieldUpdateOperationsInput | string | null
+    briefing?: NullableStringFieldUpdateOperationsInput | string | null
+    voice_provider?: EnumVoiceProviderFieldUpdateOperationsInput | $Enums.VoiceProvider
+    voice?: StringFieldUpdateOperationsInput | string
+    time_limit_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    source_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CallUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    assistant_agent?: AssistantAgentUpdateOneWithoutCallsNestedInput
+    practice_agent?: PracticeAgentUpdateOneWithoutCallsNestedInput
+    segments?: TranscriptSegmentUpdateManyWithoutCallNestedInput
+    suggestions?: SuggestionUpdateManyWithoutCallNestedInput
+    bookmarks?: BookmarkUpdateManyWithoutCallNestedInput
+    analysis?: CallAnalysisUpdateOneWithoutCallNestedInput
+  }
+
+  export type CallUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    segments?: TranscriptSegmentUncheckedUpdateManyWithoutCallNestedInput
+    suggestions?: SuggestionUncheckedUpdateManyWithoutCallNestedInput
+    bookmarks?: BookmarkUncheckedUpdateManyWithoutCallNestedInput
+    analysis?: CallAnalysisUncheckedUpdateOneWithoutCallNestedInput
+  }
+
+  export type CallUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UsageEventUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    kind?: EnumUsageKindFieldUpdateOperationsInput | $Enums.UsageKind
+    model?: NullableStringFieldUpdateOperationsInput | string | null
+    input_tokens?: IntFieldUpdateOperationsInput | number
+    output_tokens?: IntFieldUpdateOperationsInput | number
+    audio_seconds?: IntFieldUpdateOperationsInput | number
+    cost_usd?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UsageEventUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    kind?: EnumUsageKindFieldUpdateOperationsInput | $Enums.UsageKind
+    model?: NullableStringFieldUpdateOperationsInput | string | null
+    input_tokens?: IntFieldUpdateOperationsInput | number
+    output_tokens?: IntFieldUpdateOperationsInput | number
+    audio_seconds?: IntFieldUpdateOperationsInput | number
+    cost_usd?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UsageEventUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    kind?: EnumUsageKindFieldUpdateOperationsInput | $Enums.UsageKind
+    model?: NullableStringFieldUpdateOperationsInput | string | null
+    input_tokens?: IntFieldUpdateOperationsInput | number
+    output_tokens?: IntFieldUpdateOperationsInput | number
+    audio_seconds?: IntFieldUpdateOperationsInput | number
+    cost_usd?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CallCreateManyAssistant_agentInput = {
+    id?: string
+    user_id: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    practice_agent_id?: string | null
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type PracticeAgentCreateManyLinked_assistant_agentInput = {
+    id?: string
+    user_id: string
+    name: string
+    prospect_name?: string | null
+    role_prompt: string
+    scenario_context?: string | null
+    scenario_type?: string
+    selling_product?: string | null
+    user_objective?: string | null
+    lead_temperature?: $Enums.LeadTemperature
+    difficulty?: number
+    personality?: string | null
+    mood?: string | null
+    communication_style?: string | null
+    decision_authority?: string | null
+    budget?: string | null
+    timeline?: string | null
+    current_solution?: string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: number
+    language?: string
+    accent?: string | null
+    industry?: string | null
+    company?: string | null
+    job_title?: string | null
+    age_range?: string | null
+    background_story?: string | null
+    briefing?: string | null
+    voice_provider?: $Enums.VoiceProvider
+    voice?: string
+    time_limit_minutes?: number | null
+    source_call_id?: string | null
+    template_key?: string | null
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type CallUpdateWithoutAssistant_agentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutCallsNestedInput
+    practice_agent?: PracticeAgentUpdateOneWithoutCallsNestedInput
+    segments?: TranscriptSegmentUpdateManyWithoutCallNestedInput
+    suggestions?: SuggestionUpdateManyWithoutCallNestedInput
+    bookmarks?: BookmarkUpdateManyWithoutCallNestedInput
+    analysis?: CallAnalysisUpdateOneWithoutCallNestedInput
+  }
+
+  export type CallUncheckedUpdateWithoutAssistant_agentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    segments?: TranscriptSegmentUncheckedUpdateManyWithoutCallNestedInput
+    suggestions?: SuggestionUncheckedUpdateManyWithoutCallNestedInput
+    bookmarks?: BookmarkUncheckedUpdateManyWithoutCallNestedInput
+    analysis?: CallAnalysisUncheckedUpdateOneWithoutCallNestedInput
+  }
+
+  export type CallUncheckedUpdateManyWithoutAssistant_agentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PracticeAgentUpdateWithoutLinked_assistant_agentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role_prompt?: StringFieldUpdateOperationsInput | string
+    scenario_context?: NullableStringFieldUpdateOperationsInput | string | null
+    scenario_type?: StringFieldUpdateOperationsInput | string
+    selling_product?: NullableStringFieldUpdateOperationsInput | string | null
+    user_objective?: NullableStringFieldUpdateOperationsInput | string | null
+    lead_temperature?: EnumLeadTemperatureFieldUpdateOperationsInput | $Enums.LeadTemperature
+    difficulty?: IntFieldUpdateOperationsInput | number
+    personality?: NullableStringFieldUpdateOperationsInput | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    communication_style?: NullableStringFieldUpdateOperationsInput | string | null
+    decision_authority?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableStringFieldUpdateOperationsInput | string | null
+    timeline?: NullableStringFieldUpdateOperationsInput | string | null
+    current_solution?: NullableStringFieldUpdateOperationsInput | string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    job_title?: NullableStringFieldUpdateOperationsInput | string | null
+    age_range?: NullableStringFieldUpdateOperationsInput | string | null
+    background_story?: NullableStringFieldUpdateOperationsInput | string | null
+    briefing?: NullableStringFieldUpdateOperationsInput | string | null
+    voice_provider?: EnumVoiceProviderFieldUpdateOperationsInput | $Enums.VoiceProvider
+    voice?: StringFieldUpdateOperationsInput | string
+    time_limit_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    source_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutPractice_agentsNestedInput
+    calls?: CallUpdateManyWithoutPractice_agentNestedInput
+  }
+
+  export type PracticeAgentUncheckedUpdateWithoutLinked_assistant_agentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role_prompt?: StringFieldUpdateOperationsInput | string
+    scenario_context?: NullableStringFieldUpdateOperationsInput | string | null
+    scenario_type?: StringFieldUpdateOperationsInput | string
+    selling_product?: NullableStringFieldUpdateOperationsInput | string | null
+    user_objective?: NullableStringFieldUpdateOperationsInput | string | null
+    lead_temperature?: EnumLeadTemperatureFieldUpdateOperationsInput | $Enums.LeadTemperature
+    difficulty?: IntFieldUpdateOperationsInput | number
+    personality?: NullableStringFieldUpdateOperationsInput | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    communication_style?: NullableStringFieldUpdateOperationsInput | string | null
+    decision_authority?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableStringFieldUpdateOperationsInput | string | null
+    timeline?: NullableStringFieldUpdateOperationsInput | string | null
+    current_solution?: NullableStringFieldUpdateOperationsInput | string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    job_title?: NullableStringFieldUpdateOperationsInput | string | null
+    age_range?: NullableStringFieldUpdateOperationsInput | string | null
+    background_story?: NullableStringFieldUpdateOperationsInput | string | null
+    briefing?: NullableStringFieldUpdateOperationsInput | string | null
+    voice_provider?: EnumVoiceProviderFieldUpdateOperationsInput | $Enums.VoiceProvider
+    voice?: StringFieldUpdateOperationsInput | string
+    time_limit_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    source_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    calls?: CallUncheckedUpdateManyWithoutPractice_agentNestedInput
+  }
+
+  export type PracticeAgentUncheckedUpdateManyWithoutLinked_assistant_agentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role_prompt?: StringFieldUpdateOperationsInput | string
+    scenario_context?: NullableStringFieldUpdateOperationsInput | string | null
+    scenario_type?: StringFieldUpdateOperationsInput | string
+    selling_product?: NullableStringFieldUpdateOperationsInput | string | null
+    user_objective?: NullableStringFieldUpdateOperationsInput | string | null
+    lead_temperature?: EnumLeadTemperatureFieldUpdateOperationsInput | $Enums.LeadTemperature
+    difficulty?: IntFieldUpdateOperationsInput | number
+    personality?: NullableStringFieldUpdateOperationsInput | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    communication_style?: NullableStringFieldUpdateOperationsInput | string | null
+    decision_authority?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableStringFieldUpdateOperationsInput | string | null
+    timeline?: NullableStringFieldUpdateOperationsInput | string | null
+    current_solution?: NullableStringFieldUpdateOperationsInput | string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    job_title?: NullableStringFieldUpdateOperationsInput | string | null
+    age_range?: NullableStringFieldUpdateOperationsInput | string | null
+    background_story?: NullableStringFieldUpdateOperationsInput | string | null
+    briefing?: NullableStringFieldUpdateOperationsInput | string | null
+    voice_provider?: EnumVoiceProviderFieldUpdateOperationsInput | $Enums.VoiceProvider
+    voice?: StringFieldUpdateOperationsInput | string
+    time_limit_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    source_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CallCreateManyPractice_agentInput = {
+    id?: string
+    user_id: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    assistant_agent_id?: string | null
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type CallUpdateWithoutPractice_agentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutCallsNestedInput
+    assistant_agent?: AssistantAgentUpdateOneWithoutCallsNestedInput
+    segments?: TranscriptSegmentUpdateManyWithoutCallNestedInput
+    suggestions?: SuggestionUpdateManyWithoutCallNestedInput
+    bookmarks?: BookmarkUpdateManyWithoutCallNestedInput
+    analysis?: CallAnalysisUpdateOneWithoutCallNestedInput
+  }
+
+  export type CallUncheckedUpdateWithoutPractice_agentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    segments?: TranscriptSegmentUncheckedUpdateManyWithoutCallNestedInput
+    suggestions?: SuggestionUncheckedUpdateManyWithoutCallNestedInput
+    bookmarks?: BookmarkUncheckedUpdateManyWithoutCallNestedInput
+    analysis?: CallAnalysisUncheckedUpdateOneWithoutCallNestedInput
+  }
+
+  export type CallUncheckedUpdateManyWithoutPractice_agentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TranscriptSegmentCreateManyCallInput = {
+    id?: string
+    client_id?: string | null
+    speaker: $Enums.Speaker
+    text: string
+    start_ms: number
+    end_ms: number
+    created_at?: Date | string
+  }
+
+  export type SuggestionCreateManyCallInput = {
+    id?: string
+    type: $Enums.SuggestionType
+    text: string
+    alternatives?: JsonNullValueInput | InputJsonValue
+    reason?: string | null
+    info_card?: NullableJsonNullValueInput | InputJsonValue
+    at_ms: number
+    status?: $Enums.SuggestionStatus
+    feedback?: $Enums.SuggestionFeedback | null
+    model?: string | null
+    latency_ms?: number | null
+    created_at?: Date | string
+  }
+
+  export type BookmarkCreateManyCallInput = {
+    id?: string
+    at_ms: number
+    label?: string | null
+    created_at?: Date | string
+  }
+
+  export type TranscriptSegmentUpdateWithoutCallInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    client_id?: NullableStringFieldUpdateOperationsInput | string | null
+    speaker?: EnumSpeakerFieldUpdateOperationsInput | $Enums.Speaker
+    text?: StringFieldUpdateOperationsInput | string
+    start_ms?: IntFieldUpdateOperationsInput | number
+    end_ms?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TranscriptSegmentUncheckedUpdateWithoutCallInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    client_id?: NullableStringFieldUpdateOperationsInput | string | null
+    speaker?: EnumSpeakerFieldUpdateOperationsInput | $Enums.Speaker
+    text?: StringFieldUpdateOperationsInput | string
+    start_ms?: IntFieldUpdateOperationsInput | number
+    end_ms?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TranscriptSegmentUncheckedUpdateManyWithoutCallInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    client_id?: NullableStringFieldUpdateOperationsInput | string | null
+    speaker?: EnumSpeakerFieldUpdateOperationsInput | $Enums.Speaker
+    text?: StringFieldUpdateOperationsInput | string
+    start_ms?: IntFieldUpdateOperationsInput | number
+    end_ms?: IntFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SuggestionUpdateWithoutCallInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumSuggestionTypeFieldUpdateOperationsInput | $Enums.SuggestionType
+    text?: StringFieldUpdateOperationsInput | string
+    alternatives?: JsonNullValueInput | InputJsonValue
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    info_card?: NullableJsonNullValueInput | InputJsonValue
+    at_ms?: IntFieldUpdateOperationsInput | number
+    status?: EnumSuggestionStatusFieldUpdateOperationsInput | $Enums.SuggestionStatus
+    feedback?: NullableEnumSuggestionFeedbackFieldUpdateOperationsInput | $Enums.SuggestionFeedback | null
+    model?: NullableStringFieldUpdateOperationsInput | string | null
+    latency_ms?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SuggestionUncheckedUpdateWithoutCallInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumSuggestionTypeFieldUpdateOperationsInput | $Enums.SuggestionType
+    text?: StringFieldUpdateOperationsInput | string
+    alternatives?: JsonNullValueInput | InputJsonValue
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    info_card?: NullableJsonNullValueInput | InputJsonValue
+    at_ms?: IntFieldUpdateOperationsInput | number
+    status?: EnumSuggestionStatusFieldUpdateOperationsInput | $Enums.SuggestionStatus
+    feedback?: NullableEnumSuggestionFeedbackFieldUpdateOperationsInput | $Enums.SuggestionFeedback | null
+    model?: NullableStringFieldUpdateOperationsInput | string | null
+    latency_ms?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SuggestionUncheckedUpdateManyWithoutCallInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: EnumSuggestionTypeFieldUpdateOperationsInput | $Enums.SuggestionType
+    text?: StringFieldUpdateOperationsInput | string
+    alternatives?: JsonNullValueInput | InputJsonValue
+    reason?: NullableStringFieldUpdateOperationsInput | string | null
+    info_card?: NullableJsonNullValueInput | InputJsonValue
+    at_ms?: IntFieldUpdateOperationsInput | number
+    status?: EnumSuggestionStatusFieldUpdateOperationsInput | $Enums.SuggestionStatus
+    feedback?: NullableEnumSuggestionFeedbackFieldUpdateOperationsInput | $Enums.SuggestionFeedback | null
+    model?: NullableStringFieldUpdateOperationsInput | string | null
+    latency_ms?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BookmarkUpdateWithoutCallInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    at_ms?: IntFieldUpdateOperationsInput | number
+    label?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BookmarkUncheckedUpdateWithoutCallInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    at_ms?: IntFieldUpdateOperationsInput | number
+    label?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BookmarkUncheckedUpdateManyWithoutCallInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    at_ms?: IntFieldUpdateOperationsInput | number
+    label?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 

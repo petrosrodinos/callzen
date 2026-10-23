@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { environments } from "@/config/environments";
 
 interface UsePageMetadataOptions {
     title?: string;
@@ -8,11 +9,11 @@ interface UsePageMetadataOptions {
 export const usePageMetadata = ({ title, iconUrl }: UsePageMetadataOptions) => {
     useEffect(() => {
         if (title) {
-            document.title = title;
+            document.title = `${title} · ${environments.APP_NAME}`;
         }
         return () => {
             if (title) {
-                document.title = "";
+                document.title = environments.APP_NAME;
             }
         };
     }, [title]);

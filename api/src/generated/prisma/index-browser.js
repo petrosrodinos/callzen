@@ -125,9 +125,15 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   phone: 'phone',
   password: 'password',
+  full_name: 'full_name',
   role: 'role',
   created_at: 'created_at',
-  updated_at: 'updated_at'
+  updated_at: 'updated_at',
+  interface_language: 'interface_language',
+  output_language_mode: 'output_language_mode',
+  consent_line: 'consent_line',
+  keep_recordings: 'keep_recordings',
+  consent_acknowledged_at: 'consent_acknowledged_at'
 };
 
 exports.Prisma.PasswordResetTokenScalarFieldEnum = {
@@ -151,9 +157,197 @@ exports.Prisma.DocumentScalarFieldEnum = {
   created_at: 'created_at'
 };
 
+exports.Prisma.AssistantAgentScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  name: 'name',
+  description: 'description',
+  call_goal: 'call_goal',
+  script: 'script',
+  instructions: 'instructions',
+  knowledge: 'knowledge',
+  objection_library: 'objection_library',
+  methodology: 'methodology',
+  language: 'language',
+  tone: 'tone',
+  suggestion_frequency: 'suggestion_frequency',
+  suggestion_length: 'suggestion_length',
+  alternatives_count: 'alternatives_count',
+  realtime_model: 'realtime_model',
+  analysis_model: 'analysis_model',
+  analysis_criteria: 'analysis_criteria',
+  consent_line: 'consent_line',
+  suggest_consent_line: 'suggest_consent_line',
+  template_key: 'template_key',
+  is_default: 'is_default',
+  archived_at: 'archived_at',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.PracticeAgentScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  name: 'name',
+  prospect_name: 'prospect_name',
+  role_prompt: 'role_prompt',
+  scenario_context: 'scenario_context',
+  scenario_type: 'scenario_type',
+  selling_product: 'selling_product',
+  linked_assistant_agent_id: 'linked_assistant_agent_id',
+  user_objective: 'user_objective',
+  lead_temperature: 'lead_temperature',
+  difficulty: 'difficulty',
+  personality: 'personality',
+  mood: 'mood',
+  communication_style: 'communication_style',
+  decision_authority: 'decision_authority',
+  budget: 'budget',
+  timeline: 'timeline',
+  current_solution: 'current_solution',
+  pain_points: 'pain_points',
+  objections: 'objections',
+  hidden_information: 'hidden_information',
+  conversion_conditions: 'conversion_conditions',
+  patience: 'patience',
+  language: 'language',
+  accent: 'accent',
+  industry: 'industry',
+  company: 'company',
+  job_title: 'job_title',
+  age_range: 'age_range',
+  background_story: 'background_story',
+  briefing: 'briefing',
+  voice_provider: 'voice_provider',
+  voice: 'voice',
+  time_limit_minutes: 'time_limit_minutes',
+  source_call_id: 'source_call_id',
+  template_key: 'template_key',
+  archived_at: 'archived_at',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.CallScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  kind: 'kind',
+  call_type: 'call_type',
+  status: 'status',
+  assistant_agent_id: 'assistant_agent_id',
+  practice_agent_id: 'practice_agent_id',
+  copilot_enabled: 'copilot_enabled',
+  title: 'title',
+  prospect_name: 'prospect_name',
+  prospect_company: 'prospect_company',
+  prospect_role: 'prospect_role',
+  context_notes: 'context_notes',
+  goal: 'goal',
+  prior_call_id: 'prior_call_id',
+  language: 'language',
+  started_at: 'started_at',
+  ended_at: 'ended_at',
+  duration_seconds: 'duration_seconds',
+  ended_reason: 'ended_reason',
+  outcome: 'outcome',
+  custom_outcome: 'custom_outcome',
+  objective_achieved: 'objective_achieved',
+  keep_recording: 'keep_recording',
+  recording_path: 'recording_path',
+  recording_mime: 'recording_mime',
+  recording_size: 'recording_size',
+  user_notes: 'user_notes',
+  script_progress: 'script_progress',
+  analysis_error: 'analysis_error',
+  agent_snapshot: 'agent_snapshot',
+  practice_snapshot: 'practice_snapshot',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.TranscriptSegmentScalarFieldEnum = {
+  id: 'id',
+  call_id: 'call_id',
+  client_id: 'client_id',
+  speaker: 'speaker',
+  text: 'text',
+  start_ms: 'start_ms',
+  end_ms: 'end_ms',
+  created_at: 'created_at'
+};
+
+exports.Prisma.SuggestionScalarFieldEnum = {
+  id: 'id',
+  call_id: 'call_id',
+  type: 'type',
+  text: 'text',
+  alternatives: 'alternatives',
+  reason: 'reason',
+  info_card: 'info_card',
+  at_ms: 'at_ms',
+  status: 'status',
+  feedback: 'feedback',
+  model: 'model',
+  latency_ms: 'latency_ms',
+  created_at: 'created_at'
+};
+
+exports.Prisma.BookmarkScalarFieldEnum = {
+  id: 'id',
+  call_id: 'call_id',
+  at_ms: 'at_ms',
+  label: 'label',
+  created_at: 'created_at'
+};
+
+exports.Prisma.CallAnalysisScalarFieldEnum = {
+  id: 'id',
+  call_id: 'call_id',
+  model: 'model',
+  overall_score: 'overall_score',
+  verdict: 'verdict',
+  category_scores: 'category_scores',
+  mistakes: 'mistakes',
+  strengths: 'strengths',
+  improvements: 'improvements',
+  metrics: 'metrics',
+  prospect_insights: 'prospect_insights',
+  summary: 'summary',
+  next_steps: 'next_steps',
+  follow_up_draft: 'follow_up_draft',
+  suggested_practice: 'suggested_practice',
+  practice_result: 'practice_result',
+  suggestion_usage: 'suggestion_usage',
+  error: 'error',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.UsageEventScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  call_id: 'call_id',
+  kind: 'kind',
+  model: 'model',
+  input_tokens: 'input_tokens',
+  output_tokens: 'output_tokens',
+  audio_seconds: 'audio_seconds',
+  cost_usd: 'cost_usd',
+  created_at: 'created_at'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
+};
+
+exports.Prisma.NullableJsonNullValueInput = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull
 };
 
 exports.Prisma.QueryMode = {
@@ -165,11 +359,22 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
 exports.AuthRole = exports.$Enums.AuthRole = {
   USER: 'USER',
   ADMIN: 'ADMIN',
   SUPER_ADMIN: 'SUPER_ADMIN',
   SUPPORT: 'SUPPORT'
+};
+
+exports.OutputLanguageMode = exports.$Enums.OutputLanguageMode = {
+  CONVERSATION: 'CONVERSATION',
+  INTERFACE: 'INTERFACE'
 };
 
 exports.DocumentType = exports.$Enums.DocumentType = {
@@ -183,10 +388,115 @@ exports.DocumentType = exports.$Enums.DocumentType = {
   OTHER: 'OTHER'
 };
 
+exports.SuggestionFrequency = exports.$Enums.SuggestionFrequency = {
+  OBJECTIONS_ONLY: 'OBJECTIONS_ONLY',
+  BALANCED: 'BALANCED',
+  CONSTANT: 'CONSTANT'
+};
+
+exports.SuggestionLength = exports.$Enums.SuggestionLength = {
+  SHORT: 'SHORT',
+  MEDIUM: 'MEDIUM'
+};
+
+exports.LeadTemperature = exports.$Enums.LeadTemperature = {
+  COLD: 'COLD',
+  WARM: 'WARM'
+};
+
+exports.VoiceProvider = exports.$Enums.VoiceProvider = {
+  OPENAI_REALTIME: 'OPENAI_REALTIME',
+  BROWSER: 'BROWSER'
+};
+
+exports.CallKind = exports.$Enums.CallKind = {
+  LIVE: 'LIVE',
+  PRACTICE: 'PRACTICE'
+};
+
+exports.CallType = exports.$Enums.CallType = {
+  ONLINE_MEETING: 'ONLINE_MEETING',
+  MICROPHONE: 'MICROPHONE',
+  PRACTICE: 'PRACTICE'
+};
+
+exports.CallStatus = exports.$Enums.CallStatus = {
+  IN_PROGRESS: 'IN_PROGRESS',
+  ANALYZING: 'ANALYZING',
+  ANALYZED: 'ANALYZED',
+  ANALYSIS_FAILED: 'ANALYSIS_FAILED',
+  ENDED: 'ENDED'
+};
+
+exports.CallEndReason = exports.$Enums.CallEndReason = {
+  USER: 'USER',
+  PROSPECT_HUNG_UP: 'PROSPECT_HUNG_UP',
+  TIME_LIMIT: 'TIME_LIMIT',
+  INTERRUPTED: 'INTERRUPTED'
+};
+
+exports.CallOutcome = exports.$Enums.CallOutcome = {
+  MEETING_BOOKED: 'MEETING_BOOKED',
+  DEAL_WON: 'DEAL_WON',
+  FOLLOW_UP: 'FOLLOW_UP',
+  LOST: 'LOST',
+  NO_DECISION: 'NO_DECISION',
+  GATEKEEPER: 'GATEKEEPER',
+  CUSTOM: 'CUSTOM'
+};
+
+exports.Speaker = exports.$Enums.Speaker = {
+  USER: 'USER',
+  PROSPECT: 'PROSPECT',
+  UNKNOWN: 'UNKNOWN'
+};
+
+exports.SuggestionType = exports.$Enums.SuggestionType = {
+  OPENER: 'OPENER',
+  DISCOVERY_QUESTION: 'DISCOVERY_QUESTION',
+  OBJECTION_RESPONSE: 'OBJECTION_RESPONSE',
+  VALUE_STATEMENT: 'VALUE_STATEMENT',
+  BUYING_SIGNAL: 'BUYING_SIGNAL',
+  NEXT_STEP: 'NEXT_STEP',
+  REMINDER: 'REMINDER',
+  WARNING: 'WARNING',
+  CONSENT: 'CONSENT',
+  ANSWER: 'ANSWER'
+};
+
+exports.SuggestionStatus = exports.$Enums.SuggestionStatus = {
+  SHOWN: 'SHOWN',
+  DISMISSED: 'DISMISSED',
+  PINNED: 'PINNED'
+};
+
+exports.SuggestionFeedback = exports.$Enums.SuggestionFeedback = {
+  UP: 'UP',
+  DOWN: 'DOWN'
+};
+
+exports.UsageKind = exports.$Enums.UsageKind = {
+  SUGGESTION: 'SUGGESTION',
+  ASK: 'ASK',
+  ANALYSIS: 'ANALYSIS',
+  PRACTICE_TURN: 'PRACTICE_TURN',
+  PRACTICE_VOICE: 'PRACTICE_VOICE',
+  TRANSCRIPTION: 'TRANSCRIPTION',
+  GENERATION: 'GENERATION'
+};
+
 exports.Prisma.ModelName = {
   User: 'User',
   PasswordResetToken: 'PasswordResetToken',
-  Document: 'Document'
+  Document: 'Document',
+  AssistantAgent: 'AssistantAgent',
+  PracticeAgent: 'PracticeAgent',
+  Call: 'Call',
+  TranscriptSegment: 'TranscriptSegment',
+  Suggestion: 'Suggestion',
+  Bookmark: 'Bookmark',
+  CallAnalysis: 'CallAnalysis',
+  UsageEvent: 'UsageEvent'
 };
 
 /**

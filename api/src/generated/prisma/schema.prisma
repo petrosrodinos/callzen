@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../src/generated/prisma"
@@ -31,17 +25,130 @@ enum DocumentType {
   OTHER
 }
 
+enum OutputLanguageMode {
+  CONVERSATION
+  INTERFACE
+}
+
+enum SuggestionFrequency {
+  OBJECTIONS_ONLY
+  BALANCED
+  CONSTANT
+}
+
+enum SuggestionLength {
+  SHORT
+  MEDIUM
+}
+
+enum LeadTemperature {
+  COLD
+  WARM
+}
+
+enum VoiceProvider {
+  OPENAI_REALTIME
+  BROWSER
+}
+
+enum CallKind {
+  LIVE
+  PRACTICE
+}
+
+enum CallType {
+  ONLINE_MEETING
+  MICROPHONE
+  PRACTICE
+}
+
+enum CallStatus {
+  IN_PROGRESS
+  ANALYZING
+  ANALYZED
+  ANALYSIS_FAILED
+  ENDED
+}
+
+enum CallOutcome {
+  MEETING_BOOKED
+  DEAL_WON
+  FOLLOW_UP
+  LOST
+  NO_DECISION
+  GATEKEEPER
+  CUSTOM
+}
+
+enum CallEndReason {
+  USER
+  PROSPECT_HUNG_UP
+  TIME_LIMIT
+  INTERRUPTED
+}
+
+enum Speaker {
+  USER
+  PROSPECT
+  UNKNOWN
+}
+
+enum SuggestionType {
+  OPENER
+  DISCOVERY_QUESTION
+  OBJECTION_RESPONSE
+  VALUE_STATEMENT
+  BUYING_SIGNAL
+  NEXT_STEP
+  REMINDER
+  WARNING
+  CONSENT
+  ANSWER
+}
+
+enum SuggestionStatus {
+  SHOWN
+  DISMISSED
+  PINNED
+}
+
+enum SuggestionFeedback {
+  UP
+  DOWN
+}
+
+enum UsageKind {
+  SUGGESTION
+  ASK
+  ANALYSIS
+  PRACTICE_TURN
+  PRACTICE_VOICE
+  TRANSCRIPTION
+  GENERATION
+}
+
 model User {
-  id       String  @id @default(uuid())
-  email    String  @unique
-  phone    String? @unique
-  password String
+  id        String  @id @default(uuid())
+  email     String  @unique
+  phone     String? @unique
+  password  String
+  full_name String?
 
   role       AuthRole
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
+  interface_language      String             @default("en")
+  output_language_mode    OutputLanguageMode @default(CONVERSATION)
+  consent_line            String?
+  keep_recordings         Boolean            @default(true)
+  consent_acknowledged_at DateTime?
+
   password_reset_tokens PasswordResetToken[]
+  assistant_agents      AssistantAgent[]
+  practice_agents       PracticeAgent[]
+  calls                 Call[]
+  usage_events          UsageEvent[]
 
   @@index([email])
   @@index([phone])
@@ -78,4 +185,235 @@ model Document {
   @@index([user_uuid])
   @@index([id])
   @@map("documents")
+}
+
+model AssistantAgent {
+  id                   String              @id @default(uuid())
+  user_id              String
+  name                 String
+  description          String?
+  call_goal            String?
+  script               Json                @default("[]")
+  instructions         String?
+  knowledge            String?
+  objection_library    Json                @default("[]")
+  methodology          String?
+  language             String              @default("en")
+  tone                 String              @default("PROFESSIONAL")
+  suggestion_frequency SuggestionFrequency @default(BALANCED)
+  suggestion_length    SuggestionLength    @default(SHORT)
+  alternatives_count   Int                 @default(1)
+  realtime_model       String
+  analysis_model       String
+  analysis_criteria    Json                @default("[]")
+  consent_line         String?
+  suggest_consent_line Boolean             @default(false)
+  template_key         String?
+  is_default           Boolean             @default(false)
+  archived_at          DateTime?
+  created_at           DateTime            @default(now())
+  updated_at           DateTime            @updatedAt
+
+  user            User            @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  calls           Call[]
+  practice_agents PracticeAgent[]
+
+  @@index([user_id])
+  @@map("assistant_agents")
+}
+
+model PracticeAgent {
+  id                        String          @id @default(uuid())
+  user_id                   String
+  name                      String
+  prospect_name             String?
+  role_prompt               String
+  scenario_context          String?
+  scenario_type             String          @default("COLD_CALL")
+  selling_product           String?
+  linked_assistant_agent_id String?
+  user_objective            String?
+  lead_temperature          LeadTemperature @default(COLD)
+  difficulty                Int             @default(3)
+  personality               String?
+  mood                      String?
+  communication_style       String?
+  decision_authority        String?
+  budget                    String?
+  timeline                  String?
+  current_solution          String?
+  pain_points               Json            @default("[]")
+  objections                Json            @default("[]")
+  hidden_information        Json            @default("[]")
+  conversion_conditions     Json            @default("[]")
+  patience                  Int             @default(3)
+  language                  String          @default("en")
+  accent                    String?
+  industry                  String?
+  company                   String?
+  job_title                 String?
+  age_range                 String?
+  background_story          String?
+  briefing                  String?
+  voice_provider            VoiceProvider   @default(OPENAI_REALTIME)
+  voice                     String          @default("marin")
+  time_limit_minutes        Int?
+  source_call_id            String?
+  template_key              String?
+  archived_at               DateTime?
+  created_at                DateTime        @default(now())
+  updated_at                DateTime        @updatedAt
+
+  user                   User            @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  linked_assistant_agent AssistantAgent? @relation(fields: [linked_assistant_agent_id], references: [id], onDelete: SetNull)
+  calls                  Call[]
+
+  @@index([user_id])
+  @@map("practice_agents")
+}
+
+model Call {
+  id                 String         @id @default(uuid())
+  user_id            String
+  kind               CallKind
+  call_type          CallType
+  status             CallStatus     @default(IN_PROGRESS)
+  assistant_agent_id String?
+  practice_agent_id  String?
+  copilot_enabled    Boolean        @default(true)
+  title              String?
+  prospect_name      String?
+  prospect_company   String?
+  prospect_role      String?
+  context_notes      String?
+  goal               String?
+  prior_call_id      String?
+  language           String         @default("en")
+  started_at         DateTime       @default(now())
+  ended_at           DateTime?
+  duration_seconds   Int            @default(0)
+  ended_reason       CallEndReason?
+  outcome            CallOutcome?
+  custom_outcome     String?
+  objective_achieved Boolean?
+  keep_recording     Boolean        @default(true)
+  recording_path     String?
+  recording_mime     String?
+  recording_size     Int?
+  user_notes         String?
+  script_progress    Json           @default("[]")
+  analysis_error     String?
+  agent_snapshot     Json?
+  practice_snapshot  Json?
+  created_at         DateTime       @default(now())
+  updated_at         DateTime       @updatedAt
+
+  user            User                @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  assistant_agent AssistantAgent?     @relation(fields: [assistant_agent_id], references: [id], onDelete: SetNull)
+  practice_agent  PracticeAgent?      @relation(fields: [practice_agent_id], references: [id], onDelete: SetNull)
+  segments        TranscriptSegment[]
+  suggestions     Suggestion[]
+  bookmarks       Bookmark[]
+  analysis        CallAnalysis?
+
+  @@index([user_id, started_at])
+  @@index([assistant_agent_id])
+  @@index([practice_agent_id])
+  @@map("calls")
+}
+
+model TranscriptSegment {
+  id         String   @id @default(uuid())
+  call_id    String
+  client_id  String?
+  speaker    Speaker
+  text       String
+  start_ms   Int
+  end_ms     Int
+  created_at DateTime @default(now())
+
+  call Call @relation(fields: [call_id], references: [id], onDelete: Cascade)
+
+  @@unique([call_id, client_id])
+  @@index([call_id, start_ms])
+  @@map("transcript_segments")
+}
+
+model Suggestion {
+  id           String              @id @default(uuid())
+  call_id      String
+  type         SuggestionType
+  text         String
+  alternatives Json                @default("[]")
+  reason       String?
+  info_card    Json?
+  at_ms        Int
+  status       SuggestionStatus    @default(SHOWN)
+  feedback     SuggestionFeedback?
+  model        String?
+  latency_ms   Int?
+  created_at   DateTime            @default(now())
+
+  call Call @relation(fields: [call_id], references: [id], onDelete: Cascade)
+
+  @@index([call_id, at_ms])
+  @@map("suggestions")
+}
+
+model Bookmark {
+  id         String   @id @default(uuid())
+  call_id    String
+  at_ms      Int
+  label      String?
+  created_at DateTime @default(now())
+
+  call Call @relation(fields: [call_id], references: [id], onDelete: Cascade)
+
+  @@index([call_id])
+  @@map("bookmarks")
+}
+
+model CallAnalysis {
+  id                 String   @id @default(uuid())
+  call_id            String   @unique
+  model              String
+  overall_score      Int
+  verdict            String
+  category_scores    Json     @default("[]")
+  mistakes           Json     @default("[]")
+  strengths          Json     @default("[]")
+  improvements       Json     @default("[]")
+  metrics            Json     @default("{}")
+  prospect_insights  Json     @default("{}")
+  summary            String
+  next_steps         Json     @default("[]")
+  follow_up_draft    String?
+  suggested_practice Json     @default("[]")
+  practice_result    Json?
+  suggestion_usage   Json?
+  error              String?
+  created_at         DateTime @default(now())
+  updated_at         DateTime @updatedAt
+
+  call Call @relation(fields: [call_id], references: [id], onDelete: Cascade)
+
+  @@map("call_analyses")
+}
+
+model UsageEvent {
+  id            String    @id @default(uuid())
+  user_id       String
+  call_id       String?
+  kind          UsageKind
+  model         String?
+  input_tokens  Int       @default(0)
+  output_tokens Int       @default(0)
+  audio_seconds Int       @default(0)
+  cost_usd      Float     @default(0)
+  created_at    DateTime  @default(now())
+
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@index([user_id, created_at])
+  @@map("usage_events")
 }

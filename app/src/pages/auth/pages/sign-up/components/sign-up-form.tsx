@@ -13,6 +13,7 @@ export function SignUpForm() {
   const form = useForm<SignUpFormValues>({
     resolver: zodResolver(SignUpSchema),
     defaultValues: {
+      full_name: "",
       email: "",
       password: "",
       confirm_password: "",
@@ -20,7 +21,7 @@ export function SignUpForm() {
   });
 
   function onSubmit(data: SignUpFormValues) {
-    mutate({ email: data.email, password: data.password });
+    mutate({ email: data.email, password: data.password, full_name: data.full_name });
   }
 
   return (
@@ -30,12 +31,25 @@ export function SignUpForm() {
           <div className="grid gap-2">
             <FormField
               control={form.control}
+              name="full_name"
+              render={({ field }) => (
+                <FormItem className="space-y-1">
+                  <FormLabel>Full name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Maria Papadopoulou" autoComplete="name" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
               name="email"
               render={({ field }) => (
                 <FormItem className="space-y-1">
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="name@example.com" {...field} />
+                    <Input placeholder="name@example.com" type="email" autoComplete="email" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -59,7 +73,7 @@ export function SignUpForm() {
               name="confirm_password"
               render={({ field }) => (
                 <FormItem className="space-y-1">
-                  <FormLabel>Confirm Password</FormLabel>
+                  <FormLabel>Confirm password</FormLabel>
                   <FormControl>
                     <Input placeholder="********" {...field} type="password" />
                   </FormControl>
@@ -67,8 +81,8 @@ export function SignUpForm() {
                 </FormItem>
               )}
             />
-            <Button className="mt-2" disabled={isPending} loading={isPending}>
-              Create Account
+            <Button className="mt-2 w-full" disabled={isPending} loading={isPending}>
+              Create account
             </Button>
           </div>
         </form>

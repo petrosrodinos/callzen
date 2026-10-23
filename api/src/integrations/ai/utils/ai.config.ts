@@ -1,61 +1,39 @@
 import { Injectable } from '@nestjs/common';
-import { AIModelInfo, AiModels, AiProvider, AiProviders } from '../interfaces/ai.interface';
-import { openai } from '@ai-sdk/openai';
+import { ConfigService } from '@nestjs/config';
+import { createOpenAI, OpenAIProvider } from '@ai-sdk/openai';
+import { AiProvider, AiProviders } from '../interfaces/ai.interface';
 
 @Injectable()
 export class AiConfig {
+  private openaiProvider: OpenAIProvider | null = null;
 
-    private readonly supportedModels: AIModelInfo[] = [
-        { provider: AiProviders.openai, model: AiModels.openai.gpt4o },
-        { provider: AiProviders.openai, model: AiModels.openai.gpt4oMini },
-        { provider: AiProviders.openai, model: AiModels.openai.gpt4Turbo },
-        { provider: AiProviders.openai, model: AiModels.openai.gpt4 },
-        { provider: AiProviders.openai, model: AiModels.openai.gpt35Turbo },
-        { provider: AiProviders.grok, model: AiModels.grok.grokBeta },
-        { provider: AiProviders.grok, model: AiModels.grok.grokPro },
-        { provider: AiProviders.gemini, model: AiModels.gemini.geminiPro },
-        { provider: AiProviders.gemini, model: AiModels.gemini.geminiProVision },
-        { provider: AiProviders.gemini, model: AiModels.gemini.gemini15Pro },
-    ];
+  constructor(private readonly configService: ConfigService) {}
 
-    getModelAdapter(provider: AiProvider = AiProviders.openai, model: string = AiModels.openai.gpt4o) {
-        switch (provider) {
-            case AiProviders.openai:
-                return openai(model);
-            case AiProviders.grok:
-                throw new Error('Grok provider not yet implemented. SDK required.');
-            case AiProviders.gemini:
-                throw new Error('Gemini provider not yet implemented. SDK required.');
-            default:
-                return openai(model);
-        }
+  isConfigured(): boolean {
+    return !!this.configService.get<string>('OPENAI_API_KEY');
+  }
+
+  getApiKey(): string | undefined {
+    return this.configService.get<string>('OPENAI_API_KEY');
+  }
+
+  private getOpenAi(): OpenAIProvider {
+    if (!this.openaiProvider) {
+      this.openaiProvider = createOpenAI({ apiKey: this.getApiKey() });
     }
+    return this.openaiProvider;
+  }
 
+  getEmbeddingModel(model: string) {
+    return this.getOpenAi().embedding(model);
+  }
 
-    isModelSupported(provider: AiProvider, model: string): boolean {
-        return this.supportedModels.some(
-            supportedModel => supportedModel.provider === provider && supportedModel.model === model
-        );
+  getModelAdapter(provider: AiProvider = AiProviders.openai, model: string) {
+    switch (provider) {
+      case AiProviders.openai:
+        return this.getOpenAi()(model);
+      default:
+        throw new Error(`AI provider ${provider} is not supported`);
     }
-
-    getSupportedModels(): AIModelInfo[] {
-        return [...this.supportedModels];
-    }
-
-    getModelsByProvider(provider: AiProvider): AIModelInfo[] {
-        return this.supportedModels.filter(model => model.provider === provider);
-    }
-
-    validateProviderAndModel(provider: AiProvider, model: string): void {
-        if (!this.isModelSupported(provider, model)) {
-            const availableModels = this.getModelsByProvider(provider)
-                .map(m => m.model)
-                .join(', ');
-
-            throw new Error(
-                `Model ${model} is not supported for provider ${provider}. ` +
-                `Available models for ${provider}: ${availableModels || 'none'}`
-            );
-        }
-    }
+  }
 }

@@ -1,12 +1,33 @@
+import { lazy, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Routes as RoutePaths } from "@/routes/routes";
 import ProtectedRoute from "@/routes/protected-route";
 import SignIn from "@/pages/auth/pages/sign-in";
 import SignUp from "@/pages/auth/pages/sign-up";
 import AuthLayout from "@/pages/auth/layout";
+import AppLayout from "@/pages/app/layout";
 import AdminLayout from "@/pages/admin/layout";
-import AdminHealthPage from "@/pages/admin/pages/health";
 import { RoleTypes } from "@/features/user/interfaces/user.interface";
+import { DetailSkeleton } from "@/components/ui/page-skeletons";
+
+const AdminHealthPage = lazy(() => import("@/pages/admin/pages/health"));
+const DashboardPage = lazy(() => import("@/pages/dashboard"));
+const NewCallPage = lazy(() => import("@/pages/calls/pages/new"));
+const LiveCallPage = lazy(() => import("@/pages/calls/pages/live"));
+const LibraryPage = lazy(() => import("@/pages/library"));
+const CallDetailPage = lazy(() => import("@/pages/library/pages/detail"));
+const AssistantAgentsPage = lazy(() => import("@/pages/assistant-agents"));
+const AssistantAgentEditorPage = lazy(() => import("@/pages/assistant-agents/pages/editor"));
+const PracticePage = lazy(() => import("@/pages/practice"));
+const PracticeAgentEditorPage = lazy(() => import("@/pages/practice/pages/agent-editor"));
+const PracticeStartPage = lazy(() => import("@/pages/practice/pages/start"));
+const PracticeSessionPage = lazy(() => import("@/pages/practice/pages/session"));
+const SettingsPage = lazy(() => import("@/pages/settings"));
+const UsagePage = lazy(() => import("@/pages/settings/pages/usage"));
+const PrivacyPage = lazy(() => import("@/pages/settings/pages/privacy"));
+const NotFoundPage = lazy(() => import("@/pages/not-found"));
+
+const page = (element: React.ReactNode) => <Suspense fallback={<DetailSkeleton />}>{element}</Suspense>;
 
 export default function AppRoutes() {
   return (
@@ -21,7 +42,32 @@ export default function AppRoutes() {
       >
         <Route path="sign-up" element={<SignUp />} />
         <Route path="sign-in" element={<SignIn />} />
-        <Route index element={<Navigate to="/auth/sign-in" replace />} />
+        <Route index element={<Navigate to={RoutePaths.auth.sign_in} replace />} />
+      </Route>
+
+      <Route
+        element={
+          <ProtectedRoute loggedIn={true}>
+            <AppLayout />
+          </ProtectedRoute>
+        }
+      >
+        <Route path={RoutePaths.dashboard} element={page(<DashboardPage />)} />
+        <Route path={RoutePaths.calls.new} element={page(<NewCallPage />)} />
+        <Route path={RoutePaths.calls.live_pattern} element={page(<LiveCallPage />)} />
+        <Route path={RoutePaths.library.root} element={page(<LibraryPage />)} />
+        <Route path={RoutePaths.library.detail_pattern} element={page(<CallDetailPage />)} />
+        <Route path={RoutePaths.assistant_agents.root} element={page(<AssistantAgentsPage />)} />
+        <Route path={RoutePaths.assistant_agents.new} element={page(<AssistantAgentEditorPage />)} />
+        <Route path={RoutePaths.assistant_agents.detail_pattern} element={page(<AssistantAgentEditorPage />)} />
+        <Route path={RoutePaths.practice.root} element={page(<PracticePage />)} />
+        <Route path={RoutePaths.practice.agents_new} element={page(<PracticeAgentEditorPage />)} />
+        <Route path={RoutePaths.practice.agent_pattern} element={page(<PracticeAgentEditorPage />)} />
+        <Route path={RoutePaths.practice.start_pattern} element={page(<PracticeStartPage />)} />
+        <Route path={RoutePaths.practice.session_pattern} element={page(<PracticeSessionPage />)} />
+        <Route path={RoutePaths.settings.root} element={page(<SettingsPage />)} />
+        <Route path={RoutePaths.settings.usage} element={page(<UsagePage />)} />
+        <Route path={RoutePaths.settings.privacy} element={page(<PrivacyPage />)} />
       </Route>
 
       <Route
@@ -32,13 +78,12 @@ export default function AppRoutes() {
           </ProtectedRoute>
         }
       >
-        <Route path="health" element={<AdminHealthPage />} />
+        <Route path="health" element={page(<AdminHealthPage />)} />
         <Route index element={<Navigate to={RoutePaths.admin.health} replace />} />
       </Route>
 
-      <Route path="/" element={<Navigate to="/auth/sign-in" replace />} />
-
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path={RoutePaths.root} element={<Navigate to={RoutePaths.dashboard} replace />} />
+      <Route path="*" element={page(<NotFoundPage />)} />
     </Routes>
   );
 }

@@ -14,7 +14,8 @@ export const SignInSchema = z.object({
 
 export const SignUpSchema = z
     .object({
-        email: z.string().min(1, { message: "Please enter your email" }),
+        full_name: z.string().min(1, { message: "Please enter your name" }).max(120),
+        email: z.string().min(1, { message: "Please enter your email" }).email({ message: "Please enter a valid email" }),
         password: z
             .string()
             .min(1, {

@@ -1,0 +1,145 @@
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Archive, ArchiveRestore, Copy, Headphones, MoreVertical, Pencil, PhoneCall, Star, Trash2, TrendingDown, TrendingUp } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ScoreBadge } from "@/components/ui/score-badge";
+import ConfirmationDialog from "@/components/ui/confirmation-dialog";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
+import { formatRelative } from "@/lib/date";
+import type { AssistantAgent } from "@/features/assistant-agents/interfaces/assistant-agents.interfaces";
+import {
+  useArchiveAssistantAgent,
+  useDeleteAssistantAgent,
+  useDuplicateAssistantAgent,
+  useSetDefaultAssistantAgent,
+} from "@/features/assistant-agents/hooks/use-assistant-agents";
+import { getMethodologyLabel } from "@/config/constants/dropdowns/agents/methodology-form.options";
+import { getSuggestionFrequencyLabel } from "@/config/constants/dropdowns/agents/suggestion-frequency-form.options";
+import { Routes } from "@/routes/routes";
+
+export function AssistantAgentCard({ agent }: { agent: AssistantAgent }) {
+  const navigate = useNavigate();
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const duplicate = useDuplicateAssistantAgent();
+  const setDefault = useSetDefaultAssistantAgent();
+  const archive = useArchiveAssistantAgent();
+  const remove = useDeleteAssistantAgent();
+  const stats = agent.stats;
+  const archived = !!agent.archived_at;
+
+  return (
+    <Card className={cn("flex flex-col p-5", archived && "opacity-70")}>
+      <div className="flex items-start gap-3">
+        <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-sm font-semibold text-primary">{agent.name.slice(0, 2).toUpperCase()}</span>
+        <div className="min-w-0 flex-1">
+          <Link to={Routes.assistant_agents.detail(agent.id)} className="line-clamp-1 font-semibold hover:underline">
+            {agent.name}
+          </Link>
+          <div className="mt-1 flex flex-wrap gap-1">
+            {agent.is_default && (
+              <Badge className="gap-1">
+                <Star className="size-3" /> Default
+              </Badge>
+            )}
+            {archived && <Badge variant="secondary">Archived</Badge>}
+            {agent.methodology && agent.methodology !== "CUSTOM" && <Badge variant="outline">{getMethodologyLabel(agent.methodology)}</Badge>}
+            <Badge variant="outline" className="uppercase">
+              {agent.language}
+            </Badge>
+          </div>
+        </div>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" size="icon" className="-mr-2 -mt-1 shrink-0" aria-label={`Actions for ${agent.name}`}>
+              <MoreVertical />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem onClick={() => navigate(Routes.assistant_agents.detail(agent.id))}>
+              <Pencil /> Edit
+            </DropdownMenuItem>
+            {!agent.is_default && !archived && (
+              <DropdownMenuItem onClick={() => setDefault.mutate(agent.id)}>
+                <Star /> Make default
+              </DropdownMenuItem>
+            )}
+            <DropdownMenuItem onClick={() => duplicate.mutate(agent.id)}>
+              <Copy /> Duplicate
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => archive.mutate({ id: agent.id, archived: !archived })}>
+              {archived ? <ArchiveRestore /> : <Archive />} {archived ? "Restore" : "Archive"}
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem className="text-destructive focus:text-destructive" onClick={() => setConfirmDelete(true)}>
+              <Trash2 /> Delete
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+
+      <p className="mt-3 line-clamp-2 min-h-10 text-sm text-muted-foreground">{agent.description || agent.call_goal || "No description"}</p>
+      {agent.call_goal && (
+        <p className="mt-2 line-clamp-1 text-xs">
+          <span className="text-muted-foreground">Goal:</span> {agent.call_goal}
+        </p>
+      )}
+
+      <div className="mt-4 grid grid-cols-3 gap-2 rounded-lg bg-muted/50 p-3 text-center">
+        <div>
+          <p className="text-lg font-semibold tabular-nums">{stats?.calls_count ?? 0}</p>
+          <p className="text-[11px] text-muted-foreground">Calls</p>
+        </div>
+        <div className="flex flex-col items-center">
+          <ScoreBadge score={stats?.average_score} className="mt-0.5" />
+          <p className="mt-1 text-[11px] text-muted-foreground">Avg score</p>
+        </div>
+        <div>
+          <p className={cn("flex items-center justify-center gap-0.5 text-lg font-semibold tabular-nums", (stats?.trend ?? 0) > 0 && "text-emerald-600", (stats?.trend ?? 0) < 0 && "text-red-600")}>
+            {stats?.trend != null ? (
+              <>
+                {stats.trend > 0 ? <TrendingUp className="size-4" /> : stats.trend < 0 ? <TrendingDown className="size-4" /> : null}
+                {stats.trend > 0 ? `+${stats.trend}` : stats.trend}
+              </>
+            ) : (
+              "–"
+            )}
+          </p>
+          <p className="text-[11px] text-muted-foreground">Trend</p>
+        </div>
+      </div>
+
+      <p className="mt-3 text-xs text-muted-foreground">
+        {getSuggestionFrequencyLabel(agent.suggestion_frequency)} · {stats?.last_used_at ? `used ${formatRelative(stats.last_used_at)}` : "never used"}
+      </p>
+
+      {!archived && (
+        <div className="mt-4 flex gap-2">
+          <Button asChild size="sm" className="flex-1">
+            <Link to={`${Routes.calls.new}?agent=${agent.id}`}>
+              <PhoneCall /> Use on a call
+            </Link>
+          </Button>
+          <Button asChild size="sm" variant="outline" className="flex-1">
+            <Link to={`${Routes.practice.root}?copilot=${agent.id}`}>
+              <Headphones /> Practice
+            </Link>
+          </Button>
+        </div>
+      )}
+
+      <ConfirmationDialog
+        isOpen={confirmDelete}
+        onClose={() => setConfirmDelete(false)}
+        onConfirm={() => remove.mutate(agent.id, { onSuccess: () => setConfirmDelete(false) })}
+        title={`Delete ${agent.name}?`}
+        description="The co-pilot is permanently deleted. Past calls keep their transcripts and analyses."
+        confirmText="Delete"
+        variant="destructive"
+        isLoading={remove.isPending}
+      />
+    </Card>
+  );
+}

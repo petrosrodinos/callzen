@@ -1,14 +1,32 @@
+export const OutputLanguageModes = {
+    CONVERSATION: "CONVERSATION",
+    INTERFACE: "INTERFACE",
+} as const;
+export type OutputLanguageMode = (typeof OutputLanguageModes)[keyof typeof OutputLanguageModes];
 
 export interface User {
     id: string;
-    uuid: string;
     email: string;
+    full_name: string | null;
     role: RoleType;
+    interface_language: string;
+    output_language_mode: OutputLanguageMode;
+    consent_line: string | null;
+    keep_recordings: boolean;
+    consent_acknowledged_at: string | null;
+    default_consent_line: string;
     created_at: string;
     updated_at: string;
 }
 
-
+export interface UpdateUserDto {
+    full_name?: string;
+    interface_language?: string;
+    output_language_mode?: OutputLanguageMode;
+    consent_line?: string;
+    keep_recordings?: boolean;
+    consent_acknowledged?: boolean;
+}
 
 export interface LoggedInUser {
     user_uuid: string | null;
@@ -20,8 +38,6 @@ export interface LoggedInUser {
     full_name?: string | null;
     isLoggedIn?: boolean | null;
 }
-
-
 
 export const RoleTypes = {
     USER: "USER",

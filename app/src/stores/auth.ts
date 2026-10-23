@@ -1,5 +1,6 @@
 import type { LoggedInUser } from "@/features/user/interfaces/user.interface";
 import { create } from "zustand";
+import { Routes } from "@/routes/routes";
 import { devtools, persist } from "zustand/middleware";
 
 interface UserStore extends LoggedInUser {
@@ -38,7 +39,7 @@ export const useAuthStore = create<UserStore>()(
                 logout: () => {
                     set(initialValues);
                     localStorage.removeItem(STORE_KEY);
-                    window.location.href = "/auth/sign-in";
+                    window.location.href = Routes.auth.sign_in;
                 },
                 updateUser: async (user: Partial<LoggedInUser>) => {
                     set((state) => ({ ...state, ...user }));

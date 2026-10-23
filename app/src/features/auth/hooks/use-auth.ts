@@ -50,11 +50,11 @@ export function useSignup() {
                 isLoggedIn: true,
             });
             toast({
-                title: "Register successful",
-                description: "You have successfully registered in",
+                title: "Welcome to CallZen",
+                description: "Your account is ready.",
                 duration: 2000,
             });
-            navigate("/dashboard");
+            navigate(Routes.dashboard);
         },
         onError: (error) => {
             toast({

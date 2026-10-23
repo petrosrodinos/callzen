@@ -1,19 +1,16 @@
-import { BadgeCheck, ChevronsUpDown, CreditCard, LogOut } from "lucide-react";
+import { ChartNoAxesCombined, ChevronsUpDown, LogOut, Settings, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
 import { useAuthStore } from "@/stores/auth";
-import { useMemo } from "react";
-import { generateInitials } from "@/features/auth/utils/auth.utils";
+import { initials } from "@/lib/format";
+import { Routes } from "@/routes/routes";
 
 export function NavUser() {
-  const { full_name, avatar, email, logout } = useAuthStore();
-  const { isMobile } = useSidebar();
-
-  const initials = useMemo(() => {
-    return generateInitials(full_name || "");
-  }, [full_name]);
+  const { full_name, email, logout } = useAuthStore();
+  const { isMobile, setOpenMobile } = useSidebar();
+  const userInitials = initials(full_name || email);
 
   return (
     <SidebarMenu>
@@ -22,8 +19,7 @@ export function NavUser() {
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton size="lg" className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground">
               <Avatar className="h-8 w-8 rounded-lg">
-                <AvatarImage src={avatar || ""} alt={full_name || ""} />
-                <AvatarFallback>{initials}</AvatarFallback>
+                <AvatarFallback className="rounded-lg bg-primary/10 text-primary">{userInitials}</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-semibold">{full_name}</span>
@@ -36,8 +32,7 @@ export function NavUser() {
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage src={avatar || ""} alt={full_name || ""} />
-                  <AvatarFallback>{initials}</AvatarFallback>
+                  <AvatarFallback className="rounded-lg bg-primary/10 text-primary">{userInitials}</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">{full_name}</span>
@@ -46,18 +41,23 @@ export function NavUser() {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
+            <DropdownMenuGroup onClick={() => setOpenMobile(false)}>
               <DropdownMenuItem asChild>
-                <Link to="/console/account/profile">
-                  <BadgeCheck />
-                  Account
+                <Link to={Routes.settings.root}>
+                  <Settings />
+                  Settings
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/console/billing/subscription">
-                  <CreditCard />
-                  Billing
+                <Link to={Routes.settings.usage}>
+                  <ChartNoAxesCombined />
+                  Usage & costs
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to={Routes.settings.privacy}>
+                  <ShieldCheck />
+                  Privacy & data
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>

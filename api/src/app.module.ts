@@ -9,6 +9,13 @@ import { RedisCacheModule } from './modules/internal/redis-cache/redis-cache.mod
 import { AuthModule } from './modules/auth/auth.module';
 import { HealthModule } from './modules/health/health.module';
 import { ConfigModule } from './shared/config/env/env.module';
+import { UsersModule } from './modules/users/users.module';
+import { CatalogModule } from './modules/catalog/catalog.module';
+import { UsageModule } from './modules/usage/usage.module';
+import { AssistantAgentsModule } from './modules/assistant-agents/assistant-agents.module';
+import { PracticeAgentsModule } from './modules/practice-agents/practice-agents.module';
+import { CallsModule } from './modules/calls/calls.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 @Module({
   imports: [
@@ -21,6 +28,13 @@ import { ConfigModule } from './shared/config/env/env.module';
     // GraphQLModule,
     AuthModule,
     HealthModule,
+    UsersModule,
+    CatalogModule,
+    UsageModule,
+    AssistantAgentsModule,
+    PracticeAgentsModule,
+    CallsModule,
+    DashboardModule,
   ],
   controllers: [AppController],
   providers: [AppService],

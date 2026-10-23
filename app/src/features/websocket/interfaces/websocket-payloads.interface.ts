@@ -9,5 +9,19 @@ export interface SystemPayload extends BaseWebsocketPayload {
     action_required?: boolean;
 }
 
+export interface ChatMessagePayload extends BaseWebsocketPayload {
+    chat_uuid: string;
+    message: string;
+    sender_uuid?: string;
+}
+
+export interface ChatTypingPayload extends BaseWebsocketPayload {
+    chat_uuid: string;
+    user_uuid?: string;
+    is_typing?: boolean;
+}
+
 export type WebsocketPayload =
-    | SystemPayload;
+    | SystemPayload
+    | ChatMessagePayload
+    | ChatTypingPayload;

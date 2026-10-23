@@ -1,148 +1,190 @@
-import { Injectable, Logger } from '@nestjs/common';
-import { embed, generateObject, generateText, streamText } from 'ai';
 import {
-    AIGenerateObjectResponse,
-    AIGenerateOptions,
-    AIGenerateTextResponse,
-    AIStreamTextOptions,
-} from '../interfaces/ai.interface';
-import { AiConfig } from '../utils/ai.config';
+  Injectable,
+  Logger,
+  ServiceUnavailableException,
+} from '@nestjs/common';
+import { embed, generateObject, generateText } from 'ai';
 import { z } from 'zod';
-import { openai } from '@ai-sdk/openai';
-import { calculateAiCost } from '../utils/ai-cost';
+import { AiConfig } from '../utils/ai.config';
+import {
+  AiGenerateBaseOptions,
+  AiGenerateResult,
+  AiGenerateStructuredOptions,
+  AiProviders,
+} from '../interfaces/ai.interface';
+import {
+  estimateTokenCost,
+  findAiModel,
+} from '@/shared/config/ai-models/ai-models.config';
+
+const MODEL_UNAVAILABLE_PATTERN =
+  /model.*(not.*(found|exist|access)|does not exist|unsupported)|no such model|model_not_found|404/i;
 
 @Injectable()
 export class AiService {
+  private readonly logger = new Logger(AiService.name);
 
-    constructor(private readonly aiConfig: AiConfig) { }
+  constructor(private readonly aiConfig: AiConfig) {}
 
-    private readonly logger = new Logger(AiService.name);
+  isConfigured(): boolean {
+    return this.aiConfig.isConfigured();
+  }
 
-    async generateText(options: AIGenerateOptions): Promise<AIGenerateTextResponse> {
-        try {
+  getApiKey(): string | undefined {
+    return this.aiConfig.getApiKey();
+  }
 
-            // this.aiConfig.validateProviderAndModel(options.provider, options.model);
+  async generateStructured<T extends z.ZodType>(
+    options: AiGenerateStructuredOptions<T>,
+  ): Promise<AiGenerateResult<z.infer<T>>> {
+    this.assertConfigured();
 
-            const modelAdapter = this.aiConfig.getModelAdapter(options.provider, options.model);
+    return this.withModelFallback(options, async (model) => {
+      const result = await generateObject({
+        model: this.aiConfig.getModelAdapter(AiProviders.openai, model),
+        schema: options.schema as any,
+        schemaName: options.schemaName,
+        system: options.system,
+        prompt: options.prompt,
+        temperature: this.temperatureFor(model, options.temperature),
+        maxOutputTokens: options.maxTokens,
+        providerOptions: this.providerOptionsFor(model),
+        abortSignal: options.timeoutMs
+          ? AbortSignal.timeout(options.timeoutMs)
+          : undefined,
+        maxRetries: 1,
+      });
 
-            const { text, usage } = await generateText({
-                prompt: options.prompt,
-                model: modelAdapter,
-                system: options?.system || 'You are a helpful assistant.',
-                temperature: options.temperature,
-                maxOutputTokens: options.maxTokens,
-                topP: options.topP,
-                frequencyPenalty: options.frequencyPenalty,
-                presencePenalty: options.presencePenalty,
-            });
+      return {
+        output: result.object as z.infer<T>,
+        inputTokens: result.usage?.inputTokens ?? 0,
+        outputTokens: result.usage?.outputTokens ?? 0,
+      };
+    });
+  }
 
-            const cost = calculateAiCost({
-                provider: options.provider,
-                model: options.model,
-                inputTokens: usage.inputTokens,
-                outputTokens: usage.outputTokens,
-            });
+  async generatePlainText(
+    options: AiGenerateBaseOptions,
+  ): Promise<AiGenerateResult<string>> {
+    this.assertConfigured();
 
-            return {
-                response: text,
-                usage: cost,
-            };
-        } catch (error) {
-            this.logger.error(`Error generating text: ${error.message}`);
-            throw new Error(`Failed to generate text: ${error.message}`);
-        }
+    return this.withModelFallback(options, async (model) => {
+      const result = await generateText({
+        model: this.aiConfig.getModelAdapter(AiProviders.openai, model),
+        system: options.system,
+        prompt: options.prompt,
+        temperature: this.temperatureFor(model, options.temperature),
+        maxOutputTokens: options.maxTokens,
+        providerOptions: this.providerOptionsFor(model),
+        abortSignal: options.timeoutMs
+          ? AbortSignal.timeout(options.timeoutMs)
+          : undefined,
+        maxRetries: 1,
+      });
+
+      return {
+        output: result.text,
+        inputTokens: result.usage?.inputTokens ?? 0,
+        outputTokens: result.usage?.outputTokens ?? 0,
+      };
+    });
+  }
+
+  async embedText(text: string): Promise<number[]> {
+    this.assertConfigured();
+    const { embedding } = await embed({
+      model: this.aiConfig.getEmbeddingModel('text-embedding-3-small'),
+      value: text,
+    });
+    return embedding;
+  }
+
+  private async withModelFallback<T>(
+    options: AiGenerateBaseOptions,
+    run: (
+      model: string,
+    ) => Promise<{ output: T; inputTokens: number; outputTokens: number }>,
+  ): Promise<AiGenerateResult<T>> {
+    const startedAt = Date.now();
+    const requestedModel = findAiModel(options.model)
+      ? options.model
+      : (options.fallbackModel ?? options.model);
+    let fallbackUsed = requestedModel !== options.model;
+
+    try {
+      const result = await run(requestedModel);
+      return this.toResult(result, requestedModel, fallbackUsed, startedAt);
+    } catch (error) {
+      const canFallback =
+        options.fallbackModel &&
+        options.fallbackModel !== requestedModel &&
+        MODEL_UNAVAILABLE_PATTERN.test(String(error?.message ?? ''));
+
+      if (!canFallback) {
+        this.logger.error(
+          `AI call failed on ${requestedModel}: ${error?.message}`,
+        );
+        throw error;
+      }
+
+      this.logger.warn(
+        `Model ${requestedModel} unavailable, falling back to ${options.fallbackModel}`,
+      );
+      fallbackUsed = true;
+      const result = await run(options.fallbackModel);
+      return this.toResult(
+        result,
+        options.fallbackModel,
+        fallbackUsed,
+        startedAt,
+      );
     }
+  }
 
+  private toResult<T>(
+    result: { output: T; inputTokens: number; outputTokens: number },
+    model: string,
+    fallbackUsed: boolean,
+    startedAt: number,
+  ): AiGenerateResult<T> {
+    return {
+      output: result.output,
+      model,
+      fallbackUsed,
+      latencyMs: Date.now() - startedAt,
+      usage: {
+        inputTokens: result.inputTokens,
+        outputTokens: result.outputTokens,
+        costUsd: estimateTokenCost(
+          model,
+          result.inputTokens,
+          result.outputTokens,
+        ),
+      },
+    };
+  }
 
-    async generateTextWithSchema(options: AIGenerateOptions): Promise<AIGenerateObjectResponse> {
-        const maxRetries = 3;
-        let lastError: Error;
+  private temperatureFor(
+    model: string,
+    temperature?: number,
+  ): number | undefined {
+    // Reasoning models reject custom temperatures.
+    return findAiModel(model)?.is_reasoning ? undefined : temperature;
+  }
 
-        for (let attempt = 1; attempt <= maxRetries; attempt++) {
-            try {
-                const modelAdapter = this.aiConfig.getModelAdapter(options.provider, options.model);
-
-                const { object, usage } = await generateObject({
-                    model: modelAdapter,
-                    output: 'array',
-                    schema: options?.schema || z.any(),
-                    prompt: options.prompt,
-                    system: options?.system || 'You are a helpful assistant.',
-                });
-
-                const cost = calculateAiCost({
-                    provider: options.provider,
-                    model: options.model,
-                    inputTokens: usage.inputTokens,
-                    outputTokens: usage.outputTokens,
-                });
-
-                return {
-                    response: object,
-                    usage: cost,
-                };
-
-            } catch (error) {
-                lastError = error;
-
-                if (attempt < maxRetries) {
-                    this.logger.warn(`Schema validation error on attempt ${attempt}, retrying... Error: ${error.message}`);
-                    continue;
-                }
-
-                this.logger.error(`Error generating text on attempt ${attempt}: ${error.message}`);
-                throw new Error(`Failed to generate text: ${error.message}`);
-            }
-        }
-
-        throw lastError || new Error('Failed to generate text after all retry attempts');
+  private providerOptionsFor(model: string) {
+    if (findAiModel(model)?.is_reasoning) {
+      return { openai: { reasoningEffort: 'low' } };
     }
+    return undefined;
+  }
 
-    async streamText(options: AIStreamTextOptions): Promise<void> {
-        try {
-
-            this.aiConfig.validateProviderAndModel(options.provider, options.model);
-
-            const modelAdapter = this.aiConfig.getModelAdapter(options.provider, options.model);
-
-            const stream = await streamText({
-                model: modelAdapter,
-                system: options.system,
-                prompt: options.prompt,
-                temperature: options.temperature,
-                maxOutputTokens: options.maxTokens,
-                topP: options.topP,
-                frequencyPenalty: options.frequencyPenalty,
-                presencePenalty: options.presencePenalty,
-            });
-
-            let fullText = '';
-
-            for await (const chunk of stream.textStream) {
-                if (options.onToken) {
-                    options.onToken(chunk);
-                }
-                fullText += chunk;
-            }
-
-            if (options.onComplete) {
-                options.onComplete(fullText);
-            }
-
-        } catch (error) {
-            this.logger.error(`Error streaming text: ${error.message}`, error.stack);
-            throw new Error(`Failed to stream text: ${error.message}`);
-        }
+  private assertConfigured() {
+    if (!this.aiConfig.isConfigured()) {
+      throw new ServiceUnavailableException({
+        message: 'AI is not configured. Set OPENAI_API_KEY on the server.',
+        code: 'AI_NOT_CONFIGURED',
+      });
     }
-
-    async embedText(text: string): Promise<number[]> {
-        const embeddingModel = openai.embedding('text-embedding-3-small');
-        const { embedding } = await embed({
-            model: embeddingModel,
-            value: text,
-        });
-        return embedding;
-    }
-
-
+  }
 }

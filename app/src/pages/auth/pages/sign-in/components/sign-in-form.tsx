@@ -39,7 +39,7 @@ export function SignInForm({ className, ...props }: UserAuthFormProps) {
                 <FormItem className="space-y-1">
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="username" {...field} />
+                    <Input placeholder="name@example.com" type="email" autoComplete="email" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -54,14 +54,14 @@ export function SignInForm({ className, ...props }: UserAuthFormProps) {
                     <FormLabel>Password</FormLabel>
                   </div>
                   <FormControl>
-                    <Input placeholder="********" {...field} type="password" />
+                    <Input placeholder="••••••••" {...field} type="password" autoComplete="current-password" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button className="mt-2" disabled={isPending} loading={isPending}>
-              Login
+            <Button className="mt-2 w-full" disabled={isPending} loading={isPending}>
+              Sign in
             </Button>
           </div>
         </form>

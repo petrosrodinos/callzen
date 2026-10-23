@@ -21,4 +21,50 @@ export const ApiRoutes = {
     google_maps: {
         timezone: "/google-maps/timezone",
     },
-}
+    catalog: {
+        prefix: "/catalog",
+    },
+    usage: {
+        summary: "/usage/summary",
+    },
+    dashboard: {
+        overview: "/dashboard/overview",
+    },
+    assistant_agents: {
+        prefix: "/assistant-agents",
+        detail: (id: string) => `/assistant-agents/${id}`,
+        duplicate: (id: string) => `/assistant-agents/${id}/duplicate`,
+        set_default: (id: string) => `/assistant-agents/${id}/default`,
+        archive: (id: string) => `/assistant-agents/${id}/archive`,
+        unarchive: (id: string) => `/assistant-agents/${id}/unarchive`,
+    },
+    practice_agents: {
+        prefix: "/practice-agents",
+        generate: "/practice-agents/generate",
+        randomize: "/practice-agents/randomize",
+        from_call: (callId: string) => `/practice-agents/from-call/${callId}`,
+        detail: (id: string) => `/practice-agents/${id}`,
+        duplicate: (id: string) => `/practice-agents/${id}/duplicate`,
+        harder: (id: string) => `/practice-agents/${id}/harder`,
+        archive: (id: string) => `/practice-agents/${id}/archive`,
+        unarchive: (id: string) => `/practice-agents/${id}/unarchive`,
+    },
+    calls: {
+        prefix: "/calls",
+        practice: "/calls/practice",
+        detail: (id: string) => `/calls/${id}`,
+        end: (id: string) => `/calls/${id}/end`,
+        segments: (id: string) => `/calls/${id}/segments`,
+        segment: (id: string, segmentId: string) => `/calls/${id}/segments/${segmentId}`,
+        transcript: (id: string) => `/calls/${id}/transcript`,
+        generate_suggestion: (id: string) => `/calls/${id}/suggestions/generate`,
+        suggestion: (id: string, suggestionId: string) => `/calls/${id}/suggestions/${suggestionId}`,
+        ask: (id: string) => `/calls/${id}/ask`,
+        bookmarks: (id: string) => `/calls/${id}/bookmarks`,
+        bookmark: (id: string, bookmarkId: string) => `/calls/${id}/bookmarks/${bookmarkId}`,
+        recording: (id: string) => `/calls/${id}/recording`,
+        analysis: (id: string) => `/calls/${id}/analysis`,
+        realtime_session: (id: string) => `/calls/${id}/realtime-session`,
+        practice_turn: (id: string) => `/calls/${id}/practice-turn`,
+    },
+};

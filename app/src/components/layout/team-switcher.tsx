@@ -1,8 +1,6 @@
-import * as React from "react";
-import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
-import logo from "../../assets/favicon.ico";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
+import { Routes } from "@/routes/routes";
 
 export function TeamSwitcher({
   teams,
@@ -10,31 +8,27 @@ export function TeamSwitcher({
   teams: {
     name: string;
     logo: React.ElementType;
+    plan: string;
   }[];
 }) {
-  const [activeTeam] = React.useState(teams[0]);
-  const navigate = useNavigate();
+  const activeTeam = teams[0];
+  const { setOpenMobile } = useSidebar();
+  const Logo = activeTeam.logo;
+
   return (
     <SidebarMenu>
       <SidebarMenuItem>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <SidebarMenuButton
-              onClick={() => {
-                navigate("/");
-              }}
-              size="lg"
-              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-            >
-              <div className="flex aspect-square items-center justify-center text-sidebar-primary-foreground">
-                <img src={logo} width={32} height={32} alt="logo" />
-              </div>
-              <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-semibold">{activeTeam.name}</span>
-              </div>
-            </SidebarMenuButton>
-          </DropdownMenuTrigger>
-        </DropdownMenu>
+        <SidebarMenuButton asChild size="lg" className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground">
+          <Link to={Routes.dashboard} onClick={() => setOpenMobile(false)}>
+            <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+              <Logo className="size-4" />
+            </div>
+            <div className="grid flex-1 text-left text-sm leading-tight">
+              <span className="truncate font-semibold">{activeTeam.name}</span>
+              <span className="truncate text-xs text-muted-foreground">{activeTeam.plan}</span>
+            </div>
+          </Link>
+        </SidebarMenuButton>
       </SidebarMenuItem>
     </SidebarMenu>
   );

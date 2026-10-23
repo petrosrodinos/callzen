@@ -3,6 +3,7 @@ import axiosInstance from "@/config/api/axios";
 import type { SignInUser, SignUpUser } from "../interfaces/auth.interface";
 import { ApiRoutes } from "@/config/api/routes";
 import type { LoggedInUser } from "@/features/user/interfaces/user.interface";
+import { getApiErrorMessage } from "@/lib/api-error";
 
 export const signIn = async (
     { email, password }: SignInUser,
@@ -17,21 +18,22 @@ export const signIn = async (
         return formatAuthUser(auth_response);
 
     } catch (error) {
-        throw new Error("Failed to sign in. Please try again.", { cause: error });
+        throw new Error(getApiErrorMessage(error, "Failed to sign in. Please try again."), { cause: error });
     }
 };
 
-export const signUp = async ({ email, password }: SignUpUser): Promise<LoggedInUser> => {
+export const signUp = async ({ email, password, full_name }: SignUpUser): Promise<LoggedInUser> => {
     try {
         const response = await axiosInstance.post(ApiRoutes.auth.email.register, {
             email,
             password,
+            full_name,
         });
 
         const auth_response = response.data;
         return formatAuthUser(auth_response);
     } catch (error) {
-        throw new Error("Failed to sign up. Please try again.", { cause: error });
+        throw new Error(getApiErrorMessage(error, "Failed to sign up. Please try again."), { cause: error });
     }
 };
 
