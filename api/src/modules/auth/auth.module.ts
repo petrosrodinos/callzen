@@ -9,12 +9,8 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 import { ResendModule } from '@/integrations/notifications/resend/resend.module';
 
 @Module({
-  imports: [
-    PrismaModule,
-    CreateJwtServiceModule,
-    ResendModule,
-  ],
+  imports: [PrismaModule, CreateJwtServiceModule, ResendModule],
   providers: [EmailAuthService, PasswordService, JwtStrategy, Logger],
   controllers: [EmailAuthController, PasswordController],
 })
-export class AuthModule { }
+export class AuthModule {}

@@ -1,13 +1,21 @@
 import { useCallback, useMemo, useRef, useState, type FC } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { FileQuestion } from "lucide-react";
+import { useIsMutating } from "@tanstack/react-query";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { EmptyState } from "@/components/ui/empty-state";
 import { DetailSkeleton } from "@/components/ui/page-skeletons";
-import { useCall, useUpdateSegmentSpeaker } from "@/features/calls/hooks/use-calls";
-import { CallKinds, Speakers, type TranscriptSegment } from "@/features/calls/interfaces/calls.interfaces";
+import {
+  useCall,
+  useUpdateSegmentSpeaker,
+} from "@/features/calls/hooks/use-calls";
+import {
+  CallKinds,
+  Speakers,
+  type TranscriptSegment,
+} from "@/features/calls/interfaces/calls.interfaces";
 import { usePageMetadata } from "@/hooks/use-page-metadata";
 import { formatDate } from "@/lib/date";
 import { Routes } from "@/routes/routes";
@@ -31,6 +39,15 @@ import { buildTimelineMarkers, callDurationMs } from "./utils/timeline.utils";
 const CallDetailPage: FC = () => {
   const { callId } = useParams<{ callId: string }>();
   const { data: call, isPending, isError } = useCall(callId);
+  const justEnded = !!(useLocation().state as { justEnded?: boolean } | null)
+    ?.justEnded;
+  const uploadingRecording =
+    useIsMutating({
+      mutationKey: ["upload-recording"],
+      predicate: (mutation) =>
+        (mutation.state.variables as { id?: string } | undefined)?.id ===
+        callId,
+    }) > 0;
   const updateSpeaker = useUpdateSegmentSpeaker();
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [currentMs, setCurrentMs] = useState(0);
@@ -39,7 +56,10 @@ const CallDetailPage: FC = () => {
 
   usePageMetadata({ title: call?.title ?? "Call" });
 
-  const markers = useMemo(() => (call ? buildTimelineMarkers(call) : []), [call]);
+  const markers = useMemo(
+    () => (call ? buildTimelineMarkers(call) : []),
+    [call],
+  );
   const durationMs = useMemo(() => (call ? callDurationMs(call) : 1), [call]);
 
   const seek = useCallback((ms: number) => {
@@ -71,40 +91,90 @@ const CallDetailPage: FC = () => {
   const analysis = call.analysis;
   const isPractice = call.kind === CallKinds.PRACTICE;
   const flipSpeaker = (segment: TranscriptSegment) =>
-    updateSpeaker.mutate({ id: call.id, segmentId: segment.id, speaker: segment.speaker === Speakers.USER ? Speakers.PROSPECT : Speakers.USER });
+    updateSpeaker.mutate({
+      id: call.id,
+      segmentId: segment.id,
+      speaker:
+        segment.speaker === Speakers.USER ? Speakers.PROSPECT : Speakers.USER,
+    });
 
   return (
     <div className="space-y-5">
       <CallDetailHeader call={call} onRerun={() => setRerunOpen(true)} />
       <AnalysisStatus call={call} onRetry={() => setRerunOpen(true)} />
 
-      <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
+      <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
         <Card className="order-1 h-fit space-y-4 p-4 lg:order-2 lg:sticky lg:top-20">
           <h2 className="font-semibold">Recording & transcript</h2>
-          <RecordingPlayer callId={call.id} hasRecording={call.has_recording} audioRef={audioRef} onTimeUpdate={setCurrentMs} fileName={`callzen-${(call.title ?? "call").replace(/[^a-z0-9]+/gi, "-").toLowerCase()}-${formatDate(call.started_at)}.webm`} />
-          {(markers.length > 0 || call.has_recording) && <CallTimeline markers={markers} durationMs={durationMs} currentMs={currentMs} onSeek={seek} />}
-          <SyncedTranscript segments={call.segments} markers={markers} currentMs={currentMs} focusMs={focusMs} prospectLabel={call.prospect_name ?? undefined} onSeek={seek} onFlipSpeaker={flipSpeaker} />
+          <RecordingPlayer
+            callId={call.id}
+            hasRecording={call.has_recording}
+            audioRef={audioRef}
+            onTimeUpdate={setCurrentMs}
+            uploading={
+              uploadingRecording ||
+              (justEnded && call.keep_recording && !call.has_recording)
+            }
+            fileName={`callzen-${(call.title ?? "call").replace(/[^a-z0-9]+/gi, "-").toLowerCase()}-${formatDate(call.started_at)}.webm`}
+          />
+          {(markers.length > 0 || call.has_recording) && (
+            <CallTimeline
+              markers={markers}
+              durationMs={durationMs}
+              currentMs={currentMs}
+              onSeek={seek}
+            />
+          )}
+          <SyncedTranscript
+            segments={call.segments}
+            markers={markers}
+            currentMs={currentMs}
+            focusMs={focusMs}
+            prospectLabel={call.prospect_name ?? undefined}
+            onSeek={seek}
+            onFlipSpeaker={flipSpeaker}
+          />
         </Card>
 
         <div className="order-2 min-w-0 space-y-5 lg:order-1">
           {analysis && (
-            <Tabs defaultValue={isPractice && analysis.practice_result ? "reveal" : "overview"}>
+            <Tabs
+              defaultValue={
+                isPractice && analysis.practice_result ? "reveal" : "overview"
+              }
+            >
               <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
                 <TabsList className="w-max">
-                  {isPractice && analysis.practice_result && <TabsTrigger value="reveal">Result & reveal</TabsTrigger>}
+                  {isPractice && analysis.practice_result && (
+                    <TabsTrigger value="reveal">Result & reveal</TabsTrigger>
+                  )}
                   <TabsTrigger value="overview">Overview</TabsTrigger>
-                  <TabsTrigger value="moments">Mistakes & strengths</TabsTrigger>
+                  <TabsTrigger value="moments">
+                    Mistakes & strengths
+                  </TabsTrigger>
                   <TabsTrigger value="metrics">Metrics</TabsTrigger>
                   <TabsTrigger value="insights">Prospect</TabsTrigger>
-                  {analysis.suggestion_usage && <TabsTrigger value="copilot">Co-pilot</TabsTrigger>}
-                  {!isPractice && <TabsTrigger value="follow-up">Follow-up</TabsTrigger>}
+                  {analysis.suggestion_usage && (
+                    <TabsTrigger value="copilot">Co-pilot</TabsTrigger>
+                  )}
+                  {!isPractice && (
+                    <TabsTrigger value="follow-up">Follow-up</TabsTrigger>
+                  )}
                 </TabsList>
               </div>
-              {analysis.error && <p className="mt-3 rounded-md bg-amber-500/10 px-3 py-2 text-xs text-amber-800 dark:text-amber-200">{analysis.error}</p>}
+              {analysis.error && (
+                <p className="mt-3 rounded-md bg-amber-500/10 px-3 py-2 text-xs text-amber-800 dark:text-amber-200">
+                  {analysis.error}
+                </p>
+              )}
               <div className="mt-4">
                 {analysis.practice_result && (
                   <TabsContent value="reveal">
-                    <PracticeReveal result={analysis.practice_result} objective={call.goal} onJump={seek} />
+                    <PracticeReveal
+                      result={analysis.practice_result}
+                      objective={call.goal}
+                      onJump={seek}
+                    />
                   </TabsContent>
                 )}
                 <TabsContent value="overview">
@@ -121,24 +191,48 @@ const CallDetailPage: FC = () => {
                 </TabsContent>
                 {analysis.suggestion_usage && (
                   <TabsContent value="copilot">
-                    <CopilotUsage usage={analysis.suggestion_usage} assistantAgentId={call.assistant_agent_id} />
+                    <CopilotUsage
+                      usage={analysis.suggestion_usage}
+                      assistantAgentId={call.assistant_agent_id}
+                    />
                   </TabsContent>
                 )}
                 {!isPractice && (
                   <TabsContent value="follow-up">
-                    <FollowUpCard draft={analysis.follow_up_draft} prospectEmailSubject={`Following up${call.prospect_company ? ` – ${call.prospect_company}` : ""}`} />
+                    <FollowUpCard
+                      draft={analysis.follow_up_draft}
+                      prospectEmailSubject={`Following up${call.prospect_company ? ` – ${call.prospect_company}` : ""}`}
+                    />
                   </TabsContent>
                 )}
               </div>
             </Tabs>
           )}
 
-          {analysis && <SuggestedPracticeCard items={analysis.suggested_practice} assistantAgentId={call.assistant_agent_id} />}
-          <NotesCard key={call.user_notes ?? ""} callId={call.id} notes={call.user_notes} />
+          {analysis && (
+            <SuggestedPracticeCard
+              items={analysis.suggested_practice}
+              assistantAgentId={call.assistant_agent_id}
+            />
+          )}
+          <NotesCard
+            key={call.user_notes ?? ""}
+            callId={call.id}
+            notes={call.user_notes}
+          />
         </div>
       </div>
 
-      <RerunAnalysisDialog key={rerunOpen ? "open" : "closed"} callId={call.id} currentModel={analysis?.model ?? call.agent_snapshot?.analysis_model} canUseCurrentCriteria={!!call.assistant_agent && !call.assistant_agent.archived_at} open={rerunOpen} onOpenChange={setRerunOpen} />
+      <RerunAnalysisDialog
+        key={rerunOpen ? "open" : "closed"}
+        callId={call.id}
+        currentModel={analysis?.model ?? call.agent_snapshot?.analysis_model}
+        canUseCurrentCriteria={
+          !!call.assistant_agent && !call.assistant_agent.archived_at
+        }
+        open={rerunOpen}
+        onOpenChange={setRerunOpen}
+      />
     </div>
   );
 };

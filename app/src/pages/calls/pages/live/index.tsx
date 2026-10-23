@@ -132,7 +132,7 @@ const LiveCallPage: FC = () => {
         </Card>
       )}
 
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,24rem)]">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,24rem)]">
         <Card className="p-4">
           <LiveAssistPanel session={copilot} script={call.agent_snapshot?.script ?? []} agentName={call.agent_snapshot?.name} />
         </Card>

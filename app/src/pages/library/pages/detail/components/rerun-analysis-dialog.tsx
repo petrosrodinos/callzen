@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { RefreshCw } from "lucide-react";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
@@ -16,7 +23,13 @@ interface RerunAnalysisDialogProps {
   onOpenChange: (open: boolean) => void;
 }
 
-export function RerunAnalysisDialog({ callId, currentModel, canUseCurrentCriteria, open, onOpenChange }: RerunAnalysisDialogProps) {
+export function RerunAnalysisDialog({
+  callId,
+  currentModel,
+  canUseCurrentCriteria,
+  open,
+  onOpenChange,
+}: RerunAnalysisDialogProps) {
   const { data: catalog } = useCatalog();
   const rerun = useRerunAnalysis();
   const [selectedModel, setModel] = useState(currentModel ?? "");
@@ -24,25 +37,56 @@ export function RerunAnalysisDialog({ callId, currentModel, canUseCurrentCriteri
   const model = selectedModel || catalog?.recommended_analysis_model || "";
 
   return (
-    <Dialog open={open} onOpenChange={(next) => !rerun.isPending && onOpenChange(next)}>
+    <Dialog
+      open={open}
+      onOpenChange={(next) => !rerun.isPending && onOpenChange(next)}
+    >
       <DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-2xl">
         <DialogHeader>
           <DialogTitle>Re-run analysis</DialogTitle>
-          <DialogDescription>Try a different model or your co-pilot's latest scoring categories. The previous report is replaced.</DialogDescription>
+          <DialogDescription>
+            Try a different model or your co-pilot's latest scoring categories.
+            The previous report is replaced.
+          </DialogDescription>
         </DialogHeader>
-        {catalog && <ModelPicker name="Analysis model" purpose="analysis" models={catalog.ai_models} recommended={catalog.recommended_analysis_model} value={model} onChange={setModel} />}
+        {catalog && (
+          <ModelPicker
+            name="Analysis model"
+            purpose="analysis"
+            models={catalog.ai_models}
+            recommended={catalog.recommended_analysis_model}
+            value={model}
+            onChange={setModel}
+          />
+        )}
         {canUseCurrentCriteria && (
           <div className="flex items-center justify-between gap-3 rounded-lg border p-3">
             <div>
-              <Label htmlFor="current-criteria">Use the co-pilot's current scoring categories</Label>
-              <p className="text-xs text-muted-foreground">Otherwise the categories from the time of the call are used.</p>
+              <Label htmlFor="current-criteria">
+                Use the co-pilot's current scoring categories
+              </Label>
+              <p className="text-xs text-muted-foreground">
+                Otherwise the categories from the time of the call are used.
+              </p>
             </div>
-            <Switch id="current-criteria" checked={useCurrentCriteria} onCheckedChange={setUseCurrentCriteria} />
+            <Switch
+              id="current-criteria"
+              checked={useCurrentCriteria}
+              onCheckedChange={setUseCurrentCriteria}
+            />
           </div>
         )}
         <DialogFooter>
           <Button
-            onClick={() => rerun.mutate({ id: callId, dto: { model, use_current_criteria: useCurrentCriteria } }, { onSuccess: () => onOpenChange(false) })}
+            onClick={() =>
+              rerun.mutate(
+                {
+                  id: callId,
+                  dto: { model, use_current_criteria: useCurrentCriteria },
+                },
+                { onSuccess: () => onOpenChange(false) },
+              )
+            }
             disabled={!model || rerun.isPending}
             loading={rerun.isPending}
           >

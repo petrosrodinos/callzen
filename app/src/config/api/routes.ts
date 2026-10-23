@@ -21,6 +21,26 @@ export const ApiRoutes = {
     google_maps: {
         timezone: "/google-maps/timezone",
     },
+    organisations: {
+        prefix: "/organisations",
+        permissions: "/organisations/permissions",
+        detail: (orgId: string) => `/organisations/${orgId}`,
+        leave: (orgId: string) => `/organisations/${orgId}/leave`,
+        members: (orgId: string) => `/organisations/${orgId}/members`,
+        member: (orgId: string, memberId: string) => `/organisations/${orgId}/members/${memberId}`,
+        roles: (orgId: string) => `/organisations/${orgId}/roles`,
+        role: (orgId: string, role: string) => `/organisations/${orgId}/roles/${role}`,
+        role_reset: (orgId: string, role: string) => `/organisations/${orgId}/roles/${role}/reset`,
+        invitations: (orgId: string) => `/organisations/${orgId}/invitations`,
+        invitation_resend: (orgId: string, id: string) => `/organisations/${orgId}/invitations/${id}/resend`,
+        invitation_revoke: (orgId: string, id: string) => `/organisations/${orgId}/invitations/${id}/revoke`,
+    },
+    invitations: {
+        mine: "/invitations/mine",
+        accept: "/invitations/accept",
+        accept_by_id: (id: string) => `/invitations/${id}/accept`,
+        preview: (token: string) => `/invitations/preview/${token}`,
+    },
     catalog: {
         prefix: "/catalog",
     },

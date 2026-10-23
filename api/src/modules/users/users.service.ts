@@ -1,4 +1,7 @@
+import { OrgRole } from 'generated/prisma';
+import { OrganisationsService } from '@/modules/organisations/services/organisations.service';
 import {
+  BadRequestException,
   Injectable,
   Logger,
   NotFoundException,
@@ -17,6 +20,7 @@ export class UsersService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly recordingStorage: RecordingStorageService,
+    private readonly organisations: OrganisationsService,
   ) {}
 
   async me(userId: string) {
@@ -42,6 +46,39 @@ export class UsersService {
     if (!user) throw new NotFoundException('User not found');
     if (!(await bcrypt.compare(dto.password, user.password)))
       throw new UnauthorizedException('Incorrect password');
+
+    // Organisations this user solely owns must be resolved first: delete the ones nobody else is in,
+    // and refuse while teammates would be left without an owner.
+    const owned = await this.prisma.membership.findMany({
+      where: { user_id: userId, role: OrgRole.OWNER },
+      include: { organisation: { select: { id: true, name: true } } },
+    });
+    const soleOwned = [];
+    for (const membership of owned) {
+      const otherOwners = await this.prisma.membership.count({
+        where: {
+          organisation_id: membership.organisation_id,
+          role: OrgRole.OWNER,
+          user_id: { not: userId },
+        },
+      });
+      if (otherOwners === 0) soleOwned.push(membership.organisation);
+    }
+    const blocking = [];
+    for (const organisation of soleOwned) {
+      const others = await this.prisma.membership.count({
+        where: { organisation_id: organisation.id, user_id: { not: userId } },
+      });
+      if (others > 0) blocking.push(organisation.name);
+    }
+    if (blocking.length) {
+      throw new BadRequestException({
+        message: `Make someone else an owner (or delete the organisation) before deleting your account: ${blocking.join(', ')}`,
+        code: 'OWNS_ORGANISATIONS',
+      });
+    }
+    for (const organisation of soleOwned)
+      await this.organisations.deleteWithData(organisation.id);
 
     const recordings = await this.prisma.call.findMany({
       where: { user_id: userId, recording_path: { not: null } },

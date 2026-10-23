@@ -7,8 +7,8 @@ import { HealthController } from './health.controller';
 import { HealthService } from './health.service';
 
 @Module({
-    imports: [PrismaModule, RedisModule],
-    controllers: [HealthController],
-    providers: [HealthService, PostgresHealthChecker, RedisHealthChecker],
+  imports: [PrismaModule, RedisModule],
+  controllers: [HealthController],
+  providers: [HealthService, PostgresHealthChecker, RedisHealthChecker],
 })
 export class HealthModule {}

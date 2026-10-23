@@ -12,7 +12,10 @@ import {
   DEFAULT_ANALYSIS_CRITERIA,
   DEFAULT_CONSENT_LINE,
 } from '@/shared/config/templates/analysis-criteria.config';
-import { SUPPORTED_LANGUAGES } from '@/shared/config/languages/languages.config';
+import {
+  MAX_CONVERSATION_LANGUAGES,
+  SUPPORTED_LANGUAGES,
+} from '@/shared/config/languages/languages.config';
 
 @Injectable()
 export class CatalogService {
@@ -30,6 +33,7 @@ export class CatalogService {
       default_analysis_criteria: DEFAULT_ANALYSIS_CRITERIA,
       default_consent_line: DEFAULT_CONSENT_LINE,
       languages: SUPPORTED_LANGUAGES,
+      max_conversation_languages: MAX_CONVERSATION_LANGUAGES,
       data_processors: [
         {
           name: 'OpenAI',

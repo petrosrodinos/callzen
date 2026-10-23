@@ -1,6 +1,15 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import {
+  CartesianGrid,
+  Legend,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 import { LineChart as LineChartIcon } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -34,33 +43,83 @@ export function ScoreTrendCard({ data, className }: ScoreTrendCardProps) {
       <div className="flex items-center justify-between p-5 pb-2">
         <div>
           <h2 className="font-semibold">Score trend</h2>
-          <p className="text-sm text-muted-foreground">Every analyzed call, oldest to newest</p>
+          <p className="text-sm text-muted-foreground">
+            Every analyzed call, oldest to newest
+          </p>
         </div>
       </div>
       {points.length < 2 ? (
-        <EmptyState icon={LineChartIcon} title="Not enough data yet" description="Your trend appears after two analyzed calls or practice sessions." className="m-5 mt-2 border-none py-8" />
+        <EmptyState
+          icon={LineChartIcon}
+          title="Not enough data yet"
+          description="Your trend appears after two analyzed calls or practice sessions."
+          className="m-5 mt-2 border-none py-8"
+        />
       ) : (
         <div className="h-64 px-2 pb-4">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
               data={points}
-              margin={{ top: 8, right: 16, left: -16, bottom: 0 }}
+              margin={{ top: 8, right: 12, left: 0, bottom: 0 }}
               onClick={(state) => {
                 const index = Number(state?.activeTooltipIndex);
-                const callId = Number.isFinite(index) ? points[index]?.call_id : undefined;
+                const callId = Number.isFinite(index)
+                  ? points[index]?.call_id
+                  : undefined;
                 if (callId) navigate(Routes.library.detail(callId));
               }}
             >
-              <CartesianGrid strokeDasharray="3 3" className="stroke-border" vertical={false} />
-              <XAxis dataKey="label" tickLine={false} axisLine={false} fontSize={12} minTickGap={24} className="fill-muted-foreground" />
-              <YAxis domain={[0, 100]} tickLine={false} axisLine={false} fontSize={12} width={40} />
+              <CartesianGrid
+                strokeDasharray="3 3"
+                className="stroke-border"
+                vertical={false}
+              />
+              <XAxis
+                dataKey="label"
+                tickLine={false}
+                axisLine={false}
+                fontSize={12}
+                minTickGap={24}
+                className="fill-muted-foreground"
+              />
+              <YAxis
+                domain={[0, 100]}
+                tickLine={false}
+                axisLine={false}
+                fontSize={12}
+                width={32}
+              />
               <Tooltip
-                contentStyle={{ background: "var(--popover)", border: "1px solid var(--border)", borderRadius: 8, fontSize: 12, color: "var(--popover-foreground)" }}
-                labelFormatter={(_, payload) => payload?.[0]?.payload?.title ?? ""}
+                contentStyle={{
+                  background: "var(--popover)",
+                  border: "1px solid var(--border)",
+                  borderRadius: 8,
+                  fontSize: 12,
+                  color: "var(--popover-foreground)",
+                }}
+                labelFormatter={(_, payload) =>
+                  payload?.[0]?.payload?.title ?? ""
+                }
               />
               <Legend iconType="circle" wrapperStyle={{ fontSize: 12 }} />
-              <Line type="monotone" dataKey="live" name="Live calls" stroke="var(--chart-1)" strokeWidth={2.5} dot={{ r: 3 }} connectNulls />
-              <Line type="monotone" dataKey="practice" name="Practice" stroke="var(--chart-2)" strokeWidth={2.5} dot={{ r: 3 }} connectNulls />
+              <Line
+                type="monotone"
+                dataKey="live"
+                name="Live calls"
+                stroke="var(--chart-1)"
+                strokeWidth={2.5}
+                dot={{ r: 3 }}
+                connectNulls
+              />
+              <Line
+                type="monotone"
+                dataKey="practice"
+                name="Practice"
+                stroke="var(--chart-2)"
+                strokeWidth={2.5}
+                dot={{ r: 3 }}
+                connectNulls
+              />
             </LineChart>
           </ResponsiveContainer>
         </div>

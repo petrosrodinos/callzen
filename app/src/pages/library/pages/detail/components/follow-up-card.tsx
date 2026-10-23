@@ -5,11 +5,22 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 
-export function FollowUpCard({ draft, prospectEmailSubject }: { draft: string | null; prospectEmailSubject: string }) {
+export function FollowUpCard({
+  draft,
+  prospectEmailSubject,
+}: {
+  draft: string | null;
+  prospectEmailSubject: string;
+}) {
   const [text, setText] = useState(draft ?? "");
   const [copied, setCopied] = useState(false);
 
-  if (!draft) return <p className="py-8 text-center text-sm text-muted-foreground">No follow-up message was suggested for this call.</p>;
+  if (!draft)
+    return (
+      <p className="py-8 text-center text-sm text-muted-foreground">
+        No follow-up message was suggested for this call.
+      </p>
+    );
 
   const copy = async () => {
     try {
@@ -17,7 +28,11 @@ export function FollowUpCard({ draft, prospectEmailSubject }: { draft: string | 
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1500);
     } catch {
-      toast({ title: "Copy failed", description: "Select the text and copy it manually.", variant: "error" });
+      toast({
+        title: "Copy failed",
+        description: "Select the text and copy it manually.",
+        variant: "error",
+      });
     }
   };
 
@@ -30,13 +45,21 @@ export function FollowUpCard({ draft, prospectEmailSubject }: { draft: string | 
             {copied ? <Check /> : <Copy />} {copied ? "Copied" : "Copy"}
           </Button>
           <Button asChild size="sm">
-            <a href={`mailto:?subject=${encodeURIComponent(prospectEmailSubject)}&body=${encodeURIComponent(text)}`}>
+            <a
+              href={`mailto:?subject=${encodeURIComponent(prospectEmailSubject)}&body=${encodeURIComponent(text)}`}
+            >
               <Mail /> Open in email
             </a>
           </Button>
         </div>
       </div>
-      <Textarea value={text} onChange={(event) => setText(event.target.value)} rows={12} aria-label="Follow-up message" className="leading-relaxed" />
+      <Textarea
+        value={text}
+        onChange={(event) => setText(event.target.value)}
+        rows={12}
+        aria-label="Follow-up message"
+        className="leading-relaxed"
+      />
     </Card>
   );
 }

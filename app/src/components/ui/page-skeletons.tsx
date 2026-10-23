@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export function CardGridSkeleton({ count = 6 }: { count?: number }) {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
       {Array.from({ length: count }).map((_, i) => (
         <div key={i} className="space-y-3 rounded-xl border p-5">
           <Skeleton className="h-5 w-2/3" />
@@ -36,7 +36,7 @@ export function DetailSkeleton() {
         <Skeleton className="h-8 w-72 max-w-full" />
         <Skeleton className="h-4 w-96 max-w-full" />
       </div>
-      <div className="grid gap-4 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         <Skeleton className="h-48 rounded-xl lg:col-span-2" />
         <Skeleton className="h-48 rounded-xl" />
       </div>
@@ -66,7 +66,7 @@ export function DashboardSkeleton() {
           <Skeleton key={i} className="h-24 rounded-xl" />
         ))}
       </div>
-      <div className="grid gap-4 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         <Skeleton className="h-72 rounded-xl lg:col-span-2" />
         <Skeleton className="h-72 rounded-xl" />
       </div>

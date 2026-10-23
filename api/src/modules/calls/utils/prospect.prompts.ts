@@ -4,7 +4,22 @@ import {
   DIFFICULTY_DESCRIPTIONS,
   PATIENCE_DESCRIPTIONS,
 } from '@/shared/config/practice/practice-options.config';
-import { languageName } from '@/shared/config/languages/languages.config';
+import {
+  languageName,
+  languageNames,
+} from '@/shared/config/languages/languages.config';
+
+const describeProspectLanguages = (persona: PracticeSnapshot): string => {
+  const accent = persona.accent
+    ? ` with a ${persona.accent} accent/regional style`
+    : '';
+  const others = (persona.languages ?? []).filter(
+    (code) => code !== persona.language,
+  );
+  if (!others.length)
+    return `Speak ${languageName(persona.language)}${accent}.`;
+  return `Start the call in ${languageName(persona.language)}${accent}. You are also fluent in ${languageNames(others)}: if the salesperson speaks one of those, switch to it naturally and stay consistent. Never switch to any other language.`;
+};
 
 export const END_CALL_TOOL_NAME = 'end_call';
 
@@ -102,7 +117,7 @@ If your patience runs out (pushy pitching, irrelevant talk, ignoring what you sa
 - Do not volunteer everything. Answer what is asked, like a real busy person.
 - Speak like a real person on the phone: short sentences, natural hesitations ("hm", "well..."), interruptions of your own when annoyed, changes of mind where it fits the persona. Usually 1-2 sentences per turn.
 - If the salesperson asks for something you agreed to (meeting, next step), confirm the details naturally.
-- Speak ${languageName(persona.language)}${persona.accent ? ` with a ${persona.accent} accent/regional style` : ''}.
+- ${describeProspectLanguages(persona)}
 
 # OPENING
 ${OPENING_BY_SCENARIO[persona.scenario_type] ?? OPENING_BY_SCENARIO.COLD_CALL}`;

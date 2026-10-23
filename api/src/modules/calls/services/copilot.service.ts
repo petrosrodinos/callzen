@@ -1,4 +1,5 @@
 import { BadRequestException, Injectable, Logger } from '@nestjs/common';
+import { OrgContext } from '@/shared/interfaces/org-context.interface';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
 import { AiService } from '@/integrations/ai/services/ai.service';
 import { UsageService } from '@/modules/usage/usage.service';
@@ -88,7 +89,9 @@ export class CopilotService {
       data.push({
         call_id: call.id,
         type: SuggestionType.OPENER,
-        text: opener.content,
+        text: call.prospect_name
+          ? opener.content.replace(/\{name\}/gi, call.prospect_name)
+          : opener.content,
         reason: opener.title,
         at_ms: 1,
       });
@@ -98,11 +101,11 @@ export class CopilotService {
   }
 
   async addSegments(
-    userId: string,
+    ctx: OrgContext,
     callId: string,
     dto: AddSegmentsDto,
   ): Promise<AddSegmentsResponse> {
-    const call = await findOwnedCall(this.prisma, userId, callId);
+    const call = await findOwnedCall(this.prisma, ctx, callId);
 
     const saved = await this.prisma.$transaction(
       dto.segments.map((segment) =>
@@ -145,7 +148,7 @@ export class CopilotService {
     if (!(await this.shouldSuggest(call, saved, frequency))) return response;
 
     const result = await this.generate(
-      userId,
+      ctx,
       call,
       agent,
       frequency,
@@ -155,11 +158,11 @@ export class CopilotService {
   }
 
   async generateNow(
-    userId: string,
+    ctx: OrgContext,
     callId: string,
     dto: GenerateSuggestionDto,
   ): Promise<SuggestionResult> {
-    const call = await findOwnedCall(this.prisma, userId, callId);
+    const call = await findOwnedCall(this.prisma, ctx, callId);
     const agent = call.agent_snapshot as unknown as AgentSnapshot | null;
     if (!agent || !call.copilot_enabled)
       throw new BadRequestException('The co-pilot is not active on this call');
@@ -174,7 +177,7 @@ export class CopilotService {
       orderBy: { start_ms: 'desc' },
     });
     return this.generate(
-      userId,
+      ctx,
       call,
       agent,
       dto.frequency ?? agent.suggestion_frequency,
@@ -183,17 +186,17 @@ export class CopilotService {
   }
 
   async ask(
-    userId: string,
+    ctx: OrgContext,
     callId: string,
     dto: AskCopilotDto,
   ): Promise<AskCopilotResponse> {
-    const call = await findOwnedCall(this.prisma, userId, callId);
+    const call = await findOwnedCall(this.prisma, ctx, callId);
     const agent = call.agent_snapshot as unknown as AgentSnapshot | null;
     if (!agent)
       throw new BadRequestException('This call has no co-pilot agent');
 
     const [user, segments] = await Promise.all([
-      this.prisma.user.findUnique({ where: { id: userId } }),
+      this.prisma.user.findUnique({ where: { id: ctx.userId } }),
       this.recentSegments(callId),
     ]);
 
@@ -202,14 +205,14 @@ export class CopilotService {
       fallbackModel: RECOMMENDED_REALTIME_MODEL,
       schema: CopilotAnswerSchema,
       schemaName: 'copilot_answer',
-      system: `You are CallZen, a sales co-pilot. The salesperson is on a live call and typed a quick question. Answer instantly in 1-3 short sentences they can use right away. Use the knowledge base; if the answer is not there, say so briefly and suggest how to handle it. Answer in ${resolveOutputLanguage(user.output_language_mode, call.language, user.interface_language)}.\n\n${buildAgentBrief(agent)}`,
+      system: `You are CallZen, a sales co-pilot. The salesperson is on a live call and typed a quick question. Answer instantly in 1-3 short sentences they can use right away. Use the knowledge base; if the answer is not there, say so briefly and suggest how to handle it. Answer in ${resolveOutputLanguage(user.output_language_mode, call.language, user.interface_language, agent.languages)}.\n\n${buildAgentBrief(agent)}`,
       prompt: `CALL CONTEXT:\n${buildCallContext(call)}\n\nRECENT TRANSCRIPT:\n${formatTranscript(segments, { maxChars: 4000 })}\n\nQUESTION: ${dto.question}`,
       temperature: 0.2,
       maxTokens: 300,
       timeoutMs: 20000,
     });
 
-    this.recordUsage(userId, callId, UsageKind.ASK, result);
+    this.recordUsage(ctx, callId, UsageKind.ASK, result);
 
     const suggestion = await this.prisma.suggestion.create({
       data: {
@@ -232,12 +235,12 @@ export class CopilotService {
   }
 
   async updateSuggestion(
-    userId: string,
+    ctx: OrgContext,
     callId: string,
     suggestionId: string,
     dto: UpdateSuggestionDto,
   ): Promise<Suggestion> {
-    await findOwnedCall(this.prisma, userId, callId);
+    await findOwnedCall(this.prisma, ctx, callId);
     const suggestion = await this.prisma.suggestion.findFirst({
       where: { id: suggestionId, call_id: callId },
     });
@@ -272,14 +275,14 @@ export class CopilotService {
   }
 
   private async generate(
-    userId: string,
+    ctx: OrgContext,
     call: Call,
     agent: AgentSnapshot,
     frequency: SuggestionFrequency,
     elapsedMs: number,
   ): Promise<SuggestionResult> {
     const [user, segments, recent] = await Promise.all([
-      this.prisma.user.findUnique({ where: { id: userId } }),
+      this.prisma.user.findUnique({ where: { id: ctx.userId } }),
       this.recentSegments(call.id),
       this.prisma.suggestion.findMany({
         where: { call_id: call.id, type: { not: SuggestionType.ANSWER } },
@@ -302,6 +305,7 @@ export class CopilotService {
         user.output_language_mode,
         call.language,
         user.interface_language,
+        agent.languages,
       ),
       frequency,
       hasUnlabeled,
@@ -321,7 +325,7 @@ export class CopilotService {
         timeoutMs: 12000,
       });
 
-      this.recordUsage(userId, call.id, UsageKind.SUGGESTION, result);
+      this.recordUsage(ctx, call.id, UsageKind.SUGGESTION, result);
       const output = result.output;
 
       const speakerUpdates = await this.applySpeakerLabels(
@@ -411,7 +415,7 @@ export class CopilotService {
   }
 
   private recordUsage(
-    userId: string,
+    ctx: OrgContext,
     callId: string,
     kind: UsageKind,
     result: {
@@ -420,7 +424,8 @@ export class CopilotService {
     },
   ) {
     this.usageService.record({
-      userId,
+      organisationId: ctx.organisationId,
+      userId: ctx.userId,
       callId,
       kind,
       model: result.model,

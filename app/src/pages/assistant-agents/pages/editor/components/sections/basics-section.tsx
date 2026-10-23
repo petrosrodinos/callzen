@@ -1,10 +1,24 @@
 import type { UseFormReturn } from "react-hook-form";
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { FormSection } from "@/components/ui/form-section";
+import { LanguageMultiSelect } from "@/components/ui/language-multi-select";
 import type { Language } from "@/features/catalog/interfaces/catalog.interfaces";
 import { MethodologyFormOptions } from "@/config/constants/dropdowns/agents/methodology-form.options";
 import type { AssistantAgentFormValues } from "../../../../validation-schemas/assistant-agent.schema";
@@ -12,11 +26,19 @@ import type { AssistantAgentFormValues } from "../../../../validation-schemas/as
 interface BasicsSectionProps {
   form: UseFormReturn<AssistantAgentFormValues>;
   languages: Language[];
+  maxLanguages: number;
 }
 
-export function BasicsSection({ form, languages }: BasicsSectionProps) {
+export function BasicsSection({
+  form,
+  languages,
+  maxLanguages,
+}: BasicsSectionProps) {
   return (
-    <FormSection title="Basics" description="What this co-pilot is for and the outcome it pushes toward.">
+    <FormSection
+      title="Basics"
+      description="What this co-pilot is for and the outcome it pushes toward."
+    >
       <FormField
         control={form.control}
         name="name"
@@ -37,7 +59,11 @@ export function BasicsSection({ form, languages }: BasicsSectionProps) {
           <FormItem>
             <FormLabel>Purpose</FormLabel>
             <FormControl>
-              <Textarea rows={2} placeholder="Short cold calls to dental clinic owners, focused on booking a demo." {...field} />
+              <Textarea
+                rows={2}
+                placeholder="Short cold calls to dental clinic owners, focused on booking a demo."
+                {...field}
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -52,32 +78,27 @@ export function BasicsSection({ form, languages }: BasicsSectionProps) {
             <FormControl>
               <Input placeholder="Book a 20-minute demo" {...field} />
             </FormControl>
-            <FormDescription>The co-pilot keeps steering the conversation toward this outcome.</FormDescription>
+            <FormDescription>
+              The co-pilot keeps steering the conversation toward this outcome.
+            </FormDescription>
             <FormMessage />
           </FormItem>
         )}
       />
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <FormField
           control={form.control}
-          name="language"
+          name="languages"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Conversation language</FormLabel>
-              <Select value={field.value} onValueChange={field.onChange}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  {languages.map((language) => (
-                    <SelectItem key={language.code} value={language.code}>
-                      {language.name}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+            <FormItem className="sm:col-span-2">
+              <FormLabel>Conversation languages</FormLabel>
+              <LanguageMultiSelect
+                ariaLabel="Conversation languages"
+                languages={languages}
+                value={field.value}
+                onChange={field.onChange}
+                max={maxLanguages}
+              />
               <FormMessage />
             </FormItem>
           )}
@@ -114,7 +135,9 @@ export function BasicsSection({ form, languages }: BasicsSectionProps) {
           <FormItem className="flex items-center justify-between gap-4 rounded-lg border p-3">
             <div>
               <FormLabel>Default co-pilot</FormLabel>
-              <FormDescription>Pre-selected when you start a call.</FormDescription>
+              <FormDescription>
+                Pre-selected when you start a call.
+              </FormDescription>
             </div>
             <FormControl>
               <Switch checked={field.value} onCheckedChange={field.onChange} />

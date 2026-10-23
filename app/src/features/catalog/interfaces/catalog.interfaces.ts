@@ -92,5 +92,6 @@ export interface Catalog {
     default_analysis_criteria: AnalysisCriterion[];
     default_consent_line: string;
     languages: Language[];
+    max_conversation_languages: number;
     data_processors: DataProcessor[];
 }

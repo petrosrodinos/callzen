@@ -1,4 +1,5 @@
 import type { RoleType } from "@/features/user/interfaces/user.interface";
+import type { Permission } from "@/features/organisations/interfaces/organisations.interfaces";
 
 interface Team {
   name: string;
@@ -8,6 +9,8 @@ interface Team {
 
 interface BaseNavItem {
   title: string;
+  // Hidden unless the active organisation role grants this permission.
+  permission?: Permission;
   badge?: string;
   icon?: React.ElementType;
 }

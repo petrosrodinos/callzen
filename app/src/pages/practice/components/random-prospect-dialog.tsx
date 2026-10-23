@@ -1,10 +1,23 @@
 import { useState } from "react";
 import { Dices } from "lucide-react";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useRandomizePracticeAgent } from "@/features/practice-agents/hooks/use-practice-agents";
 import type { LeadTemperature } from "@/features/practice-agents/interfaces/practice-agents.interfaces";
 import { LeadTemperatureFilterOptions } from "@/config/constants/dropdowns/practice/lead-temperature-form.options";
@@ -18,9 +31,16 @@ interface RandomProspectDialogProps {
   onCreated: (id: string) => void;
 }
 
-export function RandomProspectDialog({ open, onOpenChange, copilotId, onCreated }: RandomProspectDialogProps) {
+export function RandomProspectDialog({
+  open,
+  onOpenChange,
+  copilotId,
+  onCreated,
+}: RandomProspectDialogProps) {
   const randomize = useRandomizePracticeAgent();
-  const [temperature, setTemperature] = useState<LeadTemperature | "all">("all");
+  const [temperature, setTemperature] = useState<LeadTemperature | "all">(
+    "all",
+  );
   const [difficulty, setDifficulty] = useState("all");
   const [scenario, setScenario] = useState("any");
   const [industry, setIndustry] = useState("");
@@ -44,16 +64,27 @@ export function RandomProspectDialog({ open, onOpenChange, copilotId, onCreated 
     );
 
   return (
-    <Dialog open={open} onOpenChange={(next) => !randomize.isPending && onOpenChange(next)}>
+    <Dialog
+      open={open}
+      onOpenChange={(next) => !randomize.isPending && onOpenChange(next)}
+    >
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Random prospect</DialogTitle>
-          <DialogDescription>Get a surprise prospect within your limits, so you can't memorise the scenario.</DialogDescription>
+          <DialogDescription>
+            Get a surprise prospect within your limits, so you can't memorise
+            the scenario.
+          </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-3 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div className="space-y-1.5">
             <Label htmlFor="random-temperature">Lead</Label>
-            <Select value={temperature} onValueChange={(value) => setTemperature(value as LeadTemperature | "all")}>
+            <Select
+              value={temperature}
+              onValueChange={(value) =>
+                setTemperature(value as LeadTemperature | "all")
+              }
+            >
               <SelectTrigger id="random-temperature">
                 <SelectValue />
               </SelectTrigger>
@@ -99,12 +130,22 @@ export function RandomProspectDialog({ open, onOpenChange, copilotId, onCreated 
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="random-industry">Industry</Label>
-            <Input id="random-industry" value={industry} onChange={(event) => setIndustry(event.target.value)} placeholder="Any" />
+            <Input
+              id="random-industry"
+              value={industry}
+              onChange={(event) => setIndustry(event.target.value)}
+              placeholder="Any"
+            />
           </div>
         </div>
         <DialogFooter>
-          <Button onClick={generate} disabled={randomize.isPending} loading={randomize.isPending}>
-            {!randomize.isPending && <Dices />} {randomize.isPending ? "Generating…" : "Generate & practice"}
+          <Button
+            onClick={generate}
+            disabled={randomize.isPending}
+            loading={randomize.isPending}
+          >
+            {!randomize.isPending && <Dices />}{" "}
+            {randomize.isPending ? "Generating…" : "Generate & practice"}
           </Button>
         </DialogFooter>
       </DialogContent>

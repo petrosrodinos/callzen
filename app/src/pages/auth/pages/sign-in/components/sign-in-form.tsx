@@ -18,7 +18,7 @@ export function SignInForm({ className, ...props }: UserAuthFormProps) {
   const form = useForm<SignInFormValues>({
     resolver: zodResolver(SignInSchema),
     defaultValues: {
-      email: "",
+      email: new URLSearchParams(window.location.search).get("email") ?? "",
       password: "",
     },
   });

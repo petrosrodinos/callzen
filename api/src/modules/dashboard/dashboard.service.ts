@@ -1,4 +1,7 @@
 import { Injectable } from '@nestjs/common';
+import { ForbiddenException } from '@nestjs/common';
+import { can, OrgContext } from '@/shared/interfaces/org-context.interface';
+import { Permissions } from '@/shared/config/permissions/permissions.config';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
 import { CallKind } from 'generated/prisma';
 import { DashboardQueryType } from './dto/dashboard-query.schema';
@@ -36,15 +39,26 @@ export class DashboardService {
   constructor(private readonly prisma: PrismaService) {}
 
   async overview(
-    userId: string,
+    ctx: OrgContext,
     query: DashboardQueryType,
   ): Promise<DashboardOverview> {
+    // 'team' aggregates every member's calls and needs calls.view_all; otherwise it is personal progress.
+    if (query.scope === 'team' && !can(ctx, Permissions.CALLS_VIEW_ALL)) {
+      throw new ForbiddenException({
+        message: 'Your role does not allow viewing team performance',
+        code: 'PERMISSION_DENIED',
+      });
+    }
+    const scope = {
+      organisation_id: ctx.organisationId,
+      ...(query.scope === 'team' ? {} : { user_id: ctx.userId }),
+    };
     const since = new Date(Date.now() - query.days * DAY_MS);
 
     const [calls, allCallDates] = await Promise.all([
       this.prisma.call.findMany({
         where: {
-          user_id: userId,
+          ...scope,
           started_at: { gte: since },
           status: { not: 'IN_PROGRESS' },
         },
@@ -70,7 +84,7 @@ export class DashboardService {
         },
       }),
       this.prisma.call.findMany({
-        where: { user_id: userId },
+        where: scope,
         select: { started_at: true },
         orderBy: { started_at: 'desc' },
         take: 400,

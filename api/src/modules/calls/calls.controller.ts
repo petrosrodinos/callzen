@@ -27,7 +27,10 @@ import {
 } from '@nestjs/swagger';
 import type { Response } from 'express';
 import { JwtGuard } from '@/shared/guards/jwt.guard';
-import { CurrentUser } from '@/shared/decorators/current-user.decorator';
+import { OrgGuard } from '@/shared/guards/org.guard';
+import { Org, RequirePermissions } from '@/shared/decorators/org.decorator';
+import { Permissions } from '@/shared/config/permissions/permissions.config';
+import { OrgContext } from '@/shared/interfaces/org-context.interface';
 import { ZodValidationPipe } from '@/shared/pipes/zod.validation.pipe';
 import { CallsService } from './services/calls.service';
 import { CopilotService } from './services/copilot.service';
@@ -54,7 +57,7 @@ const MAX_RECORDING_BYTES = 300 * 1024 * 1024;
 @ApiTags('Calls')
 @ApiBearerAuth()
 @Controller('calls')
-@UseGuards(JwtGuard)
+@UseGuards(JwtGuard, OrgGuard)
 export class CallsController {
   constructor(
     private readonly callsService: CallsService,
@@ -63,19 +66,18 @@ export class CallsController {
     private readonly practiceSessionService: PracticeSessionService,
   ) {}
 
+  @RequirePermissions(Permissions.CALLS_CREATE)
   @Post()
   @ApiOperation({ summary: 'Start a live call (online meeting or microphone)' })
-  startLive(@CurrentUser('id') userId: string, @Body() dto: CreateCallDto) {
-    return this.callsService.startLive(userId, dto);
+  startLive(@Org() ctx: OrgContext, @Body() dto: CreateCallDto) {
+    return this.callsService.startLive(ctx, dto);
   }
 
+  @RequirePermissions(Permissions.CALLS_CREATE)
   @Post('practice')
   @ApiOperation({ summary: 'Start a practice session with an AI prospect' })
-  startPractice(
-    @CurrentUser('id') userId: string,
-    @Body() dto: CreatePracticeCallDto,
-  ) {
-    return this.callsService.startPractice(userId, dto);
+  startPractice(@Org() ctx: OrgContext, @Body() dto: CreatePracticeCallDto) {
+    return this.callsService.startPractice(ctx, dto);
   }
 
   @Get()
@@ -83,6 +85,7 @@ export class CallsController {
   @ApiQuery({ name: 'page', required: false })
   @ApiQuery({ name: 'limit', required: false })
   @ApiQuery({ name: 'search', required: false })
+  @ApiQuery({ name: 'mine', required: false, enum: ['true'] })
   @ApiQuery({ name: 'kind', required: false, enum: ['LIVE', 'PRACTICE'] })
   @ApiQuery({
     name: 'call_type',
@@ -104,21 +107,18 @@ export class CallsController {
   })
   @ApiQuery({ name: 'order_direction', required: false, enum: ['asc', 'desc'] })
   findAll(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Query(new ZodValidationPipe(CallQuerySchema)) query: CallQueryType,
   ) {
-    return this.callsService.findAll(userId, query);
+    return this.callsService.findAll(ctx, query);
   }
 
   @Get(':id')
   @ApiOperation({
     summary: 'Call detail: transcript, suggestions, bookmarks and analysis',
   })
-  findOne(
-    @CurrentUser('id') userId: string,
-    @Param('id', ParseUUIDPipe) id: string,
-  ) {
-    return this.callsService.findOne(userId, id);
+  findOne(@Org() ctx: OrgContext, @Param('id', ParseUUIDPipe) id: string) {
+    return this.callsService.findOne(ctx, id);
   }
 
   @Patch(':id')
@@ -127,21 +127,21 @@ export class CallsController {
       'Update outcome, notes, prospect info, or switch the co-pilot agent',
   })
   update(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Param('id', ParseUUIDPipe) id: string,
     @Body() dto: UpdateCallDto,
   ) {
-    return this.callsService.update(userId, id, dto);
+    return this.callsService.update(ctx, id, dto);
   }
 
   @Post(':id/end')
   @ApiOperation({ summary: 'End the call and start the analysis' })
   end(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Param('id', ParseUUIDPipe) id: string,
     @Body() dto: EndCallDto,
   ) {
-    return this.callsService.end(userId, id, dto);
+    return this.callsService.end(ctx, id, dto);
   }
 
   @Delete(':id')
@@ -149,11 +149,8 @@ export class CallsController {
     summary:
       'Permanently delete a call, its recording, transcript and analysis',
   })
-  remove(
-    @CurrentUser('id') userId: string,
-    @Param('id', ParseUUIDPipe) id: string,
-  ) {
-    return this.callsService.remove(userId, id);
+  remove(@Org() ctx: OrgContext, @Param('id', ParseUUIDPipe) id: string) {
+    return this.callsService.remove(ctx, id);
   }
 
   @Post(':id/segments')
@@ -162,22 +159,22 @@ export class CallsController {
       'Append transcript lines; returns a fresh co-pilot suggestion when relevant',
   })
   addSegments(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Param('id', ParseUUIDPipe) id: string,
     @Body() dto: AddSegmentsDto,
   ) {
-    return this.copilotService.addSegments(userId, id, dto);
+    return this.copilotService.addSegments(ctx, id, dto);
   }
 
   @Patch(':id/segments/:segmentId')
   @ApiOperation({ summary: 'Correct the speaker of a transcript line' })
   updateSegment(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Param('id', ParseUUIDPipe) id: string,
     @Param('segmentId', ParseUUIDPipe) segmentId: string,
     @Body() dto: UpdateSegmentDto,
   ) {
-    return this.callsService.updateSegment(userId, id, segmentId, dto);
+    return this.callsService.updateSegment(ctx, id, segmentId, dto);
   }
 
   @Delete(':id/transcript')
@@ -185,31 +182,31 @@ export class CallsController {
     summary: 'Delete the transcript of a call (keeps the analysis)',
   })
   deleteTranscript(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Param('id', ParseUUIDPipe) id: string,
   ) {
-    return this.callsService.deleteTranscript(userId, id);
+    return this.callsService.deleteTranscript(ctx, id);
   }
 
   @Post(':id/suggestions/generate')
   @ApiOperation({ summary: 'Generate a co-pilot suggestion now' })
   generateSuggestion(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Param('id', ParseUUIDPipe) id: string,
     @Body() dto: GenerateSuggestionDto,
   ) {
-    return this.copilotService.generateNow(userId, id, dto);
+    return this.copilotService.generateNow(ctx, id, dto);
   }
 
   @Patch(':id/suggestions/:suggestionId')
   @ApiOperation({ summary: 'Dismiss, pin or rate a suggestion' })
   updateSuggestion(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Param('id', ParseUUIDPipe) id: string,
     @Param('suggestionId', ParseUUIDPipe) suggestionId: string,
     @Body() dto: UpdateSuggestionDto,
   ) {
-    return this.copilotService.updateSuggestion(userId, id, suggestionId, dto);
+    return this.copilotService.updateSuggestion(ctx, id, suggestionId, dto);
   }
 
   @Post(':id/ask')
@@ -217,31 +214,31 @@ export class CallsController {
     summary: 'Ask the co-pilot a quick question during the call',
   })
   ask(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Param('id', ParseUUIDPipe) id: string,
     @Body() dto: AskCopilotDto,
   ) {
-    return this.copilotService.ask(userId, id, dto);
+    return this.copilotService.ask(ctx, id, dto);
   }
 
   @Post(':id/bookmarks')
   @ApiOperation({ summary: 'Bookmark an important moment' })
   addBookmark(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Param('id', ParseUUIDPipe) id: string,
     @Body() dto: CreateBookmarkDto,
   ) {
-    return this.callsService.addBookmark(userId, id, dto);
+    return this.callsService.addBookmark(ctx, id, dto);
   }
 
   @Delete(':id/bookmarks/:bookmarkId')
   @ApiOperation({ summary: 'Remove a bookmark' })
   removeBookmark(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Param('id', ParseUUIDPipe) id: string,
     @Param('bookmarkId', ParseUUIDPipe) bookmarkId: string,
   ) {
-    return this.callsService.removeBookmark(userId, id, bookmarkId);
+    return this.callsService.removeBookmark(ctx, id, bookmarkId);
   }
 
   @Post(':id/recording')
@@ -257,7 +254,7 @@ export class CallsController {
     FileInterceptor('file', { limits: { fileSize: MAX_RECORDING_BYTES } }),
   )
   uploadRecording(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Param('id', ParseUUIDPipe) id: string,
     @UploadedFile(
       new ParseFilePipe({
@@ -268,17 +265,17 @@ export class CallsController {
     )
     file: Express.Multer.File,
   ) {
-    return this.callsService.saveRecording(userId, id, file);
+    return this.callsService.saveRecording(ctx, id, file);
   }
 
   @Get(':id/recording')
   @ApiOperation({ summary: 'Stream the call recording' })
   async getRecording(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Param('id', ParseUUIDPipe) id: string,
     @Res({ passthrough: true }) res: Response,
   ) {
-    const recording = await this.callsService.openRecording(userId, id);
+    const recording = await this.callsService.openRecording(ctx, id);
     res.set({
       'Content-Type': recording.mime,
       'Cache-Control': 'private, no-store',
@@ -293,10 +290,10 @@ export class CallsController {
     summary: 'Permanently delete the audio, keep transcript and analysis',
   })
   deleteRecording(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Param('id', ParseUUIDPipe) id: string,
   ) {
-    return this.callsService.deleteRecording(userId, id);
+    return this.callsService.deleteRecording(ctx, id);
   }
 
   @Post(':id/analysis')
@@ -305,11 +302,11 @@ export class CallsController {
       'Re-run the analysis, optionally with another model or current criteria',
   })
   rerunAnalysis(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Param('id', ParseUUIDPipe) id: string,
     @Body() dto: RerunAnalysisDto,
   ) {
-    return this.analysisService.rerun(userId, id, dto);
+    return this.analysisService.rerun(ctx, id, dto);
   }
 
   @Post(':id/realtime-session')
@@ -317,11 +314,11 @@ export class CallsController {
     summary: 'Create a short-lived realtime voice/transcription session token',
   })
   realtimeSession(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Param('id', ParseUUIDPipe) id: string,
     @Body() dto: RealtimeSessionDto,
   ) {
-    return this.practiceSessionService.createRealtimeSession(userId, id, dto);
+    return this.practiceSessionService.createRealtimeSession(ctx, id, dto);
   }
 
   @Post(':id/practice-turn')
@@ -330,10 +327,10 @@ export class CallsController {
       'Browser voice provider: send what the salesperson said, get the prospect reply',
   })
   practiceTurn(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Param('id', ParseUUIDPipe) id: string,
     @Body() dto: PracticeTurnDto,
   ) {
-    return this.practiceSessionService.practiceTurn(userId, id, dto);
+    return this.practiceSessionService.practiceTurn(ctx, id, dto);
   }
 }

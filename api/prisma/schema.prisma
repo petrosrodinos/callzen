@@ -51,6 +51,18 @@ enum VoiceProvider {
   BROWSER
 }
 
+enum OrgRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+enum InvitationStatus {
+  PENDING
+  ACCEPTED
+  REVOKED
+}
+
 enum CallKind {
   LIVE
   PRACTICE
@@ -149,6 +161,8 @@ model User {
   practice_agents       PracticeAgent[]
   calls                 Call[]
   usage_events          UsageEvent[]
+  memberships           Membership[]
+  invitations_sent      Invitation[]
 
   @@index([email])
   @@index([phone])
@@ -189,7 +203,8 @@ model Document {
 
 model AssistantAgent {
   id                   String              @id @default(uuid())
-  user_id              String
+  organisation_id      String
+  user_id              String?
   name                 String
   description          String?
   call_goal            String?
@@ -199,6 +214,7 @@ model AssistantAgent {
   objection_library    Json                @default("[]")
   methodology          String?
   language             String              @default("en")
+  languages            String[]            @default([])
   tone                 String              @default("PROFESSIONAL")
   suggestion_frequency SuggestionFrequency @default(BALANCED)
   suggestion_length    SuggestionLength    @default(SHORT)
@@ -214,17 +230,20 @@ model AssistantAgent {
   created_at           DateTime            @default(now())
   updated_at           DateTime            @updatedAt
 
-  user            User            @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  organisation    Organisation    @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
+  user            User?           @relation(fields: [user_id], references: [id], onDelete: SetNull)
   calls           Call[]
   practice_agents PracticeAgent[]
 
+  @@index([organisation_id])
   @@index([user_id])
   @@map("assistant_agents")
 }
 
 model PracticeAgent {
   id                         String          @id @default(uuid())
-  user_id                    String
+  organisation_id            String
+  user_id                    String?
   name                       String
   prospect_name              String?
   role_prompt                String
@@ -248,6 +267,7 @@ model PracticeAgent {
   conversion_conditions      Json            @default("[]")
   patience                   Int             @default(3)
   language                   String          @default("en")
+  languages                  String[]        @default([])
   accent                     String?
   industry                   String?
   company                    String?
@@ -264,16 +284,19 @@ model PracticeAgent {
   created_at                 DateTime        @default(now())
   updated_at                 DateTime        @updatedAt
 
-  user                    User            @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  organisation            Organisation    @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
+  user                    User?           @relation(fields: [user_id], references: [id], onDelete: SetNull)
   linked_assistant_agent  AssistantAgent? @relation(fields: [linked_assistant_agent_id], references: [id], onDelete: SetNull)
   calls                   Call[]
 
+  @@index([organisation_id])
   @@index([user_id])
   @@map("practice_agents")
 }
 
 model Call {
   id                  String         @id @default(uuid())
+  organisation_id     String
   user_id             String
   kind                CallKind
   call_type           CallType
@@ -308,6 +331,7 @@ model Call {
   created_at          DateTime       @default(now())
   updated_at          DateTime       @updatedAt
 
+  organisation    Organisation        @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
   user            User                @relation(fields: [user_id], references: [id], onDelete: Cascade)
   assistant_agent AssistantAgent?     @relation(fields: [assistant_agent_id], references: [id], onDelete: SetNull)
   practice_agent  PracticeAgent?      @relation(fields: [practice_agent_id], references: [id], onDelete: SetNull)
@@ -316,6 +340,7 @@ model Call {
   bookmarks       Bookmark[]
   analysis        CallAnalysis?
 
+  @@index([organisation_id, started_at])
   @@index([user_id, started_at])
   @@index([assistant_agent_id])
   @@index([practice_agent_id])
@@ -401,8 +426,9 @@ model CallAnalysis {
 }
 
 model UsageEvent {
-  id             String    @id @default(uuid())
-  user_id        String
+  id              String    @id @default(uuid())
+  organisation_id String
+  user_id         String
   call_id        String?
   kind           UsageKind
   model          String?
@@ -412,8 +438,80 @@ model UsageEvent {
   cost_usd       Float     @default(0)
   created_at     DateTime  @default(now())
 
-  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  organisation Organisation @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
+  user         User         @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
+  @@index([organisation_id, created_at])
   @@index([user_id, created_at])
   @@map("usage_events")
+}
+
+model Organisation {
+  id         String   @id @default(uuid())
+  name       String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  memberships      Membership[]
+  role_permissions RolePermission[]
+  invitations      Invitation[]
+  assistant_agents AssistantAgent[]
+  practice_agents  PracticeAgent[]
+  calls            Call[]
+  usage_events     UsageEvent[]
+
+  @@map("organisations")
+}
+
+model Membership {
+  id              String   @id @default(uuid())
+  organisation_id String
+  user_id         String
+  role            OrgRole  @default(MEMBER)
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+
+  organisation Organisation @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
+  user         User         @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([organisation_id, user_id])
+  @@index([user_id])
+  @@map("memberships")
+}
+
+model RolePermission {
+  id              String   @id @default(uuid())
+  organisation_id String
+  role            OrgRole
+  permissions     String[]
+  updated_at      DateTime @updatedAt
+
+  organisation Organisation @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
+
+  @@unique([organisation_id, role])
+  @@map("role_permissions")
+}
+
+model Invitation {
+  id              String           @id @default(uuid())
+  organisation_id String
+  email           String
+  role            OrgRole          @default(MEMBER)
+  token_hash      String           @unique
+  status          InvitationStatus @default(PENDING)
+  invited_by_id   String?
+  expires_at      DateTime
+  last_sent_at    DateTime         @default(now())
+  send_count      Int              @default(1)
+  accepted_at     DateTime?
+  accepted_by_id  String?
+  revoked_at      DateTime?
+  created_at      DateTime         @default(now())
+
+  organisation Organisation @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
+  invited_by   User?        @relation(fields: [invited_by_id], references: [id], onDelete: SetNull)
+
+  @@index([organisation_id, status])
+  @@index([email])
+  @@map("invitations")
 }

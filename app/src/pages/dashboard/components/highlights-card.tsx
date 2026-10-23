@@ -10,13 +10,19 @@ export function HighlightsCard({ highlights }: { highlights: string[] }) {
       {highlights.length ? (
         <ul className="mt-4 space-y-3">
           {highlights.map((highlight) => (
-            <li key={highlight} className="rounded-lg bg-muted/50 p-3 text-sm leading-relaxed">
+            <li
+              key={highlight}
+              className="rounded-lg bg-muted/50 p-3 text-sm leading-relaxed"
+            >
               {highlight}
             </li>
           ))}
         </ul>
       ) : (
-        <p className="mt-4 text-sm text-muted-foreground">After a few analyzed calls you'll see what's improving and what needs attention here.</p>
+        <p className="mt-4 text-sm text-muted-foreground">
+          After a few analyzed calls you'll see what's improving and what needs
+          attention here.
+        </p>
       )}
     </Card>
   );

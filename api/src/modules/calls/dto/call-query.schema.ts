@@ -17,6 +17,7 @@ export const CallQuerySchema = z.object({
       v ? Math.min(100, Math.max(1, parseInt(v, 10) || 20)) : 20,
     ),
   search: z.string().optional(),
+  mine: z.enum(['true']).optional(),
   kind: z.enum(['LIVE', 'PRACTICE']).optional(),
   call_type: z.enum(['ONLINE_MEETING', 'MICROPHONE', 'PRACTICE']).optional(),
   assistant_agent_id: z.string().uuid().optional(),

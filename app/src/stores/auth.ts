@@ -39,6 +39,7 @@ export const useAuthStore = create<UserStore>()(
                 logout: () => {
                     set(initialValues);
                     localStorage.removeItem(STORE_KEY);
+                    localStorage.removeItem("organisation");
                     window.location.href = Routes.auth.sign_in;
                 },
                 updateUser: async (user: Partial<LoggedInUser>) => {

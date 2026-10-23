@@ -1,18 +1,35 @@
 import { useState, type FC } from "react";
 import { Link } from "react-router-dom";
-import { CalendarCheck, Clock, Flame, Headphones, PhoneCall, Target } from "lucide-react";
+import {
+  CalendarCheck,
+  Clock,
+  Flame,
+  Headphones,
+  PhoneCall,
+  Target,
+} from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
 import { Button } from "@/components/ui/button";
 import { StatCard } from "@/components/ui/stat-card";
 import { DashboardSkeleton } from "@/components/ui/page-skeletons";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useDashboardOverview } from "@/features/dashboard/hooks/use-dashboard";
 import { useAssistantAgents } from "@/features/assistant-agents/hooks/use-assistant-agents";
 import { useAuthStore } from "@/stores/auth";
+import { usePermissions } from "@/features/organisations/hooks/use-organisations";
+import { Permissions } from "@/features/organisations/interfaces/organisations.interfaces";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { usePageMetadata } from "@/hooks/use-page-metadata";
 import { Routes } from "@/routes/routes";
 import { DashboardPeriodOptions } from "@/config/constants/dropdowns/calls/call-filters.options";
 import { GettingStarted } from "./components/getting-started";
+import { PendingInvitationsCard } from "./components/pending-invitations-card";
 import { ScoreTrendCard } from "./components/score-trend-card";
 import { SkillsCard } from "./components/skills-card";
 import { HighlightsCard } from "./components/highlights-card";
@@ -25,8 +42,15 @@ import { RecentCallsCard } from "./components/recent-calls-card";
 const DashboardPage: FC = () => {
   usePageMetadata({ title: "Dashboard" });
   const [days, setDays] = useState("90");
+  const [scope, setScope] = useState<"me" | "team">("me");
+  const { can, organisation } = usePermissions();
+  const canSeeTeam = can(Permissions.CALLS_VIEW_ALL);
+  const effectiveScope = canSeeTeam ? scope : "me";
   const fullName = useAuthStore((state) => state.full_name);
-  const { data, isPending } = useDashboardOverview(Number(days));
+  const { data, isPending } = useDashboardOverview(
+    Number(days),
+    effectiveScope,
+  );
   const { data: agents } = useAssistantAgents({ status: "active" });
 
   const firstName = fullName?.split(" ")[0];
@@ -36,9 +60,24 @@ const DashboardPage: FC = () => {
     <>
       <PageHeader
         title={firstName ? `Hi ${firstName}` : "Dashboard"}
-        description="Your performance on live calls and practice, and what to work on next."
+        description={
+          effectiveScope === "team"
+            ? `How everyone in ${organisation?.name ?? "your organisation"} is performing.`
+            : "Your performance on live calls and practice, and what to work on next."
+        }
         actions={
           <>
+            {canSeeTeam && (
+              <Tabs
+                value={scope}
+                onValueChange={(value) => setScope(value as "me" | "team")}
+              >
+                <TabsList className="h-9">
+                  <TabsTrigger value="me">Me</TabsTrigger>
+                  <TabsTrigger value="team">Team</TabsTrigger>
+                </TabsList>
+              </Tabs>
+            )}
             <Select value={days} onValueChange={setDays}>
               <SelectTrigger className="h-9 w-[150px]" aria-label="Period">
                 <SelectValue />
@@ -51,48 +90,82 @@ const DashboardPage: FC = () => {
                 ))}
               </SelectContent>
             </Select>
-            <Button asChild variant="outline">
-              <Link to={Routes.practice.root}>
-                <Headphones /> Practice
-              </Link>
-            </Button>
+            {can(Permissions.CALLS_CREATE) && (
+              <Button asChild variant="outline">
+                <Link to={Routes.practice.root}>
+                  <Headphones /> Practice
+                </Link>
+              </Button>
+            )}
           </>
         }
       />
+
+      <div className="mb-4 empty:hidden">
+        <PendingInvitationsCard />
+      </div>
 
       {isPending || !data ? (
         <DashboardSkeleton />
       ) : (
         <div className="space-y-4">
-          {(totals?.calls === 0 || !agents?.length) && <GettingStarted hasAgent={!!agents?.length} hasPractice={(totals?.practice_sessions ?? 0) > 0} hasLiveCall={(totals?.live_calls ?? 0) > 0} />}
+          {effectiveScope === "me" &&
+            can(Permissions.CALLS_CREATE) &&
+            (totals?.calls === 0 || !agents?.length) && (
+              <GettingStarted
+                hasAgent={!!agents?.length}
+                canCreateAgent={can(Permissions.AGENTS_MANAGE)}
+                hasPractice={(totals?.practice_sessions ?? 0) > 0}
+                hasLiveCall={(totals?.live_calls ?? 0) > 0}
+              />
+            )}
 
           <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-            <StatCard label="Average score" value={totals?.average_score ?? "–"} icon={Target} hint={`Live ${totals?.live_average_score ?? "–"} · Practice ${totals?.practice_average_score ?? "–"}`} />
-            <StatCard label="Calls" value={totals?.calls ?? 0} icon={PhoneCall} hint={`${totals?.live_calls ?? 0} live · ${totals?.practice_sessions ?? 0} practice`} />
-            <StatCard label="Meetings booked" value={totals?.meetings_booked ?? 0} icon={CalendarCheck} hint="From live calls" />
+            <StatCard
+              label="Average score"
+              value={totals?.average_score ?? "–"}
+              icon={Target}
+              hint={`Live ${totals?.live_average_score ?? "–"} · Practice ${totals?.practice_average_score ?? "–"}`}
+            />
+            <StatCard
+              label="Calls"
+              value={totals?.calls ?? 0}
+              icon={PhoneCall}
+              hint={`${totals?.live_calls ?? 0} live · ${totals?.practice_sessions ?? 0} practice`}
+            />
+            <StatCard
+              label="Meetings booked"
+              value={totals?.meetings_booked ?? 0}
+              icon={CalendarCheck}
+              hint="From live calls"
+            />
             <StatCard
               label="Practice streak"
               value={`${totals?.practice_streak_days ?? 0}d`}
               icon={Flame}
               hint={
                 <span className="inline-flex items-center gap-1">
-                  <Clock className="size-3" /> {totals?.talk_minutes ?? 0} min on calls
+                  <Clock className="size-3" /> {totals?.talk_minutes ?? 0} min
+                  on calls
                 </span>
               }
             />
           </div>
 
-          <div className="grid gap-4 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
             <ScoreTrendCard data={data.score_trend} className="lg:col-span-2" />
             <HighlightsCard highlights={data.highlights} />
           </div>
 
-          <div className="grid gap-4 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
             <SkillsCard categories={data.categories} />
-            <RecommendedPracticeCard items={data.recommended_practice} />
+            <RecommendedPracticeCard
+              items={data.recommended_practice}
+              canStart={can(Permissions.PROSPECTS_MANAGE)}
+            />
           </div>
 
-          <div className="grid gap-4 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
             <RecurringMistakesCard mistakes={data.recurring_mistakes} />
             <OutcomesCard outcomes={data.outcomes} />
             <PracticeProgressCard progress={data.practice_progress} />

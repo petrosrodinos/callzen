@@ -3,6 +3,8 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
+import { can, OrgContext } from '@/shared/interfaces/org-context.interface';
+import { Permissions } from '@/shared/config/permissions/permissions.config';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
 import {
   CallKind,
@@ -34,6 +36,7 @@ import {
   PracticeAgentWithStats,
 } from './interfaces/practice-agent.interface';
 import { formatTranscript } from '@/modules/calls/utils/transcript.utils';
+import { normalizeLanguages } from '@/shared/config/languages/languages.config';
 
 const RANDOM_INDUSTRIES = [
   'B2B SaaS',
@@ -60,9 +63,9 @@ export class PracticeAgentsService {
     private readonly usageService: UsageService,
   ) {}
 
-  async create(userId: string, dto: CreatePracticeAgentDto) {
+  async create(ctx: OrgContext, dto: CreatePracticeAgentDto) {
     if (dto.linked_assistant_agent_id)
-      await this.assertAssistantAgent(userId, dto.linked_assistant_agent_id);
+      await this.assertAssistantAgent(ctx, dto.linked_assistant_agent_id);
     const template = dto.template_key
       ? findPracticeAgentTemplate(dto.template_key)
       : undefined;
@@ -72,21 +75,22 @@ export class PracticeAgentsService {
       ...templateFields
     } = template ?? ({} as any);
 
+    const merged = { ...templateFields, ...dto };
     return this.prisma.practiceAgent.create({
       data: this.toData(
-        { ...templateFields, ...dto },
-        userId,
+        { ...merged, ...normalizeLanguages(merged.language, merged.languages) },
+        ctx,
       ) as Prisma.PracticeAgentUncheckedCreateInput,
     });
   }
 
   async findAll(
-    userId: string,
+    ctx: OrgContext,
     query: PracticeAgentQueryType,
   ): Promise<PracticeAgentWithStats[]> {
     const agents = await this.prisma.practiceAgent.findMany({
       where: {
-        user_id: userId,
+        organisation_id: ctx.organisationId,
         ...(query.status === 'active' && { archived_at: null }),
         ...(query.status === 'archived' && { archived_at: { not: null } }),
         ...(query.search && {
@@ -101,7 +105,7 @@ export class PracticeAgentsService {
     });
 
     const stats = await this.statsFor(
-      userId,
+      ctx,
       agents.map((agent) => agent.id),
     );
     return agents.map((agent) => ({
@@ -110,30 +114,39 @@ export class PracticeAgentsService {
     }));
   }
 
-  async findOne(userId: string, id: string): Promise<PracticeAgentWithStats> {
-    const agent = await this.getOwned(userId, id);
-    const stats = await this.statsFor(userId, [id]);
+  async findOne(ctx: OrgContext, id: string): Promise<PracticeAgentWithStats> {
+    const agent = await this.getOwned(ctx, id);
+    const stats = await this.statsFor(ctx, [id]);
     return { ...agent, stats: stats.get(id) ?? this.emptyStats() };
   }
 
-  async update(userId: string, id: string, dto: UpdatePracticeAgentDto) {
-    await this.getOwned(userId, id);
+  async update(ctx: OrgContext, id: string, dto: UpdatePracticeAgentDto) {
+    const existing = await this.getOwned(ctx, id);
     if (dto.linked_assistant_agent_id)
-      await this.assertAssistantAgent(userId, dto.linked_assistant_agent_id);
+      await this.assertAssistantAgent(ctx, dto.linked_assistant_agent_id);
 
     return this.prisma.practiceAgent.update({
       where: { id },
-      data: this.toData(dto) as Prisma.PracticeAgentUncheckedUpdateInput,
+      data: this.toData({
+        ...dto,
+        ...(dto.languages || dto.language
+          ? normalizeLanguages(
+              dto.language ?? dto.languages?.[0],
+              dto.languages ?? existing.languages,
+            )
+          : {}),
+      }) as Prisma.PracticeAgentUncheckedUpdateInput,
     });
   }
 
-  async duplicate(userId: string, id: string) {
-    const agent = await this.getOwned(userId, id);
+  async duplicate(ctx: OrgContext, id: string) {
+    const agent = await this.getOwned(ctx, id);
     const { id: _id, created_at, updated_at, archived_at, ...rest } = agent;
 
     return this.prisma.practiceAgent.create({
       data: {
         ...rest,
+        user_id: ctx.userId,
         name: `${agent.name} (copy)`,
         pain_points: agent.pain_points as Prisma.InputJsonValue,
         objections: agent.objections as Prisma.InputJsonValue,
@@ -144,13 +157,13 @@ export class PracticeAgentsService {
     });
   }
 
-  async harder(userId: string, id: string) {
-    const agent = await this.getOwned(userId, id);
+  async harder(ctx: OrgContext, id: string) {
+    const agent = await this.getOwned(ctx, id);
     if (agent.difficulty >= 5)
       throw new BadRequestException(
         'This scenario is already at maximum difficulty',
       );
-    const copy = await this.duplicate(userId, id);
+    const copy = await this.duplicate(ctx, id);
 
     return this.prisma.practiceAgent.update({
       where: { id: copy.id },
@@ -162,23 +175,23 @@ export class PracticeAgentsService {
     });
   }
 
-  async setArchived(userId: string, id: string, archived: boolean) {
-    await this.getOwned(userId, id);
+  async setArchived(ctx: OrgContext, id: string, archived: boolean) {
+    await this.getOwned(ctx, id);
     return this.prisma.practiceAgent.update({
       where: { id },
       data: { archived_at: archived ? new Date() : null },
     });
   }
 
-  async remove(userId: string, id: string) {
-    await this.getOwned(userId, id);
+  async remove(ctx: OrgContext, id: string) {
+    await this.getOwned(ctx, id);
     await this.prisma.practiceAgent.delete({ where: { id } });
     return { id, deleted: true };
   }
 
-  async generate(userId: string, dto: GeneratePracticeAgentDto) {
+  async generate(ctx: OrgContext, dto: GeneratePracticeAgentDto) {
     const assistant = dto.assistant_agent_id
-      ? await this.assertAssistantAgent(userId, dto.assistant_agent_id)
+      ? await this.assertAssistantAgent(ctx, dto.assistant_agent_id)
       : null;
     const constraints = [
       dto.lead_temperature &&
@@ -187,7 +200,7 @@ export class PracticeAgentsService {
     ].filter(Boolean);
 
     const generated = await this.runGeneration(
-      userId,
+      ctx,
       `Create a practice prospect from this description:\n"${dto.description}"\n\n${constraints.join('\n')}\n\n${buildProductContext(
         {
           product: assistant?.description ?? assistant?.call_goal,
@@ -196,15 +209,15 @@ export class PracticeAgentsService {
       )}`,
     );
 
-    return this.finalizeGenerated(userId, generated, dto.save, assistant?.id, {
+    return this.finalizeGenerated(ctx, generated, dto.save, assistant?.id, {
       lead_temperature: dto.lead_temperature,
       difficulty: dto.difficulty,
     });
   }
 
-  async randomize(userId: string, dto: RandomizePracticeAgentDto) {
+  async randomize(ctx: OrgContext, dto: RandomizePracticeAgentDto) {
     const assistant = dto.assistant_agent_id
-      ? await this.assertAssistantAgent(userId, dto.assistant_agent_id)
+      ? await this.assertAssistantAgent(ctx, dto.assistant_agent_id)
       : null;
     const temperature =
       dto.lead_temperature ??
@@ -215,7 +228,7 @@ export class PracticeAgentsService {
       RANDOM_INDUSTRIES[Math.floor(Math.random() * RANDOM_INDUSTRIES.length)];
 
     const generated = await this.runGeneration(
-      userId,
+      ctx,
       `Invent a surprising but realistic random prospect so the salesperson cannot memorize scenarios.
 Constraints: lead temperature ${temperature}, difficulty ${difficulty}, industry "${industry}"${dto.scenario_type ? `, scenario type ${dto.scenario_type}` : ''}.
 Random seed: ${Math.random().toString(36).slice(2)}
@@ -224,15 +237,21 @@ ${buildProductContext({ product: assistant?.description ?? assistant?.call_goal,
       1,
     );
 
-    return this.finalizeGenerated(userId, generated, dto.save, assistant?.id, {
+    return this.finalizeGenerated(ctx, generated, dto.save, assistant?.id, {
       lead_temperature: temperature,
       difficulty,
     });
   }
 
-  async fromCall(userId: string, callId: string) {
+  async fromCall(ctx: OrgContext, callId: string) {
     const call = await this.prisma.call.findFirst({
-      where: { id: callId, user_id: userId },
+      where: {
+        id: callId,
+        organisation_id: ctx.organisationId,
+        ...(can(ctx, Permissions.CALLS_VIEW_ALL)
+          ? {}
+          : { user_id: ctx.userId }),
+      },
       include: {
         segments: { orderBy: { start_ms: 'asc' } },
         analysis: true,
@@ -258,7 +277,7 @@ ${buildProductContext({ product: assistant?.description ?? assistant?.call_goal,
       ? JSON.stringify(call.analysis.prospect_insights)
       : 'Not available';
     const generated = await this.runGeneration(
-      userId,
+      ctx,
       `Recreate the REAL prospect from this sales call as a practice persona so the salesperson can rehearse the follow-up call or replay the call that went badly.
 Keep the same person, company, objections, tone and situation. Infer hidden pain points and conversion conditions from what was said.
 Prospect: ${call.prospect_name ?? 'unknown'} | Company: ${call.prospect_company ?? 'unknown'} | Role: ${call.prospect_role ?? 'unknown'}
@@ -270,7 +289,7 @@ ${formatTranscript(call.segments, { maxChars: 14000 })}`,
     );
 
     const agent = await this.finalizeGenerated(
-      userId,
+      ctx,
       generated,
       true,
       call.assistant_agent_id,
@@ -285,9 +304,9 @@ ${formatTranscript(call.segments, { maxChars: 14000 })}`,
     });
   }
 
-  async getOwned(userId: string, id: string) {
+  async getOwned(ctx: OrgContext, id: string) {
     const agent = await this.prisma.practiceAgent.findFirst({
-      where: { id, user_id: userId },
+      where: { id, organisation_id: ctx.organisationId },
     });
     if (!agent)
       throw new NotFoundException({
@@ -298,7 +317,7 @@ ${formatTranscript(call.segments, { maxChars: 14000 })}`,
   }
 
   private async runGeneration(
-    userId: string,
+    ctx: OrgContext,
     prompt: string,
     temperature = 0.8,
   ): Promise<GeneratedPracticeAgent> {
@@ -313,7 +332,8 @@ ${formatTranscript(call.segments, { maxChars: 14000 })}`,
     });
 
     this.usageService.record({
-      userId,
+      organisationId: ctx.organisationId,
+      userId: ctx.userId,
       kind: UsageKind.GENERATION,
       model: result.model,
       inputTokens: result.usage.inputTokens,
@@ -325,7 +345,7 @@ ${formatTranscript(call.segments, { maxChars: 14000 })}`,
   }
 
   private async finalizeGenerated(
-    userId: string,
+    ctx: OrgContext,
     generated: GeneratedPracticeAgent,
     save: boolean | undefined,
     assistantAgentId: string | null | undefined,
@@ -346,14 +366,18 @@ ${formatTranscript(call.segments, { maxChars: 14000 })}`,
     };
 
     if (!save) return draft;
-    return this.create(userId, draft);
+    return this.create(ctx, draft);
   }
 
-  private toData(dto: Partial<CreatePracticeAgentDto>, userId?: string) {
+  private toData(dto: Partial<CreatePracticeAgentDto>, ctx?: OrgContext) {
     const { template_key, ...rest } = dto;
     return {
       ...rest,
-      ...(userId && { user_id: userId, template_key }),
+      ...(ctx && {
+        organisation_id: ctx.organisationId,
+        user_id: ctx.userId,
+        template_key,
+      }),
       pain_points: rest.pain_points as Prisma.InputJsonValue,
       objections: rest.objections as unknown as Prisma.InputJsonValue,
       hidden_information: rest.hidden_information as Prisma.InputJsonValue,
@@ -362,9 +386,9 @@ ${formatTranscript(call.segments, { maxChars: 14000 })}`,
     };
   }
 
-  private async assertAssistantAgent(userId: string, id: string) {
+  private async assertAssistantAgent(ctx: OrgContext, id: string) {
     const agent = await this.prisma.assistantAgent.findFirst({
-      where: { id, user_id: userId },
+      where: { id, organisation_id: ctx.organisationId },
     });
     if (!agent)
       throw new NotFoundException({
@@ -385,14 +409,17 @@ ${formatTranscript(call.segments, { maxChars: 14000 })}`,
   }
 
   private async statsFor(
-    userId: string,
+    ctx: OrgContext,
     agentIds: string[],
   ): Promise<Map<string, PracticeAgentStats>> {
     const result = new Map<string, PracticeAgentStats>();
     if (!agentIds.length) return result;
 
     const calls = await this.prisma.call.findMany({
-      where: { user_id: userId, practice_agent_id: { in: agentIds } },
+      where: {
+        organisation_id: ctx.organisationId,
+        practice_agent_id: { in: agentIds },
+      },
       select: {
         practice_agent_id: true,
         started_at: true,

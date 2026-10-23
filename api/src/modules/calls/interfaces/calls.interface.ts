@@ -50,6 +50,7 @@ export interface CallListItem {
   objective_achieved: boolean | null;
   has_recording: boolean;
   score: number | null;
+  owner: { id: string; name: string; is_you: boolean };
   assistant_agent: { id: string; name: string } | null;
   practice_agent: {
     id: string;

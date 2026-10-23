@@ -2,6 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import {
   ArrayMaxSize,
+  ArrayMinSize,
   IsArray,
   IsEnum,
   IsIn,
@@ -24,6 +25,10 @@ import {
   SCENARIO_TYPES,
   TIMELINE_TYPES,
 } from '@/shared/config/practice/practice-options.config';
+import {
+  MAX_CONVERSATION_LANGUAGES,
+  SUPPORTED_LANGUAGE_CODES,
+} from '@/shared/config/languages/languages.config';
 
 export class PracticeObjectionDto {
   @ApiProperty({ example: 'Too expensive' })
@@ -183,11 +188,27 @@ export class CreatePracticeAgentDto {
   @Max(5)
   patience?: number;
 
-  @ApiProperty({ required: false, example: 'en' })
+  @ApiProperty({
+    required: false,
+    example: 'en',
+    description: 'Language the prospect starts in',
+  })
   @IsOptional()
-  @IsString()
-  @MaxLength(10)
+  @IsIn(SUPPORTED_LANGUAGE_CODES)
   language?: string;
+
+  @ApiProperty({
+    required: false,
+    type: [String],
+    example: ['en', 'el'],
+    description: `Up to ${MAX_CONVERSATION_LANGUAGES} languages the prospect speaks; the first is the default`,
+  })
+  @IsOptional()
+  @IsArray()
+  @ArrayMinSize(1)
+  @ArrayMaxSize(MAX_CONVERSATION_LANGUAGES)
+  @IsIn(SUPPORTED_LANGUAGE_CODES, { each: true })
+  languages?: string[];
 
   @ApiProperty({ required: false })
   @IsOptional()

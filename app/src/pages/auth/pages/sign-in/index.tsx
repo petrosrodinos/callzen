@@ -1,10 +1,11 @@
 import type { FC } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { SignInForm } from "./components/sign-in-form";
 import { Routes } from "@/routes/routes";
 import { usePageMetadata } from "@/hooks/use-page-metadata";
 
 const SignInPage: FC = () => {
+  const { search } = useLocation();
   usePageMetadata({ title: "Sign in" });
 
   return (
@@ -16,7 +17,7 @@ const SignInPage: FC = () => {
       <SignInForm />
       <p className="text-center text-sm text-muted-foreground">
         New to CallZen?{" "}
-        <Link to={Routes.auth.sign_up} className="font-medium text-primary underline-offset-4 hover:underline">
+        <Link to={`${Routes.auth.sign_up}${search}`} className="font-medium text-primary underline-offset-4 hover:underline">
           Create an account
         </Link>
       </p>

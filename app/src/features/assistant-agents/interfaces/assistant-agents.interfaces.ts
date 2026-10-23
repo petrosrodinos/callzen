@@ -80,6 +80,7 @@ export interface AssistantAgent {
     objection_library: ObjectionEntry[];
     methodology: string | null;
     language: string;
+    languages: string[];
     tone: string;
     suggestion_frequency: SuggestionFrequency;
     suggestion_length: SuggestionLength;

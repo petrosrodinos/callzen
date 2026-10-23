@@ -207,6 +207,7 @@ export const useUpdateSegmentSpeaker = () => {
 export const useUploadRecording = () => {
     const queryClient = useQueryClient();
     return useMutation({
+        mutationKey: ["upload-recording"],
         mutationFn: uploadRecording,
         retry: 3,
         retryDelay: (attempt) => Math.min(1000 * 2 ** attempt, 15000),

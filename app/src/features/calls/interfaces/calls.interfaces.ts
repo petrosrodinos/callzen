@@ -3,6 +3,9 @@ import type { AnalysisCriterion, SuggestionFrequency } from "@/features/assistan
 import type { PracticeAgentFields } from "@/features/practice-agents/interfaces/practice-agents.interfaces";
 import type { VoiceProvider } from "@/features/catalog/interfaces/catalog.interfaces";
 
+// Calls with multi-language co-pilots can auto-detect the spoken language.
+export const AUTO_LANGUAGE = "auto";
+
 export const CallKinds = {
     LIVE: "LIVE",
     PRACTICE: "PRACTICE",
@@ -265,6 +268,7 @@ export interface AgentSnapshot {
     analysis_model: string;
     analysis_criteria: AnalysisCriterion[];
     language: string;
+    languages: string[];
 }
 
 export type PracticeSnapshot = Partial<PracticeAgentFields> & {
@@ -314,9 +318,17 @@ export interface Call {
     analysis: CallAnalysis | null;
     assistant_agent: { id: string; name: string; archived_at: string | null } | null;
     practice_agent: { id: string; name: string; difficulty: number; archived_at: string | null } | null;
+    owner: CallOwner;
+}
+
+export interface CallOwner {
+    id: string;
+    name: string;
+    is_you: boolean;
 }
 
 export interface CallListItem {
+    owner: CallOwner;
     id: string;
     kind: CallKind;
     call_type: CallType;
@@ -345,6 +357,7 @@ export interface CallQuery {
     page?: number;
     limit?: number;
     search?: string;
+    mine?: "true";
     kind?: CallKind;
     call_type?: CallType;
     assistant_agent_id?: string;

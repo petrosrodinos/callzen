@@ -20,7 +20,7 @@ import { useAssistantAgents } from "@/features/assistant-agents/hooks/use-assist
 import { useCatalog } from "@/features/catalog/hooks/use-catalog";
 import { useMe, useUpdateMe } from "@/features/user/hooks/use-user";
 import { useCalls, useStartLiveCall } from "@/features/calls/hooks/use-calls";
-import { CallKinds, CallTypes } from "@/features/calls/interfaces/calls.interfaces";
+import { AUTO_LANGUAGE, CallKinds, CallTypes } from "@/features/calls/interfaces/calls.interfaces";
 import { LiveCallTypeDescriptionOptions } from "@/config/constants/dropdowns/calls/call-type-form.options";
 import { getMicrophoneStream, getTabAudioStream, isTabAudioCaptureSupported, stopStream } from "@/lib/audio/media-capture";
 import { setPendingCapture } from "@/lib/audio/pending-capture";
@@ -66,6 +66,8 @@ const NewCallPage: FC = () => {
   const agentId = form.watch("assistant_agent_id");
   const selectedAgent = agents?.find((agent) => agent.id === agentId);
   const consentNeeded = !me?.consent_acknowledged_at;
+  const agentLanguageCodes = selectedAgent ? (selectedAgent.languages?.length ? selectedAgent.languages : [selectedAgent.language]) : [];
+  const languageLabel = (code: string) => catalog?.languages.find((language) => language.code === code)?.name ?? code;
 
   useEffect(() => {
     if (!agents?.length || form.getValues("assistant_agent_id")) return;
@@ -74,7 +76,9 @@ const NewCallPage: FC = () => {
   }, [agents, form, searchParams]);
 
   useEffect(() => {
-    if (selectedAgent) form.setValue("language", selectedAgent.language);
+    if (!selectedAgent) return;
+    const agentLanguages = selectedAgent.languages?.length ? selectedAgent.languages : [selectedAgent.language];
+    form.setValue("language", agentLanguages.length > 1 ? AUTO_LANGUAGE : agentLanguages[0]);
   }, [form, selectedAgent]);
 
   useEffect(() => {
@@ -163,7 +167,7 @@ const NewCallPage: FC = () => {
             name="call_type"
             render={({ field }) => (
               <FormItem>
-                <div role="radiogroup" aria-label="Call type" className="grid gap-3 sm:grid-cols-2">
+                <div role="radiogroup" aria-label="Call type" className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   {LiveCallTypeDescriptionOptions.map((option) => {
                     const Icon = TYPE_ICONS[option.id as keyof typeof TYPE_ICONS];
                     const disabled = option.id === CallTypes.ONLINE_MEETING && !meetingSupported;
@@ -201,7 +205,7 @@ const NewCallPage: FC = () => {
           </FormSection>
 
           <FormSection title="Call context" description="Helps the co-pilot personalise suggestions and the analysis.">
-            <div className="grid gap-4 sm:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               {(
                 [
                   ["prospect_name", "Prospect name", "Dr. Papadopoulos"],
@@ -249,7 +253,7 @@ const NewCallPage: FC = () => {
                 </FormItem>
               )}
             />
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <FormSelectField
                 control={form.control}
                 name="prior_call_id"
@@ -258,7 +262,16 @@ const NewCallPage: FC = () => {
                 emptyLabel="None"
                 options={(recentCalls?.data ?? []).map((call) => ({ id: call.id, label: `${call.title ?? call.prospect_name ?? "Call"} · ${formatShortDate(call.started_at)}` }))}
               />
-              <FormSelectField control={form.control} name="language" label="Conversation language" options={(catalog?.languages ?? []).map((l) => ({ id: l.code, label: l.name }))} />
+              <FormSelectField
+                control={form.control}
+                name="language"
+                label="Conversation language"
+                description={agentLanguageCodes.length > 1 ? "Auto-detect follows whichever of the co-pilot's languages the prospect speaks." : undefined}
+                options={[
+                  ...(agentLanguageCodes.length > 1 ? [{ id: AUTO_LANGUAGE, label: `Auto-detect (${agentLanguageCodes.map(languageLabel).join(", ")})` }] : []),
+                  ...agentLanguageCodes.map((code) => ({ id: code, label: languageLabel(code) })),
+                ]}
+              />
             </div>
           </FormSection>
 

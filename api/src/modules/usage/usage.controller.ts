@@ -6,7 +6,9 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { JwtGuard } from '@/shared/guards/jwt.guard';
-import { CurrentUser } from '@/shared/decorators/current-user.decorator';
+import { OrgGuard } from '@/shared/guards/org.guard';
+import { Org } from '@/shared/decorators/org.decorator';
+import { OrgContext } from '@/shared/interfaces/org-context.interface';
 import { ZodValidationPipe } from '@/shared/pipes/zod.validation.pipe';
 import { UsageService } from './usage.service';
 import {
@@ -17,7 +19,7 @@ import {
 @ApiTags('Usage')
 @ApiBearerAuth()
 @Controller('usage')
-@UseGuards(JwtGuard)
+@UseGuards(JwtGuard, OrgGuard)
 export class UsageController {
   constructor(private readonly usageService: UsageService) {}
 
@@ -25,9 +27,9 @@ export class UsageController {
   @ApiOperation({ summary: 'Usage and estimated cost over a period' })
   @ApiQuery({ name: 'days', required: false })
   summary(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Query(new ZodValidationPipe(UsageQuerySchema)) query: UsageQueryType,
   ) {
-    return this.usageService.summary(userId, query);
+    return this.usageService.summary(ctx, query);
   }
 }

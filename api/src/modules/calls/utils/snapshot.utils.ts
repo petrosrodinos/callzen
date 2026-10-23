@@ -1,5 +1,7 @@
 import { NotFoundException } from '@nestjs/common';
 import { AssistantAgent, PracticeAgent, Prisma } from 'generated/prisma';
+import { can, OrgContext } from '@/shared/interfaces/org-context.interface';
+import { Permissions } from '@/shared/config/permissions/permissions.config';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
 import {
   AgentSnapshot,
@@ -21,6 +23,7 @@ export const toAgentSnapshot = (agent: AssistantAgent): AgentSnapshot => ({
     [],
   methodology: agent.methodology,
   language: agent.language,
+  languages: agent.languages?.length ? agent.languages : [agent.language],
   tone: agent.tone,
   suggestion_frequency: agent.suggestion_frequency,
   suggestion_length: agent.suggestion_length,
@@ -63,6 +66,7 @@ export const toPracticeSnapshot = (
   conversion_conditions: (agent.conversion_conditions as string[]) ?? [],
   patience: agent.patience,
   language: agent.language,
+  languages: agent.languages?.length ? agent.languages : [agent.language],
   accent: agent.accent,
   industry: agent.industry,
   company: agent.company,
@@ -78,17 +82,30 @@ export const toPracticeSnapshot = (
 
 export const asJson = (value: unknown) => value as Prisma.InputJsonValue;
 
+export type CallAccess = 'live' | 'read' | 'manage';
+
+// Looks a call up inside the active organisation and enforces who may touch it:
+//  - live:   only the member who is running the call
+//  - read:   its owner, or anyone with calls.view_all
+//  - manage: its owner, or anyone with calls.manage_all
 export const findOwnedCall = async <T extends Prisma.CallInclude>(
   prisma: PrismaService,
-  userId: string,
+  ctx: OrgContext,
   callId: string,
   include?: T,
+  access: CallAccess = 'live',
 ) => {
   const call = await prisma.call.findFirst({
-    where: { id: callId, user_id: userId },
+    where: { id: callId, organisation_id: ctx.organisationId },
     include,
   });
-  if (!call)
+  const isOwner = call?.user_id === ctx.userId;
+  const allowed =
+    !!call &&
+    (isOwner ||
+      (access === 'read' && can(ctx, Permissions.CALLS_VIEW_ALL)) ||
+      (access === 'manage' && can(ctx, Permissions.CALLS_MANAGE_ALL)));
+  if (!call || !allowed)
     throw new NotFoundException({
       message: 'Call not found',
       code: ErrorCodes.Calls.NOT_FOUND,

@@ -1,4 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
+import { can, OrgContext } from '@/shared/interfaces/org-context.interface';
+import { Permissions } from '@/shared/config/permissions/permissions.config';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
 import { UsageKind } from 'generated/prisma';
 import { UsageQueryType } from './dto/usage-query.schema';
@@ -6,6 +8,7 @@ import { UsageSummary } from './interfaces/usage.interface';
 import { round } from '@/shared/utils/math/math.utils';
 
 export interface RecordUsageInput {
+  organisationId: string;
   userId: string;
   callId?: string | null;
   kind: UsageKind;
@@ -28,6 +31,7 @@ export class UsageService {
       try {
         await this.prisma.usageEvent.create({
           data: {
+            organisation_id: input.organisationId,
             user_id: input.userId,
             call_id: input.callId ?? null,
             kind: input.kind,
@@ -44,15 +48,20 @@ export class UsageService {
     });
   }
 
-  async summary(userId: string, query: UsageQueryType): Promise<UsageSummary> {
+  async summary(ctx: OrgContext, query: UsageQueryType): Promise<UsageSummary> {
+    // Organisation-wide numbers need usage.view; everyone else sees their own usage.
+    const scope = {
+      organisation_id: ctx.organisationId,
+      ...(can(ctx, Permissions.USAGE_VIEW) ? {} : { user_id: ctx.userId }),
+    };
     const since = new Date(Date.now() - query.days * 24 * 60 * 60 * 1000);
 
     const [events, calls] = await Promise.all([
       this.prisma.usageEvent.findMany({
-        where: { user_id: userId, created_at: { gte: since } },
+        where: { ...scope, created_at: { gte: since } },
       }),
       this.prisma.call.findMany({
-        where: { user_id: userId, started_at: { gte: since } },
+        where: { ...scope, started_at: { gte: since } },
         select: { kind: true, duration_seconds: true },
       }),
     ]);

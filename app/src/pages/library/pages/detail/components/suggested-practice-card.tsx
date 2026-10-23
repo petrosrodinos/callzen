@@ -7,7 +7,13 @@ import { useStartRecommendedPractice } from "@/hooks/use-start-recommended-pract
 import { getLeadTemperatureLabel } from "@/config/constants/dropdowns/practice/lead-temperature-form.options";
 import { getDifficultyLabel } from "@/config/constants/dropdowns/practice/difficulty-form.options";
 
-export function SuggestedPracticeCard({ items, assistantAgentId }: { items: SuggestedPractice[]; assistantAgentId: string | null }) {
+export function SuggestedPracticeCard({
+  items,
+  assistantAgentId,
+}: {
+  items: SuggestedPractice[];
+  assistantAgentId: string | null;
+}) {
   const { start, isPending, pendingTitle } = useStartRecommendedPractice();
   if (!items.length) return null;
 
@@ -18,19 +24,32 @@ export function SuggestedPracticeCard({ items, assistantAgentId }: { items: Sugg
       </h3>
       <ul className="space-y-3">
         {items.map((item) => {
-          const loading = isPending && pendingTitle === item.scenario_description;
+          const loading =
+            isPending && pendingTitle === item.scenario_description;
           return (
-            <li key={item.title} className="flex flex-col gap-2 rounded-lg border p-3 sm:flex-row sm:items-center">
+            <li
+              key={item.title}
+              className="flex flex-col gap-2 rounded-lg border p-3 sm:flex-row sm:items-center"
+            >
               <div className="min-w-0 flex-1">
                 <p className="text-sm font-medium">{item.title}</p>
                 <p className="text-xs text-muted-foreground">{item.focus}</p>
                 <div className="mt-1.5 flex gap-1">
-                  <Badge variant="secondary">{getLeadTemperatureLabel(item.lead_temperature)}</Badge>
-                  <Badge variant="outline">{getDifficultyLabel(item.difficulty)}</Badge>
+                  <Badge variant="secondary">
+                    {getLeadTemperatureLabel(item.lead_temperature)}
+                  </Badge>
+                  <Badge variant="outline">
+                    {getDifficultyLabel(item.difficulty)}
+                  </Badge>
                 </div>
               </div>
-              <Button size="sm" onClick={() => start(item, assistantAgentId)} disabled={isPending}>
-                {loading ? <Loader2 className="animate-spin" /> : <Play />} {loading ? "Preparing…" : "Practice this"}
+              <Button
+                size="sm"
+                onClick={() => start(item, assistantAgentId)}
+                disabled={isPending}
+              >
+                {loading ? <Loader2 className="animate-spin" /> : <Play />}{" "}
+                {loading ? "Preparing…" : "Practice this"}
               </Button>
             </li>
           );

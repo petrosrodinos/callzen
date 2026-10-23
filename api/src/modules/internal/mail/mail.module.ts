@@ -8,4 +8,4 @@ import { ResendModule } from '@/integrations/notifications/resend/resend.module'
   controllers: [MailController],
   providers: [MailService],
 })
-export class MailModule { }
+export class MailModule {}

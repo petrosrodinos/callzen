@@ -1,10 +1,11 @@
 import type { FC } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { SignUpForm } from "./components/sign-up-form";
 import { Routes } from "@/routes/routes";
 import { usePageMetadata } from "@/hooks/use-page-metadata";
 
 const SignUpPage: FC = () => {
+  const { search } = useLocation();
   usePageMetadata({ title: "Create account" });
 
   return (
@@ -16,7 +17,7 @@ const SignUpPage: FC = () => {
       <SignUpForm />
       <p className="text-center text-sm text-muted-foreground">
         Already have an account?{" "}
-        <Link to={Routes.auth.sign_in} className="font-medium text-primary underline-offset-4 hover:underline">
+        <Link to={`${Routes.auth.sign_in}${search}`} className="font-medium text-primary underline-offset-4 hover:underline">
           Sign in
         </Link>
       </p>

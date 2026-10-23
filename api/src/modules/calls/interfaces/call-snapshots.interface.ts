@@ -17,6 +17,7 @@ export interface AgentSnapshot {
   objection_library: ObjectionEntry[];
   methodology: string | null;
   language: string;
+  languages: string[];
   tone: string;
   suggestion_frequency: SuggestionFrequency;
   suggestion_length: SuggestionLength;
@@ -50,6 +51,7 @@ export interface PracticeSnapshot {
   conversion_conditions: string[];
   patience: number;
   language: string;
+  languages: string[];
   accent: string | null;
   industry: string | null;
   company: string | null;

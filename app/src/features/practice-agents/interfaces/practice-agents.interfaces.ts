@@ -90,6 +90,7 @@ export interface PracticeAgentFields {
     conversion_conditions: string[];
     patience: number;
     language: string;
+    languages: string[];
     accent: string | null;
     industry: string | null;
     company: string | null;

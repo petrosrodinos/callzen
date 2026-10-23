@@ -14,20 +14,36 @@ interface TemplateCardProps {
   disabled: boolean;
 }
 
-export function TemplateCard({ template, onUse, isPending, disabled }: TemplateCardProps) {
+export function TemplateCard({
+  template,
+  onUse,
+  isPending,
+  disabled,
+}: TemplateCardProps) {
   return (
     <Card className="flex w-72 shrink-0 snap-start flex-col p-4 sm:w-auto">
       <div className="flex items-start justify-between gap-2">
         <p className="font-medium leading-tight">{template.name}</p>
         <DifficultyDots value={template.difficulty} />
       </div>
-      <p className="mt-1.5 line-clamp-2 flex-1 text-sm text-muted-foreground">{template.description}</p>
+      <p className="mt-1.5 line-clamp-2 flex-1 text-sm text-muted-foreground">
+        {template.description}
+      </p>
       <div className="mt-3 flex flex-wrap gap-1">
-        <Badge variant={template.lead_temperature === "COLD" ? "secondary" : "outline"}>{getLeadTemperatureLabel(template.lead_temperature)}</Badge>
-        <Badge variant="outline">{getDifficultyLabel(template.difficulty)}</Badge>
+        <Badge
+          variant={
+            template.lead_temperature === "COLD" ? "secondary" : "outline"
+          }
+        >
+          {getLeadTemperatureLabel(template.lead_temperature)}
+        </Badge>
+        <Badge variant="outline">
+          {getDifficultyLabel(template.difficulty)}
+        </Badge>
       </div>
       <Button size="sm" className="mt-3" onClick={onUse} disabled={disabled}>
-        {isPending ? <Loader2 className="animate-spin" /> : <Play />} Practice this
+        {isPending ? <Loader2 className="animate-spin" /> : <Play />} Practice
+        this
       </Button>
     </Card>
   );

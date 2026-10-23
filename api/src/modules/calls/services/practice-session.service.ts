@@ -1,4 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
+import { OrgContext } from '@/shared/interfaces/org-context.interface';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
 import { AiService } from '@/integrations/ai/services/ai.service';
 import { OpenAiRealtimeService } from '@/integrations/ai/services/openai-realtime.service';
@@ -34,6 +35,10 @@ import {
   REALTIME_VOICE_MODEL,
 } from '@/shared/config/voices/voice-providers.config';
 import { ErrorCodes } from '@/shared/config/error-codes';
+import {
+  AUTO_LANGUAGE,
+  languageNames,
+} from '@/shared/config/languages/languages.config';
 
 @Injectable()
 export class PracticeSessionService {
@@ -45,11 +50,11 @@ export class PracticeSessionService {
   ) {}
 
   async createRealtimeSession(
-    userId: string,
+    ctx: OrgContext,
     callId: string,
     dto: RealtimeSessionDto,
   ): Promise<RealtimeSessionResponse> {
-    const call = await findOwnedCall(this.prisma, userId, callId);
+    const call = await findOwnedCall(this.prisma, ctx, callId);
     if (call.status !== CallStatus.IN_PROGRESS) {
       throw new BadRequestException({
         message: 'Call is not in progress',
@@ -59,6 +64,10 @@ export class PracticeSessionService {
 
     if (dto.purpose === 'TRANSCRIPTION') {
       const agent = call.agent_snapshot as unknown as AgentSnapshot | null;
+      const spoken =
+        agent?.languages?.length > 1
+          ? `Languages that may be spoken: ${languageNames(agent.languages)}. `
+          : '';
       const vocabulary = [
         call.prospect_name,
         call.prospect_company,
@@ -69,10 +78,8 @@ export class PracticeSessionService {
       return this.realtimeService.createTranscriptionSession({
         model: REALTIME_VOICE_MODEL,
         transcriptionModel: REALTIME_TRANSCRIPTION_MODEL,
-        language: call.language,
-        prompt: vocabulary
-          ? `Sales call. Names that may appear: ${vocabulary}.`
-          : undefined,
+        language: call.language === AUTO_LANGUAGE ? undefined : call.language,
+        prompt: `Sales call. ${spoken}${vocabulary ? `Names that may appear: ${vocabulary}.` : ''}`,
       });
     }
 
@@ -91,7 +98,7 @@ export class PracticeSessionService {
       model: REALTIME_VOICE_MODEL,
       voice: persona.voice,
       instructions: buildRealtimeProspectInstructions(persona),
-      language: persona.language,
+      language: persona.languages?.length > 1 ? undefined : persona.language,
       transcriptionModel: REALTIME_TRANSCRIPTION_MODEL,
       tools: [REALTIME_END_CALL_TOOL],
     });
@@ -104,11 +111,11 @@ export class PracticeSessionService {
   }
 
   async practiceTurn(
-    userId: string,
+    ctx: OrgContext,
     callId: string,
     dto: PracticeTurnDto,
   ): Promise<PracticeTurnResponse> {
-    const call = await findOwnedCall(this.prisma, userId, callId);
+    const call = await findOwnedCall(this.prisma, ctx, callId);
     if (call.kind !== CallKind.PRACTICE)
       throw new BadRequestException('Not a practice session');
     if (call.status !== CallStatus.IN_PROGRESS) {
@@ -162,7 +169,8 @@ export class PracticeSessionService {
     });
 
     this.usageService.record({
-      userId,
+      organisationId: ctx.organisationId,
+      userId: ctx.userId,
       callId,
       kind: UsageKind.PRACTICE_TURN,
       model: result.model,

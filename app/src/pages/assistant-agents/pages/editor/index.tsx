@@ -4,7 +4,11 @@ import { ArrowLeft } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
 import { Button } from "@/components/ui/button";
 import { FormSkeleton } from "@/components/ui/page-skeletons";
-import { useAssistantAgent, useCreateAssistantAgent, useUpdateAssistantAgent } from "@/features/assistant-agents/hooks/use-assistant-agents";
+import {
+  useAssistantAgent,
+  useCreateAssistantAgent,
+  useUpdateAssistantAgent,
+} from "@/features/assistant-agents/hooks/use-assistant-agents";
 import { useCatalog } from "@/features/catalog/hooks/use-catalog";
 import type { AssistantAgentTemplate } from "@/features/catalog/interfaces/catalog.interfaces";
 import { usePageMetadata } from "@/hooks/use-page-metadata";
@@ -20,11 +24,15 @@ const AssistantAgentEditorPage: FC = () => {
   const navigate = useNavigate();
   const { data: catalog, isPending: catalogPending } = useCatalog();
   const { data: agent, isPending: agentPending } = useAssistantAgent(id);
-  const [template, setTemplate] = useState<AssistantAgentTemplate | "blank" | null>(null);
+  const [template, setTemplate] = useState<
+    AssistantAgentTemplate | "blank" | null
+  >(null);
   const create = useCreateAssistantAgent();
   const update = useUpdateAssistantAgent();
 
-  usePageMetadata({ title: isNew ? "New co-pilot" : (agent?.name ?? "Co-pilot") });
+  usePageMetadata({
+    title: isNew ? "New co-pilot" : (agent?.name ?? "Co-pilot"),
+  });
 
   const defaults = useMemo(() => {
     if (!catalog) return null;
@@ -37,8 +45,17 @@ const AssistantAgentEditorPage: FC = () => {
     const payload = toPayload(values);
     if (isNew) {
       create.mutate(
-        { ...payload, template_key: template && template !== "blank" ? template.key : undefined },
-        { onSuccess: (created) => navigate(Routes.assistant_agents.detail(created.id), { replace: true }) },
+        {
+          ...payload,
+          template_key:
+            template && template !== "blank" ? template.key : undefined,
+        },
+        {
+          onSuccess: (created) =>
+            navigate(Routes.assistant_agents.detail(created.id), {
+              replace: true,
+            }),
+        },
       );
     } else if (id) {
       update.mutate({ id, dto: payload });
@@ -56,13 +73,20 @@ const AssistantAgentEditorPage: FC = () => {
       </Button>
       <PageHeader
         title={isNew ? "New co-pilot" : (agent?.name ?? "Co-pilot")}
-        description={isNew ? "Start from a template or from scratch. You can change everything later." : "Script, knowledge, objection handling, style and scoring for this co-pilot."}
+        description={
+          isNew
+            ? "Start from a template or from scratch. You can change everything later."
+            : "Script, knowledge, objection handling, style and scoring for this co-pilot."
+        }
       />
 
       {loading ? (
         <FormSkeleton fields={8} />
       ) : isNew && !template ? (
-        <TemplatePicker templates={catalog?.assistant_templates ?? []} onPick={setTemplate} />
+        <TemplatePicker
+          templates={catalog?.assistant_templates ?? []}
+          onPick={setTemplate}
+        />
       ) : defaults && catalog ? (
         <AssistantAgentForm
           key={agent?.id ?? (template === "blank" ? "blank" : template?.key)}

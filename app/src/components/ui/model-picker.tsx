@@ -17,7 +17,7 @@ export function ModelPicker({ models, value, recommended, onChange, purpose, nam
   const ordered = [...models].sort((a, b) => Number(b.id === recommended) - Number(a.id === recommended));
 
   return (
-    <div role="radiogroup" aria-label={name} className="grid gap-2 sm:grid-cols-2">
+    <div role="radiogroup" aria-label={name} className="grid grid-cols-1 gap-2 sm:grid-cols-2">
       {ordered.map((model) => {
         const selected = model.id === value;
         const tooSlow = purpose === "realtime" && !model.realtime_suitable;
@@ -48,7 +48,7 @@ export function ModelPicker({ models, value, recommended, onChange, purpose, nam
                 <Gauge className="size-3" /> {getAiModelSpeedLabel(model.speed)}
               </span>
               <span className="inline-flex items-center gap-1" title={`Quality ${model.quality}/5`}>
-                <Star className="size-3" /> {"★".repeat(model.quality)}
+                {"★".repeat(model.quality)}
                 <span className="opacity-40">{"★".repeat(5 - model.quality)}</span>
               </span>
               <span className="inline-flex items-center gap-1">

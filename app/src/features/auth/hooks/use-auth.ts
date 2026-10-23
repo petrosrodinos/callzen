@@ -6,6 +6,7 @@ import type { SignInUser, SignUpUser } from "../interfaces/auth.interface";
 import { Routes } from "@/routes/routes";
 import type { LoggedInUser } from "@/features/user/interfaces/user.interface";
 import { toast } from "@/hooks/use-toast";
+import { consumeRedirect } from "@/lib/redirect";
 
 
 export function useSignin() {
@@ -24,7 +25,7 @@ export function useSignin() {
                 description: "You have successfully logged in",
                 duration: 2000,
             });
-            navigate(Routes.dashboard);
+            navigate(consumeRedirect(window.location.search) ?? Routes.dashboard);
         },
         onError: (error: any) => {
             toast({
@@ -54,7 +55,7 @@ export function useSignup() {
                 description: "Your account is ready.",
                 duration: 2000,
             });
-            navigate(Routes.dashboard);
+            navigate(consumeRedirect(window.location.search) ?? Routes.dashboard);
         },
         onError: (error) => {
             toast({

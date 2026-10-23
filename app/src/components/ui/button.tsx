@@ -33,7 +33,9 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ className, variant, size, loading = false, asChild = false, ...props }, ref) => {
-  const Comp = asChild ? Slot : "button";
+  // Slot must receive the single child element (e.g. a Link) untouched so it can merge props into it.
+  if (asChild) return <Slot className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />;
+  const Comp = "button";
 
   const content = (
     <>
@@ -44,8 +46,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({ className, va
 
   return (
     // <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />
-    <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} disabled={loading} {...props}>
-      {asChild ? <span className="inline-flex items-center gap-2">{content}</span> : content}
+    <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} disabled={loading || props.disabled}>
+      {content}
     </Comp>
   );
 });

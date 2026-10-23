@@ -3,6 +3,7 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
+import { OrgContext } from '@/shared/interfaces/org-context.interface';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
 import { Prisma } from 'generated/prisma';
 import { CreateAssistantAgentDto } from './dto/create-assistant-agent.dto';
@@ -21,32 +22,34 @@ import {
   AssistantAgentWithStats,
 } from './interfaces/assistant-agent.interface';
 import { average } from '@/shared/utils/math/math.utils';
+import { normalizeLanguages } from '@/shared/config/languages/languages.config';
 
 @Injectable()
 export class AssistantAgentsService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(userId: string, dto: CreateAssistantAgentDto) {
+  async create(ctx: OrgContext, dto: CreateAssistantAgentDto) {
     this.assertModels(dto);
     const template = dto.template_key
       ? findAssistantAgentTemplate(dto.template_key)
       : undefined;
     const existingCount = await this.prisma.assistantAgent.count({
-      where: { user_id: userId, archived_at: null },
+      where: { organisation_id: ctx.organisationId, archived_at: null },
     });
-    const isDefault = dto.is_default ?? existingCount === 0;
+    const isDefault = dto.is_default || existingCount === 0;
 
     return this.prisma.$transaction(async (tx) => {
       if (isDefault) {
         await tx.assistantAgent.updateMany({
-          where: { user_id: userId },
+          where: { organisation_id: ctx.organisationId },
           data: { is_default: false },
         });
       }
 
       return tx.assistantAgent.create({
         data: {
-          user_id: userId,
+          organisation_id: ctx.organisationId,
+          user_id: ctx.userId,
           name: dto.name,
           description: dto.description ?? template?.description,
           call_goal: dto.call_goal ?? template?.call_goal,
@@ -59,7 +62,7 @@ export class AssistantAgentsService {
             template?.objection_library ??
             []) as unknown as Prisma.InputJsonValue,
           methodology: dto.methodology ?? template?.methodology,
-          language: dto.language ?? 'en',
+          ...normalizeLanguages(dto.language, dto.languages),
           tone: dto.tone ?? template?.tone ?? 'PROFESSIONAL',
           suggestion_frequency:
             dto.suggestion_frequency ?? template?.suggestion_frequency,
@@ -80,11 +83,11 @@ export class AssistantAgentsService {
   }
 
   async findAll(
-    userId: string,
+    ctx: OrgContext,
     query: AssistantAgentQueryType,
   ): Promise<AssistantAgentWithStats[]> {
     const where: Prisma.AssistantAgentWhereInput = {
-      user_id: userId,
+      organisation_id: ctx.organisationId,
       ...(query.status === 'active' && { archived_at: null }),
       ...(query.status === 'archived' && { archived_at: { not: null } }),
       ...(query.search && {
@@ -98,7 +101,7 @@ export class AssistantAgentsService {
     });
 
     const stats = await this.statsFor(
-      userId,
+      ctx,
       agents.map((agent) => agent.id),
     );
     return agents.map((agent) => ({
@@ -107,20 +110,27 @@ export class AssistantAgentsService {
     }));
   }
 
-  async findOne(userId: string, id: string): Promise<AssistantAgentWithStats> {
-    const agent = await this.getOwned(userId, id);
-    const stats = await this.statsFor(userId, [id]);
+  async findOne(ctx: OrgContext, id: string): Promise<AssistantAgentWithStats> {
+    const agent = await this.getOwned(ctx, id);
+    const stats = await this.statsFor(ctx, [id]);
     return { ...agent, stats: stats.get(id) ?? this.emptyStats() };
   }
 
-  async update(userId: string, id: string, dto: UpdateAssistantAgentDto) {
-    await this.getOwned(userId, id);
+  async update(ctx: OrgContext, id: string, dto: UpdateAssistantAgentDto) {
+    const existing = await this.getOwned(ctx, id);
     this.assertModels(dto);
+    const languageUpdate =
+      dto.languages || dto.language
+        ? normalizeLanguages(
+            dto.language ?? dto.languages?.[0],
+            dto.languages ?? existing.languages,
+          )
+        : {};
 
     return this.prisma.$transaction(async (tx) => {
       if (dto.is_default) {
         await tx.assistantAgent.updateMany({
-          where: { user_id: userId },
+          where: { organisation_id: ctx.organisationId },
           data: { is_default: false },
         });
       }
@@ -129,6 +139,7 @@ export class AssistantAgentsService {
         where: { id },
         data: {
           ...dto,
+          ...languageUpdate,
           script: dto.script as unknown as Prisma.InputJsonValue,
           objection_library:
             dto.objection_library as unknown as Prisma.InputJsonValue,
@@ -139,8 +150,8 @@ export class AssistantAgentsService {
     });
   }
 
-  async duplicate(userId: string, id: string) {
-    const agent = await this.getOwned(userId, id);
+  async duplicate(ctx: OrgContext, id: string) {
+    const agent = await this.getOwned(ctx, id);
     const {
       id: _id,
       created_at,
@@ -153,6 +164,7 @@ export class AssistantAgentsService {
     return this.prisma.assistantAgent.create({
       data: {
         ...rest,
+        user_id: ctx.userId,
         name: `${agent.name} (copy)`,
         is_default: false,
         script: agent.script as Prisma.InputJsonValue,
@@ -162,14 +174,14 @@ export class AssistantAgentsService {
     });
   }
 
-  async setDefault(userId: string, id: string) {
-    const agent = await this.getOwned(userId, id);
+  async setDefault(ctx: OrgContext, id: string) {
+    const agent = await this.getOwned(ctx, id);
     if (agent.archived_at)
       throw new BadRequestException('Archived agents cannot be the default');
 
     await this.prisma.$transaction([
       this.prisma.assistantAgent.updateMany({
-        where: { user_id: userId },
+        where: { organisation_id: ctx.organisationId },
         data: { is_default: false },
       }),
       this.prisma.assistantAgent.update({
@@ -177,11 +189,11 @@ export class AssistantAgentsService {
         data: { is_default: true },
       }),
     ]);
-    return this.findOne(userId, id);
+    return this.findOne(ctx, id);
   }
 
-  async setArchived(userId: string, id: string, archived: boolean) {
-    await this.getOwned(userId, id);
+  async setArchived(ctx: OrgContext, id: string, archived: boolean) {
+    await this.getOwned(ctx, id);
     return this.prisma.assistantAgent.update({
       where: { id },
       data: {
@@ -191,15 +203,15 @@ export class AssistantAgentsService {
     });
   }
 
-  async remove(userId: string, id: string) {
-    await this.getOwned(userId, id);
+  async remove(ctx: OrgContext, id: string) {
+    await this.getOwned(ctx, id);
     await this.prisma.assistantAgent.delete({ where: { id } });
     return { id, deleted: true };
   }
 
-  async getOwned(userId: string, id: string) {
+  async getOwned(ctx: OrgContext, id: string) {
     const agent = await this.prisma.assistantAgent.findFirst({
-      where: { id, user_id: userId },
+      where: { id, organisation_id: ctx.organisationId },
     });
     if (!agent)
       throw new NotFoundException({
@@ -209,9 +221,9 @@ export class AssistantAgentsService {
     return agent;
   }
 
-  async getDefault(userId: string) {
+  async getDefault(ctx: OrgContext) {
     return this.prisma.assistantAgent.findFirst({
-      where: { user_id: userId, archived_at: null },
+      where: { organisation_id: ctx.organisationId, archived_at: null },
       orderBy: [{ is_default: 'desc' }, { updated_at: 'desc' }],
     });
   }
@@ -241,7 +253,7 @@ export class AssistantAgentsService {
   }
 
   private async statsFor(
-    userId: string,
+    ctx: OrgContext,
     agentIds: string[],
   ): Promise<Map<string, AssistantAgentStats>> {
     const result = new Map<string, AssistantAgentStats>();
@@ -249,7 +261,7 @@ export class AssistantAgentsService {
 
     const calls = await this.prisma.call.findMany({
       where: {
-        user_id: userId,
+        organisation_id: ctx.organisationId,
         assistant_agent_id: { in: agentIds },
         copilot_enabled: true,
       },

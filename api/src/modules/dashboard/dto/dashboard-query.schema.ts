@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 export const DashboardQuerySchema = z.object({
+  scope: z.enum(['me', 'team']).optional().default('me'),
   days: z
     .string()
     .optional()

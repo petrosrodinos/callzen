@@ -4,8 +4,11 @@ import {
   Logger,
   OnApplicationBootstrap,
 } from '@nestjs/common';
+import { OrgContext } from '@/shared/interfaces/org-context.interface';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
+import { z } from 'zod';
 import { AiService } from '@/integrations/ai/services/ai.service';
+import { AUTO_LANGUAGE } from '@/shared/config/languages/languages.config';
 import { UsageService } from '@/modules/usage/usage.service';
 import {
   CallKind,
@@ -36,6 +39,7 @@ import { resolveOutputLanguage } from '../utils/copilot.prompts';
 import {
   isKnownAiModel,
   RECOMMENDED_ANALYSIS_MODEL,
+  UTILITY_MODEL,
 } from '@/shared/config/ai-models/ai-models.config';
 import {
   AnalysisCriterion,
@@ -73,8 +77,14 @@ export class CallAnalysisService implements OnApplicationBootstrap {
     }
   }
 
-  async rerun(userId: string, callId: string, dto: RerunAnalysisDto) {
-    const call = await findOwnedCall(this.prisma, userId, callId);
+  async rerun(ctx: OrgContext, callId: string, dto: RerunAnalysisDto) {
+    const call = await findOwnedCall(
+      this.prisma,
+      ctx,
+      callId,
+      undefined,
+      'manage',
+    );
     if (call.status === CallStatus.IN_PROGRESS)
       throw new BadRequestException('End the call before analyzing it');
     if (dto.model && !isKnownAiModel(dto.model))
@@ -171,6 +181,16 @@ export class CallAnalysisService implements OnApplicationBootstrap {
     const includeSuggestions =
       call.copilot_enabled && coachingSuggestions.length > 0;
 
+    const conversationLanguage =
+      call.language === AUTO_LANGUAGE
+        ? await this.detectConversationLanguage(
+            call.id,
+            { userId: call.user_id, organisationId: call.organisation_id },
+            call.segments,
+            persona?.languages ?? agent?.languages ?? [],
+          )
+        : call.language;
+
     const baseMetrics = computeConversationMetrics(call.segments, {
       raised: 0,
       handled: 0,
@@ -201,8 +221,10 @@ export class CallAnalysisService implements OnApplicationBootstrap {
         : 'not recorded',
       outputLanguage: resolveOutputLanguage(
         call.user.output_language_mode,
-        call.language,
+        conversationLanguage,
         call.user.interface_language,
+        persona?.languages ?? agent?.languages,
+        'review',
       ),
     };
 
@@ -219,6 +241,7 @@ export class CallAnalysisService implements OnApplicationBootstrap {
     });
 
     this.usageService.record({
+      organisationId: call.organisation_id,
       userId: call.user_id,
       callId,
       kind: UsageKind.ANALYSIS,
@@ -336,6 +359,57 @@ export class CallAnalysisService implements OnApplicationBootstrap {
         },
       }),
     ]);
+  }
+
+  // For auto-detect calls, find which of the configured languages was actually spoken and store it,
+  // so the report (and the library) use that language explicitly.
+  private async detectConversationLanguage(
+    callId: string,
+    owner: { userId: string; organisationId: string },
+    segments: TranscriptSegment[],
+    candidates: string[],
+  ): Promise<string> {
+    if (candidates.length < 2) return candidates[0] ?? AUTO_LANGUAGE;
+    try {
+      const sample = segments
+        .slice(0, 30)
+        .map((s) => s.text)
+        .join('\n')
+        .slice(0, 3000);
+      const result = await this.aiService.generateStructured({
+        model: UTILITY_MODEL,
+        schema: z.object({
+          language: z.enum(candidates as [string, ...string[]]),
+        }),
+        schemaName: 'conversation_language',
+        system:
+          'Identify the main language spoken in this sales conversation transcript.',
+        prompt: `Allowed language codes: ${candidates.join(', ')}\n\nTranscript:\n${sample}`,
+        temperature: 0,
+        maxTokens: 20,
+        timeoutMs: 15000,
+      });
+      this.usageService.record({
+        organisationId: owner.organisationId,
+        userId: owner.userId,
+        callId,
+        kind: UsageKind.ANALYSIS,
+        model: result.model,
+        inputTokens: result.usage.inputTokens,
+        outputTokens: result.usage.outputTokens,
+        costUsd: result.usage.costUsd,
+      });
+      await this.prisma.call.update({
+        where: { id: callId },
+        data: { language: result.output.language },
+      });
+      return result.output.language;
+    } catch (error) {
+      this.logger.warn(
+        `Language detection failed for call ${callId}: ${error?.message}`,
+      );
+      return AUTO_LANGUAGE;
+    }
   }
 
   private resolveRef(

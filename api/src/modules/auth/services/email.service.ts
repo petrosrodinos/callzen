@@ -14,6 +14,7 @@ import { AuthRoles } from '../interfaces/auth.interface';
 import { WaitlistDto } from '../dto/waitlist.dto';
 import { ResendMailService } from '@/integrations/notifications/resend/services/mail.service';
 import { EmailConfig } from '@/shared/constants/email';
+import { OrgAccessService } from '@/modules/organisations/services/org-access.service';
 
 @Injectable()
 export class EmailAuthService {
@@ -21,6 +22,7 @@ export class EmailAuthService {
     private readonly prisma: PrismaService,
     private readonly jwtService: CreateJwtService,
     private readonly mailService: ResendMailService,
+    private readonly orgAccess: OrgAccessService,
   ) {}
 
   async registerWithEmail(dto: RegisterEmailDto) {
@@ -37,13 +39,18 @@ export class EmailAuthService {
 
       const hashedPassword = await bcrypt.hash(dto.password, 10);
 
-      const user = await this.prisma.user.create({
-        data: {
-          email: dto.email.toLowerCase(),
-          full_name: dto.full_name,
-          password: hashedPassword,
-          role: AuthRoles.USER,
-        },
+      const user = await this.prisma.$transaction(async (tx) => {
+        const created = await tx.user.create({
+          data: {
+            email: dto.email.toLowerCase(),
+            full_name: dto.full_name,
+            password: hashedPassword,
+            role: AuthRoles.USER,
+          },
+        });
+        // Everyone starts in a personal organisation they own; invitations add more.
+        await this.orgAccess.createPersonalOrganisation(created, tx);
+        return created;
       });
 
       const token = await this.jwtService.signToken({

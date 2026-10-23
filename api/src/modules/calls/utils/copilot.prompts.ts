@@ -5,7 +5,11 @@ import {
   SuggestionType,
 } from 'generated/prisma';
 import { AgentSnapshot } from '../interfaces/call-snapshots.interface';
-import { languageName } from '@/shared/config/languages/languages.config';
+import {
+  AUTO_LANGUAGE,
+  languageName,
+  languageNames,
+} from '@/shared/config/languages/languages.config';
 
 export const COPILOT_SUGGESTION_TYPES = [
   SuggestionType.OPENER,
@@ -101,6 +105,7 @@ Purpose: ${agent.description ?? 'n/a'}
 Call goal: ${agent.call_goal ?? 'n/a'}
 Methodology: ${agent.methodology ?? 'none'}
 Tone: ${agent.tone}
+Conversation languages: ${languageNames(agent.languages?.length ? agent.languages : [agent.language])}
 Instructions from the salesperson (follow strictly):
 ${agent.instructions || 'none'}
 
@@ -160,9 +165,23 @@ ${input.transcript || '(nothing said yet)'}
 
 What should the salesperson see right now?`;
 
+// The language suggestions and analyses are written in. With several conversation languages and
+// auto-detection, the model follows whichever of them the prospect is speaking.
 export const resolveOutputLanguage = (
   mode: 'CONVERSATION' | 'INTERFACE',
   conversationLanguage: string,
   interfaceLanguage: string,
-): string =>
-  languageName(mode === 'INTERFACE' ? interfaceLanguage : conversationLanguage);
+  conversationLanguages: string[] = [],
+  purpose: 'live' | 'review' = 'live',
+): string => {
+  if (mode === 'INTERFACE') return languageName(interfaceLanguage);
+  if (conversationLanguage === AUTO_LANGUAGE && purpose === 'review') {
+    return 'the main language the prospect spoke in the transcript (not English unless the prospect mainly spoke English)';
+  }
+  if (conversationLanguage === AUTO_LANGUAGE) {
+    return conversationLanguages.length
+      ? `the language the prospect is currently speaking (one of: ${languageNames(conversationLanguages)})`
+      : 'the language the prospect is currently speaking';
+  }
+  return languageName(conversationLanguage);
+};

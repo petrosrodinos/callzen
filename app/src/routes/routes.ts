@@ -36,6 +36,14 @@ export const Routes = {
         detail: (callId: string) => `/library/${callId}`,
         detail_pattern: "/library/:callId",
     },
+    organisation: {
+        root: "/organisation",
+        tab: (tab: string) => `/organisation?tab=${tab}`,
+    },
+    invite: {
+        accept: (token: string) => `/invite/${token}`,
+        pattern: "/invite/:token",
+    },
     settings: {
         root: "/settings",
         usage: "/settings/usage",

@@ -6,7 +6,9 @@ import {
   ApiTags,
 } from '@nestjs/swagger';
 import { JwtGuard } from '@/shared/guards/jwt.guard';
-import { CurrentUser } from '@/shared/decorators/current-user.decorator';
+import { OrgGuard } from '@/shared/guards/org.guard';
+import { Org } from '@/shared/decorators/org.decorator';
+import { OrgContext } from '@/shared/interfaces/org-context.interface';
 import { ZodValidationPipe } from '@/shared/pipes/zod.validation.pipe';
 import { DashboardService } from './dashboard.service';
 import {
@@ -17,7 +19,7 @@ import {
 @ApiTags('Dashboard')
 @ApiBearerAuth()
 @Controller('dashboard')
-@UseGuards(JwtGuard)
+@UseGuards(JwtGuard, OrgGuard)
 export class DashboardController {
   constructor(private readonly dashboardService: DashboardService) {}
 
@@ -27,11 +29,12 @@ export class DashboardController {
       'Performance over time: trends, recurring mistakes, outcomes, practice progress',
   })
   @ApiQuery({ name: 'days', required: false })
+  @ApiQuery({ name: 'scope', required: false, enum: ['me', 'team'] })
   overview(
-    @CurrentUser('id') userId: string,
+    @Org() ctx: OrgContext,
     @Query(new ZodValidationPipe(DashboardQuerySchema))
     query: DashboardQueryType,
   ) {
-    return this.dashboardService.overview(userId, query);
+    return this.dashboardService.overview(ctx, query);
   }
 }

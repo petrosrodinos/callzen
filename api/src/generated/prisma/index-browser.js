@@ -159,6 +159,7 @@ exports.Prisma.DocumentScalarFieldEnum = {
 
 exports.Prisma.AssistantAgentScalarFieldEnum = {
   id: 'id',
+  organisation_id: 'organisation_id',
   user_id: 'user_id',
   name: 'name',
   description: 'description',
@@ -169,6 +170,7 @@ exports.Prisma.AssistantAgentScalarFieldEnum = {
   objection_library: 'objection_library',
   methodology: 'methodology',
   language: 'language',
+  languages: 'languages',
   tone: 'tone',
   suggestion_frequency: 'suggestion_frequency',
   suggestion_length: 'suggestion_length',
@@ -187,6 +189,7 @@ exports.Prisma.AssistantAgentScalarFieldEnum = {
 
 exports.Prisma.PracticeAgentScalarFieldEnum = {
   id: 'id',
+  organisation_id: 'organisation_id',
   user_id: 'user_id',
   name: 'name',
   prospect_name: 'prospect_name',
@@ -211,6 +214,7 @@ exports.Prisma.PracticeAgentScalarFieldEnum = {
   conversion_conditions: 'conversion_conditions',
   patience: 'patience',
   language: 'language',
+  languages: 'languages',
   accent: 'accent',
   industry: 'industry',
   company: 'company',
@@ -230,6 +234,7 @@ exports.Prisma.PracticeAgentScalarFieldEnum = {
 
 exports.Prisma.CallScalarFieldEnum = {
   id: 'id',
+  organisation_id: 'organisation_id',
   user_id: 'user_id',
   kind: 'kind',
   call_type: 'call_type',
@@ -325,6 +330,7 @@ exports.Prisma.CallAnalysisScalarFieldEnum = {
 
 exports.Prisma.UsageEventScalarFieldEnum = {
   id: 'id',
+  organisation_id: 'organisation_id',
   user_id: 'user_id',
   call_id: 'call_id',
   kind: 'kind',
@@ -333,6 +339,47 @@ exports.Prisma.UsageEventScalarFieldEnum = {
   output_tokens: 'output_tokens',
   audio_seconds: 'audio_seconds',
   cost_usd: 'cost_usd',
+  created_at: 'created_at'
+};
+
+exports.Prisma.OrganisationScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.MembershipScalarFieldEnum = {
+  id: 'id',
+  organisation_id: 'organisation_id',
+  user_id: 'user_id',
+  role: 'role',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.RolePermissionScalarFieldEnum = {
+  id: 'id',
+  organisation_id: 'organisation_id',
+  role: 'role',
+  permissions: 'permissions',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.InvitationScalarFieldEnum = {
+  id: 'id',
+  organisation_id: 'organisation_id',
+  email: 'email',
+  role: 'role',
+  token_hash: 'token_hash',
+  status: 'status',
+  invited_by_id: 'invited_by_id',
+  expires_at: 'expires_at',
+  last_sent_at: 'last_sent_at',
+  send_count: 'send_count',
+  accepted_at: 'accepted_at',
+  accepted_by_id: 'accepted_by_id',
+  revoked_at: 'revoked_at',
   created_at: 'created_at'
 };
 
@@ -485,6 +532,18 @@ exports.UsageKind = exports.$Enums.UsageKind = {
   GENERATION: 'GENERATION'
 };
 
+exports.OrgRole = exports.$Enums.OrgRole = {
+  OWNER: 'OWNER',
+  ADMIN: 'ADMIN',
+  MEMBER: 'MEMBER'
+};
+
+exports.InvitationStatus = exports.$Enums.InvitationStatus = {
+  PENDING: 'PENDING',
+  ACCEPTED: 'ACCEPTED',
+  REVOKED: 'REVOKED'
+};
+
 exports.Prisma.ModelName = {
   User: 'User',
   PasswordResetToken: 'PasswordResetToken',
@@ -496,7 +555,11 @@ exports.Prisma.ModelName = {
   Suggestion: 'Suggestion',
   Bookmark: 'Bookmark',
   CallAnalysis: 'CallAnalysis',
-  UsageEvent: 'UsageEvent'
+  UsageEvent: 'UsageEvent',
+  Organisation: 'Organisation',
+  Membership: 'Membership',
+  RolePermission: 'RolePermission',
+  Invitation: 'Invitation'
 };
 
 /**

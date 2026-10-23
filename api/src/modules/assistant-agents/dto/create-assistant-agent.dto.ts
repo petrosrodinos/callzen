@@ -2,6 +2,8 @@ import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import {
   ArrayMaxSize,
+  ArrayMinSize,
+  IsIn,
   IsArray,
   IsBoolean,
   IsEnum,
@@ -16,6 +18,10 @@ import {
   ValidateNested,
 } from 'class-validator';
 import { SuggestionFrequency, SuggestionLength } from 'generated/prisma';
+import {
+  MAX_CONVERSATION_LANGUAGES,
+  SUPPORTED_LANGUAGE_CODES,
+} from '@/shared/config/languages/languages.config';
 
 export class ScriptStageDto {
   @ApiProperty({ example: 's1' })
@@ -136,11 +142,27 @@ export class CreateAssistantAgentDto {
   @MaxLength(60)
   methodology?: string;
 
-  @ApiProperty({ required: false, example: 'en' })
+  @ApiProperty({
+    required: false,
+    example: 'en',
+    description: 'Primary conversation language',
+  })
   @IsOptional()
-  @IsString()
-  @MaxLength(10)
+  @IsIn(SUPPORTED_LANGUAGE_CODES)
   language?: string;
+
+  @ApiProperty({
+    required: false,
+    type: [String],
+    example: ['en', 'el'],
+    description: `Up to ${MAX_CONVERSATION_LANGUAGES} conversation languages; the first is the primary`,
+  })
+  @IsOptional()
+  @IsArray()
+  @ArrayMinSize(1)
+  @ArrayMaxSize(MAX_CONVERSATION_LANGUAGES)
+  @IsIn(SUPPORTED_LANGUAGE_CODES, { each: true })
+  languages?: string[];
 
   @ApiProperty({ required: false, example: 'FRIENDLY' })
   @IsOptional()

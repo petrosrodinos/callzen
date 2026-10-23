@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useCreateRealtimeSession } from "@/features/calls/hooks/use-calls";
 import { exchangeRealtimeSdp } from "@/features/calls/services/realtime-sdp.services";
-import { CallTypes, Speakers, type Call, type Speaker } from "@/features/calls/interfaces/calls.interfaces";
+import { AUTO_LANGUAGE, CallTypes, Speakers, type Call, type Speaker } from "@/features/calls/interfaces/calls.interfaces";
 import { CallRecorder } from "@/lib/audio/call-recorder";
 import { RealtimeTranscriber } from "@/lib/audio/realtime-transcriber";
 import { BrowserSpeechRecognizer, isSpeechRecognitionSupported } from "@/lib/audio/browser-speech";
@@ -56,7 +56,7 @@ export const useLiveCapture = ({ call, copilot, clock }: UseLiveCaptureOptions) 
     (channel: Channel) => {
       if (!call || !isSpeechRecognitionSupported()) return false;
       const recognizer = new BrowserSpeechRecognizer({
-        language: call.language,
+        language: call.language === AUTO_LANGUAGE ? (call.agent_snapshot?.language ?? "en") : call.language,
         clock: () => callbacksRef.current.clock.now(),
         onFinal: (phrase) => onPhrase(channel.speaker, phrase),
         onInterim: (text) => setInterim((prev) => ({ ...prev, [channel.speaker]: text })),

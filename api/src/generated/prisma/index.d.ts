@@ -68,6 +68,26 @@ export type CallAnalysis = $Result.DefaultSelection<Prisma.$CallAnalysisPayload>
  * 
  */
 export type UsageEvent = $Result.DefaultSelection<Prisma.$UsageEventPayload>
+/**
+ * Model Organisation
+ * 
+ */
+export type Organisation = $Result.DefaultSelection<Prisma.$OrganisationPayload>
+/**
+ * Model Membership
+ * 
+ */
+export type Membership = $Result.DefaultSelection<Prisma.$MembershipPayload>
+/**
+ * Model RolePermission
+ * 
+ */
+export type RolePermission = $Result.DefaultSelection<Prisma.$RolePermissionPayload>
+/**
+ * Model Invitation
+ * 
+ */
+export type Invitation = $Result.DefaultSelection<Prisma.$InvitationPayload>
 
 /**
  * Enums
@@ -136,6 +156,24 @@ export const VoiceProvider: {
 };
 
 export type VoiceProvider = (typeof VoiceProvider)[keyof typeof VoiceProvider]
+
+
+export const OrgRole: {
+  OWNER: 'OWNER',
+  ADMIN: 'ADMIN',
+  MEMBER: 'MEMBER'
+};
+
+export type OrgRole = (typeof OrgRole)[keyof typeof OrgRole]
+
+
+export const InvitationStatus: {
+  PENDING: 'PENDING',
+  ACCEPTED: 'ACCEPTED',
+  REVOKED: 'REVOKED'
+};
+
+export type InvitationStatus = (typeof InvitationStatus)[keyof typeof InvitationStatus]
 
 
 export const CallKind: {
@@ -272,6 +310,14 @@ export const LeadTemperature: typeof $Enums.LeadTemperature
 export type VoiceProvider = $Enums.VoiceProvider
 
 export const VoiceProvider: typeof $Enums.VoiceProvider
+
+export type OrgRole = $Enums.OrgRole
+
+export const OrgRole: typeof $Enums.OrgRole
+
+export type InvitationStatus = $Enums.InvitationStatus
+
+export const InvitationStatus: typeof $Enums.InvitationStatus
 
 export type CallKind = $Enums.CallKind
 
@@ -543,6 +589,46 @@ export class PrismaClient<
     * ```
     */
   get usageEvent(): Prisma.UsageEventDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.organisation`: Exposes CRUD operations for the **Organisation** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Organisations
+    * const organisations = await prisma.organisation.findMany()
+    * ```
+    */
+  get organisation(): Prisma.OrganisationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.membership`: Exposes CRUD operations for the **Membership** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Memberships
+    * const memberships = await prisma.membership.findMany()
+    * ```
+    */
+  get membership(): Prisma.MembershipDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.rolePermission`: Exposes CRUD operations for the **RolePermission** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more RolePermissions
+    * const rolePermissions = await prisma.rolePermission.findMany()
+    * ```
+    */
+  get rolePermission(): Prisma.RolePermissionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.invitation`: Exposes CRUD operations for the **Invitation** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Invitations
+    * const invitations = await prisma.invitation.findMany()
+    * ```
+    */
+  get invitation(): Prisma.InvitationDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -1000,7 +1086,11 @@ export namespace Prisma {
     Suggestion: 'Suggestion',
     Bookmark: 'Bookmark',
     CallAnalysis: 'CallAnalysis',
-    UsageEvent: 'UsageEvent'
+    UsageEvent: 'UsageEvent',
+    Organisation: 'Organisation',
+    Membership: 'Membership',
+    RolePermission: 'RolePermission',
+    Invitation: 'Invitation'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1016,7 +1106,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "passwordResetToken" | "document" | "assistantAgent" | "practiceAgent" | "call" | "transcriptSegment" | "suggestion" | "bookmark" | "callAnalysis" | "usageEvent"
+      modelProps: "user" | "passwordResetToken" | "document" | "assistantAgent" | "practiceAgent" | "call" | "transcriptSegment" | "suggestion" | "bookmark" | "callAnalysis" | "usageEvent" | "organisation" | "membership" | "rolePermission" | "invitation"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1834,6 +1924,302 @@ export namespace Prisma {
           }
         }
       }
+      Organisation: {
+        payload: Prisma.$OrganisationPayload<ExtArgs>
+        fields: Prisma.OrganisationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.OrganisationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.OrganisationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload>
+          }
+          findFirst: {
+            args: Prisma.OrganisationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.OrganisationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload>
+          }
+          findMany: {
+            args: Prisma.OrganisationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload>[]
+          }
+          create: {
+            args: Prisma.OrganisationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload>
+          }
+          createMany: {
+            args: Prisma.OrganisationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.OrganisationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload>[]
+          }
+          delete: {
+            args: Prisma.OrganisationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload>
+          }
+          update: {
+            args: Prisma.OrganisationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload>
+          }
+          deleteMany: {
+            args: Prisma.OrganisationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.OrganisationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.OrganisationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload>[]
+          }
+          upsert: {
+            args: Prisma.OrganisationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OrganisationPayload>
+          }
+          aggregate: {
+            args: Prisma.OrganisationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateOrganisation>
+          }
+          groupBy: {
+            args: Prisma.OrganisationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<OrganisationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.OrganisationCountArgs<ExtArgs>
+            result: $Utils.Optional<OrganisationCountAggregateOutputType> | number
+          }
+        }
+      }
+      Membership: {
+        payload: Prisma.$MembershipPayload<ExtArgs>
+        fields: Prisma.MembershipFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MembershipFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MembershipFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload>
+          }
+          findFirst: {
+            args: Prisma.MembershipFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MembershipFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload>
+          }
+          findMany: {
+            args: Prisma.MembershipFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload>[]
+          }
+          create: {
+            args: Prisma.MembershipCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload>
+          }
+          createMany: {
+            args: Prisma.MembershipCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MembershipCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload>[]
+          }
+          delete: {
+            args: Prisma.MembershipDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload>
+          }
+          update: {
+            args: Prisma.MembershipUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload>
+          }
+          deleteMany: {
+            args: Prisma.MembershipDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MembershipUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MembershipUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload>[]
+          }
+          upsert: {
+            args: Prisma.MembershipUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MembershipPayload>
+          }
+          aggregate: {
+            args: Prisma.MembershipAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMembership>
+          }
+          groupBy: {
+            args: Prisma.MembershipGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MembershipGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MembershipCountArgs<ExtArgs>
+            result: $Utils.Optional<MembershipCountAggregateOutputType> | number
+          }
+        }
+      }
+      RolePermission: {
+        payload: Prisma.$RolePermissionPayload<ExtArgs>
+        fields: Prisma.RolePermissionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.RolePermissionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RolePermissionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.RolePermissionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RolePermissionPayload>
+          }
+          findFirst: {
+            args: Prisma.RolePermissionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RolePermissionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.RolePermissionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RolePermissionPayload>
+          }
+          findMany: {
+            args: Prisma.RolePermissionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RolePermissionPayload>[]
+          }
+          create: {
+            args: Prisma.RolePermissionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RolePermissionPayload>
+          }
+          createMany: {
+            args: Prisma.RolePermissionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.RolePermissionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RolePermissionPayload>[]
+          }
+          delete: {
+            args: Prisma.RolePermissionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RolePermissionPayload>
+          }
+          update: {
+            args: Prisma.RolePermissionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RolePermissionPayload>
+          }
+          deleteMany: {
+            args: Prisma.RolePermissionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.RolePermissionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.RolePermissionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RolePermissionPayload>[]
+          }
+          upsert: {
+            args: Prisma.RolePermissionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RolePermissionPayload>
+          }
+          aggregate: {
+            args: Prisma.RolePermissionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateRolePermission>
+          }
+          groupBy: {
+            args: Prisma.RolePermissionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<RolePermissionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.RolePermissionCountArgs<ExtArgs>
+            result: $Utils.Optional<RolePermissionCountAggregateOutputType> | number
+          }
+        }
+      }
+      Invitation: {
+        payload: Prisma.$InvitationPayload<ExtArgs>
+        fields: Prisma.InvitationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.InvitationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.InvitationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload>
+          }
+          findFirst: {
+            args: Prisma.InvitationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.InvitationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload>
+          }
+          findMany: {
+            args: Prisma.InvitationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload>[]
+          }
+          create: {
+            args: Prisma.InvitationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload>
+          }
+          createMany: {
+            args: Prisma.InvitationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.InvitationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload>[]
+          }
+          delete: {
+            args: Prisma.InvitationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload>
+          }
+          update: {
+            args: Prisma.InvitationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload>
+          }
+          deleteMany: {
+            args: Prisma.InvitationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.InvitationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.InvitationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload>[]
+          }
+          upsert: {
+            args: Prisma.InvitationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvitationPayload>
+          }
+          aggregate: {
+            args: Prisma.InvitationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateInvitation>
+          }
+          groupBy: {
+            args: Prisma.InvitationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<InvitationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.InvitationCountArgs<ExtArgs>
+            result: $Utils.Optional<InvitationCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1968,6 +2354,10 @@ export namespace Prisma {
     bookmark?: BookmarkOmit
     callAnalysis?: CallAnalysisOmit
     usageEvent?: UsageEventOmit
+    organisation?: OrganisationOmit
+    membership?: MembershipOmit
+    rolePermission?: RolePermissionOmit
+    invitation?: InvitationOmit
   }
 
   /* Types for Logging */
@@ -2053,6 +2443,8 @@ export namespace Prisma {
     practice_agents: number
     calls: number
     usage_events: number
+    memberships: number
+    invitations_sent: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2061,6 +2453,8 @@ export namespace Prisma {
     practice_agents?: boolean | UserCountOutputTypeCountPractice_agentsArgs
     calls?: boolean | UserCountOutputTypeCountCallsArgs
     usage_events?: boolean | UserCountOutputTypeCountUsage_eventsArgs
+    memberships?: boolean | UserCountOutputTypeCountMembershipsArgs
+    invitations_sent?: boolean | UserCountOutputTypeCountInvitations_sentArgs
   }
 
   // Custom InputTypes
@@ -2107,6 +2501,20 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountUsage_eventsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: UsageEventWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountMembershipsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MembershipWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountInvitations_sentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: InvitationWhereInput
   }
 
 
@@ -2227,6 +2635,91 @@ export namespace Prisma {
    */
   export type CallCountOutputTypeCountBookmarksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: BookmarkWhereInput
+  }
+
+
+  /**
+   * Count Type OrganisationCountOutputType
+   */
+
+  export type OrganisationCountOutputType = {
+    memberships: number
+    role_permissions: number
+    invitations: number
+    assistant_agents: number
+    practice_agents: number
+    calls: number
+    usage_events: number
+  }
+
+  export type OrganisationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    memberships?: boolean | OrganisationCountOutputTypeCountMembershipsArgs
+    role_permissions?: boolean | OrganisationCountOutputTypeCountRole_permissionsArgs
+    invitations?: boolean | OrganisationCountOutputTypeCountInvitationsArgs
+    assistant_agents?: boolean | OrganisationCountOutputTypeCountAssistant_agentsArgs
+    practice_agents?: boolean | OrganisationCountOutputTypeCountPractice_agentsArgs
+    calls?: boolean | OrganisationCountOutputTypeCountCallsArgs
+    usage_events?: boolean | OrganisationCountOutputTypeCountUsage_eventsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * OrganisationCountOutputType without action
+   */
+  export type OrganisationCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the OrganisationCountOutputType
+     */
+    select?: OrganisationCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * OrganisationCountOutputType without action
+   */
+  export type OrganisationCountOutputTypeCountMembershipsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MembershipWhereInput
+  }
+
+  /**
+   * OrganisationCountOutputType without action
+   */
+  export type OrganisationCountOutputTypeCountRole_permissionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RolePermissionWhereInput
+  }
+
+  /**
+   * OrganisationCountOutputType without action
+   */
+  export type OrganisationCountOutputTypeCountInvitationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: InvitationWhereInput
+  }
+
+  /**
+   * OrganisationCountOutputType without action
+   */
+  export type OrganisationCountOutputTypeCountAssistant_agentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AssistantAgentWhereInput
+  }
+
+  /**
+   * OrganisationCountOutputType without action
+   */
+  export type OrganisationCountOutputTypeCountPractice_agentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PracticeAgentWhereInput
+  }
+
+  /**
+   * OrganisationCountOutputType without action
+   */
+  export type OrganisationCountOutputTypeCountCallsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CallWhereInput
+  }
+
+  /**
+   * OrganisationCountOutputType without action
+   */
+  export type OrganisationCountOutputTypeCountUsage_eventsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UsageEventWhereInput
   }
 
 
@@ -2467,6 +2960,8 @@ export namespace Prisma {
     practice_agents?: boolean | User$practice_agentsArgs<ExtArgs>
     calls?: boolean | User$callsArgs<ExtArgs>
     usage_events?: boolean | User$usage_eventsArgs<ExtArgs>
+    memberships?: boolean | User$membershipsArgs<ExtArgs>
+    invitations_sent?: boolean | User$invitations_sentArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -2525,6 +3020,8 @@ export namespace Prisma {
     practice_agents?: boolean | User$practice_agentsArgs<ExtArgs>
     calls?: boolean | User$callsArgs<ExtArgs>
     usage_events?: boolean | User$usage_eventsArgs<ExtArgs>
+    memberships?: boolean | User$membershipsArgs<ExtArgs>
+    invitations_sent?: boolean | User$invitations_sentArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2538,6 +3035,8 @@ export namespace Prisma {
       practice_agents: Prisma.$PracticeAgentPayload<ExtArgs>[]
       calls: Prisma.$CallPayload<ExtArgs>[]
       usage_events: Prisma.$UsageEventPayload<ExtArgs>[]
+      memberships: Prisma.$MembershipPayload<ExtArgs>[]
+      invitations_sent: Prisma.$InvitationPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2952,6 +3451,8 @@ export namespace Prisma {
     practice_agents<T extends User$practice_agentsArgs<ExtArgs> = {}>(args?: Subset<T, User$practice_agentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PracticeAgentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     calls<T extends User$callsArgs<ExtArgs> = {}>(args?: Subset<T, User$callsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     usage_events<T extends User$usage_eventsArgs<ExtArgs> = {}>(args?: Subset<T, User$usage_eventsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsageEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    memberships<T extends User$membershipsArgs<ExtArgs> = {}>(args?: Subset<T, User$membershipsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    invitations_sent<T extends User$invitations_sentArgs<ExtArgs> = {}>(args?: Subset<T, User$invitations_sentArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3504,6 +4005,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: UsageEventScalarFieldEnum | UsageEventScalarFieldEnum[]
+  }
+
+  /**
+   * User.memberships
+   */
+  export type User$membershipsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Membership
+     */
+    select?: MembershipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Membership
+     */
+    omit?: MembershipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MembershipInclude<ExtArgs> | null
+    where?: MembershipWhereInput
+    orderBy?: MembershipOrderByWithRelationInput | MembershipOrderByWithRelationInput[]
+    cursor?: MembershipWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MembershipScalarFieldEnum | MembershipScalarFieldEnum[]
+  }
+
+  /**
+   * User.invitations_sent
+   */
+  export type User$invitations_sentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invitation
+     */
+    select?: InvitationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invitation
+     */
+    omit?: InvitationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvitationInclude<ExtArgs> | null
+    where?: InvitationWhereInput
+    orderBy?: InvitationOrderByWithRelationInput | InvitationOrderByWithRelationInput[]
+    cursor?: InvitationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: InvitationScalarFieldEnum | InvitationScalarFieldEnum[]
   }
 
   /**
@@ -5709,6 +6258,7 @@ export namespace Prisma {
 
   export type AssistantAgentMinAggregateOutputType = {
     id: string | null
+    organisation_id: string | null
     user_id: string | null
     name: string | null
     description: string | null
@@ -5734,6 +6284,7 @@ export namespace Prisma {
 
   export type AssistantAgentMaxAggregateOutputType = {
     id: string | null
+    organisation_id: string | null
     user_id: string | null
     name: string | null
     description: string | null
@@ -5759,6 +6310,7 @@ export namespace Prisma {
 
   export type AssistantAgentCountAggregateOutputType = {
     id: number
+    organisation_id: number
     user_id: number
     name: number
     description: number
@@ -5769,6 +6321,7 @@ export namespace Prisma {
     objection_library: number
     methodology: number
     language: number
+    languages: number
     tone: number
     suggestion_frequency: number
     suggestion_length: number
@@ -5797,6 +6350,7 @@ export namespace Prisma {
 
   export type AssistantAgentMinAggregateInputType = {
     id?: true
+    organisation_id?: true
     user_id?: true
     name?: true
     description?: true
@@ -5822,6 +6376,7 @@ export namespace Prisma {
 
   export type AssistantAgentMaxAggregateInputType = {
     id?: true
+    organisation_id?: true
     user_id?: true
     name?: true
     description?: true
@@ -5847,6 +6402,7 @@ export namespace Prisma {
 
   export type AssistantAgentCountAggregateInputType = {
     id?: true
+    organisation_id?: true
     user_id?: true
     name?: true
     description?: true
@@ -5857,6 +6413,7 @@ export namespace Prisma {
     objection_library?: true
     methodology?: true
     language?: true
+    languages?: true
     tone?: true
     suggestion_frequency?: true
     suggestion_length?: true
@@ -5962,7 +6519,8 @@ export namespace Prisma {
 
   export type AssistantAgentGroupByOutputType = {
     id: string
-    user_id: string
+    organisation_id: string
+    user_id: string | null
     name: string
     description: string | null
     call_goal: string | null
@@ -5972,6 +6530,7 @@ export namespace Prisma {
     objection_library: JsonValue
     methodology: string | null
     language: string
+    languages: string[]
     tone: string
     suggestion_frequency: $Enums.SuggestionFrequency
     suggestion_length: $Enums.SuggestionLength
@@ -6009,6 +6568,7 @@ export namespace Prisma {
 
   export type AssistantAgentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    organisation_id?: boolean
     user_id?: boolean
     name?: boolean
     description?: boolean
@@ -6019,6 +6579,7 @@ export namespace Prisma {
     objection_library?: boolean
     methodology?: boolean
     language?: boolean
+    languages?: boolean
     tone?: boolean
     suggestion_frequency?: boolean
     suggestion_length?: boolean
@@ -6033,7 +6594,8 @@ export namespace Prisma {
     archived_at?: boolean
     created_at?: boolean
     updated_at?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    user?: boolean | AssistantAgent$userArgs<ExtArgs>
     calls?: boolean | AssistantAgent$callsArgs<ExtArgs>
     practice_agents?: boolean | AssistantAgent$practice_agentsArgs<ExtArgs>
     _count?: boolean | AssistantAgentCountOutputTypeDefaultArgs<ExtArgs>
@@ -6041,6 +6603,7 @@ export namespace Prisma {
 
   export type AssistantAgentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    organisation_id?: boolean
     user_id?: boolean
     name?: boolean
     description?: boolean
@@ -6051,6 +6614,7 @@ export namespace Prisma {
     objection_library?: boolean
     methodology?: boolean
     language?: boolean
+    languages?: boolean
     tone?: boolean
     suggestion_frequency?: boolean
     suggestion_length?: boolean
@@ -6065,11 +6629,13 @@ export namespace Prisma {
     archived_at?: boolean
     created_at?: boolean
     updated_at?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    user?: boolean | AssistantAgent$userArgs<ExtArgs>
   }, ExtArgs["result"]["assistantAgent"]>
 
   export type AssistantAgentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    organisation_id?: boolean
     user_id?: boolean
     name?: boolean
     description?: boolean
@@ -6080,6 +6646,7 @@ export namespace Prisma {
     objection_library?: boolean
     methodology?: boolean
     language?: boolean
+    languages?: boolean
     tone?: boolean
     suggestion_frequency?: boolean
     suggestion_length?: boolean
@@ -6094,11 +6661,13 @@ export namespace Prisma {
     archived_at?: boolean
     created_at?: boolean
     updated_at?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    user?: boolean | AssistantAgent$userArgs<ExtArgs>
   }, ExtArgs["result"]["assistantAgent"]>
 
   export type AssistantAgentSelectScalar = {
     id?: boolean
+    organisation_id?: boolean
     user_id?: boolean
     name?: boolean
     description?: boolean
@@ -6109,6 +6678,7 @@ export namespace Prisma {
     objection_library?: boolean
     methodology?: boolean
     language?: boolean
+    languages?: boolean
     tone?: boolean
     suggestion_frequency?: boolean
     suggestion_length?: boolean
@@ -6125,30 +6695,35 @@ export namespace Prisma {
     updated_at?: boolean
   }
 
-  export type AssistantAgentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "name" | "description" | "call_goal" | "script" | "instructions" | "knowledge" | "objection_library" | "methodology" | "language" | "tone" | "suggestion_frequency" | "suggestion_length" | "alternatives_count" | "realtime_model" | "analysis_model" | "analysis_criteria" | "consent_line" | "suggest_consent_line" | "template_key" | "is_default" | "archived_at" | "created_at" | "updated_at", ExtArgs["result"]["assistantAgent"]>
+  export type AssistantAgentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "organisation_id" | "user_id" | "name" | "description" | "call_goal" | "script" | "instructions" | "knowledge" | "objection_library" | "methodology" | "language" | "languages" | "tone" | "suggestion_frequency" | "suggestion_length" | "alternatives_count" | "realtime_model" | "analysis_model" | "analysis_criteria" | "consent_line" | "suggest_consent_line" | "template_key" | "is_default" | "archived_at" | "created_at" | "updated_at", ExtArgs["result"]["assistantAgent"]>
   export type AssistantAgentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    user?: boolean | AssistantAgent$userArgs<ExtArgs>
     calls?: boolean | AssistantAgent$callsArgs<ExtArgs>
     practice_agents?: boolean | AssistantAgent$practice_agentsArgs<ExtArgs>
     _count?: boolean | AssistantAgentCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type AssistantAgentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    user?: boolean | AssistantAgent$userArgs<ExtArgs>
   }
   export type AssistantAgentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    user?: boolean | AssistantAgent$userArgs<ExtArgs>
   }
 
   export type $AssistantAgentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "AssistantAgent"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
+      organisation: Prisma.$OrganisationPayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs> | null
       calls: Prisma.$CallPayload<ExtArgs>[]
       practice_agents: Prisma.$PracticeAgentPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      user_id: string
+      organisation_id: string
+      user_id: string | null
       name: string
       description: string | null
       call_goal: string | null
@@ -6158,6 +6733,7 @@ export namespace Prisma {
       objection_library: Prisma.JsonValue
       methodology: string | null
       language: string
+      languages: string[]
       tone: string
       suggestion_frequency: $Enums.SuggestionFrequency
       suggestion_length: $Enums.SuggestionLength
@@ -6566,7 +7142,8 @@ export namespace Prisma {
    */
   export interface Prisma__AssistantAgentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    organisation<T extends OrganisationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, OrganisationDefaultArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends AssistantAgent$userArgs<ExtArgs> = {}>(args?: Subset<T, AssistantAgent$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     calls<T extends AssistantAgent$callsArgs<ExtArgs> = {}>(args?: Subset<T, AssistantAgent$callsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     practice_agents<T extends AssistantAgent$practice_agentsArgs<ExtArgs> = {}>(args?: Subset<T, AssistantAgent$practice_agentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PracticeAgentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -6599,6 +7176,7 @@ export namespace Prisma {
    */
   interface AssistantAgentFieldRefs {
     readonly id: FieldRef<"AssistantAgent", 'String'>
+    readonly organisation_id: FieldRef<"AssistantAgent", 'String'>
     readonly user_id: FieldRef<"AssistantAgent", 'String'>
     readonly name: FieldRef<"AssistantAgent", 'String'>
     readonly description: FieldRef<"AssistantAgent", 'String'>
@@ -6609,6 +7187,7 @@ export namespace Prisma {
     readonly objection_library: FieldRef<"AssistantAgent", 'Json'>
     readonly methodology: FieldRef<"AssistantAgent", 'String'>
     readonly language: FieldRef<"AssistantAgent", 'String'>
+    readonly languages: FieldRef<"AssistantAgent", 'String[]'>
     readonly tone: FieldRef<"AssistantAgent", 'String'>
     readonly suggestion_frequency: FieldRef<"AssistantAgent", 'SuggestionFrequency'>
     readonly suggestion_length: FieldRef<"AssistantAgent", 'SuggestionLength'>
@@ -7024,6 +7603,25 @@ export namespace Prisma {
   }
 
   /**
+   * AssistantAgent.user
+   */
+  export type AssistantAgent$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
    * AssistantAgent.calls
    */
   export type AssistantAgent$callsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7116,6 +7714,7 @@ export namespace Prisma {
 
   export type PracticeAgentMinAggregateOutputType = {
     id: string | null
+    organisation_id: string | null
     user_id: string | null
     name: string | null
     prospect_name: string | null
@@ -7155,6 +7754,7 @@ export namespace Prisma {
 
   export type PracticeAgentMaxAggregateOutputType = {
     id: string | null
+    organisation_id: string | null
     user_id: string | null
     name: string | null
     prospect_name: string | null
@@ -7194,6 +7794,7 @@ export namespace Prisma {
 
   export type PracticeAgentCountAggregateOutputType = {
     id: number
+    organisation_id: number
     user_id: number
     name: number
     prospect_name: number
@@ -7218,6 +7819,7 @@ export namespace Prisma {
     conversion_conditions: number
     patience: number
     language: number
+    languages: number
     accent: number
     industry: number
     company: number
@@ -7251,6 +7853,7 @@ export namespace Prisma {
 
   export type PracticeAgentMinAggregateInputType = {
     id?: true
+    organisation_id?: true
     user_id?: true
     name?: true
     prospect_name?: true
@@ -7290,6 +7893,7 @@ export namespace Prisma {
 
   export type PracticeAgentMaxAggregateInputType = {
     id?: true
+    organisation_id?: true
     user_id?: true
     name?: true
     prospect_name?: true
@@ -7329,6 +7933,7 @@ export namespace Prisma {
 
   export type PracticeAgentCountAggregateInputType = {
     id?: true
+    organisation_id?: true
     user_id?: true
     name?: true
     prospect_name?: true
@@ -7353,6 +7958,7 @@ export namespace Prisma {
     conversion_conditions?: true
     patience?: true
     language?: true
+    languages?: true
     accent?: true
     industry?: true
     company?: true
@@ -7459,7 +8065,8 @@ export namespace Prisma {
 
   export type PracticeAgentGroupByOutputType = {
     id: string
-    user_id: string
+    organisation_id: string
+    user_id: string | null
     name: string
     prospect_name: string | null
     role_prompt: string
@@ -7483,6 +8090,7 @@ export namespace Prisma {
     conversion_conditions: JsonValue
     patience: number
     language: string
+    languages: string[]
     accent: string | null
     industry: string | null
     company: string | null
@@ -7521,6 +8129,7 @@ export namespace Prisma {
 
   export type PracticeAgentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    organisation_id?: boolean
     user_id?: boolean
     name?: boolean
     prospect_name?: boolean
@@ -7545,6 +8154,7 @@ export namespace Prisma {
     conversion_conditions?: boolean
     patience?: boolean
     language?: boolean
+    languages?: boolean
     accent?: boolean
     industry?: boolean
     company?: boolean
@@ -7560,7 +8170,8 @@ export namespace Prisma {
     archived_at?: boolean
     created_at?: boolean
     updated_at?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    user?: boolean | PracticeAgent$userArgs<ExtArgs>
     linked_assistant_agent?: boolean | PracticeAgent$linked_assistant_agentArgs<ExtArgs>
     calls?: boolean | PracticeAgent$callsArgs<ExtArgs>
     _count?: boolean | PracticeAgentCountOutputTypeDefaultArgs<ExtArgs>
@@ -7568,6 +8179,7 @@ export namespace Prisma {
 
   export type PracticeAgentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    organisation_id?: boolean
     user_id?: boolean
     name?: boolean
     prospect_name?: boolean
@@ -7592,6 +8204,7 @@ export namespace Prisma {
     conversion_conditions?: boolean
     patience?: boolean
     language?: boolean
+    languages?: boolean
     accent?: boolean
     industry?: boolean
     company?: boolean
@@ -7607,12 +8220,14 @@ export namespace Prisma {
     archived_at?: boolean
     created_at?: boolean
     updated_at?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    user?: boolean | PracticeAgent$userArgs<ExtArgs>
     linked_assistant_agent?: boolean | PracticeAgent$linked_assistant_agentArgs<ExtArgs>
   }, ExtArgs["result"]["practiceAgent"]>
 
   export type PracticeAgentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    organisation_id?: boolean
     user_id?: boolean
     name?: boolean
     prospect_name?: boolean
@@ -7637,6 +8252,7 @@ export namespace Prisma {
     conversion_conditions?: boolean
     patience?: boolean
     language?: boolean
+    languages?: boolean
     accent?: boolean
     industry?: boolean
     company?: boolean
@@ -7652,12 +8268,14 @@ export namespace Prisma {
     archived_at?: boolean
     created_at?: boolean
     updated_at?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    user?: boolean | PracticeAgent$userArgs<ExtArgs>
     linked_assistant_agent?: boolean | PracticeAgent$linked_assistant_agentArgs<ExtArgs>
   }, ExtArgs["result"]["practiceAgent"]>
 
   export type PracticeAgentSelectScalar = {
     id?: boolean
+    organisation_id?: boolean
     user_id?: boolean
     name?: boolean
     prospect_name?: boolean
@@ -7682,6 +8300,7 @@ export namespace Prisma {
     conversion_conditions?: boolean
     patience?: boolean
     language?: boolean
+    languages?: boolean
     accent?: boolean
     industry?: boolean
     company?: boolean
@@ -7699,32 +8318,37 @@ export namespace Prisma {
     updated_at?: boolean
   }
 
-  export type PracticeAgentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "name" | "prospect_name" | "role_prompt" | "scenario_context" | "scenario_type" | "selling_product" | "linked_assistant_agent_id" | "user_objective" | "lead_temperature" | "difficulty" | "personality" | "mood" | "communication_style" | "decision_authority" | "budget" | "timeline" | "current_solution" | "pain_points" | "objections" | "hidden_information" | "conversion_conditions" | "patience" | "language" | "accent" | "industry" | "company" | "job_title" | "age_range" | "background_story" | "briefing" | "voice_provider" | "voice" | "time_limit_minutes" | "source_call_id" | "template_key" | "archived_at" | "created_at" | "updated_at", ExtArgs["result"]["practiceAgent"]>
+  export type PracticeAgentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "organisation_id" | "user_id" | "name" | "prospect_name" | "role_prompt" | "scenario_context" | "scenario_type" | "selling_product" | "linked_assistant_agent_id" | "user_objective" | "lead_temperature" | "difficulty" | "personality" | "mood" | "communication_style" | "decision_authority" | "budget" | "timeline" | "current_solution" | "pain_points" | "objections" | "hidden_information" | "conversion_conditions" | "patience" | "language" | "languages" | "accent" | "industry" | "company" | "job_title" | "age_range" | "background_story" | "briefing" | "voice_provider" | "voice" | "time_limit_minutes" | "source_call_id" | "template_key" | "archived_at" | "created_at" | "updated_at", ExtArgs["result"]["practiceAgent"]>
   export type PracticeAgentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    user?: boolean | PracticeAgent$userArgs<ExtArgs>
     linked_assistant_agent?: boolean | PracticeAgent$linked_assistant_agentArgs<ExtArgs>
     calls?: boolean | PracticeAgent$callsArgs<ExtArgs>
     _count?: boolean | PracticeAgentCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type PracticeAgentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    user?: boolean | PracticeAgent$userArgs<ExtArgs>
     linked_assistant_agent?: boolean | PracticeAgent$linked_assistant_agentArgs<ExtArgs>
   }
   export type PracticeAgentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    user?: boolean | PracticeAgent$userArgs<ExtArgs>
     linked_assistant_agent?: boolean | PracticeAgent$linked_assistant_agentArgs<ExtArgs>
   }
 
   export type $PracticeAgentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "PracticeAgent"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
+      organisation: Prisma.$OrganisationPayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs> | null
       linked_assistant_agent: Prisma.$AssistantAgentPayload<ExtArgs> | null
       calls: Prisma.$CallPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      user_id: string
+      organisation_id: string
+      user_id: string | null
       name: string
       prospect_name: string | null
       role_prompt: string
@@ -7748,6 +8372,7 @@ export namespace Prisma {
       conversion_conditions: Prisma.JsonValue
       patience: number
       language: string
+      languages: string[]
       accent: string | null
       industry: string | null
       company: string | null
@@ -8157,7 +8782,8 @@ export namespace Prisma {
    */
   export interface Prisma__PracticeAgentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    organisation<T extends OrganisationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, OrganisationDefaultArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends PracticeAgent$userArgs<ExtArgs> = {}>(args?: Subset<T, PracticeAgent$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     linked_assistant_agent<T extends PracticeAgent$linked_assistant_agentArgs<ExtArgs> = {}>(args?: Subset<T, PracticeAgent$linked_assistant_agentArgs<ExtArgs>>): Prisma__AssistantAgentClient<$Result.GetResult<Prisma.$AssistantAgentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     calls<T extends PracticeAgent$callsArgs<ExtArgs> = {}>(args?: Subset<T, PracticeAgent$callsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -8190,6 +8816,7 @@ export namespace Prisma {
    */
   interface PracticeAgentFieldRefs {
     readonly id: FieldRef<"PracticeAgent", 'String'>
+    readonly organisation_id: FieldRef<"PracticeAgent", 'String'>
     readonly user_id: FieldRef<"PracticeAgent", 'String'>
     readonly name: FieldRef<"PracticeAgent", 'String'>
     readonly prospect_name: FieldRef<"PracticeAgent", 'String'>
@@ -8214,6 +8841,7 @@ export namespace Prisma {
     readonly conversion_conditions: FieldRef<"PracticeAgent", 'Json'>
     readonly patience: FieldRef<"PracticeAgent", 'Int'>
     readonly language: FieldRef<"PracticeAgent", 'String'>
+    readonly languages: FieldRef<"PracticeAgent", 'String[]'>
     readonly accent: FieldRef<"PracticeAgent", 'String'>
     readonly industry: FieldRef<"PracticeAgent", 'String'>
     readonly company: FieldRef<"PracticeAgent", 'String'>
@@ -8630,6 +9258,25 @@ export namespace Prisma {
   }
 
   /**
+   * PracticeAgent.user
+   */
+  export type PracticeAgent$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
    * PracticeAgent.linked_assistant_agent
    */
   export type PracticeAgent$linked_assistant_agentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8715,6 +9362,7 @@ export namespace Prisma {
 
   export type CallMinAggregateOutputType = {
     id: string | null
+    organisation_id: string | null
     user_id: string | null
     kind: $Enums.CallKind | null
     call_type: $Enums.CallType | null
@@ -8749,6 +9397,7 @@ export namespace Prisma {
 
   export type CallMaxAggregateOutputType = {
     id: string | null
+    organisation_id: string | null
     user_id: string | null
     kind: $Enums.CallKind | null
     call_type: $Enums.CallType | null
@@ -8783,6 +9432,7 @@ export namespace Prisma {
 
   export type CallCountAggregateOutputType = {
     id: number
+    organisation_id: number
     user_id: number
     kind: number
     call_type: number
@@ -8832,6 +9482,7 @@ export namespace Prisma {
 
   export type CallMinAggregateInputType = {
     id?: true
+    organisation_id?: true
     user_id?: true
     kind?: true
     call_type?: true
@@ -8866,6 +9517,7 @@ export namespace Prisma {
 
   export type CallMaxAggregateInputType = {
     id?: true
+    organisation_id?: true
     user_id?: true
     kind?: true
     call_type?: true
@@ -8900,6 +9552,7 @@ export namespace Prisma {
 
   export type CallCountAggregateInputType = {
     id?: true
+    organisation_id?: true
     user_id?: true
     kind?: true
     call_type?: true
@@ -9024,6 +9677,7 @@ export namespace Prisma {
 
   export type CallGroupByOutputType = {
     id: string
+    organisation_id: string
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
@@ -9080,6 +9734,7 @@ export namespace Prisma {
 
   export type CallSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    organisation_id?: boolean
     user_id?: boolean
     kind?: boolean
     call_type?: boolean
@@ -9113,6 +9768,7 @@ export namespace Prisma {
     practice_snapshot?: boolean
     created_at?: boolean
     updated_at?: boolean
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
     assistant_agent?: boolean | Call$assistant_agentArgs<ExtArgs>
     practice_agent?: boolean | Call$practice_agentArgs<ExtArgs>
@@ -9125,6 +9781,7 @@ export namespace Prisma {
 
   export type CallSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    organisation_id?: boolean
     user_id?: boolean
     kind?: boolean
     call_type?: boolean
@@ -9158,6 +9815,7 @@ export namespace Prisma {
     practice_snapshot?: boolean
     created_at?: boolean
     updated_at?: boolean
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
     assistant_agent?: boolean | Call$assistant_agentArgs<ExtArgs>
     practice_agent?: boolean | Call$practice_agentArgs<ExtArgs>
@@ -9165,6 +9823,7 @@ export namespace Prisma {
 
   export type CallSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    organisation_id?: boolean
     user_id?: boolean
     kind?: boolean
     call_type?: boolean
@@ -9198,6 +9857,7 @@ export namespace Prisma {
     practice_snapshot?: boolean
     created_at?: boolean
     updated_at?: boolean
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
     assistant_agent?: boolean | Call$assistant_agentArgs<ExtArgs>
     practice_agent?: boolean | Call$practice_agentArgs<ExtArgs>
@@ -9205,6 +9865,7 @@ export namespace Prisma {
 
   export type CallSelectScalar = {
     id?: boolean
+    organisation_id?: boolean
     user_id?: boolean
     kind?: boolean
     call_type?: boolean
@@ -9240,8 +9901,9 @@ export namespace Prisma {
     updated_at?: boolean
   }
 
-  export type CallOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "kind" | "call_type" | "status" | "assistant_agent_id" | "practice_agent_id" | "copilot_enabled" | "title" | "prospect_name" | "prospect_company" | "prospect_role" | "context_notes" | "goal" | "prior_call_id" | "language" | "started_at" | "ended_at" | "duration_seconds" | "ended_reason" | "outcome" | "custom_outcome" | "objective_achieved" | "keep_recording" | "recording_path" | "recording_mime" | "recording_size" | "user_notes" | "script_progress" | "analysis_error" | "agent_snapshot" | "practice_snapshot" | "created_at" | "updated_at", ExtArgs["result"]["call"]>
+  export type CallOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "organisation_id" | "user_id" | "kind" | "call_type" | "status" | "assistant_agent_id" | "practice_agent_id" | "copilot_enabled" | "title" | "prospect_name" | "prospect_company" | "prospect_role" | "context_notes" | "goal" | "prior_call_id" | "language" | "started_at" | "ended_at" | "duration_seconds" | "ended_reason" | "outcome" | "custom_outcome" | "objective_achieved" | "keep_recording" | "recording_path" | "recording_mime" | "recording_size" | "user_notes" | "script_progress" | "analysis_error" | "agent_snapshot" | "practice_snapshot" | "created_at" | "updated_at", ExtArgs["result"]["call"]>
   export type CallInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
     assistant_agent?: boolean | Call$assistant_agentArgs<ExtArgs>
     practice_agent?: boolean | Call$practice_agentArgs<ExtArgs>
@@ -9252,11 +9914,13 @@ export namespace Prisma {
     _count?: boolean | CallCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type CallIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
     assistant_agent?: boolean | Call$assistant_agentArgs<ExtArgs>
     practice_agent?: boolean | Call$practice_agentArgs<ExtArgs>
   }
   export type CallIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
     assistant_agent?: boolean | Call$assistant_agentArgs<ExtArgs>
     practice_agent?: boolean | Call$practice_agentArgs<ExtArgs>
@@ -9265,6 +9929,7 @@ export namespace Prisma {
   export type $CallPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Call"
     objects: {
+      organisation: Prisma.$OrganisationPayload<ExtArgs>
       user: Prisma.$UserPayload<ExtArgs>
       assistant_agent: Prisma.$AssistantAgentPayload<ExtArgs> | null
       practice_agent: Prisma.$PracticeAgentPayload<ExtArgs> | null
@@ -9275,6 +9940,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      organisation_id: string
       user_id: string
       kind: $Enums.CallKind
       call_type: $Enums.CallType
@@ -9702,6 +10368,7 @@ export namespace Prisma {
    */
   export interface Prisma__CallClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    organisation<T extends OrganisationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, OrganisationDefaultArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     assistant_agent<T extends Call$assistant_agentArgs<ExtArgs> = {}>(args?: Subset<T, Call$assistant_agentArgs<ExtArgs>>): Prisma__AssistantAgentClient<$Result.GetResult<Prisma.$AssistantAgentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     practice_agent<T extends Call$practice_agentArgs<ExtArgs> = {}>(args?: Subset<T, Call$practice_agentArgs<ExtArgs>>): Prisma__PracticeAgentClient<$Result.GetResult<Prisma.$PracticeAgentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
@@ -9739,6 +10406,7 @@ export namespace Prisma {
    */
   interface CallFieldRefs {
     readonly id: FieldRef<"Call", 'String'>
+    readonly organisation_id: FieldRef<"Call", 'String'>
     readonly user_id: FieldRef<"Call", 'String'>
     readonly kind: FieldRef<"Call", 'CallKind'>
     readonly call_type: FieldRef<"Call", 'CallType'>
@@ -15034,6 +15702,7 @@ export namespace Prisma {
 
   export type UsageEventMinAggregateOutputType = {
     id: string | null
+    organisation_id: string | null
     user_id: string | null
     call_id: string | null
     kind: $Enums.UsageKind | null
@@ -15047,6 +15716,7 @@ export namespace Prisma {
 
   export type UsageEventMaxAggregateOutputType = {
     id: string | null
+    organisation_id: string | null
     user_id: string | null
     call_id: string | null
     kind: $Enums.UsageKind | null
@@ -15060,6 +15730,7 @@ export namespace Prisma {
 
   export type UsageEventCountAggregateOutputType = {
     id: number
+    organisation_id: number
     user_id: number
     call_id: number
     kind: number
@@ -15089,6 +15760,7 @@ export namespace Prisma {
 
   export type UsageEventMinAggregateInputType = {
     id?: true
+    organisation_id?: true
     user_id?: true
     call_id?: true
     kind?: true
@@ -15102,6 +15774,7 @@ export namespace Prisma {
 
   export type UsageEventMaxAggregateInputType = {
     id?: true
+    organisation_id?: true
     user_id?: true
     call_id?: true
     kind?: true
@@ -15115,6 +15788,7 @@ export namespace Prisma {
 
   export type UsageEventCountAggregateInputType = {
     id?: true
+    organisation_id?: true
     user_id?: true
     call_id?: true
     kind?: true
@@ -15215,6 +15889,7 @@ export namespace Prisma {
 
   export type UsageEventGroupByOutputType = {
     id: string
+    organisation_id: string
     user_id: string
     call_id: string | null
     kind: $Enums.UsageKind
@@ -15247,6 +15922,7 @@ export namespace Prisma {
 
   export type UsageEventSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    organisation_id?: boolean
     user_id?: boolean
     call_id?: boolean
     kind?: boolean
@@ -15256,11 +15932,13 @@ export namespace Prisma {
     audio_seconds?: boolean
     cost_usd?: boolean
     created_at?: boolean
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usageEvent"]>
 
   export type UsageEventSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    organisation_id?: boolean
     user_id?: boolean
     call_id?: boolean
     kind?: boolean
@@ -15270,11 +15948,13 @@ export namespace Prisma {
     audio_seconds?: boolean
     cost_usd?: boolean
     created_at?: boolean
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usageEvent"]>
 
   export type UsageEventSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    organisation_id?: boolean
     user_id?: boolean
     call_id?: boolean
     kind?: boolean
@@ -15284,11 +15964,13 @@ export namespace Prisma {
     audio_seconds?: boolean
     cost_usd?: boolean
     created_at?: boolean
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usageEvent"]>
 
   export type UsageEventSelectScalar = {
     id?: boolean
+    organisation_id?: boolean
     user_id?: boolean
     call_id?: boolean
     kind?: boolean
@@ -15300,24 +15982,29 @@ export namespace Prisma {
     created_at?: boolean
   }
 
-  export type UsageEventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "call_id" | "kind" | "model" | "input_tokens" | "output_tokens" | "audio_seconds" | "cost_usd" | "created_at", ExtArgs["result"]["usageEvent"]>
+  export type UsageEventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "organisation_id" | "user_id" | "call_id" | "kind" | "model" | "input_tokens" | "output_tokens" | "audio_seconds" | "cost_usd" | "created_at", ExtArgs["result"]["usageEvent"]>
   export type UsageEventInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type UsageEventIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type UsageEventIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
   export type $UsageEventPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "UsageEvent"
     objects: {
+      organisation: Prisma.$OrganisationPayload<ExtArgs>
       user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      organisation_id: string
       user_id: string
       call_id: string | null
       kind: $Enums.UsageKind
@@ -15721,6 +16408,7 @@ export namespace Prisma {
    */
   export interface Prisma__UsageEventClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    organisation<T extends OrganisationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, OrganisationDefaultArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -15752,6 +16440,7 @@ export namespace Prisma {
    */
   interface UsageEventFieldRefs {
     readonly id: FieldRef<"UsageEvent", 'String'>
+    readonly organisation_id: FieldRef<"UsageEvent", 'String'>
     readonly user_id: FieldRef<"UsageEvent", 'String'>
     readonly call_id: FieldRef<"UsageEvent", 'String'>
     readonly kind: FieldRef<"UsageEvent", 'UsageKind'>
@@ -16181,6 +16870,4620 @@ export namespace Prisma {
 
 
   /**
+   * Model Organisation
+   */
+
+  export type AggregateOrganisation = {
+    _count: OrganisationCountAggregateOutputType | null
+    _min: OrganisationMinAggregateOutputType | null
+    _max: OrganisationMaxAggregateOutputType | null
+  }
+
+  export type OrganisationMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type OrganisationMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type OrganisationCountAggregateOutputType = {
+    id: number
+    name: number
+    created_at: number
+    updated_at: number
+    _all: number
+  }
+
+
+  export type OrganisationMinAggregateInputType = {
+    id?: true
+    name?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type OrganisationMaxAggregateInputType = {
+    id?: true
+    name?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type OrganisationCountAggregateInputType = {
+    id?: true
+    name?: true
+    created_at?: true
+    updated_at?: true
+    _all?: true
+  }
+
+  export type OrganisationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Organisation to aggregate.
+     */
+    where?: OrganisationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Organisations to fetch.
+     */
+    orderBy?: OrganisationOrderByWithRelationInput | OrganisationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: OrganisationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Organisations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Organisations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Organisations
+    **/
+    _count?: true | OrganisationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: OrganisationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: OrganisationMaxAggregateInputType
+  }
+
+  export type GetOrganisationAggregateType<T extends OrganisationAggregateArgs> = {
+        [P in keyof T & keyof AggregateOrganisation]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateOrganisation[P]>
+      : GetScalarType<T[P], AggregateOrganisation[P]>
+  }
+
+
+
+
+  export type OrganisationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OrganisationWhereInput
+    orderBy?: OrganisationOrderByWithAggregationInput | OrganisationOrderByWithAggregationInput[]
+    by: OrganisationScalarFieldEnum[] | OrganisationScalarFieldEnum
+    having?: OrganisationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: OrganisationCountAggregateInputType | true
+    _min?: OrganisationMinAggregateInputType
+    _max?: OrganisationMaxAggregateInputType
+  }
+
+  export type OrganisationGroupByOutputType = {
+    id: string
+    name: string
+    created_at: Date
+    updated_at: Date
+    _count: OrganisationCountAggregateOutputType | null
+    _min: OrganisationMinAggregateOutputType | null
+    _max: OrganisationMaxAggregateOutputType | null
+  }
+
+  type GetOrganisationGroupByPayload<T extends OrganisationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<OrganisationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof OrganisationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], OrganisationGroupByOutputType[P]>
+            : GetScalarType<T[P], OrganisationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type OrganisationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    memberships?: boolean | Organisation$membershipsArgs<ExtArgs>
+    role_permissions?: boolean | Organisation$role_permissionsArgs<ExtArgs>
+    invitations?: boolean | Organisation$invitationsArgs<ExtArgs>
+    assistant_agents?: boolean | Organisation$assistant_agentsArgs<ExtArgs>
+    practice_agents?: boolean | Organisation$practice_agentsArgs<ExtArgs>
+    calls?: boolean | Organisation$callsArgs<ExtArgs>
+    usage_events?: boolean | Organisation$usage_eventsArgs<ExtArgs>
+    _count?: boolean | OrganisationCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["organisation"]>
+
+  export type OrganisationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+  }, ExtArgs["result"]["organisation"]>
+
+  export type OrganisationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+  }, ExtArgs["result"]["organisation"]>
+
+  export type OrganisationSelectScalar = {
+    id?: boolean
+    name?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+  }
+
+  export type OrganisationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "created_at" | "updated_at", ExtArgs["result"]["organisation"]>
+  export type OrganisationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    memberships?: boolean | Organisation$membershipsArgs<ExtArgs>
+    role_permissions?: boolean | Organisation$role_permissionsArgs<ExtArgs>
+    invitations?: boolean | Organisation$invitationsArgs<ExtArgs>
+    assistant_agents?: boolean | Organisation$assistant_agentsArgs<ExtArgs>
+    practice_agents?: boolean | Organisation$practice_agentsArgs<ExtArgs>
+    calls?: boolean | Organisation$callsArgs<ExtArgs>
+    usage_events?: boolean | Organisation$usage_eventsArgs<ExtArgs>
+    _count?: boolean | OrganisationCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type OrganisationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type OrganisationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $OrganisationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Organisation"
+    objects: {
+      memberships: Prisma.$MembershipPayload<ExtArgs>[]
+      role_permissions: Prisma.$RolePermissionPayload<ExtArgs>[]
+      invitations: Prisma.$InvitationPayload<ExtArgs>[]
+      assistant_agents: Prisma.$AssistantAgentPayload<ExtArgs>[]
+      practice_agents: Prisma.$PracticeAgentPayload<ExtArgs>[]
+      calls: Prisma.$CallPayload<ExtArgs>[]
+      usage_events: Prisma.$UsageEventPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      created_at: Date
+      updated_at: Date
+    }, ExtArgs["result"]["organisation"]>
+    composites: {}
+  }
+
+  type OrganisationGetPayload<S extends boolean | null | undefined | OrganisationDefaultArgs> = $Result.GetResult<Prisma.$OrganisationPayload, S>
+
+  type OrganisationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<OrganisationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: OrganisationCountAggregateInputType | true
+    }
+
+  export interface OrganisationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Organisation'], meta: { name: 'Organisation' } }
+    /**
+     * Find zero or one Organisation that matches the filter.
+     * @param {OrganisationFindUniqueArgs} args - Arguments to find a Organisation
+     * @example
+     * // Get one Organisation
+     * const organisation = await prisma.organisation.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends OrganisationFindUniqueArgs>(args: SelectSubset<T, OrganisationFindUniqueArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Organisation that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {OrganisationFindUniqueOrThrowArgs} args - Arguments to find a Organisation
+     * @example
+     * // Get one Organisation
+     * const organisation = await prisma.organisation.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends OrganisationFindUniqueOrThrowArgs>(args: SelectSubset<T, OrganisationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Organisation that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrganisationFindFirstArgs} args - Arguments to find a Organisation
+     * @example
+     * // Get one Organisation
+     * const organisation = await prisma.organisation.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends OrganisationFindFirstArgs>(args?: SelectSubset<T, OrganisationFindFirstArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Organisation that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrganisationFindFirstOrThrowArgs} args - Arguments to find a Organisation
+     * @example
+     * // Get one Organisation
+     * const organisation = await prisma.organisation.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends OrganisationFindFirstOrThrowArgs>(args?: SelectSubset<T, OrganisationFindFirstOrThrowArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Organisations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrganisationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Organisations
+     * const organisations = await prisma.organisation.findMany()
+     * 
+     * // Get first 10 Organisations
+     * const organisations = await prisma.organisation.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const organisationWithIdOnly = await prisma.organisation.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends OrganisationFindManyArgs>(args?: SelectSubset<T, OrganisationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Organisation.
+     * @param {OrganisationCreateArgs} args - Arguments to create a Organisation.
+     * @example
+     * // Create one Organisation
+     * const Organisation = await prisma.organisation.create({
+     *   data: {
+     *     // ... data to create a Organisation
+     *   }
+     * })
+     * 
+     */
+    create<T extends OrganisationCreateArgs>(args: SelectSubset<T, OrganisationCreateArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Organisations.
+     * @param {OrganisationCreateManyArgs} args - Arguments to create many Organisations.
+     * @example
+     * // Create many Organisations
+     * const organisation = await prisma.organisation.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends OrganisationCreateManyArgs>(args?: SelectSubset<T, OrganisationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Organisations and returns the data saved in the database.
+     * @param {OrganisationCreateManyAndReturnArgs} args - Arguments to create many Organisations.
+     * @example
+     * // Create many Organisations
+     * const organisation = await prisma.organisation.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Organisations and only return the `id`
+     * const organisationWithIdOnly = await prisma.organisation.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends OrganisationCreateManyAndReturnArgs>(args?: SelectSubset<T, OrganisationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Organisation.
+     * @param {OrganisationDeleteArgs} args - Arguments to delete one Organisation.
+     * @example
+     * // Delete one Organisation
+     * const Organisation = await prisma.organisation.delete({
+     *   where: {
+     *     // ... filter to delete one Organisation
+     *   }
+     * })
+     * 
+     */
+    delete<T extends OrganisationDeleteArgs>(args: SelectSubset<T, OrganisationDeleteArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Organisation.
+     * @param {OrganisationUpdateArgs} args - Arguments to update one Organisation.
+     * @example
+     * // Update one Organisation
+     * const organisation = await prisma.organisation.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends OrganisationUpdateArgs>(args: SelectSubset<T, OrganisationUpdateArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Organisations.
+     * @param {OrganisationDeleteManyArgs} args - Arguments to filter Organisations to delete.
+     * @example
+     * // Delete a few Organisations
+     * const { count } = await prisma.organisation.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends OrganisationDeleteManyArgs>(args?: SelectSubset<T, OrganisationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Organisations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrganisationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Organisations
+     * const organisation = await prisma.organisation.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends OrganisationUpdateManyArgs>(args: SelectSubset<T, OrganisationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Organisations and returns the data updated in the database.
+     * @param {OrganisationUpdateManyAndReturnArgs} args - Arguments to update many Organisations.
+     * @example
+     * // Update many Organisations
+     * const organisation = await prisma.organisation.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Organisations and only return the `id`
+     * const organisationWithIdOnly = await prisma.organisation.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends OrganisationUpdateManyAndReturnArgs>(args: SelectSubset<T, OrganisationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Organisation.
+     * @param {OrganisationUpsertArgs} args - Arguments to update or create a Organisation.
+     * @example
+     * // Update or create a Organisation
+     * const organisation = await prisma.organisation.upsert({
+     *   create: {
+     *     // ... data to create a Organisation
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Organisation we want to update
+     *   }
+     * })
+     */
+    upsert<T extends OrganisationUpsertArgs>(args: SelectSubset<T, OrganisationUpsertArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Organisations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrganisationCountArgs} args - Arguments to filter Organisations to count.
+     * @example
+     * // Count the number of Organisations
+     * const count = await prisma.organisation.count({
+     *   where: {
+     *     // ... the filter for the Organisations we want to count
+     *   }
+     * })
+    **/
+    count<T extends OrganisationCountArgs>(
+      args?: Subset<T, OrganisationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], OrganisationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Organisation.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrganisationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends OrganisationAggregateArgs>(args: Subset<T, OrganisationAggregateArgs>): Prisma.PrismaPromise<GetOrganisationAggregateType<T>>
+
+    /**
+     * Group by Organisation.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OrganisationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends OrganisationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: OrganisationGroupByArgs['orderBy'] }
+        : { orderBy?: OrganisationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, OrganisationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOrganisationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Organisation model
+   */
+  readonly fields: OrganisationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Organisation.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__OrganisationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    memberships<T extends Organisation$membershipsArgs<ExtArgs> = {}>(args?: Subset<T, Organisation$membershipsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    role_permissions<T extends Organisation$role_permissionsArgs<ExtArgs> = {}>(args?: Subset<T, Organisation$role_permissionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RolePermissionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    invitations<T extends Organisation$invitationsArgs<ExtArgs> = {}>(args?: Subset<T, Organisation$invitationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    assistant_agents<T extends Organisation$assistant_agentsArgs<ExtArgs> = {}>(args?: Subset<T, Organisation$assistant_agentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssistantAgentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    practice_agents<T extends Organisation$practice_agentsArgs<ExtArgs> = {}>(args?: Subset<T, Organisation$practice_agentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PracticeAgentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    calls<T extends Organisation$callsArgs<ExtArgs> = {}>(args?: Subset<T, Organisation$callsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CallPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    usage_events<T extends Organisation$usage_eventsArgs<ExtArgs> = {}>(args?: Subset<T, Organisation$usage_eventsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UsageEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Organisation model
+   */
+  interface OrganisationFieldRefs {
+    readonly id: FieldRef<"Organisation", 'String'>
+    readonly name: FieldRef<"Organisation", 'String'>
+    readonly created_at: FieldRef<"Organisation", 'DateTime'>
+    readonly updated_at: FieldRef<"Organisation", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Organisation findUnique
+   */
+  export type OrganisationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Organisation
+     */
+    select?: OrganisationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Organisation
+     */
+    omit?: OrganisationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrganisationInclude<ExtArgs> | null
+    /**
+     * Filter, which Organisation to fetch.
+     */
+    where: OrganisationWhereUniqueInput
+  }
+
+  /**
+   * Organisation findUniqueOrThrow
+   */
+  export type OrganisationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Organisation
+     */
+    select?: OrganisationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Organisation
+     */
+    omit?: OrganisationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrganisationInclude<ExtArgs> | null
+    /**
+     * Filter, which Organisation to fetch.
+     */
+    where: OrganisationWhereUniqueInput
+  }
+
+  /**
+   * Organisation findFirst
+   */
+  export type OrganisationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Organisation
+     */
+    select?: OrganisationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Organisation
+     */
+    omit?: OrganisationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrganisationInclude<ExtArgs> | null
+    /**
+     * Filter, which Organisation to fetch.
+     */
+    where?: OrganisationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Organisations to fetch.
+     */
+    orderBy?: OrganisationOrderByWithRelationInput | OrganisationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Organisations.
+     */
+    cursor?: OrganisationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Organisations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Organisations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Organisations.
+     */
+    distinct?: OrganisationScalarFieldEnum | OrganisationScalarFieldEnum[]
+  }
+
+  /**
+   * Organisation findFirstOrThrow
+   */
+  export type OrganisationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Organisation
+     */
+    select?: OrganisationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Organisation
+     */
+    omit?: OrganisationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrganisationInclude<ExtArgs> | null
+    /**
+     * Filter, which Organisation to fetch.
+     */
+    where?: OrganisationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Organisations to fetch.
+     */
+    orderBy?: OrganisationOrderByWithRelationInput | OrganisationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Organisations.
+     */
+    cursor?: OrganisationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Organisations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Organisations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Organisations.
+     */
+    distinct?: OrganisationScalarFieldEnum | OrganisationScalarFieldEnum[]
+  }
+
+  /**
+   * Organisation findMany
+   */
+  export type OrganisationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Organisation
+     */
+    select?: OrganisationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Organisation
+     */
+    omit?: OrganisationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrganisationInclude<ExtArgs> | null
+    /**
+     * Filter, which Organisations to fetch.
+     */
+    where?: OrganisationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Organisations to fetch.
+     */
+    orderBy?: OrganisationOrderByWithRelationInput | OrganisationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Organisations.
+     */
+    cursor?: OrganisationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Organisations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Organisations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Organisations.
+     */
+    distinct?: OrganisationScalarFieldEnum | OrganisationScalarFieldEnum[]
+  }
+
+  /**
+   * Organisation create
+   */
+  export type OrganisationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Organisation
+     */
+    select?: OrganisationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Organisation
+     */
+    omit?: OrganisationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrganisationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Organisation.
+     */
+    data: XOR<OrganisationCreateInput, OrganisationUncheckedCreateInput>
+  }
+
+  /**
+   * Organisation createMany
+   */
+  export type OrganisationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Organisations.
+     */
+    data: OrganisationCreateManyInput | OrganisationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Organisation createManyAndReturn
+   */
+  export type OrganisationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Organisation
+     */
+    select?: OrganisationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Organisation
+     */
+    omit?: OrganisationOmit<ExtArgs> | null
+    /**
+     * The data used to create many Organisations.
+     */
+    data: OrganisationCreateManyInput | OrganisationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Organisation update
+   */
+  export type OrganisationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Organisation
+     */
+    select?: OrganisationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Organisation
+     */
+    omit?: OrganisationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrganisationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Organisation.
+     */
+    data: XOR<OrganisationUpdateInput, OrganisationUncheckedUpdateInput>
+    /**
+     * Choose, which Organisation to update.
+     */
+    where: OrganisationWhereUniqueInput
+  }
+
+  /**
+   * Organisation updateMany
+   */
+  export type OrganisationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Organisations.
+     */
+    data: XOR<OrganisationUpdateManyMutationInput, OrganisationUncheckedUpdateManyInput>
+    /**
+     * Filter which Organisations to update
+     */
+    where?: OrganisationWhereInput
+    /**
+     * Limit how many Organisations to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Organisation updateManyAndReturn
+   */
+  export type OrganisationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Organisation
+     */
+    select?: OrganisationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Organisation
+     */
+    omit?: OrganisationOmit<ExtArgs> | null
+    /**
+     * The data used to update Organisations.
+     */
+    data: XOR<OrganisationUpdateManyMutationInput, OrganisationUncheckedUpdateManyInput>
+    /**
+     * Filter which Organisations to update
+     */
+    where?: OrganisationWhereInput
+    /**
+     * Limit how many Organisations to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Organisation upsert
+   */
+  export type OrganisationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Organisation
+     */
+    select?: OrganisationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Organisation
+     */
+    omit?: OrganisationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrganisationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Organisation to update in case it exists.
+     */
+    where: OrganisationWhereUniqueInput
+    /**
+     * In case the Organisation found by the `where` argument doesn't exist, create a new Organisation with this data.
+     */
+    create: XOR<OrganisationCreateInput, OrganisationUncheckedCreateInput>
+    /**
+     * In case the Organisation was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<OrganisationUpdateInput, OrganisationUncheckedUpdateInput>
+  }
+
+  /**
+   * Organisation delete
+   */
+  export type OrganisationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Organisation
+     */
+    select?: OrganisationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Organisation
+     */
+    omit?: OrganisationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrganisationInclude<ExtArgs> | null
+    /**
+     * Filter which Organisation to delete.
+     */
+    where: OrganisationWhereUniqueInput
+  }
+
+  /**
+   * Organisation deleteMany
+   */
+  export type OrganisationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Organisations to delete
+     */
+    where?: OrganisationWhereInput
+    /**
+     * Limit how many Organisations to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Organisation.memberships
+   */
+  export type Organisation$membershipsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Membership
+     */
+    select?: MembershipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Membership
+     */
+    omit?: MembershipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MembershipInclude<ExtArgs> | null
+    where?: MembershipWhereInput
+    orderBy?: MembershipOrderByWithRelationInput | MembershipOrderByWithRelationInput[]
+    cursor?: MembershipWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: MembershipScalarFieldEnum | MembershipScalarFieldEnum[]
+  }
+
+  /**
+   * Organisation.role_permissions
+   */
+  export type Organisation$role_permissionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RolePermission
+     */
+    select?: RolePermissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RolePermission
+     */
+    omit?: RolePermissionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RolePermissionInclude<ExtArgs> | null
+    where?: RolePermissionWhereInput
+    orderBy?: RolePermissionOrderByWithRelationInput | RolePermissionOrderByWithRelationInput[]
+    cursor?: RolePermissionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: RolePermissionScalarFieldEnum | RolePermissionScalarFieldEnum[]
+  }
+
+  /**
+   * Organisation.invitations
+   */
+  export type Organisation$invitationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invitation
+     */
+    select?: InvitationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invitation
+     */
+    omit?: InvitationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvitationInclude<ExtArgs> | null
+    where?: InvitationWhereInput
+    orderBy?: InvitationOrderByWithRelationInput | InvitationOrderByWithRelationInput[]
+    cursor?: InvitationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: InvitationScalarFieldEnum | InvitationScalarFieldEnum[]
+  }
+
+  /**
+   * Organisation.assistant_agents
+   */
+  export type Organisation$assistant_agentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AssistantAgent
+     */
+    select?: AssistantAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the AssistantAgent
+     */
+    omit?: AssistantAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AssistantAgentInclude<ExtArgs> | null
+    where?: AssistantAgentWhereInput
+    orderBy?: AssistantAgentOrderByWithRelationInput | AssistantAgentOrderByWithRelationInput[]
+    cursor?: AssistantAgentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: AssistantAgentScalarFieldEnum | AssistantAgentScalarFieldEnum[]
+  }
+
+  /**
+   * Organisation.practice_agents
+   */
+  export type Organisation$practice_agentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PracticeAgent
+     */
+    select?: PracticeAgentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PracticeAgent
+     */
+    omit?: PracticeAgentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PracticeAgentInclude<ExtArgs> | null
+    where?: PracticeAgentWhereInput
+    orderBy?: PracticeAgentOrderByWithRelationInput | PracticeAgentOrderByWithRelationInput[]
+    cursor?: PracticeAgentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PracticeAgentScalarFieldEnum | PracticeAgentScalarFieldEnum[]
+  }
+
+  /**
+   * Organisation.calls
+   */
+  export type Organisation$callsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Call
+     */
+    select?: CallSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Call
+     */
+    omit?: CallOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CallInclude<ExtArgs> | null
+    where?: CallWhereInput
+    orderBy?: CallOrderByWithRelationInput | CallOrderByWithRelationInput[]
+    cursor?: CallWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CallScalarFieldEnum | CallScalarFieldEnum[]
+  }
+
+  /**
+   * Organisation.usage_events
+   */
+  export type Organisation$usage_eventsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UsageEvent
+     */
+    select?: UsageEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the UsageEvent
+     */
+    omit?: UsageEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UsageEventInclude<ExtArgs> | null
+    where?: UsageEventWhereInput
+    orderBy?: UsageEventOrderByWithRelationInput | UsageEventOrderByWithRelationInput[]
+    cursor?: UsageEventWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UsageEventScalarFieldEnum | UsageEventScalarFieldEnum[]
+  }
+
+  /**
+   * Organisation without action
+   */
+  export type OrganisationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Organisation
+     */
+    select?: OrganisationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Organisation
+     */
+    omit?: OrganisationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OrganisationInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Membership
+   */
+
+  export type AggregateMembership = {
+    _count: MembershipCountAggregateOutputType | null
+    _min: MembershipMinAggregateOutputType | null
+    _max: MembershipMaxAggregateOutputType | null
+  }
+
+  export type MembershipMinAggregateOutputType = {
+    id: string | null
+    organisation_id: string | null
+    user_id: string | null
+    role: $Enums.OrgRole | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type MembershipMaxAggregateOutputType = {
+    id: string | null
+    organisation_id: string | null
+    user_id: string | null
+    role: $Enums.OrgRole | null
+    created_at: Date | null
+    updated_at: Date | null
+  }
+
+  export type MembershipCountAggregateOutputType = {
+    id: number
+    organisation_id: number
+    user_id: number
+    role: number
+    created_at: number
+    updated_at: number
+    _all: number
+  }
+
+
+  export type MembershipMinAggregateInputType = {
+    id?: true
+    organisation_id?: true
+    user_id?: true
+    role?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type MembershipMaxAggregateInputType = {
+    id?: true
+    organisation_id?: true
+    user_id?: true
+    role?: true
+    created_at?: true
+    updated_at?: true
+  }
+
+  export type MembershipCountAggregateInputType = {
+    id?: true
+    organisation_id?: true
+    user_id?: true
+    role?: true
+    created_at?: true
+    updated_at?: true
+    _all?: true
+  }
+
+  export type MembershipAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Membership to aggregate.
+     */
+    where?: MembershipWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Memberships to fetch.
+     */
+    orderBy?: MembershipOrderByWithRelationInput | MembershipOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MembershipWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Memberships from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Memberships.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Memberships
+    **/
+    _count?: true | MembershipCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MembershipMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MembershipMaxAggregateInputType
+  }
+
+  export type GetMembershipAggregateType<T extends MembershipAggregateArgs> = {
+        [P in keyof T & keyof AggregateMembership]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMembership[P]>
+      : GetScalarType<T[P], AggregateMembership[P]>
+  }
+
+
+
+
+  export type MembershipGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MembershipWhereInput
+    orderBy?: MembershipOrderByWithAggregationInput | MembershipOrderByWithAggregationInput[]
+    by: MembershipScalarFieldEnum[] | MembershipScalarFieldEnum
+    having?: MembershipScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MembershipCountAggregateInputType | true
+    _min?: MembershipMinAggregateInputType
+    _max?: MembershipMaxAggregateInputType
+  }
+
+  export type MembershipGroupByOutputType = {
+    id: string
+    organisation_id: string
+    user_id: string
+    role: $Enums.OrgRole
+    created_at: Date
+    updated_at: Date
+    _count: MembershipCountAggregateOutputType | null
+    _min: MembershipMinAggregateOutputType | null
+    _max: MembershipMaxAggregateOutputType | null
+  }
+
+  type GetMembershipGroupByPayload<T extends MembershipGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MembershipGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MembershipGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MembershipGroupByOutputType[P]>
+            : GetScalarType<T[P], MembershipGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MembershipSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    organisation_id?: boolean
+    user_id?: boolean
+    role?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["membership"]>
+
+  export type MembershipSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    organisation_id?: boolean
+    user_id?: boolean
+    role?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["membership"]>
+
+  export type MembershipSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    organisation_id?: boolean
+    user_id?: boolean
+    role?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["membership"]>
+
+  export type MembershipSelectScalar = {
+    id?: boolean
+    organisation_id?: boolean
+    user_id?: boolean
+    role?: boolean
+    created_at?: boolean
+    updated_at?: boolean
+  }
+
+  export type MembershipOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "organisation_id" | "user_id" | "role" | "created_at" | "updated_at", ExtArgs["result"]["membership"]>
+  export type MembershipInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type MembershipIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type MembershipIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $MembershipPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Membership"
+    objects: {
+      organisation: Prisma.$OrganisationPayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      organisation_id: string
+      user_id: string
+      role: $Enums.OrgRole
+      created_at: Date
+      updated_at: Date
+    }, ExtArgs["result"]["membership"]>
+    composites: {}
+  }
+
+  type MembershipGetPayload<S extends boolean | null | undefined | MembershipDefaultArgs> = $Result.GetResult<Prisma.$MembershipPayload, S>
+
+  type MembershipCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MembershipFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MembershipCountAggregateInputType | true
+    }
+
+  export interface MembershipDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Membership'], meta: { name: 'Membership' } }
+    /**
+     * Find zero or one Membership that matches the filter.
+     * @param {MembershipFindUniqueArgs} args - Arguments to find a Membership
+     * @example
+     * // Get one Membership
+     * const membership = await prisma.membership.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MembershipFindUniqueArgs>(args: SelectSubset<T, MembershipFindUniqueArgs<ExtArgs>>): Prisma__MembershipClient<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Membership that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MembershipFindUniqueOrThrowArgs} args - Arguments to find a Membership
+     * @example
+     * // Get one Membership
+     * const membership = await prisma.membership.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MembershipFindUniqueOrThrowArgs>(args: SelectSubset<T, MembershipFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MembershipClient<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Membership that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MembershipFindFirstArgs} args - Arguments to find a Membership
+     * @example
+     * // Get one Membership
+     * const membership = await prisma.membership.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MembershipFindFirstArgs>(args?: SelectSubset<T, MembershipFindFirstArgs<ExtArgs>>): Prisma__MembershipClient<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Membership that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MembershipFindFirstOrThrowArgs} args - Arguments to find a Membership
+     * @example
+     * // Get one Membership
+     * const membership = await prisma.membership.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MembershipFindFirstOrThrowArgs>(args?: SelectSubset<T, MembershipFindFirstOrThrowArgs<ExtArgs>>): Prisma__MembershipClient<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Memberships that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MembershipFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Memberships
+     * const memberships = await prisma.membership.findMany()
+     * 
+     * // Get first 10 Memberships
+     * const memberships = await prisma.membership.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const membershipWithIdOnly = await prisma.membership.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MembershipFindManyArgs>(args?: SelectSubset<T, MembershipFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Membership.
+     * @param {MembershipCreateArgs} args - Arguments to create a Membership.
+     * @example
+     * // Create one Membership
+     * const Membership = await prisma.membership.create({
+     *   data: {
+     *     // ... data to create a Membership
+     *   }
+     * })
+     * 
+     */
+    create<T extends MembershipCreateArgs>(args: SelectSubset<T, MembershipCreateArgs<ExtArgs>>): Prisma__MembershipClient<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Memberships.
+     * @param {MembershipCreateManyArgs} args - Arguments to create many Memberships.
+     * @example
+     * // Create many Memberships
+     * const membership = await prisma.membership.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MembershipCreateManyArgs>(args?: SelectSubset<T, MembershipCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Memberships and returns the data saved in the database.
+     * @param {MembershipCreateManyAndReturnArgs} args - Arguments to create many Memberships.
+     * @example
+     * // Create many Memberships
+     * const membership = await prisma.membership.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Memberships and only return the `id`
+     * const membershipWithIdOnly = await prisma.membership.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MembershipCreateManyAndReturnArgs>(args?: SelectSubset<T, MembershipCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Membership.
+     * @param {MembershipDeleteArgs} args - Arguments to delete one Membership.
+     * @example
+     * // Delete one Membership
+     * const Membership = await prisma.membership.delete({
+     *   where: {
+     *     // ... filter to delete one Membership
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MembershipDeleteArgs>(args: SelectSubset<T, MembershipDeleteArgs<ExtArgs>>): Prisma__MembershipClient<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Membership.
+     * @param {MembershipUpdateArgs} args - Arguments to update one Membership.
+     * @example
+     * // Update one Membership
+     * const membership = await prisma.membership.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MembershipUpdateArgs>(args: SelectSubset<T, MembershipUpdateArgs<ExtArgs>>): Prisma__MembershipClient<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Memberships.
+     * @param {MembershipDeleteManyArgs} args - Arguments to filter Memberships to delete.
+     * @example
+     * // Delete a few Memberships
+     * const { count } = await prisma.membership.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MembershipDeleteManyArgs>(args?: SelectSubset<T, MembershipDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Memberships.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MembershipUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Memberships
+     * const membership = await prisma.membership.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MembershipUpdateManyArgs>(args: SelectSubset<T, MembershipUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Memberships and returns the data updated in the database.
+     * @param {MembershipUpdateManyAndReturnArgs} args - Arguments to update many Memberships.
+     * @example
+     * // Update many Memberships
+     * const membership = await prisma.membership.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Memberships and only return the `id`
+     * const membershipWithIdOnly = await prisma.membership.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MembershipUpdateManyAndReturnArgs>(args: SelectSubset<T, MembershipUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Membership.
+     * @param {MembershipUpsertArgs} args - Arguments to update or create a Membership.
+     * @example
+     * // Update or create a Membership
+     * const membership = await prisma.membership.upsert({
+     *   create: {
+     *     // ... data to create a Membership
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Membership we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MembershipUpsertArgs>(args: SelectSubset<T, MembershipUpsertArgs<ExtArgs>>): Prisma__MembershipClient<$Result.GetResult<Prisma.$MembershipPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Memberships.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MembershipCountArgs} args - Arguments to filter Memberships to count.
+     * @example
+     * // Count the number of Memberships
+     * const count = await prisma.membership.count({
+     *   where: {
+     *     // ... the filter for the Memberships we want to count
+     *   }
+     * })
+    **/
+    count<T extends MembershipCountArgs>(
+      args?: Subset<T, MembershipCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MembershipCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Membership.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MembershipAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MembershipAggregateArgs>(args: Subset<T, MembershipAggregateArgs>): Prisma.PrismaPromise<GetMembershipAggregateType<T>>
+
+    /**
+     * Group by Membership.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MembershipGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MembershipGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MembershipGroupByArgs['orderBy'] }
+        : { orderBy?: MembershipGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MembershipGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMembershipGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Membership model
+   */
+  readonly fields: MembershipFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Membership.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MembershipClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    organisation<T extends OrganisationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, OrganisationDefaultArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Membership model
+   */
+  interface MembershipFieldRefs {
+    readonly id: FieldRef<"Membership", 'String'>
+    readonly organisation_id: FieldRef<"Membership", 'String'>
+    readonly user_id: FieldRef<"Membership", 'String'>
+    readonly role: FieldRef<"Membership", 'OrgRole'>
+    readonly created_at: FieldRef<"Membership", 'DateTime'>
+    readonly updated_at: FieldRef<"Membership", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Membership findUnique
+   */
+  export type MembershipFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Membership
+     */
+    select?: MembershipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Membership
+     */
+    omit?: MembershipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MembershipInclude<ExtArgs> | null
+    /**
+     * Filter, which Membership to fetch.
+     */
+    where: MembershipWhereUniqueInput
+  }
+
+  /**
+   * Membership findUniqueOrThrow
+   */
+  export type MembershipFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Membership
+     */
+    select?: MembershipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Membership
+     */
+    omit?: MembershipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MembershipInclude<ExtArgs> | null
+    /**
+     * Filter, which Membership to fetch.
+     */
+    where: MembershipWhereUniqueInput
+  }
+
+  /**
+   * Membership findFirst
+   */
+  export type MembershipFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Membership
+     */
+    select?: MembershipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Membership
+     */
+    omit?: MembershipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MembershipInclude<ExtArgs> | null
+    /**
+     * Filter, which Membership to fetch.
+     */
+    where?: MembershipWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Memberships to fetch.
+     */
+    orderBy?: MembershipOrderByWithRelationInput | MembershipOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Memberships.
+     */
+    cursor?: MembershipWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Memberships from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Memberships.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Memberships.
+     */
+    distinct?: MembershipScalarFieldEnum | MembershipScalarFieldEnum[]
+  }
+
+  /**
+   * Membership findFirstOrThrow
+   */
+  export type MembershipFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Membership
+     */
+    select?: MembershipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Membership
+     */
+    omit?: MembershipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MembershipInclude<ExtArgs> | null
+    /**
+     * Filter, which Membership to fetch.
+     */
+    where?: MembershipWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Memberships to fetch.
+     */
+    orderBy?: MembershipOrderByWithRelationInput | MembershipOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Memberships.
+     */
+    cursor?: MembershipWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Memberships from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Memberships.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Memberships.
+     */
+    distinct?: MembershipScalarFieldEnum | MembershipScalarFieldEnum[]
+  }
+
+  /**
+   * Membership findMany
+   */
+  export type MembershipFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Membership
+     */
+    select?: MembershipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Membership
+     */
+    omit?: MembershipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MembershipInclude<ExtArgs> | null
+    /**
+     * Filter, which Memberships to fetch.
+     */
+    where?: MembershipWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Memberships to fetch.
+     */
+    orderBy?: MembershipOrderByWithRelationInput | MembershipOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Memberships.
+     */
+    cursor?: MembershipWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Memberships from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Memberships.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Memberships.
+     */
+    distinct?: MembershipScalarFieldEnum | MembershipScalarFieldEnum[]
+  }
+
+  /**
+   * Membership create
+   */
+  export type MembershipCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Membership
+     */
+    select?: MembershipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Membership
+     */
+    omit?: MembershipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MembershipInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Membership.
+     */
+    data: XOR<MembershipCreateInput, MembershipUncheckedCreateInput>
+  }
+
+  /**
+   * Membership createMany
+   */
+  export type MembershipCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Memberships.
+     */
+    data: MembershipCreateManyInput | MembershipCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Membership createManyAndReturn
+   */
+  export type MembershipCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Membership
+     */
+    select?: MembershipSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Membership
+     */
+    omit?: MembershipOmit<ExtArgs> | null
+    /**
+     * The data used to create many Memberships.
+     */
+    data: MembershipCreateManyInput | MembershipCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MembershipIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Membership update
+   */
+  export type MembershipUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Membership
+     */
+    select?: MembershipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Membership
+     */
+    omit?: MembershipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MembershipInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Membership.
+     */
+    data: XOR<MembershipUpdateInput, MembershipUncheckedUpdateInput>
+    /**
+     * Choose, which Membership to update.
+     */
+    where: MembershipWhereUniqueInput
+  }
+
+  /**
+   * Membership updateMany
+   */
+  export type MembershipUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Memberships.
+     */
+    data: XOR<MembershipUpdateManyMutationInput, MembershipUncheckedUpdateManyInput>
+    /**
+     * Filter which Memberships to update
+     */
+    where?: MembershipWhereInput
+    /**
+     * Limit how many Memberships to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Membership updateManyAndReturn
+   */
+  export type MembershipUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Membership
+     */
+    select?: MembershipSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Membership
+     */
+    omit?: MembershipOmit<ExtArgs> | null
+    /**
+     * The data used to update Memberships.
+     */
+    data: XOR<MembershipUpdateManyMutationInput, MembershipUncheckedUpdateManyInput>
+    /**
+     * Filter which Memberships to update
+     */
+    where?: MembershipWhereInput
+    /**
+     * Limit how many Memberships to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MembershipIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Membership upsert
+   */
+  export type MembershipUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Membership
+     */
+    select?: MembershipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Membership
+     */
+    omit?: MembershipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MembershipInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Membership to update in case it exists.
+     */
+    where: MembershipWhereUniqueInput
+    /**
+     * In case the Membership found by the `where` argument doesn't exist, create a new Membership with this data.
+     */
+    create: XOR<MembershipCreateInput, MembershipUncheckedCreateInput>
+    /**
+     * In case the Membership was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MembershipUpdateInput, MembershipUncheckedUpdateInput>
+  }
+
+  /**
+   * Membership delete
+   */
+  export type MembershipDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Membership
+     */
+    select?: MembershipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Membership
+     */
+    omit?: MembershipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MembershipInclude<ExtArgs> | null
+    /**
+     * Filter which Membership to delete.
+     */
+    where: MembershipWhereUniqueInput
+  }
+
+  /**
+   * Membership deleteMany
+   */
+  export type MembershipDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Memberships to delete
+     */
+    where?: MembershipWhereInput
+    /**
+     * Limit how many Memberships to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Membership without action
+   */
+  export type MembershipDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Membership
+     */
+    select?: MembershipSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Membership
+     */
+    omit?: MembershipOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MembershipInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model RolePermission
+   */
+
+  export type AggregateRolePermission = {
+    _count: RolePermissionCountAggregateOutputType | null
+    _min: RolePermissionMinAggregateOutputType | null
+    _max: RolePermissionMaxAggregateOutputType | null
+  }
+
+  export type RolePermissionMinAggregateOutputType = {
+    id: string | null
+    organisation_id: string | null
+    role: $Enums.OrgRole | null
+    updated_at: Date | null
+  }
+
+  export type RolePermissionMaxAggregateOutputType = {
+    id: string | null
+    organisation_id: string | null
+    role: $Enums.OrgRole | null
+    updated_at: Date | null
+  }
+
+  export type RolePermissionCountAggregateOutputType = {
+    id: number
+    organisation_id: number
+    role: number
+    permissions: number
+    updated_at: number
+    _all: number
+  }
+
+
+  export type RolePermissionMinAggregateInputType = {
+    id?: true
+    organisation_id?: true
+    role?: true
+    updated_at?: true
+  }
+
+  export type RolePermissionMaxAggregateInputType = {
+    id?: true
+    organisation_id?: true
+    role?: true
+    updated_at?: true
+  }
+
+  export type RolePermissionCountAggregateInputType = {
+    id?: true
+    organisation_id?: true
+    role?: true
+    permissions?: true
+    updated_at?: true
+    _all?: true
+  }
+
+  export type RolePermissionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which RolePermission to aggregate.
+     */
+    where?: RolePermissionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RolePermissions to fetch.
+     */
+    orderBy?: RolePermissionOrderByWithRelationInput | RolePermissionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: RolePermissionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RolePermissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RolePermissions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned RolePermissions
+    **/
+    _count?: true | RolePermissionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: RolePermissionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: RolePermissionMaxAggregateInputType
+  }
+
+  export type GetRolePermissionAggregateType<T extends RolePermissionAggregateArgs> = {
+        [P in keyof T & keyof AggregateRolePermission]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateRolePermission[P]>
+      : GetScalarType<T[P], AggregateRolePermission[P]>
+  }
+
+
+
+
+  export type RolePermissionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RolePermissionWhereInput
+    orderBy?: RolePermissionOrderByWithAggregationInput | RolePermissionOrderByWithAggregationInput[]
+    by: RolePermissionScalarFieldEnum[] | RolePermissionScalarFieldEnum
+    having?: RolePermissionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: RolePermissionCountAggregateInputType | true
+    _min?: RolePermissionMinAggregateInputType
+    _max?: RolePermissionMaxAggregateInputType
+  }
+
+  export type RolePermissionGroupByOutputType = {
+    id: string
+    organisation_id: string
+    role: $Enums.OrgRole
+    permissions: string[]
+    updated_at: Date
+    _count: RolePermissionCountAggregateOutputType | null
+    _min: RolePermissionMinAggregateOutputType | null
+    _max: RolePermissionMaxAggregateOutputType | null
+  }
+
+  type GetRolePermissionGroupByPayload<T extends RolePermissionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<RolePermissionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof RolePermissionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], RolePermissionGroupByOutputType[P]>
+            : GetScalarType<T[P], RolePermissionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type RolePermissionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    organisation_id?: boolean
+    role?: boolean
+    permissions?: boolean
+    updated_at?: boolean
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["rolePermission"]>
+
+  export type RolePermissionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    organisation_id?: boolean
+    role?: boolean
+    permissions?: boolean
+    updated_at?: boolean
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["rolePermission"]>
+
+  export type RolePermissionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    organisation_id?: boolean
+    role?: boolean
+    permissions?: boolean
+    updated_at?: boolean
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["rolePermission"]>
+
+  export type RolePermissionSelectScalar = {
+    id?: boolean
+    organisation_id?: boolean
+    role?: boolean
+    permissions?: boolean
+    updated_at?: boolean
+  }
+
+  export type RolePermissionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "organisation_id" | "role" | "permissions" | "updated_at", ExtArgs["result"]["rolePermission"]>
+  export type RolePermissionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+  }
+  export type RolePermissionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+  }
+  export type RolePermissionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+  }
+
+  export type $RolePermissionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "RolePermission"
+    objects: {
+      organisation: Prisma.$OrganisationPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      organisation_id: string
+      role: $Enums.OrgRole
+      permissions: string[]
+      updated_at: Date
+    }, ExtArgs["result"]["rolePermission"]>
+    composites: {}
+  }
+
+  type RolePermissionGetPayload<S extends boolean | null | undefined | RolePermissionDefaultArgs> = $Result.GetResult<Prisma.$RolePermissionPayload, S>
+
+  type RolePermissionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<RolePermissionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: RolePermissionCountAggregateInputType | true
+    }
+
+  export interface RolePermissionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['RolePermission'], meta: { name: 'RolePermission' } }
+    /**
+     * Find zero or one RolePermission that matches the filter.
+     * @param {RolePermissionFindUniqueArgs} args - Arguments to find a RolePermission
+     * @example
+     * // Get one RolePermission
+     * const rolePermission = await prisma.rolePermission.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends RolePermissionFindUniqueArgs>(args: SelectSubset<T, RolePermissionFindUniqueArgs<ExtArgs>>): Prisma__RolePermissionClient<$Result.GetResult<Prisma.$RolePermissionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one RolePermission that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {RolePermissionFindUniqueOrThrowArgs} args - Arguments to find a RolePermission
+     * @example
+     * // Get one RolePermission
+     * const rolePermission = await prisma.rolePermission.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends RolePermissionFindUniqueOrThrowArgs>(args: SelectSubset<T, RolePermissionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__RolePermissionClient<$Result.GetResult<Prisma.$RolePermissionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first RolePermission that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RolePermissionFindFirstArgs} args - Arguments to find a RolePermission
+     * @example
+     * // Get one RolePermission
+     * const rolePermission = await prisma.rolePermission.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends RolePermissionFindFirstArgs>(args?: SelectSubset<T, RolePermissionFindFirstArgs<ExtArgs>>): Prisma__RolePermissionClient<$Result.GetResult<Prisma.$RolePermissionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first RolePermission that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RolePermissionFindFirstOrThrowArgs} args - Arguments to find a RolePermission
+     * @example
+     * // Get one RolePermission
+     * const rolePermission = await prisma.rolePermission.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends RolePermissionFindFirstOrThrowArgs>(args?: SelectSubset<T, RolePermissionFindFirstOrThrowArgs<ExtArgs>>): Prisma__RolePermissionClient<$Result.GetResult<Prisma.$RolePermissionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more RolePermissions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RolePermissionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all RolePermissions
+     * const rolePermissions = await prisma.rolePermission.findMany()
+     * 
+     * // Get first 10 RolePermissions
+     * const rolePermissions = await prisma.rolePermission.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const rolePermissionWithIdOnly = await prisma.rolePermission.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends RolePermissionFindManyArgs>(args?: SelectSubset<T, RolePermissionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RolePermissionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a RolePermission.
+     * @param {RolePermissionCreateArgs} args - Arguments to create a RolePermission.
+     * @example
+     * // Create one RolePermission
+     * const RolePermission = await prisma.rolePermission.create({
+     *   data: {
+     *     // ... data to create a RolePermission
+     *   }
+     * })
+     * 
+     */
+    create<T extends RolePermissionCreateArgs>(args: SelectSubset<T, RolePermissionCreateArgs<ExtArgs>>): Prisma__RolePermissionClient<$Result.GetResult<Prisma.$RolePermissionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many RolePermissions.
+     * @param {RolePermissionCreateManyArgs} args - Arguments to create many RolePermissions.
+     * @example
+     * // Create many RolePermissions
+     * const rolePermission = await prisma.rolePermission.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends RolePermissionCreateManyArgs>(args?: SelectSubset<T, RolePermissionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many RolePermissions and returns the data saved in the database.
+     * @param {RolePermissionCreateManyAndReturnArgs} args - Arguments to create many RolePermissions.
+     * @example
+     * // Create many RolePermissions
+     * const rolePermission = await prisma.rolePermission.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many RolePermissions and only return the `id`
+     * const rolePermissionWithIdOnly = await prisma.rolePermission.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends RolePermissionCreateManyAndReturnArgs>(args?: SelectSubset<T, RolePermissionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RolePermissionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a RolePermission.
+     * @param {RolePermissionDeleteArgs} args - Arguments to delete one RolePermission.
+     * @example
+     * // Delete one RolePermission
+     * const RolePermission = await prisma.rolePermission.delete({
+     *   where: {
+     *     // ... filter to delete one RolePermission
+     *   }
+     * })
+     * 
+     */
+    delete<T extends RolePermissionDeleteArgs>(args: SelectSubset<T, RolePermissionDeleteArgs<ExtArgs>>): Prisma__RolePermissionClient<$Result.GetResult<Prisma.$RolePermissionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one RolePermission.
+     * @param {RolePermissionUpdateArgs} args - Arguments to update one RolePermission.
+     * @example
+     * // Update one RolePermission
+     * const rolePermission = await prisma.rolePermission.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends RolePermissionUpdateArgs>(args: SelectSubset<T, RolePermissionUpdateArgs<ExtArgs>>): Prisma__RolePermissionClient<$Result.GetResult<Prisma.$RolePermissionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more RolePermissions.
+     * @param {RolePermissionDeleteManyArgs} args - Arguments to filter RolePermissions to delete.
+     * @example
+     * // Delete a few RolePermissions
+     * const { count } = await prisma.rolePermission.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends RolePermissionDeleteManyArgs>(args?: SelectSubset<T, RolePermissionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more RolePermissions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RolePermissionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many RolePermissions
+     * const rolePermission = await prisma.rolePermission.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends RolePermissionUpdateManyArgs>(args: SelectSubset<T, RolePermissionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more RolePermissions and returns the data updated in the database.
+     * @param {RolePermissionUpdateManyAndReturnArgs} args - Arguments to update many RolePermissions.
+     * @example
+     * // Update many RolePermissions
+     * const rolePermission = await prisma.rolePermission.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more RolePermissions and only return the `id`
+     * const rolePermissionWithIdOnly = await prisma.rolePermission.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends RolePermissionUpdateManyAndReturnArgs>(args: SelectSubset<T, RolePermissionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RolePermissionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one RolePermission.
+     * @param {RolePermissionUpsertArgs} args - Arguments to update or create a RolePermission.
+     * @example
+     * // Update or create a RolePermission
+     * const rolePermission = await prisma.rolePermission.upsert({
+     *   create: {
+     *     // ... data to create a RolePermission
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the RolePermission we want to update
+     *   }
+     * })
+     */
+    upsert<T extends RolePermissionUpsertArgs>(args: SelectSubset<T, RolePermissionUpsertArgs<ExtArgs>>): Prisma__RolePermissionClient<$Result.GetResult<Prisma.$RolePermissionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of RolePermissions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RolePermissionCountArgs} args - Arguments to filter RolePermissions to count.
+     * @example
+     * // Count the number of RolePermissions
+     * const count = await prisma.rolePermission.count({
+     *   where: {
+     *     // ... the filter for the RolePermissions we want to count
+     *   }
+     * })
+    **/
+    count<T extends RolePermissionCountArgs>(
+      args?: Subset<T, RolePermissionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], RolePermissionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a RolePermission.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RolePermissionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends RolePermissionAggregateArgs>(args: Subset<T, RolePermissionAggregateArgs>): Prisma.PrismaPromise<GetRolePermissionAggregateType<T>>
+
+    /**
+     * Group by RolePermission.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RolePermissionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends RolePermissionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: RolePermissionGroupByArgs['orderBy'] }
+        : { orderBy?: RolePermissionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, RolePermissionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRolePermissionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the RolePermission model
+   */
+  readonly fields: RolePermissionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for RolePermission.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__RolePermissionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    organisation<T extends OrganisationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, OrganisationDefaultArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the RolePermission model
+   */
+  interface RolePermissionFieldRefs {
+    readonly id: FieldRef<"RolePermission", 'String'>
+    readonly organisation_id: FieldRef<"RolePermission", 'String'>
+    readonly role: FieldRef<"RolePermission", 'OrgRole'>
+    readonly permissions: FieldRef<"RolePermission", 'String[]'>
+    readonly updated_at: FieldRef<"RolePermission", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * RolePermission findUnique
+   */
+  export type RolePermissionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RolePermission
+     */
+    select?: RolePermissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RolePermission
+     */
+    omit?: RolePermissionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RolePermissionInclude<ExtArgs> | null
+    /**
+     * Filter, which RolePermission to fetch.
+     */
+    where: RolePermissionWhereUniqueInput
+  }
+
+  /**
+   * RolePermission findUniqueOrThrow
+   */
+  export type RolePermissionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RolePermission
+     */
+    select?: RolePermissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RolePermission
+     */
+    omit?: RolePermissionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RolePermissionInclude<ExtArgs> | null
+    /**
+     * Filter, which RolePermission to fetch.
+     */
+    where: RolePermissionWhereUniqueInput
+  }
+
+  /**
+   * RolePermission findFirst
+   */
+  export type RolePermissionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RolePermission
+     */
+    select?: RolePermissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RolePermission
+     */
+    omit?: RolePermissionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RolePermissionInclude<ExtArgs> | null
+    /**
+     * Filter, which RolePermission to fetch.
+     */
+    where?: RolePermissionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RolePermissions to fetch.
+     */
+    orderBy?: RolePermissionOrderByWithRelationInput | RolePermissionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for RolePermissions.
+     */
+    cursor?: RolePermissionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RolePermissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RolePermissions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of RolePermissions.
+     */
+    distinct?: RolePermissionScalarFieldEnum | RolePermissionScalarFieldEnum[]
+  }
+
+  /**
+   * RolePermission findFirstOrThrow
+   */
+  export type RolePermissionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RolePermission
+     */
+    select?: RolePermissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RolePermission
+     */
+    omit?: RolePermissionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RolePermissionInclude<ExtArgs> | null
+    /**
+     * Filter, which RolePermission to fetch.
+     */
+    where?: RolePermissionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RolePermissions to fetch.
+     */
+    orderBy?: RolePermissionOrderByWithRelationInput | RolePermissionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for RolePermissions.
+     */
+    cursor?: RolePermissionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RolePermissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RolePermissions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of RolePermissions.
+     */
+    distinct?: RolePermissionScalarFieldEnum | RolePermissionScalarFieldEnum[]
+  }
+
+  /**
+   * RolePermission findMany
+   */
+  export type RolePermissionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RolePermission
+     */
+    select?: RolePermissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RolePermission
+     */
+    omit?: RolePermissionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RolePermissionInclude<ExtArgs> | null
+    /**
+     * Filter, which RolePermissions to fetch.
+     */
+    where?: RolePermissionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of RolePermissions to fetch.
+     */
+    orderBy?: RolePermissionOrderByWithRelationInput | RolePermissionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing RolePermissions.
+     */
+    cursor?: RolePermissionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` RolePermissions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` RolePermissions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of RolePermissions.
+     */
+    distinct?: RolePermissionScalarFieldEnum | RolePermissionScalarFieldEnum[]
+  }
+
+  /**
+   * RolePermission create
+   */
+  export type RolePermissionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RolePermission
+     */
+    select?: RolePermissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RolePermission
+     */
+    omit?: RolePermissionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RolePermissionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a RolePermission.
+     */
+    data: XOR<RolePermissionCreateInput, RolePermissionUncheckedCreateInput>
+  }
+
+  /**
+   * RolePermission createMany
+   */
+  export type RolePermissionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many RolePermissions.
+     */
+    data: RolePermissionCreateManyInput | RolePermissionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * RolePermission createManyAndReturn
+   */
+  export type RolePermissionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RolePermission
+     */
+    select?: RolePermissionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the RolePermission
+     */
+    omit?: RolePermissionOmit<ExtArgs> | null
+    /**
+     * The data used to create many RolePermissions.
+     */
+    data: RolePermissionCreateManyInput | RolePermissionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RolePermissionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * RolePermission update
+   */
+  export type RolePermissionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RolePermission
+     */
+    select?: RolePermissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RolePermission
+     */
+    omit?: RolePermissionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RolePermissionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a RolePermission.
+     */
+    data: XOR<RolePermissionUpdateInput, RolePermissionUncheckedUpdateInput>
+    /**
+     * Choose, which RolePermission to update.
+     */
+    where: RolePermissionWhereUniqueInput
+  }
+
+  /**
+   * RolePermission updateMany
+   */
+  export type RolePermissionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update RolePermissions.
+     */
+    data: XOR<RolePermissionUpdateManyMutationInput, RolePermissionUncheckedUpdateManyInput>
+    /**
+     * Filter which RolePermissions to update
+     */
+    where?: RolePermissionWhereInput
+    /**
+     * Limit how many RolePermissions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * RolePermission updateManyAndReturn
+   */
+  export type RolePermissionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RolePermission
+     */
+    select?: RolePermissionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the RolePermission
+     */
+    omit?: RolePermissionOmit<ExtArgs> | null
+    /**
+     * The data used to update RolePermissions.
+     */
+    data: XOR<RolePermissionUpdateManyMutationInput, RolePermissionUncheckedUpdateManyInput>
+    /**
+     * Filter which RolePermissions to update
+     */
+    where?: RolePermissionWhereInput
+    /**
+     * Limit how many RolePermissions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RolePermissionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * RolePermission upsert
+   */
+  export type RolePermissionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RolePermission
+     */
+    select?: RolePermissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RolePermission
+     */
+    omit?: RolePermissionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RolePermissionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the RolePermission to update in case it exists.
+     */
+    where: RolePermissionWhereUniqueInput
+    /**
+     * In case the RolePermission found by the `where` argument doesn't exist, create a new RolePermission with this data.
+     */
+    create: XOR<RolePermissionCreateInput, RolePermissionUncheckedCreateInput>
+    /**
+     * In case the RolePermission was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<RolePermissionUpdateInput, RolePermissionUncheckedUpdateInput>
+  }
+
+  /**
+   * RolePermission delete
+   */
+  export type RolePermissionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RolePermission
+     */
+    select?: RolePermissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RolePermission
+     */
+    omit?: RolePermissionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RolePermissionInclude<ExtArgs> | null
+    /**
+     * Filter which RolePermission to delete.
+     */
+    where: RolePermissionWhereUniqueInput
+  }
+
+  /**
+   * RolePermission deleteMany
+   */
+  export type RolePermissionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which RolePermissions to delete
+     */
+    where?: RolePermissionWhereInput
+    /**
+     * Limit how many RolePermissions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * RolePermission without action
+   */
+  export type RolePermissionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RolePermission
+     */
+    select?: RolePermissionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the RolePermission
+     */
+    omit?: RolePermissionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: RolePermissionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Invitation
+   */
+
+  export type AggregateInvitation = {
+    _count: InvitationCountAggregateOutputType | null
+    _avg: InvitationAvgAggregateOutputType | null
+    _sum: InvitationSumAggregateOutputType | null
+    _min: InvitationMinAggregateOutputType | null
+    _max: InvitationMaxAggregateOutputType | null
+  }
+
+  export type InvitationAvgAggregateOutputType = {
+    send_count: number | null
+  }
+
+  export type InvitationSumAggregateOutputType = {
+    send_count: number | null
+  }
+
+  export type InvitationMinAggregateOutputType = {
+    id: string | null
+    organisation_id: string | null
+    email: string | null
+    role: $Enums.OrgRole | null
+    token_hash: string | null
+    status: $Enums.InvitationStatus | null
+    invited_by_id: string | null
+    expires_at: Date | null
+    last_sent_at: Date | null
+    send_count: number | null
+    accepted_at: Date | null
+    accepted_by_id: string | null
+    revoked_at: Date | null
+    created_at: Date | null
+  }
+
+  export type InvitationMaxAggregateOutputType = {
+    id: string | null
+    organisation_id: string | null
+    email: string | null
+    role: $Enums.OrgRole | null
+    token_hash: string | null
+    status: $Enums.InvitationStatus | null
+    invited_by_id: string | null
+    expires_at: Date | null
+    last_sent_at: Date | null
+    send_count: number | null
+    accepted_at: Date | null
+    accepted_by_id: string | null
+    revoked_at: Date | null
+    created_at: Date | null
+  }
+
+  export type InvitationCountAggregateOutputType = {
+    id: number
+    organisation_id: number
+    email: number
+    role: number
+    token_hash: number
+    status: number
+    invited_by_id: number
+    expires_at: number
+    last_sent_at: number
+    send_count: number
+    accepted_at: number
+    accepted_by_id: number
+    revoked_at: number
+    created_at: number
+    _all: number
+  }
+
+
+  export type InvitationAvgAggregateInputType = {
+    send_count?: true
+  }
+
+  export type InvitationSumAggregateInputType = {
+    send_count?: true
+  }
+
+  export type InvitationMinAggregateInputType = {
+    id?: true
+    organisation_id?: true
+    email?: true
+    role?: true
+    token_hash?: true
+    status?: true
+    invited_by_id?: true
+    expires_at?: true
+    last_sent_at?: true
+    send_count?: true
+    accepted_at?: true
+    accepted_by_id?: true
+    revoked_at?: true
+    created_at?: true
+  }
+
+  export type InvitationMaxAggregateInputType = {
+    id?: true
+    organisation_id?: true
+    email?: true
+    role?: true
+    token_hash?: true
+    status?: true
+    invited_by_id?: true
+    expires_at?: true
+    last_sent_at?: true
+    send_count?: true
+    accepted_at?: true
+    accepted_by_id?: true
+    revoked_at?: true
+    created_at?: true
+  }
+
+  export type InvitationCountAggregateInputType = {
+    id?: true
+    organisation_id?: true
+    email?: true
+    role?: true
+    token_hash?: true
+    status?: true
+    invited_by_id?: true
+    expires_at?: true
+    last_sent_at?: true
+    send_count?: true
+    accepted_at?: true
+    accepted_by_id?: true
+    revoked_at?: true
+    created_at?: true
+    _all?: true
+  }
+
+  export type InvitationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Invitation to aggregate.
+     */
+    where?: InvitationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Invitations to fetch.
+     */
+    orderBy?: InvitationOrderByWithRelationInput | InvitationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: InvitationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Invitations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Invitations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Invitations
+    **/
+    _count?: true | InvitationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: InvitationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: InvitationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: InvitationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: InvitationMaxAggregateInputType
+  }
+
+  export type GetInvitationAggregateType<T extends InvitationAggregateArgs> = {
+        [P in keyof T & keyof AggregateInvitation]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateInvitation[P]>
+      : GetScalarType<T[P], AggregateInvitation[P]>
+  }
+
+
+
+
+  export type InvitationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: InvitationWhereInput
+    orderBy?: InvitationOrderByWithAggregationInput | InvitationOrderByWithAggregationInput[]
+    by: InvitationScalarFieldEnum[] | InvitationScalarFieldEnum
+    having?: InvitationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: InvitationCountAggregateInputType | true
+    _avg?: InvitationAvgAggregateInputType
+    _sum?: InvitationSumAggregateInputType
+    _min?: InvitationMinAggregateInputType
+    _max?: InvitationMaxAggregateInputType
+  }
+
+  export type InvitationGroupByOutputType = {
+    id: string
+    organisation_id: string
+    email: string
+    role: $Enums.OrgRole
+    token_hash: string
+    status: $Enums.InvitationStatus
+    invited_by_id: string | null
+    expires_at: Date
+    last_sent_at: Date
+    send_count: number
+    accepted_at: Date | null
+    accepted_by_id: string | null
+    revoked_at: Date | null
+    created_at: Date
+    _count: InvitationCountAggregateOutputType | null
+    _avg: InvitationAvgAggregateOutputType | null
+    _sum: InvitationSumAggregateOutputType | null
+    _min: InvitationMinAggregateOutputType | null
+    _max: InvitationMaxAggregateOutputType | null
+  }
+
+  type GetInvitationGroupByPayload<T extends InvitationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<InvitationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof InvitationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], InvitationGroupByOutputType[P]>
+            : GetScalarType<T[P], InvitationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type InvitationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    organisation_id?: boolean
+    email?: boolean
+    role?: boolean
+    token_hash?: boolean
+    status?: boolean
+    invited_by_id?: boolean
+    expires_at?: boolean
+    last_sent_at?: boolean
+    send_count?: boolean
+    accepted_at?: boolean
+    accepted_by_id?: boolean
+    revoked_at?: boolean
+    created_at?: boolean
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    invited_by?: boolean | Invitation$invited_byArgs<ExtArgs>
+  }, ExtArgs["result"]["invitation"]>
+
+  export type InvitationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    organisation_id?: boolean
+    email?: boolean
+    role?: boolean
+    token_hash?: boolean
+    status?: boolean
+    invited_by_id?: boolean
+    expires_at?: boolean
+    last_sent_at?: boolean
+    send_count?: boolean
+    accepted_at?: boolean
+    accepted_by_id?: boolean
+    revoked_at?: boolean
+    created_at?: boolean
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    invited_by?: boolean | Invitation$invited_byArgs<ExtArgs>
+  }, ExtArgs["result"]["invitation"]>
+
+  export type InvitationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    organisation_id?: boolean
+    email?: boolean
+    role?: boolean
+    token_hash?: boolean
+    status?: boolean
+    invited_by_id?: boolean
+    expires_at?: boolean
+    last_sent_at?: boolean
+    send_count?: boolean
+    accepted_at?: boolean
+    accepted_by_id?: boolean
+    revoked_at?: boolean
+    created_at?: boolean
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    invited_by?: boolean | Invitation$invited_byArgs<ExtArgs>
+  }, ExtArgs["result"]["invitation"]>
+
+  export type InvitationSelectScalar = {
+    id?: boolean
+    organisation_id?: boolean
+    email?: boolean
+    role?: boolean
+    token_hash?: boolean
+    status?: boolean
+    invited_by_id?: boolean
+    expires_at?: boolean
+    last_sent_at?: boolean
+    send_count?: boolean
+    accepted_at?: boolean
+    accepted_by_id?: boolean
+    revoked_at?: boolean
+    created_at?: boolean
+  }
+
+  export type InvitationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "organisation_id" | "email" | "role" | "token_hash" | "status" | "invited_by_id" | "expires_at" | "last_sent_at" | "send_count" | "accepted_at" | "accepted_by_id" | "revoked_at" | "created_at", ExtArgs["result"]["invitation"]>
+  export type InvitationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    invited_by?: boolean | Invitation$invited_byArgs<ExtArgs>
+  }
+  export type InvitationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    invited_by?: boolean | Invitation$invited_byArgs<ExtArgs>
+  }
+  export type InvitationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
+    invited_by?: boolean | Invitation$invited_byArgs<ExtArgs>
+  }
+
+  export type $InvitationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Invitation"
+    objects: {
+      organisation: Prisma.$OrganisationPayload<ExtArgs>
+      invited_by: Prisma.$UserPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      organisation_id: string
+      email: string
+      role: $Enums.OrgRole
+      token_hash: string
+      status: $Enums.InvitationStatus
+      invited_by_id: string | null
+      expires_at: Date
+      last_sent_at: Date
+      send_count: number
+      accepted_at: Date | null
+      accepted_by_id: string | null
+      revoked_at: Date | null
+      created_at: Date
+    }, ExtArgs["result"]["invitation"]>
+    composites: {}
+  }
+
+  type InvitationGetPayload<S extends boolean | null | undefined | InvitationDefaultArgs> = $Result.GetResult<Prisma.$InvitationPayload, S>
+
+  type InvitationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<InvitationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: InvitationCountAggregateInputType | true
+    }
+
+  export interface InvitationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Invitation'], meta: { name: 'Invitation' } }
+    /**
+     * Find zero or one Invitation that matches the filter.
+     * @param {InvitationFindUniqueArgs} args - Arguments to find a Invitation
+     * @example
+     * // Get one Invitation
+     * const invitation = await prisma.invitation.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends InvitationFindUniqueArgs>(args: SelectSubset<T, InvitationFindUniqueArgs<ExtArgs>>): Prisma__InvitationClient<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Invitation that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {InvitationFindUniqueOrThrowArgs} args - Arguments to find a Invitation
+     * @example
+     * // Get one Invitation
+     * const invitation = await prisma.invitation.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends InvitationFindUniqueOrThrowArgs>(args: SelectSubset<T, InvitationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__InvitationClient<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Invitation that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvitationFindFirstArgs} args - Arguments to find a Invitation
+     * @example
+     * // Get one Invitation
+     * const invitation = await prisma.invitation.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends InvitationFindFirstArgs>(args?: SelectSubset<T, InvitationFindFirstArgs<ExtArgs>>): Prisma__InvitationClient<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Invitation that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvitationFindFirstOrThrowArgs} args - Arguments to find a Invitation
+     * @example
+     * // Get one Invitation
+     * const invitation = await prisma.invitation.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends InvitationFindFirstOrThrowArgs>(args?: SelectSubset<T, InvitationFindFirstOrThrowArgs<ExtArgs>>): Prisma__InvitationClient<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Invitations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvitationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Invitations
+     * const invitations = await prisma.invitation.findMany()
+     * 
+     * // Get first 10 Invitations
+     * const invitations = await prisma.invitation.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const invitationWithIdOnly = await prisma.invitation.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends InvitationFindManyArgs>(args?: SelectSubset<T, InvitationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Invitation.
+     * @param {InvitationCreateArgs} args - Arguments to create a Invitation.
+     * @example
+     * // Create one Invitation
+     * const Invitation = await prisma.invitation.create({
+     *   data: {
+     *     // ... data to create a Invitation
+     *   }
+     * })
+     * 
+     */
+    create<T extends InvitationCreateArgs>(args: SelectSubset<T, InvitationCreateArgs<ExtArgs>>): Prisma__InvitationClient<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Invitations.
+     * @param {InvitationCreateManyArgs} args - Arguments to create many Invitations.
+     * @example
+     * // Create many Invitations
+     * const invitation = await prisma.invitation.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends InvitationCreateManyArgs>(args?: SelectSubset<T, InvitationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Invitations and returns the data saved in the database.
+     * @param {InvitationCreateManyAndReturnArgs} args - Arguments to create many Invitations.
+     * @example
+     * // Create many Invitations
+     * const invitation = await prisma.invitation.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Invitations and only return the `id`
+     * const invitationWithIdOnly = await prisma.invitation.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends InvitationCreateManyAndReturnArgs>(args?: SelectSubset<T, InvitationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Invitation.
+     * @param {InvitationDeleteArgs} args - Arguments to delete one Invitation.
+     * @example
+     * // Delete one Invitation
+     * const Invitation = await prisma.invitation.delete({
+     *   where: {
+     *     // ... filter to delete one Invitation
+     *   }
+     * })
+     * 
+     */
+    delete<T extends InvitationDeleteArgs>(args: SelectSubset<T, InvitationDeleteArgs<ExtArgs>>): Prisma__InvitationClient<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Invitation.
+     * @param {InvitationUpdateArgs} args - Arguments to update one Invitation.
+     * @example
+     * // Update one Invitation
+     * const invitation = await prisma.invitation.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends InvitationUpdateArgs>(args: SelectSubset<T, InvitationUpdateArgs<ExtArgs>>): Prisma__InvitationClient<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Invitations.
+     * @param {InvitationDeleteManyArgs} args - Arguments to filter Invitations to delete.
+     * @example
+     * // Delete a few Invitations
+     * const { count } = await prisma.invitation.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends InvitationDeleteManyArgs>(args?: SelectSubset<T, InvitationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Invitations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvitationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Invitations
+     * const invitation = await prisma.invitation.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends InvitationUpdateManyArgs>(args: SelectSubset<T, InvitationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Invitations and returns the data updated in the database.
+     * @param {InvitationUpdateManyAndReturnArgs} args - Arguments to update many Invitations.
+     * @example
+     * // Update many Invitations
+     * const invitation = await prisma.invitation.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Invitations and only return the `id`
+     * const invitationWithIdOnly = await prisma.invitation.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends InvitationUpdateManyAndReturnArgs>(args: SelectSubset<T, InvitationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Invitation.
+     * @param {InvitationUpsertArgs} args - Arguments to update or create a Invitation.
+     * @example
+     * // Update or create a Invitation
+     * const invitation = await prisma.invitation.upsert({
+     *   create: {
+     *     // ... data to create a Invitation
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Invitation we want to update
+     *   }
+     * })
+     */
+    upsert<T extends InvitationUpsertArgs>(args: SelectSubset<T, InvitationUpsertArgs<ExtArgs>>): Prisma__InvitationClient<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Invitations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvitationCountArgs} args - Arguments to filter Invitations to count.
+     * @example
+     * // Count the number of Invitations
+     * const count = await prisma.invitation.count({
+     *   where: {
+     *     // ... the filter for the Invitations we want to count
+     *   }
+     * })
+    **/
+    count<T extends InvitationCountArgs>(
+      args?: Subset<T, InvitationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], InvitationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Invitation.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvitationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends InvitationAggregateArgs>(args: Subset<T, InvitationAggregateArgs>): Prisma.PrismaPromise<GetInvitationAggregateType<T>>
+
+    /**
+     * Group by Invitation.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvitationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends InvitationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: InvitationGroupByArgs['orderBy'] }
+        : { orderBy?: InvitationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, InvitationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetInvitationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Invitation model
+   */
+  readonly fields: InvitationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Invitation.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__InvitationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    organisation<T extends OrganisationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, OrganisationDefaultArgs<ExtArgs>>): Prisma__OrganisationClient<$Result.GetResult<Prisma.$OrganisationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    invited_by<T extends Invitation$invited_byArgs<ExtArgs> = {}>(args?: Subset<T, Invitation$invited_byArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Invitation model
+   */
+  interface InvitationFieldRefs {
+    readonly id: FieldRef<"Invitation", 'String'>
+    readonly organisation_id: FieldRef<"Invitation", 'String'>
+    readonly email: FieldRef<"Invitation", 'String'>
+    readonly role: FieldRef<"Invitation", 'OrgRole'>
+    readonly token_hash: FieldRef<"Invitation", 'String'>
+    readonly status: FieldRef<"Invitation", 'InvitationStatus'>
+    readonly invited_by_id: FieldRef<"Invitation", 'String'>
+    readonly expires_at: FieldRef<"Invitation", 'DateTime'>
+    readonly last_sent_at: FieldRef<"Invitation", 'DateTime'>
+    readonly send_count: FieldRef<"Invitation", 'Int'>
+    readonly accepted_at: FieldRef<"Invitation", 'DateTime'>
+    readonly accepted_by_id: FieldRef<"Invitation", 'String'>
+    readonly revoked_at: FieldRef<"Invitation", 'DateTime'>
+    readonly created_at: FieldRef<"Invitation", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Invitation findUnique
+   */
+  export type InvitationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invitation
+     */
+    select?: InvitationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invitation
+     */
+    omit?: InvitationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvitationInclude<ExtArgs> | null
+    /**
+     * Filter, which Invitation to fetch.
+     */
+    where: InvitationWhereUniqueInput
+  }
+
+  /**
+   * Invitation findUniqueOrThrow
+   */
+  export type InvitationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invitation
+     */
+    select?: InvitationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invitation
+     */
+    omit?: InvitationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvitationInclude<ExtArgs> | null
+    /**
+     * Filter, which Invitation to fetch.
+     */
+    where: InvitationWhereUniqueInput
+  }
+
+  /**
+   * Invitation findFirst
+   */
+  export type InvitationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invitation
+     */
+    select?: InvitationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invitation
+     */
+    omit?: InvitationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvitationInclude<ExtArgs> | null
+    /**
+     * Filter, which Invitation to fetch.
+     */
+    where?: InvitationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Invitations to fetch.
+     */
+    orderBy?: InvitationOrderByWithRelationInput | InvitationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Invitations.
+     */
+    cursor?: InvitationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Invitations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Invitations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Invitations.
+     */
+    distinct?: InvitationScalarFieldEnum | InvitationScalarFieldEnum[]
+  }
+
+  /**
+   * Invitation findFirstOrThrow
+   */
+  export type InvitationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invitation
+     */
+    select?: InvitationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invitation
+     */
+    omit?: InvitationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvitationInclude<ExtArgs> | null
+    /**
+     * Filter, which Invitation to fetch.
+     */
+    where?: InvitationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Invitations to fetch.
+     */
+    orderBy?: InvitationOrderByWithRelationInput | InvitationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Invitations.
+     */
+    cursor?: InvitationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Invitations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Invitations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Invitations.
+     */
+    distinct?: InvitationScalarFieldEnum | InvitationScalarFieldEnum[]
+  }
+
+  /**
+   * Invitation findMany
+   */
+  export type InvitationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invitation
+     */
+    select?: InvitationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invitation
+     */
+    omit?: InvitationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvitationInclude<ExtArgs> | null
+    /**
+     * Filter, which Invitations to fetch.
+     */
+    where?: InvitationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Invitations to fetch.
+     */
+    orderBy?: InvitationOrderByWithRelationInput | InvitationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Invitations.
+     */
+    cursor?: InvitationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Invitations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Invitations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Invitations.
+     */
+    distinct?: InvitationScalarFieldEnum | InvitationScalarFieldEnum[]
+  }
+
+  /**
+   * Invitation create
+   */
+  export type InvitationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invitation
+     */
+    select?: InvitationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invitation
+     */
+    omit?: InvitationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvitationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Invitation.
+     */
+    data: XOR<InvitationCreateInput, InvitationUncheckedCreateInput>
+  }
+
+  /**
+   * Invitation createMany
+   */
+  export type InvitationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Invitations.
+     */
+    data: InvitationCreateManyInput | InvitationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Invitation createManyAndReturn
+   */
+  export type InvitationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invitation
+     */
+    select?: InvitationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invitation
+     */
+    omit?: InvitationOmit<ExtArgs> | null
+    /**
+     * The data used to create many Invitations.
+     */
+    data: InvitationCreateManyInput | InvitationCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvitationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Invitation update
+   */
+  export type InvitationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invitation
+     */
+    select?: InvitationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invitation
+     */
+    omit?: InvitationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvitationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Invitation.
+     */
+    data: XOR<InvitationUpdateInput, InvitationUncheckedUpdateInput>
+    /**
+     * Choose, which Invitation to update.
+     */
+    where: InvitationWhereUniqueInput
+  }
+
+  /**
+   * Invitation updateMany
+   */
+  export type InvitationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Invitations.
+     */
+    data: XOR<InvitationUpdateManyMutationInput, InvitationUncheckedUpdateManyInput>
+    /**
+     * Filter which Invitations to update
+     */
+    where?: InvitationWhereInput
+    /**
+     * Limit how many Invitations to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Invitation updateManyAndReturn
+   */
+  export type InvitationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invitation
+     */
+    select?: InvitationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invitation
+     */
+    omit?: InvitationOmit<ExtArgs> | null
+    /**
+     * The data used to update Invitations.
+     */
+    data: XOR<InvitationUpdateManyMutationInput, InvitationUncheckedUpdateManyInput>
+    /**
+     * Filter which Invitations to update
+     */
+    where?: InvitationWhereInput
+    /**
+     * Limit how many Invitations to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvitationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Invitation upsert
+   */
+  export type InvitationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invitation
+     */
+    select?: InvitationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invitation
+     */
+    omit?: InvitationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvitationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Invitation to update in case it exists.
+     */
+    where: InvitationWhereUniqueInput
+    /**
+     * In case the Invitation found by the `where` argument doesn't exist, create a new Invitation with this data.
+     */
+    create: XOR<InvitationCreateInput, InvitationUncheckedCreateInput>
+    /**
+     * In case the Invitation was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<InvitationUpdateInput, InvitationUncheckedUpdateInput>
+  }
+
+  /**
+   * Invitation delete
+   */
+  export type InvitationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invitation
+     */
+    select?: InvitationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invitation
+     */
+    omit?: InvitationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvitationInclude<ExtArgs> | null
+    /**
+     * Filter which Invitation to delete.
+     */
+    where: InvitationWhereUniqueInput
+  }
+
+  /**
+   * Invitation deleteMany
+   */
+  export type InvitationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Invitations to delete
+     */
+    where?: InvitationWhereInput
+    /**
+     * Limit how many Invitations to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Invitation.invited_by
+   */
+  export type Invitation$invited_byArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
+   * Invitation without action
+   */
+  export type InvitationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invitation
+     */
+    select?: InvitationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invitation
+     */
+    omit?: InvitationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvitationInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -16242,6 +21545,7 @@ export namespace Prisma {
 
   export const AssistantAgentScalarFieldEnum: {
     id: 'id',
+    organisation_id: 'organisation_id',
     user_id: 'user_id',
     name: 'name',
     description: 'description',
@@ -16252,6 +21556,7 @@ export namespace Prisma {
     objection_library: 'objection_library',
     methodology: 'methodology',
     language: 'language',
+    languages: 'languages',
     tone: 'tone',
     suggestion_frequency: 'suggestion_frequency',
     suggestion_length: 'suggestion_length',
@@ -16273,6 +21578,7 @@ export namespace Prisma {
 
   export const PracticeAgentScalarFieldEnum: {
     id: 'id',
+    organisation_id: 'organisation_id',
     user_id: 'user_id',
     name: 'name',
     prospect_name: 'prospect_name',
@@ -16297,6 +21603,7 @@ export namespace Prisma {
     conversion_conditions: 'conversion_conditions',
     patience: 'patience',
     language: 'language',
+    languages: 'languages',
     accent: 'accent',
     industry: 'industry',
     company: 'company',
@@ -16319,6 +21626,7 @@ export namespace Prisma {
 
   export const CallScalarFieldEnum: {
     id: 'id',
+    organisation_id: 'organisation_id',
     user_id: 'user_id',
     kind: 'kind',
     call_type: 'call_type',
@@ -16429,6 +21737,7 @@ export namespace Prisma {
 
   export const UsageEventScalarFieldEnum: {
     id: 'id',
+    organisation_id: 'organisation_id',
     user_id: 'user_id',
     call_id: 'call_id',
     kind: 'kind',
@@ -16441,6 +21750,59 @@ export namespace Prisma {
   };
 
   export type UsageEventScalarFieldEnum = (typeof UsageEventScalarFieldEnum)[keyof typeof UsageEventScalarFieldEnum]
+
+
+  export const OrganisationScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    created_at: 'created_at',
+    updated_at: 'updated_at'
+  };
+
+  export type OrganisationScalarFieldEnum = (typeof OrganisationScalarFieldEnum)[keyof typeof OrganisationScalarFieldEnum]
+
+
+  export const MembershipScalarFieldEnum: {
+    id: 'id',
+    organisation_id: 'organisation_id',
+    user_id: 'user_id',
+    role: 'role',
+    created_at: 'created_at',
+    updated_at: 'updated_at'
+  };
+
+  export type MembershipScalarFieldEnum = (typeof MembershipScalarFieldEnum)[keyof typeof MembershipScalarFieldEnum]
+
+
+  export const RolePermissionScalarFieldEnum: {
+    id: 'id',
+    organisation_id: 'organisation_id',
+    role: 'role',
+    permissions: 'permissions',
+    updated_at: 'updated_at'
+  };
+
+  export type RolePermissionScalarFieldEnum = (typeof RolePermissionScalarFieldEnum)[keyof typeof RolePermissionScalarFieldEnum]
+
+
+  export const InvitationScalarFieldEnum: {
+    id: 'id',
+    organisation_id: 'organisation_id',
+    email: 'email',
+    role: 'role',
+    token_hash: 'token_hash',
+    status: 'status',
+    invited_by_id: 'invited_by_id',
+    expires_at: 'expires_at',
+    last_sent_at: 'last_sent_at',
+    send_count: 'send_count',
+    accepted_at: 'accepted_at',
+    accepted_by_id: 'accepted_by_id',
+    revoked_at: 'revoked_at',
+    created_at: 'created_at'
+  };
+
+  export type InvitationScalarFieldEnum = (typeof InvitationScalarFieldEnum)[keyof typeof InvitationScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -16809,6 +22171,34 @@ export namespace Prisma {
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
+
+
+  /**
+   * Reference to a field of type 'OrgRole'
+   */
+  export type EnumOrgRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrgRole'>
+    
+
+
+  /**
+   * Reference to a field of type 'OrgRole[]'
+   */
+  export type ListEnumOrgRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrgRole[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'InvitationStatus'
+   */
+  export type EnumInvitationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InvitationStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'InvitationStatus[]'
+   */
+  export type ListEnumInvitationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InvitationStatus[]'>
+    
   /**
    * Deep Input Types
    */
@@ -16836,6 +22226,8 @@ export namespace Prisma {
     practice_agents?: PracticeAgentListRelationFilter
     calls?: CallListRelationFilter
     usage_events?: UsageEventListRelationFilter
+    memberships?: MembershipListRelationFilter
+    invitations_sent?: InvitationListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -16857,6 +22249,8 @@ export namespace Prisma {
     practice_agents?: PracticeAgentOrderByRelationAggregateInput
     calls?: CallOrderByRelationAggregateInput
     usage_events?: UsageEventOrderByRelationAggregateInput
+    memberships?: MembershipOrderByRelationAggregateInput
+    invitations_sent?: InvitationOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -16881,6 +22275,8 @@ export namespace Prisma {
     practice_agents?: PracticeAgentListRelationFilter
     calls?: CallListRelationFilter
     usage_events?: UsageEventListRelationFilter
+    memberships?: MembershipListRelationFilter
+    invitations_sent?: InvitationListRelationFilter
   }, "id" | "email" | "phone">
 
   export type UserOrderByWithAggregationInput = {
@@ -17060,7 +22456,8 @@ export namespace Prisma {
     OR?: AssistantAgentWhereInput[]
     NOT?: AssistantAgentWhereInput | AssistantAgentWhereInput[]
     id?: StringFilter<"AssistantAgent"> | string
-    user_id?: StringFilter<"AssistantAgent"> | string
+    organisation_id?: StringFilter<"AssistantAgent"> | string
+    user_id?: StringNullableFilter<"AssistantAgent"> | string | null
     name?: StringFilter<"AssistantAgent"> | string
     description?: StringNullableFilter<"AssistantAgent"> | string | null
     call_goal?: StringNullableFilter<"AssistantAgent"> | string | null
@@ -17070,6 +22467,7 @@ export namespace Prisma {
     objection_library?: JsonFilter<"AssistantAgent">
     methodology?: StringNullableFilter<"AssistantAgent"> | string | null
     language?: StringFilter<"AssistantAgent"> | string
+    languages?: StringNullableListFilter<"AssistantAgent">
     tone?: StringFilter<"AssistantAgent"> | string
     suggestion_frequency?: EnumSuggestionFrequencyFilter<"AssistantAgent"> | $Enums.SuggestionFrequency
     suggestion_length?: EnumSuggestionLengthFilter<"AssistantAgent"> | $Enums.SuggestionLength
@@ -17084,14 +22482,16 @@ export namespace Prisma {
     archived_at?: DateTimeNullableFilter<"AssistantAgent"> | Date | string | null
     created_at?: DateTimeFilter<"AssistantAgent"> | Date | string
     updated_at?: DateTimeFilter<"AssistantAgent"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    organisation?: XOR<OrganisationScalarRelationFilter, OrganisationWhereInput>
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     calls?: CallListRelationFilter
     practice_agents?: PracticeAgentListRelationFilter
   }
 
   export type AssistantAgentOrderByWithRelationInput = {
     id?: SortOrder
-    user_id?: SortOrder
+    organisation_id?: SortOrder
+    user_id?: SortOrderInput | SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
     call_goal?: SortOrderInput | SortOrder
@@ -17101,6 +22501,7 @@ export namespace Prisma {
     objection_library?: SortOrder
     methodology?: SortOrderInput | SortOrder
     language?: SortOrder
+    languages?: SortOrder
     tone?: SortOrder
     suggestion_frequency?: SortOrder
     suggestion_length?: SortOrder
@@ -17115,6 +22516,7 @@ export namespace Prisma {
     archived_at?: SortOrderInput | SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    organisation?: OrganisationOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
     calls?: CallOrderByRelationAggregateInput
     practice_agents?: PracticeAgentOrderByRelationAggregateInput
@@ -17125,7 +22527,8 @@ export namespace Prisma {
     AND?: AssistantAgentWhereInput | AssistantAgentWhereInput[]
     OR?: AssistantAgentWhereInput[]
     NOT?: AssistantAgentWhereInput | AssistantAgentWhereInput[]
-    user_id?: StringFilter<"AssistantAgent"> | string
+    organisation_id?: StringFilter<"AssistantAgent"> | string
+    user_id?: StringNullableFilter<"AssistantAgent"> | string | null
     name?: StringFilter<"AssistantAgent"> | string
     description?: StringNullableFilter<"AssistantAgent"> | string | null
     call_goal?: StringNullableFilter<"AssistantAgent"> | string | null
@@ -17135,6 +22538,7 @@ export namespace Prisma {
     objection_library?: JsonFilter<"AssistantAgent">
     methodology?: StringNullableFilter<"AssistantAgent"> | string | null
     language?: StringFilter<"AssistantAgent"> | string
+    languages?: StringNullableListFilter<"AssistantAgent">
     tone?: StringFilter<"AssistantAgent"> | string
     suggestion_frequency?: EnumSuggestionFrequencyFilter<"AssistantAgent"> | $Enums.SuggestionFrequency
     suggestion_length?: EnumSuggestionLengthFilter<"AssistantAgent"> | $Enums.SuggestionLength
@@ -17149,14 +22553,16 @@ export namespace Prisma {
     archived_at?: DateTimeNullableFilter<"AssistantAgent"> | Date | string | null
     created_at?: DateTimeFilter<"AssistantAgent"> | Date | string
     updated_at?: DateTimeFilter<"AssistantAgent"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    organisation?: XOR<OrganisationScalarRelationFilter, OrganisationWhereInput>
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     calls?: CallListRelationFilter
     practice_agents?: PracticeAgentListRelationFilter
   }, "id">
 
   export type AssistantAgentOrderByWithAggregationInput = {
     id?: SortOrder
-    user_id?: SortOrder
+    organisation_id?: SortOrder
+    user_id?: SortOrderInput | SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
     call_goal?: SortOrderInput | SortOrder
@@ -17166,6 +22572,7 @@ export namespace Prisma {
     objection_library?: SortOrder
     methodology?: SortOrderInput | SortOrder
     language?: SortOrder
+    languages?: SortOrder
     tone?: SortOrder
     suggestion_frequency?: SortOrder
     suggestion_length?: SortOrder
@@ -17192,7 +22599,8 @@ export namespace Prisma {
     OR?: AssistantAgentScalarWhereWithAggregatesInput[]
     NOT?: AssistantAgentScalarWhereWithAggregatesInput | AssistantAgentScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"AssistantAgent"> | string
-    user_id?: StringWithAggregatesFilter<"AssistantAgent"> | string
+    organisation_id?: StringWithAggregatesFilter<"AssistantAgent"> | string
+    user_id?: StringNullableWithAggregatesFilter<"AssistantAgent"> | string | null
     name?: StringWithAggregatesFilter<"AssistantAgent"> | string
     description?: StringNullableWithAggregatesFilter<"AssistantAgent"> | string | null
     call_goal?: StringNullableWithAggregatesFilter<"AssistantAgent"> | string | null
@@ -17202,6 +22610,7 @@ export namespace Prisma {
     objection_library?: JsonWithAggregatesFilter<"AssistantAgent">
     methodology?: StringNullableWithAggregatesFilter<"AssistantAgent"> | string | null
     language?: StringWithAggregatesFilter<"AssistantAgent"> | string
+    languages?: StringNullableListFilter<"AssistantAgent">
     tone?: StringWithAggregatesFilter<"AssistantAgent"> | string
     suggestion_frequency?: EnumSuggestionFrequencyWithAggregatesFilter<"AssistantAgent"> | $Enums.SuggestionFrequency
     suggestion_length?: EnumSuggestionLengthWithAggregatesFilter<"AssistantAgent"> | $Enums.SuggestionLength
@@ -17223,7 +22632,8 @@ export namespace Prisma {
     OR?: PracticeAgentWhereInput[]
     NOT?: PracticeAgentWhereInput | PracticeAgentWhereInput[]
     id?: StringFilter<"PracticeAgent"> | string
-    user_id?: StringFilter<"PracticeAgent"> | string
+    organisation_id?: StringFilter<"PracticeAgent"> | string
+    user_id?: StringNullableFilter<"PracticeAgent"> | string | null
     name?: StringFilter<"PracticeAgent"> | string
     prospect_name?: StringNullableFilter<"PracticeAgent"> | string | null
     role_prompt?: StringFilter<"PracticeAgent"> | string
@@ -17247,6 +22657,7 @@ export namespace Prisma {
     conversion_conditions?: JsonFilter<"PracticeAgent">
     patience?: IntFilter<"PracticeAgent"> | number
     language?: StringFilter<"PracticeAgent"> | string
+    languages?: StringNullableListFilter<"PracticeAgent">
     accent?: StringNullableFilter<"PracticeAgent"> | string | null
     industry?: StringNullableFilter<"PracticeAgent"> | string | null
     company?: StringNullableFilter<"PracticeAgent"> | string | null
@@ -17262,14 +22673,16 @@ export namespace Prisma {
     archived_at?: DateTimeNullableFilter<"PracticeAgent"> | Date | string | null
     created_at?: DateTimeFilter<"PracticeAgent"> | Date | string
     updated_at?: DateTimeFilter<"PracticeAgent"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    organisation?: XOR<OrganisationScalarRelationFilter, OrganisationWhereInput>
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     linked_assistant_agent?: XOR<AssistantAgentNullableScalarRelationFilter, AssistantAgentWhereInput> | null
     calls?: CallListRelationFilter
   }
 
   export type PracticeAgentOrderByWithRelationInput = {
     id?: SortOrder
-    user_id?: SortOrder
+    organisation_id?: SortOrder
+    user_id?: SortOrderInput | SortOrder
     name?: SortOrder
     prospect_name?: SortOrderInput | SortOrder
     role_prompt?: SortOrder
@@ -17293,6 +22706,7 @@ export namespace Prisma {
     conversion_conditions?: SortOrder
     patience?: SortOrder
     language?: SortOrder
+    languages?: SortOrder
     accent?: SortOrderInput | SortOrder
     industry?: SortOrderInput | SortOrder
     company?: SortOrderInput | SortOrder
@@ -17308,6 +22722,7 @@ export namespace Prisma {
     archived_at?: SortOrderInput | SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    organisation?: OrganisationOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
     linked_assistant_agent?: AssistantAgentOrderByWithRelationInput
     calls?: CallOrderByRelationAggregateInput
@@ -17318,7 +22733,8 @@ export namespace Prisma {
     AND?: PracticeAgentWhereInput | PracticeAgentWhereInput[]
     OR?: PracticeAgentWhereInput[]
     NOT?: PracticeAgentWhereInput | PracticeAgentWhereInput[]
-    user_id?: StringFilter<"PracticeAgent"> | string
+    organisation_id?: StringFilter<"PracticeAgent"> | string
+    user_id?: StringNullableFilter<"PracticeAgent"> | string | null
     name?: StringFilter<"PracticeAgent"> | string
     prospect_name?: StringNullableFilter<"PracticeAgent"> | string | null
     role_prompt?: StringFilter<"PracticeAgent"> | string
@@ -17342,6 +22758,7 @@ export namespace Prisma {
     conversion_conditions?: JsonFilter<"PracticeAgent">
     patience?: IntFilter<"PracticeAgent"> | number
     language?: StringFilter<"PracticeAgent"> | string
+    languages?: StringNullableListFilter<"PracticeAgent">
     accent?: StringNullableFilter<"PracticeAgent"> | string | null
     industry?: StringNullableFilter<"PracticeAgent"> | string | null
     company?: StringNullableFilter<"PracticeAgent"> | string | null
@@ -17357,14 +22774,16 @@ export namespace Prisma {
     archived_at?: DateTimeNullableFilter<"PracticeAgent"> | Date | string | null
     created_at?: DateTimeFilter<"PracticeAgent"> | Date | string
     updated_at?: DateTimeFilter<"PracticeAgent"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    organisation?: XOR<OrganisationScalarRelationFilter, OrganisationWhereInput>
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     linked_assistant_agent?: XOR<AssistantAgentNullableScalarRelationFilter, AssistantAgentWhereInput> | null
     calls?: CallListRelationFilter
   }, "id">
 
   export type PracticeAgentOrderByWithAggregationInput = {
     id?: SortOrder
-    user_id?: SortOrder
+    organisation_id?: SortOrder
+    user_id?: SortOrderInput | SortOrder
     name?: SortOrder
     prospect_name?: SortOrderInput | SortOrder
     role_prompt?: SortOrder
@@ -17388,6 +22807,7 @@ export namespace Prisma {
     conversion_conditions?: SortOrder
     patience?: SortOrder
     language?: SortOrder
+    languages?: SortOrder
     accent?: SortOrderInput | SortOrder
     industry?: SortOrderInput | SortOrder
     company?: SortOrderInput | SortOrder
@@ -17415,7 +22835,8 @@ export namespace Prisma {
     OR?: PracticeAgentScalarWhereWithAggregatesInput[]
     NOT?: PracticeAgentScalarWhereWithAggregatesInput | PracticeAgentScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"PracticeAgent"> | string
-    user_id?: StringWithAggregatesFilter<"PracticeAgent"> | string
+    organisation_id?: StringWithAggregatesFilter<"PracticeAgent"> | string
+    user_id?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
     name?: StringWithAggregatesFilter<"PracticeAgent"> | string
     prospect_name?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
     role_prompt?: StringWithAggregatesFilter<"PracticeAgent"> | string
@@ -17439,6 +22860,7 @@ export namespace Prisma {
     conversion_conditions?: JsonWithAggregatesFilter<"PracticeAgent">
     patience?: IntWithAggregatesFilter<"PracticeAgent"> | number
     language?: StringWithAggregatesFilter<"PracticeAgent"> | string
+    languages?: StringNullableListFilter<"PracticeAgent">
     accent?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
     industry?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
     company?: StringNullableWithAggregatesFilter<"PracticeAgent"> | string | null
@@ -17461,6 +22883,7 @@ export namespace Prisma {
     OR?: CallWhereInput[]
     NOT?: CallWhereInput | CallWhereInput[]
     id?: StringFilter<"Call"> | string
+    organisation_id?: StringFilter<"Call"> | string
     user_id?: StringFilter<"Call"> | string
     kind?: EnumCallKindFilter<"Call"> | $Enums.CallKind
     call_type?: EnumCallTypeFilter<"Call"> | $Enums.CallType
@@ -17494,6 +22917,7 @@ export namespace Prisma {
     practice_snapshot?: JsonNullableFilter<"Call">
     created_at?: DateTimeFilter<"Call"> | Date | string
     updated_at?: DateTimeFilter<"Call"> | Date | string
+    organisation?: XOR<OrganisationScalarRelationFilter, OrganisationWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     assistant_agent?: XOR<AssistantAgentNullableScalarRelationFilter, AssistantAgentWhereInput> | null
     practice_agent?: XOR<PracticeAgentNullableScalarRelationFilter, PracticeAgentWhereInput> | null
@@ -17505,6 +22929,7 @@ export namespace Prisma {
 
   export type CallOrderByWithRelationInput = {
     id?: SortOrder
+    organisation_id?: SortOrder
     user_id?: SortOrder
     kind?: SortOrder
     call_type?: SortOrder
@@ -17538,6 +22963,7 @@ export namespace Prisma {
     practice_snapshot?: SortOrderInput | SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
+    organisation?: OrganisationOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
     assistant_agent?: AssistantAgentOrderByWithRelationInput
     practice_agent?: PracticeAgentOrderByWithRelationInput
@@ -17552,6 +22978,7 @@ export namespace Prisma {
     AND?: CallWhereInput | CallWhereInput[]
     OR?: CallWhereInput[]
     NOT?: CallWhereInput | CallWhereInput[]
+    organisation_id?: StringFilter<"Call"> | string
     user_id?: StringFilter<"Call"> | string
     kind?: EnumCallKindFilter<"Call"> | $Enums.CallKind
     call_type?: EnumCallTypeFilter<"Call"> | $Enums.CallType
@@ -17585,6 +23012,7 @@ export namespace Prisma {
     practice_snapshot?: JsonNullableFilter<"Call">
     created_at?: DateTimeFilter<"Call"> | Date | string
     updated_at?: DateTimeFilter<"Call"> | Date | string
+    organisation?: XOR<OrganisationScalarRelationFilter, OrganisationWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     assistant_agent?: XOR<AssistantAgentNullableScalarRelationFilter, AssistantAgentWhereInput> | null
     practice_agent?: XOR<PracticeAgentNullableScalarRelationFilter, PracticeAgentWhereInput> | null
@@ -17596,6 +23024,7 @@ export namespace Prisma {
 
   export type CallOrderByWithAggregationInput = {
     id?: SortOrder
+    organisation_id?: SortOrder
     user_id?: SortOrder
     kind?: SortOrder
     call_type?: SortOrder
@@ -17641,6 +23070,7 @@ export namespace Prisma {
     OR?: CallScalarWhereWithAggregatesInput[]
     NOT?: CallScalarWhereWithAggregatesInput | CallScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Call"> | string
+    organisation_id?: StringWithAggregatesFilter<"Call"> | string
     user_id?: StringWithAggregatesFilter<"Call"> | string
     kind?: EnumCallKindWithAggregatesFilter<"Call"> | $Enums.CallKind
     call_type?: EnumCallTypeWithAggregatesFilter<"Call"> | $Enums.CallType
@@ -18040,6 +23470,7 @@ export namespace Prisma {
     OR?: UsageEventWhereInput[]
     NOT?: UsageEventWhereInput | UsageEventWhereInput[]
     id?: StringFilter<"UsageEvent"> | string
+    organisation_id?: StringFilter<"UsageEvent"> | string
     user_id?: StringFilter<"UsageEvent"> | string
     call_id?: StringNullableFilter<"UsageEvent"> | string | null
     kind?: EnumUsageKindFilter<"UsageEvent"> | $Enums.UsageKind
@@ -18049,11 +23480,13 @@ export namespace Prisma {
     audio_seconds?: IntFilter<"UsageEvent"> | number
     cost_usd?: FloatFilter<"UsageEvent"> | number
     created_at?: DateTimeFilter<"UsageEvent"> | Date | string
+    organisation?: XOR<OrganisationScalarRelationFilter, OrganisationWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type UsageEventOrderByWithRelationInput = {
     id?: SortOrder
+    organisation_id?: SortOrder
     user_id?: SortOrder
     call_id?: SortOrderInput | SortOrder
     kind?: SortOrder
@@ -18063,6 +23496,7 @@ export namespace Prisma {
     audio_seconds?: SortOrder
     cost_usd?: SortOrder
     created_at?: SortOrder
+    organisation?: OrganisationOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
   }
 
@@ -18071,6 +23505,7 @@ export namespace Prisma {
     AND?: UsageEventWhereInput | UsageEventWhereInput[]
     OR?: UsageEventWhereInput[]
     NOT?: UsageEventWhereInput | UsageEventWhereInput[]
+    organisation_id?: StringFilter<"UsageEvent"> | string
     user_id?: StringFilter<"UsageEvent"> | string
     call_id?: StringNullableFilter<"UsageEvent"> | string | null
     kind?: EnumUsageKindFilter<"UsageEvent"> | $Enums.UsageKind
@@ -18080,11 +23515,13 @@ export namespace Prisma {
     audio_seconds?: IntFilter<"UsageEvent"> | number
     cost_usd?: FloatFilter<"UsageEvent"> | number
     created_at?: DateTimeFilter<"UsageEvent"> | Date | string
+    organisation?: XOR<OrganisationScalarRelationFilter, OrganisationWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
   export type UsageEventOrderByWithAggregationInput = {
     id?: SortOrder
+    organisation_id?: SortOrder
     user_id?: SortOrder
     call_id?: SortOrderInput | SortOrder
     kind?: SortOrder
@@ -18106,6 +23543,7 @@ export namespace Prisma {
     OR?: UsageEventScalarWhereWithAggregatesInput[]
     NOT?: UsageEventScalarWhereWithAggregatesInput | UsageEventScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"UsageEvent"> | string
+    organisation_id?: StringWithAggregatesFilter<"UsageEvent"> | string
     user_id?: StringWithAggregatesFilter<"UsageEvent"> | string
     call_id?: StringNullableWithAggregatesFilter<"UsageEvent"> | string | null
     kind?: EnumUsageKindWithAggregatesFilter<"UsageEvent"> | $Enums.UsageKind
@@ -18115,6 +23553,299 @@ export namespace Prisma {
     audio_seconds?: IntWithAggregatesFilter<"UsageEvent"> | number
     cost_usd?: FloatWithAggregatesFilter<"UsageEvent"> | number
     created_at?: DateTimeWithAggregatesFilter<"UsageEvent"> | Date | string
+  }
+
+  export type OrganisationWhereInput = {
+    AND?: OrganisationWhereInput | OrganisationWhereInput[]
+    OR?: OrganisationWhereInput[]
+    NOT?: OrganisationWhereInput | OrganisationWhereInput[]
+    id?: StringFilter<"Organisation"> | string
+    name?: StringFilter<"Organisation"> | string
+    created_at?: DateTimeFilter<"Organisation"> | Date | string
+    updated_at?: DateTimeFilter<"Organisation"> | Date | string
+    memberships?: MembershipListRelationFilter
+    role_permissions?: RolePermissionListRelationFilter
+    invitations?: InvitationListRelationFilter
+    assistant_agents?: AssistantAgentListRelationFilter
+    practice_agents?: PracticeAgentListRelationFilter
+    calls?: CallListRelationFilter
+    usage_events?: UsageEventListRelationFilter
+  }
+
+  export type OrganisationOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    memberships?: MembershipOrderByRelationAggregateInput
+    role_permissions?: RolePermissionOrderByRelationAggregateInput
+    invitations?: InvitationOrderByRelationAggregateInput
+    assistant_agents?: AssistantAgentOrderByRelationAggregateInput
+    practice_agents?: PracticeAgentOrderByRelationAggregateInput
+    calls?: CallOrderByRelationAggregateInput
+    usage_events?: UsageEventOrderByRelationAggregateInput
+  }
+
+  export type OrganisationWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: OrganisationWhereInput | OrganisationWhereInput[]
+    OR?: OrganisationWhereInput[]
+    NOT?: OrganisationWhereInput | OrganisationWhereInput[]
+    name?: StringFilter<"Organisation"> | string
+    created_at?: DateTimeFilter<"Organisation"> | Date | string
+    updated_at?: DateTimeFilter<"Organisation"> | Date | string
+    memberships?: MembershipListRelationFilter
+    role_permissions?: RolePermissionListRelationFilter
+    invitations?: InvitationListRelationFilter
+    assistant_agents?: AssistantAgentListRelationFilter
+    practice_agents?: PracticeAgentListRelationFilter
+    calls?: CallListRelationFilter
+    usage_events?: UsageEventListRelationFilter
+  }, "id">
+
+  export type OrganisationOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    _count?: OrganisationCountOrderByAggregateInput
+    _max?: OrganisationMaxOrderByAggregateInput
+    _min?: OrganisationMinOrderByAggregateInput
+  }
+
+  export type OrganisationScalarWhereWithAggregatesInput = {
+    AND?: OrganisationScalarWhereWithAggregatesInput | OrganisationScalarWhereWithAggregatesInput[]
+    OR?: OrganisationScalarWhereWithAggregatesInput[]
+    NOT?: OrganisationScalarWhereWithAggregatesInput | OrganisationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Organisation"> | string
+    name?: StringWithAggregatesFilter<"Organisation"> | string
+    created_at?: DateTimeWithAggregatesFilter<"Organisation"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"Organisation"> | Date | string
+  }
+
+  export type MembershipWhereInput = {
+    AND?: MembershipWhereInput | MembershipWhereInput[]
+    OR?: MembershipWhereInput[]
+    NOT?: MembershipWhereInput | MembershipWhereInput[]
+    id?: StringFilter<"Membership"> | string
+    organisation_id?: StringFilter<"Membership"> | string
+    user_id?: StringFilter<"Membership"> | string
+    role?: EnumOrgRoleFilter<"Membership"> | $Enums.OrgRole
+    created_at?: DateTimeFilter<"Membership"> | Date | string
+    updated_at?: DateTimeFilter<"Membership"> | Date | string
+    organisation?: XOR<OrganisationScalarRelationFilter, OrganisationWhereInput>
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type MembershipOrderByWithRelationInput = {
+    id?: SortOrder
+    organisation_id?: SortOrder
+    user_id?: SortOrder
+    role?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    organisation?: OrganisationOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type MembershipWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    organisation_id_user_id?: MembershipOrganisation_idUser_idCompoundUniqueInput
+    AND?: MembershipWhereInput | MembershipWhereInput[]
+    OR?: MembershipWhereInput[]
+    NOT?: MembershipWhereInput | MembershipWhereInput[]
+    organisation_id?: StringFilter<"Membership"> | string
+    user_id?: StringFilter<"Membership"> | string
+    role?: EnumOrgRoleFilter<"Membership"> | $Enums.OrgRole
+    created_at?: DateTimeFilter<"Membership"> | Date | string
+    updated_at?: DateTimeFilter<"Membership"> | Date | string
+    organisation?: XOR<OrganisationScalarRelationFilter, OrganisationWhereInput>
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id" | "organisation_id_user_id">
+
+  export type MembershipOrderByWithAggregationInput = {
+    id?: SortOrder
+    organisation_id?: SortOrder
+    user_id?: SortOrder
+    role?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+    _count?: MembershipCountOrderByAggregateInput
+    _max?: MembershipMaxOrderByAggregateInput
+    _min?: MembershipMinOrderByAggregateInput
+  }
+
+  export type MembershipScalarWhereWithAggregatesInput = {
+    AND?: MembershipScalarWhereWithAggregatesInput | MembershipScalarWhereWithAggregatesInput[]
+    OR?: MembershipScalarWhereWithAggregatesInput[]
+    NOT?: MembershipScalarWhereWithAggregatesInput | MembershipScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Membership"> | string
+    organisation_id?: StringWithAggregatesFilter<"Membership"> | string
+    user_id?: StringWithAggregatesFilter<"Membership"> | string
+    role?: EnumOrgRoleWithAggregatesFilter<"Membership"> | $Enums.OrgRole
+    created_at?: DateTimeWithAggregatesFilter<"Membership"> | Date | string
+    updated_at?: DateTimeWithAggregatesFilter<"Membership"> | Date | string
+  }
+
+  export type RolePermissionWhereInput = {
+    AND?: RolePermissionWhereInput | RolePermissionWhereInput[]
+    OR?: RolePermissionWhereInput[]
+    NOT?: RolePermissionWhereInput | RolePermissionWhereInput[]
+    id?: StringFilter<"RolePermission"> | string
+    organisation_id?: StringFilter<"RolePermission"> | string
+    role?: EnumOrgRoleFilter<"RolePermission"> | $Enums.OrgRole
+    permissions?: StringNullableListFilter<"RolePermission">
+    updated_at?: DateTimeFilter<"RolePermission"> | Date | string
+    organisation?: XOR<OrganisationScalarRelationFilter, OrganisationWhereInput>
+  }
+
+  export type RolePermissionOrderByWithRelationInput = {
+    id?: SortOrder
+    organisation_id?: SortOrder
+    role?: SortOrder
+    permissions?: SortOrder
+    updated_at?: SortOrder
+    organisation?: OrganisationOrderByWithRelationInput
+  }
+
+  export type RolePermissionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    organisation_id_role?: RolePermissionOrganisation_idRoleCompoundUniqueInput
+    AND?: RolePermissionWhereInput | RolePermissionWhereInput[]
+    OR?: RolePermissionWhereInput[]
+    NOT?: RolePermissionWhereInput | RolePermissionWhereInput[]
+    organisation_id?: StringFilter<"RolePermission"> | string
+    role?: EnumOrgRoleFilter<"RolePermission"> | $Enums.OrgRole
+    permissions?: StringNullableListFilter<"RolePermission">
+    updated_at?: DateTimeFilter<"RolePermission"> | Date | string
+    organisation?: XOR<OrganisationScalarRelationFilter, OrganisationWhereInput>
+  }, "id" | "organisation_id_role">
+
+  export type RolePermissionOrderByWithAggregationInput = {
+    id?: SortOrder
+    organisation_id?: SortOrder
+    role?: SortOrder
+    permissions?: SortOrder
+    updated_at?: SortOrder
+    _count?: RolePermissionCountOrderByAggregateInput
+    _max?: RolePermissionMaxOrderByAggregateInput
+    _min?: RolePermissionMinOrderByAggregateInput
+  }
+
+  export type RolePermissionScalarWhereWithAggregatesInput = {
+    AND?: RolePermissionScalarWhereWithAggregatesInput | RolePermissionScalarWhereWithAggregatesInput[]
+    OR?: RolePermissionScalarWhereWithAggregatesInput[]
+    NOT?: RolePermissionScalarWhereWithAggregatesInput | RolePermissionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"RolePermission"> | string
+    organisation_id?: StringWithAggregatesFilter<"RolePermission"> | string
+    role?: EnumOrgRoleWithAggregatesFilter<"RolePermission"> | $Enums.OrgRole
+    permissions?: StringNullableListFilter<"RolePermission">
+    updated_at?: DateTimeWithAggregatesFilter<"RolePermission"> | Date | string
+  }
+
+  export type InvitationWhereInput = {
+    AND?: InvitationWhereInput | InvitationWhereInput[]
+    OR?: InvitationWhereInput[]
+    NOT?: InvitationWhereInput | InvitationWhereInput[]
+    id?: StringFilter<"Invitation"> | string
+    organisation_id?: StringFilter<"Invitation"> | string
+    email?: StringFilter<"Invitation"> | string
+    role?: EnumOrgRoleFilter<"Invitation"> | $Enums.OrgRole
+    token_hash?: StringFilter<"Invitation"> | string
+    status?: EnumInvitationStatusFilter<"Invitation"> | $Enums.InvitationStatus
+    invited_by_id?: StringNullableFilter<"Invitation"> | string | null
+    expires_at?: DateTimeFilter<"Invitation"> | Date | string
+    last_sent_at?: DateTimeFilter<"Invitation"> | Date | string
+    send_count?: IntFilter<"Invitation"> | number
+    accepted_at?: DateTimeNullableFilter<"Invitation"> | Date | string | null
+    accepted_by_id?: StringNullableFilter<"Invitation"> | string | null
+    revoked_at?: DateTimeNullableFilter<"Invitation"> | Date | string | null
+    created_at?: DateTimeFilter<"Invitation"> | Date | string
+    organisation?: XOR<OrganisationScalarRelationFilter, OrganisationWhereInput>
+    invited_by?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+  }
+
+  export type InvitationOrderByWithRelationInput = {
+    id?: SortOrder
+    organisation_id?: SortOrder
+    email?: SortOrder
+    role?: SortOrder
+    token_hash?: SortOrder
+    status?: SortOrder
+    invited_by_id?: SortOrderInput | SortOrder
+    expires_at?: SortOrder
+    last_sent_at?: SortOrder
+    send_count?: SortOrder
+    accepted_at?: SortOrderInput | SortOrder
+    accepted_by_id?: SortOrderInput | SortOrder
+    revoked_at?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    organisation?: OrganisationOrderByWithRelationInput
+    invited_by?: UserOrderByWithRelationInput
+  }
+
+  export type InvitationWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    token_hash?: string
+    AND?: InvitationWhereInput | InvitationWhereInput[]
+    OR?: InvitationWhereInput[]
+    NOT?: InvitationWhereInput | InvitationWhereInput[]
+    organisation_id?: StringFilter<"Invitation"> | string
+    email?: StringFilter<"Invitation"> | string
+    role?: EnumOrgRoleFilter<"Invitation"> | $Enums.OrgRole
+    status?: EnumInvitationStatusFilter<"Invitation"> | $Enums.InvitationStatus
+    invited_by_id?: StringNullableFilter<"Invitation"> | string | null
+    expires_at?: DateTimeFilter<"Invitation"> | Date | string
+    last_sent_at?: DateTimeFilter<"Invitation"> | Date | string
+    send_count?: IntFilter<"Invitation"> | number
+    accepted_at?: DateTimeNullableFilter<"Invitation"> | Date | string | null
+    accepted_by_id?: StringNullableFilter<"Invitation"> | string | null
+    revoked_at?: DateTimeNullableFilter<"Invitation"> | Date | string | null
+    created_at?: DateTimeFilter<"Invitation"> | Date | string
+    organisation?: XOR<OrganisationScalarRelationFilter, OrganisationWhereInput>
+    invited_by?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+  }, "id" | "token_hash">
+
+  export type InvitationOrderByWithAggregationInput = {
+    id?: SortOrder
+    organisation_id?: SortOrder
+    email?: SortOrder
+    role?: SortOrder
+    token_hash?: SortOrder
+    status?: SortOrder
+    invited_by_id?: SortOrderInput | SortOrder
+    expires_at?: SortOrder
+    last_sent_at?: SortOrder
+    send_count?: SortOrder
+    accepted_at?: SortOrderInput | SortOrder
+    accepted_by_id?: SortOrderInput | SortOrder
+    revoked_at?: SortOrderInput | SortOrder
+    created_at?: SortOrder
+    _count?: InvitationCountOrderByAggregateInput
+    _avg?: InvitationAvgOrderByAggregateInput
+    _max?: InvitationMaxOrderByAggregateInput
+    _min?: InvitationMinOrderByAggregateInput
+    _sum?: InvitationSumOrderByAggregateInput
+  }
+
+  export type InvitationScalarWhereWithAggregatesInput = {
+    AND?: InvitationScalarWhereWithAggregatesInput | InvitationScalarWhereWithAggregatesInput[]
+    OR?: InvitationScalarWhereWithAggregatesInput[]
+    NOT?: InvitationScalarWhereWithAggregatesInput | InvitationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Invitation"> | string
+    organisation_id?: StringWithAggregatesFilter<"Invitation"> | string
+    email?: StringWithAggregatesFilter<"Invitation"> | string
+    role?: EnumOrgRoleWithAggregatesFilter<"Invitation"> | $Enums.OrgRole
+    token_hash?: StringWithAggregatesFilter<"Invitation"> | string
+    status?: EnumInvitationStatusWithAggregatesFilter<"Invitation"> | $Enums.InvitationStatus
+    invited_by_id?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    expires_at?: DateTimeWithAggregatesFilter<"Invitation"> | Date | string
+    last_sent_at?: DateTimeWithAggregatesFilter<"Invitation"> | Date | string
+    send_count?: IntWithAggregatesFilter<"Invitation"> | number
+    accepted_at?: DateTimeNullableWithAggregatesFilter<"Invitation"> | Date | string | null
+    accepted_by_id?: StringNullableWithAggregatesFilter<"Invitation"> | string | null
+    revoked_at?: DateTimeNullableWithAggregatesFilter<"Invitation"> | Date | string | null
+    created_at?: DateTimeWithAggregatesFilter<"Invitation"> | Date | string
   }
 
   export type UserCreateInput = {
@@ -18136,6 +23867,8 @@ export namespace Prisma {
     practice_agents?: PracticeAgentCreateNestedManyWithoutUserInput
     calls?: CallCreateNestedManyWithoutUserInput
     usage_events?: UsageEventCreateNestedManyWithoutUserInput
+    memberships?: MembershipCreateNestedManyWithoutUserInput
+    invitations_sent?: InvitationCreateNestedManyWithoutInvited_byInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -18157,6 +23890,8 @@ export namespace Prisma {
     practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutUserInput
     calls?: CallUncheckedCreateNestedManyWithoutUserInput
     usage_events?: UsageEventUncheckedCreateNestedManyWithoutUserInput
+    memberships?: MembershipUncheckedCreateNestedManyWithoutUserInput
+    invitations_sent?: InvitationUncheckedCreateNestedManyWithoutInvited_byInput
   }
 
   export type UserUpdateInput = {
@@ -18178,6 +23913,8 @@ export namespace Prisma {
     practice_agents?: PracticeAgentUpdateManyWithoutUserNestedInput
     calls?: CallUpdateManyWithoutUserNestedInput
     usage_events?: UsageEventUpdateManyWithoutUserNestedInput
+    memberships?: MembershipUpdateManyWithoutUserNestedInput
+    invitations_sent?: InvitationUpdateManyWithoutInvited_byNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -18199,6 +23936,8 @@ export namespace Prisma {
     practice_agents?: PracticeAgentUncheckedUpdateManyWithoutUserNestedInput
     calls?: CallUncheckedUpdateManyWithoutUserNestedInput
     usage_events?: UsageEventUncheckedUpdateManyWithoutUserNestedInput
+    memberships?: MembershipUncheckedUpdateManyWithoutUserNestedInput
+    invitations_sent?: InvitationUncheckedUpdateManyWithoutInvited_byNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -18406,6 +24145,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: string | null
     language?: string
+    languages?: AssistantAgentCreatelanguagesInput | string[]
     tone?: string
     suggestion_frequency?: $Enums.SuggestionFrequency
     suggestion_length?: $Enums.SuggestionLength
@@ -18420,14 +24160,16 @@ export namespace Prisma {
     archived_at?: Date | string | null
     created_at?: Date | string
     updated_at?: Date | string
-    user: UserCreateNestedOneWithoutAssistant_agentsInput
+    organisation: OrganisationCreateNestedOneWithoutAssistant_agentsInput
+    user?: UserCreateNestedOneWithoutAssistant_agentsInput
     calls?: CallCreateNestedManyWithoutAssistant_agentInput
     practice_agents?: PracticeAgentCreateNestedManyWithoutLinked_assistant_agentInput
   }
 
   export type AssistantAgentUncheckedCreateInput = {
     id?: string
-    user_id: string
+    organisation_id: string
+    user_id?: string | null
     name: string
     description?: string | null
     call_goal?: string | null
@@ -18437,6 +24179,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: string | null
     language?: string
+    languages?: AssistantAgentCreatelanguagesInput | string[]
     tone?: string
     suggestion_frequency?: $Enums.SuggestionFrequency
     suggestion_length?: $Enums.SuggestionLength
@@ -18466,6 +24209,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: NullableStringFieldUpdateOperationsInput | string | null
     language?: StringFieldUpdateOperationsInput | string
+    languages?: AssistantAgentUpdatelanguagesInput | string[]
     tone?: StringFieldUpdateOperationsInput | string
     suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
     suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
@@ -18480,14 +24224,16 @@ export namespace Prisma {
     archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutAssistant_agentsNestedInput
+    organisation?: OrganisationUpdateOneRequiredWithoutAssistant_agentsNestedInput
+    user?: UserUpdateOneWithoutAssistant_agentsNestedInput
     calls?: CallUpdateManyWithoutAssistant_agentNestedInput
     practice_agents?: PracticeAgentUpdateManyWithoutLinked_assistant_agentNestedInput
   }
 
   export type AssistantAgentUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     call_goal?: NullableStringFieldUpdateOperationsInput | string | null
@@ -18497,6 +24243,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: NullableStringFieldUpdateOperationsInput | string | null
     language?: StringFieldUpdateOperationsInput | string
+    languages?: AssistantAgentUpdatelanguagesInput | string[]
     tone?: StringFieldUpdateOperationsInput | string
     suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
     suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
@@ -18517,7 +24264,8 @@ export namespace Prisma {
 
   export type AssistantAgentCreateManyInput = {
     id?: string
-    user_id: string
+    organisation_id: string
+    user_id?: string | null
     name: string
     description?: string | null
     call_goal?: string | null
@@ -18527,6 +24275,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: string | null
     language?: string
+    languages?: AssistantAgentCreatelanguagesInput | string[]
     tone?: string
     suggestion_frequency?: $Enums.SuggestionFrequency
     suggestion_length?: $Enums.SuggestionLength
@@ -18554,6 +24303,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: NullableStringFieldUpdateOperationsInput | string | null
     language?: StringFieldUpdateOperationsInput | string
+    languages?: AssistantAgentUpdatelanguagesInput | string[]
     tone?: StringFieldUpdateOperationsInput | string
     suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
     suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
@@ -18572,7 +24322,8 @@ export namespace Prisma {
 
   export type AssistantAgentUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     call_goal?: NullableStringFieldUpdateOperationsInput | string | null
@@ -18582,6 +24333,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: NullableStringFieldUpdateOperationsInput | string | null
     language?: StringFieldUpdateOperationsInput | string
+    languages?: AssistantAgentUpdatelanguagesInput | string[]
     tone?: StringFieldUpdateOperationsInput | string
     suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
     suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
@@ -18622,6 +24374,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: number
     language?: string
+    languages?: PracticeAgentCreatelanguagesInput | string[]
     accent?: string | null
     industry?: string | null
     company?: string | null
@@ -18637,14 +24390,16 @@ export namespace Prisma {
     archived_at?: Date | string | null
     created_at?: Date | string
     updated_at?: Date | string
-    user: UserCreateNestedOneWithoutPractice_agentsInput
+    organisation: OrganisationCreateNestedOneWithoutPractice_agentsInput
+    user?: UserCreateNestedOneWithoutPractice_agentsInput
     linked_assistant_agent?: AssistantAgentCreateNestedOneWithoutPractice_agentsInput
     calls?: CallCreateNestedManyWithoutPractice_agentInput
   }
 
   export type PracticeAgentUncheckedCreateInput = {
     id?: string
-    user_id: string
+    organisation_id: string
+    user_id?: string | null
     name: string
     prospect_name?: string | null
     role_prompt: string
@@ -18668,6 +24423,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: number
     language?: string
+    languages?: PracticeAgentCreatelanguagesInput | string[]
     accent?: string | null
     industry?: string | null
     company?: string | null
@@ -18710,6 +24466,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: IntFieldUpdateOperationsInput | number
     language?: StringFieldUpdateOperationsInput | string
+    languages?: PracticeAgentUpdatelanguagesInput | string[]
     accent?: NullableStringFieldUpdateOperationsInput | string | null
     industry?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
@@ -18725,14 +24482,16 @@ export namespace Prisma {
     archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutPractice_agentsNestedInput
+    organisation?: OrganisationUpdateOneRequiredWithoutPractice_agentsNestedInput
+    user?: UserUpdateOneWithoutPractice_agentsNestedInput
     linked_assistant_agent?: AssistantAgentUpdateOneWithoutPractice_agentsNestedInput
     calls?: CallUpdateManyWithoutPractice_agentNestedInput
   }
 
   export type PracticeAgentUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
     role_prompt?: StringFieldUpdateOperationsInput | string
@@ -18756,6 +24515,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: IntFieldUpdateOperationsInput | number
     language?: StringFieldUpdateOperationsInput | string
+    languages?: PracticeAgentUpdatelanguagesInput | string[]
     accent?: NullableStringFieldUpdateOperationsInput | string | null
     industry?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
@@ -18776,7 +24536,8 @@ export namespace Prisma {
 
   export type PracticeAgentCreateManyInput = {
     id?: string
-    user_id: string
+    organisation_id: string
+    user_id?: string | null
     name: string
     prospect_name?: string | null
     role_prompt: string
@@ -18800,6 +24561,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: number
     language?: string
+    languages?: PracticeAgentCreatelanguagesInput | string[]
     accent?: string | null
     industry?: string | null
     company?: string | null
@@ -18841,6 +24603,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: IntFieldUpdateOperationsInput | number
     language?: StringFieldUpdateOperationsInput | string
+    languages?: PracticeAgentUpdatelanguagesInput | string[]
     accent?: NullableStringFieldUpdateOperationsInput | string | null
     industry?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
@@ -18860,7 +24623,8 @@ export namespace Prisma {
 
   export type PracticeAgentUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
     role_prompt?: StringFieldUpdateOperationsInput | string
@@ -18884,6 +24648,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: IntFieldUpdateOperationsInput | number
     language?: StringFieldUpdateOperationsInput | string
+    languages?: PracticeAgentUpdatelanguagesInput | string[]
     accent?: NullableStringFieldUpdateOperationsInput | string | null
     industry?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
@@ -18933,6 +24698,7 @@ export namespace Prisma {
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
     updated_at?: Date | string
+    organisation: OrganisationCreateNestedOneWithoutCallsInput
     user: UserCreateNestedOneWithoutCallsInput
     assistant_agent?: AssistantAgentCreateNestedOneWithoutCallsInput
     practice_agent?: PracticeAgentCreateNestedOneWithoutCallsInput
@@ -18944,6 +24710,7 @@ export namespace Prisma {
 
   export type CallUncheckedCreateInput = {
     id?: string
+    organisation_id: string
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
@@ -19015,6 +24782,7 @@ export namespace Prisma {
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    organisation?: OrganisationUpdateOneRequiredWithoutCallsNestedInput
     user?: UserUpdateOneRequiredWithoutCallsNestedInput
     assistant_agent?: AssistantAgentUpdateOneWithoutCallsNestedInput
     practice_agent?: PracticeAgentUpdateOneWithoutCallsNestedInput
@@ -19026,6 +24794,7 @@ export namespace Prisma {
 
   export type CallUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
@@ -19067,6 +24836,7 @@ export namespace Prisma {
 
   export type CallCreateManyInput = {
     id?: string
+    organisation_id: string
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
@@ -19138,6 +24908,7 @@ export namespace Prisma {
 
   export type CallUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
@@ -19585,11 +25356,13 @@ export namespace Prisma {
     audio_seconds?: number
     cost_usd?: number
     created_at?: Date | string
+    organisation: OrganisationCreateNestedOneWithoutUsage_eventsInput
     user: UserCreateNestedOneWithoutUsage_eventsInput
   }
 
   export type UsageEventUncheckedCreateInput = {
     id?: string
+    organisation_id: string
     user_id: string
     call_id?: string | null
     kind: $Enums.UsageKind
@@ -19611,11 +25384,13 @@ export namespace Prisma {
     audio_seconds?: IntFieldUpdateOperationsInput | number
     cost_usd?: FloatFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    organisation?: OrganisationUpdateOneRequiredWithoutUsage_eventsNestedInput
     user?: UserUpdateOneRequiredWithoutUsage_eventsNestedInput
   }
 
   export type UsageEventUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     user_id?: StringFieldUpdateOperationsInput | string
     call_id?: NullableStringFieldUpdateOperationsInput | string | null
     kind?: EnumUsageKindFieldUpdateOperationsInput | $Enums.UsageKind
@@ -19629,6 +25404,7 @@ export namespace Prisma {
 
   export type UsageEventCreateManyInput = {
     id?: string
+    organisation_id: string
     user_id: string
     call_id?: string | null
     kind: $Enums.UsageKind
@@ -19654,6 +25430,7 @@ export namespace Prisma {
 
   export type UsageEventUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     user_id?: StringFieldUpdateOperationsInput | string
     call_id?: NullableStringFieldUpdateOperationsInput | string | null
     kind?: EnumUsageKindFieldUpdateOperationsInput | $Enums.UsageKind
@@ -19662,6 +25439,316 @@ export namespace Prisma {
     output_tokens?: IntFieldUpdateOperationsInput | number
     audio_seconds?: IntFieldUpdateOperationsInput | number
     cost_usd?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OrganisationCreateInput = {
+    id?: string
+    name: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    memberships?: MembershipCreateNestedManyWithoutOrganisationInput
+    role_permissions?: RolePermissionCreateNestedManyWithoutOrganisationInput
+    invitations?: InvitationCreateNestedManyWithoutOrganisationInput
+    assistant_agents?: AssistantAgentCreateNestedManyWithoutOrganisationInput
+    practice_agents?: PracticeAgentCreateNestedManyWithoutOrganisationInput
+    calls?: CallCreateNestedManyWithoutOrganisationInput
+    usage_events?: UsageEventCreateNestedManyWithoutOrganisationInput
+  }
+
+  export type OrganisationUncheckedCreateInput = {
+    id?: string
+    name: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    memberships?: MembershipUncheckedCreateNestedManyWithoutOrganisationInput
+    role_permissions?: RolePermissionUncheckedCreateNestedManyWithoutOrganisationInput
+    invitations?: InvitationUncheckedCreateNestedManyWithoutOrganisationInput
+    assistant_agents?: AssistantAgentUncheckedCreateNestedManyWithoutOrganisationInput
+    practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutOrganisationInput
+    calls?: CallUncheckedCreateNestedManyWithoutOrganisationInput
+    usage_events?: UsageEventUncheckedCreateNestedManyWithoutOrganisationInput
+  }
+
+  export type OrganisationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    memberships?: MembershipUpdateManyWithoutOrganisationNestedInput
+    role_permissions?: RolePermissionUpdateManyWithoutOrganisationNestedInput
+    invitations?: InvitationUpdateManyWithoutOrganisationNestedInput
+    assistant_agents?: AssistantAgentUpdateManyWithoutOrganisationNestedInput
+    practice_agents?: PracticeAgentUpdateManyWithoutOrganisationNestedInput
+    calls?: CallUpdateManyWithoutOrganisationNestedInput
+    usage_events?: UsageEventUpdateManyWithoutOrganisationNestedInput
+  }
+
+  export type OrganisationUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    memberships?: MembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+    role_permissions?: RolePermissionUncheckedUpdateManyWithoutOrganisationNestedInput
+    invitations?: InvitationUncheckedUpdateManyWithoutOrganisationNestedInput
+    assistant_agents?: AssistantAgentUncheckedUpdateManyWithoutOrganisationNestedInput
+    practice_agents?: PracticeAgentUncheckedUpdateManyWithoutOrganisationNestedInput
+    calls?: CallUncheckedUpdateManyWithoutOrganisationNestedInput
+    usage_events?: UsageEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  }
+
+  export type OrganisationCreateManyInput = {
+    id?: string
+    name: string
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type OrganisationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OrganisationUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MembershipCreateInput = {
+    id?: string
+    role?: $Enums.OrgRole
+    created_at?: Date | string
+    updated_at?: Date | string
+    organisation: OrganisationCreateNestedOneWithoutMembershipsInput
+    user: UserCreateNestedOneWithoutMembershipsInput
+  }
+
+  export type MembershipUncheckedCreateInput = {
+    id?: string
+    organisation_id: string
+    user_id: string
+    role?: $Enums.OrgRole
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type MembershipUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    organisation?: OrganisationUpdateOneRequiredWithoutMembershipsNestedInput
+    user?: UserUpdateOneRequiredWithoutMembershipsNestedInput
+  }
+
+  export type MembershipUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MembershipCreateManyInput = {
+    id?: string
+    organisation_id: string
+    user_id: string
+    role?: $Enums.OrgRole
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type MembershipUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MembershipUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RolePermissionCreateInput = {
+    id?: string
+    role: $Enums.OrgRole
+    permissions?: RolePermissionCreatepermissionsInput | string[]
+    updated_at?: Date | string
+    organisation: OrganisationCreateNestedOneWithoutRole_permissionsInput
+  }
+
+  export type RolePermissionUncheckedCreateInput = {
+    id?: string
+    organisation_id: string
+    role: $Enums.OrgRole
+    permissions?: RolePermissionCreatepermissionsInput | string[]
+    updated_at?: Date | string
+  }
+
+  export type RolePermissionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    permissions?: RolePermissionUpdatepermissionsInput | string[]
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    organisation?: OrganisationUpdateOneRequiredWithoutRole_permissionsNestedInput
+  }
+
+  export type RolePermissionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    permissions?: RolePermissionUpdatepermissionsInput | string[]
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RolePermissionCreateManyInput = {
+    id?: string
+    organisation_id: string
+    role: $Enums.OrgRole
+    permissions?: RolePermissionCreatepermissionsInput | string[]
+    updated_at?: Date | string
+  }
+
+  export type RolePermissionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    permissions?: RolePermissionUpdatepermissionsInput | string[]
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RolePermissionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    permissions?: RolePermissionUpdatepermissionsInput | string[]
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InvitationCreateInput = {
+    id?: string
+    email: string
+    role?: $Enums.OrgRole
+    token_hash: string
+    status?: $Enums.InvitationStatus
+    expires_at: Date | string
+    last_sent_at?: Date | string
+    send_count?: number
+    accepted_at?: Date | string | null
+    accepted_by_id?: string | null
+    revoked_at?: Date | string | null
+    created_at?: Date | string
+    organisation: OrganisationCreateNestedOneWithoutInvitationsInput
+    invited_by?: UserCreateNestedOneWithoutInvitations_sentInput
+  }
+
+  export type InvitationUncheckedCreateInput = {
+    id?: string
+    organisation_id: string
+    email: string
+    role?: $Enums.OrgRole
+    token_hash: string
+    status?: $Enums.InvitationStatus
+    invited_by_id?: string | null
+    expires_at: Date | string
+    last_sent_at?: Date | string
+    send_count?: number
+    accepted_at?: Date | string | null
+    accepted_by_id?: string | null
+    revoked_at?: Date | string | null
+    created_at?: Date | string
+  }
+
+  export type InvitationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    token_hash?: StringFieldUpdateOperationsInput | string
+    status?: EnumInvitationStatusFieldUpdateOperationsInput | $Enums.InvitationStatus
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    last_sent_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    send_count?: IntFieldUpdateOperationsInput | number
+    accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    accepted_by_id?: NullableStringFieldUpdateOperationsInput | string | null
+    revoked_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    organisation?: OrganisationUpdateOneRequiredWithoutInvitationsNestedInput
+    invited_by?: UserUpdateOneWithoutInvitations_sentNestedInput
+  }
+
+  export type InvitationUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    token_hash?: StringFieldUpdateOperationsInput | string
+    status?: EnumInvitationStatusFieldUpdateOperationsInput | $Enums.InvitationStatus
+    invited_by_id?: NullableStringFieldUpdateOperationsInput | string | null
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    last_sent_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    send_count?: IntFieldUpdateOperationsInput | number
+    accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    accepted_by_id?: NullableStringFieldUpdateOperationsInput | string | null
+    revoked_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InvitationCreateManyInput = {
+    id?: string
+    organisation_id: string
+    email: string
+    role?: $Enums.OrgRole
+    token_hash: string
+    status?: $Enums.InvitationStatus
+    invited_by_id?: string | null
+    expires_at: Date | string
+    last_sent_at?: Date | string
+    send_count?: number
+    accepted_at?: Date | string | null
+    accepted_by_id?: string | null
+    revoked_at?: Date | string | null
+    created_at?: Date | string
+  }
+
+  export type InvitationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    token_hash?: StringFieldUpdateOperationsInput | string
+    status?: EnumInvitationStatusFieldUpdateOperationsInput | $Enums.InvitationStatus
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    last_sent_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    send_count?: IntFieldUpdateOperationsInput | number
+    accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    accepted_by_id?: NullableStringFieldUpdateOperationsInput | string | null
+    revoked_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InvitationUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    token_hash?: StringFieldUpdateOperationsInput | string
+    status?: EnumInvitationStatusFieldUpdateOperationsInput | $Enums.InvitationStatus
+    invited_by_id?: NullableStringFieldUpdateOperationsInput | string | null
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    last_sent_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    send_count?: IntFieldUpdateOperationsInput | number
+    accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    accepted_by_id?: NullableStringFieldUpdateOperationsInput | string | null
+    revoked_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -19766,6 +25853,18 @@ export namespace Prisma {
     none?: UsageEventWhereInput
   }
 
+  export type MembershipListRelationFilter = {
+    every?: MembershipWhereInput
+    some?: MembershipWhereInput
+    none?: MembershipWhereInput
+  }
+
+  export type InvitationListRelationFilter = {
+    every?: InvitationWhereInput
+    some?: InvitationWhereInput
+    none?: InvitationWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -19788,6 +25887,14 @@ export namespace Prisma {
   }
 
   export type UsageEventOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type MembershipOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type InvitationOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -20074,6 +26181,14 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
   export type EnumSuggestionFrequencyFilter<$PrismaModel = never> = {
     equals?: $Enums.SuggestionFrequency | EnumSuggestionFrequencyFieldRefInput<$PrismaModel>
     in?: $Enums.SuggestionFrequency[] | ListEnumSuggestionFrequencyFieldRefInput<$PrismaModel>
@@ -20088,8 +26203,19 @@ export namespace Prisma {
     not?: NestedEnumSuggestionLengthFilter<$PrismaModel> | $Enums.SuggestionLength
   }
 
+  export type OrganisationScalarRelationFilter = {
+    is?: OrganisationWhereInput
+    isNot?: OrganisationWhereInput
+  }
+
+  export type UserNullableScalarRelationFilter = {
+    is?: UserWhereInput | null
+    isNot?: UserWhereInput | null
+  }
+
   export type AssistantAgentCountOrderByAggregateInput = {
     id?: SortOrder
+    organisation_id?: SortOrder
     user_id?: SortOrder
     name?: SortOrder
     description?: SortOrder
@@ -20100,6 +26226,7 @@ export namespace Prisma {
     objection_library?: SortOrder
     methodology?: SortOrder
     language?: SortOrder
+    languages?: SortOrder
     tone?: SortOrder
     suggestion_frequency?: SortOrder
     suggestion_length?: SortOrder
@@ -20122,6 +26249,7 @@ export namespace Prisma {
 
   export type AssistantAgentMaxOrderByAggregateInput = {
     id?: SortOrder
+    organisation_id?: SortOrder
     user_id?: SortOrder
     name?: SortOrder
     description?: SortOrder
@@ -20147,6 +26275,7 @@ export namespace Prisma {
 
   export type AssistantAgentMinOrderByAggregateInput = {
     id?: SortOrder
+    organisation_id?: SortOrder
     user_id?: SortOrder
     name?: SortOrder
     description?: SortOrder
@@ -20252,6 +26381,7 @@ export namespace Prisma {
 
   export type PracticeAgentCountOrderByAggregateInput = {
     id?: SortOrder
+    organisation_id?: SortOrder
     user_id?: SortOrder
     name?: SortOrder
     prospect_name?: SortOrder
@@ -20276,6 +26406,7 @@ export namespace Prisma {
     conversion_conditions?: SortOrder
     patience?: SortOrder
     language?: SortOrder
+    languages?: SortOrder
     accent?: SortOrder
     industry?: SortOrder
     company?: SortOrder
@@ -20301,6 +26432,7 @@ export namespace Prisma {
 
   export type PracticeAgentMaxOrderByAggregateInput = {
     id?: SortOrder
+    organisation_id?: SortOrder
     user_id?: SortOrder
     name?: SortOrder
     prospect_name?: SortOrder
@@ -20340,6 +26472,7 @@ export namespace Prisma {
 
   export type PracticeAgentMinOrderByAggregateInput = {
     id?: SortOrder
+    organisation_id?: SortOrder
     user_id?: SortOrder
     name?: SortOrder
     prospect_name?: SortOrder
@@ -20524,6 +26657,7 @@ export namespace Prisma {
 
   export type CallCountOrderByAggregateInput = {
     id?: SortOrder
+    organisation_id?: SortOrder
     user_id?: SortOrder
     kind?: SortOrder
     call_type?: SortOrder
@@ -20566,6 +26700,7 @@ export namespace Prisma {
 
   export type CallMaxOrderByAggregateInput = {
     id?: SortOrder
+    organisation_id?: SortOrder
     user_id?: SortOrder
     kind?: SortOrder
     call_type?: SortOrder
@@ -20600,6 +26735,7 @@ export namespace Prisma {
 
   export type CallMinOrderByAggregateInput = {
     id?: SortOrder
+    organisation_id?: SortOrder
     user_id?: SortOrder
     kind?: SortOrder
     call_type?: SortOrder
@@ -21005,6 +27141,7 @@ export namespace Prisma {
 
   export type UsageEventCountOrderByAggregateInput = {
     id?: SortOrder
+    organisation_id?: SortOrder
     user_id?: SortOrder
     call_id?: SortOrder
     kind?: SortOrder
@@ -21025,6 +27162,7 @@ export namespace Prisma {
 
   export type UsageEventMaxOrderByAggregateInput = {
     id?: SortOrder
+    organisation_id?: SortOrder
     user_id?: SortOrder
     call_id?: SortOrder
     kind?: SortOrder
@@ -21038,6 +27176,7 @@ export namespace Prisma {
 
   export type UsageEventMinOrderByAggregateInput = {
     id?: SortOrder
+    organisation_id?: SortOrder
     user_id?: SortOrder
     call_id?: SortOrder
     kind?: SortOrder
@@ -21082,6 +27221,189 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type RolePermissionListRelationFilter = {
+    every?: RolePermissionWhereInput
+    some?: RolePermissionWhereInput
+    none?: RolePermissionWhereInput
+  }
+
+  export type RolePermissionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type OrganisationCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type OrganisationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type OrganisationMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type EnumOrgRoleFilter<$PrismaModel = never> = {
+    equals?: $Enums.OrgRole | EnumOrgRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.OrgRole[] | ListEnumOrgRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OrgRole[] | ListEnumOrgRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumOrgRoleFilter<$PrismaModel> | $Enums.OrgRole
+  }
+
+  export type MembershipOrganisation_idUser_idCompoundUniqueInput = {
+    organisation_id: string
+    user_id: string
+  }
+
+  export type MembershipCountOrderByAggregateInput = {
+    id?: SortOrder
+    organisation_id?: SortOrder
+    user_id?: SortOrder
+    role?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type MembershipMaxOrderByAggregateInput = {
+    id?: SortOrder
+    organisation_id?: SortOrder
+    user_id?: SortOrder
+    role?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type MembershipMinOrderByAggregateInput = {
+    id?: SortOrder
+    organisation_id?: SortOrder
+    user_id?: SortOrder
+    role?: SortOrder
+    created_at?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type EnumOrgRoleWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.OrgRole | EnumOrgRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.OrgRole[] | ListEnumOrgRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OrgRole[] | ListEnumOrgRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumOrgRoleWithAggregatesFilter<$PrismaModel> | $Enums.OrgRole
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumOrgRoleFilter<$PrismaModel>
+    _max?: NestedEnumOrgRoleFilter<$PrismaModel>
+  }
+
+  export type RolePermissionOrganisation_idRoleCompoundUniqueInput = {
+    organisation_id: string
+    role: $Enums.OrgRole
+  }
+
+  export type RolePermissionCountOrderByAggregateInput = {
+    id?: SortOrder
+    organisation_id?: SortOrder
+    role?: SortOrder
+    permissions?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type RolePermissionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    organisation_id?: SortOrder
+    role?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type RolePermissionMinOrderByAggregateInput = {
+    id?: SortOrder
+    organisation_id?: SortOrder
+    role?: SortOrder
+    updated_at?: SortOrder
+  }
+
+  export type EnumInvitationStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.InvitationStatus | EnumInvitationStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.InvitationStatus[] | ListEnumInvitationStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.InvitationStatus[] | ListEnumInvitationStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumInvitationStatusFilter<$PrismaModel> | $Enums.InvitationStatus
+  }
+
+  export type InvitationCountOrderByAggregateInput = {
+    id?: SortOrder
+    organisation_id?: SortOrder
+    email?: SortOrder
+    role?: SortOrder
+    token_hash?: SortOrder
+    status?: SortOrder
+    invited_by_id?: SortOrder
+    expires_at?: SortOrder
+    last_sent_at?: SortOrder
+    send_count?: SortOrder
+    accepted_at?: SortOrder
+    accepted_by_id?: SortOrder
+    revoked_at?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type InvitationAvgOrderByAggregateInput = {
+    send_count?: SortOrder
+  }
+
+  export type InvitationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    organisation_id?: SortOrder
+    email?: SortOrder
+    role?: SortOrder
+    token_hash?: SortOrder
+    status?: SortOrder
+    invited_by_id?: SortOrder
+    expires_at?: SortOrder
+    last_sent_at?: SortOrder
+    send_count?: SortOrder
+    accepted_at?: SortOrder
+    accepted_by_id?: SortOrder
+    revoked_at?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type InvitationMinOrderByAggregateInput = {
+    id?: SortOrder
+    organisation_id?: SortOrder
+    email?: SortOrder
+    role?: SortOrder
+    token_hash?: SortOrder
+    status?: SortOrder
+    invited_by_id?: SortOrder
+    expires_at?: SortOrder
+    last_sent_at?: SortOrder
+    send_count?: SortOrder
+    accepted_at?: SortOrder
+    accepted_by_id?: SortOrder
+    revoked_at?: SortOrder
+    created_at?: SortOrder
+  }
+
+  export type InvitationSumOrderByAggregateInput = {
+    send_count?: SortOrder
+  }
+
+  export type EnumInvitationStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.InvitationStatus | EnumInvitationStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.InvitationStatus[] | ListEnumInvitationStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.InvitationStatus[] | ListEnumInvitationStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumInvitationStatusWithAggregatesFilter<$PrismaModel> | $Enums.InvitationStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumInvitationStatusFilter<$PrismaModel>
+    _max?: NestedEnumInvitationStatusFilter<$PrismaModel>
+  }
+
   export type PasswordResetTokenCreateNestedManyWithoutUserInput = {
     create?: XOR<PasswordResetTokenCreateWithoutUserInput, PasswordResetTokenUncheckedCreateWithoutUserInput> | PasswordResetTokenCreateWithoutUserInput[] | PasswordResetTokenUncheckedCreateWithoutUserInput[]
     connectOrCreate?: PasswordResetTokenCreateOrConnectWithoutUserInput | PasswordResetTokenCreateOrConnectWithoutUserInput[]
@@ -21117,6 +27439,20 @@ export namespace Prisma {
     connect?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
   }
 
+  export type MembershipCreateNestedManyWithoutUserInput = {
+    create?: XOR<MembershipCreateWithoutUserInput, MembershipUncheckedCreateWithoutUserInput> | MembershipCreateWithoutUserInput[] | MembershipUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: MembershipCreateOrConnectWithoutUserInput | MembershipCreateOrConnectWithoutUserInput[]
+    createMany?: MembershipCreateManyUserInputEnvelope
+    connect?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+  }
+
+  export type InvitationCreateNestedManyWithoutInvited_byInput = {
+    create?: XOR<InvitationCreateWithoutInvited_byInput, InvitationUncheckedCreateWithoutInvited_byInput> | InvitationCreateWithoutInvited_byInput[] | InvitationUncheckedCreateWithoutInvited_byInput[]
+    connectOrCreate?: InvitationCreateOrConnectWithoutInvited_byInput | InvitationCreateOrConnectWithoutInvited_byInput[]
+    createMany?: InvitationCreateManyInvited_byInputEnvelope
+    connect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+  }
+
   export type PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<PasswordResetTokenCreateWithoutUserInput, PasswordResetTokenUncheckedCreateWithoutUserInput> | PasswordResetTokenCreateWithoutUserInput[] | PasswordResetTokenUncheckedCreateWithoutUserInput[]
     connectOrCreate?: PasswordResetTokenCreateOrConnectWithoutUserInput | PasswordResetTokenCreateOrConnectWithoutUserInput[]
@@ -21150,6 +27486,20 @@ export namespace Prisma {
     connectOrCreate?: UsageEventCreateOrConnectWithoutUserInput | UsageEventCreateOrConnectWithoutUserInput[]
     createMany?: UsageEventCreateManyUserInputEnvelope
     connect?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+  }
+
+  export type MembershipUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<MembershipCreateWithoutUserInput, MembershipUncheckedCreateWithoutUserInput> | MembershipCreateWithoutUserInput[] | MembershipUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: MembershipCreateOrConnectWithoutUserInput | MembershipCreateOrConnectWithoutUserInput[]
+    createMany?: MembershipCreateManyUserInputEnvelope
+    connect?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+  }
+
+  export type InvitationUncheckedCreateNestedManyWithoutInvited_byInput = {
+    create?: XOR<InvitationCreateWithoutInvited_byInput, InvitationUncheckedCreateWithoutInvited_byInput> | InvitationCreateWithoutInvited_byInput[] | InvitationUncheckedCreateWithoutInvited_byInput[]
+    connectOrCreate?: InvitationCreateOrConnectWithoutInvited_byInput | InvitationCreateOrConnectWithoutInvited_byInput[]
+    createMany?: InvitationCreateManyInvited_byInputEnvelope
+    connect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -21250,6 +27600,34 @@ export namespace Prisma {
     deleteMany?: UsageEventScalarWhereInput | UsageEventScalarWhereInput[]
   }
 
+  export type MembershipUpdateManyWithoutUserNestedInput = {
+    create?: XOR<MembershipCreateWithoutUserInput, MembershipUncheckedCreateWithoutUserInput> | MembershipCreateWithoutUserInput[] | MembershipUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: MembershipCreateOrConnectWithoutUserInput | MembershipCreateOrConnectWithoutUserInput[]
+    upsert?: MembershipUpsertWithWhereUniqueWithoutUserInput | MembershipUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: MembershipCreateManyUserInputEnvelope
+    set?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+    disconnect?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+    delete?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+    connect?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+    update?: MembershipUpdateWithWhereUniqueWithoutUserInput | MembershipUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: MembershipUpdateManyWithWhereWithoutUserInput | MembershipUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: MembershipScalarWhereInput | MembershipScalarWhereInput[]
+  }
+
+  export type InvitationUpdateManyWithoutInvited_byNestedInput = {
+    create?: XOR<InvitationCreateWithoutInvited_byInput, InvitationUncheckedCreateWithoutInvited_byInput> | InvitationCreateWithoutInvited_byInput[] | InvitationUncheckedCreateWithoutInvited_byInput[]
+    connectOrCreate?: InvitationCreateOrConnectWithoutInvited_byInput | InvitationCreateOrConnectWithoutInvited_byInput[]
+    upsert?: InvitationUpsertWithWhereUniqueWithoutInvited_byInput | InvitationUpsertWithWhereUniqueWithoutInvited_byInput[]
+    createMany?: InvitationCreateManyInvited_byInputEnvelope
+    set?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    disconnect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    delete?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    connect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    update?: InvitationUpdateWithWhereUniqueWithoutInvited_byInput | InvitationUpdateWithWhereUniqueWithoutInvited_byInput[]
+    updateMany?: InvitationUpdateManyWithWhereWithoutInvited_byInput | InvitationUpdateManyWithWhereWithoutInvited_byInput[]
+    deleteMany?: InvitationScalarWhereInput | InvitationScalarWhereInput[]
+  }
+
   export type PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<PasswordResetTokenCreateWithoutUserInput, PasswordResetTokenUncheckedCreateWithoutUserInput> | PasswordResetTokenCreateWithoutUserInput[] | PasswordResetTokenUncheckedCreateWithoutUserInput[]
     connectOrCreate?: PasswordResetTokenCreateOrConnectWithoutUserInput | PasswordResetTokenCreateOrConnectWithoutUserInput[]
@@ -21320,6 +27698,34 @@ export namespace Prisma {
     deleteMany?: UsageEventScalarWhereInput | UsageEventScalarWhereInput[]
   }
 
+  export type MembershipUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<MembershipCreateWithoutUserInput, MembershipUncheckedCreateWithoutUserInput> | MembershipCreateWithoutUserInput[] | MembershipUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: MembershipCreateOrConnectWithoutUserInput | MembershipCreateOrConnectWithoutUserInput[]
+    upsert?: MembershipUpsertWithWhereUniqueWithoutUserInput | MembershipUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: MembershipCreateManyUserInputEnvelope
+    set?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+    disconnect?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+    delete?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+    connect?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+    update?: MembershipUpdateWithWhereUniqueWithoutUserInput | MembershipUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: MembershipUpdateManyWithWhereWithoutUserInput | MembershipUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: MembershipScalarWhereInput | MembershipScalarWhereInput[]
+  }
+
+  export type InvitationUncheckedUpdateManyWithoutInvited_byNestedInput = {
+    create?: XOR<InvitationCreateWithoutInvited_byInput, InvitationUncheckedCreateWithoutInvited_byInput> | InvitationCreateWithoutInvited_byInput[] | InvitationUncheckedCreateWithoutInvited_byInput[]
+    connectOrCreate?: InvitationCreateOrConnectWithoutInvited_byInput | InvitationCreateOrConnectWithoutInvited_byInput[]
+    upsert?: InvitationUpsertWithWhereUniqueWithoutInvited_byInput | InvitationUpsertWithWhereUniqueWithoutInvited_byInput[]
+    createMany?: InvitationCreateManyInvited_byInputEnvelope
+    set?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    disconnect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    delete?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    connect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    update?: InvitationUpdateWithWhereUniqueWithoutInvited_byInput | InvitationUpdateWithWhereUniqueWithoutInvited_byInput[]
+    updateMany?: InvitationUpdateManyWithWhereWithoutInvited_byInput | InvitationUpdateManyWithWhereWithoutInvited_byInput[]
+    deleteMany?: InvitationScalarWhereInput | InvitationScalarWhereInput[]
+  }
+
   export type UserCreateNestedOneWithoutPassword_reset_tokensInput = {
     create?: XOR<UserCreateWithoutPassword_reset_tokensInput, UserUncheckedCreateWithoutPassword_reset_tokensInput>
     connectOrCreate?: UserCreateOrConnectWithoutPassword_reset_tokensInput
@@ -21344,6 +27750,16 @@ export namespace Prisma {
 
   export type EnumDocumentTypeFieldUpdateOperationsInput = {
     set?: $Enums.DocumentType
+  }
+
+  export type AssistantAgentCreatelanguagesInput = {
+    set: string[]
+  }
+
+  export type OrganisationCreateNestedOneWithoutAssistant_agentsInput = {
+    create?: XOR<OrganisationCreateWithoutAssistant_agentsInput, OrganisationUncheckedCreateWithoutAssistant_agentsInput>
+    connectOrCreate?: OrganisationCreateOrConnectWithoutAssistant_agentsInput
+    connect?: OrganisationWhereUniqueInput
   }
 
   export type UserCreateNestedOneWithoutAssistant_agentsInput = {
@@ -21380,6 +27796,11 @@ export namespace Prisma {
     connect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
   }
 
+  export type AssistantAgentUpdatelanguagesInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
   export type EnumSuggestionFrequencyFieldUpdateOperationsInput = {
     set?: $Enums.SuggestionFrequency
   }
@@ -21388,10 +27809,20 @@ export namespace Prisma {
     set?: $Enums.SuggestionLength
   }
 
-  export type UserUpdateOneRequiredWithoutAssistant_agentsNestedInput = {
+  export type OrganisationUpdateOneRequiredWithoutAssistant_agentsNestedInput = {
+    create?: XOR<OrganisationCreateWithoutAssistant_agentsInput, OrganisationUncheckedCreateWithoutAssistant_agentsInput>
+    connectOrCreate?: OrganisationCreateOrConnectWithoutAssistant_agentsInput
+    upsert?: OrganisationUpsertWithoutAssistant_agentsInput
+    connect?: OrganisationWhereUniqueInput
+    update?: XOR<XOR<OrganisationUpdateToOneWithWhereWithoutAssistant_agentsInput, OrganisationUpdateWithoutAssistant_agentsInput>, OrganisationUncheckedUpdateWithoutAssistant_agentsInput>
+  }
+
+  export type UserUpdateOneWithoutAssistant_agentsNestedInput = {
     create?: XOR<UserCreateWithoutAssistant_agentsInput, UserUncheckedCreateWithoutAssistant_agentsInput>
     connectOrCreate?: UserCreateOrConnectWithoutAssistant_agentsInput
     upsert?: UserUpsertWithoutAssistant_agentsInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAssistant_agentsInput, UserUpdateWithoutAssistant_agentsInput>, UserUncheckedUpdateWithoutAssistant_agentsInput>
   }
@@ -21452,6 +27883,16 @@ export namespace Prisma {
     deleteMany?: PracticeAgentScalarWhereInput | PracticeAgentScalarWhereInput[]
   }
 
+  export type PracticeAgentCreatelanguagesInput = {
+    set: string[]
+  }
+
+  export type OrganisationCreateNestedOneWithoutPractice_agentsInput = {
+    create?: XOR<OrganisationCreateWithoutPractice_agentsInput, OrganisationUncheckedCreateWithoutPractice_agentsInput>
+    connectOrCreate?: OrganisationCreateOrConnectWithoutPractice_agentsInput
+    connect?: OrganisationWhereUniqueInput
+  }
+
   export type UserCreateNestedOneWithoutPractice_agentsInput = {
     create?: XOR<UserCreateWithoutPractice_agentsInput, UserUncheckedCreateWithoutPractice_agentsInput>
     connectOrCreate?: UserCreateOrConnectWithoutPractice_agentsInput
@@ -21482,6 +27923,11 @@ export namespace Prisma {
     set?: $Enums.LeadTemperature
   }
 
+  export type PracticeAgentUpdatelanguagesInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
   export type EnumVoiceProviderFieldUpdateOperationsInput = {
     set?: $Enums.VoiceProvider
   }
@@ -21494,10 +27940,20 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type UserUpdateOneRequiredWithoutPractice_agentsNestedInput = {
+  export type OrganisationUpdateOneRequiredWithoutPractice_agentsNestedInput = {
+    create?: XOR<OrganisationCreateWithoutPractice_agentsInput, OrganisationUncheckedCreateWithoutPractice_agentsInput>
+    connectOrCreate?: OrganisationCreateOrConnectWithoutPractice_agentsInput
+    upsert?: OrganisationUpsertWithoutPractice_agentsInput
+    connect?: OrganisationWhereUniqueInput
+    update?: XOR<XOR<OrganisationUpdateToOneWithWhereWithoutPractice_agentsInput, OrganisationUpdateWithoutPractice_agentsInput>, OrganisationUncheckedUpdateWithoutPractice_agentsInput>
+  }
+
+  export type UserUpdateOneWithoutPractice_agentsNestedInput = {
     create?: XOR<UserCreateWithoutPractice_agentsInput, UserUncheckedCreateWithoutPractice_agentsInput>
     connectOrCreate?: UserCreateOrConnectWithoutPractice_agentsInput
     upsert?: UserUpsertWithoutPractice_agentsInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPractice_agentsInput, UserUpdateWithoutPractice_agentsInput>, UserUncheckedUpdateWithoutPractice_agentsInput>
   }
@@ -21538,6 +27994,12 @@ export namespace Prisma {
     update?: CallUpdateWithWhereUniqueWithoutPractice_agentInput | CallUpdateWithWhereUniqueWithoutPractice_agentInput[]
     updateMany?: CallUpdateManyWithWhereWithoutPractice_agentInput | CallUpdateManyWithWhereWithoutPractice_agentInput[]
     deleteMany?: CallScalarWhereInput | CallScalarWhereInput[]
+  }
+
+  export type OrganisationCreateNestedOneWithoutCallsInput = {
+    create?: XOR<OrganisationCreateWithoutCallsInput, OrganisationUncheckedCreateWithoutCallsInput>
+    connectOrCreate?: OrganisationCreateOrConnectWithoutCallsInput
+    connect?: OrganisationWhereUniqueInput
   }
 
   export type UserCreateNestedOneWithoutCallsInput = {
@@ -21634,6 +28096,14 @@ export namespace Prisma {
 
   export type NullableBoolFieldUpdateOperationsInput = {
     set?: boolean | null
+  }
+
+  export type OrganisationUpdateOneRequiredWithoutCallsNestedInput = {
+    create?: XOR<OrganisationCreateWithoutCallsInput, OrganisationUncheckedCreateWithoutCallsInput>
+    connectOrCreate?: OrganisationCreateOrConnectWithoutCallsInput
+    upsert?: OrganisationUpsertWithoutCallsInput
+    connect?: OrganisationWhereUniqueInput
+    update?: XOR<XOR<OrganisationUpdateToOneWithWhereWithoutCallsInput, OrganisationUpdateWithoutCallsInput>, OrganisationUncheckedUpdateWithoutCallsInput>
   }
 
   export type UserUpdateOneRequiredWithoutCallsNestedInput = {
@@ -21840,6 +28310,12 @@ export namespace Prisma {
     update?: XOR<XOR<CallUpdateToOneWithWhereWithoutAnalysisInput, CallUpdateWithoutAnalysisInput>, CallUncheckedUpdateWithoutAnalysisInput>
   }
 
+  export type OrganisationCreateNestedOneWithoutUsage_eventsInput = {
+    create?: XOR<OrganisationCreateWithoutUsage_eventsInput, OrganisationUncheckedCreateWithoutUsage_eventsInput>
+    connectOrCreate?: OrganisationCreateOrConnectWithoutUsage_eventsInput
+    connect?: OrganisationWhereUniqueInput
+  }
+
   export type UserCreateNestedOneWithoutUsage_eventsInput = {
     create?: XOR<UserCreateWithoutUsage_eventsInput, UserUncheckedCreateWithoutUsage_eventsInput>
     connectOrCreate?: UserCreateOrConnectWithoutUsage_eventsInput
@@ -21858,12 +28334,403 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type OrganisationUpdateOneRequiredWithoutUsage_eventsNestedInput = {
+    create?: XOR<OrganisationCreateWithoutUsage_eventsInput, OrganisationUncheckedCreateWithoutUsage_eventsInput>
+    connectOrCreate?: OrganisationCreateOrConnectWithoutUsage_eventsInput
+    upsert?: OrganisationUpsertWithoutUsage_eventsInput
+    connect?: OrganisationWhereUniqueInput
+    update?: XOR<XOR<OrganisationUpdateToOneWithWhereWithoutUsage_eventsInput, OrganisationUpdateWithoutUsage_eventsInput>, OrganisationUncheckedUpdateWithoutUsage_eventsInput>
+  }
+
   export type UserUpdateOneRequiredWithoutUsage_eventsNestedInput = {
     create?: XOR<UserCreateWithoutUsage_eventsInput, UserUncheckedCreateWithoutUsage_eventsInput>
     connectOrCreate?: UserCreateOrConnectWithoutUsage_eventsInput
     upsert?: UserUpsertWithoutUsage_eventsInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutUsage_eventsInput, UserUpdateWithoutUsage_eventsInput>, UserUncheckedUpdateWithoutUsage_eventsInput>
+  }
+
+  export type MembershipCreateNestedManyWithoutOrganisationInput = {
+    create?: XOR<MembershipCreateWithoutOrganisationInput, MembershipUncheckedCreateWithoutOrganisationInput> | MembershipCreateWithoutOrganisationInput[] | MembershipUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: MembershipCreateOrConnectWithoutOrganisationInput | MembershipCreateOrConnectWithoutOrganisationInput[]
+    createMany?: MembershipCreateManyOrganisationInputEnvelope
+    connect?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+  }
+
+  export type RolePermissionCreateNestedManyWithoutOrganisationInput = {
+    create?: XOR<RolePermissionCreateWithoutOrganisationInput, RolePermissionUncheckedCreateWithoutOrganisationInput> | RolePermissionCreateWithoutOrganisationInput[] | RolePermissionUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: RolePermissionCreateOrConnectWithoutOrganisationInput | RolePermissionCreateOrConnectWithoutOrganisationInput[]
+    createMany?: RolePermissionCreateManyOrganisationInputEnvelope
+    connect?: RolePermissionWhereUniqueInput | RolePermissionWhereUniqueInput[]
+  }
+
+  export type InvitationCreateNestedManyWithoutOrganisationInput = {
+    create?: XOR<InvitationCreateWithoutOrganisationInput, InvitationUncheckedCreateWithoutOrganisationInput> | InvitationCreateWithoutOrganisationInput[] | InvitationUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: InvitationCreateOrConnectWithoutOrganisationInput | InvitationCreateOrConnectWithoutOrganisationInput[]
+    createMany?: InvitationCreateManyOrganisationInputEnvelope
+    connect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+  }
+
+  export type AssistantAgentCreateNestedManyWithoutOrganisationInput = {
+    create?: XOR<AssistantAgentCreateWithoutOrganisationInput, AssistantAgentUncheckedCreateWithoutOrganisationInput> | AssistantAgentCreateWithoutOrganisationInput[] | AssistantAgentUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: AssistantAgentCreateOrConnectWithoutOrganisationInput | AssistantAgentCreateOrConnectWithoutOrganisationInput[]
+    createMany?: AssistantAgentCreateManyOrganisationInputEnvelope
+    connect?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+  }
+
+  export type PracticeAgentCreateNestedManyWithoutOrganisationInput = {
+    create?: XOR<PracticeAgentCreateWithoutOrganisationInput, PracticeAgentUncheckedCreateWithoutOrganisationInput> | PracticeAgentCreateWithoutOrganisationInput[] | PracticeAgentUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: PracticeAgentCreateOrConnectWithoutOrganisationInput | PracticeAgentCreateOrConnectWithoutOrganisationInput[]
+    createMany?: PracticeAgentCreateManyOrganisationInputEnvelope
+    connect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+  }
+
+  export type CallCreateNestedManyWithoutOrganisationInput = {
+    create?: XOR<CallCreateWithoutOrganisationInput, CallUncheckedCreateWithoutOrganisationInput> | CallCreateWithoutOrganisationInput[] | CallUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutOrganisationInput | CallCreateOrConnectWithoutOrganisationInput[]
+    createMany?: CallCreateManyOrganisationInputEnvelope
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+  }
+
+  export type UsageEventCreateNestedManyWithoutOrganisationInput = {
+    create?: XOR<UsageEventCreateWithoutOrganisationInput, UsageEventUncheckedCreateWithoutOrganisationInput> | UsageEventCreateWithoutOrganisationInput[] | UsageEventUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: UsageEventCreateOrConnectWithoutOrganisationInput | UsageEventCreateOrConnectWithoutOrganisationInput[]
+    createMany?: UsageEventCreateManyOrganisationInputEnvelope
+    connect?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+  }
+
+  export type MembershipUncheckedCreateNestedManyWithoutOrganisationInput = {
+    create?: XOR<MembershipCreateWithoutOrganisationInput, MembershipUncheckedCreateWithoutOrganisationInput> | MembershipCreateWithoutOrganisationInput[] | MembershipUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: MembershipCreateOrConnectWithoutOrganisationInput | MembershipCreateOrConnectWithoutOrganisationInput[]
+    createMany?: MembershipCreateManyOrganisationInputEnvelope
+    connect?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+  }
+
+  export type RolePermissionUncheckedCreateNestedManyWithoutOrganisationInput = {
+    create?: XOR<RolePermissionCreateWithoutOrganisationInput, RolePermissionUncheckedCreateWithoutOrganisationInput> | RolePermissionCreateWithoutOrganisationInput[] | RolePermissionUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: RolePermissionCreateOrConnectWithoutOrganisationInput | RolePermissionCreateOrConnectWithoutOrganisationInput[]
+    createMany?: RolePermissionCreateManyOrganisationInputEnvelope
+    connect?: RolePermissionWhereUniqueInput | RolePermissionWhereUniqueInput[]
+  }
+
+  export type InvitationUncheckedCreateNestedManyWithoutOrganisationInput = {
+    create?: XOR<InvitationCreateWithoutOrganisationInput, InvitationUncheckedCreateWithoutOrganisationInput> | InvitationCreateWithoutOrganisationInput[] | InvitationUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: InvitationCreateOrConnectWithoutOrganisationInput | InvitationCreateOrConnectWithoutOrganisationInput[]
+    createMany?: InvitationCreateManyOrganisationInputEnvelope
+    connect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+  }
+
+  export type AssistantAgentUncheckedCreateNestedManyWithoutOrganisationInput = {
+    create?: XOR<AssistantAgentCreateWithoutOrganisationInput, AssistantAgentUncheckedCreateWithoutOrganisationInput> | AssistantAgentCreateWithoutOrganisationInput[] | AssistantAgentUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: AssistantAgentCreateOrConnectWithoutOrganisationInput | AssistantAgentCreateOrConnectWithoutOrganisationInput[]
+    createMany?: AssistantAgentCreateManyOrganisationInputEnvelope
+    connect?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+  }
+
+  export type PracticeAgentUncheckedCreateNestedManyWithoutOrganisationInput = {
+    create?: XOR<PracticeAgentCreateWithoutOrganisationInput, PracticeAgentUncheckedCreateWithoutOrganisationInput> | PracticeAgentCreateWithoutOrganisationInput[] | PracticeAgentUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: PracticeAgentCreateOrConnectWithoutOrganisationInput | PracticeAgentCreateOrConnectWithoutOrganisationInput[]
+    createMany?: PracticeAgentCreateManyOrganisationInputEnvelope
+    connect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+  }
+
+  export type CallUncheckedCreateNestedManyWithoutOrganisationInput = {
+    create?: XOR<CallCreateWithoutOrganisationInput, CallUncheckedCreateWithoutOrganisationInput> | CallCreateWithoutOrganisationInput[] | CallUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutOrganisationInput | CallCreateOrConnectWithoutOrganisationInput[]
+    createMany?: CallCreateManyOrganisationInputEnvelope
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+  }
+
+  export type UsageEventUncheckedCreateNestedManyWithoutOrganisationInput = {
+    create?: XOR<UsageEventCreateWithoutOrganisationInput, UsageEventUncheckedCreateWithoutOrganisationInput> | UsageEventCreateWithoutOrganisationInput[] | UsageEventUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: UsageEventCreateOrConnectWithoutOrganisationInput | UsageEventCreateOrConnectWithoutOrganisationInput[]
+    createMany?: UsageEventCreateManyOrganisationInputEnvelope
+    connect?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+  }
+
+  export type MembershipUpdateManyWithoutOrganisationNestedInput = {
+    create?: XOR<MembershipCreateWithoutOrganisationInput, MembershipUncheckedCreateWithoutOrganisationInput> | MembershipCreateWithoutOrganisationInput[] | MembershipUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: MembershipCreateOrConnectWithoutOrganisationInput | MembershipCreateOrConnectWithoutOrganisationInput[]
+    upsert?: MembershipUpsertWithWhereUniqueWithoutOrganisationInput | MembershipUpsertWithWhereUniqueWithoutOrganisationInput[]
+    createMany?: MembershipCreateManyOrganisationInputEnvelope
+    set?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+    disconnect?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+    delete?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+    connect?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+    update?: MembershipUpdateWithWhereUniqueWithoutOrganisationInput | MembershipUpdateWithWhereUniqueWithoutOrganisationInput[]
+    updateMany?: MembershipUpdateManyWithWhereWithoutOrganisationInput | MembershipUpdateManyWithWhereWithoutOrganisationInput[]
+    deleteMany?: MembershipScalarWhereInput | MembershipScalarWhereInput[]
+  }
+
+  export type RolePermissionUpdateManyWithoutOrganisationNestedInput = {
+    create?: XOR<RolePermissionCreateWithoutOrganisationInput, RolePermissionUncheckedCreateWithoutOrganisationInput> | RolePermissionCreateWithoutOrganisationInput[] | RolePermissionUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: RolePermissionCreateOrConnectWithoutOrganisationInput | RolePermissionCreateOrConnectWithoutOrganisationInput[]
+    upsert?: RolePermissionUpsertWithWhereUniqueWithoutOrganisationInput | RolePermissionUpsertWithWhereUniqueWithoutOrganisationInput[]
+    createMany?: RolePermissionCreateManyOrganisationInputEnvelope
+    set?: RolePermissionWhereUniqueInput | RolePermissionWhereUniqueInput[]
+    disconnect?: RolePermissionWhereUniqueInput | RolePermissionWhereUniqueInput[]
+    delete?: RolePermissionWhereUniqueInput | RolePermissionWhereUniqueInput[]
+    connect?: RolePermissionWhereUniqueInput | RolePermissionWhereUniqueInput[]
+    update?: RolePermissionUpdateWithWhereUniqueWithoutOrganisationInput | RolePermissionUpdateWithWhereUniqueWithoutOrganisationInput[]
+    updateMany?: RolePermissionUpdateManyWithWhereWithoutOrganisationInput | RolePermissionUpdateManyWithWhereWithoutOrganisationInput[]
+    deleteMany?: RolePermissionScalarWhereInput | RolePermissionScalarWhereInput[]
+  }
+
+  export type InvitationUpdateManyWithoutOrganisationNestedInput = {
+    create?: XOR<InvitationCreateWithoutOrganisationInput, InvitationUncheckedCreateWithoutOrganisationInput> | InvitationCreateWithoutOrganisationInput[] | InvitationUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: InvitationCreateOrConnectWithoutOrganisationInput | InvitationCreateOrConnectWithoutOrganisationInput[]
+    upsert?: InvitationUpsertWithWhereUniqueWithoutOrganisationInput | InvitationUpsertWithWhereUniqueWithoutOrganisationInput[]
+    createMany?: InvitationCreateManyOrganisationInputEnvelope
+    set?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    disconnect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    delete?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    connect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    update?: InvitationUpdateWithWhereUniqueWithoutOrganisationInput | InvitationUpdateWithWhereUniqueWithoutOrganisationInput[]
+    updateMany?: InvitationUpdateManyWithWhereWithoutOrganisationInput | InvitationUpdateManyWithWhereWithoutOrganisationInput[]
+    deleteMany?: InvitationScalarWhereInput | InvitationScalarWhereInput[]
+  }
+
+  export type AssistantAgentUpdateManyWithoutOrganisationNestedInput = {
+    create?: XOR<AssistantAgentCreateWithoutOrganisationInput, AssistantAgentUncheckedCreateWithoutOrganisationInput> | AssistantAgentCreateWithoutOrganisationInput[] | AssistantAgentUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: AssistantAgentCreateOrConnectWithoutOrganisationInput | AssistantAgentCreateOrConnectWithoutOrganisationInput[]
+    upsert?: AssistantAgentUpsertWithWhereUniqueWithoutOrganisationInput | AssistantAgentUpsertWithWhereUniqueWithoutOrganisationInput[]
+    createMany?: AssistantAgentCreateManyOrganisationInputEnvelope
+    set?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+    disconnect?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+    delete?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+    connect?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+    update?: AssistantAgentUpdateWithWhereUniqueWithoutOrganisationInput | AssistantAgentUpdateWithWhereUniqueWithoutOrganisationInput[]
+    updateMany?: AssistantAgentUpdateManyWithWhereWithoutOrganisationInput | AssistantAgentUpdateManyWithWhereWithoutOrganisationInput[]
+    deleteMany?: AssistantAgentScalarWhereInput | AssistantAgentScalarWhereInput[]
+  }
+
+  export type PracticeAgentUpdateManyWithoutOrganisationNestedInput = {
+    create?: XOR<PracticeAgentCreateWithoutOrganisationInput, PracticeAgentUncheckedCreateWithoutOrganisationInput> | PracticeAgentCreateWithoutOrganisationInput[] | PracticeAgentUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: PracticeAgentCreateOrConnectWithoutOrganisationInput | PracticeAgentCreateOrConnectWithoutOrganisationInput[]
+    upsert?: PracticeAgentUpsertWithWhereUniqueWithoutOrganisationInput | PracticeAgentUpsertWithWhereUniqueWithoutOrganisationInput[]
+    createMany?: PracticeAgentCreateManyOrganisationInputEnvelope
+    set?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    disconnect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    delete?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    connect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    update?: PracticeAgentUpdateWithWhereUniqueWithoutOrganisationInput | PracticeAgentUpdateWithWhereUniqueWithoutOrganisationInput[]
+    updateMany?: PracticeAgentUpdateManyWithWhereWithoutOrganisationInput | PracticeAgentUpdateManyWithWhereWithoutOrganisationInput[]
+    deleteMany?: PracticeAgentScalarWhereInput | PracticeAgentScalarWhereInput[]
+  }
+
+  export type CallUpdateManyWithoutOrganisationNestedInput = {
+    create?: XOR<CallCreateWithoutOrganisationInput, CallUncheckedCreateWithoutOrganisationInput> | CallCreateWithoutOrganisationInput[] | CallUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutOrganisationInput | CallCreateOrConnectWithoutOrganisationInput[]
+    upsert?: CallUpsertWithWhereUniqueWithoutOrganisationInput | CallUpsertWithWhereUniqueWithoutOrganisationInput[]
+    createMany?: CallCreateManyOrganisationInputEnvelope
+    set?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    disconnect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    delete?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    update?: CallUpdateWithWhereUniqueWithoutOrganisationInput | CallUpdateWithWhereUniqueWithoutOrganisationInput[]
+    updateMany?: CallUpdateManyWithWhereWithoutOrganisationInput | CallUpdateManyWithWhereWithoutOrganisationInput[]
+    deleteMany?: CallScalarWhereInput | CallScalarWhereInput[]
+  }
+
+  export type UsageEventUpdateManyWithoutOrganisationNestedInput = {
+    create?: XOR<UsageEventCreateWithoutOrganisationInput, UsageEventUncheckedCreateWithoutOrganisationInput> | UsageEventCreateWithoutOrganisationInput[] | UsageEventUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: UsageEventCreateOrConnectWithoutOrganisationInput | UsageEventCreateOrConnectWithoutOrganisationInput[]
+    upsert?: UsageEventUpsertWithWhereUniqueWithoutOrganisationInput | UsageEventUpsertWithWhereUniqueWithoutOrganisationInput[]
+    createMany?: UsageEventCreateManyOrganisationInputEnvelope
+    set?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+    disconnect?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+    delete?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+    connect?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+    update?: UsageEventUpdateWithWhereUniqueWithoutOrganisationInput | UsageEventUpdateWithWhereUniqueWithoutOrganisationInput[]
+    updateMany?: UsageEventUpdateManyWithWhereWithoutOrganisationInput | UsageEventUpdateManyWithWhereWithoutOrganisationInput[]
+    deleteMany?: UsageEventScalarWhereInput | UsageEventScalarWhereInput[]
+  }
+
+  export type MembershipUncheckedUpdateManyWithoutOrganisationNestedInput = {
+    create?: XOR<MembershipCreateWithoutOrganisationInput, MembershipUncheckedCreateWithoutOrganisationInput> | MembershipCreateWithoutOrganisationInput[] | MembershipUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: MembershipCreateOrConnectWithoutOrganisationInput | MembershipCreateOrConnectWithoutOrganisationInput[]
+    upsert?: MembershipUpsertWithWhereUniqueWithoutOrganisationInput | MembershipUpsertWithWhereUniqueWithoutOrganisationInput[]
+    createMany?: MembershipCreateManyOrganisationInputEnvelope
+    set?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+    disconnect?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+    delete?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+    connect?: MembershipWhereUniqueInput | MembershipWhereUniqueInput[]
+    update?: MembershipUpdateWithWhereUniqueWithoutOrganisationInput | MembershipUpdateWithWhereUniqueWithoutOrganisationInput[]
+    updateMany?: MembershipUpdateManyWithWhereWithoutOrganisationInput | MembershipUpdateManyWithWhereWithoutOrganisationInput[]
+    deleteMany?: MembershipScalarWhereInput | MembershipScalarWhereInput[]
+  }
+
+  export type RolePermissionUncheckedUpdateManyWithoutOrganisationNestedInput = {
+    create?: XOR<RolePermissionCreateWithoutOrganisationInput, RolePermissionUncheckedCreateWithoutOrganisationInput> | RolePermissionCreateWithoutOrganisationInput[] | RolePermissionUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: RolePermissionCreateOrConnectWithoutOrganisationInput | RolePermissionCreateOrConnectWithoutOrganisationInput[]
+    upsert?: RolePermissionUpsertWithWhereUniqueWithoutOrganisationInput | RolePermissionUpsertWithWhereUniqueWithoutOrganisationInput[]
+    createMany?: RolePermissionCreateManyOrganisationInputEnvelope
+    set?: RolePermissionWhereUniqueInput | RolePermissionWhereUniqueInput[]
+    disconnect?: RolePermissionWhereUniqueInput | RolePermissionWhereUniqueInput[]
+    delete?: RolePermissionWhereUniqueInput | RolePermissionWhereUniqueInput[]
+    connect?: RolePermissionWhereUniqueInput | RolePermissionWhereUniqueInput[]
+    update?: RolePermissionUpdateWithWhereUniqueWithoutOrganisationInput | RolePermissionUpdateWithWhereUniqueWithoutOrganisationInput[]
+    updateMany?: RolePermissionUpdateManyWithWhereWithoutOrganisationInput | RolePermissionUpdateManyWithWhereWithoutOrganisationInput[]
+    deleteMany?: RolePermissionScalarWhereInput | RolePermissionScalarWhereInput[]
+  }
+
+  export type InvitationUncheckedUpdateManyWithoutOrganisationNestedInput = {
+    create?: XOR<InvitationCreateWithoutOrganisationInput, InvitationUncheckedCreateWithoutOrganisationInput> | InvitationCreateWithoutOrganisationInput[] | InvitationUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: InvitationCreateOrConnectWithoutOrganisationInput | InvitationCreateOrConnectWithoutOrganisationInput[]
+    upsert?: InvitationUpsertWithWhereUniqueWithoutOrganisationInput | InvitationUpsertWithWhereUniqueWithoutOrganisationInput[]
+    createMany?: InvitationCreateManyOrganisationInputEnvelope
+    set?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    disconnect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    delete?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    connect?: InvitationWhereUniqueInput | InvitationWhereUniqueInput[]
+    update?: InvitationUpdateWithWhereUniqueWithoutOrganisationInput | InvitationUpdateWithWhereUniqueWithoutOrganisationInput[]
+    updateMany?: InvitationUpdateManyWithWhereWithoutOrganisationInput | InvitationUpdateManyWithWhereWithoutOrganisationInput[]
+    deleteMany?: InvitationScalarWhereInput | InvitationScalarWhereInput[]
+  }
+
+  export type AssistantAgentUncheckedUpdateManyWithoutOrganisationNestedInput = {
+    create?: XOR<AssistantAgentCreateWithoutOrganisationInput, AssistantAgentUncheckedCreateWithoutOrganisationInput> | AssistantAgentCreateWithoutOrganisationInput[] | AssistantAgentUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: AssistantAgentCreateOrConnectWithoutOrganisationInput | AssistantAgentCreateOrConnectWithoutOrganisationInput[]
+    upsert?: AssistantAgentUpsertWithWhereUniqueWithoutOrganisationInput | AssistantAgentUpsertWithWhereUniqueWithoutOrganisationInput[]
+    createMany?: AssistantAgentCreateManyOrganisationInputEnvelope
+    set?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+    disconnect?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+    delete?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+    connect?: AssistantAgentWhereUniqueInput | AssistantAgentWhereUniqueInput[]
+    update?: AssistantAgentUpdateWithWhereUniqueWithoutOrganisationInput | AssistantAgentUpdateWithWhereUniqueWithoutOrganisationInput[]
+    updateMany?: AssistantAgentUpdateManyWithWhereWithoutOrganisationInput | AssistantAgentUpdateManyWithWhereWithoutOrganisationInput[]
+    deleteMany?: AssistantAgentScalarWhereInput | AssistantAgentScalarWhereInput[]
+  }
+
+  export type PracticeAgentUncheckedUpdateManyWithoutOrganisationNestedInput = {
+    create?: XOR<PracticeAgentCreateWithoutOrganisationInput, PracticeAgentUncheckedCreateWithoutOrganisationInput> | PracticeAgentCreateWithoutOrganisationInput[] | PracticeAgentUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: PracticeAgentCreateOrConnectWithoutOrganisationInput | PracticeAgentCreateOrConnectWithoutOrganisationInput[]
+    upsert?: PracticeAgentUpsertWithWhereUniqueWithoutOrganisationInput | PracticeAgentUpsertWithWhereUniqueWithoutOrganisationInput[]
+    createMany?: PracticeAgentCreateManyOrganisationInputEnvelope
+    set?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    disconnect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    delete?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    connect?: PracticeAgentWhereUniqueInput | PracticeAgentWhereUniqueInput[]
+    update?: PracticeAgentUpdateWithWhereUniqueWithoutOrganisationInput | PracticeAgentUpdateWithWhereUniqueWithoutOrganisationInput[]
+    updateMany?: PracticeAgentUpdateManyWithWhereWithoutOrganisationInput | PracticeAgentUpdateManyWithWhereWithoutOrganisationInput[]
+    deleteMany?: PracticeAgentScalarWhereInput | PracticeAgentScalarWhereInput[]
+  }
+
+  export type CallUncheckedUpdateManyWithoutOrganisationNestedInput = {
+    create?: XOR<CallCreateWithoutOrganisationInput, CallUncheckedCreateWithoutOrganisationInput> | CallCreateWithoutOrganisationInput[] | CallUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: CallCreateOrConnectWithoutOrganisationInput | CallCreateOrConnectWithoutOrganisationInput[]
+    upsert?: CallUpsertWithWhereUniqueWithoutOrganisationInput | CallUpsertWithWhereUniqueWithoutOrganisationInput[]
+    createMany?: CallCreateManyOrganisationInputEnvelope
+    set?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    disconnect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    delete?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    connect?: CallWhereUniqueInput | CallWhereUniqueInput[]
+    update?: CallUpdateWithWhereUniqueWithoutOrganisationInput | CallUpdateWithWhereUniqueWithoutOrganisationInput[]
+    updateMany?: CallUpdateManyWithWhereWithoutOrganisationInput | CallUpdateManyWithWhereWithoutOrganisationInput[]
+    deleteMany?: CallScalarWhereInput | CallScalarWhereInput[]
+  }
+
+  export type UsageEventUncheckedUpdateManyWithoutOrganisationNestedInput = {
+    create?: XOR<UsageEventCreateWithoutOrganisationInput, UsageEventUncheckedCreateWithoutOrganisationInput> | UsageEventCreateWithoutOrganisationInput[] | UsageEventUncheckedCreateWithoutOrganisationInput[]
+    connectOrCreate?: UsageEventCreateOrConnectWithoutOrganisationInput | UsageEventCreateOrConnectWithoutOrganisationInput[]
+    upsert?: UsageEventUpsertWithWhereUniqueWithoutOrganisationInput | UsageEventUpsertWithWhereUniqueWithoutOrganisationInput[]
+    createMany?: UsageEventCreateManyOrganisationInputEnvelope
+    set?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+    disconnect?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+    delete?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+    connect?: UsageEventWhereUniqueInput | UsageEventWhereUniqueInput[]
+    update?: UsageEventUpdateWithWhereUniqueWithoutOrganisationInput | UsageEventUpdateWithWhereUniqueWithoutOrganisationInput[]
+    updateMany?: UsageEventUpdateManyWithWhereWithoutOrganisationInput | UsageEventUpdateManyWithWhereWithoutOrganisationInput[]
+    deleteMany?: UsageEventScalarWhereInput | UsageEventScalarWhereInput[]
+  }
+
+  export type OrganisationCreateNestedOneWithoutMembershipsInput = {
+    create?: XOR<OrganisationCreateWithoutMembershipsInput, OrganisationUncheckedCreateWithoutMembershipsInput>
+    connectOrCreate?: OrganisationCreateOrConnectWithoutMembershipsInput
+    connect?: OrganisationWhereUniqueInput
+  }
+
+  export type UserCreateNestedOneWithoutMembershipsInput = {
+    create?: XOR<UserCreateWithoutMembershipsInput, UserUncheckedCreateWithoutMembershipsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutMembershipsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type EnumOrgRoleFieldUpdateOperationsInput = {
+    set?: $Enums.OrgRole
+  }
+
+  export type OrganisationUpdateOneRequiredWithoutMembershipsNestedInput = {
+    create?: XOR<OrganisationCreateWithoutMembershipsInput, OrganisationUncheckedCreateWithoutMembershipsInput>
+    connectOrCreate?: OrganisationCreateOrConnectWithoutMembershipsInput
+    upsert?: OrganisationUpsertWithoutMembershipsInput
+    connect?: OrganisationWhereUniqueInput
+    update?: XOR<XOR<OrganisationUpdateToOneWithWhereWithoutMembershipsInput, OrganisationUpdateWithoutMembershipsInput>, OrganisationUncheckedUpdateWithoutMembershipsInput>
+  }
+
+  export type UserUpdateOneRequiredWithoutMembershipsNestedInput = {
+    create?: XOR<UserCreateWithoutMembershipsInput, UserUncheckedCreateWithoutMembershipsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutMembershipsInput
+    upsert?: UserUpsertWithoutMembershipsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutMembershipsInput, UserUpdateWithoutMembershipsInput>, UserUncheckedUpdateWithoutMembershipsInput>
+  }
+
+  export type RolePermissionCreatepermissionsInput = {
+    set: string[]
+  }
+
+  export type OrganisationCreateNestedOneWithoutRole_permissionsInput = {
+    create?: XOR<OrganisationCreateWithoutRole_permissionsInput, OrganisationUncheckedCreateWithoutRole_permissionsInput>
+    connectOrCreate?: OrganisationCreateOrConnectWithoutRole_permissionsInput
+    connect?: OrganisationWhereUniqueInput
+  }
+
+  export type RolePermissionUpdatepermissionsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type OrganisationUpdateOneRequiredWithoutRole_permissionsNestedInput = {
+    create?: XOR<OrganisationCreateWithoutRole_permissionsInput, OrganisationUncheckedCreateWithoutRole_permissionsInput>
+    connectOrCreate?: OrganisationCreateOrConnectWithoutRole_permissionsInput
+    upsert?: OrganisationUpsertWithoutRole_permissionsInput
+    connect?: OrganisationWhereUniqueInput
+    update?: XOR<XOR<OrganisationUpdateToOneWithWhereWithoutRole_permissionsInput, OrganisationUpdateWithoutRole_permissionsInput>, OrganisationUncheckedUpdateWithoutRole_permissionsInput>
+  }
+
+  export type OrganisationCreateNestedOneWithoutInvitationsInput = {
+    create?: XOR<OrganisationCreateWithoutInvitationsInput, OrganisationUncheckedCreateWithoutInvitationsInput>
+    connectOrCreate?: OrganisationCreateOrConnectWithoutInvitationsInput
+    connect?: OrganisationWhereUniqueInput
+  }
+
+  export type UserCreateNestedOneWithoutInvitations_sentInput = {
+    create?: XOR<UserCreateWithoutInvitations_sentInput, UserUncheckedCreateWithoutInvitations_sentInput>
+    connectOrCreate?: UserCreateOrConnectWithoutInvitations_sentInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type EnumInvitationStatusFieldUpdateOperationsInput = {
+    set?: $Enums.InvitationStatus
+  }
+
+  export type OrganisationUpdateOneRequiredWithoutInvitationsNestedInput = {
+    create?: XOR<OrganisationCreateWithoutInvitationsInput, OrganisationUncheckedCreateWithoutInvitationsInput>
+    connectOrCreate?: OrganisationCreateOrConnectWithoutInvitationsInput
+    upsert?: OrganisationUpsertWithoutInvitationsInput
+    connect?: OrganisationWhereUniqueInput
+    update?: XOR<XOR<OrganisationUpdateToOneWithWhereWithoutInvitationsInput, OrganisationUpdateWithoutInvitationsInput>, OrganisationUncheckedUpdateWithoutInvitationsInput>
+  }
+
+  export type UserUpdateOneWithoutInvitations_sentNestedInput = {
+    create?: XOR<UserCreateWithoutInvitations_sentInput, UserUncheckedCreateWithoutInvitations_sentInput>
+    connectOrCreate?: UserCreateOrConnectWithoutInvitations_sentInput
+    upsert?: UserUpsertWithoutInvitations_sentInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutInvitations_sentInput, UserUpdateWithoutInvitations_sentInput>, UserUncheckedUpdateWithoutInvitations_sentInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -22431,6 +29298,40 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type NestedEnumOrgRoleFilter<$PrismaModel = never> = {
+    equals?: $Enums.OrgRole | EnumOrgRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.OrgRole[] | ListEnumOrgRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OrgRole[] | ListEnumOrgRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumOrgRoleFilter<$PrismaModel> | $Enums.OrgRole
+  }
+
+  export type NestedEnumOrgRoleWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.OrgRole | EnumOrgRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.OrgRole[] | ListEnumOrgRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.OrgRole[] | ListEnumOrgRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumOrgRoleWithAggregatesFilter<$PrismaModel> | $Enums.OrgRole
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumOrgRoleFilter<$PrismaModel>
+    _max?: NestedEnumOrgRoleFilter<$PrismaModel>
+  }
+
+  export type NestedEnumInvitationStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.InvitationStatus | EnumInvitationStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.InvitationStatus[] | ListEnumInvitationStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.InvitationStatus[] | ListEnumInvitationStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumInvitationStatusFilter<$PrismaModel> | $Enums.InvitationStatus
+  }
+
+  export type NestedEnumInvitationStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.InvitationStatus | EnumInvitationStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.InvitationStatus[] | ListEnumInvitationStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.InvitationStatus[] | ListEnumInvitationStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumInvitationStatusWithAggregatesFilter<$PrismaModel> | $Enums.InvitationStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumInvitationStatusFilter<$PrismaModel>
+    _max?: NestedEnumInvitationStatusFilter<$PrismaModel>
+  }
+
   export type PasswordResetTokenCreateWithoutUserInput = {
     id?: string
     token_hash: string
@@ -22468,6 +29369,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: string | null
     language?: string
+    languages?: AssistantAgentCreatelanguagesInput | string[]
     tone?: string
     suggestion_frequency?: $Enums.SuggestionFrequency
     suggestion_length?: $Enums.SuggestionLength
@@ -22482,12 +29384,14 @@ export namespace Prisma {
     archived_at?: Date | string | null
     created_at?: Date | string
     updated_at?: Date | string
+    organisation: OrganisationCreateNestedOneWithoutAssistant_agentsInput
     calls?: CallCreateNestedManyWithoutAssistant_agentInput
     practice_agents?: PracticeAgentCreateNestedManyWithoutLinked_assistant_agentInput
   }
 
   export type AssistantAgentUncheckedCreateWithoutUserInput = {
     id?: string
+    organisation_id: string
     name: string
     description?: string | null
     call_goal?: string | null
@@ -22497,6 +29401,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: string | null
     language?: string
+    languages?: AssistantAgentCreatelanguagesInput | string[]
     tone?: string
     suggestion_frequency?: $Enums.SuggestionFrequency
     suggestion_length?: $Enums.SuggestionLength
@@ -22549,6 +29454,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: number
     language?: string
+    languages?: PracticeAgentCreatelanguagesInput | string[]
     accent?: string | null
     industry?: string | null
     company?: string | null
@@ -22564,12 +29470,14 @@ export namespace Prisma {
     archived_at?: Date | string | null
     created_at?: Date | string
     updated_at?: Date | string
+    organisation: OrganisationCreateNestedOneWithoutPractice_agentsInput
     linked_assistant_agent?: AssistantAgentCreateNestedOneWithoutPractice_agentsInput
     calls?: CallCreateNestedManyWithoutPractice_agentInput
   }
 
   export type PracticeAgentUncheckedCreateWithoutUserInput = {
     id?: string
+    organisation_id: string
     name: string
     prospect_name?: string | null
     role_prompt: string
@@ -22593,6 +29501,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: number
     language?: string
+    languages?: PracticeAgentCreatelanguagesInput | string[]
     accent?: string | null
     industry?: string | null
     company?: string | null
@@ -22653,6 +29562,7 @@ export namespace Prisma {
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
     updated_at?: Date | string
+    organisation: OrganisationCreateNestedOneWithoutCallsInput
     assistant_agent?: AssistantAgentCreateNestedOneWithoutCallsInput
     practice_agent?: PracticeAgentCreateNestedOneWithoutCallsInput
     segments?: TranscriptSegmentCreateNestedManyWithoutCallInput
@@ -22663,6 +29573,7 @@ export namespace Prisma {
 
   export type CallUncheckedCreateWithoutUserInput = {
     id?: string
+    organisation_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
     status?: $Enums.CallStatus
@@ -22721,10 +29632,12 @@ export namespace Prisma {
     audio_seconds?: number
     cost_usd?: number
     created_at?: Date | string
+    organisation: OrganisationCreateNestedOneWithoutUsage_eventsInput
   }
 
   export type UsageEventUncheckedCreateWithoutUserInput = {
     id?: string
+    organisation_id: string
     call_id?: string | null
     kind: $Enums.UsageKind
     model?: string | null
@@ -22742,6 +29655,74 @@ export namespace Prisma {
 
   export type UsageEventCreateManyUserInputEnvelope = {
     data: UsageEventCreateManyUserInput | UsageEventCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type MembershipCreateWithoutUserInput = {
+    id?: string
+    role?: $Enums.OrgRole
+    created_at?: Date | string
+    updated_at?: Date | string
+    organisation: OrganisationCreateNestedOneWithoutMembershipsInput
+  }
+
+  export type MembershipUncheckedCreateWithoutUserInput = {
+    id?: string
+    organisation_id: string
+    role?: $Enums.OrgRole
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type MembershipCreateOrConnectWithoutUserInput = {
+    where: MembershipWhereUniqueInput
+    create: XOR<MembershipCreateWithoutUserInput, MembershipUncheckedCreateWithoutUserInput>
+  }
+
+  export type MembershipCreateManyUserInputEnvelope = {
+    data: MembershipCreateManyUserInput | MembershipCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type InvitationCreateWithoutInvited_byInput = {
+    id?: string
+    email: string
+    role?: $Enums.OrgRole
+    token_hash: string
+    status?: $Enums.InvitationStatus
+    expires_at: Date | string
+    last_sent_at?: Date | string
+    send_count?: number
+    accepted_at?: Date | string | null
+    accepted_by_id?: string | null
+    revoked_at?: Date | string | null
+    created_at?: Date | string
+    organisation: OrganisationCreateNestedOneWithoutInvitationsInput
+  }
+
+  export type InvitationUncheckedCreateWithoutInvited_byInput = {
+    id?: string
+    organisation_id: string
+    email: string
+    role?: $Enums.OrgRole
+    token_hash: string
+    status?: $Enums.InvitationStatus
+    expires_at: Date | string
+    last_sent_at?: Date | string
+    send_count?: number
+    accepted_at?: Date | string | null
+    accepted_by_id?: string | null
+    revoked_at?: Date | string | null
+    created_at?: Date | string
+  }
+
+  export type InvitationCreateOrConnectWithoutInvited_byInput = {
+    where: InvitationWhereUniqueInput
+    create: XOR<InvitationCreateWithoutInvited_byInput, InvitationUncheckedCreateWithoutInvited_byInput>
+  }
+
+  export type InvitationCreateManyInvited_byInputEnvelope = {
+    data: InvitationCreateManyInvited_byInput | InvitationCreateManyInvited_byInput[]
     skipDuplicates?: boolean
   }
 
@@ -22794,7 +29775,8 @@ export namespace Prisma {
     OR?: AssistantAgentScalarWhereInput[]
     NOT?: AssistantAgentScalarWhereInput | AssistantAgentScalarWhereInput[]
     id?: StringFilter<"AssistantAgent"> | string
-    user_id?: StringFilter<"AssistantAgent"> | string
+    organisation_id?: StringFilter<"AssistantAgent"> | string
+    user_id?: StringNullableFilter<"AssistantAgent"> | string | null
     name?: StringFilter<"AssistantAgent"> | string
     description?: StringNullableFilter<"AssistantAgent"> | string | null
     call_goal?: StringNullableFilter<"AssistantAgent"> | string | null
@@ -22804,6 +29786,7 @@ export namespace Prisma {
     objection_library?: JsonFilter<"AssistantAgent">
     methodology?: StringNullableFilter<"AssistantAgent"> | string | null
     language?: StringFilter<"AssistantAgent"> | string
+    languages?: StringNullableListFilter<"AssistantAgent">
     tone?: StringFilter<"AssistantAgent"> | string
     suggestion_frequency?: EnumSuggestionFrequencyFilter<"AssistantAgent"> | $Enums.SuggestionFrequency
     suggestion_length?: EnumSuggestionLengthFilter<"AssistantAgent"> | $Enums.SuggestionLength
@@ -22841,7 +29824,8 @@ export namespace Prisma {
     OR?: PracticeAgentScalarWhereInput[]
     NOT?: PracticeAgentScalarWhereInput | PracticeAgentScalarWhereInput[]
     id?: StringFilter<"PracticeAgent"> | string
-    user_id?: StringFilter<"PracticeAgent"> | string
+    organisation_id?: StringFilter<"PracticeAgent"> | string
+    user_id?: StringNullableFilter<"PracticeAgent"> | string | null
     name?: StringFilter<"PracticeAgent"> | string
     prospect_name?: StringNullableFilter<"PracticeAgent"> | string | null
     role_prompt?: StringFilter<"PracticeAgent"> | string
@@ -22865,6 +29849,7 @@ export namespace Prisma {
     conversion_conditions?: JsonFilter<"PracticeAgent">
     patience?: IntFilter<"PracticeAgent"> | number
     language?: StringFilter<"PracticeAgent"> | string
+    languages?: StringNullableListFilter<"PracticeAgent">
     accent?: StringNullableFilter<"PracticeAgent"> | string | null
     industry?: StringNullableFilter<"PracticeAgent"> | string | null
     company?: StringNullableFilter<"PracticeAgent"> | string | null
@@ -22903,6 +29888,7 @@ export namespace Prisma {
     OR?: CallScalarWhereInput[]
     NOT?: CallScalarWhereInput | CallScalarWhereInput[]
     id?: StringFilter<"Call"> | string
+    organisation_id?: StringFilter<"Call"> | string
     user_id?: StringFilter<"Call"> | string
     kind?: EnumCallKindFilter<"Call"> | $Enums.CallKind
     call_type?: EnumCallTypeFilter<"Call"> | $Enums.CallType
@@ -22959,6 +29945,7 @@ export namespace Prisma {
     OR?: UsageEventScalarWhereInput[]
     NOT?: UsageEventScalarWhereInput | UsageEventScalarWhereInput[]
     id?: StringFilter<"UsageEvent"> | string
+    organisation_id?: StringFilter<"UsageEvent"> | string
     user_id?: StringFilter<"UsageEvent"> | string
     call_id?: StringNullableFilter<"UsageEvent"> | string | null
     kind?: EnumUsageKindFilter<"UsageEvent"> | $Enums.UsageKind
@@ -22968,6 +29955,70 @@ export namespace Prisma {
     audio_seconds?: IntFilter<"UsageEvent"> | number
     cost_usd?: FloatFilter<"UsageEvent"> | number
     created_at?: DateTimeFilter<"UsageEvent"> | Date | string
+  }
+
+  export type MembershipUpsertWithWhereUniqueWithoutUserInput = {
+    where: MembershipWhereUniqueInput
+    update: XOR<MembershipUpdateWithoutUserInput, MembershipUncheckedUpdateWithoutUserInput>
+    create: XOR<MembershipCreateWithoutUserInput, MembershipUncheckedCreateWithoutUserInput>
+  }
+
+  export type MembershipUpdateWithWhereUniqueWithoutUserInput = {
+    where: MembershipWhereUniqueInput
+    data: XOR<MembershipUpdateWithoutUserInput, MembershipUncheckedUpdateWithoutUserInput>
+  }
+
+  export type MembershipUpdateManyWithWhereWithoutUserInput = {
+    where: MembershipScalarWhereInput
+    data: XOR<MembershipUpdateManyMutationInput, MembershipUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type MembershipScalarWhereInput = {
+    AND?: MembershipScalarWhereInput | MembershipScalarWhereInput[]
+    OR?: MembershipScalarWhereInput[]
+    NOT?: MembershipScalarWhereInput | MembershipScalarWhereInput[]
+    id?: StringFilter<"Membership"> | string
+    organisation_id?: StringFilter<"Membership"> | string
+    user_id?: StringFilter<"Membership"> | string
+    role?: EnumOrgRoleFilter<"Membership"> | $Enums.OrgRole
+    created_at?: DateTimeFilter<"Membership"> | Date | string
+    updated_at?: DateTimeFilter<"Membership"> | Date | string
+  }
+
+  export type InvitationUpsertWithWhereUniqueWithoutInvited_byInput = {
+    where: InvitationWhereUniqueInput
+    update: XOR<InvitationUpdateWithoutInvited_byInput, InvitationUncheckedUpdateWithoutInvited_byInput>
+    create: XOR<InvitationCreateWithoutInvited_byInput, InvitationUncheckedCreateWithoutInvited_byInput>
+  }
+
+  export type InvitationUpdateWithWhereUniqueWithoutInvited_byInput = {
+    where: InvitationWhereUniqueInput
+    data: XOR<InvitationUpdateWithoutInvited_byInput, InvitationUncheckedUpdateWithoutInvited_byInput>
+  }
+
+  export type InvitationUpdateManyWithWhereWithoutInvited_byInput = {
+    where: InvitationScalarWhereInput
+    data: XOR<InvitationUpdateManyMutationInput, InvitationUncheckedUpdateManyWithoutInvited_byInput>
+  }
+
+  export type InvitationScalarWhereInput = {
+    AND?: InvitationScalarWhereInput | InvitationScalarWhereInput[]
+    OR?: InvitationScalarWhereInput[]
+    NOT?: InvitationScalarWhereInput | InvitationScalarWhereInput[]
+    id?: StringFilter<"Invitation"> | string
+    organisation_id?: StringFilter<"Invitation"> | string
+    email?: StringFilter<"Invitation"> | string
+    role?: EnumOrgRoleFilter<"Invitation"> | $Enums.OrgRole
+    token_hash?: StringFilter<"Invitation"> | string
+    status?: EnumInvitationStatusFilter<"Invitation"> | $Enums.InvitationStatus
+    invited_by_id?: StringNullableFilter<"Invitation"> | string | null
+    expires_at?: DateTimeFilter<"Invitation"> | Date | string
+    last_sent_at?: DateTimeFilter<"Invitation"> | Date | string
+    send_count?: IntFilter<"Invitation"> | number
+    accepted_at?: DateTimeNullableFilter<"Invitation"> | Date | string | null
+    accepted_by_id?: StringNullableFilter<"Invitation"> | string | null
+    revoked_at?: DateTimeNullableFilter<"Invitation"> | Date | string | null
+    created_at?: DateTimeFilter<"Invitation"> | Date | string
   }
 
   export type UserCreateWithoutPassword_reset_tokensInput = {
@@ -22988,6 +30039,8 @@ export namespace Prisma {
     practice_agents?: PracticeAgentCreateNestedManyWithoutUserInput
     calls?: CallCreateNestedManyWithoutUserInput
     usage_events?: UsageEventCreateNestedManyWithoutUserInput
+    memberships?: MembershipCreateNestedManyWithoutUserInput
+    invitations_sent?: InvitationCreateNestedManyWithoutInvited_byInput
   }
 
   export type UserUncheckedCreateWithoutPassword_reset_tokensInput = {
@@ -23008,6 +30061,8 @@ export namespace Prisma {
     practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutUserInput
     calls?: CallUncheckedCreateNestedManyWithoutUserInput
     usage_events?: UsageEventUncheckedCreateNestedManyWithoutUserInput
+    memberships?: MembershipUncheckedCreateNestedManyWithoutUserInput
+    invitations_sent?: InvitationUncheckedCreateNestedManyWithoutInvited_byInput
   }
 
   export type UserCreateOrConnectWithoutPassword_reset_tokensInput = {
@@ -23044,6 +30099,8 @@ export namespace Prisma {
     practice_agents?: PracticeAgentUpdateManyWithoutUserNestedInput
     calls?: CallUpdateManyWithoutUserNestedInput
     usage_events?: UsageEventUpdateManyWithoutUserNestedInput
+    memberships?: MembershipUpdateManyWithoutUserNestedInput
+    invitations_sent?: InvitationUpdateManyWithoutInvited_byNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPassword_reset_tokensInput = {
@@ -23064,6 +30121,39 @@ export namespace Prisma {
     practice_agents?: PracticeAgentUncheckedUpdateManyWithoutUserNestedInput
     calls?: CallUncheckedUpdateManyWithoutUserNestedInput
     usage_events?: UsageEventUncheckedUpdateManyWithoutUserNestedInput
+    memberships?: MembershipUncheckedUpdateManyWithoutUserNestedInput
+    invitations_sent?: InvitationUncheckedUpdateManyWithoutInvited_byNestedInput
+  }
+
+  export type OrganisationCreateWithoutAssistant_agentsInput = {
+    id?: string
+    name: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    memberships?: MembershipCreateNestedManyWithoutOrganisationInput
+    role_permissions?: RolePermissionCreateNestedManyWithoutOrganisationInput
+    invitations?: InvitationCreateNestedManyWithoutOrganisationInput
+    practice_agents?: PracticeAgentCreateNestedManyWithoutOrganisationInput
+    calls?: CallCreateNestedManyWithoutOrganisationInput
+    usage_events?: UsageEventCreateNestedManyWithoutOrganisationInput
+  }
+
+  export type OrganisationUncheckedCreateWithoutAssistant_agentsInput = {
+    id?: string
+    name: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    memberships?: MembershipUncheckedCreateNestedManyWithoutOrganisationInput
+    role_permissions?: RolePermissionUncheckedCreateNestedManyWithoutOrganisationInput
+    invitations?: InvitationUncheckedCreateNestedManyWithoutOrganisationInput
+    practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutOrganisationInput
+    calls?: CallUncheckedCreateNestedManyWithoutOrganisationInput
+    usage_events?: UsageEventUncheckedCreateNestedManyWithoutOrganisationInput
+  }
+
+  export type OrganisationCreateOrConnectWithoutAssistant_agentsInput = {
+    where: OrganisationWhereUniqueInput
+    create: XOR<OrganisationCreateWithoutAssistant_agentsInput, OrganisationUncheckedCreateWithoutAssistant_agentsInput>
   }
 
   export type UserCreateWithoutAssistant_agentsInput = {
@@ -23084,6 +30174,8 @@ export namespace Prisma {
     practice_agents?: PracticeAgentCreateNestedManyWithoutUserInput
     calls?: CallCreateNestedManyWithoutUserInput
     usage_events?: UsageEventCreateNestedManyWithoutUserInput
+    memberships?: MembershipCreateNestedManyWithoutUserInput
+    invitations_sent?: InvitationCreateNestedManyWithoutInvited_byInput
   }
 
   export type UserUncheckedCreateWithoutAssistant_agentsInput = {
@@ -23104,6 +30196,8 @@ export namespace Prisma {
     practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutUserInput
     calls?: CallUncheckedCreateNestedManyWithoutUserInput
     usage_events?: UsageEventUncheckedCreateNestedManyWithoutUserInput
+    memberships?: MembershipUncheckedCreateNestedManyWithoutUserInput
+    invitations_sent?: InvitationUncheckedCreateNestedManyWithoutInvited_byInput
   }
 
   export type UserCreateOrConnectWithoutAssistant_agentsInput = {
@@ -23143,6 +30237,7 @@ export namespace Prisma {
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
     updated_at?: Date | string
+    organisation: OrganisationCreateNestedOneWithoutCallsInput
     user: UserCreateNestedOneWithoutCallsInput
     practice_agent?: PracticeAgentCreateNestedOneWithoutCallsInput
     segments?: TranscriptSegmentCreateNestedManyWithoutCallInput
@@ -23153,6 +30248,7 @@ export namespace Prisma {
 
   export type CallUncheckedCreateWithoutAssistant_agentInput = {
     id?: string
+    organisation_id: string
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
@@ -23225,6 +30321,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: number
     language?: string
+    languages?: PracticeAgentCreatelanguagesInput | string[]
     accent?: string | null
     industry?: string | null
     company?: string | null
@@ -23240,13 +30337,15 @@ export namespace Prisma {
     archived_at?: Date | string | null
     created_at?: Date | string
     updated_at?: Date | string
-    user: UserCreateNestedOneWithoutPractice_agentsInput
+    organisation: OrganisationCreateNestedOneWithoutPractice_agentsInput
+    user?: UserCreateNestedOneWithoutPractice_agentsInput
     calls?: CallCreateNestedManyWithoutPractice_agentInput
   }
 
   export type PracticeAgentUncheckedCreateWithoutLinked_assistant_agentInput = {
     id?: string
-    user_id: string
+    organisation_id: string
+    user_id?: string | null
     name: string
     prospect_name?: string | null
     role_prompt: string
@@ -23269,6 +30368,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: number
     language?: string
+    languages?: PracticeAgentCreatelanguagesInput | string[]
     accent?: string | null
     industry?: string | null
     company?: string | null
@@ -23295,6 +30395,43 @@ export namespace Prisma {
   export type PracticeAgentCreateManyLinked_assistant_agentInputEnvelope = {
     data: PracticeAgentCreateManyLinked_assistant_agentInput | PracticeAgentCreateManyLinked_assistant_agentInput[]
     skipDuplicates?: boolean
+  }
+
+  export type OrganisationUpsertWithoutAssistant_agentsInput = {
+    update: XOR<OrganisationUpdateWithoutAssistant_agentsInput, OrganisationUncheckedUpdateWithoutAssistant_agentsInput>
+    create: XOR<OrganisationCreateWithoutAssistant_agentsInput, OrganisationUncheckedCreateWithoutAssistant_agentsInput>
+    where?: OrganisationWhereInput
+  }
+
+  export type OrganisationUpdateToOneWithWhereWithoutAssistant_agentsInput = {
+    where?: OrganisationWhereInput
+    data: XOR<OrganisationUpdateWithoutAssistant_agentsInput, OrganisationUncheckedUpdateWithoutAssistant_agentsInput>
+  }
+
+  export type OrganisationUpdateWithoutAssistant_agentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    memberships?: MembershipUpdateManyWithoutOrganisationNestedInput
+    role_permissions?: RolePermissionUpdateManyWithoutOrganisationNestedInput
+    invitations?: InvitationUpdateManyWithoutOrganisationNestedInput
+    practice_agents?: PracticeAgentUpdateManyWithoutOrganisationNestedInput
+    calls?: CallUpdateManyWithoutOrganisationNestedInput
+    usage_events?: UsageEventUpdateManyWithoutOrganisationNestedInput
+  }
+
+  export type OrganisationUncheckedUpdateWithoutAssistant_agentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    memberships?: MembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+    role_permissions?: RolePermissionUncheckedUpdateManyWithoutOrganisationNestedInput
+    invitations?: InvitationUncheckedUpdateManyWithoutOrganisationNestedInput
+    practice_agents?: PracticeAgentUncheckedUpdateManyWithoutOrganisationNestedInput
+    calls?: CallUncheckedUpdateManyWithoutOrganisationNestedInput
+    usage_events?: UsageEventUncheckedUpdateManyWithoutOrganisationNestedInput
   }
 
   export type UserUpsertWithoutAssistant_agentsInput = {
@@ -23326,6 +30463,8 @@ export namespace Prisma {
     practice_agents?: PracticeAgentUpdateManyWithoutUserNestedInput
     calls?: CallUpdateManyWithoutUserNestedInput
     usage_events?: UsageEventUpdateManyWithoutUserNestedInput
+    memberships?: MembershipUpdateManyWithoutUserNestedInput
+    invitations_sent?: InvitationUpdateManyWithoutInvited_byNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAssistant_agentsInput = {
@@ -23346,6 +30485,8 @@ export namespace Prisma {
     practice_agents?: PracticeAgentUncheckedUpdateManyWithoutUserNestedInput
     calls?: CallUncheckedUpdateManyWithoutUserNestedInput
     usage_events?: UsageEventUncheckedUpdateManyWithoutUserNestedInput
+    memberships?: MembershipUncheckedUpdateManyWithoutUserNestedInput
+    invitations_sent?: InvitationUncheckedUpdateManyWithoutInvited_byNestedInput
   }
 
   export type CallUpsertWithWhereUniqueWithoutAssistant_agentInput = {
@@ -23380,6 +30521,37 @@ export namespace Prisma {
     data: XOR<PracticeAgentUpdateManyMutationInput, PracticeAgentUncheckedUpdateManyWithoutLinked_assistant_agentInput>
   }
 
+  export type OrganisationCreateWithoutPractice_agentsInput = {
+    id?: string
+    name: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    memberships?: MembershipCreateNestedManyWithoutOrganisationInput
+    role_permissions?: RolePermissionCreateNestedManyWithoutOrganisationInput
+    invitations?: InvitationCreateNestedManyWithoutOrganisationInput
+    assistant_agents?: AssistantAgentCreateNestedManyWithoutOrganisationInput
+    calls?: CallCreateNestedManyWithoutOrganisationInput
+    usage_events?: UsageEventCreateNestedManyWithoutOrganisationInput
+  }
+
+  export type OrganisationUncheckedCreateWithoutPractice_agentsInput = {
+    id?: string
+    name: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    memberships?: MembershipUncheckedCreateNestedManyWithoutOrganisationInput
+    role_permissions?: RolePermissionUncheckedCreateNestedManyWithoutOrganisationInput
+    invitations?: InvitationUncheckedCreateNestedManyWithoutOrganisationInput
+    assistant_agents?: AssistantAgentUncheckedCreateNestedManyWithoutOrganisationInput
+    calls?: CallUncheckedCreateNestedManyWithoutOrganisationInput
+    usage_events?: UsageEventUncheckedCreateNestedManyWithoutOrganisationInput
+  }
+
+  export type OrganisationCreateOrConnectWithoutPractice_agentsInput = {
+    where: OrganisationWhereUniqueInput
+    create: XOR<OrganisationCreateWithoutPractice_agentsInput, OrganisationUncheckedCreateWithoutPractice_agentsInput>
+  }
+
   export type UserCreateWithoutPractice_agentsInput = {
     id?: string
     email: string
@@ -23398,6 +30570,8 @@ export namespace Prisma {
     assistant_agents?: AssistantAgentCreateNestedManyWithoutUserInput
     calls?: CallCreateNestedManyWithoutUserInput
     usage_events?: UsageEventCreateNestedManyWithoutUserInput
+    memberships?: MembershipCreateNestedManyWithoutUserInput
+    invitations_sent?: InvitationCreateNestedManyWithoutInvited_byInput
   }
 
   export type UserUncheckedCreateWithoutPractice_agentsInput = {
@@ -23418,6 +30592,8 @@ export namespace Prisma {
     assistant_agents?: AssistantAgentUncheckedCreateNestedManyWithoutUserInput
     calls?: CallUncheckedCreateNestedManyWithoutUserInput
     usage_events?: UsageEventUncheckedCreateNestedManyWithoutUserInput
+    memberships?: MembershipUncheckedCreateNestedManyWithoutUserInput
+    invitations_sent?: InvitationUncheckedCreateNestedManyWithoutInvited_byInput
   }
 
   export type UserCreateOrConnectWithoutPractice_agentsInput = {
@@ -23436,6 +30612,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: string | null
     language?: string
+    languages?: AssistantAgentCreatelanguagesInput | string[]
     tone?: string
     suggestion_frequency?: $Enums.SuggestionFrequency
     suggestion_length?: $Enums.SuggestionLength
@@ -23450,13 +30627,15 @@ export namespace Prisma {
     archived_at?: Date | string | null
     created_at?: Date | string
     updated_at?: Date | string
-    user: UserCreateNestedOneWithoutAssistant_agentsInput
+    organisation: OrganisationCreateNestedOneWithoutAssistant_agentsInput
+    user?: UserCreateNestedOneWithoutAssistant_agentsInput
     calls?: CallCreateNestedManyWithoutAssistant_agentInput
   }
 
   export type AssistantAgentUncheckedCreateWithoutPractice_agentsInput = {
     id?: string
-    user_id: string
+    organisation_id: string
+    user_id?: string | null
     name: string
     description?: string | null
     call_goal?: string | null
@@ -23466,6 +30645,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: string | null
     language?: string
+    languages?: AssistantAgentCreatelanguagesInput | string[]
     tone?: string
     suggestion_frequency?: $Enums.SuggestionFrequency
     suggestion_length?: $Enums.SuggestionLength
@@ -23520,6 +30700,7 @@ export namespace Prisma {
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
     updated_at?: Date | string
+    organisation: OrganisationCreateNestedOneWithoutCallsInput
     user: UserCreateNestedOneWithoutCallsInput
     assistant_agent?: AssistantAgentCreateNestedOneWithoutCallsInput
     segments?: TranscriptSegmentCreateNestedManyWithoutCallInput
@@ -23530,6 +30711,7 @@ export namespace Prisma {
 
   export type CallUncheckedCreateWithoutPractice_agentInput = {
     id?: string
+    organisation_id: string
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
@@ -23578,6 +30760,43 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type OrganisationUpsertWithoutPractice_agentsInput = {
+    update: XOR<OrganisationUpdateWithoutPractice_agentsInput, OrganisationUncheckedUpdateWithoutPractice_agentsInput>
+    create: XOR<OrganisationCreateWithoutPractice_agentsInput, OrganisationUncheckedCreateWithoutPractice_agentsInput>
+    where?: OrganisationWhereInput
+  }
+
+  export type OrganisationUpdateToOneWithWhereWithoutPractice_agentsInput = {
+    where?: OrganisationWhereInput
+    data: XOR<OrganisationUpdateWithoutPractice_agentsInput, OrganisationUncheckedUpdateWithoutPractice_agentsInput>
+  }
+
+  export type OrganisationUpdateWithoutPractice_agentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    memberships?: MembershipUpdateManyWithoutOrganisationNestedInput
+    role_permissions?: RolePermissionUpdateManyWithoutOrganisationNestedInput
+    invitations?: InvitationUpdateManyWithoutOrganisationNestedInput
+    assistant_agents?: AssistantAgentUpdateManyWithoutOrganisationNestedInput
+    calls?: CallUpdateManyWithoutOrganisationNestedInput
+    usage_events?: UsageEventUpdateManyWithoutOrganisationNestedInput
+  }
+
+  export type OrganisationUncheckedUpdateWithoutPractice_agentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    memberships?: MembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+    role_permissions?: RolePermissionUncheckedUpdateManyWithoutOrganisationNestedInput
+    invitations?: InvitationUncheckedUpdateManyWithoutOrganisationNestedInput
+    assistant_agents?: AssistantAgentUncheckedUpdateManyWithoutOrganisationNestedInput
+    calls?: CallUncheckedUpdateManyWithoutOrganisationNestedInput
+    usage_events?: UsageEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  }
+
   export type UserUpsertWithoutPractice_agentsInput = {
     update: XOR<UserUpdateWithoutPractice_agentsInput, UserUncheckedUpdateWithoutPractice_agentsInput>
     create: XOR<UserCreateWithoutPractice_agentsInput, UserUncheckedCreateWithoutPractice_agentsInput>
@@ -23607,6 +30826,8 @@ export namespace Prisma {
     assistant_agents?: AssistantAgentUpdateManyWithoutUserNestedInput
     calls?: CallUpdateManyWithoutUserNestedInput
     usage_events?: UsageEventUpdateManyWithoutUserNestedInput
+    memberships?: MembershipUpdateManyWithoutUserNestedInput
+    invitations_sent?: InvitationUpdateManyWithoutInvited_byNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPractice_agentsInput = {
@@ -23627,6 +30848,8 @@ export namespace Prisma {
     assistant_agents?: AssistantAgentUncheckedUpdateManyWithoutUserNestedInput
     calls?: CallUncheckedUpdateManyWithoutUserNestedInput
     usage_events?: UsageEventUncheckedUpdateManyWithoutUserNestedInput
+    memberships?: MembershipUncheckedUpdateManyWithoutUserNestedInput
+    invitations_sent?: InvitationUncheckedUpdateManyWithoutInvited_byNestedInput
   }
 
   export type AssistantAgentUpsertWithoutPractice_agentsInput = {
@@ -23651,6 +30874,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: NullableStringFieldUpdateOperationsInput | string | null
     language?: StringFieldUpdateOperationsInput | string
+    languages?: AssistantAgentUpdatelanguagesInput | string[]
     tone?: StringFieldUpdateOperationsInput | string
     suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
     suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
@@ -23665,13 +30889,15 @@ export namespace Prisma {
     archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutAssistant_agentsNestedInput
+    organisation?: OrganisationUpdateOneRequiredWithoutAssistant_agentsNestedInput
+    user?: UserUpdateOneWithoutAssistant_agentsNestedInput
     calls?: CallUpdateManyWithoutAssistant_agentNestedInput
   }
 
   export type AssistantAgentUncheckedUpdateWithoutPractice_agentsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     call_goal?: NullableStringFieldUpdateOperationsInput | string | null
@@ -23681,6 +30907,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: NullableStringFieldUpdateOperationsInput | string | null
     language?: StringFieldUpdateOperationsInput | string
+    languages?: AssistantAgentUpdatelanguagesInput | string[]
     tone?: StringFieldUpdateOperationsInput | string
     suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
     suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
@@ -23714,6 +30941,37 @@ export namespace Prisma {
     data: XOR<CallUpdateManyMutationInput, CallUncheckedUpdateManyWithoutPractice_agentInput>
   }
 
+  export type OrganisationCreateWithoutCallsInput = {
+    id?: string
+    name: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    memberships?: MembershipCreateNestedManyWithoutOrganisationInput
+    role_permissions?: RolePermissionCreateNestedManyWithoutOrganisationInput
+    invitations?: InvitationCreateNestedManyWithoutOrganisationInput
+    assistant_agents?: AssistantAgentCreateNestedManyWithoutOrganisationInput
+    practice_agents?: PracticeAgentCreateNestedManyWithoutOrganisationInput
+    usage_events?: UsageEventCreateNestedManyWithoutOrganisationInput
+  }
+
+  export type OrganisationUncheckedCreateWithoutCallsInput = {
+    id?: string
+    name: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    memberships?: MembershipUncheckedCreateNestedManyWithoutOrganisationInput
+    role_permissions?: RolePermissionUncheckedCreateNestedManyWithoutOrganisationInput
+    invitations?: InvitationUncheckedCreateNestedManyWithoutOrganisationInput
+    assistant_agents?: AssistantAgentUncheckedCreateNestedManyWithoutOrganisationInput
+    practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutOrganisationInput
+    usage_events?: UsageEventUncheckedCreateNestedManyWithoutOrganisationInput
+  }
+
+  export type OrganisationCreateOrConnectWithoutCallsInput = {
+    where: OrganisationWhereUniqueInput
+    create: XOR<OrganisationCreateWithoutCallsInput, OrganisationUncheckedCreateWithoutCallsInput>
+  }
+
   export type UserCreateWithoutCallsInput = {
     id?: string
     email: string
@@ -23732,6 +30990,8 @@ export namespace Prisma {
     assistant_agents?: AssistantAgentCreateNestedManyWithoutUserInput
     practice_agents?: PracticeAgentCreateNestedManyWithoutUserInput
     usage_events?: UsageEventCreateNestedManyWithoutUserInput
+    memberships?: MembershipCreateNestedManyWithoutUserInput
+    invitations_sent?: InvitationCreateNestedManyWithoutInvited_byInput
   }
 
   export type UserUncheckedCreateWithoutCallsInput = {
@@ -23752,6 +31012,8 @@ export namespace Prisma {
     assistant_agents?: AssistantAgentUncheckedCreateNestedManyWithoutUserInput
     practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutUserInput
     usage_events?: UsageEventUncheckedCreateNestedManyWithoutUserInput
+    memberships?: MembershipUncheckedCreateNestedManyWithoutUserInput
+    invitations_sent?: InvitationUncheckedCreateNestedManyWithoutInvited_byInput
   }
 
   export type UserCreateOrConnectWithoutCallsInput = {
@@ -23770,6 +31032,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: string | null
     language?: string
+    languages?: AssistantAgentCreatelanguagesInput | string[]
     tone?: string
     suggestion_frequency?: $Enums.SuggestionFrequency
     suggestion_length?: $Enums.SuggestionLength
@@ -23784,13 +31047,15 @@ export namespace Prisma {
     archived_at?: Date | string | null
     created_at?: Date | string
     updated_at?: Date | string
-    user: UserCreateNestedOneWithoutAssistant_agentsInput
+    organisation: OrganisationCreateNestedOneWithoutAssistant_agentsInput
+    user?: UserCreateNestedOneWithoutAssistant_agentsInput
     practice_agents?: PracticeAgentCreateNestedManyWithoutLinked_assistant_agentInput
   }
 
   export type AssistantAgentUncheckedCreateWithoutCallsInput = {
     id?: string
-    user_id: string
+    organisation_id: string
+    user_id?: string | null
     name: string
     description?: string | null
     call_goal?: string | null
@@ -23800,6 +31065,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: string | null
     language?: string
+    languages?: AssistantAgentCreatelanguagesInput | string[]
     tone?: string
     suggestion_frequency?: $Enums.SuggestionFrequency
     suggestion_length?: $Enums.SuggestionLength
@@ -23846,6 +31112,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: number
     language?: string
+    languages?: PracticeAgentCreatelanguagesInput | string[]
     accent?: string | null
     industry?: string | null
     company?: string | null
@@ -23861,13 +31128,15 @@ export namespace Prisma {
     archived_at?: Date | string | null
     created_at?: Date | string
     updated_at?: Date | string
-    user: UserCreateNestedOneWithoutPractice_agentsInput
+    organisation: OrganisationCreateNestedOneWithoutPractice_agentsInput
+    user?: UserCreateNestedOneWithoutPractice_agentsInput
     linked_assistant_agent?: AssistantAgentCreateNestedOneWithoutPractice_agentsInput
   }
 
   export type PracticeAgentUncheckedCreateWithoutCallsInput = {
     id?: string
-    user_id: string
+    organisation_id: string
+    user_id?: string | null
     name: string
     prospect_name?: string | null
     role_prompt: string
@@ -23891,6 +31160,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: number
     language?: string
+    languages?: PracticeAgentCreatelanguagesInput | string[]
     accent?: string | null
     industry?: string | null
     company?: string | null
@@ -24056,6 +31326,43 @@ export namespace Prisma {
     create: XOR<CallAnalysisCreateWithoutCallInput, CallAnalysisUncheckedCreateWithoutCallInput>
   }
 
+  export type OrganisationUpsertWithoutCallsInput = {
+    update: XOR<OrganisationUpdateWithoutCallsInput, OrganisationUncheckedUpdateWithoutCallsInput>
+    create: XOR<OrganisationCreateWithoutCallsInput, OrganisationUncheckedCreateWithoutCallsInput>
+    where?: OrganisationWhereInput
+  }
+
+  export type OrganisationUpdateToOneWithWhereWithoutCallsInput = {
+    where?: OrganisationWhereInput
+    data: XOR<OrganisationUpdateWithoutCallsInput, OrganisationUncheckedUpdateWithoutCallsInput>
+  }
+
+  export type OrganisationUpdateWithoutCallsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    memberships?: MembershipUpdateManyWithoutOrganisationNestedInput
+    role_permissions?: RolePermissionUpdateManyWithoutOrganisationNestedInput
+    invitations?: InvitationUpdateManyWithoutOrganisationNestedInput
+    assistant_agents?: AssistantAgentUpdateManyWithoutOrganisationNestedInput
+    practice_agents?: PracticeAgentUpdateManyWithoutOrganisationNestedInput
+    usage_events?: UsageEventUpdateManyWithoutOrganisationNestedInput
+  }
+
+  export type OrganisationUncheckedUpdateWithoutCallsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    memberships?: MembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+    role_permissions?: RolePermissionUncheckedUpdateManyWithoutOrganisationNestedInput
+    invitations?: InvitationUncheckedUpdateManyWithoutOrganisationNestedInput
+    assistant_agents?: AssistantAgentUncheckedUpdateManyWithoutOrganisationNestedInput
+    practice_agents?: PracticeAgentUncheckedUpdateManyWithoutOrganisationNestedInput
+    usage_events?: UsageEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  }
+
   export type UserUpsertWithoutCallsInput = {
     update: XOR<UserUpdateWithoutCallsInput, UserUncheckedUpdateWithoutCallsInput>
     create: XOR<UserCreateWithoutCallsInput, UserUncheckedCreateWithoutCallsInput>
@@ -24085,6 +31392,8 @@ export namespace Prisma {
     assistant_agents?: AssistantAgentUpdateManyWithoutUserNestedInput
     practice_agents?: PracticeAgentUpdateManyWithoutUserNestedInput
     usage_events?: UsageEventUpdateManyWithoutUserNestedInput
+    memberships?: MembershipUpdateManyWithoutUserNestedInput
+    invitations_sent?: InvitationUpdateManyWithoutInvited_byNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCallsInput = {
@@ -24105,6 +31414,8 @@ export namespace Prisma {
     assistant_agents?: AssistantAgentUncheckedUpdateManyWithoutUserNestedInput
     practice_agents?: PracticeAgentUncheckedUpdateManyWithoutUserNestedInput
     usage_events?: UsageEventUncheckedUpdateManyWithoutUserNestedInput
+    memberships?: MembershipUncheckedUpdateManyWithoutUserNestedInput
+    invitations_sent?: InvitationUncheckedUpdateManyWithoutInvited_byNestedInput
   }
 
   export type AssistantAgentUpsertWithoutCallsInput = {
@@ -24129,6 +31440,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: NullableStringFieldUpdateOperationsInput | string | null
     language?: StringFieldUpdateOperationsInput | string
+    languages?: AssistantAgentUpdatelanguagesInput | string[]
     tone?: StringFieldUpdateOperationsInput | string
     suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
     suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
@@ -24143,13 +31455,15 @@ export namespace Prisma {
     archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutAssistant_agentsNestedInput
+    organisation?: OrganisationUpdateOneRequiredWithoutAssistant_agentsNestedInput
+    user?: UserUpdateOneWithoutAssistant_agentsNestedInput
     practice_agents?: PracticeAgentUpdateManyWithoutLinked_assistant_agentNestedInput
   }
 
   export type AssistantAgentUncheckedUpdateWithoutCallsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     call_goal?: NullableStringFieldUpdateOperationsInput | string | null
@@ -24159,6 +31473,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: NullableStringFieldUpdateOperationsInput | string | null
     language?: StringFieldUpdateOperationsInput | string
+    languages?: AssistantAgentUpdatelanguagesInput | string[]
     tone?: StringFieldUpdateOperationsInput | string
     suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
     suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
@@ -24211,6 +31526,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: IntFieldUpdateOperationsInput | number
     language?: StringFieldUpdateOperationsInput | string
+    languages?: PracticeAgentUpdatelanguagesInput | string[]
     accent?: NullableStringFieldUpdateOperationsInput | string | null
     industry?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
@@ -24226,13 +31542,15 @@ export namespace Prisma {
     archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutPractice_agentsNestedInput
+    organisation?: OrganisationUpdateOneRequiredWithoutPractice_agentsNestedInput
+    user?: UserUpdateOneWithoutPractice_agentsNestedInput
     linked_assistant_agent?: AssistantAgentUpdateOneWithoutPractice_agentsNestedInput
   }
 
   export type PracticeAgentUncheckedUpdateWithoutCallsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
     role_prompt?: StringFieldUpdateOperationsInput | string
@@ -24256,6 +31574,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: IntFieldUpdateOperationsInput | number
     language?: StringFieldUpdateOperationsInput | string
+    languages?: PracticeAgentUpdatelanguagesInput | string[]
     accent?: NullableStringFieldUpdateOperationsInput | string | null
     industry?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
@@ -24452,6 +31771,7 @@ export namespace Prisma {
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
     updated_at?: Date | string
+    organisation: OrganisationCreateNestedOneWithoutCallsInput
     user: UserCreateNestedOneWithoutCallsInput
     assistant_agent?: AssistantAgentCreateNestedOneWithoutCallsInput
     practice_agent?: PracticeAgentCreateNestedOneWithoutCallsInput
@@ -24462,6 +31782,7 @@ export namespace Prisma {
 
   export type CallUncheckedCreateWithoutSegmentsInput = {
     id?: string
+    organisation_id: string
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
@@ -24548,6 +31869,7 @@ export namespace Prisma {
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    organisation?: OrganisationUpdateOneRequiredWithoutCallsNestedInput
     user?: UserUpdateOneRequiredWithoutCallsNestedInput
     assistant_agent?: AssistantAgentUpdateOneWithoutCallsNestedInput
     practice_agent?: PracticeAgentUpdateOneWithoutCallsNestedInput
@@ -24558,6 +31880,7 @@ export namespace Prisma {
 
   export type CallUncheckedUpdateWithoutSegmentsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
@@ -24628,6 +31951,7 @@ export namespace Prisma {
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
     updated_at?: Date | string
+    organisation: OrganisationCreateNestedOneWithoutCallsInput
     user: UserCreateNestedOneWithoutCallsInput
     assistant_agent?: AssistantAgentCreateNestedOneWithoutCallsInput
     practice_agent?: PracticeAgentCreateNestedOneWithoutCallsInput
@@ -24638,6 +31962,7 @@ export namespace Prisma {
 
   export type CallUncheckedCreateWithoutSuggestionsInput = {
     id?: string
+    organisation_id: string
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
@@ -24724,6 +32049,7 @@ export namespace Prisma {
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    organisation?: OrganisationUpdateOneRequiredWithoutCallsNestedInput
     user?: UserUpdateOneRequiredWithoutCallsNestedInput
     assistant_agent?: AssistantAgentUpdateOneWithoutCallsNestedInput
     practice_agent?: PracticeAgentUpdateOneWithoutCallsNestedInput
@@ -24734,6 +32060,7 @@ export namespace Prisma {
 
   export type CallUncheckedUpdateWithoutSuggestionsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
@@ -24804,6 +32131,7 @@ export namespace Prisma {
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
     updated_at?: Date | string
+    organisation: OrganisationCreateNestedOneWithoutCallsInput
     user: UserCreateNestedOneWithoutCallsInput
     assistant_agent?: AssistantAgentCreateNestedOneWithoutCallsInput
     practice_agent?: PracticeAgentCreateNestedOneWithoutCallsInput
@@ -24814,6 +32142,7 @@ export namespace Prisma {
 
   export type CallUncheckedCreateWithoutBookmarksInput = {
     id?: string
+    organisation_id: string
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
@@ -24900,6 +32229,7 @@ export namespace Prisma {
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    organisation?: OrganisationUpdateOneRequiredWithoutCallsNestedInput
     user?: UserUpdateOneRequiredWithoutCallsNestedInput
     assistant_agent?: AssistantAgentUpdateOneWithoutCallsNestedInput
     practice_agent?: PracticeAgentUpdateOneWithoutCallsNestedInput
@@ -24910,6 +32240,7 @@ export namespace Prisma {
 
   export type CallUncheckedUpdateWithoutBookmarksInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
@@ -24980,6 +32311,7 @@ export namespace Prisma {
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
     updated_at?: Date | string
+    organisation: OrganisationCreateNestedOneWithoutCallsInput
     user: UserCreateNestedOneWithoutCallsInput
     assistant_agent?: AssistantAgentCreateNestedOneWithoutCallsInput
     practice_agent?: PracticeAgentCreateNestedOneWithoutCallsInput
@@ -24990,6 +32322,7 @@ export namespace Prisma {
 
   export type CallUncheckedCreateWithoutAnalysisInput = {
     id?: string
+    organisation_id: string
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
@@ -25076,6 +32409,7 @@ export namespace Prisma {
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    organisation?: OrganisationUpdateOneRequiredWithoutCallsNestedInput
     user?: UserUpdateOneRequiredWithoutCallsNestedInput
     assistant_agent?: AssistantAgentUpdateOneWithoutCallsNestedInput
     practice_agent?: PracticeAgentUpdateOneWithoutCallsNestedInput
@@ -25086,6 +32420,7 @@ export namespace Prisma {
 
   export type CallUncheckedUpdateWithoutAnalysisInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
@@ -25124,6 +32459,37 @@ export namespace Prisma {
     bookmarks?: BookmarkUncheckedUpdateManyWithoutCallNestedInput
   }
 
+  export type OrganisationCreateWithoutUsage_eventsInput = {
+    id?: string
+    name: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    memberships?: MembershipCreateNestedManyWithoutOrganisationInput
+    role_permissions?: RolePermissionCreateNestedManyWithoutOrganisationInput
+    invitations?: InvitationCreateNestedManyWithoutOrganisationInput
+    assistant_agents?: AssistantAgentCreateNestedManyWithoutOrganisationInput
+    practice_agents?: PracticeAgentCreateNestedManyWithoutOrganisationInput
+    calls?: CallCreateNestedManyWithoutOrganisationInput
+  }
+
+  export type OrganisationUncheckedCreateWithoutUsage_eventsInput = {
+    id?: string
+    name: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    memberships?: MembershipUncheckedCreateNestedManyWithoutOrganisationInput
+    role_permissions?: RolePermissionUncheckedCreateNestedManyWithoutOrganisationInput
+    invitations?: InvitationUncheckedCreateNestedManyWithoutOrganisationInput
+    assistant_agents?: AssistantAgentUncheckedCreateNestedManyWithoutOrganisationInput
+    practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutOrganisationInput
+    calls?: CallUncheckedCreateNestedManyWithoutOrganisationInput
+  }
+
+  export type OrganisationCreateOrConnectWithoutUsage_eventsInput = {
+    where: OrganisationWhereUniqueInput
+    create: XOR<OrganisationCreateWithoutUsage_eventsInput, OrganisationUncheckedCreateWithoutUsage_eventsInput>
+  }
+
   export type UserCreateWithoutUsage_eventsInput = {
     id?: string
     email: string
@@ -25142,6 +32508,8 @@ export namespace Prisma {
     assistant_agents?: AssistantAgentCreateNestedManyWithoutUserInput
     practice_agents?: PracticeAgentCreateNestedManyWithoutUserInput
     calls?: CallCreateNestedManyWithoutUserInput
+    memberships?: MembershipCreateNestedManyWithoutUserInput
+    invitations_sent?: InvitationCreateNestedManyWithoutInvited_byInput
   }
 
   export type UserUncheckedCreateWithoutUsage_eventsInput = {
@@ -25162,11 +32530,50 @@ export namespace Prisma {
     assistant_agents?: AssistantAgentUncheckedCreateNestedManyWithoutUserInput
     practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutUserInput
     calls?: CallUncheckedCreateNestedManyWithoutUserInput
+    memberships?: MembershipUncheckedCreateNestedManyWithoutUserInput
+    invitations_sent?: InvitationUncheckedCreateNestedManyWithoutInvited_byInput
   }
 
   export type UserCreateOrConnectWithoutUsage_eventsInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutUsage_eventsInput, UserUncheckedCreateWithoutUsage_eventsInput>
+  }
+
+  export type OrganisationUpsertWithoutUsage_eventsInput = {
+    update: XOR<OrganisationUpdateWithoutUsage_eventsInput, OrganisationUncheckedUpdateWithoutUsage_eventsInput>
+    create: XOR<OrganisationCreateWithoutUsage_eventsInput, OrganisationUncheckedCreateWithoutUsage_eventsInput>
+    where?: OrganisationWhereInput
+  }
+
+  export type OrganisationUpdateToOneWithWhereWithoutUsage_eventsInput = {
+    where?: OrganisationWhereInput
+    data: XOR<OrganisationUpdateWithoutUsage_eventsInput, OrganisationUncheckedUpdateWithoutUsage_eventsInput>
+  }
+
+  export type OrganisationUpdateWithoutUsage_eventsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    memberships?: MembershipUpdateManyWithoutOrganisationNestedInput
+    role_permissions?: RolePermissionUpdateManyWithoutOrganisationNestedInput
+    invitations?: InvitationUpdateManyWithoutOrganisationNestedInput
+    assistant_agents?: AssistantAgentUpdateManyWithoutOrganisationNestedInput
+    practice_agents?: PracticeAgentUpdateManyWithoutOrganisationNestedInput
+    calls?: CallUpdateManyWithoutOrganisationNestedInput
+  }
+
+  export type OrganisationUncheckedUpdateWithoutUsage_eventsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    memberships?: MembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+    role_permissions?: RolePermissionUncheckedUpdateManyWithoutOrganisationNestedInput
+    invitations?: InvitationUncheckedUpdateManyWithoutOrganisationNestedInput
+    assistant_agents?: AssistantAgentUncheckedUpdateManyWithoutOrganisationNestedInput
+    practice_agents?: PracticeAgentUncheckedUpdateManyWithoutOrganisationNestedInput
+    calls?: CallUncheckedUpdateManyWithoutOrganisationNestedInput
   }
 
   export type UserUpsertWithoutUsage_eventsInput = {
@@ -25198,6 +32605,8 @@ export namespace Prisma {
     assistant_agents?: AssistantAgentUpdateManyWithoutUserNestedInput
     practice_agents?: PracticeAgentUpdateManyWithoutUserNestedInput
     calls?: CallUpdateManyWithoutUserNestedInput
+    memberships?: MembershipUpdateManyWithoutUserNestedInput
+    invitations_sent?: InvitationUpdateManyWithoutInvited_byNestedInput
   }
 
   export type UserUncheckedUpdateWithoutUsage_eventsInput = {
@@ -25218,17 +32627,103 @@ export namespace Prisma {
     assistant_agents?: AssistantAgentUncheckedUpdateManyWithoutUserNestedInput
     practice_agents?: PracticeAgentUncheckedUpdateManyWithoutUserNestedInput
     calls?: CallUncheckedUpdateManyWithoutUserNestedInput
+    memberships?: MembershipUncheckedUpdateManyWithoutUserNestedInput
+    invitations_sent?: InvitationUncheckedUpdateManyWithoutInvited_byNestedInput
   }
 
-  export type PasswordResetTokenCreateManyUserInput = {
+  export type MembershipCreateWithoutOrganisationInput = {
     id?: string
+    role?: $Enums.OrgRole
+    created_at?: Date | string
+    updated_at?: Date | string
+    user: UserCreateNestedOneWithoutMembershipsInput
+  }
+
+  export type MembershipUncheckedCreateWithoutOrganisationInput = {
+    id?: string
+    user_id: string
+    role?: $Enums.OrgRole
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type MembershipCreateOrConnectWithoutOrganisationInput = {
+    where: MembershipWhereUniqueInput
+    create: XOR<MembershipCreateWithoutOrganisationInput, MembershipUncheckedCreateWithoutOrganisationInput>
+  }
+
+  export type MembershipCreateManyOrganisationInputEnvelope = {
+    data: MembershipCreateManyOrganisationInput | MembershipCreateManyOrganisationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type RolePermissionCreateWithoutOrganisationInput = {
+    id?: string
+    role: $Enums.OrgRole
+    permissions?: RolePermissionCreatepermissionsInput | string[]
+    updated_at?: Date | string
+  }
+
+  export type RolePermissionUncheckedCreateWithoutOrganisationInput = {
+    id?: string
+    role: $Enums.OrgRole
+    permissions?: RolePermissionCreatepermissionsInput | string[]
+    updated_at?: Date | string
+  }
+
+  export type RolePermissionCreateOrConnectWithoutOrganisationInput = {
+    where: RolePermissionWhereUniqueInput
+    create: XOR<RolePermissionCreateWithoutOrganisationInput, RolePermissionUncheckedCreateWithoutOrganisationInput>
+  }
+
+  export type RolePermissionCreateManyOrganisationInputEnvelope = {
+    data: RolePermissionCreateManyOrganisationInput | RolePermissionCreateManyOrganisationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type InvitationCreateWithoutOrganisationInput = {
+    id?: string
+    email: string
+    role?: $Enums.OrgRole
     token_hash: string
+    status?: $Enums.InvitationStatus
     expires_at: Date | string
-    used_at?: Date | string | null
+    last_sent_at?: Date | string
+    send_count?: number
+    accepted_at?: Date | string | null
+    accepted_by_id?: string | null
+    revoked_at?: Date | string | null
+    created_at?: Date | string
+    invited_by?: UserCreateNestedOneWithoutInvitations_sentInput
+  }
+
+  export type InvitationUncheckedCreateWithoutOrganisationInput = {
+    id?: string
+    email: string
+    role?: $Enums.OrgRole
+    token_hash: string
+    status?: $Enums.InvitationStatus
+    invited_by_id?: string | null
+    expires_at: Date | string
+    last_sent_at?: Date | string
+    send_count?: number
+    accepted_at?: Date | string | null
+    accepted_by_id?: string | null
+    revoked_at?: Date | string | null
     created_at?: Date | string
   }
 
-  export type AssistantAgentCreateManyUserInput = {
+  export type InvitationCreateOrConnectWithoutOrganisationInput = {
+    where: InvitationWhereUniqueInput
+    create: XOR<InvitationCreateWithoutOrganisationInput, InvitationUncheckedCreateWithoutOrganisationInput>
+  }
+
+  export type InvitationCreateManyOrganisationInputEnvelope = {
+    data: InvitationCreateManyOrganisationInput | InvitationCreateManyOrganisationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type AssistantAgentCreateWithoutOrganisationInput = {
     id?: string
     name: string
     description?: string | null
@@ -25239,6 +32734,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: string | null
     language?: string
+    languages?: AssistantAgentCreatelanguagesInput | string[]
     tone?: string
     suggestion_frequency?: $Enums.SuggestionFrequency
     suggestion_length?: $Enums.SuggestionLength
@@ -25253,10 +32749,100 @@ export namespace Prisma {
     archived_at?: Date | string | null
     created_at?: Date | string
     updated_at?: Date | string
+    user?: UserCreateNestedOneWithoutAssistant_agentsInput
+    calls?: CallCreateNestedManyWithoutAssistant_agentInput
+    practice_agents?: PracticeAgentCreateNestedManyWithoutLinked_assistant_agentInput
   }
 
-  export type PracticeAgentCreateManyUserInput = {
+  export type AssistantAgentUncheckedCreateWithoutOrganisationInput = {
     id?: string
+    user_id?: string | null
+    name: string
+    description?: string | null
+    call_goal?: string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: string | null
+    knowledge?: string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: string | null
+    language?: string
+    languages?: AssistantAgentCreatelanguagesInput | string[]
+    tone?: string
+    suggestion_frequency?: $Enums.SuggestionFrequency
+    suggestion_length?: $Enums.SuggestionLength
+    alternatives_count?: number
+    realtime_model: string
+    analysis_model: string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: string | null
+    suggest_consent_line?: boolean
+    template_key?: string | null
+    is_default?: boolean
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    calls?: CallUncheckedCreateNestedManyWithoutAssistant_agentInput
+    practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutLinked_assistant_agentInput
+  }
+
+  export type AssistantAgentCreateOrConnectWithoutOrganisationInput = {
+    where: AssistantAgentWhereUniqueInput
+    create: XOR<AssistantAgentCreateWithoutOrganisationInput, AssistantAgentUncheckedCreateWithoutOrganisationInput>
+  }
+
+  export type AssistantAgentCreateManyOrganisationInputEnvelope = {
+    data: AssistantAgentCreateManyOrganisationInput | AssistantAgentCreateManyOrganisationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PracticeAgentCreateWithoutOrganisationInput = {
+    id?: string
+    name: string
+    prospect_name?: string | null
+    role_prompt: string
+    scenario_context?: string | null
+    scenario_type?: string
+    selling_product?: string | null
+    user_objective?: string | null
+    lead_temperature?: $Enums.LeadTemperature
+    difficulty?: number
+    personality?: string | null
+    mood?: string | null
+    communication_style?: string | null
+    decision_authority?: string | null
+    budget?: string | null
+    timeline?: string | null
+    current_solution?: string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: number
+    language?: string
+    languages?: PracticeAgentCreatelanguagesInput | string[]
+    accent?: string | null
+    industry?: string | null
+    company?: string | null
+    job_title?: string | null
+    age_range?: string | null
+    background_story?: string | null
+    briefing?: string | null
+    voice_provider?: $Enums.VoiceProvider
+    voice?: string
+    time_limit_minutes?: number | null
+    source_call_id?: string | null
+    template_key?: string | null
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    user?: UserCreateNestedOneWithoutPractice_agentsInput
+    linked_assistant_agent?: AssistantAgentCreateNestedOneWithoutPractice_agentsInput
+    calls?: CallCreateNestedManyWithoutPractice_agentInput
+  }
+
+  export type PracticeAgentUncheckedCreateWithoutOrganisationInput = {
+    id?: string
+    user_id?: string | null
     name: string
     prospect_name?: string | null
     role_prompt: string
@@ -25280,6 +32866,762 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: number
     language?: string
+    languages?: PracticeAgentCreatelanguagesInput | string[]
+    accent?: string | null
+    industry?: string | null
+    company?: string | null
+    job_title?: string | null
+    age_range?: string | null
+    background_story?: string | null
+    briefing?: string | null
+    voice_provider?: $Enums.VoiceProvider
+    voice?: string
+    time_limit_minutes?: number | null
+    source_call_id?: string | null
+    template_key?: string | null
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+    calls?: CallUncheckedCreateNestedManyWithoutPractice_agentInput
+  }
+
+  export type PracticeAgentCreateOrConnectWithoutOrganisationInput = {
+    where: PracticeAgentWhereUniqueInput
+    create: XOR<PracticeAgentCreateWithoutOrganisationInput, PracticeAgentUncheckedCreateWithoutOrganisationInput>
+  }
+
+  export type PracticeAgentCreateManyOrganisationInputEnvelope = {
+    data: PracticeAgentCreateManyOrganisationInput | PracticeAgentCreateManyOrganisationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CallCreateWithoutOrganisationInput = {
+    id?: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+    user: UserCreateNestedOneWithoutCallsInput
+    assistant_agent?: AssistantAgentCreateNestedOneWithoutCallsInput
+    practice_agent?: PracticeAgentCreateNestedOneWithoutCallsInput
+    segments?: TranscriptSegmentCreateNestedManyWithoutCallInput
+    suggestions?: SuggestionCreateNestedManyWithoutCallInput
+    bookmarks?: BookmarkCreateNestedManyWithoutCallInput
+    analysis?: CallAnalysisCreateNestedOneWithoutCallInput
+  }
+
+  export type CallUncheckedCreateWithoutOrganisationInput = {
+    id?: string
+    user_id: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    assistant_agent_id?: string | null
+    practice_agent_id?: string | null
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+    segments?: TranscriptSegmentUncheckedCreateNestedManyWithoutCallInput
+    suggestions?: SuggestionUncheckedCreateNestedManyWithoutCallInput
+    bookmarks?: BookmarkUncheckedCreateNestedManyWithoutCallInput
+    analysis?: CallAnalysisUncheckedCreateNestedOneWithoutCallInput
+  }
+
+  export type CallCreateOrConnectWithoutOrganisationInput = {
+    where: CallWhereUniqueInput
+    create: XOR<CallCreateWithoutOrganisationInput, CallUncheckedCreateWithoutOrganisationInput>
+  }
+
+  export type CallCreateManyOrganisationInputEnvelope = {
+    data: CallCreateManyOrganisationInput | CallCreateManyOrganisationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UsageEventCreateWithoutOrganisationInput = {
+    id?: string
+    call_id?: string | null
+    kind: $Enums.UsageKind
+    model?: string | null
+    input_tokens?: number
+    output_tokens?: number
+    audio_seconds?: number
+    cost_usd?: number
+    created_at?: Date | string
+    user: UserCreateNestedOneWithoutUsage_eventsInput
+  }
+
+  export type UsageEventUncheckedCreateWithoutOrganisationInput = {
+    id?: string
+    user_id: string
+    call_id?: string | null
+    kind: $Enums.UsageKind
+    model?: string | null
+    input_tokens?: number
+    output_tokens?: number
+    audio_seconds?: number
+    cost_usd?: number
+    created_at?: Date | string
+  }
+
+  export type UsageEventCreateOrConnectWithoutOrganisationInput = {
+    where: UsageEventWhereUniqueInput
+    create: XOR<UsageEventCreateWithoutOrganisationInput, UsageEventUncheckedCreateWithoutOrganisationInput>
+  }
+
+  export type UsageEventCreateManyOrganisationInputEnvelope = {
+    data: UsageEventCreateManyOrganisationInput | UsageEventCreateManyOrganisationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type MembershipUpsertWithWhereUniqueWithoutOrganisationInput = {
+    where: MembershipWhereUniqueInput
+    update: XOR<MembershipUpdateWithoutOrganisationInput, MembershipUncheckedUpdateWithoutOrganisationInput>
+    create: XOR<MembershipCreateWithoutOrganisationInput, MembershipUncheckedCreateWithoutOrganisationInput>
+  }
+
+  export type MembershipUpdateWithWhereUniqueWithoutOrganisationInput = {
+    where: MembershipWhereUniqueInput
+    data: XOR<MembershipUpdateWithoutOrganisationInput, MembershipUncheckedUpdateWithoutOrganisationInput>
+  }
+
+  export type MembershipUpdateManyWithWhereWithoutOrganisationInput = {
+    where: MembershipScalarWhereInput
+    data: XOR<MembershipUpdateManyMutationInput, MembershipUncheckedUpdateManyWithoutOrganisationInput>
+  }
+
+  export type RolePermissionUpsertWithWhereUniqueWithoutOrganisationInput = {
+    where: RolePermissionWhereUniqueInput
+    update: XOR<RolePermissionUpdateWithoutOrganisationInput, RolePermissionUncheckedUpdateWithoutOrganisationInput>
+    create: XOR<RolePermissionCreateWithoutOrganisationInput, RolePermissionUncheckedCreateWithoutOrganisationInput>
+  }
+
+  export type RolePermissionUpdateWithWhereUniqueWithoutOrganisationInput = {
+    where: RolePermissionWhereUniqueInput
+    data: XOR<RolePermissionUpdateWithoutOrganisationInput, RolePermissionUncheckedUpdateWithoutOrganisationInput>
+  }
+
+  export type RolePermissionUpdateManyWithWhereWithoutOrganisationInput = {
+    where: RolePermissionScalarWhereInput
+    data: XOR<RolePermissionUpdateManyMutationInput, RolePermissionUncheckedUpdateManyWithoutOrganisationInput>
+  }
+
+  export type RolePermissionScalarWhereInput = {
+    AND?: RolePermissionScalarWhereInput | RolePermissionScalarWhereInput[]
+    OR?: RolePermissionScalarWhereInput[]
+    NOT?: RolePermissionScalarWhereInput | RolePermissionScalarWhereInput[]
+    id?: StringFilter<"RolePermission"> | string
+    organisation_id?: StringFilter<"RolePermission"> | string
+    role?: EnumOrgRoleFilter<"RolePermission"> | $Enums.OrgRole
+    permissions?: StringNullableListFilter<"RolePermission">
+    updated_at?: DateTimeFilter<"RolePermission"> | Date | string
+  }
+
+  export type InvitationUpsertWithWhereUniqueWithoutOrganisationInput = {
+    where: InvitationWhereUniqueInput
+    update: XOR<InvitationUpdateWithoutOrganisationInput, InvitationUncheckedUpdateWithoutOrganisationInput>
+    create: XOR<InvitationCreateWithoutOrganisationInput, InvitationUncheckedCreateWithoutOrganisationInput>
+  }
+
+  export type InvitationUpdateWithWhereUniqueWithoutOrganisationInput = {
+    where: InvitationWhereUniqueInput
+    data: XOR<InvitationUpdateWithoutOrganisationInput, InvitationUncheckedUpdateWithoutOrganisationInput>
+  }
+
+  export type InvitationUpdateManyWithWhereWithoutOrganisationInput = {
+    where: InvitationScalarWhereInput
+    data: XOR<InvitationUpdateManyMutationInput, InvitationUncheckedUpdateManyWithoutOrganisationInput>
+  }
+
+  export type AssistantAgentUpsertWithWhereUniqueWithoutOrganisationInput = {
+    where: AssistantAgentWhereUniqueInput
+    update: XOR<AssistantAgentUpdateWithoutOrganisationInput, AssistantAgentUncheckedUpdateWithoutOrganisationInput>
+    create: XOR<AssistantAgentCreateWithoutOrganisationInput, AssistantAgentUncheckedCreateWithoutOrganisationInput>
+  }
+
+  export type AssistantAgentUpdateWithWhereUniqueWithoutOrganisationInput = {
+    where: AssistantAgentWhereUniqueInput
+    data: XOR<AssistantAgentUpdateWithoutOrganisationInput, AssistantAgentUncheckedUpdateWithoutOrganisationInput>
+  }
+
+  export type AssistantAgentUpdateManyWithWhereWithoutOrganisationInput = {
+    where: AssistantAgentScalarWhereInput
+    data: XOR<AssistantAgentUpdateManyMutationInput, AssistantAgentUncheckedUpdateManyWithoutOrganisationInput>
+  }
+
+  export type PracticeAgentUpsertWithWhereUniqueWithoutOrganisationInput = {
+    where: PracticeAgentWhereUniqueInput
+    update: XOR<PracticeAgentUpdateWithoutOrganisationInput, PracticeAgentUncheckedUpdateWithoutOrganisationInput>
+    create: XOR<PracticeAgentCreateWithoutOrganisationInput, PracticeAgentUncheckedCreateWithoutOrganisationInput>
+  }
+
+  export type PracticeAgentUpdateWithWhereUniqueWithoutOrganisationInput = {
+    where: PracticeAgentWhereUniqueInput
+    data: XOR<PracticeAgentUpdateWithoutOrganisationInput, PracticeAgentUncheckedUpdateWithoutOrganisationInput>
+  }
+
+  export type PracticeAgentUpdateManyWithWhereWithoutOrganisationInput = {
+    where: PracticeAgentScalarWhereInput
+    data: XOR<PracticeAgentUpdateManyMutationInput, PracticeAgentUncheckedUpdateManyWithoutOrganisationInput>
+  }
+
+  export type CallUpsertWithWhereUniqueWithoutOrganisationInput = {
+    where: CallWhereUniqueInput
+    update: XOR<CallUpdateWithoutOrganisationInput, CallUncheckedUpdateWithoutOrganisationInput>
+    create: XOR<CallCreateWithoutOrganisationInput, CallUncheckedCreateWithoutOrganisationInput>
+  }
+
+  export type CallUpdateWithWhereUniqueWithoutOrganisationInput = {
+    where: CallWhereUniqueInput
+    data: XOR<CallUpdateWithoutOrganisationInput, CallUncheckedUpdateWithoutOrganisationInput>
+  }
+
+  export type CallUpdateManyWithWhereWithoutOrganisationInput = {
+    where: CallScalarWhereInput
+    data: XOR<CallUpdateManyMutationInput, CallUncheckedUpdateManyWithoutOrganisationInput>
+  }
+
+  export type UsageEventUpsertWithWhereUniqueWithoutOrganisationInput = {
+    where: UsageEventWhereUniqueInput
+    update: XOR<UsageEventUpdateWithoutOrganisationInput, UsageEventUncheckedUpdateWithoutOrganisationInput>
+    create: XOR<UsageEventCreateWithoutOrganisationInput, UsageEventUncheckedCreateWithoutOrganisationInput>
+  }
+
+  export type UsageEventUpdateWithWhereUniqueWithoutOrganisationInput = {
+    where: UsageEventWhereUniqueInput
+    data: XOR<UsageEventUpdateWithoutOrganisationInput, UsageEventUncheckedUpdateWithoutOrganisationInput>
+  }
+
+  export type UsageEventUpdateManyWithWhereWithoutOrganisationInput = {
+    where: UsageEventScalarWhereInput
+    data: XOR<UsageEventUpdateManyMutationInput, UsageEventUncheckedUpdateManyWithoutOrganisationInput>
+  }
+
+  export type OrganisationCreateWithoutMembershipsInput = {
+    id?: string
+    name: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    role_permissions?: RolePermissionCreateNestedManyWithoutOrganisationInput
+    invitations?: InvitationCreateNestedManyWithoutOrganisationInput
+    assistant_agents?: AssistantAgentCreateNestedManyWithoutOrganisationInput
+    practice_agents?: PracticeAgentCreateNestedManyWithoutOrganisationInput
+    calls?: CallCreateNestedManyWithoutOrganisationInput
+    usage_events?: UsageEventCreateNestedManyWithoutOrganisationInput
+  }
+
+  export type OrganisationUncheckedCreateWithoutMembershipsInput = {
+    id?: string
+    name: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    role_permissions?: RolePermissionUncheckedCreateNestedManyWithoutOrganisationInput
+    invitations?: InvitationUncheckedCreateNestedManyWithoutOrganisationInput
+    assistant_agents?: AssistantAgentUncheckedCreateNestedManyWithoutOrganisationInput
+    practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutOrganisationInput
+    calls?: CallUncheckedCreateNestedManyWithoutOrganisationInput
+    usage_events?: UsageEventUncheckedCreateNestedManyWithoutOrganisationInput
+  }
+
+  export type OrganisationCreateOrConnectWithoutMembershipsInput = {
+    where: OrganisationWhereUniqueInput
+    create: XOR<OrganisationCreateWithoutMembershipsInput, OrganisationUncheckedCreateWithoutMembershipsInput>
+  }
+
+  export type UserCreateWithoutMembershipsInput = {
+    id?: string
+    email: string
+    phone?: string | null
+    password: string
+    full_name?: string | null
+    role: $Enums.AuthRole
+    created_at?: Date | string
+    updated_at?: Date | string
+    interface_language?: string
+    output_language_mode?: $Enums.OutputLanguageMode
+    consent_line?: string | null
+    keep_recordings?: boolean
+    consent_acknowledged_at?: Date | string | null
+    password_reset_tokens?: PasswordResetTokenCreateNestedManyWithoutUserInput
+    assistant_agents?: AssistantAgentCreateNestedManyWithoutUserInput
+    practice_agents?: PracticeAgentCreateNestedManyWithoutUserInput
+    calls?: CallCreateNestedManyWithoutUserInput
+    usage_events?: UsageEventCreateNestedManyWithoutUserInput
+    invitations_sent?: InvitationCreateNestedManyWithoutInvited_byInput
+  }
+
+  export type UserUncheckedCreateWithoutMembershipsInput = {
+    id?: string
+    email: string
+    phone?: string | null
+    password: string
+    full_name?: string | null
+    role: $Enums.AuthRole
+    created_at?: Date | string
+    updated_at?: Date | string
+    interface_language?: string
+    output_language_mode?: $Enums.OutputLanguageMode
+    consent_line?: string | null
+    keep_recordings?: boolean
+    consent_acknowledged_at?: Date | string | null
+    password_reset_tokens?: PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+    assistant_agents?: AssistantAgentUncheckedCreateNestedManyWithoutUserInput
+    practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutUserInput
+    calls?: CallUncheckedCreateNestedManyWithoutUserInput
+    usage_events?: UsageEventUncheckedCreateNestedManyWithoutUserInput
+    invitations_sent?: InvitationUncheckedCreateNestedManyWithoutInvited_byInput
+  }
+
+  export type UserCreateOrConnectWithoutMembershipsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutMembershipsInput, UserUncheckedCreateWithoutMembershipsInput>
+  }
+
+  export type OrganisationUpsertWithoutMembershipsInput = {
+    update: XOR<OrganisationUpdateWithoutMembershipsInput, OrganisationUncheckedUpdateWithoutMembershipsInput>
+    create: XOR<OrganisationCreateWithoutMembershipsInput, OrganisationUncheckedCreateWithoutMembershipsInput>
+    where?: OrganisationWhereInput
+  }
+
+  export type OrganisationUpdateToOneWithWhereWithoutMembershipsInput = {
+    where?: OrganisationWhereInput
+    data: XOR<OrganisationUpdateWithoutMembershipsInput, OrganisationUncheckedUpdateWithoutMembershipsInput>
+  }
+
+  export type OrganisationUpdateWithoutMembershipsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    role_permissions?: RolePermissionUpdateManyWithoutOrganisationNestedInput
+    invitations?: InvitationUpdateManyWithoutOrganisationNestedInput
+    assistant_agents?: AssistantAgentUpdateManyWithoutOrganisationNestedInput
+    practice_agents?: PracticeAgentUpdateManyWithoutOrganisationNestedInput
+    calls?: CallUpdateManyWithoutOrganisationNestedInput
+    usage_events?: UsageEventUpdateManyWithoutOrganisationNestedInput
+  }
+
+  export type OrganisationUncheckedUpdateWithoutMembershipsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    role_permissions?: RolePermissionUncheckedUpdateManyWithoutOrganisationNestedInput
+    invitations?: InvitationUncheckedUpdateManyWithoutOrganisationNestedInput
+    assistant_agents?: AssistantAgentUncheckedUpdateManyWithoutOrganisationNestedInput
+    practice_agents?: PracticeAgentUncheckedUpdateManyWithoutOrganisationNestedInput
+    calls?: CallUncheckedUpdateManyWithoutOrganisationNestedInput
+    usage_events?: UsageEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  }
+
+  export type UserUpsertWithoutMembershipsInput = {
+    update: XOR<UserUpdateWithoutMembershipsInput, UserUncheckedUpdateWithoutMembershipsInput>
+    create: XOR<UserCreateWithoutMembershipsInput, UserUncheckedCreateWithoutMembershipsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutMembershipsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutMembershipsInput, UserUncheckedUpdateWithoutMembershipsInput>
+  }
+
+  export type UserUpdateWithoutMembershipsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumAuthRoleFieldUpdateOperationsInput | $Enums.AuthRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    interface_language?: StringFieldUpdateOperationsInput | string
+    output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    keep_recordings?: BoolFieldUpdateOperationsInput | boolean
+    consent_acknowledged_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password_reset_tokens?: PasswordResetTokenUpdateManyWithoutUserNestedInput
+    assistant_agents?: AssistantAgentUpdateManyWithoutUserNestedInput
+    practice_agents?: PracticeAgentUpdateManyWithoutUserNestedInput
+    calls?: CallUpdateManyWithoutUserNestedInput
+    usage_events?: UsageEventUpdateManyWithoutUserNestedInput
+    invitations_sent?: InvitationUpdateManyWithoutInvited_byNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutMembershipsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumAuthRoleFieldUpdateOperationsInput | $Enums.AuthRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    interface_language?: StringFieldUpdateOperationsInput | string
+    output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    keep_recordings?: BoolFieldUpdateOperationsInput | boolean
+    consent_acknowledged_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password_reset_tokens?: PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+    assistant_agents?: AssistantAgentUncheckedUpdateManyWithoutUserNestedInput
+    practice_agents?: PracticeAgentUncheckedUpdateManyWithoutUserNestedInput
+    calls?: CallUncheckedUpdateManyWithoutUserNestedInput
+    usage_events?: UsageEventUncheckedUpdateManyWithoutUserNestedInput
+    invitations_sent?: InvitationUncheckedUpdateManyWithoutInvited_byNestedInput
+  }
+
+  export type OrganisationCreateWithoutRole_permissionsInput = {
+    id?: string
+    name: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    memberships?: MembershipCreateNestedManyWithoutOrganisationInput
+    invitations?: InvitationCreateNestedManyWithoutOrganisationInput
+    assistant_agents?: AssistantAgentCreateNestedManyWithoutOrganisationInput
+    practice_agents?: PracticeAgentCreateNestedManyWithoutOrganisationInput
+    calls?: CallCreateNestedManyWithoutOrganisationInput
+    usage_events?: UsageEventCreateNestedManyWithoutOrganisationInput
+  }
+
+  export type OrganisationUncheckedCreateWithoutRole_permissionsInput = {
+    id?: string
+    name: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    memberships?: MembershipUncheckedCreateNestedManyWithoutOrganisationInput
+    invitations?: InvitationUncheckedCreateNestedManyWithoutOrganisationInput
+    assistant_agents?: AssistantAgentUncheckedCreateNestedManyWithoutOrganisationInput
+    practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutOrganisationInput
+    calls?: CallUncheckedCreateNestedManyWithoutOrganisationInput
+    usage_events?: UsageEventUncheckedCreateNestedManyWithoutOrganisationInput
+  }
+
+  export type OrganisationCreateOrConnectWithoutRole_permissionsInput = {
+    where: OrganisationWhereUniqueInput
+    create: XOR<OrganisationCreateWithoutRole_permissionsInput, OrganisationUncheckedCreateWithoutRole_permissionsInput>
+  }
+
+  export type OrganisationUpsertWithoutRole_permissionsInput = {
+    update: XOR<OrganisationUpdateWithoutRole_permissionsInput, OrganisationUncheckedUpdateWithoutRole_permissionsInput>
+    create: XOR<OrganisationCreateWithoutRole_permissionsInput, OrganisationUncheckedCreateWithoutRole_permissionsInput>
+    where?: OrganisationWhereInput
+  }
+
+  export type OrganisationUpdateToOneWithWhereWithoutRole_permissionsInput = {
+    where?: OrganisationWhereInput
+    data: XOR<OrganisationUpdateWithoutRole_permissionsInput, OrganisationUncheckedUpdateWithoutRole_permissionsInput>
+  }
+
+  export type OrganisationUpdateWithoutRole_permissionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    memberships?: MembershipUpdateManyWithoutOrganisationNestedInput
+    invitations?: InvitationUpdateManyWithoutOrganisationNestedInput
+    assistant_agents?: AssistantAgentUpdateManyWithoutOrganisationNestedInput
+    practice_agents?: PracticeAgentUpdateManyWithoutOrganisationNestedInput
+    calls?: CallUpdateManyWithoutOrganisationNestedInput
+    usage_events?: UsageEventUpdateManyWithoutOrganisationNestedInput
+  }
+
+  export type OrganisationUncheckedUpdateWithoutRole_permissionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    memberships?: MembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+    invitations?: InvitationUncheckedUpdateManyWithoutOrganisationNestedInput
+    assistant_agents?: AssistantAgentUncheckedUpdateManyWithoutOrganisationNestedInput
+    practice_agents?: PracticeAgentUncheckedUpdateManyWithoutOrganisationNestedInput
+    calls?: CallUncheckedUpdateManyWithoutOrganisationNestedInput
+    usage_events?: UsageEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  }
+
+  export type OrganisationCreateWithoutInvitationsInput = {
+    id?: string
+    name: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    memberships?: MembershipCreateNestedManyWithoutOrganisationInput
+    role_permissions?: RolePermissionCreateNestedManyWithoutOrganisationInput
+    assistant_agents?: AssistantAgentCreateNestedManyWithoutOrganisationInput
+    practice_agents?: PracticeAgentCreateNestedManyWithoutOrganisationInput
+    calls?: CallCreateNestedManyWithoutOrganisationInput
+    usage_events?: UsageEventCreateNestedManyWithoutOrganisationInput
+  }
+
+  export type OrganisationUncheckedCreateWithoutInvitationsInput = {
+    id?: string
+    name: string
+    created_at?: Date | string
+    updated_at?: Date | string
+    memberships?: MembershipUncheckedCreateNestedManyWithoutOrganisationInput
+    role_permissions?: RolePermissionUncheckedCreateNestedManyWithoutOrganisationInput
+    assistant_agents?: AssistantAgentUncheckedCreateNestedManyWithoutOrganisationInput
+    practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutOrganisationInput
+    calls?: CallUncheckedCreateNestedManyWithoutOrganisationInput
+    usage_events?: UsageEventUncheckedCreateNestedManyWithoutOrganisationInput
+  }
+
+  export type OrganisationCreateOrConnectWithoutInvitationsInput = {
+    where: OrganisationWhereUniqueInput
+    create: XOR<OrganisationCreateWithoutInvitationsInput, OrganisationUncheckedCreateWithoutInvitationsInput>
+  }
+
+  export type UserCreateWithoutInvitations_sentInput = {
+    id?: string
+    email: string
+    phone?: string | null
+    password: string
+    full_name?: string | null
+    role: $Enums.AuthRole
+    created_at?: Date | string
+    updated_at?: Date | string
+    interface_language?: string
+    output_language_mode?: $Enums.OutputLanguageMode
+    consent_line?: string | null
+    keep_recordings?: boolean
+    consent_acknowledged_at?: Date | string | null
+    password_reset_tokens?: PasswordResetTokenCreateNestedManyWithoutUserInput
+    assistant_agents?: AssistantAgentCreateNestedManyWithoutUserInput
+    practice_agents?: PracticeAgentCreateNestedManyWithoutUserInput
+    calls?: CallCreateNestedManyWithoutUserInput
+    usage_events?: UsageEventCreateNestedManyWithoutUserInput
+    memberships?: MembershipCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutInvitations_sentInput = {
+    id?: string
+    email: string
+    phone?: string | null
+    password: string
+    full_name?: string | null
+    role: $Enums.AuthRole
+    created_at?: Date | string
+    updated_at?: Date | string
+    interface_language?: string
+    output_language_mode?: $Enums.OutputLanguageMode
+    consent_line?: string | null
+    keep_recordings?: boolean
+    consent_acknowledged_at?: Date | string | null
+    password_reset_tokens?: PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput
+    assistant_agents?: AssistantAgentUncheckedCreateNestedManyWithoutUserInput
+    practice_agents?: PracticeAgentUncheckedCreateNestedManyWithoutUserInput
+    calls?: CallUncheckedCreateNestedManyWithoutUserInput
+    usage_events?: UsageEventUncheckedCreateNestedManyWithoutUserInput
+    memberships?: MembershipUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutInvitations_sentInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutInvitations_sentInput, UserUncheckedCreateWithoutInvitations_sentInput>
+  }
+
+  export type OrganisationUpsertWithoutInvitationsInput = {
+    update: XOR<OrganisationUpdateWithoutInvitationsInput, OrganisationUncheckedUpdateWithoutInvitationsInput>
+    create: XOR<OrganisationCreateWithoutInvitationsInput, OrganisationUncheckedCreateWithoutInvitationsInput>
+    where?: OrganisationWhereInput
+  }
+
+  export type OrganisationUpdateToOneWithWhereWithoutInvitationsInput = {
+    where?: OrganisationWhereInput
+    data: XOR<OrganisationUpdateWithoutInvitationsInput, OrganisationUncheckedUpdateWithoutInvitationsInput>
+  }
+
+  export type OrganisationUpdateWithoutInvitationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    memberships?: MembershipUpdateManyWithoutOrganisationNestedInput
+    role_permissions?: RolePermissionUpdateManyWithoutOrganisationNestedInput
+    assistant_agents?: AssistantAgentUpdateManyWithoutOrganisationNestedInput
+    practice_agents?: PracticeAgentUpdateManyWithoutOrganisationNestedInput
+    calls?: CallUpdateManyWithoutOrganisationNestedInput
+    usage_events?: UsageEventUpdateManyWithoutOrganisationNestedInput
+  }
+
+  export type OrganisationUncheckedUpdateWithoutInvitationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    memberships?: MembershipUncheckedUpdateManyWithoutOrganisationNestedInput
+    role_permissions?: RolePermissionUncheckedUpdateManyWithoutOrganisationNestedInput
+    assistant_agents?: AssistantAgentUncheckedUpdateManyWithoutOrganisationNestedInput
+    practice_agents?: PracticeAgentUncheckedUpdateManyWithoutOrganisationNestedInput
+    calls?: CallUncheckedUpdateManyWithoutOrganisationNestedInput
+    usage_events?: UsageEventUncheckedUpdateManyWithoutOrganisationNestedInput
+  }
+
+  export type UserUpsertWithoutInvitations_sentInput = {
+    update: XOR<UserUpdateWithoutInvitations_sentInput, UserUncheckedUpdateWithoutInvitations_sentInput>
+    create: XOR<UserCreateWithoutInvitations_sentInput, UserUncheckedCreateWithoutInvitations_sentInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutInvitations_sentInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutInvitations_sentInput, UserUncheckedUpdateWithoutInvitations_sentInput>
+  }
+
+  export type UserUpdateWithoutInvitations_sentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumAuthRoleFieldUpdateOperationsInput | $Enums.AuthRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    interface_language?: StringFieldUpdateOperationsInput | string
+    output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    keep_recordings?: BoolFieldUpdateOperationsInput | boolean
+    consent_acknowledged_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password_reset_tokens?: PasswordResetTokenUpdateManyWithoutUserNestedInput
+    assistant_agents?: AssistantAgentUpdateManyWithoutUserNestedInput
+    practice_agents?: PracticeAgentUpdateManyWithoutUserNestedInput
+    calls?: CallUpdateManyWithoutUserNestedInput
+    usage_events?: UsageEventUpdateManyWithoutUserNestedInput
+    memberships?: MembershipUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutInvitations_sentInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    password?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumAuthRoleFieldUpdateOperationsInput | $Enums.AuthRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    interface_language?: StringFieldUpdateOperationsInput | string
+    output_language_mode?: EnumOutputLanguageModeFieldUpdateOperationsInput | $Enums.OutputLanguageMode
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    keep_recordings?: BoolFieldUpdateOperationsInput | boolean
+    consent_acknowledged_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password_reset_tokens?: PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput
+    assistant_agents?: AssistantAgentUncheckedUpdateManyWithoutUserNestedInput
+    practice_agents?: PracticeAgentUncheckedUpdateManyWithoutUserNestedInput
+    calls?: CallUncheckedUpdateManyWithoutUserNestedInput
+    usage_events?: UsageEventUncheckedUpdateManyWithoutUserNestedInput
+    memberships?: MembershipUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type PasswordResetTokenCreateManyUserInput = {
+    id?: string
+    token_hash: string
+    expires_at: Date | string
+    used_at?: Date | string | null
+    created_at?: Date | string
+  }
+
+  export type AssistantAgentCreateManyUserInput = {
+    id?: string
+    organisation_id: string
+    name: string
+    description?: string | null
+    call_goal?: string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: string | null
+    knowledge?: string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: string | null
+    language?: string
+    languages?: AssistantAgentCreatelanguagesInput | string[]
+    tone?: string
+    suggestion_frequency?: $Enums.SuggestionFrequency
+    suggestion_length?: $Enums.SuggestionLength
+    alternatives_count?: number
+    realtime_model: string
+    analysis_model: string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: string | null
+    suggest_consent_line?: boolean
+    template_key?: string | null
+    is_default?: boolean
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type PracticeAgentCreateManyUserInput = {
+    id?: string
+    organisation_id: string
+    name: string
+    prospect_name?: string | null
+    role_prompt: string
+    scenario_context?: string | null
+    scenario_type?: string
+    selling_product?: string | null
+    linked_assistant_agent_id?: string | null
+    user_objective?: string | null
+    lead_temperature?: $Enums.LeadTemperature
+    difficulty?: number
+    personality?: string | null
+    mood?: string | null
+    communication_style?: string | null
+    decision_authority?: string | null
+    budget?: string | null
+    timeline?: string | null
+    current_solution?: string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: number
+    language?: string
+    languages?: PracticeAgentCreatelanguagesInput | string[]
     accent?: string | null
     industry?: string | null
     company?: string | null
@@ -25299,6 +33641,7 @@ export namespace Prisma {
 
   export type CallCreateManyUserInput = {
     id?: string
+    organisation_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
     status?: $Enums.CallStatus
@@ -25335,6 +33678,7 @@ export namespace Prisma {
 
   export type UsageEventCreateManyUserInput = {
     id?: string
+    organisation_id: string
     call_id?: string | null
     kind: $Enums.UsageKind
     model?: string | null
@@ -25342,6 +33686,30 @@ export namespace Prisma {
     output_tokens?: number
     audio_seconds?: number
     cost_usd?: number
+    created_at?: Date | string
+  }
+
+  export type MembershipCreateManyUserInput = {
+    id?: string
+    organisation_id: string
+    role?: $Enums.OrgRole
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type InvitationCreateManyInvited_byInput = {
+    id?: string
+    organisation_id: string
+    email: string
+    role?: $Enums.OrgRole
+    token_hash: string
+    status?: $Enums.InvitationStatus
+    expires_at: Date | string
+    last_sent_at?: Date | string
+    send_count?: number
+    accepted_at?: Date | string | null
+    accepted_by_id?: string | null
+    revoked_at?: Date | string | null
     created_at?: Date | string
   }
 
@@ -25380,6 +33748,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: NullableStringFieldUpdateOperationsInput | string | null
     language?: StringFieldUpdateOperationsInput | string
+    languages?: AssistantAgentUpdatelanguagesInput | string[]
     tone?: StringFieldUpdateOperationsInput | string
     suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
     suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
@@ -25394,12 +33763,14 @@ export namespace Prisma {
     archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    organisation?: OrganisationUpdateOneRequiredWithoutAssistant_agentsNestedInput
     calls?: CallUpdateManyWithoutAssistant_agentNestedInput
     practice_agents?: PracticeAgentUpdateManyWithoutLinked_assistant_agentNestedInput
   }
 
   export type AssistantAgentUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     call_goal?: NullableStringFieldUpdateOperationsInput | string | null
@@ -25409,6 +33780,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: NullableStringFieldUpdateOperationsInput | string | null
     language?: StringFieldUpdateOperationsInput | string
+    languages?: AssistantAgentUpdatelanguagesInput | string[]
     tone?: StringFieldUpdateOperationsInput | string
     suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
     suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
@@ -25429,6 +33801,7 @@ export namespace Prisma {
 
   export type AssistantAgentUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     call_goal?: NullableStringFieldUpdateOperationsInput | string | null
@@ -25438,6 +33811,7 @@ export namespace Prisma {
     objection_library?: JsonNullValueInput | InputJsonValue
     methodology?: NullableStringFieldUpdateOperationsInput | string | null
     language?: StringFieldUpdateOperationsInput | string
+    languages?: AssistantAgentUpdatelanguagesInput | string[]
     tone?: StringFieldUpdateOperationsInput | string
     suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
     suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
@@ -25478,6 +33852,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: IntFieldUpdateOperationsInput | number
     language?: StringFieldUpdateOperationsInput | string
+    languages?: PracticeAgentUpdatelanguagesInput | string[]
     accent?: NullableStringFieldUpdateOperationsInput | string | null
     industry?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
@@ -25493,12 +33868,14 @@ export namespace Prisma {
     archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    organisation?: OrganisationUpdateOneRequiredWithoutPractice_agentsNestedInput
     linked_assistant_agent?: AssistantAgentUpdateOneWithoutPractice_agentsNestedInput
     calls?: CallUpdateManyWithoutPractice_agentNestedInput
   }
 
   export type PracticeAgentUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
     role_prompt?: StringFieldUpdateOperationsInput | string
@@ -25522,6 +33899,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: IntFieldUpdateOperationsInput | number
     language?: StringFieldUpdateOperationsInput | string
+    languages?: PracticeAgentUpdatelanguagesInput | string[]
     accent?: NullableStringFieldUpdateOperationsInput | string | null
     industry?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
@@ -25542,6 +33920,7 @@ export namespace Prisma {
 
   export type PracticeAgentUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
     role_prompt?: StringFieldUpdateOperationsInput | string
@@ -25565,6 +33944,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: IntFieldUpdateOperationsInput | number
     language?: StringFieldUpdateOperationsInput | string
+    languages?: PracticeAgentUpdatelanguagesInput | string[]
     accent?: NullableStringFieldUpdateOperationsInput | string | null
     industry?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
@@ -25614,6 +33994,7 @@ export namespace Prisma {
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    organisation?: OrganisationUpdateOneRequiredWithoutCallsNestedInput
     assistant_agent?: AssistantAgentUpdateOneWithoutCallsNestedInput
     practice_agent?: PracticeAgentUpdateOneWithoutCallsNestedInput
     segments?: TranscriptSegmentUpdateManyWithoutCallNestedInput
@@ -25624,6 +34005,7 @@ export namespace Prisma {
 
   export type CallUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
@@ -25664,6 +34046,7 @@ export namespace Prisma {
 
   export type CallUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
@@ -25708,10 +34091,12 @@ export namespace Prisma {
     audio_seconds?: IntFieldUpdateOperationsInput | number
     cost_usd?: FloatFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    organisation?: OrganisationUpdateOneRequiredWithoutUsage_eventsNestedInput
   }
 
   export type UsageEventUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     call_id?: NullableStringFieldUpdateOperationsInput | string | null
     kind?: EnumUsageKindFieldUpdateOperationsInput | $Enums.UsageKind
     model?: NullableStringFieldUpdateOperationsInput | string | null
@@ -25724,6 +34109,7 @@ export namespace Prisma {
 
   export type UsageEventUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     call_id?: NullableStringFieldUpdateOperationsInput | string | null
     kind?: EnumUsageKindFieldUpdateOperationsInput | $Enums.UsageKind
     model?: NullableStringFieldUpdateOperationsInput | string | null
@@ -25734,8 +34120,81 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type MembershipUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    organisation?: OrganisationUpdateOneRequiredWithoutMembershipsNestedInput
+  }
+
+  export type MembershipUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MembershipUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InvitationUpdateWithoutInvited_byInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    token_hash?: StringFieldUpdateOperationsInput | string
+    status?: EnumInvitationStatusFieldUpdateOperationsInput | $Enums.InvitationStatus
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    last_sent_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    send_count?: IntFieldUpdateOperationsInput | number
+    accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    accepted_by_id?: NullableStringFieldUpdateOperationsInput | string | null
+    revoked_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    organisation?: OrganisationUpdateOneRequiredWithoutInvitationsNestedInput
+  }
+
+  export type InvitationUncheckedUpdateWithoutInvited_byInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    token_hash?: StringFieldUpdateOperationsInput | string
+    status?: EnumInvitationStatusFieldUpdateOperationsInput | $Enums.InvitationStatus
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    last_sent_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    send_count?: IntFieldUpdateOperationsInput | number
+    accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    accepted_by_id?: NullableStringFieldUpdateOperationsInput | string | null
+    revoked_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InvitationUncheckedUpdateManyWithoutInvited_byInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    token_hash?: StringFieldUpdateOperationsInput | string
+    status?: EnumInvitationStatusFieldUpdateOperationsInput | $Enums.InvitationStatus
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    last_sent_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    send_count?: IntFieldUpdateOperationsInput | number
+    accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    accepted_by_id?: NullableStringFieldUpdateOperationsInput | string | null
+    revoked_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type CallCreateManyAssistant_agentInput = {
     id?: string
+    organisation_id: string
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
@@ -25772,7 +34231,8 @@ export namespace Prisma {
 
   export type PracticeAgentCreateManyLinked_assistant_agentInput = {
     id?: string
-    user_id: string
+    organisation_id: string
+    user_id?: string | null
     name: string
     prospect_name?: string | null
     role_prompt: string
@@ -25795,6 +34255,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: number
     language?: string
+    languages?: PracticeAgentCreatelanguagesInput | string[]
     accent?: string | null
     industry?: string | null
     company?: string | null
@@ -25844,6 +34305,7 @@ export namespace Prisma {
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    organisation?: OrganisationUpdateOneRequiredWithoutCallsNestedInput
     user?: UserUpdateOneRequiredWithoutCallsNestedInput
     practice_agent?: PracticeAgentUpdateOneWithoutCallsNestedInput
     segments?: TranscriptSegmentUpdateManyWithoutCallNestedInput
@@ -25854,6 +34316,7 @@ export namespace Prisma {
 
   export type CallUncheckedUpdateWithoutAssistant_agentInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
@@ -25894,6 +34357,7 @@ export namespace Prisma {
 
   export type CallUncheckedUpdateManyWithoutAssistant_agentInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
@@ -25952,6 +34416,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: IntFieldUpdateOperationsInput | number
     language?: StringFieldUpdateOperationsInput | string
+    languages?: PracticeAgentUpdatelanguagesInput | string[]
     accent?: NullableStringFieldUpdateOperationsInput | string | null
     industry?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
@@ -25967,13 +34432,15 @@ export namespace Prisma {
     archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutPractice_agentsNestedInput
+    organisation?: OrganisationUpdateOneRequiredWithoutPractice_agentsNestedInput
+    user?: UserUpdateOneWithoutPractice_agentsNestedInput
     calls?: CallUpdateManyWithoutPractice_agentNestedInput
   }
 
   export type PracticeAgentUncheckedUpdateWithoutLinked_assistant_agentInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
     role_prompt?: StringFieldUpdateOperationsInput | string
@@ -25996,6 +34463,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: IntFieldUpdateOperationsInput | number
     language?: StringFieldUpdateOperationsInput | string
+    languages?: PracticeAgentUpdatelanguagesInput | string[]
     accent?: NullableStringFieldUpdateOperationsInput | string | null
     industry?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
@@ -26016,7 +34484,8 @@ export namespace Prisma {
 
   export type PracticeAgentUncheckedUpdateManyWithoutLinked_assistant_agentInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
     role_prompt?: StringFieldUpdateOperationsInput | string
@@ -26039,6 +34508,7 @@ export namespace Prisma {
     conversion_conditions?: JsonNullValueInput | InputJsonValue
     patience?: IntFieldUpdateOperationsInput | number
     language?: StringFieldUpdateOperationsInput | string
+    languages?: PracticeAgentUpdatelanguagesInput | string[]
     accent?: NullableStringFieldUpdateOperationsInput | string | null
     industry?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
@@ -26058,6 +34528,7 @@ export namespace Prisma {
 
   export type CallCreateManyPractice_agentInput = {
     id?: string
+    organisation_id: string
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
@@ -26124,6 +34595,7 @@ export namespace Prisma {
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    organisation?: OrganisationUpdateOneRequiredWithoutCallsNestedInput
     user?: UserUpdateOneRequiredWithoutCallsNestedInput
     assistant_agent?: AssistantAgentUpdateOneWithoutCallsNestedInput
     segments?: TranscriptSegmentUpdateManyWithoutCallNestedInput
@@ -26134,6 +34606,7 @@ export namespace Prisma {
 
   export type CallUncheckedUpdateWithoutPractice_agentInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
@@ -26174,6 +34647,7 @@ export namespace Prisma {
 
   export type CallUncheckedUpdateManyWithoutPractice_agentInput = {
     id?: StringFieldUpdateOperationsInput | string
+    organisation_id?: StringFieldUpdateOperationsInput | string
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
@@ -26333,6 +34807,636 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     at_ms?: IntFieldUpdateOperationsInput | number
     label?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MembershipCreateManyOrganisationInput = {
+    id?: string
+    user_id: string
+    role?: $Enums.OrgRole
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type RolePermissionCreateManyOrganisationInput = {
+    id?: string
+    role: $Enums.OrgRole
+    permissions?: RolePermissionCreatepermissionsInput | string[]
+    updated_at?: Date | string
+  }
+
+  export type InvitationCreateManyOrganisationInput = {
+    id?: string
+    email: string
+    role?: $Enums.OrgRole
+    token_hash: string
+    status?: $Enums.InvitationStatus
+    invited_by_id?: string | null
+    expires_at: Date | string
+    last_sent_at?: Date | string
+    send_count?: number
+    accepted_at?: Date | string | null
+    accepted_by_id?: string | null
+    revoked_at?: Date | string | null
+    created_at?: Date | string
+  }
+
+  export type AssistantAgentCreateManyOrganisationInput = {
+    id?: string
+    user_id?: string | null
+    name: string
+    description?: string | null
+    call_goal?: string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: string | null
+    knowledge?: string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: string | null
+    language?: string
+    languages?: AssistantAgentCreatelanguagesInput | string[]
+    tone?: string
+    suggestion_frequency?: $Enums.SuggestionFrequency
+    suggestion_length?: $Enums.SuggestionLength
+    alternatives_count?: number
+    realtime_model: string
+    analysis_model: string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: string | null
+    suggest_consent_line?: boolean
+    template_key?: string | null
+    is_default?: boolean
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type PracticeAgentCreateManyOrganisationInput = {
+    id?: string
+    user_id?: string | null
+    name: string
+    prospect_name?: string | null
+    role_prompt: string
+    scenario_context?: string | null
+    scenario_type?: string
+    selling_product?: string | null
+    linked_assistant_agent_id?: string | null
+    user_objective?: string | null
+    lead_temperature?: $Enums.LeadTemperature
+    difficulty?: number
+    personality?: string | null
+    mood?: string | null
+    communication_style?: string | null
+    decision_authority?: string | null
+    budget?: string | null
+    timeline?: string | null
+    current_solution?: string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: number
+    language?: string
+    languages?: PracticeAgentCreatelanguagesInput | string[]
+    accent?: string | null
+    industry?: string | null
+    company?: string | null
+    job_title?: string | null
+    age_range?: string | null
+    background_story?: string | null
+    briefing?: string | null
+    voice_provider?: $Enums.VoiceProvider
+    voice?: string
+    time_limit_minutes?: number | null
+    source_call_id?: string | null
+    template_key?: string | null
+    archived_at?: Date | string | null
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type CallCreateManyOrganisationInput = {
+    id?: string
+    user_id: string
+    kind: $Enums.CallKind
+    call_type: $Enums.CallType
+    status?: $Enums.CallStatus
+    assistant_agent_id?: string | null
+    practice_agent_id?: string | null
+    copilot_enabled?: boolean
+    title?: string | null
+    prospect_name?: string | null
+    prospect_company?: string | null
+    prospect_role?: string | null
+    context_notes?: string | null
+    goal?: string | null
+    prior_call_id?: string | null
+    language?: string
+    started_at?: Date | string
+    ended_at?: Date | string | null
+    duration_seconds?: number
+    ended_reason?: $Enums.CallEndReason | null
+    outcome?: $Enums.CallOutcome | null
+    custom_outcome?: string | null
+    objective_achieved?: boolean | null
+    keep_recording?: boolean
+    recording_path?: string | null
+    recording_mime?: string | null
+    recording_size?: number | null
+    user_notes?: string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: Date | string
+    updated_at?: Date | string
+  }
+
+  export type UsageEventCreateManyOrganisationInput = {
+    id?: string
+    user_id: string
+    call_id?: string | null
+    kind: $Enums.UsageKind
+    model?: string | null
+    input_tokens?: number
+    output_tokens?: number
+    audio_seconds?: number
+    cost_usd?: number
+    created_at?: Date | string
+  }
+
+  export type MembershipUpdateWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutMembershipsNestedInput
+  }
+
+  export type MembershipUncheckedUpdateWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MembershipUncheckedUpdateManyWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RolePermissionUpdateWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    permissions?: RolePermissionUpdatepermissionsInput | string[]
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RolePermissionUncheckedUpdateWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    permissions?: RolePermissionUpdatepermissionsInput | string[]
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type RolePermissionUncheckedUpdateManyWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    permissions?: RolePermissionUpdatepermissionsInput | string[]
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InvitationUpdateWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    token_hash?: StringFieldUpdateOperationsInput | string
+    status?: EnumInvitationStatusFieldUpdateOperationsInput | $Enums.InvitationStatus
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    last_sent_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    send_count?: IntFieldUpdateOperationsInput | number
+    accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    accepted_by_id?: NullableStringFieldUpdateOperationsInput | string | null
+    revoked_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    invited_by?: UserUpdateOneWithoutInvitations_sentNestedInput
+  }
+
+  export type InvitationUncheckedUpdateWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    token_hash?: StringFieldUpdateOperationsInput | string
+    status?: EnumInvitationStatusFieldUpdateOperationsInput | $Enums.InvitationStatus
+    invited_by_id?: NullableStringFieldUpdateOperationsInput | string | null
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    last_sent_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    send_count?: IntFieldUpdateOperationsInput | number
+    accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    accepted_by_id?: NullableStringFieldUpdateOperationsInput | string | null
+    revoked_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InvitationUncheckedUpdateManyWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    role?: EnumOrgRoleFieldUpdateOperationsInput | $Enums.OrgRole
+    token_hash?: StringFieldUpdateOperationsInput | string
+    status?: EnumInvitationStatusFieldUpdateOperationsInput | $Enums.InvitationStatus
+    invited_by_id?: NullableStringFieldUpdateOperationsInput | string | null
+    expires_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    last_sent_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    send_count?: IntFieldUpdateOperationsInput | number
+    accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    accepted_by_id?: NullableStringFieldUpdateOperationsInput | string | null
+    revoked_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AssistantAgentUpdateWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    call_goal?: NullableStringFieldUpdateOperationsInput | string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    knowledge?: NullableStringFieldUpdateOperationsInput | string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    languages?: AssistantAgentUpdatelanguagesInput | string[]
+    tone?: StringFieldUpdateOperationsInput | string
+    suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
+    suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
+    alternatives_count?: IntFieldUpdateOperationsInput | number
+    realtime_model?: StringFieldUpdateOperationsInput | string
+    analysis_model?: StringFieldUpdateOperationsInput | string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    suggest_consent_line?: BoolFieldUpdateOperationsInput | boolean
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    is_default?: BoolFieldUpdateOperationsInput | boolean
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneWithoutAssistant_agentsNestedInput
+    calls?: CallUpdateManyWithoutAssistant_agentNestedInput
+    practice_agents?: PracticeAgentUpdateManyWithoutLinked_assistant_agentNestedInput
+  }
+
+  export type AssistantAgentUncheckedUpdateWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    call_goal?: NullableStringFieldUpdateOperationsInput | string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    knowledge?: NullableStringFieldUpdateOperationsInput | string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    languages?: AssistantAgentUpdatelanguagesInput | string[]
+    tone?: StringFieldUpdateOperationsInput | string
+    suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
+    suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
+    alternatives_count?: IntFieldUpdateOperationsInput | number
+    realtime_model?: StringFieldUpdateOperationsInput | string
+    analysis_model?: StringFieldUpdateOperationsInput | string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    suggest_consent_line?: BoolFieldUpdateOperationsInput | boolean
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    is_default?: BoolFieldUpdateOperationsInput | boolean
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    calls?: CallUncheckedUpdateManyWithoutAssistant_agentNestedInput
+    practice_agents?: PracticeAgentUncheckedUpdateManyWithoutLinked_assistant_agentNestedInput
+  }
+
+  export type AssistantAgentUncheckedUpdateManyWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    call_goal?: NullableStringFieldUpdateOperationsInput | string | null
+    script?: JsonNullValueInput | InputJsonValue
+    instructions?: NullableStringFieldUpdateOperationsInput | string | null
+    knowledge?: NullableStringFieldUpdateOperationsInput | string | null
+    objection_library?: JsonNullValueInput | InputJsonValue
+    methodology?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    languages?: AssistantAgentUpdatelanguagesInput | string[]
+    tone?: StringFieldUpdateOperationsInput | string
+    suggestion_frequency?: EnumSuggestionFrequencyFieldUpdateOperationsInput | $Enums.SuggestionFrequency
+    suggestion_length?: EnumSuggestionLengthFieldUpdateOperationsInput | $Enums.SuggestionLength
+    alternatives_count?: IntFieldUpdateOperationsInput | number
+    realtime_model?: StringFieldUpdateOperationsInput | string
+    analysis_model?: StringFieldUpdateOperationsInput | string
+    analysis_criteria?: JsonNullValueInput | InputJsonValue
+    consent_line?: NullableStringFieldUpdateOperationsInput | string | null
+    suggest_consent_line?: BoolFieldUpdateOperationsInput | boolean
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    is_default?: BoolFieldUpdateOperationsInput | boolean
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PracticeAgentUpdateWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role_prompt?: StringFieldUpdateOperationsInput | string
+    scenario_context?: NullableStringFieldUpdateOperationsInput | string | null
+    scenario_type?: StringFieldUpdateOperationsInput | string
+    selling_product?: NullableStringFieldUpdateOperationsInput | string | null
+    user_objective?: NullableStringFieldUpdateOperationsInput | string | null
+    lead_temperature?: EnumLeadTemperatureFieldUpdateOperationsInput | $Enums.LeadTemperature
+    difficulty?: IntFieldUpdateOperationsInput | number
+    personality?: NullableStringFieldUpdateOperationsInput | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    communication_style?: NullableStringFieldUpdateOperationsInput | string | null
+    decision_authority?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableStringFieldUpdateOperationsInput | string | null
+    timeline?: NullableStringFieldUpdateOperationsInput | string | null
+    current_solution?: NullableStringFieldUpdateOperationsInput | string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+    languages?: PracticeAgentUpdatelanguagesInput | string[]
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    job_title?: NullableStringFieldUpdateOperationsInput | string | null
+    age_range?: NullableStringFieldUpdateOperationsInput | string | null
+    background_story?: NullableStringFieldUpdateOperationsInput | string | null
+    briefing?: NullableStringFieldUpdateOperationsInput | string | null
+    voice_provider?: EnumVoiceProviderFieldUpdateOperationsInput | $Enums.VoiceProvider
+    voice?: StringFieldUpdateOperationsInput | string
+    time_limit_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    source_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneWithoutPractice_agentsNestedInput
+    linked_assistant_agent?: AssistantAgentUpdateOneWithoutPractice_agentsNestedInput
+    calls?: CallUpdateManyWithoutPractice_agentNestedInput
+  }
+
+  export type PracticeAgentUncheckedUpdateWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role_prompt?: StringFieldUpdateOperationsInput | string
+    scenario_context?: NullableStringFieldUpdateOperationsInput | string | null
+    scenario_type?: StringFieldUpdateOperationsInput | string
+    selling_product?: NullableStringFieldUpdateOperationsInput | string | null
+    linked_assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    user_objective?: NullableStringFieldUpdateOperationsInput | string | null
+    lead_temperature?: EnumLeadTemperatureFieldUpdateOperationsInput | $Enums.LeadTemperature
+    difficulty?: IntFieldUpdateOperationsInput | number
+    personality?: NullableStringFieldUpdateOperationsInput | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    communication_style?: NullableStringFieldUpdateOperationsInput | string | null
+    decision_authority?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableStringFieldUpdateOperationsInput | string | null
+    timeline?: NullableStringFieldUpdateOperationsInput | string | null
+    current_solution?: NullableStringFieldUpdateOperationsInput | string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+    languages?: PracticeAgentUpdatelanguagesInput | string[]
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    job_title?: NullableStringFieldUpdateOperationsInput | string | null
+    age_range?: NullableStringFieldUpdateOperationsInput | string | null
+    background_story?: NullableStringFieldUpdateOperationsInput | string | null
+    briefing?: NullableStringFieldUpdateOperationsInput | string | null
+    voice_provider?: EnumVoiceProviderFieldUpdateOperationsInput | $Enums.VoiceProvider
+    voice?: StringFieldUpdateOperationsInput | string
+    time_limit_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    source_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    calls?: CallUncheckedUpdateManyWithoutPractice_agentNestedInput
+  }
+
+  export type PracticeAgentUncheckedUpdateManyWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    role_prompt?: StringFieldUpdateOperationsInput | string
+    scenario_context?: NullableStringFieldUpdateOperationsInput | string | null
+    scenario_type?: StringFieldUpdateOperationsInput | string
+    selling_product?: NullableStringFieldUpdateOperationsInput | string | null
+    linked_assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    user_objective?: NullableStringFieldUpdateOperationsInput | string | null
+    lead_temperature?: EnumLeadTemperatureFieldUpdateOperationsInput | $Enums.LeadTemperature
+    difficulty?: IntFieldUpdateOperationsInput | number
+    personality?: NullableStringFieldUpdateOperationsInput | string | null
+    mood?: NullableStringFieldUpdateOperationsInput | string | null
+    communication_style?: NullableStringFieldUpdateOperationsInput | string | null
+    decision_authority?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableStringFieldUpdateOperationsInput | string | null
+    timeline?: NullableStringFieldUpdateOperationsInput | string | null
+    current_solution?: NullableStringFieldUpdateOperationsInput | string | null
+    pain_points?: JsonNullValueInput | InputJsonValue
+    objections?: JsonNullValueInput | InputJsonValue
+    hidden_information?: JsonNullValueInput | InputJsonValue
+    conversion_conditions?: JsonNullValueInput | InputJsonValue
+    patience?: IntFieldUpdateOperationsInput | number
+    language?: StringFieldUpdateOperationsInput | string
+    languages?: PracticeAgentUpdatelanguagesInput | string[]
+    accent?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    job_title?: NullableStringFieldUpdateOperationsInput | string | null
+    age_range?: NullableStringFieldUpdateOperationsInput | string | null
+    background_story?: NullableStringFieldUpdateOperationsInput | string | null
+    briefing?: NullableStringFieldUpdateOperationsInput | string | null
+    voice_provider?: EnumVoiceProviderFieldUpdateOperationsInput | $Enums.VoiceProvider
+    voice?: StringFieldUpdateOperationsInput | string
+    time_limit_minutes?: NullableIntFieldUpdateOperationsInput | number | null
+    source_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    template_key?: NullableStringFieldUpdateOperationsInput | string | null
+    archived_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CallUpdateWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutCallsNestedInput
+    assistant_agent?: AssistantAgentUpdateOneWithoutCallsNestedInput
+    practice_agent?: PracticeAgentUpdateOneWithoutCallsNestedInput
+    segments?: TranscriptSegmentUpdateManyWithoutCallNestedInput
+    suggestions?: SuggestionUpdateManyWithoutCallNestedInput
+    bookmarks?: BookmarkUpdateManyWithoutCallNestedInput
+    analysis?: CallAnalysisUpdateOneWithoutCallNestedInput
+  }
+
+  export type CallUncheckedUpdateWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    segments?: TranscriptSegmentUncheckedUpdateManyWithoutCallNestedInput
+    suggestions?: SuggestionUncheckedUpdateManyWithoutCallNestedInput
+    bookmarks?: BookmarkUncheckedUpdateManyWithoutCallNestedInput
+    analysis?: CallAnalysisUncheckedUpdateOneWithoutCallNestedInput
+  }
+
+  export type CallUncheckedUpdateManyWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
+    call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
+    assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
+    copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_name?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_company?: NullableStringFieldUpdateOperationsInput | string | null
+    prospect_role?: NullableStringFieldUpdateOperationsInput | string | null
+    context_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    prior_call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    language?: StringFieldUpdateOperationsInput | string
+    started_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ended_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    duration_seconds?: IntFieldUpdateOperationsInput | number
+    ended_reason?: NullableEnumCallEndReasonFieldUpdateOperationsInput | $Enums.CallEndReason | null
+    outcome?: NullableEnumCallOutcomeFieldUpdateOperationsInput | $Enums.CallOutcome | null
+    custom_outcome?: NullableStringFieldUpdateOperationsInput | string | null
+    objective_achieved?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    keep_recording?: BoolFieldUpdateOperationsInput | boolean
+    recording_path?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_mime?: NullableStringFieldUpdateOperationsInput | string | null
+    recording_size?: NullableIntFieldUpdateOperationsInput | number | null
+    user_notes?: NullableStringFieldUpdateOperationsInput | string | null
+    script_progress?: JsonNullValueInput | InputJsonValue
+    analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UsageEventUpdateWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    kind?: EnumUsageKindFieldUpdateOperationsInput | $Enums.UsageKind
+    model?: NullableStringFieldUpdateOperationsInput | string | null
+    input_tokens?: IntFieldUpdateOperationsInput | number
+    output_tokens?: IntFieldUpdateOperationsInput | number
+    audio_seconds?: IntFieldUpdateOperationsInput | number
+    cost_usd?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutUsage_eventsNestedInput
+  }
+
+  export type UsageEventUncheckedUpdateWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    kind?: EnumUsageKindFieldUpdateOperationsInput | $Enums.UsageKind
+    model?: NullableStringFieldUpdateOperationsInput | string | null
+    input_tokens?: IntFieldUpdateOperationsInput | number
+    output_tokens?: IntFieldUpdateOperationsInput | number
+    audio_seconds?: IntFieldUpdateOperationsInput | number
+    cost_usd?: FloatFieldUpdateOperationsInput | number
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type UsageEventUncheckedUpdateManyWithoutOrganisationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    user_id?: StringFieldUpdateOperationsInput | string
+    call_id?: NullableStringFieldUpdateOperationsInput | string | null
+    kind?: EnumUsageKindFieldUpdateOperationsInput | $Enums.UsageKind
+    model?: NullableStringFieldUpdateOperationsInput | string | null
+    input_tokens?: IntFieldUpdateOperationsInput | number
+    output_tokens?: IntFieldUpdateOperationsInput | number
+    audio_seconds?: IntFieldUpdateOperationsInput | number
+    cost_usd?: FloatFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 

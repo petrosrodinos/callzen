@@ -7,7 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "@/hooks/use-toast";
 import type { Catalog } from "@/features/catalog/interfaces/catalog.interfaces";
-import { assistantAgentSchema, type AssistantAgentFormValues } from "../../../validation-schemas/assistant-agent.schema";
+import {
+  assistantAgentSchema,
+  type AssistantAgentFormValues,
+} from "../../../validation-schemas/assistant-agent.schema";
 import { BasicsSection } from "./sections/basics-section";
 import { ScriptSection } from "./sections/script-section";
 import { ObjectionsSection } from "./sections/objections-section";
@@ -26,16 +29,35 @@ interface AssistantAgentFormProps {
 }
 
 const TABS = [
-  { id: "basics", label: "Basics", fields: ["name", "description", "call_goal", "language", "methodology"] },
+  {
+    id: "basics",
+    label: "Basics",
+    fields: ["name", "description", "call_goal", "languages", "methodology"],
+  },
   { id: "script", label: "Script", fields: ["script"] },
   { id: "objections", label: "Objections", fields: ["objection_library"] },
   { id: "knowledge", label: "Knowledge", fields: ["knowledge"] },
-  { id: "style", label: "Style", fields: ["instructions", "tone", "suggestion_frequency", "consent_line"] },
-  { id: "models", label: "AI models", fields: ["realtime_model", "analysis_model"] },
+  {
+    id: "style",
+    label: "Style",
+    fields: ["instructions", "tone", "suggestion_frequency", "consent_line"],
+  },
+  {
+    id: "models",
+    label: "AI models",
+    fields: ["realtime_model", "analysis_model"],
+  },
   { id: "analysis", label: "Scoring", fields: ["analysis_criteria"] },
 ] as const;
 
-export function AssistantAgentForm({ defaultValues, catalog, onSubmit, isSaving, submitLabel, onBack }: AssistantAgentFormProps) {
+export function AssistantAgentForm({
+  defaultValues,
+  catalog,
+  onSubmit,
+  isSaving,
+  submitLabel,
+  onBack,
+}: AssistantAgentFormProps) {
   const [tab, setTab] = useState<string>("basics");
   const form = useForm<AssistantAgentFormValues>({
     resolver: zodResolver(assistantAgentSchema),
@@ -43,9 +65,15 @@ export function AssistantAgentForm({ defaultValues, catalog, onSubmit, isSaving,
   });
 
   const onInvalid = (errors: FieldErrors<AssistantAgentFormValues>) => {
-    const invalidTab = TABS.find((t) => t.fields.some((field) => field in errors));
+    const invalidTab = TABS.find((t) =>
+      t.fields.some((field) => field in errors),
+    );
     if (invalidTab) setTab(invalidTab.id);
-    toast({ title: "Please fix the highlighted fields", variant: "error", duration: 2500 });
+    toast({
+      title: "Please fix the highlighted fields",
+      variant: "error",
+      duration: 2500,
+    });
   };
 
   return (
@@ -57,14 +85,20 @@ export function AssistantAgentForm({ defaultValues, catalog, onSubmit, isSaving,
               {TABS.map((t) => (
                 <TabsTrigger key={t.id} value={t.id}>
                   {t.label}
-                  {t.fields.some((field) => field in form.formState.errors) && <span className="ml-1.5 size-1.5 rounded-full bg-destructive" />}
+                  {t.fields.some((field) => field in form.formState.errors) && (
+                    <span className="ml-1.5 size-1.5 rounded-full bg-destructive" />
+                  )}
                 </TabsTrigger>
               ))}
             </TabsList>
           </div>
           <div className="mt-5">
             <TabsContent value="basics">
-              <BasicsSection form={form} languages={catalog.languages} />
+              <BasicsSection
+                form={form}
+                languages={catalog.languages}
+                maxLanguages={catalog.max_conversation_languages ?? 5}
+              />
             </TabsContent>
             <TabsContent value="script">
               <ScriptSection form={form} />
@@ -76,13 +110,19 @@ export function AssistantAgentForm({ defaultValues, catalog, onSubmit, isSaving,
               <KnowledgeSection form={form} />
             </TabsContent>
             <TabsContent value="style">
-              <StyleSection form={form} defaultConsentLine={catalog.default_consent_line} />
+              <StyleSection
+                form={form}
+                defaultConsentLine={catalog.default_consent_line}
+              />
             </TabsContent>
             <TabsContent value="models">
               <ModelsSection form={form} catalog={catalog} />
             </TabsContent>
             <TabsContent value="analysis">
-              <AnalysisSection form={form} defaults={catalog.default_analysis_criteria} />
+              <AnalysisSection
+                form={form}
+                defaults={catalog.default_analysis_criteria}
+              />
             </TabsContent>
           </div>
         </Tabs>
@@ -94,8 +134,15 @@ export function AssistantAgentForm({ defaultValues, catalog, onSubmit, isSaving,
                 <ArrowLeft /> Templates
               </Button>
             )}
-            <span className="hidden text-xs text-muted-foreground sm:inline">{form.formState.isDirty ? "Unsaved changes" : ""}</span>
-            <Button type="submit" className="ml-auto" disabled={isSaving} loading={isSaving}>
+            <span className="hidden text-xs text-muted-foreground sm:inline">
+              {form.formState.isDirty ? "Unsaved changes" : ""}
+            </span>
+            <Button
+              type="submit"
+              className="ml-auto"
+              disabled={isSaving}
+              loading={isSaving}
+            >
               {!isSaving && <Save />} {submitLabel}
             </Button>
           </div>

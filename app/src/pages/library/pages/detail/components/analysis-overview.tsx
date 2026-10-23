@@ -5,7 +5,13 @@ import { cn } from "@/lib/utils";
 import { scoreTone } from "@/lib/format";
 import type { CallAnalysis } from "@/features/calls/interfaces/calls.interfaces";
 
-const BAR_COLORS = { great: "bg-emerald-500", good: "bg-sky-500", fair: "bg-amber-500", poor: "bg-red-500", none: "bg-muted-foreground/30" };
+const BAR_COLORS = {
+  great: "bg-emerald-500",
+  good: "bg-sky-500",
+  fair: "bg-amber-500",
+  poor: "bg-red-500",
+  none: "bg-muted-foreground/30",
+};
 
 export function AnalysisOverview({ analysis }: { analysis: CallAnalysis }) {
   return (
@@ -13,13 +19,15 @@ export function AnalysisOverview({ analysis }: { analysis: CallAnalysis }) {
       <Card className="flex flex-col items-center gap-5 p-5 sm:flex-row sm:items-start">
         <ScoreRing score={analysis.overall_score} label="Overall score" />
         <div className="flex-1 space-y-2 text-center sm:text-left">
-          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Verdict</p>
+          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+            Verdict
+          </p>
           <p className="text-lg font-medium leading-snug">{analysis.verdict}</p>
           <p className="text-sm text-muted-foreground">{analysis.summary}</p>
         </div>
       </Card>
 
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <Card className="p-5">
           <h3 className="mb-4 flex items-center gap-2 font-semibold">
             <Target className="size-4 text-primary" /> Skill scores
@@ -31,12 +39,21 @@ export function AnalysisOverview({ analysis }: { analysis: CallAnalysis }) {
                 <li key={category.key}>
                   <div className="mb-1 flex items-center justify-between gap-2 text-sm">
                     <span>{category.label}</span>
-                    <span className="font-semibold tabular-nums">{category.score ?? "–"}</span>
+                    <span className="font-semibold tabular-nums">
+                      {category.score ?? "–"}
+                    </span>
                   </div>
                   <div className="h-1.5 overflow-hidden rounded-full bg-muted">
-                    <div className={cn("h-full rounded-full", BAR_COLORS[tone])} style={{ width: `${category.score ?? 0}%` }} />
+                    <div
+                      className={cn("h-full rounded-full", BAR_COLORS[tone])}
+                      style={{ width: `${category.score ?? 0}%` }}
+                    />
                   </div>
-                  {category.comment && <p className="mt-1 text-xs text-muted-foreground">{category.comment}</p>}
+                  {category.comment && (
+                    <p className="mt-1 text-xs text-muted-foreground">
+                      {category.comment}
+                    </p>
+                  )}
                 </li>
               );
             })}
@@ -51,7 +68,9 @@ export function AnalysisOverview({ analysis }: { analysis: CallAnalysis }) {
             <ol className="space-y-3">
               {analysis.improvements.map((item, index) => (
                 <li key={item.title} className="flex gap-3">
-                  <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">{index + 1}</span>
+                  <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
+                    {index + 1}
+                  </span>
                   <div>
                     <p className="text-sm font-medium">{item.title}</p>
                     <p className="text-sm text-muted-foreground">{item.tip}</p>

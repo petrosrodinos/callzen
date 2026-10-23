@@ -23,7 +23,9 @@ export function RecentCallsCard() {
       {isPending ? (
         <ListSkeleton rows={3} />
       ) : !data?.data.length ? (
-        <p className="py-6 text-center text-sm text-muted-foreground">No calls yet.</p>
+        <p className="py-6 text-center text-sm text-muted-foreground">
+          No calls yet.
+        </p>
       ) : (
         <ul className="divide-y">
           {data.data.map((call) => (

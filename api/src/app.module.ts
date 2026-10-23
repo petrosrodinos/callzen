@@ -16,6 +16,7 @@ import { AssistantAgentsModule } from './modules/assistant-agents/assistant-agen
 import { PracticeAgentsModule } from './modules/practice-agents/practice-agents.module';
 import { CallsModule } from './modules/calls/calls.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { OrganisationsModule } from './modules/organisations/organisations.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
     // GraphQLModule,
     AuthModule,
     HealthModule,
+    OrganisationsModule,
     UsersModule,
     CatalogModule,
     UsageModule,

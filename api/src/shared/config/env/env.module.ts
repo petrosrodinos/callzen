@@ -4,16 +4,15 @@ import envConfig from './index';
 import { validateEnv } from './env.validation';
 
 @Module({
-    imports: [
-        NestConfigModule.forRoot({
-            isGlobal: true,
-            envFilePath: [`.env.${process.env.NODE_ENV || 'local'}`],
-            ignoreEnvFile: process.env.NODE_ENV === 'production',
-            load: [envConfig],
-            validate: validateEnv,
-        }),
-
-    ],
-    exports: [NestConfigModule],
+  imports: [
+    NestConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: [`.env.${process.env.NODE_ENV || 'local'}`],
+      ignoreEnvFile: process.env.NODE_ENV === 'production',
+      load: [envConfig],
+      validate: validateEnv,
+    }),
+  ],
+  exports: [NestConfigModule],
 })
-export class ConfigModule { }
+export class ConfigModule {}

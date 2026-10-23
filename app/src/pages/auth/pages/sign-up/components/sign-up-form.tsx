@@ -14,7 +14,7 @@ export function SignUpForm() {
     resolver: zodResolver(SignUpSchema),
     defaultValues: {
       full_name: "",
-      email: "",
+      email: new URLSearchParams(window.location.search).get("email") ?? "",
       password: "",
       confirm_password: "",
     },

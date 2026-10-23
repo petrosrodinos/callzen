@@ -4,7 +4,11 @@ import type { ProspectInsights } from "@/features/calls/interfaces/calls.interfa
 import { InterestLevelOptions } from "@/config/constants/dropdowns/calls/analysis-labels.options";
 import { getDropdownOptionLabel } from "@/lib/dropdown-option-label.utils";
 
-const INTEREST_STYLES = { LOW: "bg-red-500/10 text-red-700 dark:text-red-300", MEDIUM: "bg-amber-500/10 text-amber-700 dark:text-amber-300", HIGH: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300" };
+const INTEREST_STYLES = {
+  LOW: "bg-red-500/10 text-red-700 dark:text-red-300",
+  MEDIUM: "bg-amber-500/10 text-amber-700 dark:text-amber-300",
+  HIGH: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
+};
 
 const List = ({ title, items }: { title: string; items: string[] }) => (
   <Card className="p-4">
@@ -27,11 +31,18 @@ export function AnalysisInsights({ insights }: { insights: ProspectInsights }) {
       <Card className="p-5">
         <div className="mb-2 flex items-center gap-2">
           <h3 className="font-semibold">Prospect summary</h3>
-          <Badge className={`shadow-none ${INTEREST_STYLES[insights.interest_level]}`}>{getDropdownOptionLabel(InterestLevelOptions, insights.interest_level)}</Badge>
+          <Badge
+            className={`shadow-none ${INTEREST_STYLES[insights.interest_level]}`}
+          >
+            {getDropdownOptionLabel(
+              InterestLevelOptions,
+              insights.interest_level,
+            )}
+          </Badge>
         </div>
         <p className="text-sm">{insights.summary}</p>
       </Card>
-      <div className="grid gap-3 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <List title="Needs" items={insights.needs} />
         <List title="Pain points" items={insights.pain_points} />
         <List title="Objections" items={insights.objections} />
@@ -49,7 +60,9 @@ export function AnalysisInsights({ insights }: { insights: ProspectInsights }) {
             ] as const
           ).map(([label, value]) => (
             <div key={label}>
-              <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{label}</dt>
+              <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                {label}
+              </dt>
               <dd>{value || "Not discussed"}</dd>
             </div>
           ))}

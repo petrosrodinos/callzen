@@ -69,7 +69,11 @@ export class CreateCallDto {
   @IsBoolean()
   keep_recording?: boolean;
 
-  @ApiProperty({ required: false, example: 'en' })
+  @ApiProperty({
+    required: false,
+    example: 'auto',
+    description: "One of the co-pilot's languages, or 'auto' to detect it",
+  })
   @IsOptional()
   @IsString()
   @MaxLength(10)
