@@ -17,7 +17,7 @@ export const signIn = async (
         return formatAuthUser(auth_response);
 
     } catch (error) {
-        throw new Error("Failed to sign in. Please try again.");
+        throw new Error("Failed to sign in. Please try again.", { cause: error });
     }
 };
 
@@ -31,7 +31,7 @@ export const signUp = async ({ email, password }: SignUpUser): Promise<LoggedInU
         const auth_response = response.data;
         return formatAuthUser(auth_response);
     } catch (error) {
-        throw new Error("Failed to sign up. Please try again.");
+        throw new Error("Failed to sign up. Please try again.", { cause: error });
     }
 };
 
@@ -40,7 +40,7 @@ export const refreshAccountToken = async (): Promise<LoggedInUser> => {
         const response = await axiosInstance.post(ApiRoutes.auth.email.refresh_token);
         return formatAuthUser(response.data);
     } catch (error: any) {
-        throw new Error(error.response.data.message || "Failed to refresh account token. Please try again.");
+        throw new Error(error.response.data.message || "Failed to refresh account token. Please try again.", { cause: error });
     }
 };
 
@@ -49,7 +49,7 @@ export const adminLoginToAccount = async (account_uuid: string): Promise<LoggedI
         const response = await axiosInstance.post(ApiRoutes.auth.email.admin_login_to_account(account_uuid));
         return formatAuthUser(response.data);
     } catch (error: any) {
-        throw new Error(error.response.data.message || "Failed to admin login to account. Please try again.");
+        throw new Error(error.response.data.message || "Failed to admin login to account. Please try again.", { cause: error });
     }
 };
 

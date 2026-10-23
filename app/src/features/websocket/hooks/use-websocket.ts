@@ -106,7 +106,10 @@ export const useWebsocketEvent = <T = unknown>(
     deps: React.DependencyList = []
 ) => {
     const callbackRef = useRef(callback);
-    callbackRef.current = callback;
+
+    useEffect(() => {
+        callbackRef.current = callback;
+    }, [callback]);
 
     useEffect(() => {
         const subscription = websocketSubscribe<T>(event, (data) => {

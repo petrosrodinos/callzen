@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule as NestConfigModule } from '@nestjs/config';
 import envConfig from './index';
-import { validateEnv, EnvConfig } from './env.validation';
+import { validateEnv } from './env.validation';
 
 @Module({
     imports: [
-        NestConfigModule.forRoot<EnvConfig>({
+        NestConfigModule.forRoot({
             isGlobal: true,
             envFilePath: [`.env.${process.env.NODE_ENV || 'local'}`],
             ignoreEnvFile: process.env.NODE_ENV === 'production',

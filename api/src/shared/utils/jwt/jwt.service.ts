@@ -1,5 +1,5 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { JwtService } from '@nestjs/jwt';
+import { JwtService, JwtSignOptions } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 
 @Injectable()
@@ -19,7 +19,7 @@ export class CreateJwtService {
 
 
         const token = await this.jwt.signAsync(payload, {
-            expiresIn: this.expiration,
+            expiresIn: this.expiration as JwtSignOptions['expiresIn'],
             secret: this.secret,
         });
 

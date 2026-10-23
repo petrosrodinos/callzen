@@ -12,7 +12,7 @@ export class ZodValidationPipe implements PipeTransform {
             if (error instanceof ZodError) {
                 throw new BadRequestException({
                     message: 'Validation failed for query parameters',
-                    errors: error.errors.map((err) => ({
+                    errors: error.issues.map((err) => ({
                         field: err.path.join('.'),
                         message: err.message,
                     })),

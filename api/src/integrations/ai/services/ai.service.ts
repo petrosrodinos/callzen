@@ -30,7 +30,7 @@ export class AiService {
                 model: modelAdapter,
                 system: options?.system || 'You are a helpful assistant.',
                 temperature: options.temperature,
-                maxTokens: options.maxTokens,
+                maxOutputTokens: options.maxTokens,
                 topP: options.topP,
                 frequencyPenalty: options.frequencyPenalty,
                 presencePenalty: options.presencePenalty,
@@ -39,8 +39,8 @@ export class AiService {
             const cost = calculateAiCost({
                 provider: options.provider,
                 model: options.model,
-                inputTokens: usage.promptTokens,
-                outputTokens: usage.completionTokens,
+                inputTokens: usage.inputTokens,
+                outputTokens: usage.outputTokens,
             });
 
             return {
@@ -73,8 +73,8 @@ export class AiService {
                 const cost = calculateAiCost({
                     provider: options.provider,
                     model: options.model,
-                    inputTokens: usage.promptTokens,
-                    outputTokens: usage.completionTokens,
+                    inputTokens: usage.inputTokens,
+                    outputTokens: usage.outputTokens,
                 });
 
                 return {
@@ -110,7 +110,7 @@ export class AiService {
                 system: options.system,
                 prompt: options.prompt,
                 temperature: options.temperature,
-                maxTokens: options.maxTokens,
+                maxOutputTokens: options.maxTokens,
                 topP: options.topP,
                 frequencyPenalty: options.frequencyPenalty,
                 presencePenalty: options.presencePenalty,

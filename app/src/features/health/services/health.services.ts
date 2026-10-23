@@ -29,6 +29,6 @@ export const getHealth = async (scope: HealthScope): Promise<HealthResponse> => 
             return error.response.data as HealthResponse;
         }
 
-        throw new Error("Failed to fetch health status. Please try again.");
+        throw new Error("Failed to fetch health status. Please try again.", { cause: error });
     }
 };

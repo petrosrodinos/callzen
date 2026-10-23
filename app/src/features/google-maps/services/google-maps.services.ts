@@ -7,6 +7,6 @@ export const getTimezone = async (lat: number, lng: number): Promise<Timezone> =
         const response = await axiosInstance.get(ApiRoutes.google_maps.timezone, { params: { lat, lng } });
         return response.data;
     } catch (error) {
-        throw new Error("Failed to fetch timezone. Please try again.");
+        throw new Error("Failed to fetch timezone. Please try again.", { cause: error });
     }
 };
