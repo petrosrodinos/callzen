@@ -1,0 +1,430 @@
+{
+  "actions": {
+    "save": "Spara",
+    "cancel": "Avbryt",
+    "delete": "Ta bort",
+    "edit": "Redigera",
+    "close": "Stäng",
+    "confirm": "Bekräfta",
+    "back": "Tillbaka",
+    "next": "Nästa",
+    "search": "Sök",
+    "retry": "Försök igen",
+    "loading": "Laddar…",
+    "logout": "Logga ut"
+  },
+  "language": {
+    "label": "Språk",
+    "switch": "Byt språk"
+  },
+  "dates": {
+    "today": "Idag",
+    "yesterday": "Igår"
+  },
+  "pagination": {
+    "previous": "Föregående sida",
+    "next": "Nästa sida"
+  },
+  "theme": {
+    "toggle": "Växla tema",
+    "light": "Ljust",
+    "dark": "Mörkt",
+    "system": "System"
+  },
+  "errorBoundary": {
+    "title": "Något gick fel",
+    "description": "Ett oväntat fel inträffade. Försök att uppdatera sidan eller kontakta supporten om problemet kvarstår.",
+    "details": "Felinformation"
+  },
+  "scoreRing": {
+    "aria": "{{label}}: {{score}} av 100",
+    "score": "Poäng",
+    "notAvailable": "inte tillgängligt"
+  },
+  "select": {
+    "placeholder": "Välj",
+    "notSpecified": "Inte angivet"
+  },
+  "modelPicker": {
+    "quality": "Kvalitet {{value}}/5",
+    "slow": "Tänker innan den svarar, så förslag kan komma sent under livesamtal.",
+    "recommended": "Rekommenderad"
+  },
+  "countdown": {
+    "passed": "Mötet har passerat"
+  },
+  "phoneInput": {
+    "search": "Sök land...",
+    "empty": "Inget land hittades."
+  },
+  "callRow": {
+    "practiceSession": "Övningspass",
+    "untitled": "Namnlöst samtal",
+    "practice": "Övning",
+    "objectiveMet": "Målet uppnått",
+    "notMet": "Ej uppnått",
+    "analyzing": "Analyserar",
+    "live": "Live"
+  },
+  "languageSelect": {
+    "label": "Språk",
+    "placeholder": "Välj ett språk"
+  },
+  "languageMultiSelect": {
+    "primaryLanguage": "Huvudspråk",
+    "makePrimary": "Gör till huvudspråk",
+    "primaryAria": "{{name}} (huvudspråk)",
+    "makePrimaryAria": "Gör {{name}} till huvudspråk",
+    "removeAria": "Ta bort {{name}}",
+    "maximum": "Högst {{count}} språk",
+    "add": "Lägg till språk",
+    "search": "Sök språk…",
+    "empty": "Inget språk hittades.",
+    "primary": "Huvudspråk",
+    "hint": "Högst {{count}} språk. Det stjärnmärkta är standard; klicka på en annan etikett för att göra den till standard."
+  },
+  "liveAssist": {
+    "label": "Liveassistans",
+    "mutedTitle": "Förslagen är ljudlösa. Samtalet fångas fortfarande.",
+    "resume": "Återuppta förslag",
+    "empty": "Förslag visas här så fort prospekten pratar.",
+    "recent": "Senaste förslag ({{count}})",
+    "copilot": "Co-pilot",
+    "thinking": "Tänker…",
+    "activeUsing": "Aktiv · använder {{model}}",
+    "active": "Aktiv",
+    "paused": "Förslag pausade · inspelningen fortsätter",
+    "reconnecting_one": "Återansluter · {{count}} rad i kö",
+    "reconnecting_other": "Återansluter · {{count}} rader i kö",
+    "frequencyLabel": "Förslagsfrekvens",
+    "frequency": "Frekvens",
+    "suggestNow": "Föreslå nu",
+    "unmute": "Slå på ljud för förslag",
+    "mute": "Tysta förslag",
+    "updating": "Uppdaterar",
+    "or": "Eller:",
+    "alt": "Alt:",
+    "unpin": "Lossa",
+    "pin": "Fäst",
+    "dismiss": "Avfärda",
+    "helpful": "Hjälpsamt",
+    "notHelpful": "Inte hjälpsamt",
+    "askPlaceholder": "Fråga co-piloten… t.ex. pris för 50 licenser?",
+    "askLabel": "Fråga co-piloten",
+    "ask": "Fråga",
+    "scriptProgress": "Manusframsteg · {{done}}/{{total}}",
+    "audioLevel": "Ljudnivå för {{label}}"
+  },
+  "micCheck": {
+    "ready": "Mikrofonen är redo",
+    "speak": "Tala för att testa",
+    "prompt": "Kontrollera mikrofonen innan du börjar.",
+    "test": "Testa mikrofonen"
+  },
+  "recording": {
+    "recording": "Spelar in",
+    "listening": "Lyssnar · spelas inte in",
+    "paused": "Pausad",
+    "off": "Fångar inte",
+    "connecting": "Ansluter…"
+  },
+  "transcript": {
+    "empty": "Transkriptionen visas här medan folk pratar.",
+    "notSaved": "Inte sparad än",
+    "switchSpeaker": "Byt talare",
+    "wrongSpeaker": "Fel talare? Byt den"
+  },
+  "imageUploader": {
+    "upload": "Ladda upp {{label}}",
+    "wait": "Vänta...",
+    "hint": "PNG, JPG upp till 5 MB"
+  },
+  "imagePicker": {
+    "uploadText": "Ladda upp bilder",
+    "uploadSubtext": "Dra och släpp bilder här eller klicka för att bläddra",
+    "fileTypeText": "Stöder JPG, PNG, JPEG upp till 10 MB per fil",
+    "existingImages": "Befintliga bilder",
+    "choose": "Välj bilder",
+    "uploading": "Laddar upp bilder",
+    "uploadingSubtext": "Vänta medan bilderna laddas upp",
+    "uploadingButton": "Laddar upp...",
+    "fileRejected": "Filen avvisades",
+    "image": "Bild",
+    "clearAll": "Rensa alla",
+    "deleteTitle": "Ta bort bild",
+    "deleteDescription": "Är du säker på att du vill ta bort den här bilden? Det går inte att ångra."
+  },
+  "fileUpload": {
+    "maxFiles_one": "Högst {{count}} fil tillåten",
+    "maxFiles_other": "Högst {{count}} filer tillåtna",
+    "typeNotAccepted": "Filtypen accepteras inte",
+    "tooLarge": "Filen är för stor",
+    "uploadFailed": "Uppladdningen misslyckades",
+    "label": "Filuppladdning",
+    "statusError": "Fel: {{error}}",
+    "statusUploading": "Laddar upp: {{progress}} % klart",
+    "statusComplete": "Uppladdningen är klar",
+    "statusReady": "Redo att laddas upp"
+  },
+  "pinInput": {
+    "field": "PIN-inmatning {{counter}} av {{length}}",
+    "label": "PIN-inmatning"
+  },
+  "organisationGate": {
+    "errorTitle": "Kunde inte läsa in dina organisationer",
+    "errorDescription": "Kontrollera anslutningen och försök igen.",
+    "retry": "Försök igen",
+    "signOut": "Logga ut",
+    "emptyTitle": "Ingen organisation än",
+    "emptyDescription": "Ladda om för att ställa in din arbetsyta.",
+    "reload": "Ladda om"
+  },
+  "requirePermission": {
+    "title": "Din roll tillåter inte detta",
+    "description": "Du har inte åtkomst till den här sidan. Be en ägare ändra din rolls behörigheter.",
+    "descriptionWithOrg": "Din roll i {{organisation}} ({{role}}) har inte åtkomst till den här sidan. Be en ägare ändra din rolls behörigheter.",
+    "back": "Tillbaka till översikten"
+  },
+  "toasts": {
+    "assistantAgents": {
+      "coPilotCreated": "Co-pilot skapad",
+      "coPilotDuplicated": "Co-pilot duplicerad",
+      "defaultCoPilotUpdated": "Standard-co-pilot uppdaterad",
+      "coPilotArchived": "Co-pilot arkiverad",
+      "coPilotRestored": "Co-pilot återställd",
+      "coPilotDeleted": "Co-pilot borttagen",
+      "couldNotCreateTheCoPilot": "Det gick inte att skapa co-piloten",
+      "changesSaved": "Ändringarna sparades",
+      "couldNotSaveChanges": "Det gick inte att spara ändringarna",
+      "couldNotDuplicate": "Det gick inte att duplicera",
+      "couldNotSetDefault": "Det gick inte att ange som standard",
+      "couldNotUpdateTheCoPilot": "Det gick inte att uppdatera co-piloten",
+      "couldNotDeleteTheCoPilot": "Det gick inte att ta bort co-piloten",
+      "readyToUse": "{{name}} är redo att användas."
+    },
+    "calls": {
+      "callStarted": "Samtalet har startat",
+      "callUpdated": "Samtalet uppdaterades",
+      "savedToYourCallLibrary": "Sparat i ditt samtalsbibliotek.",
+      "bookmarkRemoved": "Bokmärket togs bort",
+      "speakerUpdated": "Talaren uppdaterades",
+      "theCoPilotIsListening": "Co-piloten lyssnar.",
+      "couldNotStartTheCall": "Det gick inte att starta samtalet",
+      "practiceSessionReady": "Övningspasset är redo",
+      "couldNotStartThePracticeSession": "Det gick inte att starta övningspasset",
+      "couldNotUpdateTheCall": "Det gick inte att uppdatera samtalet",
+      "callEnded": "Samtalet avslutades",
+      "yourPerformanceReportIsBeingPrepared": "Din prestationsrapport förbereds.",
+      "couldNotEndTheCall": "Det gick inte att avsluta samtalet",
+      "callPermanentlyDeleted": "Samtalet har tagits bort permanent",
+      "couldNotDeleteTheCall": "Det gick inte att ta bort samtalet",
+      "thanksForTheFeedback": "Tack för din feedback",
+      "couldNotUpdateTheSuggestion": "Det gick inte att uppdatera förslaget",
+      "noAnswer": "Inget svar",
+      "momentBookmarked": "Ögonblicket bokmärktes",
+      "couldNotBookmark": "Det gick inte att bokmärka",
+      "couldNotRemoveTheBookmark": "Det gick inte att ta bort bokmärket",
+      "couldNotUpdateTheSpeaker": "Det gick inte att uppdatera talaren",
+      "recordingSaved": "Inspelningen sparades",
+      "recordingUploadFailed": "Det gick inte att ladda upp inspelningen",
+      "recordingPermanentlyDeleted": "Inspelningen har tagits bort permanent",
+      "transcriptAndAnalysisWereKept": "Transkription och analys behölls.",
+      "couldNotDeleteTheRecording": "Det gick inte att ta bort inspelningen",
+      "transcriptPermanentlyDeleted": "Transkriptionen har tagits bort permanent",
+      "couldNotDeleteTheTranscript": "Det gick inte att ta bort transkriptionen",
+      "analysisStarted": "Analysen har startat",
+      "thisUsuallyTakesUnderAMinute": "Det tar vanligtvis under en minut.",
+      "couldNotStartTheAnalysis": "Det gick inte att starta analysen"
+    },
+    "organisations": {
+      "roleUpdated": "Rollen uppdaterades",
+      "memberRemoved": "Medlemmen togs bort",
+      "organisationCreated": "Organisationen skapades",
+      "couldNotCreateTheOrganisation": "Det gick inte att skapa organisationen",
+      "organisationRenamed": "Organisationen bytte namn",
+      "couldNotRenameTheOrganisation": "Det gick inte att byta namn på organisationen",
+      "organisationPermanentlyDeleted": "Organisationen har tagits bort permanent",
+      "couldNotDeleteTheOrganisation": "Det gick inte att ta bort organisationen",
+      "couldNotChangeTheRole": "Det gick inte att ändra rollen",
+      "couldNotRemoveTheMember": "Det gick inte att ta bort medlemmen",
+      "permissionsSaved": "Behörigheterna sparades",
+      "theChangeAppliesToEveryoneWith": "Ändringen gäller direkt för alla med den här rollen.",
+      "couldNotSavePermissions": "Det gick inte att spara behörigheterna",
+      "permissionsResetToThePreset": "Behörigheterna återställdes till förinställningen",
+      "couldNotResetPermissions": "Det gick inte att återställa behörigheterna",
+      "invitationSent": "Inbjudan skickades",
+      "invitationCreated": "Inbjudan skapades",
+      "couldNotSendTheInvitation": "Det gick inte att skicka inbjudan",
+      "invitationResent": "Inbjudan skickades igen",
+      "newLinkCreated": "Ny länk skapades",
+      "couldNotResendTheInvitation": "Det gick inte att skicka inbjudan igen",
+      "invitationRevoked": "Inbjudan återkallades",
+      "theLinkNoLongerWorks": "Länken fungerar inte längre.",
+      "couldNotRevokeTheInvitation": "Det gick inte att återkalla inbjudan",
+      "youCanSwitchOrganisationsFromThe": "Du kan byta organisation från sidofältet när som helst.",
+      "couldNotAcceptTheInvitation": "Det gick inte att acceptera inbjudan",
+      "workingIn": "Du arbetar nu i {{name}}.",
+      "emailedTo": "Vi har skickat ett e-postmeddelande till {{email}}.",
+      "emailedFresh": "Vi har skickat en ny länk till {{email}}.",
+      "welcomeTo": "Välkommen till {{name}}",
+      "emailUnavailableInvite": "E-post är inte tillgängligt just nu. Kopiera inbjudningslänken och dela den själv.",
+      "emailUnavailableLink": "E-post är inte tillgängligt just nu. Kopiera den nya länken och dela den själv."
+    },
+    "practiceAgents": {
+      "prospectCreated": "Prospekt skapad",
+      "prospectRecreatedFromTheCall": "Prospekt återskapad från samtalet",
+      "prospectDuplicated": "Prospekt duplicerad",
+      "prospectArchived": "Prospekt arkiverad",
+      "prospectRestored": "Prospekt återställd",
+      "prospectDeleted": "Prospekt borttagen",
+      "couldNotCreateTheProspect": "Det gick inte att skapa prospekten",
+      "changesSaved": "Ändringarna sparades",
+      "couldNotSaveChanges": "Det gick inte att spara ändringarna",
+      "prospectGenerated": "Prospekt genererad",
+      "reviewAndAdjustTheDetailsThen": "Granska och justera uppgifterna och spara sedan.",
+      "couldNotGenerateTheProspect": "Det gick inte att generera prospekten",
+      "randomProspectReady": "Slumpmässig prospekt klar",
+      "reviewItThenSave": "Granska den och spara sedan.",
+      "couldNotGenerateARandomProspect": "Det gick inte att generera en slumpmässig prospekt",
+      "couldNotRecreateTheProspect": "Det gick inte att återskapa prospekten",
+      "couldNotDuplicate": "Det gick inte att duplicera",
+      "harderVersionCreated": "Svårare version skapad",
+      "couldNotCreateAHarderVersion": "Det gick inte att skapa en svårare version",
+      "couldNotUpdateTheProspect": "Det gick inte att uppdatera prospekten",
+      "couldNotDeleteTheProspect": "Det gick inte att ta bort prospekten"
+    },
+    "auth": {
+      "loginSuccessful": "Inloggningen lyckades",
+      "youHaveSuccessfullyLoggedIn": "Du är nu inloggad",
+      "couldNotSignIn": "Det gick inte att logga in",
+      "anUnexpectedErrorOccurred": "Ett oväntat fel inträffade",
+      "welcomeToCallzen": "Välkommen till CallZen",
+      "yourAccountIsReady": "Ditt konto är klart.",
+      "couldNotSignUp": "Det gick inte att registrera sig",
+      "adminLoginSuccessful": "Administratörsinloggningen lyckades",
+      "youHaveSuccessfullyLoggedInAs": "Du är nu inloggad som administratör",
+      "couldNotAdminLoginToAccount": "Det gick inte att logga in på kontot som administratör"
+    },
+    "user": {
+      "settingsSaved": "Inställningarna sparades",
+      "couldNotSaveSettings": "Det gick inte att spara inställningarna",
+      "accountDeleted": "Kontot har tagits bort",
+      "allYourDataWasPermanentlyRemoved": "All din data har tagits bort permanent.",
+      "couldNotDeleteYourAccount": "Det gick inte att ta bort ditt konto"
+    }
+  },
+  "errors": {
+    "calls": {
+      "failedToLoadCalls": "Det gick inte att läsa in samtalen.",
+      "failedToLoadTheCall": "Det gick inte att läsa in samtalet.",
+      "failedToStartTheCall": "Det gick inte att starta samtalet.",
+      "failedToUpdateTheCall": "Det gick inte att uppdatera samtalet.",
+      "failedToDeleteTheCall": "Det gick inte att ta bort samtalet.",
+      "failedToUpdateTheSpeaker": "Det gick inte att uppdatera talaren.",
+      "failedToAddTheBookmark": "Det gick inte att lägga till bokmärket.",
+      "failedToRemoveTheBookmark": "Det gick inte att ta bort bokmärket.",
+      "failedToStartThePracticeSession": "Det gick inte att starta övningspasset.",
+      "failedToEndTheCall": "Det gick inte att avsluta samtalet.",
+      "failedToSaveTheTranscript": "Det gick inte att spara transkriptionen.",
+      "failedToDeleteTheTranscript": "Det gick inte att ta bort transkriptionen.",
+      "failedToGenerateASuggestion": "Det gick inte att generera ett förslag.",
+      "failedToUpdateTheSuggestion": "Det gick inte att uppdatera förslaget.",
+      "theCoPilotCouldNotAnswer": "Co-piloten kunde inte svara just nu.",
+      "failedToUploadTheRecording": "Det gick inte att ladda upp inspelningen.",
+      "failedToLoadTheRecording": "Det gick inte att läsa in inspelningen.",
+      "failedToDeleteTheRecording": "Det gick inte att ta bort inspelningen.",
+      "failedToStartTheAnalysis": "Det gick inte att starta analysen.",
+      "couldNotStartTheRealtimeAudio": "Det gick inte att starta realtidsljudsessionen.",
+      "theProspectDidNotRespondTry": "Prospekten svarade inte. Försök igen.",
+      "couldNotConnectToTheRealtime": "Det gick inte att ansluta till realtidsljudtjänsten."
+    },
+    "dashboard": {
+      "failedToLoadYourProgress": "Det gick inte att läsa in dina framsteg."
+    },
+    "organisations": {
+      "failedToLoadMembers": "Det gick inte att läsa in medlemmarna.",
+      "failedToRemoveTheMember": "Det gick inte att ta bort medlemmen.",
+      "failedToLoadRoles": "Det gick inte att läsa in rollerna.",
+      "failedToLoadYourOrganisations": "Det gick inte att läsa in dina organisationer.",
+      "failedToLoadPermissions": "Det gick inte att läsa in behörigheterna.",
+      "failedToCreateTheOrganisation": "Det gick inte att skapa organisationen.",
+      "failedToRenameTheOrganisation": "Det gick inte att byta namn på organisationen.",
+      "failedToDeleteTheOrganisation": "Det gick inte att ta bort organisationen.",
+      "failedToChangeTheRole": "Det gick inte att ändra rollen.",
+      "failedToSavePermissions": "Det gick inte att spara behörigheterna.",
+      "failedToResetPermissions": "Det gick inte att återställa behörigheterna.",
+      "failedToLoadInvitations": "Det gick inte att läsa in inbjudningarna.",
+      "failedToSendTheInvitation": "Det gick inte att skicka inbjudan.",
+      "failedToResendTheInvitation": "Det gick inte att skicka inbjudan igen.",
+      "failedToRevokeTheInvitation": "Det gick inte att återkalla inbjudan.",
+      "thisInvitationLinkIsNotValid": "Den här inbjudningslänken är inte giltig.",
+      "failedToLoadYourInvitations": "Det gick inte att läsa in dina inbjudningar.",
+      "failedToAcceptTheInvitation": "Det gick inte att acceptera inbjudan."
+    },
+    "practiceAgents": {
+      "failedToLoadPracticeProspects": "Det gick inte att läsa in övningsprospekten.",
+      "failedToLoadThePracticeProspect": "Det gick inte att läsa in övningsprospekten.",
+      "failedToCreateThePracticeProspect": "Det gick inte att skapa övningsprospekten.",
+      "failedToSaveThePracticeProspect": "Det gick inte att spara övningsprospekten.",
+      "failedToRecreateTheProspectFrom": "Det gick inte att återskapa prospekten från det här samtalet.",
+      "failedToDuplicateTheProspect": "Det gick inte att duplicera prospekten.",
+      "failedToUpdateTheProspect": "Det gick inte att uppdatera prospekten.",
+      "failedToDeleteTheProspect": "Det gick inte att ta bort prospekten.",
+      "failedToGenerateTheProspectPlease": "Det gick inte att generera prospekten. Försök igen.",
+      "failedToGenerateARandomProspect": "Det gick inte att generera en slumpmässig prospekt. Försök igen.",
+      "failedToCreateAHarderVersion": "Det gick inte att skapa en svårare version."
+    },
+    "usage": {
+      "failedToLoadUsage": "Det gick inte att läsa in användningen."
+    },
+    "user": {
+      "failedToLoadYourProfile": "Det gick inte att läsa in din profil.",
+      "failedToSaveYourSettings": "Det gick inte att spara dina inställningar.",
+      "failedToDeleteYourAccount": "Det gick inte att ta bort ditt konto."
+    },
+    "assistantAgents": {
+      "failedToLoadAssistantAgents": "Det gick inte att läsa in assistentagenterna.",
+      "failedToLoadTheAssistantAgent": "Det gick inte att läsa in assistentagenten.",
+      "failedToCreateTheAssistantAgent": "Det gick inte att skapa assistentagenten.",
+      "failedToSaveTheAssistantAgent": "Det gick inte att spara assistentagenten.",
+      "failedToDuplicateTheAssistantAgent": "Det gick inte att duplicera assistentagenten.",
+      "failedToSetTheDefaultAgent": "Det gick inte att ange standardagenten.",
+      "failedToUpdateTheAgent": "Det gick inte att uppdatera agenten.",
+      "failedToDeleteTheAssistantAgent": "Det gick inte att ta bort assistentagenten."
+    },
+    "auth": {
+      "failedToSignInPleaseTry": "Det gick inte att logga in. Försök igen.",
+      "failedToSignUpPleaseTry": "Det gick inte att registrera sig. Försök igen.",
+      "failedToRefreshAccountTokenPlease": "Det gick inte att förnya kontots token. Försök igen.",
+      "failedToAdminLoginToAccount": "Det gick inte att logga in på kontot som administratör. Försök igen."
+    },
+    "catalog": {
+      "failedToLoadModelsAndTemplates": "Det gick inte att läsa in modeller och mallar."
+    },
+    "googleMaps": {
+      "failedToFetchTimezonePleaseTry": "Det gick inte att hämta tidszonen. Försök igen."
+    },
+    "health": {
+      "failedToFetchHealthStatusPlease": "Det gick inte att hämta hälsostatusen. Försök igen."
+    },
+    "lib": {
+      "network": "Det går inte att nå servern. Kontrollera anslutningen och försök igen."
+    },
+    "audio": {
+      "speechUnsupported": "Taligenkänning stöds inte i den här webbläsaren. Använd Chrome eller Edge.",
+      "speechBlocked": "Mikrofonåtkomst för taligenkänning blockerades.",
+      "micUnsupported": "Den här webbläsaren stöder inte mikrofoninspelning. Prova den senaste versionen av Chrome, Edge eller Safari.",
+      "micBlocked": "Mikrofonåtkomst blockerades. Tillåt den i webbläsarens webbplatsinställningar och försök igen.",
+      "micNotFound": "Ingen mikrofon hittades. Anslut en och försök igen.",
+      "micFailed": "Det gick inte att komma åt mikrofonen.",
+      "tabUnsupported": "För att fånga mötesljud krävs en webbläsare för dator, till exempel Chrome eller Edge.",
+      "shareCancelled": "Skärmdelningen avbröts. Välj din mötesflik och aktivera \"Dela flikens ljud\".",
+      "noAudioShared": "Inget ljud delades. Välj mötets webbläsarflik och aktivera \"Dela flikens ljud\".",
+      "realtimeTimeout": "Realtidsdatakanalen öppnades inte i tid"
+    },
+    "websocket": {
+      "notConnected": "WebSocket är inte ansluten",
+      "timeout": "Tidsgräns för WebSocket-sändning överskreds"
+    }
+  }
+}

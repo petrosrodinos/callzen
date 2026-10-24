@@ -1,4 +1,5 @@
 import type { UseFormReturn } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import {
   FormControl,
   FormDescription,
@@ -34,26 +35,25 @@ export function StyleSection({
   form: UseFormReturn<AssistantAgentFormValues>;
   defaultConsentLine: string;
 }) {
+  const { t } = useTranslation("assistant");
   const suggestConsent = form.watch("suggest_consent_line");
 
   return (
     <div className="space-y-4">
       <FormSection
-        title="Instructions & tone"
-        description="Rules the co-pilot always follows, in your own words."
+        title={t("style.instructionsTitle")}
+        description={t("style.instructionsDescription")}
       >
         <FormField
           control={form.control}
           name="instructions"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Instructions</FormLabel>
+              <FormLabel>{t("style.instructions")}</FormLabel>
               <FormControl>
                 <Textarea
                   rows={4}
-                  placeholder={
-                    "Keep suggestions under 20 words.\nNever discount more than 10%.\nAlways push for a specific meeting time."
-                  }
+                  placeholder={t("style.instructionsPlaceholder")}
                   {...field}
                 />
               </FormControl>
@@ -66,11 +66,11 @@ export function StyleSection({
           name="tone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Tone</FormLabel>
+              <FormLabel>{t("style.tone")}</FormLabel>
               <div
                 className="flex flex-wrap gap-2"
                 role="radiogroup"
-                aria-label="Tone"
+                aria-label={t("style.tone")}
               >
                 {ToneFormOptions.map((option) => (
                   <button
@@ -95,19 +95,19 @@ export function StyleSection({
       </FormSection>
 
       <FormSection
-        title="Suggestions"
-        description="How often and how much the co-pilot shows during calls. You can also change frequency mid-call."
+        title={t("style.suggestionsTitle")}
+        description={t("style.suggestionsDescription")}
       >
         <FormField
           control={form.control}
           name="suggestion_frequency"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Frequency</FormLabel>
+              <FormLabel>{t("style.frequency")}</FormLabel>
               <div
                 className="grid grid-cols-1 gap-2 sm:grid-cols-3"
                 role="radiogroup"
-                aria-label="Suggestion frequency"
+                aria-label={t("style.suggestionFrequency")}
               >
                 {SuggestionFrequencyFormOptions.map((option) => (
                   <button
@@ -140,7 +140,7 @@ export function StyleSection({
             name="suggestion_length"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Length</FormLabel>
+                <FormLabel>{t("style.length")}</FormLabel>
                 <Select value={field.value} onValueChange={field.onChange}>
                   <FormControl>
                     <SelectTrigger>
@@ -163,7 +163,7 @@ export function StyleSection({
             name="alternatives_count"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Alternative phrasings</FormLabel>
+                <FormLabel>{t("style.alternatives")}</FormLabel>
                 <Select
                   value={String(field.value)}
                   onValueChange={(value) => field.onChange(Number(value))}
@@ -188,8 +188,8 @@ export function StyleSection({
       </FormSection>
 
       <FormSection
-        title="Recording consent"
-        description="Recording laws differ by region and some require everyone's consent. You are responsible for getting it."
+        title={t("style.consentTitle")}
+        description={t("style.consentDescription")}
       >
         <FormField
           control={form.control}
@@ -197,10 +197,9 @@ export function StyleSection({
           render={({ field }) => (
             <FormItem className="flex items-center justify-between gap-4 rounded-lg border p-3">
               <div>
-                <FormLabel>Suggest a consent line first</FormLabel>
+                <FormLabel>{t("style.suggestConsent")}</FormLabel>
                 <FormDescription>
-                  The first suggestion of every call will be your disclosure
-                  line.
+                  {t("style.suggestConsentHint")}
                 </FormDescription>
               </div>
               <FormControl>
@@ -218,7 +217,7 @@ export function StyleSection({
             name="consent_line"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Consent disclosure line</FormLabel>
+                <FormLabel>{t("style.consentLine")}</FormLabel>
                 <FormControl>
                   <Textarea
                     rows={2}
@@ -227,7 +226,7 @@ export function StyleSection({
                   />
                 </FormControl>
                 <FormDescription>
-                  Leave empty to use your default from Settings.
+                  {t("style.consentLineHint")}
                 </FormDescription>
                 <FormMessage />
               </FormItem>

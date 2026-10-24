@@ -1,0 +1,32 @@
+{
+  "notFound": {
+    "pageTitle": "Negăsită",
+    "title": "Această pagină nu există",
+    "description": "Linkul poate fi defect sau pagina a fost eliminată.",
+    "cta": "Înapoi la panou"
+  },
+  "app": {
+    "dashboard": "Panou",
+    "startCall": "Începe un apel"
+  },
+  "health": {
+    "title": "Starea sistemului",
+    "subtitle": "Starea în timp real a API-ului și a infrastructurii conectate.",
+    "refresh": "Reîmprospătează",
+    "loadError": "Starea de funcționare nu a putut fi încărcată.",
+    "lastChecked": "Ultima verificare",
+    "uptime": "Timp de funcționare",
+    "uptimeMs": "Timp de funcționare (ms)",
+    "responseTime": "Timp de răspuns",
+    "status": {
+      "ok": "OK",
+      "down": "Indisponibil",
+      "not_configured": "Neconfigurat"
+    },
+    "cards": {
+      "api": "Disponibilitatea aplicației principale.",
+      "postgres": "Conectivitatea bazei de date prin Prisma.",
+      "redis": "Conectivitatea cache-ului și a cozii."
+    }
+  }
+}

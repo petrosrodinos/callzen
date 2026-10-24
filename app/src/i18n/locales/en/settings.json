@@ -1,0 +1,96 @@
+{
+  "title": "Settings",
+  "save": "Save settings",
+  "nav": {
+    "profile": "Profile & preferences",
+    "usage": "Usage & costs",
+    "privacy": "Privacy & data",
+    "sections": "Settings sections"
+  },
+  "validation": {
+    "enterName": "Enter your name",
+    "enterPassword": "Enter your password",
+    "typeDelete": "Type \"DELETE\" to confirm"
+  },
+  "profile": {
+    "title": "Profile",
+    "fullName": "Full name",
+    "email": "Email"
+  },
+  "appearance": {
+    "title": "Appearance",
+    "description": "Light, dark or follow your system.",
+    "language": "Interface language",
+    "languageDescription": "The language used for menus, buttons and messages."
+  },
+  "languages": {
+    "title": "Languages",
+    "description": "Calls and practice can happen in many languages.",
+    "yourLanguage": "Your language",
+    "templates": "Templates & examples in",
+    "templatesAria": "Templates and examples language",
+    "output": "Suggestions & analysis in"
+  },
+  "recording": {
+    "title": "Recording",
+    "description": "You are responsible for getting consent where recording laws require it.",
+    "keep": "Keep audio recordings by default",
+    "keepHint": "When off, only transcripts and analyses are stored. You can change it per call.",
+    "consentLine": "Default consent disclosure line",
+    "consentLineHint": "Suggested as the first line of calls when a co-pilot has the consent line enabled."
+  },
+  "privacy": {
+    "yourData": {
+      "title": "Your data",
+      "private": "Recordings, transcripts, scripts and agent configurations are private to your account.",
+      "delete": "You can delete any recording, transcript or call from its page at any time. Deletion is permanent.",
+      "keepOnly": "You can keep only transcripts and analyses by turning off recordings in Settings or per call.",
+      "sensitive": "Sensitive information you provide (scripts, pricing, customer details) is only sent to the AI providers below to produce suggestions and analyses."
+    },
+    "processors": {
+      "title": "Who processes your data",
+      "description": "Based on the models and voice providers you select.",
+      "region": "Region: {{region}}"
+    },
+    "consent": {
+      "title": "Recording consent",
+      "text": "Recording laws differ by country and region, and some require every participant's consent. Before recording a call, make sure you have it. Co-pilots can suggest your consent line as the first line of every call."
+    },
+    "deleteAccount": {
+      "title": "Delete account",
+      "description": "Permanently deletes your account, co-pilots, prospects, calls, recordings and analyses.",
+      "button": "Delete account"
+    },
+    "deleteDialog": {
+      "title": "Delete your account permanently?",
+      "description": "All your data is removed immediately and can't be recovered.",
+      "password": "Password",
+      "confirmation": "Type DELETE to confirm",
+      "submit": "Delete everything"
+    }
+  },
+  "usage": {
+    "period": "Period",
+    "scopeOrg": "Showing usage for everyone in this organisation.",
+    "scopeMine": "Showing your own usage in this organisation.",
+    "estimatedCost": "Estimated AI cost",
+    "listPrices": "Based on list prices",
+    "liveMinutes": "Live call minutes",
+    "practiceMinutes": "Practice minutes",
+    "analyses": "Analyses",
+    "suggestions_one": "{{count}} suggestion",
+    "suggestions_other": "{{count}} suggestions",
+    "byActivity": "By activity",
+    "byModel": "By model & provider",
+    "tokens": "{{tokens}} tokens",
+    "priceList": {
+      "title": "Price list",
+      "description": "What each model and voice provider costs, so you can balance quality and spend.",
+      "model": "Model",
+      "speed": "Speed",
+      "input": "Input / 1M tokens",
+      "output": "Output / 1M tokens",
+      "perMinute": "~{{price}} per minute"
+    }
+  }
+}

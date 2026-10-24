@@ -1,0 +1,117 @@
+{
+  "title": "Painel",
+  "greeting": "Olá, {{name}}",
+  "descriptionTeam": "Como está o desempenho de todos em {{organisation}}.",
+  "defaultOrganisation": "a sua organização",
+  "descriptionMe": "O seu desempenho em chamadas reais e treino, e no que trabalhar a seguir.",
+  "scope": {
+    "me": "Eu",
+    "team": "Equipa"
+  },
+  "period": "Período",
+  "practice": "Treino",
+  "stats": {
+    "averageScore": "Pontuação média",
+    "averageScoreHint": "Ao vivo {{live}} · Treino {{practice}}",
+    "calls": "Chamadas",
+    "callsHint": "{{live}} ao vivo · {{practice}} de treino",
+    "meetingsBooked": "Reuniões agendadas",
+    "fromLiveCalls": "De chamadas ao vivo",
+    "practiceStreak": "Sequência de treino",
+    "streakDays": "{{count}} d",
+    "talkMinutes": "{{minutes}} min em chamadas"
+  },
+  "gettingStarted": {
+    "heading": "Configure tudo em três passos",
+    "subheading": "A maioria das pessoas conclui em menos de cinco minutos.",
+    "createCopilot": {
+      "title": "Crie o seu copiloto",
+      "text": "Comece a partir de um modelo: guião, objeções e objetivo com um clique.",
+      "cta": "Criar copiloto"
+    },
+    "waitCopilot": {
+      "title": "Aguarde por um copiloto",
+      "text": "Um administrador desta organização configura os copilotos que vai usar. Pergunte-lhe se ainda não houver nenhum disponível.",
+      "cta": "Ver organização"
+    },
+    "practice": {
+      "title": "Ensaie com um potencial cliente de IA",
+      "text": "Fale em voz alta com um potencial cliente realista, com o copiloto a orientá-lo.",
+      "cta": "Treinar agora"
+    },
+    "firstCall": {
+      "title": "Faça a sua primeira chamada assistida",
+      "text": "Telefone em alta-voz ou uma reunião online. Receba sugestões em tempo real.",
+      "cta": "Iniciar uma chamada"
+    }
+  },
+  "highlights": {
+    "title": "Destaques",
+    "empty": "Depois de algumas chamadas analisadas, verá aqui o que está a melhorar e o que precisa de atenção."
+  },
+  "outcomes": {
+    "title": "Resultados das chamadas ao vivo",
+    "subtitle": "Percentagem de chamadas com um resultado registado",
+    "empty": "Registe os resultados no fim das chamadas ao vivo para relacionar o desempenho com os resultados."
+  },
+  "invitations": {
+    "title": "Foi convidado",
+    "from": "De {{name}}",
+    "expires": "expira {{when}}",
+    "accept": "Aceitar"
+  },
+  "practiceProgress": {
+    "title": "Progresso do treino",
+    "withCopilot": "Com copiloto",
+    "onYourOwn": "Por conta própria",
+    "empty": "Sem sessões de treino neste período.",
+    "tabs": {
+      "level": "Nível",
+      "lead": "Lead",
+      "scenario": "Cenário",
+      "copilot": "Copiloto"
+    },
+    "columns": {
+      "group": "Grupo",
+      "sessions": "Sessões",
+      "won": "Conseguidas",
+      "avg": "Média"
+    }
+  },
+  "recentCalls": {
+    "title": "Chamadas recentes",
+    "viewAll": "Ver todas",
+    "empty": "Ainda sem chamadas."
+  },
+  "recommended": {
+    "title": "Treino recomendado",
+    "subtitle": "Cenários criados a partir dos seus pontos fracos recentes",
+    "empty": "As recomendações aparecem após a sua primeira chamada analisada. Entretanto, experimente um cenário pronto.",
+    "browse": "Explorar cenários",
+    "preparing": "A preparar…",
+    "practice": "Treinar"
+  },
+  "mistakes": {
+    "title": "Erros recorrentes",
+    "subtitle": "Das suas últimas 20 chamadas analisadas",
+    "empty": "Ainda sem padrões. Continue.",
+    "callsAffected_one": "{{count}} chamada",
+    "callsAffected_other": "{{count}} chamadas",
+    "viewCall": "Ver chamada"
+  },
+  "scoreTrend": {
+    "title": "Evolução da pontuação",
+    "subtitle": "Cada chamada analisada, da mais antiga à mais recente",
+    "emptyTitle": "Ainda sem dados suficientes",
+    "emptyDescription": "A sua evolução aparece após duas chamadas analisadas ou sessões de treino.",
+    "liveCalls": "Chamadas ao vivo",
+    "practice": "Treino"
+  },
+  "skills": {
+    "title": "Competências",
+    "subtitle": "As mais fracas primeiro. As barras comparam as chamadas ao vivo com o treino.",
+    "empty": "As pontuações de competências aparecem após a sua primeira chamada analisada.",
+    "live": "Ao vivo",
+    "practice": "Treino"
+  }
+}

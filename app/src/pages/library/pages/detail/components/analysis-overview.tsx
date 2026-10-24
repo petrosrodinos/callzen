@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { CheckCircle2, ListChecks, Target } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { ScoreRing } from "@/components/ui/score-badge";
@@ -14,13 +15,17 @@ const BAR_COLORS = {
 };
 
 export function AnalysisOverview({ analysis }: { analysis: CallAnalysis }) {
+  const { t } = useTranslation("library");
   return (
     <div className="space-y-4">
       <Card className="flex flex-col items-center gap-5 p-5 sm:flex-row sm:items-start">
-        <ScoreRing score={analysis.overall_score} label="Overall score" />
+        <ScoreRing
+          score={analysis.overall_score}
+          label={t("detail.overview.overallScore")}
+        />
         <div className="flex-1 space-y-2 text-center sm:text-left">
           <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-            Verdict
+            {t("detail.overview.verdict")}
           </p>
           <p className="text-lg font-medium leading-snug">{analysis.verdict}</p>
           <p className="text-sm text-muted-foreground">{analysis.summary}</p>
@@ -30,7 +35,8 @@ export function AnalysisOverview({ analysis }: { analysis: CallAnalysis }) {
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <Card className="p-5">
           <h3 className="mb-4 flex items-center gap-2 font-semibold">
-            <Target className="size-4 text-primary" /> Skill scores
+            <Target className="size-4 text-primary" />{" "}
+            {t("detail.overview.skillScores")}
           </h3>
           <ul className="space-y-3">
             {analysis.category_scores.map((category) => {
@@ -63,7 +69,8 @@ export function AnalysisOverview({ analysis }: { analysis: CallAnalysis }) {
         <div className="space-y-4">
           <Card className="p-5">
             <h3 className="mb-3 flex items-center gap-2 font-semibold">
-              <ListChecks className="size-4 text-primary" /> Focus next time
+              <ListChecks className="size-4 text-primary" />{" "}
+              {t("detail.overview.focusNextTime")}
             </h3>
             <ol className="space-y-3">
               {analysis.improvements.map((item, index) => (
@@ -82,7 +89,9 @@ export function AnalysisOverview({ analysis }: { analysis: CallAnalysis }) {
 
           {analysis.next_steps.length > 0 && (
             <Card className="p-5">
-              <h3 className="mb-3 font-semibold">Next steps</h3>
+              <h3 className="mb-3 font-semibold">
+                {t("detail.overview.nextSteps")}
+              </h3>
               <ul className="space-y-2">
                 {analysis.next_steps.map((step) => (
                   <li key={step} className="flex gap-2 text-sm">

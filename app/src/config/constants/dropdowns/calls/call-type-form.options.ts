@@ -1,9 +1,10 @@
 import { CallTypes, type CallType } from "@/features/calls/interfaces/calls.interfaces";
+import i18n from "@/i18n";
 
 export const CallTypeFormOptions: { id: CallType; label: string }[] = [
-    { id: CallTypes.ONLINE_MEETING, label: "Online meeting" },
-    { id: CallTypes.MICROPHONE, label: "Phone / microphone" },
-    { id: CallTypes.PRACTICE, label: "Practice session" },
+    { id: CallTypes.ONLINE_MEETING, label: i18n.t("options:calls.type.onlineMeeting") },
+    { id: CallTypes.MICROPHONE, label: i18n.t("options:calls.type.microphone") },
+    { id: CallTypes.PRACTICE, label: i18n.t("options:calls.type.practice") },
 ];
 
 export function getCallTypeLabel(value: CallType | string | null | undefined): string {
@@ -13,12 +14,12 @@ export function getCallTypeLabel(value: CallType | string | null | undefined): s
 export const LiveCallTypeDescriptionOptions: { id: CallType; label: string; description: string }[] = [
     {
         id: CallTypes.MICROPHONE,
-        label: "Phone / microphone",
-        description: "A call on your phone's speaker or another device. CallZen listens through this device's microphone. Best for cold calls.",
+        label: i18n.t("options:calls.type.microphone"),
+        description: i18n.t("options:calls.typeDescription.microphone"),
     },
     {
         id: CallTypes.ONLINE_MEETING,
-        label: "Online meeting",
-        description: "Google Meet, Zoom, Teams or any web meeting. You share the meeting tab's audio so both sides are captured separately.",
+        label: i18n.t("options:calls.type.onlineMeeting"),
+        description: i18n.t("options:calls.typeDescription.onlineMeeting"),
     },
 ];

@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "@/hooks/use-toast";
 import type { PracticeAgentQuery } from "../interfaces/practice-agents.interfaces";
@@ -38,10 +39,10 @@ export const useCreatePracticeAgent = () => {
         mutationFn: createPracticeAgent,
         onSuccess: (agent) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: "Prospect created", description: agent.name, duration: 2500 });
+            toast({ title: i18n.t("common:toasts.practiceAgents.prospectCreated"), description: agent.name, duration: 2500 });
         },
         onError: (error) => {
-            toast({ title: "Could not create the prospect", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.practiceAgents.couldNotCreateTheProspect"), description: error.message, variant: "error" });
         },
     });
 };
@@ -52,10 +53,10 @@ export const useUpdatePracticeAgent = () => {
         mutationFn: updatePracticeAgent,
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: "Changes saved", duration: 2000 });
+            toast({ title: i18n.t("common:toasts.practiceAgents.changesSaved"), duration: 2000 });
         },
         onError: (error) => {
-            toast({ title: "Could not save changes", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.practiceAgents.couldNotSaveChanges"), description: error.message, variant: "error" });
         },
     });
 };
@@ -67,13 +68,13 @@ export const useGeneratePracticeAgent = () => {
         onSuccess: (agent, variables) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
             toast({
-                title: variables.save ? "Prospect created" : "Prospect generated",
-                description: variables.save ? agent.name : "Review and adjust the details, then save.",
+                title: variables.save ? i18n.t("common:toasts.practiceAgents.prospectCreated") : i18n.t("common:toasts.practiceAgents.prospectGenerated"),
+                description: variables.save ? agent.name : i18n.t("common:toasts.practiceAgents.reviewAndAdjustTheDetailsThen"),
                 duration: 2500,
             });
         },
         onError: (error) => {
-            toast({ title: "Could not generate the prospect", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.practiceAgents.couldNotGenerateTheProspect"), description: error.message, variant: "error" });
         },
     });
 };
@@ -84,10 +85,10 @@ export const useRandomizePracticeAgent = () => {
         mutationFn: randomizePracticeAgent,
         onSuccess: (agent, variables) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: "Random prospect ready", description: variables.save ? agent.name : "Review it, then save.", duration: 2500 });
+            toast({ title: i18n.t("common:toasts.practiceAgents.randomProspectReady"), description: variables.save ? agent.name : i18n.t("common:toasts.practiceAgents.reviewItThenSave"), duration: 2500 });
         },
         onError: (error) => {
-            toast({ title: "Could not generate a random prospect", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.practiceAgents.couldNotGenerateARandomProspect"), description: error.message, variant: "error" });
         },
     });
 };
@@ -98,10 +99,10 @@ export const useCreatePracticeAgentFromCall = () => {
         mutationFn: createPracticeAgentFromCall,
         onSuccess: (agent) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: "Prospect recreated from the call", description: agent.name, duration: 2500 });
+            toast({ title: i18n.t("common:toasts.practiceAgents.prospectRecreatedFromTheCall"), description: agent.name, duration: 2500 });
         },
         onError: (error) => {
-            toast({ title: "Could not recreate the prospect", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.practiceAgents.couldNotRecreateTheProspect"), description: error.message, variant: "error" });
         },
     });
 };
@@ -112,10 +113,10 @@ export const useDuplicatePracticeAgent = () => {
         mutationFn: duplicatePracticeAgent,
         onSuccess: (agent) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: "Prospect duplicated", description: agent.name, duration: 2000 });
+            toast({ title: i18n.t("common:toasts.practiceAgents.prospectDuplicated"), description: agent.name, duration: 2000 });
         },
         onError: (error) => {
-            toast({ title: "Could not duplicate", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.practiceAgents.couldNotDuplicate"), description: error.message, variant: "error" });
         },
     });
 };
@@ -126,10 +127,10 @@ export const useHarderPracticeAgent = () => {
         mutationFn: harderPracticeAgent,
         onSuccess: (agent) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: "Harder version created", description: agent.name, duration: 2000 });
+            toast({ title: i18n.t("common:toasts.practiceAgents.harderVersionCreated"), description: agent.name, duration: 2000 });
         },
         onError: (error) => {
-            toast({ title: "Could not create a harder version", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.practiceAgents.couldNotCreateAHarderVersion"), description: error.message, variant: "error" });
         },
     });
 };
@@ -140,10 +141,10 @@ export const useArchivePracticeAgent = () => {
         mutationFn: archivePracticeAgent,
         onSuccess: (agent) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: agent.archived_at ? "Prospect archived" : "Prospect restored", description: agent.name, duration: 2000 });
+            toast({ title: agent.archived_at ? i18n.t("common:toasts.practiceAgents.prospectArchived") : i18n.t("common:toasts.practiceAgents.prospectRestored"), description: agent.name, duration: 2000 });
         },
         onError: (error) => {
-            toast({ title: "Could not update the prospect", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.practiceAgents.couldNotUpdateTheProspect"), description: error.message, variant: "error" });
         },
     });
 };
@@ -154,10 +155,10 @@ export const useDeletePracticeAgent = () => {
         mutationFn: deletePracticeAgent,
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: "Prospect deleted", duration: 2000 });
+            toast({ title: i18n.t("common:toasts.practiceAgents.prospectDeleted"), duration: 2000 });
         },
         onError: (error) => {
-            toast({ title: "Could not delete the prospect", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.practiceAgents.couldNotDeleteTheProspect"), description: error.message, variant: "error" });
         },
     });
 };

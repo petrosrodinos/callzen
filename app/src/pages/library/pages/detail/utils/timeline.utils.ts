@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import {
   TimelineMarkerKinds,
   type Call,
@@ -68,7 +69,7 @@ export const buildTimelineMarkers = (call: Call): TimelineMarker[] => {
       id: b.id,
       kind: TimelineMarkerKinds.BOOKMARK,
       atMs: b.at_ms,
-      label: b.label ?? "Bookmark",
+      label: b.label ?? i18n.t("library:detail.timeline.bookmark"),
     }),
   );
 

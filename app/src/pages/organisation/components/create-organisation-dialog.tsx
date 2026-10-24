@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Building2 } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -15,6 +16,7 @@ interface CreateOrganisationDialogProps {
 }
 
 export function CreateOrganisationDialog({ open, onOpenChange, onCreated }: CreateOrganisationDialogProps) {
+  const { t } = useTranslation("organisation");
   const create = useCreateOrganisation();
   const form = useForm<OrganisationNameFormValues>({ resolver: zodResolver(organisationNameSchema), defaultValues: { name: "" } });
 
@@ -31,8 +33,8 @@ export function CreateOrganisationDialog({ open, onOpenChange, onCreated }: Crea
     <Dialog open={open} onOpenChange={(next) => !create.isPending && onOpenChange(next)}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Create an organisation</DialogTitle>
-          <DialogDescription>Each organisation has its own co-pilots, prospects, calls and members. You'll be its owner and can invite your team.</DialogDescription>
+          <DialogTitle>{t("create.title")}</DialogTitle>
+          <DialogDescription>{t("create.description")}</DialogDescription>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -41,18 +43,18 @@ export function CreateOrganisationDialog({ open, onOpenChange, onCreated }: Crea
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Organisation name</FormLabel>
+                  <FormLabel>{t("create.name")}</FormLabel>
                   <FormControl>
-                    <Input autoFocus placeholder="Acme Sales Team" {...field} />
+                    <Input autoFocus placeholder={t("create.namePlaceholder")} {...field} />
                   </FormControl>
-                  <FormDescription>Your teammates will see this name in their invitation.</FormDescription>
+                  <FormDescription>{t("create.nameHint")}</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
             />
             <DialogFooter>
               <Button type="submit" disabled={create.isPending} loading={create.isPending}>
-                {!create.isPending && <Building2 />} Create organisation
+                {!create.isPending && <Building2 />} {t("create.submit")}
               </Button>
             </DialogFooter>
           </form>

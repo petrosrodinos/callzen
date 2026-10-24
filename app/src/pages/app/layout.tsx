@@ -1,4 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { PhoneCall } from "lucide-react";
 import { AppSidebar } from "@/components/layout/app-sidebar";
 import {
@@ -9,6 +10,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { ThemeSwitch } from "@/components/ui/theme-switch";
+import { UiLanguageSwitch } from "@/components/ui/ui-language-switch";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { Routes } from "@/routes/routes";
 import { OrganisationGate } from "@/components/providers/organisation-gate";
@@ -24,6 +26,7 @@ export default function AppLayout() {
 }
 
 function AppShell() {
+  const { t } = useTranslation("admin");
   const { can } = usePermissions();
   return (
     <SidebarProvider>
@@ -35,17 +38,18 @@ function AppShell() {
           <Link
             to={Routes.dashboard}
             className="md:hidden"
-            aria-label="Dashboard"
+            aria-label={t("app.dashboard")}
           >
             <BrandLogo compact />
           </Link>
           <div className="ml-auto flex items-center gap-1.5">
             <ThemeSwitch />
+            <UiLanguageSwitch />
             {can(Permissions.CALLS_CREATE) && (
               <Button asChild size="sm">
                 <Link to={Routes.calls.new}>
                   <PhoneCall />
-                  <span className="hidden sm:inline">Start a call</span>
+                  <span className="hidden sm:inline">{t("app.startCall")}</span>
                 </Link>
               </Button>
             )}

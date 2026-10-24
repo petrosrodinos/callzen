@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import axiosInstance from "@/config/api/axios";
 import { ApiRoutes } from "@/config/api/routes";
 import { ApiError } from "@/lib/api-error";
@@ -32,7 +33,7 @@ export const getCalls = async (query?: CallQuery): Promise<CallListResponse> => 
         const response = await axiosInstance.get(ApiRoutes.calls.prefix, { params: query });
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to load calls.");
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToLoadCalls"));
     }
 };
 
@@ -41,7 +42,7 @@ export const getCall = async (id: string): Promise<Call> => {
         const response = await axiosInstance.get(ApiRoutes.calls.detail(id));
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to load the call.");
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToLoadTheCall"));
     }
 };
 
@@ -50,7 +51,7 @@ export const startLiveCall = async (dto: CreateCallDto): Promise<Call> => {
         const response = await axiosInstance.post(ApiRoutes.calls.prefix, dto);
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to start the call.");
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToStartTheCall"));
     }
 };
 
@@ -59,7 +60,7 @@ export const startPracticeCall = async (dto: CreatePracticeCallDto): Promise<Cal
         const response = await axiosInstance.post(ApiRoutes.calls.practice, dto);
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to start the practice session.");
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToStartThePracticeSession"));
     }
 };
 
@@ -68,7 +69,7 @@ export const updateCall = async ({ id, dto }: { id: string; dto: UpdateCallDto }
         const response = await axiosInstance.patch(ApiRoutes.calls.detail(id), dto);
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to update the call.");
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToUpdateTheCall"));
     }
 };
 
@@ -77,7 +78,7 @@ export const endCall = async ({ id, dto }: { id: string; dto: EndCallDto }): Pro
         const response = await axiosInstance.post(ApiRoutes.calls.end(id), dto);
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to end the call.");
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToEndTheCall"));
     }
 };
 
@@ -86,7 +87,7 @@ export const deleteCall = async (id: string): Promise<{ id: string }> => {
         const response = await axiosInstance.delete(ApiRoutes.calls.detail(id));
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to delete the call.");
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToDeleteTheCall"));
     }
 };
 
@@ -95,7 +96,7 @@ export const addSegments = async ({ id, dto }: { id: string; dto: AddSegmentsDto
         const response = await axiosInstance.post(ApiRoutes.calls.segments(id), dto, { timeout: 30000 });
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to save the transcript.");
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToSaveTheTranscript"));
     }
 };
 
@@ -104,7 +105,7 @@ export const updateSegmentSpeaker = async ({ id, segmentId, speaker }: { id: str
         const response = await axiosInstance.patch(ApiRoutes.calls.segment(id, segmentId), { speaker });
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to update the speaker.");
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToUpdateTheSpeaker"));
     }
 };
 
@@ -113,7 +114,7 @@ export const deleteTranscript = async (id: string): Promise<Call> => {
         const response = await axiosInstance.delete(ApiRoutes.calls.transcript(id));
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to delete the transcript.");
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToDeleteTheTranscript"));
     }
 };
 
@@ -122,7 +123,7 @@ export const generateSuggestion = async ({ id, elapsed_ms, frequency }: { id: st
         const response = await axiosInstance.post(ApiRoutes.calls.generate_suggestion(id), { elapsed_ms, frequency }, { timeout: 30000 });
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to generate a suggestion.");
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToGenerateASuggestion"));
     }
 };
 
@@ -141,7 +142,7 @@ export const updateSuggestion = async ({
         const response = await axiosInstance.patch(ApiRoutes.calls.suggestion(id, suggestionId), { status, feedback });
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to update the suggestion.");
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToUpdateTheSuggestion"));
     }
 };
 
@@ -150,7 +151,7 @@ export const askCopilot = async ({ id, question, elapsed_ms }: { id: string; que
         const response = await axiosInstance.post(ApiRoutes.calls.ask(id), { question, elapsed_ms }, { timeout: 30000 });
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "The co-pilot could not answer right now.");
+        throw new ApiError(error, i18n.t("common:errors.calls.theCoPilotCouldNotAnswer"));
     }
 };
 
@@ -159,7 +160,7 @@ export const addBookmark = async ({ id, at_ms, label }: { id: string; at_ms: num
         const response = await axiosInstance.post(ApiRoutes.calls.bookmarks(id), { at_ms, label });
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to add the bookmark.");
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToAddTheBookmark"));
     }
 };
 
@@ -168,7 +169,7 @@ export const deleteBookmark = async ({ id, bookmarkId }: { id: string; bookmarkI
         const response = await axiosInstance.delete(ApiRoutes.calls.bookmark(id, bookmarkId));
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to remove the bookmark.");
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToRemoveTheBookmark"));
     }
 };
 
@@ -183,7 +184,7 @@ export const uploadRecording = async ({ id, blob }: { id: string; blob: Blob }):
         });
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to upload the recording.");
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToUploadTheRecording"));
     }
 };
 
@@ -192,7 +193,7 @@ export const getRecording = async (id: string): Promise<Blob> => {
         const response = await axiosInstance.get(ApiRoutes.calls.recording(id), { responseType: "blob", timeout: 5 * 60 * 1000 });
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to load the recording.");
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToLoadTheRecording"));
     }
 };
 
@@ -201,7 +202,7 @@ export const deleteRecording = async (id: string): Promise<Call> => {
         const response = await axiosInstance.delete(ApiRoutes.calls.recording(id));
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to delete the recording.");
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToDeleteTheRecording"));
     }
 };
 
@@ -210,7 +211,7 @@ export const rerunAnalysis = async ({ id, dto }: { id: string; dto: RerunAnalysi
         const response = await axiosInstance.post(ApiRoutes.calls.analysis(id), dto);
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to start the analysis.");
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToStartTheAnalysis"));
     }
 };
 
@@ -219,7 +220,7 @@ export const createRealtimeSession = async ({ id, purpose }: { id: string; purpo
         const response = await axiosInstance.post(ApiRoutes.calls.realtime_session(id), { purpose }, { timeout: 20000 });
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Could not start the realtime audio session.");
+        throw new ApiError(error, i18n.t("common:errors.calls.couldNotStartTheRealtimeAudio"));
     }
 };
 
@@ -228,6 +229,6 @@ export const practiceTurn = async ({ id, dto }: { id: string; dto: PracticeTurnD
         const response = await axiosInstance.post(ApiRoutes.calls.practice_turn(id), dto, { timeout: 30000 });
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "The prospect did not respond. Try again.");
+        throw new ApiError(error, i18n.t("common:errors.calls.theProspectDidNotRespondTry"));
     }
 };

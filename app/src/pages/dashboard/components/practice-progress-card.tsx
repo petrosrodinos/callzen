@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type {
@@ -17,6 +18,7 @@ export function PracticeProgressCard({
 }: {
   progress: DashboardOverview["practice_progress"];
 }) {
+  const { t } = useTranslation("dashboard");
   const [view, setView] = useState<View>("difficulty");
 
   const rows: { label: string; stat: GroupStat }[] =
@@ -36,13 +38,13 @@ export function PracticeProgressCard({
               stat,
             }))
           : [
-              { label: "With co-pilot", stat: progress.with_copilot },
-              { label: "On your own", stat: progress.without_copilot },
+              { label: t("practiceProgress.withCopilot"), stat: progress.with_copilot },
+              { label: t("practiceProgress.onYourOwn"), stat: progress.without_copilot },
             ];
 
   return (
     <Card className="p-5">
-      <h2 className="font-semibold">Practice progress</h2>
+      <h2 className="font-semibold">{t("practiceProgress.title")}</h2>
       <Tabs
         value={view}
         onValueChange={(value) => setView(value as View)}
@@ -50,31 +52,31 @@ export function PracticeProgressCard({
       >
         <TabsList className="grid h-auto w-full grid-cols-4">
           <TabsTrigger value="difficulty" className="px-1 text-xs">
-            Level
+            {t("practiceProgress.tabs.level")}
           </TabsTrigger>
           <TabsTrigger value="temperature" className="px-1 text-xs">
-            Lead
+            {t("practiceProgress.tabs.lead")}
           </TabsTrigger>
           <TabsTrigger value="scenario" className="px-1 text-xs">
-            Scenario
+            {t("practiceProgress.tabs.scenario")}
           </TabsTrigger>
           <TabsTrigger value="copilot" className="px-1 text-xs">
-            Co-pilot
+            {t("practiceProgress.tabs.copilot")}
           </TabsTrigger>
         </TabsList>
       </Tabs>
       {!rows.some((row) => row.stat.sessions) ? (
         <p className="mt-4 text-sm text-muted-foreground">
-          No practice sessions in this period.
+          {t("practiceProgress.empty")}
         </p>
       ) : (
         <table className="mt-3 w-full text-sm">
           <thead>
             <tr className="text-left text-xs text-muted-foreground">
-              <th className="py-1 font-medium">Group</th>
-              <th className="py-1 text-right font-medium">Sessions</th>
-              <th className="py-1 text-right font-medium">Won</th>
-              <th className="py-1 text-right font-medium">Avg</th>
+              <th className="py-1 font-medium">{t("practiceProgress.columns.group")}</th>
+              <th className="py-1 text-right font-medium">{t("practiceProgress.columns.sessions")}</th>
+              <th className="py-1 text-right font-medium">{t("practiceProgress.columns.won")}</th>
+              <th className="py-1 text-right font-medium">{t("practiceProgress.columns.avg")}</th>
             </tr>
           </thead>
           <tbody>

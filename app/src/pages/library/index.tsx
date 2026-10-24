@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState, type FC } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   ChevronLeft,
   ChevronRight,
@@ -81,7 +82,8 @@ const FilterSelect = ({
 );
 
 const LibraryPage: FC = () => {
-  usePageMetadata({ title: "Call library" });
+  const { t } = useTranslation("library");
+  usePageMetadata({ title: t("index.title") });
   const [params, setParams] = useSearchParams();
   const [search, setSearch] = useState(params.get("search") ?? "");
   const debouncedSearch = useDebouncedValue(search, 350);
@@ -153,50 +155,50 @@ const LibraryPage: FC = () => {
     <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-6">
       {canViewAll && (
         <FilterSelect
-          label="Whose calls"
+          label={t("index.filters.whose")}
           value={get("whose")}
           onChange={(v) => update("whose", v)}
           options={[
-            { id: "all", label: "Everyone's calls" },
-            { id: "mine", label: "Only mine" },
+            { id: "all", label: t("index.filters.everyone") },
+            { id: "mine", label: t("index.filters.mine") },
           ]}
         />
       )}
       <FilterSelect
-        label="Live or practice"
+        label={t("index.filters.kind")}
         value={get("kind")}
         onChange={(v) => update("kind", v)}
         options={CallKindFilterOptions}
       />
       <FilterSelect
-        label="Call type"
+        label={t("index.filters.type")}
         value={get("type")}
         onChange={(v) => update("type", v)}
         options={CallTypeFilterOptions}
       />
       <FilterSelect
-        label="Co-pilot"
+        label={t("index.filters.copilot")}
         value={get("agent")}
         onChange={(v) => update("agent", v)}
         options={[
-          { id: "all", label: "All co-pilots" },
+          { id: "all", label: t("index.filters.allCopilots") },
           ...(agents ?? []).map((a) => ({ id: a.id, label: a.name })),
         ]}
       />
       <FilterSelect
-        label="Outcome"
+        label={t("index.filters.outcome")}
         value={get("outcome")}
         onChange={(v) => update("outcome", v)}
         options={CallOutcomeFilterOptions}
       />
       <FilterSelect
-        label="Score"
+        label={t("index.filters.score")}
         value={get("score")}
         onChange={(v) => update("score", v)}
         options={ScoreRangeFilterOptions}
       />
       <FilterSelect
-        label="Date"
+        label={t("index.filters.date")}
         value={get("date")}
         onChange={(v) => update("date", v)}
         options={DateRangeFilterOptions}
@@ -207,12 +209,12 @@ const LibraryPage: FC = () => {
   return (
     <>
       <PageHeader
-        title="Call library"
-        description="Every live call and practice session, with recordings, transcripts and analyses."
+        title={t("index.title")}
+        description={t("index.description")}
         actions={
           <Button asChild>
             <Link to={Routes.calls.new}>
-              <PhoneCall /> Start a call
+              <PhoneCall /> {t("index.startCall")}
             </Link>
           </Button>
         }
@@ -225,13 +227,13 @@ const LibraryPage: FC = () => {
             <Input
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              placeholder="Search by prospect, company or notes"
+              placeholder={t("index.searchPlaceholder")}
               className="pl-9"
-              aria-label="Search calls"
+              aria-label={t("index.searchLabel")}
             />
           </div>
           <FilterSelect
-            label="Sort"
+            label={t("index.filters.sort")}
             value={get("sort", "started_at:desc")}
             onChange={(v) => update("sort", v)}
             options={CallSortOptions}
@@ -242,14 +244,14 @@ const LibraryPage: FC = () => {
         <Collapsible className="md:hidden">
           <CollapsibleTrigger asChild>
             <Button variant="outline" size="sm" className="w-full">
-              <SlidersHorizontal /> Filters{" "}
+              <SlidersHorizontal /> {t("index.filtersButton")}{" "}
               {activeFilters ? `(${activeFilters})` : ""}
             </Button>
           </CollapsibleTrigger>
           <CollapsibleContent className="space-y-2 pt-3">
             {filters}
             <FilterSelect
-              label="Sort"
+              label={t("index.filters.sort")}
               value={get("sort", "started_at:desc")}
               onChange={(v) => update("sort", v)}
               options={CallSortOptions}
@@ -262,7 +264,7 @@ const LibraryPage: FC = () => {
             size="sm"
             onClick={() => setParams(new URLSearchParams(), { replace: true })}
           >
-            <X /> Clear filters
+            <X /> {t("index.clearFilters")}
           </Button>
         )}
       </Card>
@@ -273,17 +275,21 @@ const LibraryPage: FC = () => {
         <EmptyState
           icon={Library}
           title={
-            activeFilters || query.search ? "No calls match" : "No calls yet"
+            activeFilters || query.search
+              ? t("index.empty.noMatchTitle")
+              : t("index.empty.noCallsTitle")
           }
           description={
             activeFilters || query.search
-              ? "Try removing some filters."
-              : "Your live calls and practice sessions will appear here."
+              ? t("index.empty.noMatchDescription")
+              : t("index.empty.noCallsDescription")
           }
           action={
             !activeFilters && (
               <Button asChild>
-                <Link to={Routes.practice.root}>Start practising</Link>
+                <Link to={Routes.practice.root}>
+                  {t("index.empty.startPractising")}
+                </Link>
               </Button>
             )
           }
@@ -299,8 +305,7 @@ const LibraryPage: FC = () => {
           </ul>
           <div className="flex items-center justify-between border-t px-4 py-3 text-sm">
             <span className="text-muted-foreground">
-              {data.pagination.total} call
-              {data.pagination.total === 1 ? "" : "s"}
+              {t("index.callCount", { count: data.pagination.total })}
             </span>
             <div className="flex items-center gap-2">
               <Button
@@ -309,7 +314,7 @@ const LibraryPage: FC = () => {
                 className="size-8"
                 disabled={!data.pagination.has_prev}
                 onClick={() => update("page", String(query.page! - 1))}
-                aria-label="Previous page"
+                aria-label={t("index.previousPage")}
               >
                 <ChevronLeft />
               </Button>
@@ -323,7 +328,7 @@ const LibraryPage: FC = () => {
                 className="size-8"
                 disabled={!data.pagination.has_next}
                 onClick={() => update("page", String(query.page! + 1))}
-                aria-label="Next page"
+                aria-label={t("index.nextPage")}
               >
                 <ChevronRight />
               </Button>

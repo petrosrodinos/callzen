@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import { io, Socket } from 'socket.io-client';
 import { environments } from '@/config/environments';
 import { getAuthStoreState } from '@/stores/auth';
@@ -213,12 +214,12 @@ export const websocketEmitWithAck = <T = unknown, R = unknown>(
 ): Promise<R> => {
     return new Promise((resolve, reject) => {
         if (!socket?.connected) {
-            reject(new Error('WebSocket not connected'));
+            reject(new Error(i18n.t("common:errors.websocket.notConnected")));
             return;
         }
 
         const timeoutId = setTimeout(() => {
-            reject(new Error('WebSocket emit timeout'));
+            reject(new Error(i18n.t("common:errors.websocket.timeout")));
         }, timeout);
 
         socket.emit(event, data, (response: R) => {

@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import { Check, Gauge, Globe, Star, Wallet } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
@@ -37,7 +38,7 @@ export function ModelPicker({ models, value, recommended, onChange, purpose, nam
               <span className="font-medium">{model.label}</span>
               {model.id === recommended && (
                 <Badge className="gap-1 bg-primary/10 text-primary shadow-none hover:bg-primary/10">
-                  <Star className="size-3" /> Recommended
+                  <Star className="size-3" /> {i18n.t("common:modelPicker.recommended")}
                 </Badge>
               )}
               {selected && <Check className="ml-auto size-4 text-primary" />}
@@ -47,7 +48,7 @@ export function ModelPicker({ models, value, recommended, onChange, purpose, nam
               <span className="inline-flex items-center gap-1">
                 <Gauge className="size-3" /> {getAiModelSpeedLabel(model.speed)}
               </span>
-              <span className="inline-flex items-center gap-1" title={`Quality ${model.quality}/5`}>
+              <span className="inline-flex items-center gap-1" title={i18n.t("common:modelPicker.quality", { value: model.quality })}>
                 {"★".repeat(model.quality)}
                 <span className="opacity-40">{"★".repeat(5 - model.quality)}</span>
               </span>
@@ -58,7 +59,7 @@ export function ModelPicker({ models, value, recommended, onChange, purpose, nam
                 <Globe className="size-3" /> {model.languages}
               </span>
             </div>
-            {tooSlow && <p className="text-[11px] font-medium text-amber-600 dark:text-amber-400">Thinks before answering, so suggestions may arrive late on live calls.</p>}
+            {tooSlow && <p className="text-[11px] font-medium text-amber-600 dark:text-amber-400">{i18n.t("common:modelPicker.slow")}</p>}
           </button>
         );
       })}

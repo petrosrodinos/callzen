@@ -1,9 +1,10 @@
 import { z } from "zod";
+import i18n from "@/i18n";
 import { CallTypes } from "@/features/calls/interfaces/calls.interfaces";
 
 export const newCallSchema = z.object({
     call_type: z.enum([CallTypes.MICROPHONE, CallTypes.ONLINE_MEETING]),
-    assistant_agent_id: z.string().min(1, "Choose a co-pilot"),
+    assistant_agent_id: z.string().min(1, i18n.t("calls:new.validation.chooseCopilot")),
     prospect_name: z.string().max(120),
     prospect_company: z.string().max(120),
     prospect_role: z.string().max(120),

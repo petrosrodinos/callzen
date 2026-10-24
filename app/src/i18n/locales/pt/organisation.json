@@ -1,0 +1,88 @@
+{
+  "page": {
+    "title": "Organização",
+    "description": "Gira quem pertence a esta organização, o que cada função pode fazer e quem convidou.",
+    "nothing": "Nada para mostrar"
+  },
+  "tabs": {
+    "general": "Geral",
+    "members": "Membros",
+    "invitations": "Convites",
+    "roles": "Funções e permissões"
+  },
+  "create": {
+    "title": "Criar uma organização",
+    "description": "Cada organização tem os seus próprios copilotos, potenciais clientes, chamadas e membros. Será o proprietário e pode convidar a sua equipa.",
+    "name": "Nome da organização",
+    "namePlaceholder": "Equipa de vendas Acme",
+    "nameHint": "Os seus colegas verão este nome no convite.",
+    "submit": "Criar organização"
+  },
+  "general": {
+    "details": "Detalhes",
+    "detailsDescription_one": "Criada em {{date}} · {{count}} membro",
+    "detailsDescription_other": "Criada em {{date}} · {{count}} membros",
+    "name": "Nome da organização",
+    "saveName": "Guardar nome",
+    "yourRole": "A sua função:",
+    "deleteTitle": "Eliminar organização",
+    "deleteDescription": "Elimina permanentemente a organização com todos os seus copilotos, potenciais clientes, chamadas, gravações e análises, e remove todos os membros. Esta ação não pode ser anulada.",
+    "deleteDialogTitle": "Eliminar {{name}}?",
+    "deleteDialogDescription": "Escreva <strong>{{name}}</strong> para confirmar. Tudo nesta organização é eliminado para todos os membros.",
+    "confirmAria": "Escreva o nome da organização para confirmar",
+    "deletePermanently": "Eliminar permanentemente"
+  },
+  "invitations": {
+    "copyFailed": "Falha ao copiar",
+    "copyFailedHint": "Selecione a ligação e copie-a manualmente.",
+    "inviteTitle": "Convidar alguém",
+    "inviteDescription": "Recebem um e-mail com uma ligação válida durante 7 dias. Qualquer pessoa pode pertencer a várias organizações, por isso os utilizadores CallZen existentes só têm de aceitar e mudar.",
+    "email": "E-mail",
+    "emailPlaceholder": "colega@empresa.com",
+    "role": "Função",
+    "send": "Enviar convite",
+    "emptyTitle": "Ainda não há convites",
+    "emptyDescription": "Os convites que enviar aparecem aqui para os poder reenviar ou revogar.",
+    "invited": "convidado {{when}}",
+    "invitedBy": "convidado {{when}} por {{name}}",
+    "sentTimes": "enviado {{count}}×",
+    "expires": "Expira em {{date}}",
+    "expired": "Expirou {{when}}",
+    "resend": "Reenviar",
+    "revoke": "Revogar",
+    "copied": "Copiado",
+    "copyLink": "Copiar ligação",
+    "revokeTitle": "Revogar o convite para {{email}}?",
+    "revokeDescription": "A ligação deixa de funcionar imediatamente. Pode enviar um novo convite quando quiser."
+  },
+  "members": {
+    "you": "Você",
+    "joined": "aderiu em {{date}}",
+    "roleOf": "Função de {{name}}",
+    "removeAria": "Remover {{name}}",
+    "removeTitle": "Remover {{name}}?",
+    "removeDescription": "Perde de imediato o acesso a esta organização. As chamadas que fez permanecem na organização. Pode ser convidado novamente mais tarde.",
+    "remove": "Remover"
+  },
+  "roles": {
+    "role": "Função",
+    "membersCount_one": "{{count}} membro",
+    "membersCount_other": "{{count}} membros",
+    "ownersOnlyEdit": "Apenas os proprietários podem alterar o que cada função pode fazer.",
+    "ownerLocked": "Os proprietários têm sempre todas as permissões, por isso esta função não pode ser restringida.",
+    "ownersOnly": "Só proprietários",
+    "toggleAria": "{{permission}} para {{role}}",
+    "reset": "Repor predefinição",
+    "unsaved": "Alterações não guardadas",
+    "customised": "Personalizado",
+    "usingPreset": "A usar a predefinição",
+    "discard": "Descartar",
+    "save": "Guardar permissões de {{role}}"
+  },
+  "validation": {
+    "nameMin": "O nome deve ter pelo menos {{min}} carateres",
+    "nameMax": "O nome deve ter no máximo {{max}} carateres",
+    "emailRequired": "Introduza um endereço de e-mail",
+    "emailInvalid": "Introduza um endereço de e-mail válido"
+  }
+}

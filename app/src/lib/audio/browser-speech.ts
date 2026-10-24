@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 // Browser-native speech recognition (Web Speech API) and synthesis, used by the free
 // "Browser voice" provider and as a transcription fallback when realtime AI is unavailable.
 
@@ -69,7 +70,7 @@ export class BrowserSpeechRecognizer {
     start() {
         const Ctor = getRecognitionCtor();
         if (!Ctor) {
-            this.options.onError?.("Speech recognition is not supported in this browser. Use Chrome or Edge.");
+            this.options.onError?.(i18n.t("common:errors.audio.speechUnsupported"));
             return;
         }
         this.active = true;
@@ -101,7 +102,7 @@ export class BrowserSpeechRecognizer {
         recognition.onerror = (event) => {
             if (event.error === "not-allowed" || event.error === "service-not-allowed") {
                 this.active = false;
-                this.options.onError?.("Microphone access for speech recognition was blocked.");
+                this.options.onError?.(i18n.t("common:errors.audio.speechBlocked"));
             }
         };
         // Chrome stops continuous recognition after silence; restart while the session is active.

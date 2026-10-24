@@ -1,0 +1,109 @@
+{
+  "endCall": {
+    "title": "Anruf beenden?",
+    "description": "Halten Sie optional fest, wie es lief. Ergebnisse verknüpfen Ihre Leistung mit realen Resultaten.",
+    "outcomeLabel": "Anrufergebnis",
+    "customPlaceholder": "Ergebnis beschreiben",
+    "customLabel": "Eigenes Ergebnis",
+    "keepTalking": "Weitersprechen",
+    "confirm": "Anruf beenden"
+  },
+  "manualLine": {
+    "whoSaid": "Wer hat es gesagt",
+    "prospectSaid": "Interessent sagte",
+    "iSaid": "Ich sagte",
+    "placeholder": "Eine Zeile aus dem Gespräch eingeben",
+    "addTranscriptLine": "Transkriptzeile hinzufügen",
+    "addLine": "Zeile hinzufügen"
+  },
+  "live": {
+    "title": "Live-Anruf",
+    "badge": "Live",
+    "you": "Sie",
+    "mic": "Mikrofon",
+    "meeting": "Meeting",
+    "switchCopilot": "Co-Pilot wechseln",
+    "copilot": "Co-Pilot",
+    "reconnect": "Neu verbinden",
+    "dismiss": "Schließen",
+    "connectTitle": "Verbinden Sie Ihr Audio, um die Aufnahme zu starten",
+    "connectMeeting": "Wählen Sie den Browser-Tab des Meetings und aktivieren Sie „Tab-Audio teilen“, und erlauben Sie dann das Mikrofon.",
+    "connectMic": "Erlauben Sie den Mikrofonzugriff. Stellen Sie Ihr Telefon in der Nähe dieses Geräts auf Lautsprecher.",
+    "connectAudio": "Audio verbinden",
+    "transcript": "Live-Transkript",
+    "hide": "Ausblenden",
+    "show": "Anzeigen ({{count}})",
+    "resumeCapture": "Aufnahme fortsetzen",
+    "pauseCapture": "Aufnahme pausieren",
+    "pauseCaptureHint": "Aufnahme pausieren (themenfremde oder sensible Momente)",
+    "bookmark": "Diesen Moment markieren",
+    "endCall": "Anruf beenden",
+    "sources": {
+      "microphone": "Mikrofon",
+      "meeting": "Meeting"
+    },
+    "notices": {
+      "reconnecting": "Die Transkriptionsverbindung wurde unterbrochen. Verbindung wird wiederhergestellt…",
+      "switchedToBrowser": "Die Live-Transkription ist nicht verfügbar. Es wurde zur Spracherkennung Ihres Browsers gewechselt.",
+      "aiUnavailableBrowser": "Die KI-Transkription ist nicht verfügbar, daher wird stattdessen die Spracherkennung Ihres Browsers verwendet. Die Sprechererkennung ist möglicherweise ungenauer.",
+      "manualFallback": "Für dieses Audio ist keine Transkription verfügbar. Fügen Sie wichtige Zeilen manuell hinzu, damit der Co-Pilot trotzdem helfen kann.",
+      "audioStopped": "Das Audio ({{label}}) wurde beendet (der Tab wurde geschlossen oder das Gerät getrennt). Das Aufgenommene ist gesichert. Verbinden Sie neu, um fortzufahren."
+    }
+  },
+  "new": {
+    "title": "Anruf starten",
+    "description": "Wählen Sie, wie Sie anrufen und welchen Co-Piloten Sie nutzen. Alles außer dem Co-Piloten ist optional.",
+    "audioCaptureFailed": "Audioaufnahme fehlgeschlagen",
+    "validation": {
+      "chooseCopilot": "Wählen Sie einen Co-Piloten",
+      "confirmBeforeStarting": "Bitte vor dem Start bestätigen"
+    },
+    "noCopilot": {
+      "title": "Erstellen Sie zuerst einen Co-Piloten",
+      "description": "Der Co-Pilot nutzt Ihr Skript, Ihre Einwände und Ihr Wissen, um vorzuschlagen, was Sie sagen sollten. Mit einer Vorlage dauert es eine Minute.",
+      "cta": "Co-Piloten erstellen"
+    },
+    "callType": "Anrufart",
+    "meetingUnsupported": "Erfordert einen Desktop-Browser wie Chrome oder Edge.",
+    "copilot": {
+      "title": "Co-Pilot",
+      "agentLabel": "Assistenzagent",
+      "defaultSuffix": "{{name}} (Standard)",
+      "goal": "Ziel: {{goal}}"
+    },
+    "context": {
+      "title": "Anrufkontext",
+      "description": "Hilft dem Co-Piloten, Vorschläge und die Analyse zu personalisieren.",
+      "prospectName": "Name des Interessenten",
+      "prospectNamePlaceholder": "Dr. Papadopoulos",
+      "company": "Unternehmen",
+      "companyPlaceholder": "Zahnklinik Smile",
+      "role": "Position",
+      "rolePlaceholder": "Praxisinhaber",
+      "goal": "Ziel dieses Anrufs",
+      "goalPlaceholder": "Demo vereinbaren",
+      "goalHint": "Leer lassen, um das Ziel des Co-Piloten zu verwenden.",
+      "notes": "Notizen",
+      "notesPlaceholder": "Empfohlen von Anna. Nutzt derzeit Papierkalender.",
+      "priorCall": "Vorheriger Anruf mit diesem Interessenten",
+      "none": "Keiner",
+      "callFallback": "Anruf",
+      "language": "Gesprächssprache",
+      "autoDetect": "Automatisch erkennen ({{languages}})",
+      "autoDetectHint": "Die automatische Erkennung folgt der Sprache des Co-Piloten, die der Interessent spricht."
+    },
+    "recording": {
+      "title": "Aufzeichnung",
+      "keep": "Audioaufzeichnung behalten",
+      "keepHint": "Deaktivieren, um Vorschläge und eine Analyse ohne Speicherung von Audio zu erhalten."
+    },
+    "consent": {
+      "title": "Einwilligung zur Aufzeichnung",
+      "text": "Die Gesetze zur Aufzeichnung unterscheiden sich je nach Land, und manche verlangen die Einwilligung aller Teilnehmer. Sie sind dafür verantwortlich, sie einzuholen. Sie können einen Einwilligungssatz aktivieren, den Ihr Co-Pilot zu Beginn jedes Anrufs vorschlägt.",
+      "checkbox": "Ich verstehe das und hole die Einwilligung ein, wo sie erforderlich ist."
+    },
+    "footerMeeting": "Wählen Sie als Nächstes Ihren Meeting-Tab und aktivieren Sie „Tab-Audio teilen“.",
+    "footerMic": "Stellen Sie Ihr Telefon in der Nähe dieses Geräts auf Lautsprecher.",
+    "startCall": "Anruf starten"
+  }
+}

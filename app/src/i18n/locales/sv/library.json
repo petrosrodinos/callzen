@@ -1,0 +1,220 @@
+{
+  "index": {
+    "title": "Samtalsbibliotek",
+    "description": "Alla livesamtal och övningspass, med inspelningar, transkriptioner och analyser.",
+    "startCall": "Starta ett samtal",
+    "searchPlaceholder": "Sök på prospekt, företag eller anteckningar",
+    "searchLabel": "Sök samtal",
+    "filtersButton": "Filter",
+    "clearFilters": "Rensa filter",
+    "filters": {
+      "whose": "Vems samtal",
+      "everyone": "Allas samtal",
+      "mine": "Bara mina",
+      "kind": "Live eller övning",
+      "type": "Samtalstyp",
+      "copilot": "Copilot",
+      "allCopilots": "Alla copiloter",
+      "outcome": "Utfall",
+      "score": "Poäng",
+      "date": "Datum",
+      "sort": "Sortera"
+    },
+    "empty": {
+      "noMatchTitle": "Inga samtal matchar",
+      "noCallsTitle": "Inga samtal än",
+      "noMatchDescription": "Prova att ta bort några filter.",
+      "noCallsDescription": "Dina livesamtal och övningspass visas här.",
+      "startPractising": "Börja öva"
+    },
+    "previousPage": "Föregående sida",
+    "nextPage": "Nästa sida",
+    "callCount_one": "{{count}} samtal",
+    "callCount_other": "{{count}} samtal"
+  },
+  "detail": {
+    "pageTitle": "Samtal",
+    "notFound": {
+      "title": "Samtalet hittades inte",
+      "description": "Det kan ha raderats.",
+      "back": "Tillbaka till biblioteket"
+    },
+    "recordingTranscript": "Inspelning och transkription",
+    "tabs": {
+      "reveal": "Resultat och avslöjande",
+      "overview": "Översikt",
+      "moments": "Misstag och styrkor",
+      "metrics": "Mätvärden",
+      "prospect": "Prospekt",
+      "copilot": "Copilot",
+      "followUp": "Uppföljning"
+    },
+    "followUpSubject": "Uppföljning",
+    "followUpSubjectCompany": "Uppföljning – {{company}}",
+    "timeline": {
+      "bookmark": "Bokmärke",
+      "label": "Samtalets tidslinje",
+      "markerAt": "{{label}} vid {{time}}"
+    },
+    "status": {
+      "preparing": "Din prestationsrapport förbereds…",
+      "preparingHint": "Det tar oftast under en minut. Du kan lämna sidan; rapporten finns i ditt bibliotek när den är klar.",
+      "failed": "Analysen slutfördes inte",
+      "noAnalysis": "Ingen analys för det här samtalet",
+      "safe": "Din inspelning och transkription är säkra.",
+      "canRetry": "Du kan försöka igen.",
+      "retry": "Försök analysera igen"
+    },
+    "header": {
+      "back": "Samtalsbibliotek",
+      "practice": "Övning",
+      "copilot": "Copilot: {{name}}",
+      "practiceSession": "Övningspass",
+      "call": "Samtal",
+      "by": "av {{name}}",
+      "outcomeLabel": "Samtalets utfall",
+      "recordOutcome": "Registrera utfall",
+      "retry": "Försök igen",
+      "moreActions": "Fler åtgärder",
+      "rerun": "Kör analysen igen",
+      "recreatingProspect": "Skapar prospekten på nytt…",
+      "practiceWithProspect": "Öva med den här prospekten",
+      "harder": "Prova en svårare version",
+      "retention": "Lagring",
+      "deleteRecording": "Radera endast inspelningen",
+      "deleteTranscript": "Radera transkription",
+      "deleteCall": "Radera samtalet permanent",
+      "confirm": {
+        "confirmText": "Radera permanent",
+        "call": {
+          "title": "Radera det här samtalet permanent?",
+          "description": "Inspelningen, transkriptionen, förslagen och analysen raderas permanent. Det går inte att ångra."
+        },
+        "recording": {
+          "title": "Radera inspelningen?",
+          "description": "Ljudet raderas permanent. Transkriptionen och analysen sparas."
+        },
+        "transcript": {
+          "title": "Radera transkriptionen?",
+          "description": "Transkriptionen raderas permanent. Analysen sparas, men du kan inte köra om den."
+        }
+      }
+    },
+    "recording": {
+      "saving": "Sparar inspelningen…",
+      "noAudio": "Inget ljud är sparat för det här samtalet. Transkriptionen och analysen sparas.",
+      "loadError": "Det gick inte att läsa in inspelningen. Den kanske fortfarande laddas upp; uppdatera om en stund.",
+      "download": "Ladda ner inspelning"
+    },
+    "transcript": {
+      "empty": "Ingen transkription är sparad för det här samtalet.",
+      "playFrom": "Spela från {{time}}",
+      "switchSpeaker": "Byt talare",
+      "wrongSpeaker": "Fel talare? Byt den"
+    },
+    "overview": {
+      "overallScore": "Totalpoäng",
+      "verdict": "Omdöme",
+      "skillScores": "Färdighetspoäng",
+      "focusNextTime": "Fokus nästa gång",
+      "nextSteps": "Nästa steg"
+    },
+    "moments": {
+      "jumpTo": "Hoppa till {{time}}",
+      "mistakes": "Misstag ({{count}})",
+      "noMistakes": "Inga misstag markerade. Bra jobbat.",
+      "whatHappened": "Vad som hände",
+      "whyItMatters": "Varför det spelar roll",
+      "doInstead": "Gör så här istället",
+      "strengths": "Styrkor ({{count}})",
+      "noStrengths": "Inga framträdande styrkor den här gången."
+    },
+    "metrics": {
+      "talkRatio": "Förhållande prata/lyssna",
+      "talkedPercent": "Du pratade {{percent}} % av tiden",
+      "you": "Du",
+      "prospect": "Prospekt",
+      "talkHint": "Toppsäljare pratar vanligtvis 40–60 % av tiden i behovsanalyssamtal.",
+      "questionsAsked": "Ställda frågor",
+      "longestMonologue": "Längsta monolog",
+      "speakingPace": "Talhastighet",
+      "paceValue": "{{value}} ord/min",
+      "paceHint": "Naturligt intervall: 130–170",
+      "fillerWords": "Utfyllnadsord",
+      "interruptions": "Avbrott",
+      "objectionsHandled": "Hanterade invändningar",
+      "objections": "Invändningar",
+      "buyingSignals": "Köpsignaler",
+      "actedOn": "Utnyttjad",
+      "missed": "Missad"
+    },
+    "insights": {
+      "noneIdentified": "Inga identifierade",
+      "summary": "Sammanfattning av prospekten",
+      "needs": "Behov",
+      "painPoints": "Smärtpunkter",
+      "objections": "Invändningar",
+      "buyingSignals": "Köpsignaler",
+      "keyInfo": "Avslöjad nyckelinformation",
+      "fields": {
+        "budget": "Budget",
+        "timeline": "Tidsplan",
+        "decisionMakers": "Beslutsfattare",
+        "competitors": "Konkurrenter"
+      },
+      "notDiscussed": "Diskuterades inte"
+    },
+    "copilot": {
+      "howYouUsed": "Så använde du copiloten",
+      "followed": "{{count}} följda",
+      "adapted": "{{count}} anpassade",
+      "ignored": "{{count}} ignorerade",
+      "improve": "Förbättra din copilot",
+      "edit": "Redigera copilot",
+      "bySuggestion": "Förslag för förslag",
+      "helpful": "Hjälpsamt",
+      "notHelpful": "Inte hjälpsamt"
+    },
+    "followUp": {
+      "empty": "Inget uppföljningsmeddelande föreslogs för det här samtalet.",
+      "copyFailed": "Kopieringen misslyckades",
+      "copyFailedDescription": "Markera texten och kopiera den manuellt.",
+      "title": "Utkast till uppföljning",
+      "copied": "Kopierat",
+      "copy": "Kopiera",
+      "openInEmail": "Öppna i e-post",
+      "label": "Uppföljningsmeddelande"
+    },
+    "notes": {
+      "title": "Personliga anteckningar",
+      "placeholder": "Allt du vill komma ihåg om det här samtalet…",
+      "save": "Spara anteckningar"
+    },
+    "reveal": {
+      "objective": "Mål",
+      "yes": "Ja",
+      "no": "Nej",
+      "prospectThinking": "Vad prospekten tänkte",
+      "lostAttention": "Där du tappade deras uppmärksamhet",
+      "hiddenLayer": "Det dolda lagret, avslöjat",
+      "met": "Uppfyllt",
+      "uncovered": "Avtäckt",
+      "notMet": "Inte uppfyllt",
+      "missed": "Missad",
+      "nothingHidden": "Inget dolt har konfigurerats för den här prospekten.",
+      "whatWouldChange": "Vad som hade ändrat utfallet"
+    },
+    "rerun": {
+      "title": "Kör analysen igen",
+      "description": "Prova en annan modell eller din copilots senaste poängkategorier. Den tidigare rapporten ersätts.",
+      "modelName": "Analysmodell",
+      "useCurrent": "Använd copilotens nuvarande poängkategorier",
+      "useCurrentHint": "Annars används kategorierna från samtalstillfället."
+    },
+    "suggestedPractice": {
+      "title": "Föreslagen övning",
+      "preparing": "Förbereder…",
+      "practiceThis": "Öva på detta"
+    }
+  }
+}

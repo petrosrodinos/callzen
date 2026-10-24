@@ -1,0 +1,32 @@
+{
+  "notFound": {
+    "pageTitle": "Niet gevonden",
+    "title": "Deze pagina bestaat niet",
+    "description": "De link is mogelijk verbroken of de pagina is verwijderd.",
+    "cta": "Terug naar het dashboard"
+  },
+  "app": {
+    "dashboard": "Dashboard",
+    "startCall": "Gesprek starten"
+  },
+  "health": {
+    "title": "Systeemstatus",
+    "subtitle": "Live status van de API en de gekoppelde infrastructuur.",
+    "refresh": "Vernieuwen",
+    "loadError": "De gezondheidsstatus kan niet worden geladen.",
+    "lastChecked": "Laatst gecontroleerd",
+    "uptime": "Uptime",
+    "uptimeMs": "Uptime (ms)",
+    "responseTime": "Responstijd",
+    "status": {
+      "ok": "OK",
+      "down": "Offline",
+      "not_configured": "Niet geconfigureerd"
+    },
+    "cards": {
+      "api": "Beschikbaarheid van de kernapplicatie.",
+      "postgres": "Databaseverbinding via Prisma.",
+      "redis": "Verbinding met cache en wachtrij."
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "title": "Instellingen",
+  "save": "Instellingen opslaan",
+  "nav": {
+    "profile": "Profiel & voorkeuren",
+    "usage": "Gebruik & kosten",
+    "privacy": "Privacy & gegevens",
+    "sections": "Instellingensecties"
+  },
+  "validation": {
+    "enterName": "Vul je naam in",
+    "enterPassword": "Vul je wachtwoord in",
+    "typeDelete": "Typ \"DELETE\" om te bevestigen"
+  },
+  "profile": {
+    "title": "Profiel",
+    "fullName": "Volledige naam",
+    "email": "E-mail"
+  },
+  "appearance": {
+    "title": "Weergave",
+    "description": "Licht, donker of volg je systeem.",
+    "language": "Interfacetaal",
+    "languageDescription": "De taal die wordt gebruikt voor menu's, knoppen en berichten."
+  },
+  "languages": {
+    "title": "Talen",
+    "description": "Gesprekken en oefenen kunnen in veel talen plaatsvinden.",
+    "yourLanguage": "Jouw taal",
+    "templates": "Sjablonen & voorbeelden in",
+    "templatesAria": "Taal van sjablonen en voorbeelden",
+    "output": "Suggesties & analyse in"
+  },
+  "recording": {
+    "title": "Opname",
+    "description": "Jij bent verantwoordelijk voor het verkrijgen van toestemming waar opnamewetten dat vereisen.",
+    "keep": "Audio-opnamen standaard bewaren",
+    "keepHint": "Wanneer uit, worden alleen transcripten en analyses opgeslagen. Je kunt dit per gesprek wijzigen.",
+    "consentLine": "Standaard toestemmingszin",
+    "consentLineHint": "Wordt voorgesteld als eerste zin van gesprekken wanneer een copiloot de toestemmingszin heeft ingeschakeld."
+  },
+  "privacy": {
+    "yourData": {
+      "title": "Jouw gegevens",
+      "private": "Opnamen, transcripten, scripts en agentconfiguraties zijn privé voor je account.",
+      "delete": "Je kunt op elk moment elke opname, elk transcript of gesprek verwijderen via de bijbehorende pagina. Verwijderen is definitief.",
+      "keepOnly": "Je kunt alleen transcripten en analyses bewaren door opnamen uit te schakelen in Instellingen of per gesprek.",
+      "sensitive": "Gevoelige informatie die je opgeeft (scripts, prijzen, klantgegevens) wordt alleen naar de onderstaande AI-aanbieders gestuurd om suggesties en analyses te maken."
+    },
+    "processors": {
+      "title": "Wie je gegevens verwerkt",
+      "description": "Op basis van de modellen en spraakaanbieders die je selecteert.",
+      "region": "Regio: {{region}}"
+    },
+    "consent": {
+      "title": "Toestemming voor opname",
+      "text": "Wetten over opnemen verschillen per land en regio en sommige vereisen toestemming van elke deelnemer. Zorg dat je die hebt voordat je een gesprek opneemt. Copilots kunnen je toestemmingszin voorstellen als eerste zin van elk gesprek."
+    },
+    "deleteAccount": {
+      "title": "Account verwijderen",
+      "description": "Verwijdert je account, copilots, prospects, gesprekken, opnamen en analyses definitief.",
+      "button": "Account verwijderen"
+    },
+    "deleteDialog": {
+      "title": "Je account definitief verwijderen?",
+      "description": "Al je gegevens worden direct verwijderd en kunnen niet worden hersteld.",
+      "password": "Wachtwoord",
+      "confirmation": "Typ DELETE om te bevestigen",
+      "submit": "Alles verwijderen"
+    }
+  },
+  "usage": {
+    "period": "Periode",
+    "scopeOrg": "Gebruik van iedereen in deze organisatie wordt getoond.",
+    "scopeMine": "Je eigen gebruik in deze organisatie wordt getoond.",
+    "estimatedCost": "Geschatte AI-kosten",
+    "listPrices": "Gebaseerd op catalogusprijzen",
+    "liveMinutes": "Minuten live gesprekken",
+    "practiceMinutes": "Oefenminuten",
+    "analyses": "Analyses",
+    "suggestions_one": "{{count}} suggestie",
+    "suggestions_other": "{{count}} suggesties",
+    "byActivity": "Per activiteit",
+    "byModel": "Per model & aanbieder",
+    "tokens": "{{tokens}} tokens",
+    "priceList": {
+      "title": "Prijslijst",
+      "description": "Wat elk model en elke spraakaanbieder kost, zodat je kwaliteit en uitgaven kunt afwegen.",
+      "model": "Model",
+      "speed": "Snelheid",
+      "input": "Invoer / 1 mln tokens",
+      "output": "Uitvoer / 1 mln tokens",
+      "perMinute": "~{{price}} per minuut"
+    }
+  }
+}

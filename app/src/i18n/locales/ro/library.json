@@ -1,0 +1,221 @@
+{
+  "index": {
+    "title": "Bibliotecă de apeluri",
+    "description": "Toate apelurile live și sesiunile de exersare, cu înregistrări, transcrieri și analize.",
+    "startCall": "Începe un apel",
+    "searchPlaceholder": "Caută după prospect, companie sau notițe",
+    "searchLabel": "Caută apeluri",
+    "filtersButton": "Filtre",
+    "clearFilters": "Șterge filtrele",
+    "filters": {
+      "whose": "Ale cui sunt apelurile",
+      "everyone": "Apelurile tuturor",
+      "mine": "Doar ale mele",
+      "kind": "Live sau exersare",
+      "type": "Tip de apel",
+      "copilot": "Copilot",
+      "allCopilots": "Toți copilotii",
+      "outcome": "Rezultat",
+      "score": "Scor",
+      "date": "Dată",
+      "sort": "Sortare"
+    },
+    "empty": {
+      "noMatchTitle": "Niciun apel nu corespunde",
+      "noCallsTitle": "Încă nu există apeluri",
+      "noMatchDescription": "Încearcă să elimini unele filtre.",
+      "noCallsDescription": "Apelurile tale live și sesiunile de exersare vor apărea aici.",
+      "startPractising": "Începe să exersezi"
+    },
+    "previousPage": "Pagina anterioară",
+    "nextPage": "Pagina următoare",
+    "callCount_one": "{{count}} apel",
+    "callCount_few": "{{count}} apeluri",
+    "callCount_other": "{{count}} de apeluri"
+  },
+  "detail": {
+    "pageTitle": "Apel",
+    "notFound": {
+      "title": "Apelul nu a fost găsit",
+      "description": "Este posibil să fi fost ștearsă.",
+      "back": "Înapoi la bibliotecă"
+    },
+    "recordingTranscript": "Înregistrare și transcriere",
+    "tabs": {
+      "reveal": "Rezultat și dezvăluire",
+      "overview": "Prezentare generală",
+      "moments": "Greșeli și puncte forte",
+      "metrics": "Metrici",
+      "prospect": "Prospect",
+      "copilot": "Copilot",
+      "followUp": "Follow-up"
+    },
+    "followUpSubject": "Follow-up",
+    "followUpSubjectCompany": "Follow-up – {{company}}",
+    "timeline": {
+      "bookmark": "Marcaj",
+      "label": "Cronologia apelului",
+      "markerAt": "{{label}} la {{time}}"
+    },
+    "status": {
+      "preparing": "Se pregătește raportul tău de performanță…",
+      "preparingHint": "De obicei durează sub un minut. Poți părăsi această pagină; va fi gata în biblioteca ta.",
+      "failed": "Analiza nu s-a finalizat",
+      "noAnalysis": "Nu există analiză pentru acest apel",
+      "safe": "Înregistrarea și transcrierea ta sunt în siguranță.",
+      "canRetry": "Poți încerca din nou.",
+      "retry": "Reîncearcă analiza"
+    },
+    "header": {
+      "back": "Bibliotecă de apeluri",
+      "practice": "Exersare",
+      "copilot": "Copilot: {{name}}",
+      "practiceSession": "Sesiune de exersare",
+      "call": "Apel",
+      "by": "de {{name}}",
+      "outcomeLabel": "Rezultatul apelului",
+      "recordOutcome": "Înregistrează rezultatul",
+      "retry": "Reîncearcă",
+      "moreActions": "Mai multe acțiuni",
+      "rerun": "Rulează din nou analiza",
+      "recreatingProspect": "Se recreează prospectul…",
+      "practiceWithProspect": "Exersează cu acest prospect",
+      "harder": "Încearcă o versiune mai dificilă",
+      "retention": "Păstrare",
+      "deleteRecording": "Șterge doar înregistrarea",
+      "deleteTranscript": "Șterge transcrierea",
+      "deleteCall": "Șterge apelul definitiv",
+      "confirm": {
+        "confirmText": "Șterge definitiv",
+        "call": {
+          "title": "Ștergi definitiv acest apel?",
+          "description": "Înregistrarea, transcrierea, sugestiile și analiza sunt șterse definitiv. Această acțiune nu poate fi anulată."
+        },
+        "recording": {
+          "title": "Ștergi înregistrarea?",
+          "description": "Sunetul este șters definitiv. Transcrierea și analiza sunt păstrate."
+        },
+        "transcript": {
+          "title": "Ștergi transcrierea?",
+          "description": "Transcrierea este ștearsă definitiv. Analiza este păstrată, dar nu o vei mai putea rula din nou."
+        }
+      }
+    },
+    "recording": {
+      "saving": "Se salvează înregistrarea…",
+      "noAudio": "Nu există sunet stocat pentru acest apel. Transcrierea și analiza sunt păstrate.",
+      "loadError": "Înregistrarea nu a putut fi încărcată. Se poate să fie încă în curs de încărcare; reîmprospătează peste puțin timp.",
+      "download": "Descarcă înregistrarea"
+    },
+    "transcript": {
+      "empty": "Nu există transcriere stocată pentru acest apel.",
+      "playFrom": "Redă de la {{time}}",
+      "switchSpeaker": "Schimbă vorbitorul",
+      "wrongSpeaker": "Vorbitor greșit? Schimbă-l"
+    },
+    "overview": {
+      "overallScore": "Scor general",
+      "verdict": "Verdict",
+      "skillScores": "Scoruri pe abilități",
+      "focusNextTime": "Concentrează-te data viitoare pe",
+      "nextSteps": "Pașii următori"
+    },
+    "moments": {
+      "jumpTo": "Salt la {{time}}",
+      "mistakes": "Greșeli ({{count}})",
+      "noMistakes": "Nicio greșeală semnalată. Bună treabă.",
+      "whatHappened": "Ce s-a întâmplat",
+      "whyItMatters": "De ce contează",
+      "doInstead": "Fă asta în schimb",
+      "strengths": "Puncte forte ({{count}})",
+      "noStrengths": "Niciun punct forte deosebit de data aceasta."
+    },
+    "metrics": {
+      "talkRatio": "Raport vorbit/ascultat",
+      "talkedPercent": "Ai vorbit {{percent}}% din timp",
+      "you": "Tu",
+      "prospect": "Prospect",
+      "talkHint": "Cei mai buni vânzători vorbesc de obicei 40–60% din timp în apelurile de descoperire.",
+      "questionsAsked": "Întrebări puse",
+      "longestMonologue": "Cel mai lung monolog",
+      "speakingPace": "Ritm de vorbire",
+      "paceValue": "{{value}} cuvinte/min",
+      "paceHint": "Interval natural: 130–170",
+      "fillerWords": "Cuvinte de umplutură",
+      "interruptions": "Întreruperi",
+      "objectionsHandled": "Obiecții gestionate",
+      "objections": "Obiecții",
+      "buyingSignals": "Semnale de cumpărare",
+      "actedOn": "Valorificat",
+      "missed": "Ratat"
+    },
+    "insights": {
+      "noneIdentified": "Niciunul identificat",
+      "summary": "Rezumatul prospectului",
+      "needs": "Nevoi",
+      "painPoints": "Probleme",
+      "objections": "Obiecții",
+      "buyingSignals": "Semnale de cumpărare",
+      "keyInfo": "Informații cheie dezvăluite",
+      "fields": {
+        "budget": "Buget",
+        "timeline": "Calendar",
+        "decisionMakers": "Factori de decizie",
+        "competitors": "Concurenți"
+      },
+      "notDiscussed": "Nu s-a discutat"
+    },
+    "copilot": {
+      "howYouUsed": "Cum ai folosit copilotul",
+      "followed": "{{count}} urmate",
+      "adapted": "{{count}} adaptate",
+      "ignored": "{{count}} ignorate",
+      "improve": "Îmbunătățește-ți copilotul",
+      "edit": "Editează copilotul",
+      "bySuggestion": "Sugestie cu sugestie",
+      "helpful": "Util",
+      "notHelpful": "Neutil"
+    },
+    "followUp": {
+      "empty": "Nu a fost sugerat niciun mesaj de follow-up pentru acest apel.",
+      "copyFailed": "Copierea a eșuat",
+      "copyFailedDescription": "Selectează textul și copiază-l manual.",
+      "title": "Ciornă de follow-up",
+      "copied": "Copiat",
+      "copy": "Copiază",
+      "openInEmail": "Deschide în e-mail",
+      "label": "Mesaj de follow-up"
+    },
+    "notes": {
+      "title": "Notițe personale",
+      "placeholder": "Orice vrei să îți amintești despre acest apel…",
+      "save": "Salvează notițele"
+    },
+    "reveal": {
+      "objective": "Obiectiv",
+      "yes": "Da",
+      "no": "Nu",
+      "prospectThinking": "Ce gândea prospectul",
+      "lostAttention": "Unde le-ai pierdut atenția",
+      "hiddenLayer": "Stratul ascuns, dezvăluit",
+      "met": "Îndeplinită",
+      "uncovered": "Descoperit",
+      "notMet": "Neîndeplinită",
+      "missed": "Ratat",
+      "nothingHidden": "Nu a fost configurat nimic ascuns pentru acest prospect.",
+      "whatWouldChange": "Ce ar fi schimbat rezultatul"
+    },
+    "rerun": {
+      "title": "Rulează din nou analiza",
+      "description": "Încearcă un alt model sau cele mai recente categorii de scorare ale copilotului tău. Raportul anterior este înlocuit.",
+      "modelName": "Model de analiză",
+      "useCurrent": "Folosește categoriile de scorare actuale ale copilotului",
+      "useCurrentHint": "În caz contrar, se folosesc categoriile din momentul apelului."
+    },
+    "suggestedPractice": {
+      "title": "Exersare sugerată",
+      "preparing": "Se pregătește…",
+      "practiceThis": "Exersează asta"
+    }
+  }
+}

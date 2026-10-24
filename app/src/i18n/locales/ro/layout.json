@@ -1,0 +1,59 @@
+{
+  "sidebar": {
+    "plan": "Co-pilot de vânzări",
+    "toggle": "Comută bara laterală",
+    "groups": {
+      "sell": "Vânzări",
+      "train": "Antrenament",
+      "account": "Cont",
+      "admin": "Administrare"
+    },
+    "items": {
+      "dashboard": "Panou",
+      "startCall": "Începe un apel",
+      "callLibrary": "Bibliotecă de apeluri",
+      "practice": "Exersare",
+      "copilots": "Co-piloți",
+      "organisation": "Organizație",
+      "settings": "Setări",
+      "usage": "Utilizare și costuri",
+      "privacy": "Confidențialitate și date",
+      "health": "Stare sistem",
+      "users": "Utilizatori",
+      "alerts": "Alerte"
+    }
+  },
+  "userMenu": {
+    "settings": "Setări",
+    "usage": "Utilizare și costuri",
+    "privacy": "Confidențialitate și date",
+    "logout": "Deconectare"
+  },
+  "orgSwitcher": {
+    "switch": "Schimbă organizația",
+    "pendingCount_one": "{{count}} invitație în așteptare",
+    "pendingCount_few": "{{count}} invitații în așteptare",
+    "pendingCount_other": "{{count}} de invitații în așteptare",
+    "organisation": "Organizație",
+    "yourOrganisations": "Organizațiile tale",
+    "members_one": "{{count}} membru",
+    "members_few": "{{count}} membri",
+    "members_other": "{{count}} de membri",
+    "pendingInvitations": "Invitații în așteptare",
+    "settings": "Setările organizației",
+    "create": "Creează organizație"
+  },
+  "sidebarNav": {
+    "placeholder": "Selectează o secțiune"
+  },
+  "navbar": {
+    "home": "Acasă",
+    "templates": "Șabloane",
+    "pricing": "Prețuri",
+    "roadmap": "Foaie de parcurs",
+    "contact": "Contact",
+    "login": "Autentificare",
+    "signup": "Înregistrare",
+    "dashboard": "Panou"
+  }
+}

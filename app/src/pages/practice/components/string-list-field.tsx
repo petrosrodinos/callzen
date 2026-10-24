@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import {
   useFieldArray,
   type Control,
@@ -35,6 +36,7 @@ export function StringListField<T extends FieldValues>({
   placeholder,
   addLabel,
 }: StringListFieldProps<T>) {
+  const { t } = useTranslation("practice");
   const { fields, append, remove } = useFieldArray({ control, name });
 
   return (
@@ -67,7 +69,7 @@ export function StringListField<T extends FieldValues>({
               variant="ghost"
               size="icon"
               onClick={() => remove(index)}
-              aria-label="Remove"
+              aria-label={t("stringList.remove")}
             >
               <Trash2 />
             </Button>

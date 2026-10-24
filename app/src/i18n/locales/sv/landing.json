@@ -1,0 +1,213 @@
+{
+  "nav": {
+    "aria": "Huvudmeny",
+    "home": "CallZen startsida",
+    "live": "Live-copilot",
+    "practice": "Övning",
+    "reviews": "Samtalsanalyser",
+    "teams": "Team",
+    "createAccount": "Skapa konto"
+  },
+  "actions": {
+    "openDashboard": "Öppna instrumentpanelen",
+    "createAccount": "Skapa ditt konto",
+    "signIn": "Logga in"
+  },
+  "footer": {
+    "consent": "Be alltid om samtycke innan du spelar in ett samtal.",
+    "aria": "Sidfot",
+    "dashboard": "Instrumentpanel",
+    "signIn": "Logga in",
+    "createAccount": "Skapa konto"
+  },
+  "hero": {
+    "title": "Vet vad du ska säga härnäst, medan de fortfarande pratar.",
+    "lede": "CallZen lyssnar på ditt säljsamtal, flaggar invändningar och köpsignaler när de uppstår och föreslår din nästa replik. Efteråt poängsätter den samtalet och låter dig öva på de svåra delarna mot AI-prospekt."
+  },
+  "demo": {
+    "aria": "Exempel på ett live-samtal med CallZens copilot",
+    "live": "Pågående samtal",
+    "replay": "Spela upp igen",
+    "prospect": "Prospekt",
+    "you": "Du",
+    "prospectOne": "Vi gillar det vi har sett. Ärligt talat ligger priset <mark>långt över vad vi har budgeterat</mark>.",
+    "youLine": "Förståeligt. Vilket intervall räknade ni med? Du nämnde att långsam uppföljning kostar dig affärer, så låt oss ställa de två mot varandra.",
+    "prospectTwo": "Runt fyrtio per användare. Men ja, vi <mark>förlorade två förnyelser förra kvartalet</mark> eftersom ingen ringde tillbaka i tid.",
+    "copilot": "Copilot",
+    "script": "Manus",
+    "stages": {
+      "opening": "Öppning",
+      "discovery": "Behovsanalys",
+      "pitch": "Presentation",
+      "objections": "Hantera invändningar",
+      "close": "Avslut"
+    },
+    "objection": {
+      "kind": "Prisinvändning",
+      "why": "Prospektet säger att priset ligger över budgeten."
+    },
+    "reply": {
+      "kind": "Föreslaget svar",
+      "said": "Sagt",
+      "text": "”Vilket intervall räknade ni med? Låt oss jämföra det med vad långsam uppföljning kostar er.”"
+    },
+    "signal": {
+      "kind": "Köpsignal",
+      "why": "De nämnde vad långsam uppföljning kostar dem. Gå vidare till avslutet och erbjud ett uppsättningssamtal."
+    }
+  },
+  "ways": {
+    "title": "Fungerar med de samtal du redan för",
+    "phone": {
+      "title": "Telefonsamtal",
+      "text": "Lägg samtalet på högtalare så lyssnar CallZen via din mikrofon. Inget tillägg och ingen telefonapp att byta ut."
+    },
+    "online": {
+      "title": "Onlinemöten",
+      "text": "Dela mötesfliken så hör CallZen båda sidor och transkriberar dig och prospektet separat, så att förslagen svarar rätt person."
+    }
+  },
+  "practice": {
+    "title": "Öva på ett prospekt som sätter emot",
+    "intro": "Övningsprospekt beter sig som riktiga köpare. De håller sina verkliga smärtpunkter för sig själva, sparar invändningarna till det mest obekväma ögonblicket och tappar tålamodet. Avbryt ett mitt i en mening så stannar det upp för att svara dig, med rösten.",
+    "describe": {
+      "title": "Beskriv, konfigurera inte",
+      "text": "Skriv en mening om vem du ska ringa så bygger CallZen prospektet åt dig."
+    },
+    "replay": {
+      "title": "Spela om ett samtal som gick snett",
+      "text": "Gör ett verkligt prospekt från ett livesamtal till ett övningsprospekt och ta ett nytt försök."
+    },
+    "withCopilot": {
+      "title": "Öva med eller utan copilot",
+      "text": "Behåll förslagen på medan du lär dig och stäng sedan av dem för att se hur du klarar dig själv."
+    },
+    "dossier": {
+      "aria": "Exempel på övningsprospekt",
+      "role": "Driftchef, regionalt logistikföretag",
+      "difficulty": "Svårighetsgrad: hög",
+      "patience": "Tålamod: lågt",
+      "voice": "Röstsamtal",
+      "knownLabel": "Det här vet du",
+      "known": "Svarade på ditt kalla mejl. Leder ett team på tolv säljare.",
+      "secretsLabel": "Det här berättar hon inte",
+      "hidden": "Dolt tills du visar det",
+      "hintRevealed": "Det här är vad analysen visar dig.",
+      "hintHidden": "I övningen får du reda på det under samtalet.",
+      "hide": "Dölj igen",
+      "reveal": "Visa efter samtalet"
+    },
+    "secrets": {
+      "pain": {
+        "label": "Smärtpunkt",
+        "text": "Förlorade två förnyelser förra kvartalet på grund av långsam uppföljning."
+      },
+      "objection": {
+        "label": "Invändning hon kommer att ta upp",
+        "text": "”Vi har redan ett verktyg för det här.”"
+      },
+      "yes": {
+        "label": "Det som får henne att säga ja",
+        "text": "En uppsättning som tar under en vecka."
+      }
+    }
+  },
+  "review": {
+    "title": "Se efter samtalet exakt var det vände",
+    "copy": "Varje samtal får ett viktat betyg, poäng per kategori och en lista över misstag och styrkor. Varje punkt pekar på ögonblicket i inspelningen, så att du kan lyssna på det i stället för att gissa.",
+    "aria": "Exempel på samtalsanalys",
+    "sample": "Exempelanalys, samtal på {{duration}}, poäng <score>78</score>",
+    "you": "Du",
+    "prospect": "Prospekt",
+    "markerAt": "{{kind}} vid {{time}}",
+    "kinds": {
+      "mistake": "Misstag",
+      "strength": "Styrka",
+      "objection": "Invändning"
+    },
+    "markers": {
+      "pitchedEarly": "Presenterade erbjudandet innan du frågade hur stort teamet är.",
+      "priceObjection": "Prisinvändning. Du frågade efter deras budget innan du försvarade summan.",
+      "askedCost": "Frågade vad långsam uppföljning kostar dem och lät dem sedan svara.",
+      "weakClose": "Avslutade med ”hör av dig” i stället för att boka nästa steg."
+    },
+    "metrics": {
+      "talkRatio": "Talfördelning",
+      "pace": "Tempo",
+      "paceValue": "148 ord/min",
+      "fillers": "Utfyllnadsord",
+      "interruptions": "Avbrott",
+      "objections": "Invändningar"
+    },
+    "after": {
+      "followUp": {
+        "title": "Ett utkast till uppföljning",
+        "text": "CallZen skriver mejlet du skulle skicka härnäst, baserat på vad prospektet faktiskt sa."
+      },
+      "practice": {
+        "title": "Ett övningspass som passar",
+        "text": "Den föreslår det övningsprospekt som tar sikte på misstagen du gjorde i det här samtalet."
+      },
+      "trends": {
+        "title": "Trender över flera samtal",
+        "text": "Din instrumentpanel visar ditt betyg över tid och de misstag som ständigt återkommer."
+      }
+    }
+  },
+  "playbook": {
+    "title": "Lär den hur ditt team säljer",
+    "copy": "En copilot är bara så bra som sin säljguide. Ställ in din en gång och använd den sedan i varje samtal.",
+    "items": {
+      "stages": {
+        "title": "Manusets steg",
+        "text": "Dela upp samtalet i steg. Copiloten håller reda på vilket du är i när samtalet fortskrider."
+      },
+      "objections": {
+        "title": "Invändningsbibliotek",
+        "text": "Skriv ner hur du svarar på invändningar om pris, timing och konkurrenter. Förslagen utgår från dina svar."
+      },
+      "knowledge": {
+        "title": "Produktkunskap",
+        "text": "Importera dina dokument så att förslagen använder dina verkliga priser, funktioner och begränsningar."
+      },
+      "tone": {
+        "title": "Ton och metodik",
+        "text": "Välj hur den låter och vilken säljmetod den följer."
+      },
+      "frequency": {
+        "title": "Hur ofta den hörs",
+        "text": "Ställ in hur ofta förslag visas, så att den hjälper dig utan att trängas."
+      },
+      "languages": {
+        "title": "Upp till fem språk",
+        "text": "Varje copilot kan hantera flera samtalsspråk och känner av vilket som talas."
+      }
+    }
+  },
+  "teams": {
+    "title": "Byggt för team som säljer tillsammans",
+    "copy": "Copiloter, prospekt och samtal finns inom en organisation, och du kan tillhöra flera och växla mellan dem. Bjud in personer via e-post; inbjudningar gäller i sju dagar.",
+    "roles": {
+      "owner": {
+        "name": "Ägare",
+        "text": "Styr allt, inklusive vad administratörer och medlemmar får göra."
+      },
+      "admin": {
+        "name": "Administratör",
+        "text": "Hanterar teamet med de behörigheter ägaren ger."
+      },
+      "member": {
+        "name": "Medlem",
+        "text": "Använder copiloter, hanterar prospekt och går igenom sina egna samtal."
+      }
+    },
+    "consent": {
+      "title": "Samtycke först, och du bestämmer vad som sparas",
+      "copy": "Be alltid om samtycke innan du spelar in ett samtal. CallZen påminner dig och ger dig motsvarande kontroller: ställ in hur länge inspelningar sparas och radera ditt konto och dess data när du är klar."
+    }
+  },
+  "closing": {
+    "title": "Ta ditt nästa samtal med en copilot.",
+    "copy": "Ställ in din första copilot, starta ett samtal och se förslagen komma medan prospektet fortfarande pratar."
+  }
+}

@@ -1,5 +1,6 @@
 import { useMemo, useState, type FC } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { ArrowLeft } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
 import { Button } from "@/components/ui/button";
@@ -19,6 +20,7 @@ import { toFormValues, toPayload } from "./utils/assistant-agent-form.utils";
 import type { AssistantAgentFormValues } from "../../validation-schemas/assistant-agent.schema";
 
 const AssistantAgentEditorPage: FC = () => {
+  const { t } = useTranslation("assistant");
   const { id } = useParams<{ id: string }>();
   const isNew = !id;
   const navigate = useNavigate();
@@ -31,7 +33,7 @@ const AssistantAgentEditorPage: FC = () => {
   const update = useUpdateAssistantAgent();
 
   usePageMetadata({
-    title: isNew ? "New co-pilot" : (agent?.name ?? "Co-pilot"),
+    title: isNew ? t("editor.newTitle") : (agent?.name ?? t("editor.fallbackTitle")),
   });
 
   const defaults = useMemo(() => {
@@ -68,15 +70,15 @@ const AssistantAgentEditorPage: FC = () => {
     <div className="mx-auto max-w-4xl">
       <Button asChild variant="ghost" size="sm" className="-ml-2 mb-2">
         <Link to={Routes.assistant_agents.root}>
-          <ArrowLeft /> Co-pilots
+          <ArrowLeft /> {t("list.title")}
         </Link>
       </Button>
       <PageHeader
-        title={isNew ? "New co-pilot" : (agent?.name ?? "Co-pilot")}
+        title={isNew ? t("editor.newTitle") : (agent?.name ?? t("editor.fallbackTitle"))}
         description={
           isNew
-            ? "Start from a template or from scratch. You can change everything later."
-            : "Script, knowledge, objection handling, style and scoring for this co-pilot."
+            ? t("editor.newDescription")
+            : t("editor.editDescription")
         }
       />
 
@@ -94,7 +96,7 @@ const AssistantAgentEditorPage: FC = () => {
           catalog={catalog}
           onSubmit={onSubmit}
           isSaving={create.isPending || update.isPending}
-          submitLabel={isNew ? "Create co-pilot" : "Save changes"}
+          submitLabel={isNew ? t("editor.create") : t("editor.save")}
           onBack={isNew ? () => setTemplate(null) : undefined}
         />
       ) : null}

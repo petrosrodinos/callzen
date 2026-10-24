@@ -1,0 +1,96 @@
+{
+  "title": "Einstellungen",
+  "save": "Einstellungen speichern",
+  "nav": {
+    "profile": "Profil & Präferenzen",
+    "usage": "Nutzung & Kosten",
+    "privacy": "Datenschutz & Daten",
+    "sections": "Einstellungsbereiche"
+  },
+  "validation": {
+    "enterName": "Geben Sie Ihren Namen ein",
+    "enterPassword": "Geben Sie Ihr Passwort ein",
+    "typeDelete": "Geben Sie zur Bestätigung „DELETE“ ein"
+  },
+  "profile": {
+    "title": "Profil",
+    "fullName": "Vollständiger Name",
+    "email": "E-Mail"
+  },
+  "appearance": {
+    "title": "Darstellung",
+    "description": "Hell, dunkel oder dem System folgen.",
+    "language": "Oberflächensprache",
+    "languageDescription": "Die Sprache für Menüs, Schaltflächen und Meldungen."
+  },
+  "languages": {
+    "title": "Sprachen",
+    "description": "Anrufe und Training können in vielen Sprachen stattfinden.",
+    "yourLanguage": "Ihre Sprache",
+    "templates": "Vorlagen & Beispiele auf",
+    "templatesAria": "Sprache für Vorlagen und Beispiele",
+    "output": "Vorschläge & Analyse auf"
+  },
+  "recording": {
+    "title": "Aufzeichnung",
+    "description": "Sie sind dafür verantwortlich, die Einwilligung einzuholen, wo es die Aufzeichnungsgesetze verlangen.",
+    "keep": "Audioaufzeichnungen standardmäßig behalten",
+    "keepHint": "Wenn deaktiviert, werden nur Transkripte und Analysen gespeichert. Sie können das pro Anruf ändern.",
+    "consentLine": "Standard-Einwilligungshinweis",
+    "consentLineHint": "Wird als erster Satz von Anrufen vorgeschlagen, wenn bei einem Co-Piloten der Einwilligungssatz aktiviert ist."
+  },
+  "privacy": {
+    "yourData": {
+      "title": "Ihre Daten",
+      "private": "Aufzeichnungen, Transkripte, Skripte und Agentenkonfigurationen sind privat und nur für Ihr Konto sichtbar.",
+      "delete": "Sie können jede Aufzeichnung, jedes Transkript und jeden Anruf jederzeit auf der zugehörigen Seite löschen. Das Löschen ist endgültig.",
+      "keepOnly": "Sie können nur Transkripte und Analysen behalten, indem Sie Aufzeichnungen in den Einstellungen oder pro Anruf deaktivieren.",
+      "sensitive": "Sensible Informationen, die Sie angeben (Skripte, Preise, Kundendaten), werden nur an die unten genannten KI-Anbieter gesendet, um Vorschläge und Analysen zu erstellen."
+    },
+    "processors": {
+      "title": "Wer Ihre Daten verarbeitet",
+      "description": "Basierend auf den Modellen und Sprachanbietern, die Sie auswählen.",
+      "region": "Region: {{region}}"
+    },
+    "consent": {
+      "title": "Einwilligung zur Aufzeichnung",
+      "text": "Die Gesetze zur Aufzeichnung unterscheiden sich je nach Land und Region, und manche verlangen die Einwilligung aller Teilnehmer. Stellen Sie vor der Aufzeichnung eines Anrufs sicher, dass Sie sie haben. Co-Piloten können Ihren Einwilligungssatz als ersten Satz jedes Anrufs vorschlagen."
+    },
+    "deleteAccount": {
+      "title": "Konto löschen",
+      "description": "Löscht Ihr Konto, Ihre Co-Piloten, Interessenten, Anrufe, Aufzeichnungen und Analysen endgültig.",
+      "button": "Konto löschen"
+    },
+    "deleteDialog": {
+      "title": "Ihr Konto endgültig löschen?",
+      "description": "Alle Ihre Daten werden sofort entfernt und können nicht wiederhergestellt werden.",
+      "password": "Passwort",
+      "confirmation": "Geben Sie zur Bestätigung DELETE ein",
+      "submit": "Alles löschen"
+    }
+  },
+  "usage": {
+    "period": "Zeitraum",
+    "scopeOrg": "Es wird die Nutzung aller Personen in dieser Organisation angezeigt.",
+    "scopeMine": "Es wird Ihre eigene Nutzung in dieser Organisation angezeigt.",
+    "estimatedCost": "Geschätzte KI-Kosten",
+    "listPrices": "Basierend auf Listenpreisen",
+    "liveMinutes": "Minuten in Live-Anrufen",
+    "practiceMinutes": "Trainingsminuten",
+    "analyses": "Analysen",
+    "suggestions_one": "{{count}} Vorschlag",
+    "suggestions_other": "{{count}} Vorschläge",
+    "byActivity": "Nach Aktivität",
+    "byModel": "Nach Modell & Anbieter",
+    "tokens": "{{tokens}} Tokens",
+    "priceList": {
+      "title": "Preisliste",
+      "description": "Was jedes Modell und jeder Sprachanbieter kostet, damit Sie Qualität und Ausgaben abwägen können.",
+      "model": "Modell",
+      "speed": "Geschwindigkeit",
+      "input": "Eingabe / 1 Mio. Tokens",
+      "output": "Ausgabe / 1 Mio. Tokens",
+      "perMinute": "~{{price}} pro Minute"
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "title": "Dashboard",
+  "greeting": "Hi {{name}}",
+  "descriptionTeam": "How everyone in {{organisation}} is performing.",
+  "defaultOrganisation": "your organisation",
+  "descriptionMe": "Your performance on live calls and practice, and what to work on next.",
+  "scope": {
+    "me": "Me",
+    "team": "Team"
+  },
+  "period": "Period",
+  "practice": "Practice",
+  "stats": {
+    "averageScore": "Average score",
+    "averageScoreHint": "Live {{live}} · Practice {{practice}}",
+    "calls": "Calls",
+    "callsHint": "{{live}} live · {{practice}} practice",
+    "meetingsBooked": "Meetings booked",
+    "fromLiveCalls": "From live calls",
+    "practiceStreak": "Practice streak",
+    "streakDays": "{{count}}d",
+    "talkMinutes": "{{minutes}} min on calls"
+  },
+  "gettingStarted": {
+    "heading": "Get set up in three steps",
+    "subheading": "Most people finish this in under five minutes.",
+    "createCopilot": {
+      "title": "Create your co-pilot",
+      "text": "Start from a template: script, objections and goal in one click.",
+      "cta": "Create co-pilot"
+    },
+    "waitCopilot": {
+      "title": "Wait for a co-pilot",
+      "text": "An admin of this organisation sets up the co-pilots you'll use. Ask them if none is available yet.",
+      "cta": "View organisation"
+    },
+    "practice": {
+      "title": "Rehearse with an AI prospect",
+      "text": "Talk out loud to a realistic prospect, with the co-pilot coaching you.",
+      "cta": "Practice now"
+    },
+    "firstCall": {
+      "title": "Take your first assisted call",
+      "text": "Phone on speaker or an online meeting. Get suggestions live.",
+      "cta": "Start a call"
+    }
+  },
+  "highlights": {
+    "title": "Highlights",
+    "empty": "After a few analyzed calls you'll see what's improving and what needs attention here."
+  },
+  "outcomes": {
+    "title": "Live call outcomes",
+    "subtitle": "Share of calls with a recorded outcome",
+    "empty": "Record outcomes at the end of live calls to link performance to results."
+  },
+  "invitations": {
+    "title": "You've been invited",
+    "from": "From {{name}}",
+    "expires": "expires {{when}}",
+    "accept": "Accept"
+  },
+  "practiceProgress": {
+    "title": "Practice progress",
+    "withCopilot": "With co-pilot",
+    "onYourOwn": "On your own",
+    "empty": "No practice sessions in this period.",
+    "tabs": {
+      "level": "Level",
+      "lead": "Lead",
+      "scenario": "Scenario",
+      "copilot": "Co-pilot"
+    },
+    "columns": {
+      "group": "Group",
+      "sessions": "Sessions",
+      "won": "Won",
+      "avg": "Avg"
+    }
+  },
+  "recentCalls": {
+    "title": "Recent calls",
+    "viewAll": "View all",
+    "empty": "No calls yet."
+  },
+  "recommended": {
+    "title": "Recommended practice",
+    "subtitle": "Scenarios built from your recent weak spots",
+    "empty": "Recommendations appear after your first analyzed call. Meanwhile, try a ready-made scenario.",
+    "browse": "Browse scenarios",
+    "preparing": "Preparing…",
+    "practice": "Practice"
+  },
+  "mistakes": {
+    "title": "Recurring mistakes",
+    "subtitle": "From your last 20 analyzed calls",
+    "empty": "No patterns yet. Keep going.",
+    "callsAffected_one": "{{count}} call",
+    "callsAffected_other": "{{count}} calls",
+    "viewCall": "View call"
+  },
+  "scoreTrend": {
+    "title": "Score trend",
+    "subtitle": "Every analyzed call, oldest to newest",
+    "emptyTitle": "Not enough data yet",
+    "emptyDescription": "Your trend appears after two analyzed calls or practice sessions.",
+    "liveCalls": "Live calls",
+    "practice": "Practice"
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Weakest first. Bars compare live calls with practice.",
+    "empty": "Skill scores appear after your first analyzed call.",
+    "live": "Live",
+    "practice": "Practice"
+  }
+}

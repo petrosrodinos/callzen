@@ -1,5 +1,6 @@
 import { useState, type FC } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Bot, Plus, Search } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
 import { Button } from "@/components/ui/button";
@@ -23,7 +24,8 @@ import { Routes } from "@/routes/routes";
 import { AssistantAgentCard } from "./components/assistant-agent-card";
 
 const AssistantAgentsPage: FC = () => {
-  usePageMetadata({ title: "Co-pilots" });
+  const { t } = useTranslation("assistant");
+  usePageMetadata({ title: t("list.title") });
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState<"active" | "archived" | "all">("active");
   const debouncedSearch = useDebouncedValue(search, 300);
@@ -37,13 +39,13 @@ const AssistantAgentsPage: FC = () => {
   return (
     <>
       <PageHeader
-        title="Co-pilots"
-        description="Each co-pilot has its own script, objection library, knowledge and style. Create one per product, audience or call stage."
+        title={t("list.title")}
+        description={t("list.description")}
         actions={
           canManage && (
             <Button asChild>
               <Link to={Routes.assistant_agents.new}>
-                <Plus /> New co-pilot
+                <Plus /> {t("list.new")}
               </Link>
             </Button>
           )
@@ -56,16 +58,16 @@ const AssistantAgentsPage: FC = () => {
           <Input
             value={search}
             onChange={(event) => setSearch(event.target.value)}
-            placeholder="Search co-pilots"
+            placeholder={t("list.searchPlaceholder")}
             className="pl-9"
-            aria-label="Search co-pilots"
+            aria-label={t("list.searchPlaceholder")}
           />
         </div>
         <Select
           value={status}
           onValueChange={(value) => setStatus(value as typeof status)}
         >
-          <SelectTrigger className="sm:w-40" aria-label="Filter by status">
+          <SelectTrigger className="sm:w-40" aria-label={t("list.filterByStatus")}>
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -85,21 +87,21 @@ const AssistantAgentsPage: FC = () => {
           icon={Bot}
           title={
             search || status !== "active"
-              ? "No co-pilots match"
+              ? t("list.empty.noMatch")
               : canManage
-                ? "Create your first co-pilot"
-                : "No co-pilots yet"
+                ? t("list.empty.createFirst")
+                : t("list.empty.none")
           }
           description={
             canManage
-              ? "Pick a template like Generic Cold Call or B2B Discovery and tailor it to your product in a couple of minutes."
-              : "An admin of this organisation creates the co-pilots you'll use on calls."
+              ? t("list.empty.descriptionManage")
+              : t("list.empty.descriptionMember")
           }
           action={
             canManage && (
               <Button asChild>
                 <Link to={Routes.assistant_agents.new}>
-                  <Plus /> New co-pilot
+                  <Plus /> {t("list.new")}
                 </Link>
               </Button>
             )

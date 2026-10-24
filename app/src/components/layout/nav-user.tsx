@@ -6,8 +6,10 @@ import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/c
 import { useAuthStore } from "@/stores/auth";
 import { initials } from "@/lib/format";
 import { Routes } from "@/routes/routes";
+import { useTranslation } from "react-i18next";
 
 export function NavUser() {
+  const { t } = useTranslation("layout");
   const { full_name, email, logout } = useAuthStore();
   const { isMobile, setOpenMobile } = useSidebar();
   const userInitials = initials(full_name || email);
@@ -45,26 +47,26 @@ export function NavUser() {
               <DropdownMenuItem asChild>
                 <Link to={Routes.settings.root}>
                   <Settings />
-                  Settings
+                  {t("userMenu.settings")}
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link to={Routes.settings.usage}>
                   <ChartNoAxesCombined />
-                  Usage & costs
+                  {t("userMenu.usage")}
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link to={Routes.settings.privacy}>
                   <ShieldCheck />
-                  Privacy & data
+                  {t("userMenu.privacy")}
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={() => logout()}>
               <LogOut />
-              Log out
+              {t("userMenu.logout")}
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

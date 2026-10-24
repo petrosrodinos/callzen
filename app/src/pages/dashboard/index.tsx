@@ -1,4 +1,5 @@
 import { useState, type FC } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import {
   CalendarCheck,
@@ -40,7 +41,8 @@ import { PracticeProgressCard } from "./components/practice-progress-card";
 import { RecentCallsCard } from "./components/recent-calls-card";
 
 const DashboardPage: FC = () => {
-  usePageMetadata({ title: "Dashboard" });
+  const { t } = useTranslation("dashboard");
+  usePageMetadata({ title: t("title") });
   const [days, setDays] = useState("90");
   const [scope, setScope] = useState<"me" | "team">("me");
   const { can, organisation } = usePermissions();
@@ -59,11 +61,13 @@ const DashboardPage: FC = () => {
   return (
     <>
       <PageHeader
-        title={firstName ? `Hi ${firstName}` : "Dashboard"}
+        title={firstName ? t("greeting", { name: firstName }) : t("title")}
         description={
           effectiveScope === "team"
-            ? `How everyone in ${organisation?.name ?? "your organisation"} is performing.`
-            : "Your performance on live calls and practice, and what to work on next."
+            ? t("descriptionTeam", {
+                organisation: organisation?.name ?? t("defaultOrganisation"),
+              })
+            : t("descriptionMe")
         }
         actions={
           <>
@@ -73,13 +77,13 @@ const DashboardPage: FC = () => {
                 onValueChange={(value) => setScope(value as "me" | "team")}
               >
                 <TabsList className="h-9">
-                  <TabsTrigger value="me">Me</TabsTrigger>
-                  <TabsTrigger value="team">Team</TabsTrigger>
+                  <TabsTrigger value="me">{t("scope.me")}</TabsTrigger>
+                  <TabsTrigger value="team">{t("scope.team")}</TabsTrigger>
                 </TabsList>
               </Tabs>
             )}
             <Select value={days} onValueChange={setDays}>
-              <SelectTrigger className="h-9 w-[150px]" aria-label="Period">
+              <SelectTrigger className="h-9 w-[150px]" aria-label={t("period")}>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -93,7 +97,7 @@ const DashboardPage: FC = () => {
             {can(Permissions.CALLS_CREATE) && (
               <Button asChild variant="outline">
                 <Link to={Routes.practice.root}>
-                  <Headphones /> Practice
+                  <Headphones /> {t("practice")}
                 </Link>
               </Button>
             )}
@@ -122,31 +126,39 @@ const DashboardPage: FC = () => {
 
           <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
             <StatCard
-              label="Average score"
+              label={t("stats.averageScore")}
               value={totals?.average_score ?? "–"}
               icon={Target}
-              hint={`Live ${totals?.live_average_score ?? "–"} · Practice ${totals?.practice_average_score ?? "–"}`}
+              hint={t("stats.averageScoreHint", {
+                live: totals?.live_average_score ?? "–",
+                practice: totals?.practice_average_score ?? "–",
+              })}
             />
             <StatCard
-              label="Calls"
+              label={t("stats.calls")}
               value={totals?.calls ?? 0}
               icon={PhoneCall}
-              hint={`${totals?.live_calls ?? 0} live · ${totals?.practice_sessions ?? 0} practice`}
+              hint={t("stats.callsHint", {
+                live: totals?.live_calls ?? 0,
+                practice: totals?.practice_sessions ?? 0,
+              })}
             />
             <StatCard
-              label="Meetings booked"
+              label={t("stats.meetingsBooked")}
               value={totals?.meetings_booked ?? 0}
               icon={CalendarCheck}
-              hint="From live calls"
+              hint={t("stats.fromLiveCalls")}
             />
             <StatCard
-              label="Practice streak"
-              value={`${totals?.practice_streak_days ?? 0}d`}
+              label={t("stats.practiceStreak")}
+              value={t("stats.streakDays", {
+                count: totals?.practice_streak_days ?? 0,
+              })}
               icon={Flame}
               hint={
                 <span className="inline-flex items-center gap-1">
-                  <Clock className="size-3" /> {totals?.talk_minutes ?? 0} min
-                  on calls
+                  <Clock className="size-3" />{" "}
+                  {t("stats.talkMinutes", { minutes: totals?.talk_minutes ?? 0 })}
                 </span>
               }
             />

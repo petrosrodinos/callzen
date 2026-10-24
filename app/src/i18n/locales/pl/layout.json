@@ -1,0 +1,61 @@
+{
+  "sidebar": {
+    "plan": "Co-pilot sprzedaży",
+    "toggle": "Przełącz pasek boczny",
+    "groups": {
+      "sell": "Sprzedaż",
+      "train": "Trening",
+      "account": "Konto",
+      "admin": "Administracja"
+    },
+    "items": {
+      "dashboard": "Pulpit",
+      "startCall": "Rozpocznij rozmowę",
+      "callLibrary": "Biblioteka rozmów",
+      "practice": "Trening",
+      "copilots": "Co-piloci",
+      "organisation": "Organizacja",
+      "settings": "Ustawienia",
+      "usage": "Zużycie i koszty",
+      "privacy": "Prywatność i dane",
+      "health": "Stan systemu",
+      "users": "Użytkownicy",
+      "alerts": "Alerty"
+    }
+  },
+  "userMenu": {
+    "settings": "Ustawienia",
+    "usage": "Zużycie i koszty",
+    "privacy": "Prywatność i dane",
+    "logout": "Wyloguj się"
+  },
+  "orgSwitcher": {
+    "switch": "Zmień organizację",
+    "pendingCount_one": "{{count}} oczekujące zaproszenie",
+    "pendingCount_few": "{{count}} oczekujące zaproszenia",
+    "pendingCount_many": "{{count}} oczekujących zaproszeń",
+    "pendingCount_other": "{{count}} oczekującego zaproszenia",
+    "organisation": "Organizacja",
+    "yourOrganisations": "Twoje organizacje",
+    "members_one": "{{count}} członek",
+    "members_few": "{{count}} członkowie",
+    "members_many": "{{count}} członków",
+    "members_other": "{{count}} członka",
+    "pendingInvitations": "Oczekujące zaproszenia",
+    "settings": "Ustawienia organizacji",
+    "create": "Utwórz organizację"
+  },
+  "sidebarNav": {
+    "placeholder": "Wybierz sekcję"
+  },
+  "navbar": {
+    "home": "Strona główna",
+    "templates": "Szablony",
+    "pricing": "Cennik",
+    "roadmap": "Plan rozwoju",
+    "contact": "Kontakt",
+    "login": "Zaloguj się",
+    "signup": "Zarejestruj się",
+    "dashboard": "Pulpit"
+  }
+}

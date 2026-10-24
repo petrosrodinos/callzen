@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Globe } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { LanguageFlag } from "@/components/ui/language-flag";
@@ -14,12 +15,13 @@ interface LanguageSelectProps {
   leadingOptions?: { id: string; label: string }[];
 }
 
-export function LanguageSelect({ value, onValueChange, ariaLabel = "Language", disabled, codes, leadingOptions = [] }: LanguageSelectProps) {
+export function LanguageSelect({ value, onValueChange, ariaLabel, disabled, codes, leadingOptions = [] }: LanguageSelectProps) {
+  const { t } = useTranslation("common");
   const options = codes ? PreferredLanguageOptions.filter((option) => codes.includes(option.id)) : PreferredLanguageOptions;
   return (
     <Select value={value} onValueChange={onValueChange} disabled={disabled}>
-      <SelectTrigger aria-label={ariaLabel}>
-        <SelectValue placeholder="Select a language" />
+      <SelectTrigger aria-label={ariaLabel ?? t("languageSelect.label")}>
+        <SelectValue placeholder={t("languageSelect.placeholder")} />
       </SelectTrigger>
       <SelectContent>
         {leadingOptions.map((option) => (

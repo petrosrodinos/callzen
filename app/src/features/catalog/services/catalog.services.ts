@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import axiosInstance from "@/config/api/axios";
 import { ApiRoutes } from "@/config/api/routes";
 import { ApiError } from "@/lib/api-error";
@@ -8,6 +9,6 @@ export const getCatalog = async (): Promise<Catalog> => {
         const response = await axiosInstance.get(ApiRoutes.catalog.prefix);
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to load models and templates.");
+        throw new ApiError(error, i18n.t("common:errors.catalog.failedToLoadModelsAndTemplates"));
     }
 };

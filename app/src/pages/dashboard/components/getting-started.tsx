@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   ArrowRight,
   Bot,
@@ -25,48 +26,49 @@ export function GettingStarted({
   hasPractice,
   hasLiveCall,
 }: GettingStartedProps) {
+  const { t } = useTranslation("dashboard");
   const steps = [
     canCreateAgent
       ? {
           done: hasAgent,
           icon: Bot,
-          title: "Create your co-pilot",
-          text: "Start from a template: script, objections and goal in one click.",
+          title: t("gettingStarted.createCopilot.title"),
+          text: t("gettingStarted.createCopilot.text"),
           to: Routes.assistant_agents.new,
-          cta: "Create co-pilot",
+          cta: t("gettingStarted.createCopilot.cta"),
         }
       : {
           done: hasAgent,
           icon: Bot,
-          title: "Wait for a co-pilot",
-          text: "An admin of this organisation sets up the co-pilots you'll use. Ask them if none is available yet.",
+          title: t("gettingStarted.waitCopilot.title"),
+          text: t("gettingStarted.waitCopilot.text"),
           to: Routes.organisation.root,
-          cta: "View organisation",
+          cta: t("gettingStarted.waitCopilot.cta"),
         },
     {
       done: hasPractice,
       icon: Headphones,
-      title: "Rehearse with an AI prospect",
-      text: "Talk out loud to a realistic prospect, with the co-pilot coaching you.",
+      title: t("gettingStarted.practice.title"),
+      text: t("gettingStarted.practice.text"),
       to: Routes.practice.root,
-      cta: "Practice now",
+      cta: t("gettingStarted.practice.cta"),
     },
     {
       done: hasLiveCall,
       icon: PhoneCall,
-      title: "Take your first assisted call",
-      text: "Phone on speaker or an online meeting. Get suggestions live.",
+      title: t("gettingStarted.firstCall.title"),
+      text: t("gettingStarted.firstCall.text"),
       to: Routes.calls.new,
-      cta: "Start a call",
+      cta: t("gettingStarted.firstCall.cta"),
     },
   ];
   const next = steps.find((step) => !step.done);
 
   return (
     <Card className="overflow-hidden border-primary/20 bg-gradient-to-br from-primary/5 to-transparent p-5">
-      <h2 className="font-semibold">Get set up in three steps</h2>
+      <h2 className="font-semibold">{t("gettingStarted.heading")}</h2>
       <p className="text-sm text-muted-foreground">
-        Most people finish this in under five minutes.
+        {t("gettingStarted.subheading")}
       </p>
       <ol className="mt-4 grid gap-3 md:grid-cols-3">
         {steps.map((step) => (

@@ -1,0 +1,88 @@
+{
+  "page": {
+    "title": "Organisation",
+    "description": "Gérez qui appartient à cette organisation, ce que chaque rôle peut faire et les personnes que vous avez invitées.",
+    "nothing": "Rien à afficher"
+  },
+  "tabs": {
+    "general": "Général",
+    "members": "Membres",
+    "invitations": "Invitations",
+    "roles": "Rôles et autorisations"
+  },
+  "create": {
+    "title": "Créer une organisation",
+    "description": "Chaque organisation a ses propres copilotes, prospects, appels et membres. Vous en serez le propriétaire et pourrez inviter votre équipe.",
+    "name": "Nom de l'organisation",
+    "namePlaceholder": "Équipe commerciale Acme",
+    "nameHint": "Vos coéquipiers verront ce nom dans leur invitation.",
+    "submit": "Créer l'organisation"
+  },
+  "general": {
+    "details": "Détails",
+    "detailsDescription_one": "Créée le {{date}} · {{count}} membre",
+    "detailsDescription_other": "Créée le {{date}} · {{count}} membres",
+    "name": "Nom de l'organisation",
+    "saveName": "Enregistrer le nom",
+    "yourRole": "Votre rôle :",
+    "deleteTitle": "Supprimer l'organisation",
+    "deleteDescription": "Supprime définitivement l'organisation avec tous ses copilotes, prospects, appels, enregistrements et analyses, et retire tous les membres. Cette action est irréversible.",
+    "deleteDialogTitle": "Supprimer {{name}} ?",
+    "deleteDialogDescription": "Saisissez <strong>{{name}}</strong> pour confirmer. Tout le contenu de cette organisation est supprimé pour tous les membres.",
+    "confirmAria": "Saisissez le nom de l'organisation pour confirmer",
+    "deletePermanently": "Supprimer définitivement"
+  },
+  "invitations": {
+    "copyFailed": "Échec de la copie",
+    "copyFailedHint": "Sélectionnez le lien et copiez-le manuellement.",
+    "inviteTitle": "Inviter quelqu'un",
+    "inviteDescription": "Ils reçoivent un e-mail avec un lien valable 7 jours. Chacun peut appartenir à plusieurs organisations : les utilisateurs CallZen existants n'ont qu'à accepter et à changer d'organisation.",
+    "email": "E-mail",
+    "emailPlaceholder": "collegue@entreprise.com",
+    "role": "Rôle",
+    "send": "Envoyer l'invitation",
+    "emptyTitle": "Aucune invitation pour l'instant",
+    "emptyDescription": "Les invitations que vous envoyez apparaissent ici pour que vous puissiez les renvoyer ou les révoquer.",
+    "invited": "invité {{when}}",
+    "invitedBy": "invité {{when}} par {{name}}",
+    "sentTimes": "envoyée {{count}}×",
+    "expires": "Expire le {{date}}",
+    "expired": "Expirée {{when}}",
+    "resend": "Renvoyer",
+    "revoke": "Révoquer",
+    "copied": "Copié",
+    "copyLink": "Copier le lien",
+    "revokeTitle": "Révoquer l'invitation de {{email}} ?",
+    "revokeDescription": "Le lien cesse de fonctionner immédiatement. Vous pouvez envoyer une nouvelle invitation à tout moment."
+  },
+  "members": {
+    "you": "Vous",
+    "joined": "a rejoint le {{date}}",
+    "roleOf": "Rôle de {{name}}",
+    "removeAria": "Retirer {{name}}",
+    "removeTitle": "Retirer {{name}} ?",
+    "removeDescription": "Cette personne perd immédiatement l'accès à cette organisation. Les appels qu'elle a passés restent dans l'organisation. Elle pourra être invitée à nouveau plus tard.",
+    "remove": "Retirer"
+  },
+  "roles": {
+    "role": "Rôle",
+    "membersCount_one": "{{count}} membre",
+    "membersCount_other": "{{count}} membres",
+    "ownersOnlyEdit": "Seuls les propriétaires peuvent modifier ce que chaque rôle est autorisé à faire.",
+    "ownerLocked": "Les propriétaires ont toujours toutes les autorisations ; ce rôle ne peut donc pas être restreint.",
+    "ownersOnly": "Propriétaires uniquement",
+    "toggleAria": "{{permission}} pour {{role}}",
+    "reset": "Rétablir le préréglage",
+    "unsaved": "Modifications non enregistrées",
+    "customised": "Personnalisé",
+    "usingPreset": "Préréglage utilisé",
+    "discard": "Annuler",
+    "save": "Enregistrer les autorisations de {{role}}"
+  },
+  "validation": {
+    "nameMin": "Le nom doit comporter au moins {{min}} caractères",
+    "nameMax": "Le nom doit comporter {{max}} caractères au maximum",
+    "emailRequired": "Saisissez une adresse e-mail",
+    "emailInvalid": "Saisissez une adresse e-mail valide"
+  }
+}

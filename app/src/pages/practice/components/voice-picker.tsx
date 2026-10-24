@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Check, Star, Timer, Wallet, Waves } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
@@ -38,6 +39,7 @@ export function VoicePicker({
   onProviderChange,
   onVoiceChange,
 }: VoicePickerProps) {
+  const { t } = useTranslation("practice");
   const [browserVoices, setBrowserVoices] = useState<SpeechSynthesisVoice[]>(
     [],
   );
@@ -67,7 +69,7 @@ export function VoicePicker({
     <div className="space-y-4">
       <div
         role="radiogroup"
-        aria-label="Voice provider"
+        aria-label={t("voicePicker.providerAria")}
         className="grid grid-cols-1 gap-2 sm:grid-cols-2"
       >
         {providers.map((p) => {
@@ -98,7 +100,7 @@ export function VoicePicker({
                 {p.label}
                 {p.recommended && (
                   <Badge className="gap-1 bg-primary/10 text-primary shadow-none hover:bg-primary/10">
-                    <Star className="size-3" /> Recommended
+                    <Star className="size-3" /> {t("voicePicker.recommended")}
                   </Badge>
                 )}
                 {isSelected && (
@@ -107,19 +109,23 @@ export function VoicePicker({
               </span>
               <span className="text-xs text-muted-foreground">
                 {unsupported
-                  ? "Not supported in this browser. Use Chrome or Edge."
+                  ? t("voicePicker.unsupported")
                   : p.description}
               </span>
               <span className="flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-muted-foreground">
                 <span className="inline-flex items-center gap-1">
-                  <Waves className="size-3" /> Realism {"★".repeat(p.realism)}
+                  <Waves className="size-3" />{" "}
+                  {t("voicePicker.realism", {
+                    stars: "★".repeat(p.realism),
+                  })}
                 </span>
                 <span className="inline-flex items-center gap-1">
                   <Timer className="size-3" /> {p.latency}
                 </span>
                 <span className="inline-flex items-center gap-1">
                   <Wallet className="size-3" /> ~
-                  {formatCurrency(p.cost_per_minute_usd)}/min
+                  {formatCurrency(p.cost_per_minute_usd)}
+                  {t("voicePicker.perMinute")}
                 </span>
               </span>
             </button>
@@ -128,14 +134,14 @@ export function VoicePicker({
       </div>
 
       <div className="space-y-1.5">
-        <Label>Voice</Label>
+        <Label>{t("voicePicker.voice")}</Label>
         <Select value={voice || undefined} onValueChange={onVoiceChange}>
-          <SelectTrigger aria-label="Voice">
+          <SelectTrigger aria-label={t("voicePicker.voice")}>
             <SelectValue
               placeholder={
                 provider === VoiceProviders.BROWSER
-                  ? "Default browser voice"
-                  : "Choose a voice"
+                  ? t("voicePicker.defaultBrowserVoice")
+                  : t("voicePicker.chooseVoice")
               }
             />
           </SelectTrigger>
@@ -152,8 +158,7 @@ export function VoicePicker({
         </Select>
         {provider === VoiceProviders.BROWSER && !voiceOptions.length && (
           <p className="text-xs text-muted-foreground">
-            No voices for this language were found; your browser's default voice
-            will be used.
+            {t("voicePicker.noVoices")}
           </p>
         )}
       </div>

@@ -1,0 +1,57 @@
+{
+  "sidebar": {
+    "plan": "Co-pilot per le vendite",
+    "toggle": "Mostra/nascondi barra laterale",
+    "groups": {
+      "sell": "Vendi",
+      "train": "Allenati",
+      "account": "Account",
+      "admin": "Admin"
+    },
+    "items": {
+      "dashboard": "Dashboard",
+      "startCall": "Avvia una chiamata",
+      "callLibrary": "Libreria chiamate",
+      "practice": "Pratica",
+      "copilots": "Co-pilot",
+      "organisation": "Organizzazione",
+      "settings": "Impostazioni",
+      "usage": "Utilizzo e costi",
+      "privacy": "Privacy e dati",
+      "health": "Stato di salute",
+      "users": "Utenti",
+      "alerts": "Avvisi"
+    }
+  },
+  "userMenu": {
+    "settings": "Impostazioni",
+    "usage": "Utilizzo e costi",
+    "privacy": "Privacy e dati",
+    "logout": "Esci"
+  },
+  "orgSwitcher": {
+    "switch": "Cambia organizzazione",
+    "pendingCount_one": "{{count}} invito in sospeso",
+    "pendingCount_other": "{{count}} inviti in sospeso",
+    "organisation": "Organizzazione",
+    "yourOrganisations": "Le tue organizzazioni",
+    "members_one": "{{count}} membro",
+    "members_other": "{{count}} membri",
+    "pendingInvitations": "Inviti in sospeso",
+    "settings": "Impostazioni organizzazione",
+    "create": "Crea organizzazione"
+  },
+  "sidebarNav": {
+    "placeholder": "Seleziona una sezione"
+  },
+  "navbar": {
+    "home": "Home",
+    "templates": "Template",
+    "pricing": "Prezzi",
+    "roadmap": "Roadmap",
+    "contact": "Contatti",
+    "login": "Accedi",
+    "signup": "Registrati",
+    "dashboard": "Dashboard"
+  }
+}

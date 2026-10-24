@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
@@ -26,12 +27,6 @@ import {
 } from "../validation-schemas/practice-agent.schema";
 import { Routes } from "@/routes/routes";
 
-const EXAMPLES = [
-  "A skeptical IT manager at a 200-person bank who just renewed with a competitor",
-  "A small restaurant owner being cold-called about a POS system, rushed during lunch",
-  "A couple looking for a 3-bedroom house in the suburbs with a limited budget",
-];
-
 interface GenerateProspectDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -43,6 +38,12 @@ export function GenerateProspectDialog({
   onOpenChange,
   copilotId,
 }: GenerateProspectDialogProps) {
+  const { t } = useTranslation("practice");
+  const examples = [
+    t("generateDialog.examples.one"),
+    t("generateDialog.examples.two"),
+    t("generateDialog.examples.three"),
+  ];
   const navigate = useNavigate();
   const generate = useGeneratePracticeAgent();
   const form = useForm<GenerateFromDescriptionFormValues>({
@@ -72,11 +73,9 @@ export function GenerateProspectDialog({
     >
       <DialogContent className="sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle>Describe a prospect</DialogTitle>
+          <DialogTitle>{t("generateDialog.title")}</DialogTitle>
           <DialogDescription>
-            One sentence is enough. CallZen fills in personality, objections,
-            hidden pain points and conditions to convert. You review before
-            saving.
+            {t("generateDialog.description")}
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
@@ -90,8 +89,8 @@ export function GenerateProspectDialog({
                     <Textarea
                       rows={3}
                       autoFocus
-                      placeholder={EXAMPLES[0]}
-                      aria-label="Prospect description"
+                      placeholder={examples[0]}
+                      aria-label={t("generateDialog.descriptionAria")}
                       {...field}
                     />
                   </FormControl>
@@ -100,7 +99,7 @@ export function GenerateProspectDialog({
               )}
             />
             <div className="flex flex-wrap gap-1.5">
-              {EXAMPLES.map((example) => (
+              {examples.map((example) => (
                 <button
                   key={example}
                   type="button"
@@ -122,7 +121,9 @@ export function GenerateProspectDialog({
                 loading={generate.isPending}
               >
                 {!generate.isPending && <WandSparkles />}{" "}
-                {generate.isPending ? "Generating…" : "Generate"}
+                {generate.isPending
+                  ? t("generateDialog.generating")
+                  : t("generateDialog.generate")}
               </Button>
             </DialogFooter>
           </form>

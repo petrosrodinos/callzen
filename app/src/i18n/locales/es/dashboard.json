@@ -1,0 +1,117 @@
+{
+  "title": "Panel",
+  "greeting": "Hola, {{name}}",
+  "descriptionTeam": "Cómo le va a todo el equipo de {{organisation}}.",
+  "defaultOrganisation": "tu organización",
+  "descriptionMe": "Tu rendimiento en llamadas reales y en práctica, y en qué trabajar a continuación.",
+  "scope": {
+    "me": "Yo",
+    "team": "Equipo"
+  },
+  "period": "Periodo",
+  "practice": "Práctica",
+  "stats": {
+    "averageScore": "Puntuación media",
+    "averageScoreHint": "En vivo {{live}} · Práctica {{practice}}",
+    "calls": "Llamadas",
+    "callsHint": "{{live}} en vivo · {{practice}} de práctica",
+    "meetingsBooked": "Reuniones concertadas",
+    "fromLiveCalls": "De llamadas en vivo",
+    "practiceStreak": "Racha de práctica",
+    "streakDays": "{{count}} d",
+    "talkMinutes": "{{minutes}} min en llamadas"
+  },
+  "gettingStarted": {
+    "heading": "Configúralo en tres pasos",
+    "subheading": "La mayoría termina en menos de cinco minutos.",
+    "createCopilot": {
+      "title": "Crea tu copiloto",
+      "text": "Empieza con una plantilla: guion, objeciones y objetivo con un clic.",
+      "cta": "Crear copiloto"
+    },
+    "waitCopilot": {
+      "title": "Espera a un copiloto",
+      "text": "Un administrador de esta organización configura los copilotos que usarás. Pregúntale si todavía no hay ninguno disponible.",
+      "cta": "Ver organización"
+    },
+    "practice": {
+      "title": "Ensaya con un cliente potencial de IA",
+      "text": "Habla en voz alta con un cliente potencial realista mientras el copiloto te entrena.",
+      "cta": "Practicar ahora"
+    },
+    "firstCall": {
+      "title": "Haz tu primera llamada asistida",
+      "text": "Teléfono en altavoz o una reunión en línea. Recibe sugerencias en directo.",
+      "cta": "Iniciar una llamada"
+    }
+  },
+  "highlights": {
+    "title": "Destacados",
+    "empty": "Tras unas cuantas llamadas analizadas verás aquí lo que mejora y lo que requiere atención."
+  },
+  "outcomes": {
+    "title": "Resultados de llamadas en vivo",
+    "subtitle": "Porcentaje de llamadas con un resultado registrado",
+    "empty": "Registra los resultados al final de las llamadas en vivo para relacionar el rendimiento con los resultados."
+  },
+  "invitations": {
+    "title": "Te han invitado",
+    "from": "De {{name}}",
+    "expires": "caduca {{when}}",
+    "accept": "Aceptar"
+  },
+  "practiceProgress": {
+    "title": "Progreso de práctica",
+    "withCopilot": "Con copiloto",
+    "onYourOwn": "Por tu cuenta",
+    "empty": "No hay sesiones de práctica en este periodo.",
+    "tabs": {
+      "level": "Nivel",
+      "lead": "Lead",
+      "scenario": "Escenario",
+      "copilot": "Copiloto"
+    },
+    "columns": {
+      "group": "Grupo",
+      "sessions": "Sesiones",
+      "won": "Logradas",
+      "avg": "Media"
+    }
+  },
+  "recentCalls": {
+    "title": "Llamadas recientes",
+    "viewAll": "Ver todas",
+    "empty": "Aún no hay llamadas."
+  },
+  "recommended": {
+    "title": "Práctica recomendada",
+    "subtitle": "Escenarios creados a partir de tus puntos débiles recientes",
+    "empty": "Las recomendaciones aparecen tras tu primera llamada analizada. Mientras tanto, prueba un escenario preparado.",
+    "browse": "Explorar escenarios",
+    "preparing": "Preparando…",
+    "practice": "Practicar"
+  },
+  "mistakes": {
+    "title": "Errores recurrentes",
+    "subtitle": "De tus últimas 20 llamadas analizadas",
+    "empty": "Aún no hay patrones. Sigue así.",
+    "callsAffected_one": "{{count}} llamada",
+    "callsAffected_other": "{{count}} llamadas",
+    "viewCall": "Ver llamada"
+  },
+  "scoreTrend": {
+    "title": "Evolución de la puntuación",
+    "subtitle": "Cada llamada analizada, de la más antigua a la más reciente",
+    "emptyTitle": "Aún no hay suficientes datos",
+    "emptyDescription": "Tu evolución aparece tras dos llamadas analizadas o sesiones de práctica.",
+    "liveCalls": "Llamadas en vivo",
+    "practice": "Práctica"
+  },
+  "skills": {
+    "title": "Habilidades",
+    "subtitle": "Primero las más débiles. Las barras comparan las llamadas en vivo con la práctica.",
+    "empty": "Las puntuaciones de habilidades aparecen tras tu primera llamada analizada.",
+    "live": "En vivo",
+    "practice": "Práctica"
+  }
+}

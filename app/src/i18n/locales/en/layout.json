@@ -1,0 +1,57 @@
+{
+  "sidebar": {
+    "plan": "Sales co-pilot",
+    "toggle": "Toggle sidebar",
+    "groups": {
+      "sell": "Sell",
+      "train": "Train",
+      "account": "Account",
+      "admin": "Admin"
+    },
+    "items": {
+      "dashboard": "Dashboard",
+      "startCall": "Start a call",
+      "callLibrary": "Call library",
+      "practice": "Practice",
+      "copilots": "Co-pilots",
+      "organisation": "Organisation",
+      "settings": "Settings",
+      "usage": "Usage & costs",
+      "privacy": "Privacy & data",
+      "health": "Health",
+      "users": "Users",
+      "alerts": "Alerts"
+    }
+  },
+  "userMenu": {
+    "settings": "Settings",
+    "usage": "Usage & costs",
+    "privacy": "Privacy & data",
+    "logout": "Log out"
+  },
+  "orgSwitcher": {
+    "switch": "Switch organisation",
+    "pendingCount_one": "{{count}} pending invitation",
+    "pendingCount_other": "{{count}} pending invitations",
+    "organisation": "Organisation",
+    "yourOrganisations": "Your organisations",
+    "members_one": "{{count}} member",
+    "members_other": "{{count}} members",
+    "pendingInvitations": "Pending invitations",
+    "settings": "Organisation settings",
+    "create": "Create organisation"
+  },
+  "sidebarNav": {
+    "placeholder": "Select a section"
+  },
+  "navbar": {
+    "home": "Home",
+    "templates": "Templates",
+    "pricing": "Pricing",
+    "roadmap": "Roadmap",
+    "contact": "Contact",
+    "login": "Login",
+    "signup": "Sign up",
+    "dashboard": "Dashboard"
+  }
+}

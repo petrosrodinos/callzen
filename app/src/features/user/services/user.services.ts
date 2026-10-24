@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import axiosInstance from "@/config/api/axios";
 import { ApiRoutes } from "@/config/api/routes";
 import { ApiError } from "@/lib/api-error";
@@ -8,7 +9,7 @@ export const getMe = async (): Promise<User> => {
         const response = await axiosInstance.get(ApiRoutes.users.me);
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to load your profile.");
+        throw new ApiError(error, i18n.t("common:errors.user.failedToLoadYourProfile"));
     }
 };
 
@@ -17,7 +18,7 @@ export const updateMe = async (dto: UpdateUserDto): Promise<User> => {
         const response = await axiosInstance.patch(ApiRoutes.users.me, dto);
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to save your settings.");
+        throw new ApiError(error, i18n.t("common:errors.user.failedToSaveYourSettings"));
     }
 };
 
@@ -26,6 +27,6 @@ export const deleteMe = async (password: string): Promise<{ deleted: boolean }> 
         const response = await axiosInstance.delete(ApiRoutes.users.me, { data: { password } });
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to delete your account.");
+        throw new ApiError(error, i18n.t("common:errors.user.failedToDeleteYourAccount"));
     }
 };

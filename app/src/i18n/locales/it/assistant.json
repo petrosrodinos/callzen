@@ -1,0 +1,173 @@
+{
+  "list": {
+    "title": "Copiloti",
+    "description": "Ogni copilota ha il proprio script, la propria libreria di obiezioni, le proprie conoscenze e il proprio stile. Creane uno per prodotto, pubblico o fase della chiamata.",
+    "new": "Nuovo copilota",
+    "searchPlaceholder": "Cerca copiloti",
+    "filterByStatus": "Filtra per stato",
+    "empty": {
+      "noMatch": "Nessun copilota corrisponde",
+      "createFirst": "Crea il tuo primo copilota",
+      "none": "Ancora nessun copilota",
+      "descriptionManage": "Scegli un modello come Generic Cold Call o B2B Discovery e adattalo al tuo prodotto in un paio di minuti.",
+      "descriptionMember": "Un amministratore di questa organizzazione crea i copiloti che userai nelle chiamate."
+    }
+  },
+  "card": {
+    "default": "Predefinito",
+    "archived": "Archiviato",
+    "actionsFor": "Azioni per {{name}}",
+    "edit": "Modifica",
+    "makeDefault": "Imposta come predefinito",
+    "duplicate": "Duplica",
+    "restore": "Ripristina",
+    "archive": "Archivia",
+    "delete": "Elimina",
+    "noDescription": "Nessuna descrizione",
+    "goal": "Obiettivo:",
+    "calls": "Chiamate",
+    "avgScore": "Punteggio medio",
+    "trend": "Andamento",
+    "usedAgo": "usato {{when}}",
+    "neverUsed": "mai usato",
+    "useOnCall": "Usa in una chiamata",
+    "practice": "Esercitati",
+    "deleteTitle": "Eliminare {{name}}?",
+    "deleteDescription": "Il copilota viene eliminato definitivamente. Le chiamate passate conservano trascrizioni e analisi."
+  },
+  "editor": {
+    "newTitle": "Nuovo copilota",
+    "fallbackTitle": "Copilota",
+    "newDescription": "Parti da un modello o da zero. Potrai modificare tutto in seguito.",
+    "editDescription": "Script, conoscenze, gestione delle obiezioni, stile e punteggio di questo copilota.",
+    "create": "Crea copilota",
+    "save": "Salva modifiche"
+  },
+  "form": {
+    "tabs": {
+      "basics": "Generale",
+      "script": "Script",
+      "objections": "Obiezioni",
+      "knowledge": "Conoscenze",
+      "style": "Stile",
+      "models": "Modelli IA",
+      "analysis": "Punteggio"
+    },
+    "fixFields": "Correggi i campi evidenziati",
+    "templates": "Modelli",
+    "unsavedChanges": "Modifiche non salvate"
+  },
+  "analysis": {
+    "title": "Categorie di punteggio",
+    "description": "Cosa valuta l'analisi post-chiamata e quanto pesa ciascuna categoria sul punteggio complessivo.",
+    "reset": "Ripristina",
+    "add": "Aggiungi categoria",
+    "categoryName": "Nome della categoria",
+    "weight": "Peso",
+    "remove": "Rimuovi categoria"
+  },
+  "basics": {
+    "title": "Generale",
+    "description": "A cosa serve questo copilota e il risultato verso cui spinge.",
+    "name": "Nome",
+    "namePlaceholder": "Cold call – Studi dentistici",
+    "purpose": "Scopo",
+    "purposePlaceholder": "Brevi cold call ai titolari di studi dentistici, finalizzate a fissare una demo.",
+    "callGoal": "Obiettivo della chiamata",
+    "callGoalPlaceholder": "Fissare una demo di 20 minuti",
+    "callGoalHint": "Il copilota continua a indirizzare la conversazione verso questo risultato.",
+    "languages": "Lingue della conversazione",
+    "methodology": "Metodologia di vendita",
+    "default": "Copilota predefinito",
+    "defaultHint": "Preselezionato quando avvii una chiamata."
+  },
+  "knowledge": {
+    "tooLarge": "{{name}} è troppo grande",
+    "tooLargeHint": "Sono supportati file fino a 2 MB.",
+    "trimmed": "Le conoscenze sono state troncate",
+    "trimmedHint": "Vengono mantenuti solo i primi {{max}} caratteri.",
+    "imported_one": "Importato {{count}} file",
+    "imported_other": "Importati {{count}} file",
+    "title": "Conoscenze e contesto",
+    "description": "Dettagli del prodotto, prezzi, FAQ, confronti con i concorrenti, casi di studio, profilo del cliente ideale. Usato per le risposte e le schede informative durante le chiamate.",
+    "import": "Importa documenti",
+    "placeholder": "Prodotto: …\nPrezzi: Starter 99 $/mese per sede, 50 postazioni 399 $/mese\nVantaggio chiave: riduce gli appuntamenti saltati del 30%\nConcorrenti: …\nFAQ: …",
+    "importHint": "Importa file .txt, .md, .csv, .json e .html."
+  },
+  "models": {
+    "notConfigured": "L'IA non è ancora configurata sul server, quindi suggerimenti e analisi non sono disponibili.",
+    "realtimeTitle": "Suggerimenti in tempo reale",
+    "realtimeDescription": "Qui conta soprattutto la velocità: un suggerimento in ritardo è inutile.",
+    "realtimeModel": "Modello in tempo reale",
+    "analysisTitle": "Analisi post-chiamata",
+    "analysisDescription": "L'analisi può privilegiare la profondità rispetto alla velocità. Se un modello non è disponibile, CallZen ripiega su quello consigliato e te lo comunica.",
+    "analysisModel": "Modello di analisi"
+  },
+  "objections": {
+    "title": "Libreria di obiezioni",
+    "description": "Obiezioni comuni e le risposte che preferisci. Quando il potenziale cliente ne solleva una, il copilota la riconosce e suggerisce la tua risposta, adattata al momento.",
+    "add": "Aggiungi obiezione",
+    "emptyTitle": "Ancora nessuna obiezione",
+    "emptyDescription": "Aggiungi quelle che senti più spesso: «costa troppo», «mandami un'email», «abbiamo già un fornitore»…",
+    "objectionPlaceholder": "Obiezione, ad es. «Costa troppo»",
+    "objection": "Obiezione",
+    "remove": "Rimuovi obiezione",
+    "responsePlaceholder": "La tua risposta preferita",
+    "response": "Risposta"
+  },
+  "script": {
+    "title": "Script",
+    "description": "Organizza lo script in fasi. Il copilota lo segue, monitora i progressi in tempo reale e si adatta quando la conversazione prende un'altra direzione.",
+    "addStage": "Aggiungi fase",
+    "emptyTitle": "Ancora nessuno script",
+    "emptyDescription": "Senza uno script il copilota si basa su obiettivo, istruzioni e conoscenze.",
+    "addFirstStage": "Aggiungi la prima fase",
+    "stageType": "Tipo di fase",
+    "stageTitlePlaceholder": "Titolo della fase (facoltativo)",
+    "stageTitle": "Titolo della fase",
+    "moveUp": "Sposta su",
+    "moveDown": "Sposta giù",
+    "remove": "Rimuovi fase",
+    "whatToSay": "Cosa dire",
+    "contentPlaceholder": "Cosa dire o chiedere in questa fase. Usa {placeholders} per i nomi."
+  },
+  "style": {
+    "instructionsTitle": "Istruzioni e tono",
+    "instructionsDescription": "Regole che il copilota segue sempre, con parole tue.",
+    "instructions": "Istruzioni",
+    "instructionsPlaceholder": "Mantieni i suggerimenti sotto le 20 parole.\nNon offrire mai sconti superiori al 10%.\nPunta sempre a un orario preciso per l'incontro.",
+    "tone": "Tono",
+    "suggestionsTitle": "Suggerimenti",
+    "suggestionsDescription": "Con quale frequenza e quanto il copilota mostra durante le chiamate. Puoi cambiare la frequenza anche durante la chiamata.",
+    "frequency": "Frequenza",
+    "suggestionFrequency": "Frequenza dei suggerimenti",
+    "length": "Lunghezza",
+    "alternatives": "Formulazioni alternative",
+    "consentTitle": "Consenso alla registrazione",
+    "consentDescription": "Le leggi sulla registrazione variano da regione a regione e alcune richiedono il consenso di tutti. Sei tu responsabile di ottenerlo.",
+    "suggestConsent": "Suggerisci prima una frase di consenso",
+    "suggestConsentHint": "Il primo suggerimento di ogni chiamata sarà la tua frase informativa.",
+    "consentLine": "Frase informativa sul consenso",
+    "consentLineHint": "Lascia vuoto per usare il valore predefinito delle Impostazioni."
+  },
+  "templates": {
+    "stats": "{{stages}} · {{objections}} · Obiettivo: {{goal}}",
+    "stages_one": "{{count}} fase dello script",
+    "stages_other": "{{count}} fasi dello script",
+    "objections_one": "{{count}} obiezione",
+    "objections_other": "{{count}} obiezioni",
+    "scratch": "Parti da zero",
+    "scratchHint": "Scrivi il tuo script e le tue regole"
+  },
+  "validation": {
+    "name": "Dai un nome al tuo copilota",
+    "stageContent": "Scrivi cosa dire in questa fase",
+    "knowledgeMax": "Le conoscenze sono limitate a {{max}} caratteri",
+    "objection": "Descrivi l'obiezione",
+    "response": "Scrivi la tua risposta preferita",
+    "languagesMin": "Scegli almeno una lingua",
+    "languagesMax": "Fino a {{max}} lingue",
+    "categoryName": "Dai un nome alla categoria",
+    "categoryMin": "Mantieni almeno una categoria di punteggio"
+  }
+}

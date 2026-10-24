@@ -1,0 +1,430 @@
+{
+  "actions": {
+    "save": "Opslaan",
+    "cancel": "Annuleren",
+    "delete": "Verwijderen",
+    "edit": "Bewerken",
+    "close": "Sluiten",
+    "confirm": "Bevestigen",
+    "back": "Terug",
+    "next": "Volgende",
+    "search": "Zoeken",
+    "retry": "Opnieuw proberen",
+    "loading": "Laden…",
+    "logout": "Uitloggen"
+  },
+  "language": {
+    "label": "Taal",
+    "switch": "Taal wijzigen"
+  },
+  "dates": {
+    "today": "Vandaag",
+    "yesterday": "Gisteren"
+  },
+  "pagination": {
+    "previous": "Vorige pagina",
+    "next": "Volgende pagina"
+  },
+  "theme": {
+    "toggle": "Thema wisselen",
+    "light": "Licht",
+    "dark": "Donker",
+    "system": "Systeem"
+  },
+  "errorBoundary": {
+    "title": "Er is iets misgegaan",
+    "description": "Er is een onverwachte fout opgetreden. Vernieuw de pagina of neem contact op met support als het probleem zich blijft voordoen.",
+    "details": "Foutdetails"
+  },
+  "scoreRing": {
+    "aria": "{{label}}: {{score}} van de 100",
+    "score": "Score",
+    "notAvailable": "niet beschikbaar"
+  },
+  "select": {
+    "placeholder": "Selecteren",
+    "notSpecified": "Niet opgegeven"
+  },
+  "modelPicker": {
+    "quality": "Kwaliteit {{value}}/5",
+    "slow": "Denkt na voor het antwoordt, dus suggesties kunnen bij live gesprekken te laat komen.",
+    "recommended": "Aanbevolen"
+  },
+  "countdown": {
+    "passed": "De afspraak is verstreken"
+  },
+  "phoneInput": {
+    "search": "Land zoeken...",
+    "empty": "Geen land gevonden."
+  },
+  "callRow": {
+    "practiceSession": "Oefensessie",
+    "untitled": "Gesprek zonder titel",
+    "practice": "Oefenen",
+    "objectiveMet": "Doel behaald",
+    "notMet": "Niet behaald",
+    "analyzing": "Analyseren",
+    "live": "Live"
+  },
+  "languageSelect": {
+    "label": "Taal",
+    "placeholder": "Kies een taal"
+  },
+  "languageMultiSelect": {
+    "primaryLanguage": "Hoofdtaal",
+    "makePrimary": "Als hoofdtaal instellen",
+    "primaryAria": "{{name}} (hoofdtaal)",
+    "makePrimaryAria": "{{name}} als hoofdtaal instellen",
+    "removeAria": "{{name}} verwijderen",
+    "maximum": "Maximaal aantal talen: {{count}}",
+    "add": "Taal toevoegen",
+    "search": "Talen zoeken…",
+    "empty": "Geen taal gevonden.",
+    "primary": "Hoofdtaal",
+    "hint": "Maximaal aantal talen: {{count}}. De taal met de ster is de standaard; klik op een andere chip om die als standaard in te stellen."
+  },
+  "liveAssist": {
+    "label": "Live assistentie",
+    "mutedTitle": "Suggesties zijn gedempt. Het gesprek wordt nog steeds vastgelegd.",
+    "resume": "Suggesties hervatten",
+    "empty": "Suggesties verschijnen hier zodra de prospect begint te praten.",
+    "recent": "Recente suggesties ({{count}})",
+    "copilot": "Co-pilot",
+    "thinking": "Denkt na…",
+    "activeUsing": "Actief · via {{model}}",
+    "active": "Actief",
+    "paused": "Suggesties gepauzeerd · opname gaat door",
+    "reconnecting_one": "Opnieuw verbinden · {{count}} regel in wachtrij",
+    "reconnecting_other": "Opnieuw verbinden · {{count}} regels in wachtrij",
+    "frequencyLabel": "Frequentie van suggesties",
+    "frequency": "Frequentie",
+    "suggestNow": "Nu suggereren",
+    "unmute": "Suggesties dempen opheffen",
+    "mute": "Suggesties dempen",
+    "updating": "Bijwerken",
+    "or": "Of:",
+    "alt": "Alt:",
+    "unpin": "Losmaken",
+    "pin": "Vastzetten",
+    "dismiss": "Negeren",
+    "helpful": "Nuttig",
+    "notHelpful": "Niet nuttig",
+    "askPlaceholder": "Vraag de co-pilot… bijv. prijs voor 50 licenties?",
+    "askLabel": "Vraag de co-pilot",
+    "ask": "Vragen",
+    "scriptProgress": "Voortgang script · {{done}}/{{total}}",
+    "audioLevel": "Audioniveau {{label}}"
+  },
+  "micCheck": {
+    "ready": "Microfoon gereed",
+    "speak": "Spreek om te testen",
+    "prompt": "Controleer je microfoon voordat je begint.",
+    "test": "Microfoon testen"
+  },
+  "recording": {
+    "recording": "Opnemen",
+    "listening": "Luisteren · niet opgenomen",
+    "paused": "Gepauzeerd",
+    "off": "Geen opname",
+    "connecting": "Verbinden…"
+  },
+  "transcript": {
+    "empty": "Het transcript verschijnt hier zodra er gesproken wordt.",
+    "notSaved": "Nog niet opgeslagen",
+    "switchSpeaker": "Spreker wisselen",
+    "wrongSpeaker": "Verkeerde spreker? Wissel om"
+  },
+  "imageUploader": {
+    "upload": "{{label}} uploaden",
+    "wait": "Even geduld...",
+    "hint": "PNG, JPG tot 5 MB"
+  },
+  "imagePicker": {
+    "uploadText": "Afbeeldingen uploaden",
+    "uploadSubtext": "Sleep afbeeldingen hierheen of klik om te bladeren",
+    "fileTypeText": "Ondersteunt JPG, PNG, JPEG tot 10 MB per stuk",
+    "existingImages": "Bestaande afbeeldingen",
+    "choose": "Afbeeldingen kiezen",
+    "uploading": "Afbeeldingen uploaden",
+    "uploadingSubtext": "Even geduld terwijl je afbeeldingen worden geüpload",
+    "uploadingButton": "Uploaden...",
+    "fileRejected": "Bestand geweigerd",
+    "image": "Afbeelding",
+    "clearAll": "Alles wissen",
+    "deleteTitle": "Afbeelding verwijderen",
+    "deleteDescription": "Weet je zeker dat je deze afbeelding wilt verwijderen? Dit kan niet ongedaan worden gemaakt."
+  },
+  "fileUpload": {
+    "maxFiles_one": "Maximaal {{count}} bestand toegestaan",
+    "maxFiles_other": "Maximaal {{count}} bestanden toegestaan",
+    "typeNotAccepted": "Bestandstype niet geaccepteerd",
+    "tooLarge": "Bestand te groot",
+    "uploadFailed": "Upload mislukt",
+    "label": "Bestand uploaden",
+    "statusError": "Fout: {{error}}",
+    "statusUploading": "Uploaden: {{progress}}% voltooid",
+    "statusComplete": "Upload voltooid",
+    "statusReady": "Klaar om te uploaden"
+  },
+  "pinInput": {
+    "field": "Pincodeveld {{counter}} van {{length}}",
+    "label": "Pincode"
+  },
+  "organisationGate": {
+    "errorTitle": "Je organisaties konden niet worden geladen",
+    "errorDescription": "Controleer je verbinding en probeer het opnieuw.",
+    "retry": "Opnieuw proberen",
+    "signOut": "Uitloggen",
+    "emptyTitle": "Nog geen organisatie",
+    "emptyDescription": "Laad opnieuw om je werkruimte in te stellen.",
+    "reload": "Opnieuw laden"
+  },
+  "requirePermission": {
+    "title": "Je rol staat dit niet toe",
+    "description": "Je hebt geen toegang tot deze pagina. Vraag een eigenaar om de rechten van je rol te wijzigen.",
+    "descriptionWithOrg": "Je rol in {{organisation}} ({{role}}) heeft geen toegang tot deze pagina. Vraag een eigenaar om de rechten van je rol te wijzigen.",
+    "back": "Terug naar dashboard"
+  },
+  "toasts": {
+    "assistantAgents": {
+      "coPilotCreated": "Co-pilot aangemaakt",
+      "coPilotDuplicated": "Co-pilot gedupliceerd",
+      "defaultCoPilotUpdated": "Standaard co-pilot bijgewerkt",
+      "coPilotArchived": "Co-pilot gearchiveerd",
+      "coPilotRestored": "Co-pilot hersteld",
+      "coPilotDeleted": "Co-pilot verwijderd",
+      "couldNotCreateTheCoPilot": "Co-pilot kon niet worden aangemaakt",
+      "changesSaved": "Wijzigingen opgeslagen",
+      "couldNotSaveChanges": "Wijzigingen konden niet worden opgeslagen",
+      "couldNotDuplicate": "Dupliceren mislukt",
+      "couldNotSetDefault": "Standaard instellen mislukt",
+      "couldNotUpdateTheCoPilot": "Co-pilot kon niet worden bijgewerkt",
+      "couldNotDeleteTheCoPilot": "Co-pilot kon niet worden verwijderd",
+      "readyToUse": "{{name}} is klaar voor gebruik."
+    },
+    "calls": {
+      "callStarted": "Gesprek gestart",
+      "callUpdated": "Gesprek bijgewerkt",
+      "savedToYourCallLibrary": "Opgeslagen in je gespreksbibliotheek.",
+      "bookmarkRemoved": "Bladwijzer verwijderd",
+      "speakerUpdated": "Spreker bijgewerkt",
+      "theCoPilotIsListening": "De co-pilot luistert mee.",
+      "couldNotStartTheCall": "Gesprek kon niet worden gestart",
+      "practiceSessionReady": "Oefensessie gereed",
+      "couldNotStartThePracticeSession": "Oefensessie kon niet worden gestart",
+      "couldNotUpdateTheCall": "Gesprek kon niet worden bijgewerkt",
+      "callEnded": "Gesprek beëindigd",
+      "yourPerformanceReportIsBeingPrepared": "Je prestatierapport wordt voorbereid.",
+      "couldNotEndTheCall": "Gesprek kon niet worden beëindigd",
+      "callPermanentlyDeleted": "Gesprek definitief verwijderd",
+      "couldNotDeleteTheCall": "Gesprek kon niet worden verwijderd",
+      "thanksForTheFeedback": "Bedankt voor je feedback",
+      "couldNotUpdateTheSuggestion": "Suggestie kon niet worden bijgewerkt",
+      "noAnswer": "Geen antwoord",
+      "momentBookmarked": "Moment met bladwijzer gemarkeerd",
+      "couldNotBookmark": "Bladwijzer toevoegen mislukt",
+      "couldNotRemoveTheBookmark": "Bladwijzer kon niet worden verwijderd",
+      "couldNotUpdateTheSpeaker": "Spreker kon niet worden bijgewerkt",
+      "recordingSaved": "Opname opgeslagen",
+      "recordingUploadFailed": "Uploaden van opname mislukt",
+      "recordingPermanentlyDeleted": "Opname definitief verwijderd",
+      "transcriptAndAnalysisWereKept": "Transcript en analyse zijn bewaard.",
+      "couldNotDeleteTheRecording": "Opname kon niet worden verwijderd",
+      "transcriptPermanentlyDeleted": "Transcript definitief verwijderd",
+      "couldNotDeleteTheTranscript": "Transcript kon niet worden verwijderd",
+      "analysisStarted": "Analyse gestart",
+      "thisUsuallyTakesUnderAMinute": "Dit duurt meestal minder dan een minuut.",
+      "couldNotStartTheAnalysis": "Analyse kon niet worden gestart"
+    },
+    "organisations": {
+      "roleUpdated": "Rol bijgewerkt",
+      "memberRemoved": "Lid verwijderd",
+      "organisationCreated": "Organisatie aangemaakt",
+      "couldNotCreateTheOrganisation": "Organisatie kon niet worden aangemaakt",
+      "organisationRenamed": "Organisatie hernoemd",
+      "couldNotRenameTheOrganisation": "Organisatie kon niet worden hernoemd",
+      "organisationPermanentlyDeleted": "Organisatie definitief verwijderd",
+      "couldNotDeleteTheOrganisation": "Organisatie kon niet worden verwijderd",
+      "couldNotChangeTheRole": "Rol kon niet worden gewijzigd",
+      "couldNotRemoveTheMember": "Lid kon niet worden verwijderd",
+      "permissionsSaved": "Rechten opgeslagen",
+      "theChangeAppliesToEveryoneWith": "De wijziging geldt direct voor iedereen met deze rol.",
+      "couldNotSavePermissions": "Rechten konden niet worden opgeslagen",
+      "permissionsResetToThePreset": "Rechten teruggezet naar de standaardinstelling",
+      "couldNotResetPermissions": "Rechten konden niet worden teruggezet",
+      "invitationSent": "Uitnodiging verzonden",
+      "invitationCreated": "Uitnodiging aangemaakt",
+      "couldNotSendTheInvitation": "Uitnodiging kon niet worden verzonden",
+      "invitationResent": "Uitnodiging opnieuw verzonden",
+      "newLinkCreated": "Nieuwe link aangemaakt",
+      "couldNotResendTheInvitation": "Uitnodiging kon niet opnieuw worden verzonden",
+      "invitationRevoked": "Uitnodiging ingetrokken",
+      "theLinkNoLongerWorks": "De link werkt niet meer.",
+      "couldNotRevokeTheInvitation": "Uitnodiging kon niet worden ingetrokken",
+      "youCanSwitchOrganisationsFromThe": "Je kunt altijd van organisatie wisselen via de zijbalk.",
+      "couldNotAcceptTheInvitation": "Uitnodiging kon niet worden geaccepteerd",
+      "workingIn": "Je werkt nu in {{name}}.",
+      "emailedTo": "We hebben {{email}} gemaild.",
+      "emailedFresh": "We hebben {{email}} een nieuwe link gemaild.",
+      "welcomeTo": "Welkom bij {{name}}",
+      "emailUnavailableInvite": "E-mail is momenteel niet beschikbaar. Kopieer de uitnodigingslink en deel hem zelf.",
+      "emailUnavailableLink": "E-mail is momenteel niet beschikbaar. Kopieer de nieuwe link en deel hem zelf."
+    },
+    "practiceAgents": {
+      "prospectCreated": "Prospect aangemaakt",
+      "prospectRecreatedFromTheCall": "Prospect opnieuw aangemaakt vanuit het gesprek",
+      "prospectDuplicated": "Prospect gedupliceerd",
+      "prospectArchived": "Prospect gearchiveerd",
+      "prospectRestored": "Prospect hersteld",
+      "prospectDeleted": "Prospect verwijderd",
+      "couldNotCreateTheProspect": "Prospect kon niet worden aangemaakt",
+      "changesSaved": "Wijzigingen opgeslagen",
+      "couldNotSaveChanges": "Wijzigingen konden niet worden opgeslagen",
+      "prospectGenerated": "Prospect gegenereerd",
+      "reviewAndAdjustTheDetailsThen": "Controleer en pas de gegevens aan en sla daarna op.",
+      "couldNotGenerateTheProspect": "Prospect kon niet worden gegenereerd",
+      "randomProspectReady": "Willekeurige prospect gereed",
+      "reviewItThenSave": "Controleer en sla daarna op.",
+      "couldNotGenerateARandomProspect": "Willekeurige prospect kon niet worden gegenereerd",
+      "couldNotRecreateTheProspect": "Prospect kon niet opnieuw worden aangemaakt",
+      "couldNotDuplicate": "Dupliceren mislukt",
+      "harderVersionCreated": "Moeilijkere versie aangemaakt",
+      "couldNotCreateAHarderVersion": "Moeilijkere versie kon niet worden aangemaakt",
+      "couldNotUpdateTheProspect": "Prospect kon niet worden bijgewerkt",
+      "couldNotDeleteTheProspect": "Prospect kon niet worden verwijderd"
+    },
+    "auth": {
+      "loginSuccessful": "Inloggen gelukt",
+      "youHaveSuccessfullyLoggedIn": "Je bent succesvol ingelogd",
+      "couldNotSignIn": "Inloggen mislukt",
+      "anUnexpectedErrorOccurred": "Er is een onverwachte fout opgetreden",
+      "welcomeToCallzen": "Welkom bij CallZen",
+      "yourAccountIsReady": "Je account is klaar.",
+      "couldNotSignUp": "Registreren mislukt",
+      "adminLoginSuccessful": "Beheerder succesvol ingelogd",
+      "youHaveSuccessfullyLoggedInAs": "Je bent succesvol ingelogd als beheerder",
+      "couldNotAdminLoginToAccount": "Inloggen als beheerder op het account mislukt"
+    },
+    "user": {
+      "settingsSaved": "Instellingen opgeslagen",
+      "couldNotSaveSettings": "Instellingen konden niet worden opgeslagen",
+      "accountDeleted": "Account verwijderd",
+      "allYourDataWasPermanentlyRemoved": "Al je gegevens zijn definitief verwijderd.",
+      "couldNotDeleteYourAccount": "Je account kon niet worden verwijderd"
+    }
+  },
+  "errors": {
+    "calls": {
+      "failedToLoadCalls": "Gesprekken laden mislukt.",
+      "failedToLoadTheCall": "Gesprek laden mislukt.",
+      "failedToStartTheCall": "Gesprek starten mislukt.",
+      "failedToUpdateTheCall": "Gesprek bijwerken mislukt.",
+      "failedToDeleteTheCall": "Gesprek verwijderen mislukt.",
+      "failedToUpdateTheSpeaker": "Spreker bijwerken mislukt.",
+      "failedToAddTheBookmark": "Bladwijzer toevoegen mislukt.",
+      "failedToRemoveTheBookmark": "Bladwijzer verwijderen mislukt.",
+      "failedToStartThePracticeSession": "Oefensessie starten mislukt.",
+      "failedToEndTheCall": "Gesprek beëindigen mislukt.",
+      "failedToSaveTheTranscript": "Transcript opslaan mislukt.",
+      "failedToDeleteTheTranscript": "Transcript verwijderen mislukt.",
+      "failedToGenerateASuggestion": "Suggestie genereren mislukt.",
+      "failedToUpdateTheSuggestion": "Suggestie bijwerken mislukt.",
+      "theCoPilotCouldNotAnswer": "De co-pilot kan nu niet antwoorden.",
+      "failedToUploadTheRecording": "Opname uploaden mislukt.",
+      "failedToLoadTheRecording": "Opname laden mislukt.",
+      "failedToDeleteTheRecording": "Opname verwijderen mislukt.",
+      "failedToStartTheAnalysis": "Analyse starten mislukt.",
+      "couldNotStartTheRealtimeAudio": "De realtime audiosessie kon niet worden gestart.",
+      "theProspectDidNotRespondTry": "De prospect reageerde niet. Probeer het opnieuw.",
+      "couldNotConnectToTheRealtime": "Kan geen verbinding maken met de realtime audioservice."
+    },
+    "dashboard": {
+      "failedToLoadYourProgress": "Je voortgang laden mislukt."
+    },
+    "organisations": {
+      "failedToLoadMembers": "Leden laden mislukt.",
+      "failedToRemoveTheMember": "Lid verwijderen mislukt.",
+      "failedToLoadRoles": "Rollen laden mislukt.",
+      "failedToLoadYourOrganisations": "Je organisaties laden mislukt.",
+      "failedToLoadPermissions": "Rechten laden mislukt.",
+      "failedToCreateTheOrganisation": "Organisatie aanmaken mislukt.",
+      "failedToRenameTheOrganisation": "Organisatie hernoemen mislukt.",
+      "failedToDeleteTheOrganisation": "Organisatie verwijderen mislukt.",
+      "failedToChangeTheRole": "Rol wijzigen mislukt.",
+      "failedToSavePermissions": "Rechten opslaan mislukt.",
+      "failedToResetPermissions": "Rechten terugzetten mislukt.",
+      "failedToLoadInvitations": "Uitnodigingen laden mislukt.",
+      "failedToSendTheInvitation": "Uitnodiging verzenden mislukt.",
+      "failedToResendTheInvitation": "Uitnodiging opnieuw verzenden mislukt.",
+      "failedToRevokeTheInvitation": "Uitnodiging intrekken mislukt.",
+      "thisInvitationLinkIsNotValid": "Deze uitnodigingslink is ongeldig.",
+      "failedToLoadYourInvitations": "Je uitnodigingen laden mislukt.",
+      "failedToAcceptTheInvitation": "Uitnodiging accepteren mislukt."
+    },
+    "practiceAgents": {
+      "failedToLoadPracticeProspects": "Oefenprospects laden mislukt.",
+      "failedToLoadThePracticeProspect": "Oefenprospect laden mislukt.",
+      "failedToCreateThePracticeProspect": "Oefenprospect aanmaken mislukt.",
+      "failedToSaveThePracticeProspect": "Oefenprospect opslaan mislukt.",
+      "failedToRecreateTheProspectFrom": "Prospect opnieuw aanmaken vanuit dit gesprek mislukt.",
+      "failedToDuplicateTheProspect": "Prospect dupliceren mislukt.",
+      "failedToUpdateTheProspect": "Prospect bijwerken mislukt.",
+      "failedToDeleteTheProspect": "Prospect verwijderen mislukt.",
+      "failedToGenerateTheProspectPlease": "Prospect genereren mislukt. Probeer het opnieuw.",
+      "failedToGenerateARandomProspect": "Willekeurige prospect genereren mislukt. Probeer het opnieuw.",
+      "failedToCreateAHarderVersion": "Moeilijkere versie aanmaken mislukt."
+    },
+    "usage": {
+      "failedToLoadUsage": "Gebruik laden mislukt."
+    },
+    "user": {
+      "failedToLoadYourProfile": "Je profiel laden mislukt.",
+      "failedToSaveYourSettings": "Je instellingen opslaan mislukt.",
+      "failedToDeleteYourAccount": "Je account verwijderen mislukt."
+    },
+    "assistantAgents": {
+      "failedToLoadAssistantAgents": "Assistent-agents laden mislukt.",
+      "failedToLoadTheAssistantAgent": "Assistent-agent laden mislukt.",
+      "failedToCreateTheAssistantAgent": "Assistent-agent aanmaken mislukt.",
+      "failedToSaveTheAssistantAgent": "Assistent-agent opslaan mislukt.",
+      "failedToDuplicateTheAssistantAgent": "Assistent-agent dupliceren mislukt.",
+      "failedToSetTheDefaultAgent": "Standaardagent instellen mislukt.",
+      "failedToUpdateTheAgent": "Agent bijwerken mislukt.",
+      "failedToDeleteTheAssistantAgent": "Assistent-agent verwijderen mislukt."
+    },
+    "auth": {
+      "failedToSignInPleaseTry": "Inloggen mislukt. Probeer het opnieuw.",
+      "failedToSignUpPleaseTry": "Registreren mislukt. Probeer het opnieuw.",
+      "failedToRefreshAccountTokenPlease": "Accounttoken vernieuwen mislukt. Probeer het opnieuw.",
+      "failedToAdminLoginToAccount": "Inloggen als beheerder op het account mislukt. Probeer het opnieuw."
+    },
+    "catalog": {
+      "failedToLoadModelsAndTemplates": "Modellen en sjablonen laden mislukt."
+    },
+    "googleMaps": {
+      "failedToFetchTimezonePleaseTry": "Tijdzone ophalen mislukt. Probeer het opnieuw."
+    },
+    "health": {
+      "failedToFetchHealthStatusPlease": "Gezondheidsstatus ophalen mislukt. Probeer het opnieuw."
+    },
+    "lib": {
+      "network": "De server is niet bereikbaar. Controleer je verbinding en probeer het opnieuw."
+    },
+    "audio": {
+      "speechUnsupported": "Spraakherkenning wordt in deze browser niet ondersteund. Gebruik Chrome of Edge.",
+      "speechBlocked": "Microfoontoegang voor spraakherkenning is geblokkeerd.",
+      "micUnsupported": "Deze browser ondersteunt geen microfoonopname. Probeer de nieuwste versie van Chrome, Edge of Safari.",
+      "micBlocked": "Microfoontoegang is geblokkeerd. Sta dit toe in de sitevoorkeuren van je browser en probeer het opnieuw.",
+      "micNotFound": "Geen microfoon gevonden. Sluit er een aan en probeer het opnieuw.",
+      "micFailed": "Geen toegang tot de microfoon.",
+      "tabUnsupported": "Voor het vastleggen van vergaderaudio is een desktopbrowser nodig, zoals Chrome of Edge.",
+      "shareCancelled": "Scherm delen is geannuleerd. Kies je vergadertabblad en schakel \"Tabbladaudio delen\" in.",
+      "noAudioShared": "Er is geen audio gedeeld. Selecteer het browsertabblad van de vergadering en schakel \"Tabbladaudio delen\" in.",
+      "realtimeTimeout": "Realtime datakanaal is niet op tijd geopend"
+    },
+    "websocket": {
+      "notConnected": "WebSocket niet verbonden",
+      "timeout": "WebSocket-emit time-out"
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "title": "Inställningar",
+  "save": "Spara inställningar",
+  "nav": {
+    "profile": "Profil och preferenser",
+    "usage": "Användning och kostnader",
+    "privacy": "Integritet och data",
+    "sections": "Inställningsavsnitt"
+  },
+  "validation": {
+    "enterName": "Ange ditt namn",
+    "enterPassword": "Ange ditt lösenord",
+    "typeDelete": "Skriv ”DELETE” för att bekräfta"
+  },
+  "profile": {
+    "title": "Profil",
+    "fullName": "Fullständigt namn",
+    "email": "E-post"
+  },
+  "appearance": {
+    "title": "Utseende",
+    "description": "Ljust, mörkt eller följ systemet.",
+    "language": "Gränssnittsspråk",
+    "languageDescription": "Språket som används för menyer, knappar och meddelanden."
+  },
+  "languages": {
+    "title": "Språk",
+    "description": "Samtal och övning kan ske på många språk.",
+    "yourLanguage": "Ditt språk",
+    "templates": "Mallar och exempel på",
+    "templatesAria": "Språk för mallar och exempel",
+    "output": "Förslag och analys på"
+  },
+  "recording": {
+    "title": "Inspelning",
+    "description": "Du ansvarar för att inhämta samtycke där inspelningslagar kräver det.",
+    "keep": "Behåll ljudinspelningar som standard",
+    "keepHint": "När det är avstängt lagras bara transkript och analyser. Du kan ändra det per samtal.",
+    "consentLine": "Standardreplik för samtycke",
+    "consentLineHint": "Föreslås som första replik i samtal när en copilot har samtyckesreplik aktiverad."
+  },
+  "privacy": {
+    "yourData": {
+      "title": "Dina data",
+      "private": "Inspelningar, transkript, manus och agentkonfigurationer är privata för ditt konto.",
+      "delete": "Du kan när som helst ta bort en inspelning, ett transkript eller ett samtal från dess sida. Borttagningen är permanent.",
+      "keepOnly": "Du kan behålla bara transkript och analyser genom att stänga av inspelningar i Inställningar eller per samtal.",
+      "sensitive": "Känslig information du anger (manus, prissättning, kunduppgifter) skickas bara till AI-leverantörerna nedan för att ta fram förslag och analyser."
+    },
+    "processors": {
+      "title": "Vem som behandlar dina data",
+      "description": "Baserat på de modeller och röstleverantörer du väljer.",
+      "region": "Region: {{region}}"
+    },
+    "consent": {
+      "title": "Samtycke till inspelning",
+      "text": "Lagar om inspelning skiljer sig åt mellan länder och regioner, och vissa kräver samtycke från alla deltagare. Se till att du har det innan du spelar in ett samtal. Copiloter kan föreslå din samtyckesreplik som första replik i varje samtal."
+    },
+    "deleteAccount": {
+      "title": "Ta bort konto",
+      "description": "Tar permanent bort ditt konto, dina copiloter, prospekter, samtal, inspelningar och analyser.",
+      "button": "Ta bort konto"
+    },
+    "deleteDialog": {
+      "title": "Ta bort ditt konto permanent?",
+      "description": "All din data tas bort omedelbart och kan inte återställas.",
+      "password": "Lösenord",
+      "confirmation": "Skriv DELETE för att bekräfta",
+      "submit": "Ta bort allt"
+    }
+  },
+  "usage": {
+    "period": "Period",
+    "scopeOrg": "Visar användning för alla i den här organisationen.",
+    "scopeMine": "Visar din egen användning i den här organisationen.",
+    "estimatedCost": "Beräknad AI-kostnad",
+    "listPrices": "Baserat på listpriser",
+    "liveMinutes": "Minuter i liveamtal",
+    "practiceMinutes": "Övningsminuter",
+    "analyses": "Analyser",
+    "suggestions_one": "{{count}} förslag",
+    "suggestions_other": "{{count}} förslag",
+    "byActivity": "Per aktivitet",
+    "byModel": "Per modell och leverantör",
+    "tokens": "{{tokens}} tokens",
+    "priceList": {
+      "title": "Prislista",
+      "description": "Vad varje modell och röstleverantör kostar, så att du kan balansera kvalitet och utgifter.",
+      "model": "Modell",
+      "speed": "Hastighet",
+      "input": "Indata / 1 mn tokens",
+      "output": "Utdata / 1 mn tokens",
+      "perMinute": "~{{price}} per minut"
+    }
+  }
+}

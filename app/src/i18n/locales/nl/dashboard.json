@@ -1,0 +1,117 @@
+{
+  "title": "Dashboard",
+  "greeting": "Hoi {{name}}",
+  "descriptionTeam": "Hoe iedereen bij {{organisation}} presteert.",
+  "defaultOrganisation": "je organisatie",
+  "descriptionMe": "Je prestaties bij live gesprekken en oefenen, en waar je daarna aan kunt werken.",
+  "scope": {
+    "me": "Ik",
+    "team": "Team"
+  },
+  "period": "Periode",
+  "practice": "Oefenen",
+  "stats": {
+    "averageScore": "Gemiddelde score",
+    "averageScoreHint": "Live {{live}} · Oefenen {{practice}}",
+    "calls": "Gesprekken",
+    "callsHint": "{{live}} live · {{practice}} oefen",
+    "meetingsBooked": "Geplande afspraken",
+    "fromLiveCalls": "Uit live gesprekken",
+    "practiceStreak": "Oefenreeks",
+    "streakDays": "{{count}} d",
+    "talkMinutes": "{{minutes}} min in gesprekken"
+  },
+  "gettingStarted": {
+    "heading": "In drie stappen aan de slag",
+    "subheading": "De meeste mensen zijn in minder dan vijf minuten klaar.",
+    "createCopilot": {
+      "title": "Maak je copiloot",
+      "text": "Begin met een sjabloon: script, bezwaren en doel met één klik.",
+      "cta": "Copiloot maken"
+    },
+    "waitCopilot": {
+      "title": "Wacht op een copiloot",
+      "text": "Een beheerder van deze organisatie stelt de copilots in die je gaat gebruiken. Vraag het hem of haar als er nog geen beschikbaar is.",
+      "cta": "Organisatie bekijken"
+    },
+    "practice": {
+      "title": "Oefen met een AI-prospect",
+      "text": "Praat hardop met een realistische prospect, terwijl de copiloot je coacht.",
+      "cta": "Nu oefenen"
+    },
+    "firstCall": {
+      "title": "Voer je eerste begeleide gesprek",
+      "text": "Telefoon op de luidspreker of een online vergadering. Krijg live suggesties.",
+      "cta": "Gesprek starten"
+    }
+  },
+  "highlights": {
+    "title": "Hoogtepunten",
+    "empty": "Na een paar geanalyseerde gesprekken zie je hier wat verbetert en wat aandacht nodig heeft."
+  },
+  "outcomes": {
+    "title": "Resultaten van live gesprekken",
+    "subtitle": "Aandeel gesprekken met een vastgelegd resultaat",
+    "empty": "Leg resultaten vast aan het einde van live gesprekken om prestaties aan uitkomsten te koppelen."
+  },
+  "invitations": {
+    "title": "Je bent uitgenodigd",
+    "from": "Van {{name}}",
+    "expires": "verloopt {{when}}",
+    "accept": "Accepteren"
+  },
+  "practiceProgress": {
+    "title": "Oefenvoortgang",
+    "withCopilot": "Met copiloot",
+    "onYourOwn": "Op jezelf",
+    "empty": "Geen oefensessies in deze periode.",
+    "tabs": {
+      "level": "Niveau",
+      "lead": "Lead",
+      "scenario": "Scenario",
+      "copilot": "Copiloot"
+    },
+    "columns": {
+      "group": "Groep",
+      "sessions": "Sessies",
+      "won": "Behaald",
+      "avg": "Gem."
+    }
+  },
+  "recentCalls": {
+    "title": "Recente gesprekken",
+    "viewAll": "Alles bekijken",
+    "empty": "Nog geen gesprekken."
+  },
+  "recommended": {
+    "title": "Aanbevolen oefening",
+    "subtitle": "Scenario's op basis van je recente zwakke punten",
+    "empty": "Aanbevelingen verschijnen na je eerste geanalyseerde gesprek. Probeer ondertussen een kant-en-klaar scenario.",
+    "browse": "Scenario's bekijken",
+    "preparing": "Voorbereiden…",
+    "practice": "Oefenen"
+  },
+  "mistakes": {
+    "title": "Terugkerende fouten",
+    "subtitle": "Uit je laatste 20 geanalyseerde gesprekken",
+    "empty": "Nog geen patronen. Ga zo door.",
+    "callsAffected_one": "{{count}} gesprek",
+    "callsAffected_other": "{{count}} gesprekken",
+    "viewCall": "Gesprek bekijken"
+  },
+  "scoreTrend": {
+    "title": "Scoreverloop",
+    "subtitle": "Elk geanalyseerd gesprek, van oud naar nieuw",
+    "emptyTitle": "Nog niet genoeg gegevens",
+    "emptyDescription": "Je verloop verschijnt na twee geanalyseerde gesprekken of oefensessies.",
+    "liveCalls": "Live gesprekken",
+    "practice": "Oefenen"
+  },
+  "skills": {
+    "title": "Vaardigheden",
+    "subtitle": "Zwakste eerst. De balken vergelijken live gesprekken met oefenen.",
+    "empty": "Vaardigheidsscores verschijnen na je eerste geanalyseerde gesprek.",
+    "live": "Live",
+    "practice": "Oefenen"
+  }
+}

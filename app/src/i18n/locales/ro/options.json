@@ -1,0 +1,303 @@
+{
+  "agents": {
+    "status": {
+      "active": "Activi",
+      "archived": "Arhivați",
+      "all": "Toți"
+    },
+    "modelSpeed": {
+      "fastest": "Cel mai rapid",
+      "fast": "Rapid",
+      "balanced": "Echilibrat",
+      "thorough": "Amănunțit"
+    },
+    "relativeCost": {
+      "1": "Cost redus",
+      "2": "Cost moderat",
+      "3": "Cost mai ridicat",
+      "4": "Cost premium"
+    },
+    "alternatives": {
+      "none": "Niciuna",
+      "one": "1 alternativă",
+      "two": "2 alternative"
+    },
+    "methodology": {
+      "spin": "SPIN Selling",
+      "bant": "BANT",
+      "meddic": "MEDDIC",
+      "challenger": "Challenger",
+      "sandler": "Sandler",
+      "custom": "Personalizată / niciuna"
+    },
+    "scriptStage": {
+      "opener": "Deschidere",
+      "pitch": "Prezentarea ofertei",
+      "discovery": "Descoperire",
+      "objectionHandling": "Gestionarea obiecțiilor",
+      "close": "Închidere",
+      "other": "Altele"
+    },
+    "frequency": {
+      "objectionsOnly": "Doar obiecții și întrebări",
+      "balanced": "Echilibrată",
+      "constant": "Îndrumare constantă"
+    },
+    "frequencyDescription": {
+      "objectionsOnly": "Rămâne tăcut până când prospectul ridică o obiecție, pune o întrebare sau își arată interesul.",
+      "balanced": "Reacționează la tot ce spune relevant prospectul, plus îndemnuri ocazionale.",
+      "constant": "Afișează mereu următoarea replică ideală. Excelent pentru agenții noi și pentru exersare."
+    },
+    "length": {
+      "short": "Scurt (până la 20 de cuvinte)",
+      "medium": "Mediu (până la 35 de cuvinte)"
+    },
+    "tone": {
+      "professional": "Profesional",
+      "friendly": "Prietenos",
+      "consultative": "Consultativ",
+      "assertive": "Asertiv"
+    }
+  },
+  "calls": {
+    "severity": {
+      "low": "Minoră",
+      "medium": "Moderată",
+      "high": "Critică"
+    },
+    "interest": {
+      "low": "Interes scăzut",
+      "medium": "Oarecare interes",
+      "high": "Interes ridicat"
+    },
+    "suggestionUsage": {
+      "followed": "Urmată",
+      "adapted": "Adaptată",
+      "ignored": "Ignorată"
+    },
+    "revealKind": {
+      "painPoint": "Problemă ascunsă",
+      "hiddenInfo": "Informație ascunsă",
+      "objection": "Obiecție planificată",
+      "conversionCondition": "Condiție de conversie"
+    },
+    "endReason": {
+      "user": "Încheiat de tine",
+      "prospectHungUp": "Prospectul a închis",
+      "timeLimit": "Limita de timp atinsă",
+      "interrupted": "Conexiune întreruptă"
+    },
+    "sort": {
+      "newest": "Cele mai noi primele",
+      "oldest": "Cele mai vechi primele",
+      "highestScore": "Cel mai mare scor",
+      "lowestScore": "Cel mai mic scor",
+      "longest": "Cele mai lungi"
+    },
+    "scoreRange": {
+      "any": "Orice scor",
+      "excellent": "80+ excelent",
+      "good": "60–79 bun",
+      "below60": "Sub 60"
+    },
+    "dateRange": {
+      "any": "Oricând"
+    },
+    "kind": {
+      "live": "Apel în direct",
+      "practice": "Exersare",
+      "all": "Direct și exersare"
+    },
+    "outcomeFilter": {
+      "all": "Toate rezultatele",
+      "none": "Niciun rezultat înregistrat"
+    },
+    "outcome": {
+      "meetingBooked": "Întâlnire / demo programată",
+      "dealWon": "Tranzacție încheiată / câștigată",
+      "followUp": "Follow-up programat",
+      "lost": "Neinteresat / pierdut",
+      "noDecision": "Fără decizie / apel înapoi",
+      "gatekeeper": "Gatekeeper / persoană greșită",
+      "custom": "Rezultat personalizat"
+    },
+    "status": {
+      "inProgress": "În desfășurare",
+      "analyzing": "Se analizează",
+      "analyzed": "Analizat",
+      "analysisFailed": "Analiza a eșuat",
+      "ended": "Neanalizat"
+    },
+    "typeFilter": {
+      "all": "Toate tipurile de apeluri"
+    },
+    "type": {
+      "onlineMeeting": "Întâlnire online",
+      "microphone": "Telefon / microfon",
+      "practice": "Sesiune de exersare"
+    },
+    "typeDescription": {
+      "microphone": "Un apel pe difuzorul telefonului sau al altui dispozitiv. CallZen ascultă prin microfonul acestui dispozitiv. Ideal pentru apelurile la rece.",
+      "onlineMeeting": "Google Meet, Zoom, Teams sau orice întâlnire web. Partajezi sunetul filei întâlnirii, astfel încât ambele părți sunt captate separat."
+    },
+    "speaker": {
+      "user": "Tu",
+      "prospect": "Prospect",
+      "unknown": "Se detectează…"
+    },
+    "suggestionType": {
+      "opener": "Deschidere / cârlig",
+      "discoveryQuestion": "Întrebare de descoperire",
+      "objectionResponse": "Răspuns la obiecție",
+      "valueStatement": "Declarație de valoare",
+      "buyingSignal": "Semnal de cumpărare detectat",
+      "nextStep": "Pasul următor / închidere",
+      "reminder": "Memento",
+      "warning": "Avertisment",
+      "consent": "Informare privind consimțământul",
+      "answer": "Răspuns"
+    },
+    "marker": {
+      "mistake": "Greșeli",
+      "strength": "Puncte forte",
+      "objection": "Obiecții",
+      "buyingSignal": "Semnale de cumpărare",
+      "bookmark": "Marcaje"
+    }
+  },
+  "periods": {
+    "last7Days": "Ultimele 7 zile",
+    "last30Days": "Ultimele 30 de zile",
+    "last90Days": "Ultimele 90 de zile",
+    "last12Months": "Ultimele 12 luni"
+  },
+  "organisations": {
+    "invitation": {
+      "pending": "În așteptare",
+      "expired": "Expirată",
+      "accepted": "Acceptată",
+      "revoked": "Revocată"
+    },
+    "role": {
+      "owner": "Proprietar",
+      "admin": "Administrator",
+      "member": "Membru"
+    },
+    "roleDescription": {
+      "owner": "Control total. Poate modifica permisiunile rolurilor, șterge organizația și gestiona toți membrii. Are întotdeauna toate permisiunile.",
+      "admin": "Conduce echipa zi de zi: gestionează copiloții, membrii și invitațiile în limitele permisiunilor acordate de proprietar.",
+      "member": "Vinde și exersează. Vede doar propriile apeluri, cu excepția cazului în care proprietarul acordă mai mult."
+    }
+  },
+  "practice": {
+    "budget": {
+      "none": "Fără buget",
+      "limited": "Buget limitat",
+      "available": "Buget disponibil",
+      "priceSensitive": "Sensibil la preț"
+    },
+    "authority": {
+      "decisionMaker": "Factor de decizie",
+      "influencer": "Influențator",
+      "gatekeeper": "Gatekeeper",
+      "needsApproval": "Necesită aprobare"
+    },
+    "difficulty": {
+      "1": {
+        "label": "Foarte ușor",
+        "description": "Prietenos și deschis, aproape fără obiecții."
+      },
+      "2": {
+        "label": "Ușor",
+        "description": "Deschis, câteva obiecții ușoare, se convinge ușor."
+      },
+      "3": {
+        "label": "Mediu",
+        "description": "Un anumit scepticism și obiecții reale. Necesită o descoperire bună."
+      },
+      "4": {
+        "label": "Dificil",
+        "description": "Rezervat și ocupat, obiecții dure și repetate, poate închide devreme."
+      },
+      "5": {
+        "label": "Foarte dificil",
+        "description": "Ostil la apelurile de vânzări. Se convinge doar cu o tehnică excelentă."
+      }
+    },
+    "difficultyFilter": {
+      "any": "Orice dificultate"
+    },
+    "patience": {
+      "1": "Închide aproape imediat",
+      "2": "Nerăbdător",
+      "3": "Mediu",
+      "4": "Răbdător",
+      "5": "Foarte răbdător"
+    },
+    "persistence": {
+      "1": "Renunță ușor",
+      "2": "Îl ridică din nou o dată",
+      "3": "Revine mereu"
+    },
+    "temperature": {
+      "cold": "Rece",
+      "warm": "Cald"
+    },
+    "temperatureDescription": {
+      "cold": "Nu te cunoaște, nu și-a exprimat interesul, poate fi ocupat sau iritat de apel.",
+      "warm": "Și-a arătat interesul sau a avut un contact anterior și este mai deschis la discuție."
+    },
+    "temperatureFilter": {
+      "any": "Orice temperatură"
+    },
+    "mood": {
+      "neutral": "Neutru",
+      "rushed": "Grăbit",
+      "irritated": "Iritat",
+      "curious": "Curios",
+      "distracted": "Neatent",
+      "enthusiastic": "Entuziast"
+    },
+    "personality": {
+      "analytical": "Analitic",
+      "driver": "Dominant / direct",
+      "amiable": "Amabil / prietenos",
+      "expressive": "Expresiv / vorbăreț",
+      "skeptical": "Sceptic",
+      "indecisive": "Indecis"
+    },
+    "scenario": {
+      "coldCall": "Apel la rece",
+      "inbound": "Solicitare primită",
+      "followUp": "Follow-up",
+      "demoFollowUp": "După un demo",
+      "discovery": "Apel de descoperire",
+      "renewal": "Reînnoire",
+      "negotiation": "Negociere de preț",
+      "gatekeeper": "Gatekeeper"
+    },
+    "timeline": {
+      "urgent": "Nevoie urgentă",
+      "within3Months": "În 3 luni",
+      "justResearching": "Doar se documentează",
+      "none": "Fără termen"
+    }
+  },
+  "usage": {
+    "kind": {
+      "suggestion": "Sugestii în direct",
+      "ask": "Întrebări către copilot",
+      "analysis": "Analize de apeluri",
+      "practiceTurn": "Răspunsuri de exersare (voce din browser)",
+      "practiceVoice": "Minute de voce pentru exersare",
+      "transcription": "Transcriere în direct",
+      "generation": "Generare de prospecți"
+    }
+  },
+  "users": {
+    "outputLanguageMode": {
+      "conversation": "Aceeași limbă ca a conversației",
+      "interface": "Limba interfeței mele"
+    }
+  }
+}

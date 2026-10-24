@@ -1,0 +1,32 @@
+{
+  "notFound": {
+    "pageTitle": "Hittades inte",
+    "title": "Den här sidan finns inte",
+    "description": "Länken kan vara trasig eller så har sidan tagits bort.",
+    "cta": "Tillbaka till instrumentpanelen"
+  },
+  "app": {
+    "dashboard": "Instrumentpanel",
+    "startCall": "Starta ett samtal"
+  },
+  "health": {
+    "title": "Systemstatus",
+    "subtitle": "Aktuell status för API:t och den anslutna infrastrukturen.",
+    "refresh": "Uppdatera",
+    "loadError": "Det gick inte att läsa in hälsostatusen.",
+    "lastChecked": "Senast kontrollerad",
+    "uptime": "Drifttid",
+    "uptimeMs": "Drifttid (ms)",
+    "responseTime": "Svarstid",
+    "status": {
+      "ok": "OK",
+      "down": "Nere",
+      "not_configured": "Inte konfigurerad"
+    },
+    "cards": {
+      "api": "Kärnapplikationens tillgänglighet.",
+      "postgres": "Databasanslutning via Prisma.",
+      "redis": "Anslutning till cache och kö."
+    }
+  }
+}

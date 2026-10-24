@@ -1,4 +1,5 @@
 import { useMemo, type FC } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, Play } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
@@ -22,6 +23,7 @@ import {
 import type { PracticeAgentFormValues } from "../../validation-schemas/practice-agent.schema";
 
 const PracticeAgentEditorPage: FC = () => {
+  const { t } = useTranslation("practice");
   const { id } = useParams<{ id: string }>();
   const isNew = !id;
   const navigate = useNavigate();
@@ -35,7 +37,9 @@ const PracticeAgentEditorPage: FC = () => {
   const update = useUpdatePracticeAgent();
 
   usePageMetadata({
-    title: isNew ? "New prospect" : (agent?.name ?? "Prospect"),
+    title: isNew
+      ? t("editor.newProspectTitle")
+      : (agent?.name ?? t("editor.prospect")),
   });
 
   const defaults = useMemo(
@@ -72,23 +76,23 @@ const PracticeAgentEditorPage: FC = () => {
     <div className="mx-auto max-w-4xl">
       <Button asChild variant="ghost" size="sm" className="-ml-2 mb-2">
         <Link to={Routes.practice.root}>
-          <ArrowLeft /> Practice
+          <ArrowLeft /> {t("editor.back")}
         </Link>
       </Button>
       <PageHeader
         title={
           isNew
             ? draft
-              ? "Review your generated prospect"
-              : "New AI prospect"
-            : (agent?.name ?? "Prospect")
+              ? t("editor.reviewGenerated")
+              : t("editor.newAiProspect")
+            : (agent?.name ?? t("editor.prospect"))
         }
-        description="Who the prospect is, how they behave, and what they hide. Hidden details are only revealed after the session."
+        description={t("editor.description")}
         actions={
           !isNew && (
             <Button asChild>
               <Link to={Routes.practice.start(id as string)}>
-                <Play /> Practice
+                <Play /> {t("editor.practice")}
               </Link>
             </Button>
           )

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Dices } from "lucide-react";
 import {
   Dialog,
@@ -37,6 +38,7 @@ export function RandomProspectDialog({
   copilotId,
   onCreated,
 }: RandomProspectDialogProps) {
+  const { t } = useTranslation("practice");
   const randomize = useRandomizePracticeAgent();
   const [temperature, setTemperature] = useState<LeadTemperature | "all">(
     "all",
@@ -70,15 +72,14 @@ export function RandomProspectDialog({
     >
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Random prospect</DialogTitle>
+          <DialogTitle>{t("randomDialog.title")}</DialogTitle>
           <DialogDescription>
-            Get a surprise prospect within your limits, so you can't memorise
-            the scenario.
+            {t("randomDialog.description")}
           </DialogDescription>
         </DialogHeader>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div className="space-y-1.5">
-            <Label htmlFor="random-temperature">Lead</Label>
+            <Label htmlFor="random-temperature">{t("randomDialog.lead")}</Label>
             <Select
               value={temperature}
               onValueChange={(value) =>
@@ -98,7 +99,7 @@ export function RandomProspectDialog({
             </Select>
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="random-difficulty">Difficulty</Label>
+            <Label htmlFor="random-difficulty">{t("randomDialog.difficulty")}</Label>
             <Select value={difficulty} onValueChange={setDifficulty}>
               <SelectTrigger id="random-difficulty">
                 <SelectValue />
@@ -113,13 +114,13 @@ export function RandomProspectDialog({
             </Select>
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="random-scenario">Scenario</Label>
+            <Label htmlFor="random-scenario">{t("randomDialog.scenario")}</Label>
             <Select value={scenario} onValueChange={setScenario}>
               <SelectTrigger id="random-scenario">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="any">Any scenario</SelectItem>
+                <SelectItem value="any">{t("randomDialog.anyScenario")}</SelectItem>
                 {ScenarioTypeFormOptions.map((option) => (
                   <SelectItem key={option.id} value={option.id}>
                     {option.label}
@@ -129,12 +130,12 @@ export function RandomProspectDialog({
             </Select>
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="random-industry">Industry</Label>
+            <Label htmlFor="random-industry">{t("randomDialog.industry")}</Label>
             <Input
               id="random-industry"
               value={industry}
               onChange={(event) => setIndustry(event.target.value)}
-              placeholder="Any"
+              placeholder={t("randomDialog.industryPlaceholder")}
             />
           </div>
         </div>
@@ -145,7 +146,9 @@ export function RandomProspectDialog({
             loading={randomize.isPending}
           >
             {!randomize.isPending && <Dices />}{" "}
-            {randomize.isPending ? "Generating…" : "Generate & practice"}
+            {randomize.isPending
+              ? t("randomDialog.generating")
+              : t("randomDialog.generateAndPractice")}
           </Button>
         </DialogFooter>
       </DialogContent>

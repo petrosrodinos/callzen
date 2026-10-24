@@ -1,0 +1,32 @@
+{
+  "notFound": {
+    "pageTitle": "Bulunamadı",
+    "title": "Bu sayfa mevcut değil",
+    "description": "Bağlantı bozuk olabilir ya da sayfa kaldırılmış olabilir.",
+    "cta": "Panoya dön"
+  },
+  "app": {
+    "dashboard": "Pano",
+    "startCall": "Görüşme başlat"
+  },
+  "health": {
+    "title": "Sistem durumu",
+    "subtitle": "API'nin ve bağlı altyapının canlı durumu.",
+    "refresh": "Yenile",
+    "loadError": "Sistem durumu yüklenemedi.",
+    "lastChecked": "Son kontrol",
+    "uptime": "Çalışma süresi",
+    "uptimeMs": "Çalışma süresi (ms)",
+    "responseTime": "Yanıt süresi",
+    "status": {
+      "ok": "Tamam",
+      "down": "Çalışmıyor",
+      "not_configured": "Yapılandırılmadı"
+    },
+    "cards": {
+      "api": "Çekirdek uygulamanın erişilebilirliği.",
+      "postgres": "Prisma üzerinden veritabanı bağlantısı.",
+      "redis": "Önbellek ve kuyruk bağlantısı."
+    }
+  }
+}

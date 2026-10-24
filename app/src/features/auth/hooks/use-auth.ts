@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import { adminLoginToAccount, refreshAccountToken, signIn, signUp } from "../services/auth";
 import { useMutation } from "@tanstack/react-query";
 import { useAuthStore } from "@/stores/auth";
@@ -21,16 +22,16 @@ export function useSignin() {
                 isLoggedIn: true,
             });
             toast({
-                title: "Login successful",
-                description: "You have successfully logged in",
+                title: i18n.t("common:toasts.auth.loginSuccessful"),
+                description: i18n.t("common:toasts.auth.youHaveSuccessfullyLoggedIn"),
                 duration: 2000,
             });
             navigate(consumeRedirect(window.location.search) ?? Routes.dashboard);
         },
         onError: (error: any) => {
             toast({
-                title: "Could not sign in",
-                description: error?.message || "An unexpected error occurred",
+                title: i18n.t("common:toasts.auth.couldNotSignIn"),
+                description: error?.message || i18n.t("common:toasts.auth.anUnexpectedErrorOccurred"),
                 duration: 3000,
                 variant: "error",
             });
@@ -51,15 +52,15 @@ export function useSignup() {
                 isLoggedIn: true,
             });
             toast({
-                title: "Welcome to CallZen",
-                description: "Your account is ready.",
+                title: i18n.t("common:toasts.auth.welcomeToCallzen"),
+                description: i18n.t("common:toasts.auth.yourAccountIsReady"),
                 duration: 2000,
             });
             navigate(consumeRedirect(window.location.search) ?? Routes.dashboard);
         },
         onError: (error) => {
             toast({
-                title: "Could not sign up",
+                title: i18n.t("common:toasts.auth.couldNotSignUp"),
                 description: error.message,
                 duration: 3000,
                 variant: "error",
@@ -86,8 +87,8 @@ export function useAdminLoginToAccount() {
         mutationFn: (account_uuid: string) => adminLoginToAccount(account_uuid),
         onSuccess: (data: LoggedInUser) => {
             toast({
-                title: "Admin login successful",
-                description: "You have successfully logged in as admin",
+                title: i18n.t("common:toasts.auth.adminLoginSuccessful"),
+                description: i18n.t("common:toasts.auth.youHaveSuccessfullyLoggedInAs"),
                 duration: 2000,
             });
             login({
@@ -97,7 +98,7 @@ export function useAdminLoginToAccount() {
         },
         onError: (error: any) => {
             toast({
-                title: "Could not admin login to account",
+                title: i18n.t("common:toasts.auth.couldNotAdminLoginToAccount"),
                 description: error.message,
                 duration: 3000,
                 variant: "error",

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -10,6 +11,7 @@ interface AudioLevelMeterProps {
 
 // Lightweight canvas-free meter: mutates bar heights directly to avoid re-rendering at 60fps.
 export function AudioLevelMeter({ getLevel, label, className, bars = 5 }: AudioLevelMeterProps) {
+  const { t } = useTranslation("common");
   const containerRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
@@ -30,7 +32,7 @@ export function AudioLevelMeter({ getLevel, label, className, bars = 5 }: AudioL
   }, [getLevel]);
 
   return (
-    <span className={cn("inline-flex items-center gap-1.5 text-xs text-muted-foreground", className)} aria-label={`${label} audio level`}>
+    <span className={cn("inline-flex items-center gap-1.5 text-xs text-muted-foreground", className)} aria-label={t("liveAssist.audioLevel", { label })}>
       <span ref={containerRef} className="inline-flex h-3.5 items-end gap-0.5">
         {Array.from({ length: bars }).map((_, i) => (
           <span key={i} className="w-1 rounded-sm bg-emerald-500 transition-opacity" style={{ height: `${30 + (i * 70) / bars}%`, opacity: 0.25 }} />

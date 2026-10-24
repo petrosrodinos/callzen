@@ -1,0 +1,32 @@
+{
+  "notFound": {
+    "pageTitle": "Nicht gefunden",
+    "title": "Diese Seite existiert nicht",
+    "description": "Der Link ist möglicherweise defekt oder die Seite wurde entfernt.",
+    "cta": "Zurück zum Dashboard"
+  },
+  "app": {
+    "dashboard": "Dashboard",
+    "startCall": "Gespräch starten"
+  },
+  "health": {
+    "title": "Systemstatus",
+    "subtitle": "Live-Status der API und der angebundenen Infrastruktur.",
+    "refresh": "Aktualisieren",
+    "loadError": "Der Systemstatus konnte nicht geladen werden.",
+    "lastChecked": "Zuletzt geprüft",
+    "uptime": "Betriebszeit",
+    "uptimeMs": "Betriebszeit (ms)",
+    "responseTime": "Antwortzeit",
+    "status": {
+      "ok": "OK",
+      "down": "Ausgefallen",
+      "not_configured": "Nicht konfiguriert"
+    },
+    "cards": {
+      "api": "Verfügbarkeit der Kernanwendung.",
+      "postgres": "Datenbankverbindung über Prisma.",
+      "redis": "Verbindung zu Cache und Warteschlange."
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Archive,
@@ -47,6 +48,7 @@ export function PracticeAgentCard({
   agent: PracticeAgent;
   startLink: string;
 }) {
+  const { t } = useTranslation("practice");
   const navigate = useNavigate();
   const canManage = usePermissions().can(Permissions.PROSPECTS_MANAGE);
   const [confirmDelete, setConfirmDelete] = useState(false);
@@ -85,7 +87,7 @@ export function PracticeAgentCard({
                 variant="ghost"
                 size="icon"
                 className="-mr-2 -mt-1 shrink-0"
-                aria-label={`Actions for ${agent.name}`}
+                aria-label={t("agentCard.actionsFor", { name: agent.name })}
               >
                 <MoreVertical />
               </Button>
@@ -94,7 +96,7 @@ export function PracticeAgentCard({
               <DropdownMenuItem
                 onClick={() => navigate(Routes.practice.agent(agent.id))}
               >
-                <Pencil /> Edit
+                <Pencil /> {t("agentCard.edit")}
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() =>
@@ -103,14 +105,14 @@ export function PracticeAgentCard({
                   )
                 }
               >
-                <History /> Past sessions
+                <History /> {t("agentCard.pastSessions")}
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => duplicate.mutate(agent.id)}>
-                <Copy /> Duplicate
+                <Copy /> {t("agentCard.duplicate")}
               </DropdownMenuItem>
               {agent.difficulty < 5 && (
                 <DropdownMenuItem onClick={() => harder.mutate(agent.id)}>
-                  <ArrowUpRight /> Make a harder version
+                  <ArrowUpRight /> {t("agentCard.harder")}
                 </DropdownMenuItem>
               )}
               <DropdownMenuItem
@@ -119,14 +121,14 @@ export function PracticeAgentCard({
                 }
               >
                 {archived ? <ArchiveRestore /> : <Archive />}{" "}
-                {archived ? "Restore" : "Archive"}
+                {archived ? t("agentCard.restore") : t("agentCard.archive")}
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem
                 className="text-destructive focus:text-destructive"
                 onClick={() => setConfirmDelete(true)}
               >
-                <Trash2 /> Delete
+                <Trash2 /> {t("agentCard.delete")}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -145,15 +147,17 @@ export function PracticeAgentCard({
           {getScenarioTypeLabel(agent.scenario_type)}
         </Badge>
         {agent.source_call_id && (
-          <Badge variant="outline">From a real call</Badge>
+          <Badge variant="outline">{t("agentCard.fromRealCall")}</Badge>
         )}
       </div>
 
       <div className="mt-4 flex items-center gap-4 text-xs text-muted-foreground">
-        <span>{stats?.sessions_count ?? 0} sessions</span>
+        <span>
+          {t("agentCard.sessions", { count: stats?.sessions_count ?? 0 })}
+        </span>
         {stats?.best_score != null && (
           <span className="inline-flex items-center gap-1">
-            Best{" "}
+            {t("agentCard.best")}{" "}
             <ScoreBadge score={stats.best_score} className="min-w-8 text-xs" />
           </span>
         )}
@@ -165,7 +169,9 @@ export function PracticeAgentCard({
       </div>
       {stats?.last_practiced_at && (
         <p className="mt-1 text-[11px] text-muted-foreground">
-          Last practiced {formatRelative(stats.last_practiced_at)}
+          {t("agentCard.lastPracticed", {
+            when: formatRelative(stats.last_practiced_at),
+          })}
         </p>
       )}
 
@@ -173,7 +179,9 @@ export function PracticeAgentCard({
         <Button asChild size="sm" className="mt-4">
           <Link to={startLink}>
             <Play />{" "}
-            {stats?.sessions_count ? "Practice again" : "Start practice"}
+            {stats?.sessions_count
+              ? t("agentCard.practiceAgain")
+              : t("agentCard.startPractice")}
           </Link>
         </Button>
       )}
@@ -184,9 +192,9 @@ export function PracticeAgentCard({
         onConfirm={() =>
           remove.mutate(agent.id, { onSuccess: () => setConfirmDelete(false) })
         }
-        title={`Delete ${agent.name}?`}
-        description="The prospect is permanently deleted. Past practice sessions stay in your call library."
-        confirmText="Delete"
+        title={t("agentCard.deleteTitle", { name: agent.name })}
+        description={t("agentCard.deleteDescription")}
+        confirmText={t("agentCard.delete")}
         variant="destructive"
         isLoading={remove.isPending}
       />

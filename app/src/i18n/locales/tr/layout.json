@@ -1,0 +1,57 @@
+{
+  "sidebar": {
+    "plan": "Satış co-pilot'u",
+    "toggle": "Kenar çubuğunu aç/kapat",
+    "groups": {
+      "sell": "Sat",
+      "train": "Eğit",
+      "account": "Hesap",
+      "admin": "Yönetim"
+    },
+    "items": {
+      "dashboard": "Panel",
+      "startCall": "Görüşme başlat",
+      "callLibrary": "Çağrı kitaplığı",
+      "practice": "Alıştırma",
+      "copilots": "Co-pilot'lar",
+      "organisation": "Kuruluş",
+      "settings": "Ayarlar",
+      "usage": "Kullanım ve maliyetler",
+      "privacy": "Gizlilik ve veriler",
+      "health": "Sistem durumu",
+      "users": "Kullanıcılar",
+      "alerts": "Uyarılar"
+    }
+  },
+  "userMenu": {
+    "settings": "Ayarlar",
+    "usage": "Kullanım ve maliyetler",
+    "privacy": "Gizlilik ve veriler",
+    "logout": "Çıkış yap"
+  },
+  "orgSwitcher": {
+    "switch": "Kuruluş değiştir",
+    "pendingCount_one": "{{count}} bekleyen davet",
+    "pendingCount_other": "{{count}} bekleyen davet",
+    "organisation": "Kuruluş",
+    "yourOrganisations": "Kuruluşlarınız",
+    "members_one": "{{count}} üye",
+    "members_other": "{{count}} üye",
+    "pendingInvitations": "Bekleyen davetler",
+    "settings": "Kuruluş ayarları",
+    "create": "Kuruluş oluştur"
+  },
+  "sidebarNav": {
+    "placeholder": "Bir bölüm seçin"
+  },
+  "navbar": {
+    "home": "Ana sayfa",
+    "templates": "Şablonlar",
+    "pricing": "Fiyatlandırma",
+    "roadmap": "Yol haritası",
+    "contact": "İletişim",
+    "login": "Giriş yap",
+    "signup": "Kaydol",
+    "dashboard": "Panel"
+  }
+}

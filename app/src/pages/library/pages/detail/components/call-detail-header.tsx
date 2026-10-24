@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   ArrowLeft,
   ArrowUpRight,
@@ -63,6 +64,7 @@ export function CallDetailHeader({
   call: Call;
   onRerun: () => void;
 }) {
+  const { t } = useTranslation("library");
   const navigate = useNavigate();
   const [confirm, setConfirm] = useState<ConfirmKind>(null);
   const updateCall = useUpdateCall();
@@ -80,9 +82,8 @@ export function CallDetailHeader({
 
   const confirmConfig = {
     call: {
-      title: "Delete this call permanently?",
-      description:
-        "The recording, transcript, suggestions and analysis are permanently deleted. This can't be undone.",
+      title: t("detail.header.confirm.call.title"),
+      description: t("detail.header.confirm.call.description"),
       run: () =>
         deleteCall.mutate(call.id, {
           onSuccess: () => navigate(Routes.library.root, { replace: true }),
@@ -90,17 +91,15 @@ export function CallDetailHeader({
       pending: deleteCall.isPending,
     },
     recording: {
-      title: "Delete the recording?",
-      description:
-        "The audio is permanently deleted. The transcript and analysis are kept.",
+      title: t("detail.header.confirm.recording.title"),
+      description: t("detail.header.confirm.recording.description"),
       run: () =>
         deleteRecording.mutate(call.id, { onSuccess: () => setConfirm(null) }),
       pending: deleteRecording.isPending,
     },
     transcript: {
-      title: "Delete the transcript?",
-      description:
-        "The transcript is permanently deleted. The analysis is kept, but you can't re-run it.",
+      title: t("detail.header.confirm.transcript.title"),
+      description: t("detail.header.confirm.transcript.description"),
       run: () =>
         deleteTranscript.mutate(call.id, { onSuccess: () => setConfirm(null) }),
       pending: deleteTranscript.isPending,
@@ -112,7 +111,7 @@ export function CallDetailHeader({
     <div className="space-y-3">
       <Button asChild variant="ghost" size="sm" className="-ml-2">
         <Link to={Routes.library.root}>
-          <ArrowLeft /> Call library
+          <ArrowLeft /> {t("detail.header.back")}
         </Link>
       </Button>
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
@@ -120,7 +119,7 @@ export function CallDetailHeader({
           <div className="flex flex-wrap items-center gap-2">
             {isPractice ? (
               <Badge className="gap-1 bg-amber-500 text-white hover:bg-amber-500">
-                <Headphones className="size-3" /> Practice
+                <Headphones className="size-3" /> {t("detail.header.practice")}
               </Badge>
             ) : (
               <Badge variant="secondary">
@@ -129,7 +128,9 @@ export function CallDetailHeader({
             )}
             {call.copilot_enabled && call.agent_snapshot && (
               <Badge variant="outline">
-                Co-pilot: {call.agent_snapshot.name}
+                {t("detail.header.copilot", {
+                  name: call.agent_snapshot.name,
+                })}
               </Badge>
             )}
             {call.ended_reason && call.ended_reason !== "USER" && (
@@ -141,13 +142,16 @@ export function CallDetailHeader({
           <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
             {call.title ??
               call.prospect_name ??
-              (isPractice ? "Practice session" : "Call")}
+              (isPractice
+                ? t("detail.header.practiceSession")
+                : t("detail.header.call"))}
           </h1>
           <p className="text-sm text-muted-foreground">
             {formatDateTime(call.started_at)} ·{" "}
             {formatDuration(call.duration_seconds)}
             {call.prospect_company && ` · ${call.prospect_company}`}
-            {!call.owner.is_you && ` · by ${call.owner.name}`}
+            {!call.owner.is_you &&
+              ` · ${t("detail.header.by", { name: call.owner.name })}`}
           </p>
         </div>
 
@@ -162,8 +166,11 @@ export function CallDetailHeader({
                 })
               }
             >
-              <SelectTrigger className="w-52" aria-label="Call outcome">
-                <SelectValue placeholder="Record outcome" />
+              <SelectTrigger
+                className="w-52"
+                aria-label={t("detail.header.outcomeLabel")}
+              >
+                <SelectValue placeholder={t("detail.header.recordOutcome")} />
               </SelectTrigger>
               <SelectContent>
                 {CallOutcomeFormOptions.map((option) => (
@@ -180,14 +187,18 @@ export function CallDetailHeader({
             call.owner.is_you && (
               <Button asChild>
                 <Link to={Routes.practice.start(call.practice_agent.id)}>
-                  <RotateCcw /> Retry
+                  <RotateCcw /> {t("detail.header.retry")}
                 </Link>
               </Button>
             )}
           {(canManage || canManageProspects) && (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="icon" aria-label="More actions">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  aria-label={t("detail.header.moreActions")}
+                >
                   <MoreVertical />
                 </Button>
               </DropdownMenuTrigger>
@@ -197,7 +208,7 @@ export function CallDetailHeader({
                     onClick={onRerun}
                     disabled={busy || !call.segments.length}
                   >
-                    <RefreshCw /> Re-run analysis
+                    <RefreshCw /> {t("detail.header.rerun")}
                   </DropdownMenuItem>
                 )}
                 {!isPractice && canManageProspects && (
@@ -212,8 +223,8 @@ export function CallDetailHeader({
                   >
                     <UserRoundPlus />{" "}
                     {fromCall.isPending
-                      ? "Recreating prospect…"
-                      : "Practice with this prospect"}
+                      ? t("detail.header.recreatingProspect")
+                      : t("detail.header.practiceWithProspect")}
                   </DropdownMenuItem>
                 )}
                 {isPractice &&
@@ -229,32 +240,32 @@ export function CallDetailHeader({
                         })
                       }
                     >
-                      <ArrowUpRight /> Try a harder version
+                      <ArrowUpRight /> {t("detail.header.harder")}
                     </DropdownMenuItem>
                   )}
                 {canManage && (
                   <>
                     <DropdownMenuSeparator />
                     <DropdownMenuLabel className="text-xs font-normal text-muted-foreground">
-                      Retention
+                      {t("detail.header.retention")}
                     </DropdownMenuLabel>
                     <DropdownMenuItem
                       disabled={!call.has_recording}
                       onClick={() => setConfirm("recording")}
                     >
-                      <VolumeX /> Delete recording only
+                      <VolumeX /> {t("detail.header.deleteRecording")}
                     </DropdownMenuItem>
                     <DropdownMenuItem
                       disabled={!call.segments.length || busy}
                       onClick={() => setConfirm("transcript")}
                     >
-                      <FileX2 /> Delete transcript
+                      <FileX2 /> {t("detail.header.deleteTranscript")}
                     </DropdownMenuItem>
                     <DropdownMenuItem
                       className="text-destructive focus:text-destructive"
                       onClick={() => setConfirm("call")}
                     >
-                      <Trash2 /> Delete call permanently
+                      <Trash2 /> {t("detail.header.deleteCall")}
                     </DropdownMenuItem>
                   </>
                 )}
@@ -270,7 +281,7 @@ export function CallDetailHeader({
         onConfirm={() => active?.run()}
         title={active?.title ?? ""}
         description={active?.description ?? ""}
-        confirmText="Delete permanently"
+        confirmText={t("detail.header.confirm.confirmText")}
         variant="destructive"
         isLoading={active?.pending}
       />

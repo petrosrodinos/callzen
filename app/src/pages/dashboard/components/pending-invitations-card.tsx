@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Check, MailPlus } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -13,6 +14,7 @@ import { Routes } from "@/routes/routes";
 
 // Invitations addressed to the signed-in user's email, shown wherever they land first.
 export function PendingInvitationsCard() {
+  const { t } = useTranslation("dashboard");
   const navigate = useNavigate();
   const { data: invitations } = useMyInvitations();
   const accept = useAcceptInvitationById();
@@ -21,7 +23,7 @@ export function PendingInvitationsCard() {
   return (
     <Card className="border-primary/30 bg-primary/5 p-4 sm:p-5">
       <h2 className="mb-3 flex items-center gap-2 font-semibold">
-        <MailPlus className="size-4 text-primary" /> You've been invited
+        <MailPlus className="size-4 text-primary" /> {t("invitations.title")}
       </h2>
       <ul className="space-y-2">
         {invitations.map((invitation) => (
@@ -38,9 +40,11 @@ export function PendingInvitationsCard() {
               </p>
               <p className="text-xs text-muted-foreground">
                 {invitation.invited_by
-                  ? `From ${invitation.invited_by} · `
+                  ? `${t("invitations.from", { name: invitation.invited_by })} · `
                   : ""}
-                expires {formatRelative(invitation.expires_at)}
+                {t("invitations.expires", {
+                  when: formatRelative(invitation.expires_at),
+                })}
               </p>
             </div>
             <Button
@@ -56,7 +60,7 @@ export function PendingInvitationsCard() {
               {!(accept.isPending && accept.variables === invitation.id) && (
                 <Check />
               )}{" "}
-              Accept
+              {t("invitations.accept")}
             </Button>
           </li>
         ))}

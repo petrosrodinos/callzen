@@ -1,0 +1,213 @@
+{
+  "nav": {
+    "aria": "Principal",
+    "home": "Accueil CallZen",
+    "live": "Copilote en direct",
+    "practice": "Entraînement",
+    "reviews": "Analyses d’appels",
+    "teams": "Équipes",
+    "createAccount": "Créer un compte"
+  },
+  "actions": {
+    "openDashboard": "Ouvrir le tableau de bord",
+    "createAccount": "Créez votre compte",
+    "signIn": "Se connecter"
+  },
+  "footer": {
+    "consent": "Obtenez toujours un consentement avant d’enregistrer un appel.",
+    "aria": "Pied de page",
+    "dashboard": "Tableau de bord",
+    "signIn": "Se connecter",
+    "createAccount": "Créer un compte"
+  },
+  "hero": {
+    "title": "Sachez quoi dire ensuite, pendant qu’ils parlent encore.",
+    "lede": "CallZen écoute votre appel de vente, repère les objections et les signaux d’achat au moment où ils surviennent, et vous suggère votre prochaine phrase. Ensuite, il note l’appel et vous permet de vous entraîner sur les passages difficiles face à des prospects IA."
+  },
+  "demo": {
+    "aria": "Exemple d’appel en direct avec le copilote CallZen",
+    "live": "Appel en direct",
+    "replay": "Rejouer",
+    "prospect": "Prospect",
+    "you": "Vous",
+    "prospectOne": "Nous aimons ce que nous avons vu. Honnêtement, le prix est <mark>bien au-dessus de notre budget</mark>.",
+    "youLine": "C’est juste. Quelle fourchette aviez-vous en tête ? Vous avez dit qu’un suivi trop lent vous fait perdre des contrats, alors mettons les deux côte à côte.",
+    "prospectTwo": "Environ quarante par utilisateur. Mais oui, nous avons <mark>perdu deux renouvellements le trimestre dernier</mark> parce que personne n’a rappelé à temps.",
+    "copilot": "Copilote",
+    "script": "Script",
+    "stages": {
+      "opening": "Ouverture",
+      "discovery": "Découverte",
+      "pitch": "Présentation",
+      "objections": "Traitement des objections",
+      "close": "Conclusion"
+    },
+    "objection": {
+      "kind": "Objection sur le prix",
+      "why": "Le prospect dit que le prix dépasse son budget."
+    },
+    "reply": {
+      "kind": "Réponse suggérée",
+      "said": "Dit",
+      "text": "« Quelle fourchette aviez-vous en tête ? Comparons-la à ce que vous coûte un suivi trop lent. »"
+    },
+    "signal": {
+      "kind": "Signal d’achat",
+      "why": "Ils ont chiffré ce que leur coûte un suivi trop lent. Passez à la conclusion et proposez un appel de mise en place."
+    }
+  },
+  "ways": {
+    "title": "Fonctionne avec les appels que vous passez déjà",
+    "phone": {
+      "title": "Appels téléphoniques",
+      "text": "Mettez l’appel sur haut-parleur et CallZen écoute via votre micro. Aucune extension, aucun outil d’appel à remplacer."
+    },
+    "online": {
+      "title": "Réunions en ligne",
+      "text": "Partagez l’onglet de la réunion et CallZen entend les deux côtés, en transcrivant séparément vous et le prospect pour que les suggestions répondent à la bonne personne."
+    }
+  },
+  "practice": {
+    "title": "Entraînez-vous face à un prospect qui résiste",
+    "intro": "Les prospects d’entraînement se comportent comme de vrais acheteurs. Ils gardent leurs vrais points de douleur pour eux, réservent les objections pour le moment le plus délicat et perdent patience. Interrompez-en un en pleine phrase : il s’arrête pour vous répondre, à la voix.",
+    "describe": {
+      "title": "Décrivez, ne configurez pas",
+      "text": "Écrivez une phrase sur la personne que vous appelez et CallZen crée le prospect pour vous."
+    },
+    "replay": {
+      "title": "Rejouez un appel qui a mal tourné",
+      "text": "Transformez un vrai prospect d’un appel en direct en prospect d’entraînement et retentez votre chance."
+    },
+    "withCopilot": {
+      "title": "Entraînez-vous avec ou sans copilote",
+      "text": "Gardez les suggestions activées pendant que vous apprenez, puis désactivez-les pour voir comment vous vous en sortez seul."
+    },
+    "dossier": {
+      "aria": "Exemple de prospect d’entraînement",
+      "role": "Directrice des opérations, entreprise régionale de logistique",
+      "difficulty": "Difficulté : élevée",
+      "patience": "Patience : faible",
+      "voice": "Appel vocal",
+      "knownLabel": "Ce que vous savez",
+      "known": "A répondu à votre e-mail de prospection. Dirige une équipe de douze commerciaux.",
+      "secretsLabel": "Ce qu’elle ne vous dit pas",
+      "hidden": "Masqué jusqu’à ce que vous le révéliez",
+      "hintRevealed": "C’est ce que l’analyse vous montre.",
+      "hintHidden": "À l’entraînement, vous le découvrez pendant l’appel.",
+      "hide": "Masquer à nouveau",
+      "reveal": "Révéler après l’appel"
+    },
+    "secrets": {
+      "pain": {
+        "label": "Point de douleur",
+        "text": "A perdu deux renouvellements le trimestre dernier à cause d’un suivi trop lent."
+      },
+      "objection": {
+        "label": "Objection qu’elle soulèvera",
+        "text": "« Nous avons déjà un outil pour ça. »"
+      },
+      "yes": {
+        "label": "Ce qui la fera dire oui",
+        "text": "Un déploiement en moins d’une semaine."
+      }
+    }
+  },
+  "review": {
+    "title": "Après l’appel, voyez exactement où tout a basculé",
+    "copy": "Chaque appel reçoit un score pondéré, des scores par catégorie et une liste d’erreurs et de points forts. Chacun renvoie au moment précis de l’enregistrement, pour que vous puissiez l’écouter plutôt que de deviner.",
+    "aria": "Exemple d’analyse d’appel",
+    "sample": "Exemple d’analyse, appel de {{duration}}, score <score>78</score>",
+    "you": "Vous",
+    "prospect": "Prospect",
+    "markerAt": "{{kind}} à {{time}}",
+    "kinds": {
+      "mistake": "Erreur",
+      "strength": "Point fort",
+      "objection": "Objection"
+    },
+    "markers": {
+      "pitchedEarly": "Vous avez présenté l’offre avant de demander la taille de l’équipe.",
+      "priceObjection": "Objection sur le prix. Vous avez demandé leur budget avant de défendre le chiffre.",
+      "askedCost": "Vous avez demandé ce que leur coûte un suivi trop lent, puis les avez laissés répondre.",
+      "weakClose": "Vous avez terminé par « tenez-moi au courant » au lieu de fixer la prochaine étape."
+    },
+    "metrics": {
+      "talkRatio": "Temps de parole",
+      "pace": "Débit",
+      "paceValue": "148 mots/min",
+      "fillers": "Mots parasites",
+      "interruptions": "Interruptions",
+      "objections": "Objections"
+    },
+    "after": {
+      "followUp": {
+        "title": "Un brouillon de relance",
+        "text": "CallZen rédige l’e-mail que vous enverriez ensuite, à partir de ce que le prospect a réellement dit."
+      },
+      "practice": {
+        "title": "Une séance d’entraînement adaptée",
+        "text": "Il vous suggère le prospect d’entraînement qui cible les erreurs commises pendant cet appel."
+      },
+      "trends": {
+        "title": "Les tendances d’un appel à l’autre",
+        "text": "Votre tableau de bord affiche votre score dans le temps et les erreurs qui reviennent."
+      }
+    }
+  },
+  "playbook": {
+    "title": "Apprenez-lui comment votre équipe vend",
+    "copy": "Un copilote vaut ce que vaut son playbook. Configurez le vôtre une fois, puis utilisez-le sur chaque appel.",
+    "items": {
+      "stages": {
+        "title": "Étapes du script",
+        "text": "Découpez votre appel en étapes. Le copilote suit celle où vous en êtes au fil de la conversation."
+      },
+      "objections": {
+        "title": "Bibliothèque d’objections",
+        "text": "Notez comment vous répondez aux objections sur le prix, le timing et la concurrence. Les suggestions partent de vos réponses."
+      },
+      "knowledge": {
+        "title": "Connaissance produit",
+        "text": "Importez vos documents pour que les suggestions s’appuient sur vos vrais tarifs, fonctionnalités et limites."
+      },
+      "tone": {
+        "title": "Ton et méthodologie",
+        "text": "Choisissez sa façon de s’exprimer et la méthode de vente qu’il suit."
+      },
+      "frequency": {
+        "title": "Fréquence d’intervention",
+        "text": "Réglez la fréquence des suggestions, pour qu’il vous aide sans vous envahir."
+      },
+      "languages": {
+        "title": "Jusqu’à cinq langues",
+        "text": "Chaque copilote peut gérer plusieurs langues de conversation et détecte celle qui est parlée."
+      }
+    }
+  },
+  "teams": {
+    "title": "Conçu pour les équipes qui vendent ensemble",
+    "copy": "Les copilotes, les prospects et les appels appartiennent à une organisation, et vous pouvez en rejoindre plusieurs et passer de l’une à l’autre. Invitez des personnes par e-mail ; les invitations sont valables sept jours.",
+    "roles": {
+      "owner": {
+        "name": "Propriétaire",
+        "text": "Contrôle tout, y compris ce que peuvent faire les administrateurs et les membres."
+      },
+      "admin": {
+        "name": "Administrateur",
+        "text": "Gère l’équipe avec les autorisations accordées par le propriétaire."
+      },
+      "member": {
+        "name": "Membre",
+        "text": "Utilise les copilotes, gère les prospects et analyse ses propres appels."
+      }
+    },
+    "consent": {
+      "title": "Le consentement d’abord, et vous décidez de ce qui est conservé",
+      "copy": "Obtenez toujours un consentement avant d’enregistrer un appel. CallZen vous le rappelle et vous donne les contrôles correspondants : définissez la durée de conservation des enregistrements et supprimez votre compte et ses données quand vous avez terminé."
+    }
+  },
+  "closing": {
+    "title": "Passez votre prochain appel avec un copilote.",
+    "copy": "Configurez votre premier copilote, lancez un appel et regardez les suggestions arriver pendant que le prospect parle encore."
+  }
+}

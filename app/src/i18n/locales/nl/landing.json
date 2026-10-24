@@ -1,0 +1,213 @@
+{
+  "nav": {
+    "aria": "Hoofdmenu",
+    "home": "CallZen startpagina",
+    "live": "Live copiloot",
+    "practice": "Oefenen",
+    "reviews": "Gespreksanalyses",
+    "teams": "Teams",
+    "createAccount": "Account aanmaken"
+  },
+  "actions": {
+    "openDashboard": "Dashboard openen",
+    "createAccount": "Maak je account aan",
+    "signIn": "Inloggen"
+  },
+  "footer": {
+    "consent": "Vraag altijd toestemming voordat je een gesprek opneemt.",
+    "aria": "Voettekst",
+    "dashboard": "Dashboard",
+    "signIn": "Inloggen",
+    "createAccount": "Account aanmaken"
+  },
+  "hero": {
+    "title": "Weet wat je daarna moet zeggen, terwijl ze nog aan het praten zijn.",
+    "lede": "CallZen luistert mee met je verkoopgesprek, signaleert bezwaren en koopsignalen zodra ze zich voordoen en stelt je volgende zin voor. Daarna beoordeelt het het gesprek en kun je de lastige momenten oefenen met AI-prospects."
+  },
+  "demo": {
+    "aria": "Voorbeeld van een live gesprek met de CallZen-copiloot",
+    "live": "Live gesprek",
+    "replay": "Opnieuw afspelen",
+    "prospect": "Prospect",
+    "you": "Jij",
+    "prospectOne": "We vinden het mooi wat we gezien hebben. Eerlijk gezegd ligt de prijs <mark>ruim boven ons budget</mark>.",
+    "youLine": "Begrijpelijk. Binnen welke bandbreedte zaten jullie? Je zei dat trage opvolging je deals kost, dus laten we die twee naast elkaar leggen.",
+    "prospectTwo": "Rond de veertig per gebruiker. Maar ja, we <mark>hebben vorig kwartaal twee verlengingen verloren</mark> omdat niemand op tijd terugbelde.",
+    "copilot": "Copiloot",
+    "script": "Script",
+    "stages": {
+      "opening": "Opening",
+      "discovery": "Behoefteanalyse",
+      "pitch": "Pitch",
+      "objections": "Bezwaren behandelen",
+      "close": "Afsluiting"
+    },
+    "objection": {
+      "kind": "Prijsbezwaar",
+      "why": "De prospect zegt dat de prijs boven het budget ligt."
+    },
+    "reply": {
+      "kind": "Voorgesteld antwoord",
+      "said": "Gezegd",
+      "text": "“Binnen welke bandbreedte zaten jullie? Laten we die vergelijken met wat trage opvolging jullie kost.”"
+    },
+    "signal": {
+      "kind": "Koopsignaal",
+      "why": "Ze noemden wat trage opvolging hen kost. Ga naar de afsluiting en bied een setup-gesprek aan."
+    }
+  },
+  "ways": {
+    "title": "Werkt met de gesprekken die je al voert",
+    "phone": {
+      "title": "Telefoongesprekken",
+      "text": "Zet het gesprek op de luidspreker en CallZen luistert mee via je microfoon. Geen plug-in en geen andere belapp nodig."
+    },
+    "online": {
+      "title": "Online vergaderingen",
+      "text": "Deel het vergadertabblad en CallZen hoort beide kanten, waarbij jij en de prospect apart worden getranscribeerd zodat suggesties op de juiste persoon inspelen."
+    }
+  },
+  "practice": {
+    "title": "Oefen met een prospect die tegenstribbelt",
+    "intro": "Oefenprospects gedragen zich als echte kopers. Ze houden hun echte pijnpunten voor zich, bewaren bezwaren voor het ongemakkelijkste moment en raken hun geduld kwijt. Onderbreek er een midden in een zin en hij stopt om je te antwoorden, met zijn stem.",
+    "describe": {
+      "title": "Beschrijf, configureer niet",
+      "text": "Schrijf één zin over wie je gaat bellen en CallZen bouwt de prospect voor je."
+    },
+    "replay": {
+      "title": "Speel een mislukt gesprek opnieuw",
+      "text": "Maak van een echte prospect uit een live gesprek een oefenprospect en probeer het nog eens."
+    },
+    "withCopilot": {
+      "title": "Oefen met of zonder copiloot",
+      "text": "Laat suggesties aan terwijl je leert en zet ze daarna uit om te zien hoe je het alleen doet."
+    },
+    "dossier": {
+      "aria": "Voorbeeld van een oefenprospect",
+      "role": "Operationeel directeur, regionaal logistiek bedrijf",
+      "difficulty": "Moeilijkheid: hoog",
+      "patience": "Geduld: laag",
+      "voice": "Spraakgesprek",
+      "knownLabel": "Wat je weet",
+      "known": "Heeft gereageerd op je koude e-mail. Leidt een team van twaalf verkopers.",
+      "secretsLabel": "Wat ze je niet vertelt",
+      "hidden": "Verborgen tot je het onthult",
+      "hintRevealed": "Dit laat de analyse je zien.",
+      "hintHidden": "Bij het oefenen kom je dit pas tijdens het gesprek te weten.",
+      "hide": "Weer verbergen",
+      "reveal": "Onthullen na het gesprek"
+    },
+    "secrets": {
+      "pain": {
+        "label": "Pijnpunt",
+        "text": "Heeft vorig kwartaal twee verlengingen verloren door trage opvolging."
+      },
+      "objection": {
+        "label": "Bezwaar dat ze zal maken",
+        "text": "“We hebben hier al een tool voor.”"
+      },
+      "yes": {
+        "label": "Wat haar ja doet zeggen",
+        "text": "Een implementatie die minder dan een week duurt."
+      }
+    }
+  },
+  "review": {
+    "title": "Zie na het gesprek precies waar het keerde",
+    "copy": "Elk gesprek krijgt een gewogen score, categoriescores en een lijst met fouten en sterke punten. Elk punt verwijst naar het moment in de opname, zodat je het kunt beluisteren in plaats van te gokken.",
+    "aria": "Voorbeeld van een gespreksanalyse",
+    "sample": "Voorbeeldanalyse, gesprek van {{duration}}, score <score>78</score>",
+    "you": "Jij",
+    "prospect": "Prospect",
+    "markerAt": "{{kind}} op {{time}}",
+    "kinds": {
+      "mistake": "Fout",
+      "strength": "Sterk punt",
+      "objection": "Bezwaar"
+    },
+    "markers": {
+      "pitchedEarly": "Gepitcht voordat je vroeg hoe groot het team is.",
+      "priceObjection": "Prijsbezwaar. Je vroeg naar hun budget voordat je het bedrag verdedigde.",
+      "askedCost": "Gevraagd wat trage opvolging hen kost en hen daarna laten antwoorden.",
+      "weakClose": "Afgesloten met “laat het me weten” in plaats van de volgende stap in te plannen."
+    },
+    "metrics": {
+      "talkRatio": "Spreekverhouding",
+      "pace": "Tempo",
+      "paceValue": "148 wpm",
+      "fillers": "Stopwoorden",
+      "interruptions": "Onderbrekingen",
+      "objections": "Bezwaren"
+    },
+    "after": {
+      "followUp": {
+        "title": "Een concept voor de opvolging",
+        "text": "CallZen schrijft de e-mail die je daarna zou sturen, gebaseerd op wat de prospect echt zei."
+      },
+      "practice": {
+        "title": "Een passende oefensessie",
+        "text": "Het stelt de oefenprospect voor die de fouten uit dit gesprek aanpakt."
+      },
+      "trends": {
+        "title": "Trends over gesprekken heen",
+        "text": "Je dashboard toont je score in de loop van de tijd en de fouten die steeds terugkomen."
+      }
+    }
+  },
+  "playbook": {
+    "title": "Leer het hoe jouw team verkoopt",
+    "copy": "Een copiloot is maar zo goed als zijn playbook. Stel het van jou één keer in en gebruik het in elk gesprek.",
+    "items": {
+      "stages": {
+        "title": "Scriptfases",
+        "text": "Verdeel je gesprek in fases. De copiloot houdt bij in welke je zit terwijl het gesprek vordert."
+      },
+      "objections": {
+        "title": "Bezwarenbibliotheek",
+        "text": "Leg vast hoe je antwoordt op bezwaren over prijs, timing en concurrenten. Suggesties vertrekken vanuit jouw antwoorden."
+      },
+      "knowledge": {
+        "title": "Productkennis",
+        "text": "Importeer je documenten zodat suggesties jouw echte prijzen, functies en grenzen gebruiken."
+      },
+      "tone": {
+        "title": "Toon en methodiek",
+        "text": "Kies hoe het klinkt en welke verkoopmethode het volgt."
+      },
+      "frequency": {
+        "title": "Hoe vaak het zich meldt",
+        "text": "Stel in hoe vaak suggesties verschijnen, zodat het helpt zonder je te overladen."
+      },
+      "languages": {
+        "title": "Tot vijf talen",
+        "text": "Elke copiloot kan meerdere gesprekstalen aan en herkent welke er wordt gesproken."
+      }
+    }
+  },
+  "teams": {
+    "title": "Gemaakt voor teams die samen verkopen",
+    "copy": "Copilots, prospects en gesprekken horen bij een organisatie, en je kunt bij meerdere horen en ertussen wisselen. Nodig mensen uit per e-mail; uitnodigingen zijn zeven dagen geldig.",
+    "roles": {
+      "owner": {
+        "name": "Eigenaar",
+        "text": "Heeft overal controle over, inclusief wat beheerders en leden mogen doen."
+      },
+      "admin": {
+        "name": "Beheerder",
+        "text": "Beheert het team met de rechten die de eigenaar toekent."
+      },
+      "member": {
+        "name": "Lid",
+        "text": "Gebruikt copilots, beheert prospects en bekijkt de eigen gesprekken."
+      }
+    },
+    "consent": {
+      "title": "Eerst toestemming, en jij bepaalt wat wordt bewaard",
+      "copy": "Vraag altijd toestemming voordat je een gesprek opneemt. CallZen herinnert je eraan en biedt de bijbehorende instellingen: bepaal hoe lang opnames worden bewaard en verwijder je account en gegevens wanneer je klaar bent."
+    }
+  },
+  "closing": {
+    "title": "Voer je volgende gesprek met een copiloot.",
+    "copy": "Stel je eerste copiloot in, start een gesprek en zie de suggesties binnenkomen terwijl de prospect nog praat."
+  }
+}

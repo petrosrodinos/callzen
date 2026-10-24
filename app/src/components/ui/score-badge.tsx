@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 import { scoreTone } from "@/lib/format";
 
@@ -26,14 +27,15 @@ export function ScoreBadge({ score, className }: { score: number | null | undefi
   );
 }
 
-export function ScoreRing({ score, size = 112, label = "Score" }: { score: number | null | undefined; size?: number; label?: string }) {
+export function ScoreRing({ score, size = 112, label }: { score: number | null | undefined; size?: number; label?: string }) {
+  const { t } = useTranslation("common");
   const tone = scoreTone(score);
   const radius = 42;
   const circumference = 2 * Math.PI * radius;
   const progress = score == null ? 0 : Math.max(0, Math.min(100, score)) / 100;
 
   return (
-    <div className="relative inline-flex items-center justify-center" style={{ width: size, height: size }} role="img" aria-label={`${label}: ${score ?? "not available"} out of 100`}>
+    <div className="relative inline-flex items-center justify-center" style={{ width: size, height: size }} role="img" aria-label={t("scoreRing.aria", { label: label ?? t("scoreRing.score"), score: score ?? t("scoreRing.notAvailable") })}>
       <svg viewBox="0 0 100 100" className="size-full -rotate-90">
         <circle cx="50" cy="50" r={radius} fill="none" strokeWidth="9" className="stroke-muted" />
         <circle

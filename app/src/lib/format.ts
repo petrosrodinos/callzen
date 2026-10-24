@@ -1,9 +1,11 @@
+import i18n from "@/i18n";
+
 export const formatCurrency = (value: number): string => {
     if (value > 0 && value < 0.01) return "< $0.01";
-    return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 2 }).format(value);
+    return new Intl.NumberFormat(i18n.resolvedLanguage, { style: "currency", currency: "USD", maximumFractionDigits: 2 }).format(value);
 };
 
-export const formatNumber = (value: number): string => new Intl.NumberFormat("en-US").format(value);
+export const formatNumber = (value: number): string => new Intl.NumberFormat(i18n.resolvedLanguage).format(value);
 
 export const scoreTone = (score: number | null | undefined): "great" | "good" | "fair" | "poor" | "none" => {
     if (score === null || score === undefined) return "none";

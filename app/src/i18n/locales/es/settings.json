@@ -1,0 +1,96 @@
+{
+  "title": "Ajustes",
+  "save": "Guardar ajustes",
+  "nav": {
+    "profile": "Perfil y preferencias",
+    "usage": "Uso y costes",
+    "privacy": "Privacidad y datos",
+    "sections": "Secciones de ajustes"
+  },
+  "validation": {
+    "enterName": "Introduce tu nombre",
+    "enterPassword": "Introduce tu contraseña",
+    "typeDelete": "Escribe \"DELETE\" para confirmar"
+  },
+  "profile": {
+    "title": "Perfil",
+    "fullName": "Nombre completo",
+    "email": "Correo electrónico"
+  },
+  "appearance": {
+    "title": "Apariencia",
+    "description": "Claro, oscuro o según tu sistema.",
+    "language": "Idioma de la interfaz",
+    "languageDescription": "El idioma utilizado en menús, botones y mensajes."
+  },
+  "languages": {
+    "title": "Idiomas",
+    "description": "Las llamadas y la práctica pueden hacerse en muchos idiomas.",
+    "yourLanguage": "Tu idioma",
+    "templates": "Plantillas y ejemplos en",
+    "templatesAria": "Idioma de plantillas y ejemplos",
+    "output": "Sugerencias y análisis en"
+  },
+  "recording": {
+    "title": "Grabación",
+    "description": "Eres responsable de obtener el consentimiento cuando lo exijan las leyes de grabación.",
+    "keep": "Conservar las grabaciones de audio por defecto",
+    "keepHint": "Si está desactivado, solo se guardan las transcripciones y los análisis. Puedes cambiarlo en cada llamada.",
+    "consentLine": "Frase de consentimiento predeterminada",
+    "consentLineHint": "Se sugiere como primera frase de las llamadas cuando un copiloto tiene activada la frase de consentimiento."
+  },
+  "privacy": {
+    "yourData": {
+      "title": "Tus datos",
+      "private": "Las grabaciones, transcripciones, guiones y configuraciones de agentes son privados de tu cuenta.",
+      "delete": "Puedes eliminar cualquier grabación, transcripción o llamada desde su página en cualquier momento. La eliminación es permanente.",
+      "keepOnly": "Puedes conservar solo transcripciones y análisis desactivando las grabaciones en Ajustes o en cada llamada.",
+      "sensitive": "La información sensible que proporcionas (guiones, precios, datos de clientes) solo se envía a los proveedores de IA indicados abajo para generar sugerencias y análisis."
+    },
+    "processors": {
+      "title": "Quién procesa tus datos",
+      "description": "Según los modelos y proveedores de voz que selecciones.",
+      "region": "Región: {{region}}"
+    },
+    "consent": {
+      "title": "Consentimiento de grabación",
+      "text": "Las leyes de grabación varían según el país y la región, y algunas exigen el consentimiento de todos los participantes. Antes de grabar una llamada, asegúrate de tenerlo. Los copilotos pueden sugerir tu frase de consentimiento como primera frase de cada llamada."
+    },
+    "deleteAccount": {
+      "title": "Eliminar cuenta",
+      "description": "Elimina de forma permanente tu cuenta, copilotos, clientes potenciales, llamadas, grabaciones y análisis.",
+      "button": "Eliminar cuenta"
+    },
+    "deleteDialog": {
+      "title": "¿Eliminar tu cuenta de forma permanente?",
+      "description": "Todos tus datos se eliminan de inmediato y no se pueden recuperar.",
+      "password": "Contraseña",
+      "confirmation": "Escribe DELETE para confirmar",
+      "submit": "Eliminar todo"
+    }
+  },
+  "usage": {
+    "period": "Periodo",
+    "scopeOrg": "Mostrando el uso de todos los miembros de esta organización.",
+    "scopeMine": "Mostrando tu propio uso en esta organización.",
+    "estimatedCost": "Coste estimado de IA",
+    "listPrices": "Según precios de lista",
+    "liveMinutes": "Minutos de llamadas en vivo",
+    "practiceMinutes": "Minutos de práctica",
+    "analyses": "Análisis",
+    "suggestions_one": "{{count}} sugerencia",
+    "suggestions_other": "{{count}} sugerencias",
+    "byActivity": "Por actividad",
+    "byModel": "Por modelo y proveedor",
+    "tokens": "{{tokens}} tokens",
+    "priceList": {
+      "title": "Lista de precios",
+      "description": "Lo que cuesta cada modelo y proveedor de voz, para que equilibres calidad y gasto.",
+      "model": "Modelo",
+      "speed": "Velocidad",
+      "input": "Entrada / 1M tokens",
+      "output": "Salida / 1M tokens",
+      "perMinute": "~{{price}} por minuto"
+    }
+  }
+}

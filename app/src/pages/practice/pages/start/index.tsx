@@ -1,4 +1,5 @@
 import { useState, type FC } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import {
   Link,
   useNavigate,
@@ -52,6 +53,7 @@ import { VoicePicker } from "../../components/voice-picker";
 import { DifficultyDots } from "../../components/difficulty-dots";
 
 const PracticeStartPage: FC = () => {
+  const { t } = useTranslation("practice");
   const { practiceAgentId } = useParams<{ practiceAgentId: string }>();
   const { data: agent, isPending } = usePracticeAgent(practiceAgentId);
   const { data: assistants, isPending: assistantsPending } = useAssistantAgents(
@@ -59,7 +61,11 @@ const PracticeStartPage: FC = () => {
   );
   const { data: me, isPending: mePending } = useMe();
 
-  usePageMetadata({ title: agent ? `Practice: ${agent.name}` : "Practice" });
+  usePageMetadata({
+    title: agent
+      ? t("start.pageTitleWithName", { name: agent.name })
+      : t("start.pageTitle"),
+  });
 
   if (isPending || assistantsPending || mePending || !agent)
     return <DetailSkeleton />;
@@ -84,6 +90,7 @@ function PracticeStartContent({
   assistants,
   keepRecordingsDefault,
 }: PracticeStartContentProps) {
+  const { t } = useTranslation("practice");
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { data: catalog } = useCatalog();
@@ -131,7 +138,7 @@ function PracticeStartContent({
     <div className="mx-auto max-w-4xl">
       <Button asChild variant="ghost" size="sm" className="-ml-2 mb-2">
         <Link to={Routes.practice.root}>
-          <ArrowLeft /> Practice
+          <ArrowLeft /> {t("start.back")}
         </Link>
       </Button>
       <PageHeader
@@ -140,7 +147,7 @@ function PracticeStartContent({
         actions={
           <Button asChild variant="outline" size="sm">
             <Link to={Routes.practice.agent(agent.id)}>
-              <Pencil /> Edit prospect
+              <Pencil /> {t("start.editProspect")}
             </Link>
           </Button>
         }
@@ -149,11 +156,10 @@ function PracticeStartContent({
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-5">
         <Card className="p-5 lg:col-span-3">
           <h2 className="flex items-center gap-2 font-semibold">
-            <Info className="size-4 text-primary" /> Briefing
+            <Info className="size-4 text-primary" /> {t("start.briefing")}
           </h2>
           <p className="mt-1 text-xs text-muted-foreground">
-            Only what you'd realistically know before the call. Hidden details
-            are revealed afterwards.
+            {t("start.briefingHint")}
           </p>
           <p className="mt-4 text-[15px] leading-relaxed">
             {agent.briefing || agent.role_prompt}
@@ -183,7 +189,9 @@ function PracticeStartContent({
               <div className="flex items-center gap-2 sm:col-span-2">
                 <Target className="size-4 text-muted-foreground" />
                 <dd>
-                  <span className="text-muted-foreground">Your objective:</span>{" "}
+                  <span className="text-muted-foreground">
+                    {t("start.yourObjective")}
+                  </span>{" "}
                   {agent.user_objective}
                 </dd>
               </div>
@@ -191,7 +199,9 @@ function PracticeStartContent({
             {agent.time_limit_minutes && (
               <div className="flex items-center gap-2">
                 <Clock className="size-4 text-muted-foreground" />
-                <dd>{agent.time_limit_minutes} minute limit</dd>
+                <dd>
+                  {t("start.minuteLimit", { count: agent.time_limit_minutes })}
+                </dd>
               </div>
             )}
           </dl>
@@ -200,7 +210,9 @@ function PracticeStartContent({
               variant="secondary"
               title={LeadTemperatureDescriptionOptions[agent.lead_temperature]}
             >
-              {getLeadTemperatureLabel(agent.lead_temperature)} lead
+              {t("start.leadBadge", {
+                label: getLeadTemperatureLabel(agent.lead_temperature),
+              })}
             </Badge>
             <span className="inline-flex items-center gap-1.5 text-sm">
               <DifficultyDots value={agent.difficulty} /> {difficulty?.label}
@@ -219,11 +231,10 @@ function PracticeStartContent({
                   htmlFor="copilot-toggle"
                   className="flex items-center gap-2"
                 >
-                  <Bot className="size-4" /> Practice with co-pilot
+                  <Bot className="size-4" /> {t("start.practiceWithCopilot")}
                 </Label>
                 <p className="text-xs text-muted-foreground">
-                  Live suggestions exactly like a real call. The prospect can't
-                  hear them.
+                  {t("start.copilotHint")}
                 </p>
               </div>
               <Switch
@@ -235,19 +246,24 @@ function PracticeStartContent({
             </div>
             {noAssistants ? (
               <p className="text-xs text-muted-foreground">
-                <Link
-                  to={Routes.assistant_agents.new}
-                  className="text-primary underline-offset-4 hover:underline"
-                >
-                  Create a co-pilot
-                </Link>{" "}
-                to practice with live suggestions.
+                <Trans
+                  t={t}
+                  i18nKey="start.createCopilot"
+                  components={{
+                    link: (
+                      <Link
+                        to={Routes.assistant_agents.new}
+                        className="text-primary underline-offset-4 hover:underline"
+                      />
+                    ),
+                  }}
+                />
               </p>
             ) : (
               copilotEnabled && (
                 <Select value={assistantId} onValueChange={setAssistantId}>
-                  <SelectTrigger aria-label="Co-pilot">
-                    <SelectValue placeholder="Choose a co-pilot" />
+                  <SelectTrigger aria-label={t("start.copilot")}>
+                    <SelectValue placeholder={t("start.chooseCopilot")} />
                   </SelectTrigger>
                   <SelectContent>
                     {assistants.map((assistant) => (
@@ -269,7 +285,7 @@ function PracticeStartContent({
                 ) : (
                   <EyeOff className="size-4" />
                 )}{" "}
-                Show live transcript
+                {t("start.showLiveTranscript")}
               </Label>
               <Switch
                 id="transcript-toggle"
@@ -278,7 +294,7 @@ function PracticeStartContent({
               />
             </div>
             <div className="flex items-center justify-between gap-3">
-              <Label htmlFor="recording-toggle">Keep the recording</Label>
+              <Label htmlFor="recording-toggle">{t("start.keepRecording")}</Label>
               <Switch
                 id="recording-toggle"
                 checked={keepRecording}
@@ -291,7 +307,7 @@ function PracticeStartContent({
       </div>
 
       <Card className="mt-4 p-5">
-        <h2 className="mb-3 font-semibold">Voice</h2>
+        <h2 className="mb-3 font-semibold">{t("start.voice")}</h2>
         {catalog && (
           <VoicePicker
             providers={catalog.voice_providers}
@@ -307,7 +323,7 @@ function PracticeStartContent({
       <div className="sticky bottom-0 z-20 -mx-4 mt-6 border-t bg-background/95 backdrop-blur sm:-mx-6">
         <div className="pb-safe flex items-center gap-3 px-4 pt-3 sm:px-6">
           <p className="hidden text-xs text-muted-foreground sm:block">
-            Use headphones for the most realistic experience.
+            {t("start.headphones")}
           </p>
           <Button
             size="lg"
@@ -319,7 +335,7 @@ function PracticeStartContent({
             }
             loading={start.isPending}
           >
-            {!start.isPending && <Phone />} Start the call
+            {!start.isPending && <Phone />} {t("start.startCall")}
           </Button>
         </div>
       </div>

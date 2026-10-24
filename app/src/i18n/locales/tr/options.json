@@ -1,0 +1,303 @@
+{
+  "agents": {
+    "status": {
+      "active": "Aktif",
+      "archived": "Arşivlenmiş",
+      "all": "Tümü"
+    },
+    "modelSpeed": {
+      "fastest": "En hızlı",
+      "fast": "Hızlı",
+      "balanced": "Dengeli",
+      "thorough": "Kapsamlı"
+    },
+    "relativeCost": {
+      "1": "Düşük maliyet",
+      "2": "Orta maliyet",
+      "3": "Daha yüksek maliyet",
+      "4": "Premium maliyet"
+    },
+    "alternatives": {
+      "none": "Yok",
+      "one": "1 alternatif",
+      "two": "2 alternatif"
+    },
+    "methodology": {
+      "spin": "SPIN Selling",
+      "bant": "BANT",
+      "meddic": "MEDDIC",
+      "challenger": "Challenger",
+      "sandler": "Sandler",
+      "custom": "Özel / yok"
+    },
+    "scriptStage": {
+      "opener": "Açılış",
+      "pitch": "Sunum",
+      "discovery": "Keşif",
+      "objectionHandling": "İtiraz yönetimi",
+      "close": "Kapanış",
+      "other": "Diğer"
+    },
+    "frequency": {
+      "objectionsOnly": "Yalnızca itirazlar ve sorular",
+      "balanced": "Dengeli",
+      "constant": "Sürekli yönlendirme"
+    },
+    "frequencyDescription": {
+      "objectionsOnly": "Potansiyel müşteri itiraz edene, bir şey sorana ya da ilgi gösterene kadar sessiz kalır.",
+      "balanced": "Potansiyel müşterinin söylediği anlamlı her şeye tepki verir, ara sıra da ipuçları sunar.",
+      "constant": "Her zaman bir sonraki en iyi cümleyi gösterir. Yeni satışçılar ve pratik için harika."
+    },
+    "length": {
+      "short": "Kısa (en fazla 20 kelime)",
+      "medium": "Orta (en fazla 35 kelime)"
+    },
+    "tone": {
+      "professional": "Profesyonel",
+      "friendly": "Samimi",
+      "consultative": "Danışmanlık odaklı",
+      "assertive": "Kararlı"
+    }
+  },
+  "calls": {
+    "severity": {
+      "low": "Düşük",
+      "medium": "Orta",
+      "high": "Kritik"
+    },
+    "interest": {
+      "low": "Düşük ilgi",
+      "medium": "Bir miktar ilgi",
+      "high": "Yüksek ilgi"
+    },
+    "suggestionUsage": {
+      "followed": "Uygulandı",
+      "adapted": "Uyarlandı",
+      "ignored": "Yok sayıldı"
+    },
+    "revealKind": {
+      "painPoint": "Gizli sorun alanı",
+      "hiddenInfo": "Gizli bilgi",
+      "objection": "Planlanmış itiraz",
+      "conversionCondition": "Dönüşüm koşulu"
+    },
+    "endReason": {
+      "user": "Sizin tarafınızdan sonlandırıldı",
+      "prospectHungUp": "Potansiyel müşteri telefonu kapattı",
+      "timeLimit": "Süre sınırına ulaşıldı",
+      "interrupted": "Bağlantı kesildi"
+    },
+    "sort": {
+      "newest": "Önce en yeni",
+      "oldest": "Önce en eski",
+      "highestScore": "En yüksek puan",
+      "lowestScore": "En düşük puan",
+      "longest": "En uzun"
+    },
+    "scoreRange": {
+      "any": "Tüm puanlar",
+      "excellent": "80+ mükemmel",
+      "good": "60–79 iyi",
+      "below60": "60’ın altı"
+    },
+    "dateRange": {
+      "any": "Her zaman"
+    },
+    "kind": {
+      "live": "Canlı arama",
+      "practice": "Pratik",
+      "all": "Canlı ve pratik"
+    },
+    "outcomeFilter": {
+      "all": "Tüm sonuçlar",
+      "none": "Sonuç kaydedilmedi"
+    },
+    "outcome": {
+      "meetingBooked": "Toplantı / demo planlandı",
+      "dealWon": "Anlaşma kapandı / kazanıldı",
+      "followUp": "Takip planlandı",
+      "lost": "İlgilenmiyor / kaybedildi",
+      "noDecision": "Karar yok / geri arama",
+      "gatekeeper": "Engel / yanlış kişi",
+      "custom": "Özel sonuç"
+    },
+    "status": {
+      "inProgress": "Devam ediyor",
+      "analyzing": "Analiz ediliyor",
+      "analyzed": "Analiz edildi",
+      "analysisFailed": "Analiz başarısız",
+      "ended": "Analiz edilmedi"
+    },
+    "typeFilter": {
+      "all": "Tüm arama türleri"
+    },
+    "type": {
+      "onlineMeeting": "Çevrimiçi toplantı",
+      "microphone": "Telefon / mikrofon",
+      "practice": "Pratik oturumu"
+    },
+    "typeDescription": {
+      "microphone": "Telefonunuzun hoparlöründe veya başka bir cihazda yapılan arama. CallZen bu cihazın mikrofonu üzerinden dinler. Soğuk aramalar için en uygunudur.",
+      "onlineMeeting": "Google Meet, Zoom, Teams veya herhangi bir web toplantısı. Toplantı sekmesinin sesini paylaşırsınız; böylece iki taraf ayrı ayrı kaydedilir."
+    },
+    "speaker": {
+      "user": "Siz",
+      "prospect": "Potansiyel müşteri",
+      "unknown": "Algılanıyor…"
+    },
+    "suggestionType": {
+      "opener": "Açılış / dikkat çekici giriş",
+      "discoveryQuestion": "Keşif sorusu",
+      "objectionResponse": "İtiraz yanıtı",
+      "valueStatement": "Değer önermesi",
+      "buyingSignal": "Satın alma sinyali algılandı",
+      "nextStep": "Sonraki adım / kapanış",
+      "reminder": "Hatırlatma",
+      "warning": "Uyarı",
+      "consent": "Rıza bildirimi",
+      "answer": "Yanıt"
+    },
+    "marker": {
+      "mistake": "Hatalar",
+      "strength": "Güçlü yönler",
+      "objection": "İtirazlar",
+      "buyingSignal": "Satın alma sinyalleri",
+      "bookmark": "Yer işaretleri"
+    }
+  },
+  "periods": {
+    "last7Days": "Son 7 gün",
+    "last30Days": "Son 30 gün",
+    "last90Days": "Son 90 gün",
+    "last12Months": "Son 12 ay"
+  },
+  "organisations": {
+    "invitation": {
+      "pending": "Beklemede",
+      "expired": "Süresi doldu",
+      "accepted": "Kabul edildi",
+      "revoked": "İptal edildi"
+    },
+    "role": {
+      "owner": "Sahip",
+      "admin": "Yönetici",
+      "member": "Üye"
+    },
+    "roleDescription": {
+      "owner": "Tam kontrol. Rol izinlerini değiştirebilir, kuruluşu silebilir ve tüm üyeleri yönetebilir. Her zaman tüm izinlere sahiptir.",
+      "admin": "Ekibi günlük olarak yönetir: sahibin verdiği izinler dahilinde co-pilotları, üyeleri ve davetleri yönetir.",
+      "member": "Satış yapar ve pratik yapar. Sahip daha fazlasını vermedikçe yalnızca kendi aramalarını görür."
+    }
+  },
+  "practice": {
+    "budget": {
+      "none": "Bütçe yok",
+      "limited": "Sınırlı bütçe",
+      "available": "Bütçe mevcut",
+      "priceSensitive": "Fiyata duyarlı"
+    },
+    "authority": {
+      "decisionMaker": "Karar verici",
+      "influencer": "Etkileyici",
+      "gatekeeper": "Kapı bekçisi",
+      "needsApproval": "Onay gerekiyor"
+    },
+    "difficulty": {
+      "1": {
+        "label": "Çok kolay",
+        "description": "Samimi ve açık, neredeyse hiç itiraz yok."
+      },
+      "2": {
+        "label": "Kolay",
+        "description": "Açık, birkaç hafif itiraz, kolayca ikna olur."
+      },
+      "3": {
+        "label": "Orta",
+        "description": "Biraz şüphecilik ve gerçek itirazlar. İyi bir keşif gerektirir."
+      },
+      "4": {
+        "label": "Zor",
+        "description": "Temkinli ve meşgul, sert ve tekrarlanan itirazlar, erken kapatabilir."
+      },
+      "5": {
+        "label": "Çok zor",
+        "description": "Satış aramalarına karşı düşmanca. Yalnızca mükemmel teknikle ikna olur."
+      }
+    },
+    "difficultyFilter": {
+      "any": "Tüm zorluk seviyeleri"
+    },
+    "patience": {
+      "1": "Neredeyse hemen kapatır",
+      "2": "Sabırsız",
+      "3": "Orta",
+      "4": "Sabırlı",
+      "5": "Çok sabırlı"
+    },
+    "persistence": {
+      "1": "Kolayca vazgeçer",
+      "2": "Bir kez daha gündeme getirir",
+      "3": "Sürekli geri döner"
+    },
+    "temperature": {
+      "cold": "Soğuk",
+      "warm": "Ilık"
+    },
+    "temperatureDescription": {
+      "cold": "Sizi tanımıyor, ilgi belirtmedi; meşgul olabilir veya aranmaktan rahatsız olabilir.",
+      "warm": "İlgi göstermiş veya daha önce iletişim kurmuş ve konuşmaya daha açık."
+    },
+    "temperatureFilter": {
+      "any": "Tüm sıcaklıklar"
+    },
+    "mood": {
+      "neutral": "Nötr",
+      "rushed": "Aceleci",
+      "irritated": "Sinirli",
+      "curious": "Meraklı",
+      "distracted": "Dikkati dağınık",
+      "enthusiastic": "Hevesli"
+    },
+    "personality": {
+      "analytical": "Analitik",
+      "driver": "Lider / doğrudan",
+      "amiable": "Cana yakın / samimi",
+      "expressive": "Dışa dönük / konuşkan",
+      "skeptical": "Şüpheci",
+      "indecisive": "Kararsız"
+    },
+    "scenario": {
+      "coldCall": "Soğuk arama",
+      "inbound": "Gelen talep",
+      "followUp": "Takip",
+      "demoFollowUp": "Demodan sonra",
+      "discovery": "Keşif görüşmesi",
+      "renewal": "Yenileme",
+      "negotiation": "Fiyat pazarlığı",
+      "gatekeeper": "Kapı bekçisi"
+    },
+    "timeline": {
+      "urgent": "Acil ihtiyaç",
+      "within3Months": "3 ay içinde",
+      "justResearching": "Sadece araştırıyor",
+      "none": "Zaman çizelgesi yok"
+    }
+  },
+  "usage": {
+    "kind": {
+      "suggestion": "Canlı öneriler",
+      "ask": "Co-pilot soruları",
+      "analysis": "Arama analizleri",
+      "practiceTurn": "Pratik yanıtları (tarayıcı sesi)",
+      "practiceVoice": "Pratik ses dakikaları",
+      "transcription": "Canlı transkripsiyon",
+      "generation": "Potansiyel müşteri oluşturma"
+    }
+  },
+  "users": {
+    "outputLanguageMode": {
+      "conversation": "Görüşmeyle aynı dil",
+      "interface": "Arayüz dilim"
+    }
+  }
+}

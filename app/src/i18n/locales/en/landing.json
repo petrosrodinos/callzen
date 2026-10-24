@@ -1,0 +1,213 @@
+{
+  "nav": {
+    "aria": "Main",
+    "home": "CallZen home",
+    "live": "Live co-pilot",
+    "practice": "Practice",
+    "reviews": "Call reviews",
+    "teams": "Teams",
+    "createAccount": "Create account"
+  },
+  "actions": {
+    "openDashboard": "Open dashboard",
+    "createAccount": "Create your account",
+    "signIn": "Sign in"
+  },
+  "footer": {
+    "consent": "Always get consent before recording a call.",
+    "aria": "Footer",
+    "dashboard": "Dashboard",
+    "signIn": "Sign in",
+    "createAccount": "Create account"
+  },
+  "hero": {
+    "title": "Know what to say next, while they’re still talking.",
+    "lede": "CallZen listens to your sales call, flags objections and buying signals as they happen, and suggests your next line. Afterwards it scores the call and lets you rehearse the hard parts against AI prospects."
+  },
+  "demo": {
+    "aria": "Example of a live call with the CallZen co-pilot",
+    "live": "Live call",
+    "replay": "Replay",
+    "prospect": "Prospect",
+    "you": "You",
+    "prospectOne": "We like what we’ve seen. Honestly, the price is <mark>well above what we budgeted</mark>.",
+    "youLine": "Fair. What range were you working with? You mentioned slow follow-up costs you deals, so let’s put the two side by side.",
+    "prospectTwo": "Around forty a seat. But yes, we <mark>lost two renewals last quarter</mark> because nobody called back in time.",
+    "copilot": "Co-pilot",
+    "script": "Script",
+    "stages": {
+      "opening": "Opening",
+      "discovery": "Discovery",
+      "pitch": "Pitch",
+      "objections": "Handle objections",
+      "close": "Close"
+    },
+    "objection": {
+      "kind": "Price objection",
+      "why": "The prospect says the price is above budget."
+    },
+    "reply": {
+      "kind": "Suggested reply",
+      "said": "Said",
+      "text": "“What range were you working with? Let’s compare it to what slow follow-up costs you.”"
+    },
+    "signal": {
+      "kind": "Buying signal",
+      "why": "They named what slow follow-up costs them. Move to the close and offer a setup call."
+    }
+  },
+  "ways": {
+    "title": "Works with the calls you already make",
+    "phone": {
+      "title": "Phone calls",
+      "text": "Put the call on speaker and CallZen listens through your microphone. No plugin, no dialler to swap."
+    },
+    "online": {
+      "title": "Online meetings",
+      "text": "Share the meeting tab and CallZen hears both sides, transcribing you and the prospect separately so suggestions respond to the right person."
+    }
+  },
+  "practice": {
+    "title": "Rehearse on a prospect who pushes back",
+    "intro": "Practice prospects behave like buyers. They keep their real pain points to themselves, save objections for the awkward moment, and run out of patience. Interrupt one mid-sentence and it stops to answer you, by voice.",
+    "describe": {
+      "title": "Describe, don’t configure",
+      "text": "Write one sentence about who you’re calling and CallZen builds the prospect for you."
+    },
+    "replay": {
+      "title": "Replay a call that went wrong",
+      "text": "Turn a real prospect from a live call into a practice prospect and take another run at them."
+    },
+    "withCopilot": {
+      "title": "Practice with or without the co-pilot",
+      "text": "Keep suggestions on while you learn, then turn them off to see how you do alone."
+    },
+    "dossier": {
+      "aria": "Example practice prospect",
+      "role": "Head of operations, regional logistics firm",
+      "difficulty": "Difficulty: hard",
+      "patience": "Patience: low",
+      "voice": "Voice call",
+      "knownLabel": "What you know",
+      "known": "Replied to your cold email. Runs a team of twelve reps.",
+      "secretsLabel": "What she isn’t telling you",
+      "hidden": "Hidden until you reveal it",
+      "hintRevealed": "This is what the review shows you.",
+      "hintHidden": "In practice, you find these out on the call.",
+      "hide": "Hide again",
+      "reveal": "Reveal after the call"
+    },
+    "secrets": {
+      "pain": {
+        "label": "Pain point",
+        "text": "Lost two renewals last quarter to slow follow-up."
+      },
+      "objection": {
+        "label": "Objection she’ll raise",
+        "text": "“We already have a tool for this.”"
+      },
+      "yes": {
+        "label": "What makes her say yes",
+        "text": "A setup that takes under a week."
+      }
+    }
+  },
+  "review": {
+    "title": "After the call, see exactly where it turned",
+    "copy": "Every call gets a weighted score, category scores, and a list of mistakes and strengths. Each one points to the moment in the recording, so you can listen to it instead of guessing.",
+    "aria": "Sample call review",
+    "sample": "Sample review, {{duration}} call, score <score>78</score>",
+    "you": "You",
+    "prospect": "Prospect",
+    "markerAt": "{{kind}} at {{time}}",
+    "kinds": {
+      "mistake": "Mistake",
+      "strength": "Strength",
+      "objection": "Objection"
+    },
+    "markers": {
+      "pitchedEarly": "Pitched before asking how big the team is.",
+      "priceObjection": "Price objection. You asked for their budget before defending the number.",
+      "askedCost": "Asked what slow follow-up costs them, then let them answer.",
+      "weakClose": "Ended with “let me know” instead of booking the next step."
+    },
+    "metrics": {
+      "talkRatio": "Talk ratio",
+      "pace": "Pace",
+      "paceValue": "148 wpm",
+      "fillers": "Filler words",
+      "interruptions": "Interruptions",
+      "objections": "Objections"
+    },
+    "after": {
+      "followUp": {
+        "title": "A follow-up draft",
+        "text": "CallZen writes the email you’d send next, based on what the prospect actually said."
+      },
+      "practice": {
+        "title": "A practice session to match",
+        "text": "It suggests the practice prospect that targets the mistakes you made on this call."
+      },
+      "trends": {
+        "title": "Trends across calls",
+        "text": "Your dashboard shows your score over time and the mistakes that keep coming back."
+      }
+    }
+  },
+  "playbook": {
+    "title": "Teach it how your team sells",
+    "copy": "A co-pilot is only as good as its playbook. Set yours up once, then use it on every call.",
+    "items": {
+      "stages": {
+        "title": "Script stages",
+        "text": "Lay out your call in stages. The co-pilot tracks which one you’re in as the conversation moves."
+      },
+      "objections": {
+        "title": "Objection library",
+        "text": "Write down how you answer price, timing and competitor objections. Suggestions start from your answers."
+      },
+      "knowledge": {
+        "title": "Product knowledge",
+        "text": "Import your documents so suggestions use your real pricing, features and limits."
+      },
+      "tone": {
+        "title": "Tone and methodology",
+        "text": "Choose how it sounds and which sales method it follows."
+      },
+      "frequency": {
+        "title": "How often it speaks",
+        "text": "Set how frequently suggestions appear, so it helps without crowding you."
+      },
+      "languages": {
+        "title": "Up to five languages",
+        "text": "Each co-pilot can handle several conversation languages and detects which one is being spoken."
+      }
+    }
+  },
+  "teams": {
+    "title": "Built for teams that sell together",
+    "copy": "Co-pilots, prospects and calls live inside an organisation, and you can belong to several and switch between them. Invite people by email; invitations last seven days.",
+    "roles": {
+      "owner": {
+        "name": "Owner",
+        "text": "Controls everything, including what admins and members can do."
+      },
+      "admin": {
+        "name": "Admin",
+        "text": "Manages the team with the permissions the owner grants."
+      },
+      "member": {
+        "name": "Member",
+        "text": "Uses co-pilots, manages prospects, and reviews their own calls."
+      }
+    },
+    "consent": {
+      "title": "Consent first, and you decide what’s kept",
+      "copy": "Always get consent before recording a call. CallZen reminds you, and gives you the controls to match: set how long recordings are kept, and delete your account and its data when you’re done."
+    }
+  },
+  "closing": {
+    "title": "Take your next call with a co-pilot.",
+    "copy": "Set up your first co-pilot, start a call, and see the suggestions arrive while the prospect is still talking."
+  }
+}

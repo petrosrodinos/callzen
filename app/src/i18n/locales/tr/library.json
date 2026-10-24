@@ -1,0 +1,220 @@
+{
+  "index": {
+    "title": "Çağrı kütüphanesi",
+    "description": "Tüm canlı çağrılar ve alıştırma oturumları; kayıtlar, transkriptler ve analizlerle birlikte.",
+    "startCall": "Çağrı başlat",
+    "searchPlaceholder": "Potansiyel müşteri, şirket veya notlara göre ara",
+    "searchLabel": "Çağrılarda ara",
+    "filtersButton": "Filtreler",
+    "clearFilters": "Filtreleri temizle",
+    "filters": {
+      "whose": "Kimin çağrıları",
+      "everyone": "Herkesin çağrıları",
+      "mine": "Yalnızca benimkiler",
+      "kind": "Canlı veya alıştırma",
+      "type": "Çağrı türü",
+      "copilot": "Yardımcı pilot",
+      "allCopilots": "Tüm yardımcı pilotlar",
+      "outcome": "Sonuç",
+      "score": "Puan",
+      "date": "Tarih",
+      "sort": "Sırala"
+    },
+    "empty": {
+      "noMatchTitle": "Eşleşen çağrı yok",
+      "noCallsTitle": "Henüz çağrı yok",
+      "noMatchDescription": "Bazı filtreleri kaldırmayı deneyin.",
+      "noCallsDescription": "Canlı çağrılarınız ve alıştırma oturumlarınız burada görünecek.",
+      "startPractising": "Alıştırmaya başla"
+    },
+    "previousPage": "Önceki sayfa",
+    "nextPage": "Sonraki sayfa",
+    "callCount_one": "{{count}} çağrı",
+    "callCount_other": "{{count}} çağrı"
+  },
+  "detail": {
+    "pageTitle": "Çağrı",
+    "notFound": {
+      "title": "Çağrı bulunamadı",
+      "description": "Silinmiş olabilir.",
+      "back": "Kütüphaneye dön"
+    },
+    "recordingTranscript": "Kayıt ve transkript",
+    "tabs": {
+      "reveal": "Sonuç ve ortaya çıkarma",
+      "overview": "Genel bakış",
+      "moments": "Hatalar ve güçlü yönler",
+      "metrics": "Metrikler",
+      "prospect": "Potansiyel müşteri",
+      "copilot": "Yardımcı pilot",
+      "followUp": "Takip"
+    },
+    "followUpSubject": "Takip",
+    "followUpSubjectCompany": "Takip – {{company}}",
+    "timeline": {
+      "bookmark": "Yer işareti",
+      "label": "Çağrı zaman çizelgesi",
+      "markerAt": "{{label}} – {{time}}"
+    },
+    "status": {
+      "preparing": "Performans raporunuz hazırlanıyor…",
+      "preparingHint": "Genellikle bir dakikadan kısa sürer. Bu sayfadan ayrılabilirsiniz; rapor kütüphanenizde hazır olacak.",
+      "failed": "Analiz tamamlanamadı",
+      "noAnalysis": "Bu çağrı için analiz yok",
+      "safe": "Kaydınız ve transkriptiniz güvende.",
+      "canRetry": "Tekrar deneyebilirsiniz.",
+      "retry": "Analizi yeniden dene"
+    },
+    "header": {
+      "back": "Çağrı kütüphanesi",
+      "practice": "Alıştırma",
+      "copilot": "Yardımcı pilot: {{name}}",
+      "practiceSession": "Alıştırma oturumu",
+      "call": "Çağrı",
+      "by": "{{name}} tarafından",
+      "outcomeLabel": "Çağrı sonucu",
+      "recordOutcome": "Sonucu kaydet",
+      "retry": "Tekrar dene",
+      "moreActions": "Diğer işlemler",
+      "rerun": "Analizi yeniden çalıştır",
+      "recreatingProspect": "Potansiyel müşteri yeniden oluşturuluyor…",
+      "practiceWithProspect": "Bu potansiyel müşteriyle alıştırma yap",
+      "harder": "Daha zor bir sürümü dene",
+      "retention": "Saklama",
+      "deleteRecording": "Yalnızca kaydı sil",
+      "deleteTranscript": "Transkripti sil",
+      "deleteCall": "Çağrıyı kalıcı olarak sil",
+      "confirm": {
+        "confirmText": "Kalıcı olarak sil",
+        "call": {
+          "title": "Bu çağrı kalıcı olarak silinsin mi?",
+          "description": "Kayıt, transkript, öneriler ve analiz kalıcı olarak silinir. Bu işlem geri alınamaz."
+        },
+        "recording": {
+          "title": "Kayıt silinsin mi?",
+          "description": "Ses kalıcı olarak silinir. Transkript ve analiz korunur."
+        },
+        "transcript": {
+          "title": "Transkript silinsin mi?",
+          "description": "Transkript kalıcı olarak silinir. Analiz korunur, ancak yeniden çalıştıramazsınız."
+        }
+      }
+    },
+    "recording": {
+      "saving": "Kayıt kaydediliyor…",
+      "noAudio": "Bu çağrı için kayıtlı ses yok. Transkript ve analiz korunur.",
+      "loadError": "Kayıt yüklenemedi. Hâlâ yükleniyor olabilir; birazdan sayfayı yenileyin.",
+      "download": "Kaydı indir"
+    },
+    "transcript": {
+      "empty": "Bu çağrı için kayıtlı transkript yok.",
+      "playFrom": "{{time}} konumundan oynat",
+      "switchSpeaker": "Konuşmacıyı değiştir",
+      "wrongSpeaker": "Yanlış konuşmacı mı? Değiştirin"
+    },
+    "overview": {
+      "overallScore": "Genel puan",
+      "verdict": "Değerlendirme",
+      "skillScores": "Beceri puanları",
+      "focusNextTime": "Bir dahaki sefere odak",
+      "nextSteps": "Sonraki adımlar"
+    },
+    "moments": {
+      "jumpTo": "{{time}} konumuna git",
+      "mistakes": "Hatalar ({{count}})",
+      "noMistakes": "İşaretlenen hata yok. Harika iş.",
+      "whatHappened": "Ne oldu",
+      "whyItMatters": "Neden önemli",
+      "doInstead": "Bunun yerine şunu yapın",
+      "strengths": "Güçlü yönler ({{count}})",
+      "noStrengths": "Bu sefer öne çıkan güçlü yön yok."
+    },
+    "metrics": {
+      "talkRatio": "Konuşma-dinleme oranı",
+      "talkedPercent": "Zamanın %{{percent}} kadarını siz konuştunuz",
+      "you": "Siz",
+      "prospect": "Potansiyel müşteri",
+      "talkHint": "En başarılı satışçılar keşif görüşmelerinde genellikle zamanın %40–60'ını konuşur.",
+      "questionsAsked": "Sorulan sorular",
+      "longestMonologue": "En uzun monolog",
+      "speakingPace": "Konuşma hızı",
+      "paceValue": "{{value}} kelime/dk",
+      "paceHint": "Doğal aralık: 130–170",
+      "fillerWords": "Dolgu sözcükler",
+      "interruptions": "Sözü kesmeler",
+      "objectionsHandled": "Ele alınan itirazlar",
+      "objections": "İtirazlar",
+      "buyingSignals": "Satın alma sinyalleri",
+      "actedOn": "Değerlendirildi",
+      "missed": "Kaçırıldı"
+    },
+    "insights": {
+      "noneIdentified": "Tespit edilmedi",
+      "summary": "Potansiyel müşteri özeti",
+      "needs": "İhtiyaçlar",
+      "painPoints": "Sorun alanları",
+      "objections": "İtirazlar",
+      "buyingSignals": "Satın alma sinyalleri",
+      "keyInfo": "Ortaya çıkan temel bilgiler",
+      "fields": {
+        "budget": "Bütçe",
+        "timeline": "Zaman çizelgesi",
+        "decisionMakers": "Karar vericiler",
+        "competitors": "Rakipler"
+      },
+      "notDiscussed": "Konuşulmadı"
+    },
+    "copilot": {
+      "howYouUsed": "Yardımcı pilotu nasıl kullandınız",
+      "followed": "{{count}} uygulandı",
+      "adapted": "{{count}} uyarlandı",
+      "ignored": "{{count}} yok sayıldı",
+      "improve": "Yardımcı pilotunuzu geliştirin",
+      "edit": "Yardımcı pilotu düzenle",
+      "bySuggestion": "Öneri öneri",
+      "helpful": "Faydalı",
+      "notHelpful": "Faydalı değil"
+    },
+    "followUp": {
+      "empty": "Bu çağrı için takip mesajı önerilmedi.",
+      "copyFailed": "Kopyalama başarısız",
+      "copyFailedDescription": "Metni seçip elle kopyalayın.",
+      "title": "Takip taslağı",
+      "copied": "Kopyalandı",
+      "copy": "Kopyala",
+      "openInEmail": "E-postada aç",
+      "label": "Takip mesajı"
+    },
+    "notes": {
+      "title": "Kişisel notlar",
+      "placeholder": "Bu çağrıyla ilgili hatırlamak istediğiniz her şey…",
+      "save": "Notları kaydet"
+    },
+    "reveal": {
+      "objective": "Hedef",
+      "yes": "Evet",
+      "no": "Hayır",
+      "prospectThinking": "Potansiyel müşterinin düşündükleri",
+      "lostAttention": "Dikkatini kaybettiğiniz an",
+      "hiddenLayer": "Gizli katman ortaya çıktı",
+      "met": "Karşılandı",
+      "uncovered": "Ortaya çıkarıldı",
+      "notMet": "Karşılanmadı",
+      "missed": "Kaçırıldı",
+      "nothingHidden": "Bu potansiyel müşteri için gizli bir öğe yapılandırılmadı.",
+      "whatWouldChange": "Sonucu ne değiştirirdi"
+    },
+    "rerun": {
+      "title": "Analizi yeniden çalıştır",
+      "description": "Farklı bir model veya yardımcı pilotunuzun en güncel puanlama kategorilerini deneyin. Önceki rapor değiştirilir.",
+      "modelName": "Analiz modeli",
+      "useCurrent": "Yardımcı pilotun güncel puanlama kategorilerini kullan",
+      "useCurrentHint": "Aksi halde çağrı anındaki kategoriler kullanılır."
+    },
+    "suggestedPractice": {
+      "title": "Önerilen alıştırma",
+      "preparing": "Hazırlanıyor…",
+      "practiceThis": "Bunu alıştır"
+    }
+  }
+}

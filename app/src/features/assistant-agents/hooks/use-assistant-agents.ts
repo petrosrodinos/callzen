@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "@/hooks/use-toast";
 import type { AssistantAgentQuery } from "../interfaces/assistant-agents.interfaces";
@@ -35,10 +36,10 @@ export const useCreateAssistantAgent = () => {
         mutationFn: createAssistantAgent,
         onSuccess: (agent) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: "Co-pilot created", description: `${agent.name} is ready to use.`, duration: 2500 });
+            toast({ title: i18n.t("common:toasts.assistantAgents.coPilotCreated"), description: i18n.t("common:toasts.assistantAgents.readyToUse", { name: agent.name }), duration: 2500 });
         },
         onError: (error) => {
-            toast({ title: "Could not create the co-pilot", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.assistantAgents.couldNotCreateTheCoPilot"), description: error.message, variant: "error" });
         },
     });
 };
@@ -49,10 +50,10 @@ export const useUpdateAssistantAgent = () => {
         mutationFn: updateAssistantAgent,
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: "Changes saved", duration: 2000 });
+            toast({ title: i18n.t("common:toasts.assistantAgents.changesSaved"), duration: 2000 });
         },
         onError: (error) => {
-            toast({ title: "Could not save changes", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.assistantAgents.couldNotSaveChanges"), description: error.message, variant: "error" });
         },
     });
 };
@@ -63,10 +64,10 @@ export const useDuplicateAssistantAgent = () => {
         mutationFn: duplicateAssistantAgent,
         onSuccess: (agent) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: "Co-pilot duplicated", description: agent.name, duration: 2000 });
+            toast({ title: i18n.t("common:toasts.assistantAgents.coPilotDuplicated"), description: agent.name, duration: 2000 });
         },
         onError: (error) => {
-            toast({ title: "Could not duplicate", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.assistantAgents.couldNotDuplicate"), description: error.message, variant: "error" });
         },
     });
 };
@@ -77,10 +78,10 @@ export const useSetDefaultAssistantAgent = () => {
         mutationFn: setDefaultAssistantAgent,
         onSuccess: (agent) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: "Default co-pilot updated", description: agent.name, duration: 2000 });
+            toast({ title: i18n.t("common:toasts.assistantAgents.defaultCoPilotUpdated"), description: agent.name, duration: 2000 });
         },
         onError: (error) => {
-            toast({ title: "Could not set default", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.assistantAgents.couldNotSetDefault"), description: error.message, variant: "error" });
         },
     });
 };
@@ -91,10 +92,10 @@ export const useArchiveAssistantAgent = () => {
         mutationFn: archiveAssistantAgent,
         onSuccess: (agent) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: agent.archived_at ? "Co-pilot archived" : "Co-pilot restored", description: agent.name, duration: 2000 });
+            toast({ title: agent.archived_at ? i18n.t("common:toasts.assistantAgents.coPilotArchived") : i18n.t("common:toasts.assistantAgents.coPilotRestored"), description: agent.name, duration: 2000 });
         },
         onError: (error) => {
-            toast({ title: "Could not update the co-pilot", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.assistantAgents.couldNotUpdateTheCoPilot"), description: error.message, variant: "error" });
         },
     });
 };
@@ -105,10 +106,10 @@ export const useDeleteAssistantAgent = () => {
         mutationFn: deleteAssistantAgent,
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: "Co-pilot deleted", duration: 2000 });
+            toast({ title: i18n.t("common:toasts.assistantAgents.coPilotDeleted"), duration: 2000 });
         },
         onError: (error) => {
-            toast({ title: "Could not delete the co-pilot", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.assistantAgents.couldNotDeleteTheCoPilot"), description: error.message, variant: "error" });
         },
     });
 };

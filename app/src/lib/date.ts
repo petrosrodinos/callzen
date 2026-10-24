@@ -1,11 +1,19 @@
-import { format, formatDistanceToNow, isToday, isYesterday } from "date-fns";
+import { format as dateFnsFormat, formatDistanceToNow as dateFnsDistanceToNow, isToday, isYesterday } from "date-fns";
+import { de, el, enUS, es, fr, it, nl, pl, pt, ro, sv, tr, type Locale } from "date-fns/locale";
+import i18n from "@/i18n";
 
-export const formatDate = (value: string | Date): string => format(new Date(value), "MMM d, yyyy");
+const DATE_LOCALES: Record<string, Locale> = { en: enUS, el, es, fr, de, it, pt, nl, pl, ro, tr, sv };
+const dateLocale = (): Locale => DATE_LOCALES[i18n.resolvedLanguage ?? "en"] ?? enUS;
+
+const format = (date: Date, pattern: string) => dateFnsFormat(date, pattern, { locale: dateLocale() });
+const formatDistanceToNow = (date: Date, options: { addSuffix: boolean }) => dateFnsDistanceToNow(date, { ...options, locale: dateLocale() });
+
+export const formatDate = (value: string | Date): string => format(new Date(value), "PP");
 
 export const formatDateTime = (value: string | Date): string => {
     const date = new Date(value);
-    if (isToday(date)) return `Today, ${format(date, "HH:mm")}`;
-    if (isYesterday(date)) return `Yesterday, ${format(date, "HH:mm")}`;
+    if (isToday(date)) return `${i18n.t("dates.today")}, ${format(date, "HH:mm")}`;
+    if (isYesterday(date)) return `${i18n.t("dates.yesterday")}, ${format(date, "HH:mm")}`;
     return format(date, "MMM d, yyyy · HH:mm");
 };
 

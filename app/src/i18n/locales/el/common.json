@@ -1,0 +1,430 @@
+{
+  "actions": {
+    "save": "Αποθήκευση",
+    "cancel": "Ακύρωση",
+    "delete": "Διαγραφή",
+    "edit": "Επεξεργασία",
+    "close": "Κλείσιμο",
+    "confirm": "Επιβεβαίωση",
+    "back": "Πίσω",
+    "next": "Επόμενο",
+    "search": "Αναζήτηση",
+    "retry": "Δοκιμάστε ξανά",
+    "loading": "Φόρτωση…",
+    "logout": "Αποσύνδεση"
+  },
+  "language": {
+    "label": "Γλώσσα",
+    "switch": "Αλλαγή γλώσσας"
+  },
+  "dates": {
+    "today": "Σήμερα",
+    "yesterday": "Χθες"
+  },
+  "pagination": {
+    "previous": "Προηγούμενη σελίδα",
+    "next": "Επόμενη σελίδα"
+  },
+  "theme": {
+    "toggle": "Εναλλαγή θέματος",
+    "light": "Φωτεινό",
+    "dark": "Σκούρο",
+    "system": "Σύστημα"
+  },
+  "errorBoundary": {
+    "title": "Κάτι πήγε στραβά",
+    "description": "Παρουσιάστηκε μη αναμενόμενο σφάλμα. Δοκιμάστε να ανανεώσετε τη σελίδα ή επικοινωνήστε με την υποστήριξη αν το πρόβλημα συνεχίζεται.",
+    "details": "Λεπτομέρειες σφάλματος"
+  },
+  "scoreRing": {
+    "aria": "{{label}}: {{score}} στα 100",
+    "score": "Βαθμολογία",
+    "notAvailable": "μη διαθέσιμο"
+  },
+  "select": {
+    "placeholder": "Επιλογή",
+    "notSpecified": "Δεν έχει οριστεί"
+  },
+  "modelPicker": {
+    "quality": "Ποιότητα {{value}}/5",
+    "slow": "Σκέφτεται πριν απαντήσει, οπότε οι προτάσεις μπορεί να έρθουν με καθυστέρηση στις ζωντανές κλήσεις.",
+    "recommended": "Προτεινόμενο"
+  },
+  "countdown": {
+    "passed": "Το ραντεβού έχει περάσει"
+  },
+  "phoneInput": {
+    "search": "Αναζήτηση χώρας...",
+    "empty": "Δεν βρέθηκε χώρα."
+  },
+  "callRow": {
+    "practiceSession": "Συνεδρία εξάσκησης",
+    "untitled": "Κλήση χωρίς τίτλο",
+    "practice": "Εξάσκηση",
+    "objectiveMet": "Ο στόχος επιτεύχθηκε",
+    "notMet": "Δεν επιτεύχθηκε",
+    "analyzing": "Ανάλυση",
+    "live": "Ζωντανά"
+  },
+  "languageSelect": {
+    "label": "Γλώσσα",
+    "placeholder": "Επιλέξτε γλώσσα"
+  },
+  "languageMultiSelect": {
+    "primaryLanguage": "Κύρια γλώσσα",
+    "makePrimary": "Ορισμός ως κύρια",
+    "primaryAria": "{{name}} (κύρια)",
+    "makePrimaryAria": "Ορισμός της γλώσσας {{name}} ως κύριας",
+    "removeAria": "Αφαίρεση: {{name}}",
+    "maximum": "Μέγιστο: {{count}}",
+    "add": "Προσθήκη γλώσσας",
+    "search": "Αναζήτηση γλωσσών…",
+    "empty": "Δεν βρέθηκε γλώσσα.",
+    "primary": "Κύρια",
+    "hint": "Μέγιστο: {{count}}. Η γλώσσα με το αστέρι είναι η προεπιλεγμένη· κάντε κλικ σε άλλο στοιχείο για να την αλλάξετε."
+  },
+  "liveAssist": {
+    "label": "Ζωντανή βοήθεια",
+    "mutedTitle": "Οι προτάσεις είναι σε σίγαση. Η κλήση εξακολουθεί να καταγράφεται.",
+    "resume": "Συνέχιση προτάσεων",
+    "empty": "Οι προτάσεις θα εμφανιστούν εδώ μόλις μιλήσει ο υποψήφιος πελάτης.",
+    "recent": "Πρόσφατες προτάσεις ({{count}})",
+    "copilot": "Co-pilot",
+    "thinking": "Σκέφτεται…",
+    "activeUsing": "Ενεργό · με {{model}}",
+    "active": "Ενεργό",
+    "paused": "Οι προτάσεις είναι σε παύση · η καταγραφή συνεχίζεται",
+    "reconnecting_one": "Επανασύνδεση · {{count}} γραμμή σε αναμονή",
+    "reconnecting_other": "Επανασύνδεση · {{count}} γραμμές σε αναμονή",
+    "frequencyLabel": "Συχνότητα προτάσεων",
+    "frequency": "Συχνότητα",
+    "suggestNow": "Πρόταση τώρα",
+    "unmute": "Ενεργοποίηση προτάσεων",
+    "mute": "Σίγαση προτάσεων",
+    "updating": "Ενημέρωση",
+    "or": "Ή:",
+    "alt": "Εναλλ.:",
+    "unpin": "Ξεκαρφίτσωμα",
+    "pin": "Καρφίτσωμα",
+    "dismiss": "Απόρριψη",
+    "helpful": "Χρήσιμο",
+    "notHelpful": "Μη χρήσιμο",
+    "askPlaceholder": "Ρωτήστε το co-pilot… π.χ. τιμή για 50 άδειες;",
+    "askLabel": "Ρωτήστε το co-pilot",
+    "ask": "Ρωτήστε",
+    "scriptProgress": "Πρόοδος σεναρίου · {{done}}/{{total}}",
+    "audioLevel": "Επίπεδο ήχου: {{label}}"
+  },
+  "micCheck": {
+    "ready": "Το μικρόφωνο είναι έτοιμο",
+    "speak": "Μιλήστε για δοκιμή",
+    "prompt": "Ελέγξτε το μικρόφωνό σας πριν ξεκινήσετε.",
+    "test": "Δοκιμή μικροφώνου"
+  },
+  "recording": {
+    "recording": "Εγγραφή",
+    "listening": "Ακρόαση · χωρίς εγγραφή",
+    "paused": "Σε παύση",
+    "off": "Καμία καταγραφή",
+    "connecting": "Σύνδεση…"
+  },
+  "transcript": {
+    "empty": "Η απομαγνητοφώνηση θα εμφανίζεται εδώ καθώς μιλούν οι συμμετέχοντες.",
+    "notSaved": "Δεν έχει αποθηκευτεί ακόμη",
+    "switchSpeaker": "Αλλαγή ομιλητή",
+    "wrongSpeaker": "Λάθος ομιλητής; Αλλάξτε τον"
+  },
+  "imageUploader": {
+    "upload": "Μεταφόρτωση: {{label}}",
+    "wait": "Παρακαλώ περιμένετε...",
+    "hint": "PNG, JPG έως 5MB"
+  },
+  "imagePicker": {
+    "uploadText": "Μεταφόρτωση εικόνων",
+    "uploadSubtext": "Σύρετε και αποθέστε εικόνες εδώ ή κάντε κλικ για αναζήτηση",
+    "fileTypeText": "Υποστηρίζονται JPG, PNG, JPEG έως 10MB η καθεμία",
+    "existingImages": "Υπάρχουσες εικόνες",
+    "choose": "Επιλογή εικόνων",
+    "uploading": "Μεταφόρτωση εικόνων",
+    "uploadingSubtext": "Παρακαλώ περιμένετε όσο μεταφορτώνονται οι εικόνες σας",
+    "uploadingButton": "Μεταφόρτωση...",
+    "fileRejected": "Το αρχείο απορρίφθηκε",
+    "image": "Εικόνα",
+    "clearAll": "Εκκαθάριση όλων",
+    "deleteTitle": "Διαγραφή εικόνας",
+    "deleteDescription": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή την εικόνα; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί."
+  },
+  "fileUpload": {
+    "maxFiles_one": "Επιτρέπεται το πολύ {{count}} αρχείο",
+    "maxFiles_other": "Επιτρέπονται το πολύ {{count}} αρχεία",
+    "typeNotAccepted": "Μη αποδεκτός τύπος αρχείου",
+    "tooLarge": "Το αρχείο είναι πολύ μεγάλο",
+    "uploadFailed": "Η μεταφόρτωση απέτυχε",
+    "label": "Μεταφόρτωση αρχείου",
+    "statusError": "Σφάλμα: {{error}}",
+    "statusUploading": "Μεταφόρτωση: ολοκληρώθηκε το {{progress}}%",
+    "statusComplete": "Η μεταφόρτωση ολοκληρώθηκε",
+    "statusReady": "Έτοιμο για μεταφόρτωση"
+  },
+  "pinInput": {
+    "field": "Πεδίο PIN {{counter}} από {{length}}",
+    "label": "Πεδίο PIN"
+  },
+  "organisationGate": {
+    "errorTitle": "Δεν ήταν δυνατή η φόρτωση των οργανισμών σας",
+    "errorDescription": "Ελέγξτε τη σύνδεσή σας και δοκιμάστε ξανά.",
+    "retry": "Δοκιμή ξανά",
+    "signOut": "Αποσύνδεση",
+    "emptyTitle": "Δεν υπάρχει ακόμη οργανισμός",
+    "emptyDescription": "Ανανεώστε τη σελίδα για να ρυθμίσετε τον χώρο εργασίας σας.",
+    "reload": "Ανανέωση"
+  },
+  "requirePermission": {
+    "title": "Ο ρόλος σας δεν το επιτρέπει",
+    "description": "Δεν έχετε πρόσβαση σε αυτή τη σελίδα. Ζητήστε από έναν ιδιοκτήτη να αλλάξει τα δικαιώματα του ρόλου σας.",
+    "descriptionWithOrg": "Ο ρόλος σας στον οργανισμό {{organisation}} (ρόλος: {{role}}) δεν έχει πρόσβαση σε αυτή τη σελίδα. Ζητήστε από έναν ιδιοκτήτη να αλλάξει τα δικαιώματα του ρόλου σας.",
+    "back": "Επιστροφή στον πίνακα ελέγχου"
+  },
+  "toasts": {
+    "assistantAgents": {
+      "coPilotCreated": "Το co-pilot δημιουργήθηκε",
+      "coPilotDuplicated": "Το co-pilot αντιγράφηκε",
+      "defaultCoPilotUpdated": "Το προεπιλεγμένο co-pilot ενημερώθηκε",
+      "coPilotArchived": "Το co-pilot αρχειοθετήθηκε",
+      "coPilotRestored": "Το co-pilot επαναφέρθηκε",
+      "coPilotDeleted": "Το co-pilot διαγράφηκε",
+      "couldNotCreateTheCoPilot": "Δεν ήταν δυνατή η δημιουργία του co-pilot",
+      "changesSaved": "Οι αλλαγές αποθηκεύτηκαν",
+      "couldNotSaveChanges": "Δεν ήταν δυνατή η αποθήκευση των αλλαγών",
+      "couldNotDuplicate": "Δεν ήταν δυνατή η αντιγραφή",
+      "couldNotSetDefault": "Δεν ήταν δυνατός ο ορισμός ως προεπιλογής",
+      "couldNotUpdateTheCoPilot": "Δεν ήταν δυνατή η ενημέρωση του co-pilot",
+      "couldNotDeleteTheCoPilot": "Δεν ήταν δυνατή η διαγραφή του co-pilot",
+      "readyToUse": "Το {{name}} είναι έτοιμο για χρήση."
+    },
+    "calls": {
+      "callStarted": "Η κλήση ξεκίνησε",
+      "callUpdated": "Η κλήση ενημερώθηκε",
+      "savedToYourCallLibrary": "Αποθηκεύτηκε στη βιβλιοθήκη κλήσεών σας.",
+      "bookmarkRemoved": "Ο σελιδοδείκτης αφαιρέθηκε",
+      "speakerUpdated": "Ο ομιλητής ενημερώθηκε",
+      "theCoPilotIsListening": "Το co-pilot ακούει.",
+      "couldNotStartTheCall": "Δεν ήταν δυνατή η έναρξη της κλήσης",
+      "practiceSessionReady": "Η συνεδρία εξάσκησης είναι έτοιμη",
+      "couldNotStartThePracticeSession": "Δεν ήταν δυνατή η έναρξη της συνεδρίας εξάσκησης",
+      "couldNotUpdateTheCall": "Δεν ήταν δυνατή η ενημέρωση της κλήσης",
+      "callEnded": "Η κλήση τελείωσε",
+      "yourPerformanceReportIsBeingPrepared": "Η αναφορά απόδοσής σας ετοιμάζεται.",
+      "couldNotEndTheCall": "Δεν ήταν δυνατός ο τερματισμός της κλήσης",
+      "callPermanentlyDeleted": "Η κλήση διαγράφηκε οριστικά",
+      "couldNotDeleteTheCall": "Δεν ήταν δυνατή η διαγραφή της κλήσης",
+      "thanksForTheFeedback": "Ευχαριστούμε για την ανατροφοδότηση",
+      "couldNotUpdateTheSuggestion": "Δεν ήταν δυνατή η ενημέρωση της πρότασης",
+      "noAnswer": "Καμία απάντηση",
+      "momentBookmarked": "Η στιγμή προστέθηκε στους σελιδοδείκτες",
+      "couldNotBookmark": "Δεν ήταν δυνατή η προσθήκη σελιδοδείκτη",
+      "couldNotRemoveTheBookmark": "Δεν ήταν δυνατή η αφαίρεση του σελιδοδείκτη",
+      "couldNotUpdateTheSpeaker": "Δεν ήταν δυνατή η ενημέρωση του ομιλητή",
+      "recordingSaved": "Η εγγραφή αποθηκεύτηκε",
+      "recordingUploadFailed": "Η μεταφόρτωση της εγγραφής απέτυχε",
+      "recordingPermanentlyDeleted": "Η εγγραφή διαγράφηκε οριστικά",
+      "transcriptAndAnalysisWereKept": "Η απομαγνητοφώνηση και η ανάλυση διατηρήθηκαν.",
+      "couldNotDeleteTheRecording": "Δεν ήταν δυνατή η διαγραφή της εγγραφής",
+      "transcriptPermanentlyDeleted": "Η απομαγνητοφώνηση διαγράφηκε οριστικά",
+      "couldNotDeleteTheTranscript": "Δεν ήταν δυνατή η διαγραφή της απομαγνητοφώνησης",
+      "analysisStarted": "Η ανάλυση ξεκίνησε",
+      "thisUsuallyTakesUnderAMinute": "Συνήθως διαρκεί λιγότερο από ένα λεπτό.",
+      "couldNotStartTheAnalysis": "Δεν ήταν δυνατή η έναρξη της ανάλυσης"
+    },
+    "organisations": {
+      "roleUpdated": "Ο ρόλος ενημερώθηκε",
+      "memberRemoved": "Το μέλος αφαιρέθηκε",
+      "organisationCreated": "Ο οργανισμός δημιουργήθηκε",
+      "couldNotCreateTheOrganisation": "Δεν ήταν δυνατή η δημιουργία του οργανισμού",
+      "organisationRenamed": "Ο οργανισμός μετονομάστηκε",
+      "couldNotRenameTheOrganisation": "Δεν ήταν δυνατή η μετονομασία του οργανισμού",
+      "organisationPermanentlyDeleted": "Ο οργανισμός διαγράφηκε οριστικά",
+      "couldNotDeleteTheOrganisation": "Δεν ήταν δυνατή η διαγραφή του οργανισμού",
+      "couldNotChangeTheRole": "Δεν ήταν δυνατή η αλλαγή του ρόλου",
+      "couldNotRemoveTheMember": "Δεν ήταν δυνατή η αφαίρεση του μέλους",
+      "permissionsSaved": "Τα δικαιώματα αποθηκεύτηκαν",
+      "theChangeAppliesToEveryoneWith": "Η αλλαγή ισχύει αμέσως για όλους με αυτόν τον ρόλο.",
+      "couldNotSavePermissions": "Δεν ήταν δυνατή η αποθήκευση των δικαιωμάτων",
+      "permissionsResetToThePreset": "Τα δικαιώματα επαναφέρθηκαν στην προεπιλογή",
+      "couldNotResetPermissions": "Δεν ήταν δυνατή η επαναφορά των δικαιωμάτων",
+      "invitationSent": "Η πρόσκληση στάλθηκε",
+      "invitationCreated": "Η πρόσκληση δημιουργήθηκε",
+      "couldNotSendTheInvitation": "Δεν ήταν δυνατή η αποστολή της πρόσκλησης",
+      "invitationResent": "Η πρόσκληση στάλθηκε ξανά",
+      "newLinkCreated": "Δημιουργήθηκε νέος σύνδεσμος",
+      "couldNotResendTheInvitation": "Δεν ήταν δυνατή η επαναποστολή της πρόσκλησης",
+      "invitationRevoked": "Η πρόσκληση ανακλήθηκε",
+      "theLinkNoLongerWorks": "Ο σύνδεσμος δεν λειτουργεί πλέον.",
+      "couldNotRevokeTheInvitation": "Δεν ήταν δυνατή η ανάκληση της πρόσκλησης",
+      "youCanSwitchOrganisationsFromThe": "Μπορείτε να αλλάξετε οργανισμό από την πλαϊνή γραμμή οποιαδήποτε στιγμή.",
+      "couldNotAcceptTheInvitation": "Δεν ήταν δυνατή η αποδοχή της πρόσκλησης",
+      "workingIn": "Τώρα εργάζεστε στον οργανισμό {{name}}.",
+      "emailedTo": "Στείλαμε email στη διεύθυνση {{email}}.",
+      "emailedFresh": "Στείλαμε νέο σύνδεσμο με email στη διεύθυνση {{email}}.",
+      "welcomeTo": "Καλώς ήρθατε στον οργανισμό {{name}}",
+      "emailUnavailableInvite": "Το email δεν είναι διαθέσιμο αυτή τη στιγμή. Αντιγράψτε τον σύνδεσμο πρόσκλησης και μοιραστείτε τον μόνοι σας.",
+      "emailUnavailableLink": "Το email δεν είναι διαθέσιμο αυτή τη στιγμή. Αντιγράψτε τον νέο σύνδεσμο και μοιραστείτε τον μόνοι σας."
+    },
+    "practiceAgents": {
+      "prospectCreated": "Ο υποψήφιος πελάτης δημιουργήθηκε",
+      "prospectRecreatedFromTheCall": "Ο υποψήφιος πελάτης δημιουργήθηκε ξανά από την κλήση",
+      "prospectDuplicated": "Ο υποψήφιος πελάτης αντιγράφηκε",
+      "prospectArchived": "Ο υποψήφιος πελάτης αρχειοθετήθηκε",
+      "prospectRestored": "Ο υποψήφιος πελάτης επαναφέρθηκε",
+      "prospectDeleted": "Ο υποψήφιος πελάτης διαγράφηκε",
+      "couldNotCreateTheProspect": "Δεν ήταν δυνατή η δημιουργία του υποψήφιου πελάτη",
+      "changesSaved": "Οι αλλαγές αποθηκεύτηκαν",
+      "couldNotSaveChanges": "Δεν ήταν δυνατή η αποθήκευση των αλλαγών",
+      "prospectGenerated": "Ο υποψήφιος πελάτης δημιουργήθηκε",
+      "reviewAndAdjustTheDetailsThen": "Ελέγξτε και προσαρμόστε τις λεπτομέρειες και μετά αποθηκεύστε.",
+      "couldNotGenerateTheProspect": "Δεν ήταν δυνατή η δημιουργία του υποψήφιου πελάτη",
+      "randomProspectReady": "Ο τυχαίος υποψήφιος πελάτης είναι έτοιμος",
+      "reviewItThenSave": "Ελέγξτε τον και μετά αποθηκεύστε.",
+      "couldNotGenerateARandomProspect": "Δεν ήταν δυνατή η δημιουργία τυχαίου υποψήφιου πελάτη",
+      "couldNotRecreateTheProspect": "Δεν ήταν δυνατή η αναδημιουργία του υποψήφιου πελάτη",
+      "couldNotDuplicate": "Δεν ήταν δυνατή η αντιγραφή",
+      "harderVersionCreated": "Δημιουργήθηκε δυσκολότερη έκδοση",
+      "couldNotCreateAHarderVersion": "Δεν ήταν δυνατή η δημιουργία δυσκολότερης έκδοσης",
+      "couldNotUpdateTheProspect": "Δεν ήταν δυνατή η ενημέρωση του υποψήφιου πελάτη",
+      "couldNotDeleteTheProspect": "Δεν ήταν δυνατή η διαγραφή του υποψήφιου πελάτη"
+    },
+    "auth": {
+      "loginSuccessful": "Επιτυχής σύνδεση",
+      "youHaveSuccessfullyLoggedIn": "Συνδεθήκατε με επιτυχία",
+      "couldNotSignIn": "Δεν ήταν δυνατή η σύνδεση",
+      "anUnexpectedErrorOccurred": "Παρουσιάστηκε μη αναμενόμενο σφάλμα",
+      "welcomeToCallzen": "Καλώς ήρθατε στο CallZen",
+      "yourAccountIsReady": "Ο λογαριασμός σας είναι έτοιμος.",
+      "couldNotSignUp": "Δεν ήταν δυνατή η εγγραφή",
+      "adminLoginSuccessful": "Επιτυχής σύνδεση διαχειριστή",
+      "youHaveSuccessfullyLoggedInAs": "Συνδεθήκατε με επιτυχία ως διαχειριστής",
+      "couldNotAdminLoginToAccount": "Δεν ήταν δυνατή η σύνδεση στον λογαριασμό ως διαχειριστής"
+    },
+    "user": {
+      "settingsSaved": "Οι ρυθμίσεις αποθηκεύτηκαν",
+      "couldNotSaveSettings": "Δεν ήταν δυνατή η αποθήκευση των ρυθμίσεων",
+      "accountDeleted": "Ο λογαριασμός διαγράφηκε",
+      "allYourDataWasPermanentlyRemoved": "Όλα τα δεδομένα σας διαγράφηκαν οριστικά.",
+      "couldNotDeleteYourAccount": "Δεν ήταν δυνατή η διαγραφή του λογαριασμού σας"
+    }
+  },
+  "errors": {
+    "calls": {
+      "failedToLoadCalls": "Αποτυχία φόρτωσης των κλήσεων.",
+      "failedToLoadTheCall": "Αποτυχία φόρτωσης της κλήσης.",
+      "failedToStartTheCall": "Αποτυχία έναρξης της κλήσης.",
+      "failedToUpdateTheCall": "Αποτυχία ενημέρωσης της κλήσης.",
+      "failedToDeleteTheCall": "Αποτυχία διαγραφής της κλήσης.",
+      "failedToUpdateTheSpeaker": "Αποτυχία ενημέρωσης του ομιλητή.",
+      "failedToAddTheBookmark": "Αποτυχία προσθήκης του σελιδοδείκτη.",
+      "failedToRemoveTheBookmark": "Αποτυχία αφαίρεσης του σελιδοδείκτη.",
+      "failedToStartThePracticeSession": "Αποτυχία έναρξης της συνεδρίας εξάσκησης.",
+      "failedToEndTheCall": "Αποτυχία τερματισμού της κλήσης.",
+      "failedToSaveTheTranscript": "Αποτυχία αποθήκευσης της απομαγνητοφώνησης.",
+      "failedToDeleteTheTranscript": "Αποτυχία διαγραφής της απομαγνητοφώνησης.",
+      "failedToGenerateASuggestion": "Αποτυχία δημιουργίας πρότασης.",
+      "failedToUpdateTheSuggestion": "Αποτυχία ενημέρωσης της πρότασης.",
+      "theCoPilotCouldNotAnswer": "Το co-pilot δεν μπόρεσε να απαντήσει αυτή τη στιγμή.",
+      "failedToUploadTheRecording": "Αποτυχία μεταφόρτωσης της εγγραφής.",
+      "failedToLoadTheRecording": "Αποτυχία φόρτωσης της εγγραφής.",
+      "failedToDeleteTheRecording": "Αποτυχία διαγραφής της εγγραφής.",
+      "failedToStartTheAnalysis": "Αποτυχία έναρξης της ανάλυσης.",
+      "couldNotStartTheRealtimeAudio": "Δεν ήταν δυνατή η έναρξη της συνεδρίας ήχου πραγματικού χρόνου.",
+      "theProspectDidNotRespondTry": "Ο υποψήφιος πελάτης δεν απάντησε. Δοκιμάστε ξανά.",
+      "couldNotConnectToTheRealtime": "Δεν ήταν δυνατή η σύνδεση με την υπηρεσία ήχου πραγματικού χρόνου."
+    },
+    "dashboard": {
+      "failedToLoadYourProgress": "Αποτυχία φόρτωσης της προόδου σας."
+    },
+    "organisations": {
+      "failedToLoadMembers": "Αποτυχία φόρτωσης των μελών.",
+      "failedToRemoveTheMember": "Αποτυχία αφαίρεσης του μέλους.",
+      "failedToLoadRoles": "Αποτυχία φόρτωσης των ρόλων.",
+      "failedToLoadYourOrganisations": "Αποτυχία φόρτωσης των οργανισμών σας.",
+      "failedToLoadPermissions": "Αποτυχία φόρτωσης των δικαιωμάτων.",
+      "failedToCreateTheOrganisation": "Αποτυχία δημιουργίας του οργανισμού.",
+      "failedToRenameTheOrganisation": "Αποτυχία μετονομασίας του οργανισμού.",
+      "failedToDeleteTheOrganisation": "Αποτυχία διαγραφής του οργανισμού.",
+      "failedToChangeTheRole": "Αποτυχία αλλαγής του ρόλου.",
+      "failedToSavePermissions": "Αποτυχία αποθήκευσης των δικαιωμάτων.",
+      "failedToResetPermissions": "Αποτυχία επαναφοράς των δικαιωμάτων.",
+      "failedToLoadInvitations": "Αποτυχία φόρτωσης των προσκλήσεων.",
+      "failedToSendTheInvitation": "Αποτυχία αποστολής της πρόσκλησης.",
+      "failedToResendTheInvitation": "Αποτυχία επαναποστολής της πρόσκλησης.",
+      "failedToRevokeTheInvitation": "Αποτυχία ανάκλησης της πρόσκλησης.",
+      "thisInvitationLinkIsNotValid": "Αυτός ο σύνδεσμος πρόσκλησης δεν είναι έγκυρος.",
+      "failedToLoadYourInvitations": "Αποτυχία φόρτωσης των προσκλήσεών σας.",
+      "failedToAcceptTheInvitation": "Αποτυχία αποδοχής της πρόσκλησης."
+    },
+    "practiceAgents": {
+      "failedToLoadPracticeProspects": "Αποτυχία φόρτωσης των υποψήφιων πελατών εξάσκησης.",
+      "failedToLoadThePracticeProspect": "Αποτυχία φόρτωσης του υποψήφιου πελάτη εξάσκησης.",
+      "failedToCreateThePracticeProspect": "Αποτυχία δημιουργίας του υποψήφιου πελάτη εξάσκησης.",
+      "failedToSaveThePracticeProspect": "Αποτυχία αποθήκευσης του υποψήφιου πελάτη εξάσκησης.",
+      "failedToRecreateTheProspectFrom": "Αποτυχία αναδημιουργίας του υποψήφιου πελάτη από αυτή την κλήση.",
+      "failedToDuplicateTheProspect": "Αποτυχία αντιγραφής του υποψήφιου πελάτη.",
+      "failedToUpdateTheProspect": "Αποτυχία ενημέρωσης του υποψήφιου πελάτη.",
+      "failedToDeleteTheProspect": "Αποτυχία διαγραφής του υποψήφιου πελάτη.",
+      "failedToGenerateTheProspectPlease": "Αποτυχία δημιουργίας του υποψήφιου πελάτη. Δοκιμάστε ξανά.",
+      "failedToGenerateARandomProspect": "Αποτυχία δημιουργίας τυχαίου υποψήφιου πελάτη. Δοκιμάστε ξανά.",
+      "failedToCreateAHarderVersion": "Αποτυχία δημιουργίας δυσκολότερης έκδοσης."
+    },
+    "usage": {
+      "failedToLoadUsage": "Αποτυχία φόρτωσης της χρήσης."
+    },
+    "user": {
+      "failedToLoadYourProfile": "Αποτυχία φόρτωσης του προφίλ σας.",
+      "failedToSaveYourSettings": "Αποτυχία αποθήκευσης των ρυθμίσεών σας.",
+      "failedToDeleteYourAccount": "Αποτυχία διαγραφής του λογαριασμού σας."
+    },
+    "assistantAgents": {
+      "failedToLoadAssistantAgents": "Αποτυχία φόρτωσης των πρακτόρων βοηθού.",
+      "failedToLoadTheAssistantAgent": "Αποτυχία φόρτωσης του πράκτορα βοηθού.",
+      "failedToCreateTheAssistantAgent": "Αποτυχία δημιουργίας του πράκτορα βοηθού.",
+      "failedToSaveTheAssistantAgent": "Αποτυχία αποθήκευσης του πράκτορα βοηθού.",
+      "failedToDuplicateTheAssistantAgent": "Αποτυχία αντιγραφής του πράκτορα βοηθού.",
+      "failedToSetTheDefaultAgent": "Αποτυχία ορισμού του προεπιλεγμένου πράκτορα.",
+      "failedToUpdateTheAgent": "Αποτυχία ενημέρωσης του πράκτορα.",
+      "failedToDeleteTheAssistantAgent": "Αποτυχία διαγραφής του πράκτορα βοηθού."
+    },
+    "auth": {
+      "failedToSignInPleaseTry": "Αποτυχία σύνδεσης. Δοκιμάστε ξανά.",
+      "failedToSignUpPleaseTry": "Αποτυχία εγγραφής. Δοκιμάστε ξανά.",
+      "failedToRefreshAccountTokenPlease": "Αποτυχία ανανέωσης του διακριτικού λογαριασμού. Δοκιμάστε ξανά.",
+      "failedToAdminLoginToAccount": "Αποτυχία σύνδεσης στον λογαριασμό ως διαχειριστής. Δοκιμάστε ξανά."
+    },
+    "catalog": {
+      "failedToLoadModelsAndTemplates": "Αποτυχία φόρτωσης των μοντέλων και των προτύπων."
+    },
+    "googleMaps": {
+      "failedToFetchTimezonePleaseTry": "Αποτυχία ανάκτησης της ζώνης ώρας. Δοκιμάστε ξανά."
+    },
+    "health": {
+      "failedToFetchHealthStatusPlease": "Αποτυχία ανάκτησης της κατάστασης λειτουργίας. Δοκιμάστε ξανά."
+    },
+    "lib": {
+      "network": "Δεν είναι δυνατή η σύνδεση με τον διακομιστή. Ελέγξτε τη σύνδεσή σας και δοκιμάστε ξανά."
+    },
+    "audio": {
+      "speechUnsupported": "Η αναγνώριση ομιλίας δεν υποστηρίζεται σε αυτό το πρόγραμμα περιήγησης. Χρησιμοποιήστε Chrome ή Edge.",
+      "speechBlocked": "Η πρόσβαση στο μικρόφωνο για την αναγνώριση ομιλίας αποκλείστηκε.",
+      "micUnsupported": "Αυτό το πρόγραμμα περιήγησης δεν υποστηρίζει καταγραφή από μικρόφωνο. Δοκιμάστε την τελευταία έκδοση των Chrome, Edge ή Safari.",
+      "micBlocked": "Η πρόσβαση στο μικρόφωνο αποκλείστηκε. Επιτρέψτε την από τις ρυθμίσεις ιστότοπου του προγράμματος περιήγησής σας και δοκιμάστε ξανά.",
+      "micNotFound": "Δεν βρέθηκε μικρόφωνο. Συνδέστε ένα και δοκιμάστε ξανά.",
+      "micFailed": "Δεν ήταν δυνατή η πρόσβαση στο μικρόφωνο.",
+      "tabUnsupported": "Η καταγραφή του ήχου της σύσκεψης απαιτεί πρόγραμμα περιήγησης για υπολογιστή, όπως Chrome ή Edge.",
+      "shareCancelled": "Η κοινή χρήση οθόνης ακυρώθηκε. Επιλέξτε την καρτέλα της σύσκεψής σας και ενεργοποιήστε την επιλογή \"Κοινή χρήση ήχου καρτέλας\".",
+      "noAudioShared": "Δεν μοιράστηκε ήχος. Επιλέξτε την καρτέλα του προγράμματος περιήγησης της σύσκεψης και ενεργοποιήστε την επιλογή \"Κοινή χρήση ήχου καρτέλας\".",
+      "realtimeTimeout": "Το κανάλι δεδομένων πραγματικού χρόνου δεν άνοιξε εγκαίρως"
+    },
+    "websocket": {
+      "notConnected": "Το WebSocket δεν είναι συνδεδεμένο",
+      "timeout": "Λήξη χρονικού ορίου αποστολής μέσω WebSocket"
+    }
+  }
+}

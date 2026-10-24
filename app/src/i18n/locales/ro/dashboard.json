@@ -1,0 +1,118 @@
+{
+  "title": "Panou de control",
+  "greeting": "Salut, {{name}}",
+  "descriptionTeam": "Cum se descurcă toți cei din {{organisation}}.",
+  "defaultOrganisation": "organizația ta",
+  "descriptionMe": "Performanța ta la apelurile live și la exerciții și ce să lucrezi în continuare.",
+  "scope": {
+    "me": "Eu",
+    "team": "Echipă"
+  },
+  "period": "Perioadă",
+  "practice": "Exersare",
+  "stats": {
+    "averageScore": "Scor mediu",
+    "averageScoreHint": "Live {{live}} · Exersare {{practice}}",
+    "calls": "Apeluri",
+    "callsHint": "{{live}} live · {{practice}} de exersare",
+    "meetingsBooked": "Întâlniri programate",
+    "fromLiveCalls": "Din apeluri live",
+    "practiceStreak": "Serie de exersare",
+    "streakDays": "{{count}} z",
+    "talkMinutes": "{{minutes}} min în apeluri"
+  },
+  "gettingStarted": {
+    "heading": "Configurează în trei pași",
+    "subheading": "Majoritatea oamenilor termină în mai puțin de cinci minute.",
+    "createCopilot": {
+      "title": "Creează-ți copilotul",
+      "text": "Pornește de la un șablon: script, obiecții și obiectiv dintr-un clic.",
+      "cta": "Creează copilot"
+    },
+    "waitCopilot": {
+      "title": "Așteaptă un copilot",
+      "text": "Un administrator al acestei organizații configurează copiloții pe care îi vei folosi. Întreabă-l dacă încă nu există niciunul disponibil.",
+      "cta": "Vezi organizația"
+    },
+    "practice": {
+      "title": "Repetă cu un prospect IA",
+      "text": "Vorbește cu voce tare cu un prospect realist, iar copilotul te îndrumă.",
+      "cta": "Exersează acum"
+    },
+    "firstCall": {
+      "title": "Fă primul tău apel asistat",
+      "text": "Telefon pe difuzor sau o întâlnire online. Primești sugestii în timp real.",
+      "cta": "Începe un apel"
+    }
+  },
+  "highlights": {
+    "title": "Repere",
+    "empty": "După câteva apeluri analizate vei vedea aici ce se îmbunătățește și ce necesită atenție."
+  },
+  "outcomes": {
+    "title": "Rezultatele apelurilor live",
+    "subtitle": "Ponderea apelurilor cu un rezultat înregistrat",
+    "empty": "Înregistrează rezultatele la sfârșitul apelurilor live pentru a lega performanța de rezultate."
+  },
+  "invitations": {
+    "title": "Ai fost invitat",
+    "from": "De la {{name}}",
+    "expires": "expiră {{when}}",
+    "accept": "Acceptă"
+  },
+  "practiceProgress": {
+    "title": "Progresul exersării",
+    "withCopilot": "Cu copilot",
+    "onYourOwn": "Pe cont propriu",
+    "empty": "Nicio sesiune de exersare în această perioadă.",
+    "tabs": {
+      "level": "Nivel",
+      "lead": "Lead",
+      "scenario": "Scenariu",
+      "copilot": "Copilot"
+    },
+    "columns": {
+      "group": "Grup",
+      "sessions": "Sesiuni",
+      "won": "Reușite",
+      "avg": "Medie"
+    }
+  },
+  "recentCalls": {
+    "title": "Apeluri recente",
+    "viewAll": "Vezi toate",
+    "empty": "Încă nu există apeluri."
+  },
+  "recommended": {
+    "title": "Exersare recomandată",
+    "subtitle": "Scenarii create pe baza punctelor tale slabe recente",
+    "empty": "Recomandările apar după primul tău apel analizat. Între timp, încearcă un scenariu gata făcut.",
+    "browse": "Răsfoiește scenariile",
+    "preparing": "Se pregătește…",
+    "practice": "Exersează"
+  },
+  "mistakes": {
+    "title": "Greșeli recurente",
+    "subtitle": "Din ultimele tale 20 de apeluri analizate",
+    "empty": "Încă nu există tipare. Continuă.",
+    "callsAffected_one": "{{count}} apel",
+    "callsAffected_few": "{{count}} apeluri",
+    "callsAffected_other": "{{count}} de apeluri",
+    "viewCall": "Vezi apelul"
+  },
+  "scoreTrend": {
+    "title": "Evoluția scorului",
+    "subtitle": "Fiecare apel analizat, de la cel mai vechi la cel mai nou",
+    "emptyTitle": "Încă nu sunt suficiente date",
+    "emptyDescription": "Evoluția apare după două apeluri analizate sau sesiuni de exersare.",
+    "liveCalls": "Apeluri live",
+    "practice": "Exersare"
+  },
+  "skills": {
+    "title": "Abilități",
+    "subtitle": "Cele mai slabe primele. Barele compară apelurile live cu exersarea.",
+    "empty": "Scorurile abilităților apar după primul tău apel analizat.",
+    "live": "Live",
+    "practice": "Exersare"
+  }
+}

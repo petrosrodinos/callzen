@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import { cn } from "@/lib/utils";
 
 interface RecordingIndicatorProps {
@@ -6,11 +7,11 @@ interface RecordingIndicatorProps {
 }
 
 const LABELS: Record<RecordingIndicatorProps["state"], string> = {
-  recording: "Recording",
-  listening: "Listening · not recorded",
-  paused: "Paused",
-  off: "Not capturing",
-  connecting: "Connecting…",
+  recording: i18n.t("common:recording.recording"),
+  listening: i18n.t("common:recording.listening"),
+  paused: i18n.t("common:recording.paused"),
+  off: i18n.t("common:recording.off"),
+  connecting: i18n.t("common:recording.connecting"),
 };
 
 export function RecordingIndicator({ state, className }: RecordingIndicatorProps) {

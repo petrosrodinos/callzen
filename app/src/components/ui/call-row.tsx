@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import { Link } from "react-router-dom";
 import {
   CheckCircle2,
@@ -59,14 +60,14 @@ export function CallRow({ call }: { call: CallListItem }) {
           <p className="truncate text-sm font-medium">
             {call.title ??
               call.prospect_name ??
-              (isPractice ? "Practice session" : "Untitled call")}
+              (isPractice ? i18n.t("common:callRow.practiceSession") : i18n.t("common:callRow.untitled"))}
           </p>
           {isPractice && (
             <Badge
               variant="outline"
               className="hidden shrink-0 border-amber-500/40 text-amber-700 sm:inline-flex dark:text-amber-300"
             >
-              Practice
+              {i18n.t("common:callRow.practice")}
             </Badge>
           )}
         </div>
@@ -97,7 +98,7 @@ export function CallRow({ call }: { call: CallListItem }) {
             ) : (
               <XCircle className="size-3.5" />
             )}
-            {call.objective_achieved ? "Objective met" : "Not met"}
+            {call.objective_achieved ? i18n.t("common:callRow.objectiveMet") : i18n.t("common:callRow.notMet")}
           </span>
         )}
       </div>
@@ -105,10 +106,10 @@ export function CallRow({ call }: { call: CallListItem }) {
         {call.status === CallStatuses.ANALYZING ? (
           <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
             <Loader2 className="size-3.5 animate-spin" />
-            <span className="hidden sm:inline">Analyzing</span>
+            <span className="hidden sm:inline">{i18n.t("common:callRow.analyzing")}</span>
           </span>
         ) : call.status === CallStatuses.IN_PROGRESS ? (
-          <Badge variant="destructive">Live</Badge>
+          <Badge variant="destructive">{i18n.t("common:callRow.live")}</Badge>
         ) : call.score != null ? (
           <ScoreBadge score={call.score} />
         ) : (

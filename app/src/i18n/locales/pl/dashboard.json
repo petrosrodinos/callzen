@@ -1,0 +1,119 @@
+{
+  "title": "Pulpit",
+  "greeting": "Cześć, {{name}}",
+  "descriptionTeam": "Jak radzą sobie wszyscy w organizacji {{organisation}}.",
+  "defaultOrganisation": "Twoja organizacja",
+  "descriptionMe": "Twoje wyniki w rozmowach na żywo i w ćwiczeniach oraz to, nad czym warto pracować dalej.",
+  "scope": {
+    "me": "Ja",
+    "team": "Zespół"
+  },
+  "period": "Okres",
+  "practice": "Ćwiczenia",
+  "stats": {
+    "averageScore": "Średni wynik",
+    "averageScoreHint": "Na żywo {{live}} · Ćwiczenia {{practice}}",
+    "calls": "Rozmowy",
+    "callsHint": "{{live}} na żywo · {{practice}} ćwiczeń",
+    "meetingsBooked": "Umówione spotkania",
+    "fromLiveCalls": "Z rozmów na żywo",
+    "practiceStreak": "Seria ćwiczeń",
+    "streakDays": "{{count}} d.",
+    "talkMinutes": "{{minutes}} min w rozmowach"
+  },
+  "gettingStarted": {
+    "heading": "Konfiguracja w trzech krokach",
+    "subheading": "Większość osób kończy w mniej niż pięć minut.",
+    "createCopilot": {
+      "title": "Stwórz swojego asystenta",
+      "text": "Zacznij od szablonu: skrypt, obiekcje i cel jednym kliknięciem.",
+      "cta": "Utwórz asystenta"
+    },
+    "waitCopilot": {
+      "title": "Poczekaj na asystenta",
+      "text": "Administrator tej organizacji konfiguruje asystentów, z których będziesz korzystać. Zapytaj go, jeśli żaden nie jest jeszcze dostępny.",
+      "cta": "Zobacz organizację"
+    },
+    "practice": {
+      "title": "Poćwicz z klientem AI",
+      "text": "Mów na głos do realistycznego klienta, a asystent będzie Cię coachować.",
+      "cta": "Ćwicz teraz"
+    },
+    "firstCall": {
+      "title": "Odbądź pierwszą rozmowę z asystą",
+      "text": "Telefon na głośniku lub spotkanie online. Otrzymuj podpowiedzi na żywo.",
+      "cta": "Rozpocznij rozmowę"
+    }
+  },
+  "highlights": {
+    "title": "Najważniejsze",
+    "empty": "Po kilku przeanalizowanych rozmowach zobaczysz tutaj, co się poprawia, a co wymaga uwagi."
+  },
+  "outcomes": {
+    "title": "Wyniki rozmów na żywo",
+    "subtitle": "Odsetek rozmów z zapisanym wynikiem",
+    "empty": "Zapisuj wyniki na końcu rozmów na żywo, aby powiązać skuteczność z rezultatami."
+  },
+  "invitations": {
+    "title": "Otrzymano zaproszenie",
+    "from": "Od {{name}}",
+    "expires": "wygasa {{when}}",
+    "accept": "Akceptuj"
+  },
+  "practiceProgress": {
+    "title": "Postępy w ćwiczeniach",
+    "withCopilot": "Z asystentem",
+    "onYourOwn": "Samodzielnie",
+    "empty": "Brak sesji ćwiczeniowych w tym okresie.",
+    "tabs": {
+      "level": "Poziom",
+      "lead": "Lead",
+      "scenario": "Scenariusz",
+      "copilot": "Asystent"
+    },
+    "columns": {
+      "group": "Grupa",
+      "sessions": "Sesje",
+      "won": "Udane",
+      "avg": "Śr."
+    }
+  },
+  "recentCalls": {
+    "title": "Ostatnie rozmowy",
+    "viewAll": "Zobacz wszystkie",
+    "empty": "Brak rozmów."
+  },
+  "recommended": {
+    "title": "Polecane ćwiczenia",
+    "subtitle": "Scenariusze oparte na Twoich ostatnich słabych punktach",
+    "empty": "Rekomendacje pojawią się po Twojej pierwszej przeanalizowanej rozmowie. Tymczasem wypróbuj gotowy scenariusz.",
+    "browse": "Przeglądaj scenariusze",
+    "preparing": "Przygotowywanie…",
+    "practice": "Ćwicz"
+  },
+  "mistakes": {
+    "title": "Powtarzające się błędy",
+    "subtitle": "Z Twoich ostatnich 20 przeanalizowanych rozmów",
+    "empty": "Brak wzorców. Tak trzymaj.",
+    "callsAffected_one": "{{count}} rozmowa",
+    "callsAffected_few": "{{count}} rozmowy",
+    "callsAffected_many": "{{count}} rozmów",
+    "callsAffected_other": "{{count}} rozmowy",
+    "viewCall": "Zobacz rozmowę"
+  },
+  "scoreTrend": {
+    "title": "Trend wyników",
+    "subtitle": "Każda przeanalizowana rozmowa, od najstarszej do najnowszej",
+    "emptyTitle": "Za mało danych",
+    "emptyDescription": "Trend pojawi się po dwóch przeanalizowanych rozmowach lub sesjach ćwiczeniowych.",
+    "liveCalls": "Rozmowy na żywo",
+    "practice": "Ćwiczenia"
+  },
+  "skills": {
+    "title": "Umiejętności",
+    "subtitle": "Najsłabsze na początku. Słupki porównują rozmowy na żywo z ćwiczeniami.",
+    "empty": "Wyniki umiejętności pojawią się po Twojej pierwszej przeanalizowanej rozmowie.",
+    "live": "Na żywo",
+    "practice": "Ćwiczenia"
+  }
+}

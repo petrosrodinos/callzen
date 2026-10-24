@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { FileUpload, FileUploadDropzone, FileUploadTrigger, FileUploadList, FileUploadItem, FileUploadItemPreview, FileUploadItemMetadata, FileUploadItemDelete, FileUploadClear, FileUploadItemProgress } from "@/components/ui/file-upload";
@@ -53,18 +54,18 @@ const ImagePicker = ({
   disabled = false,
   isUploading = false,
   isDeleting = false,
-  uploadText = "Upload images",
-  uploadSubtext = "Drag and drop images here, or click to browse",
-  fileTypeText = "Supports JPG, PNG, JPEG up to 10MB each",
+  uploadText = i18n.t("common:imagePicker.uploadText"),
+  uploadSubtext = i18n.t("common:imagePicker.uploadSubtext"),
+  fileTypeText = i18n.t("common:imagePicker.fileTypeText"),
   showExistingImages = true,
-  existingImagesTitle = "Existing Images",
+  existingImagesTitle = i18n.t("common:imagePicker.existingImages"),
   dropzoneClassName = "min-h-[200px]",
   showClearAll = true,
   variant = "default",
-  chooseButtonText = "Choose Images",
-  uploadingText = "Uploading images",
-  uploadingSubtext = "Please wait while your images are being uploaded",
-  uploadingButtonText = "Uploading...",
+  chooseButtonText = i18n.t("common:imagePicker.choose"),
+  uploadingText = i18n.t("common:imagePicker.uploading"),
+  uploadingSubtext = i18n.t("common:imagePicker.uploadingSubtext"),
+  uploadingButtonText = i18n.t("common:imagePicker.uploadingButton"),
 }: ImagePickerProps) => {
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
   const [imageToDelete, setImageToDelete] = useState<string | null>(null);
@@ -137,7 +138,7 @@ const ImagePicker = ({
 
   const handleFileReject = (file: File, message: string) => {
     toast({
-      title: "File rejected",
+      title: i18n.t("common:imagePicker.fileRejected"),
       description: `${file.name}: ${message}`,
       variant: "destructive",
     });
@@ -209,7 +210,7 @@ const ImagePicker = ({
           </div>
         )}
 
-        <ConfirmationDialog isOpen={isDeleteDialogOpen} onClose={handleCancelDelete} onConfirm={handleConfirmDelete} title="Delete Image" description="Are you sure you want to delete this image? This action cannot be undone." confirmText="Delete" cancelText="Cancel" variant="destructive" icon={<TrashIcon className="h-5 w-5" />} isLoading={isDeleting} />
+        <ConfirmationDialog isOpen={isDeleteDialogOpen} onClose={handleCancelDelete} onConfirm={handleConfirmDelete} title={i18n.t("common:imagePicker.deleteTitle")} description={i18n.t("common:imagePicker.deleteDescription")} variant="destructive" icon={<TrashIcon className="h-5 w-5" />} isLoading={isDeleting} />
       </>
     );
   }
@@ -252,7 +253,7 @@ const ImagePicker = ({
                 </FileUploadItemDelete>
               </div>
               <FileUploadItemMetadata className="mt-2 text-center">
-                <span className="text-xs text-muted-foreground">{file.type.startsWith("image/") ? "Image" : file.type}</span>
+                <span className="text-xs text-muted-foreground">{file.type.startsWith("image/") ? i18n.t("common:imagePicker.image") : file.type}</span>
               </FileUploadItemMetadata>
             </FileUploadItem>
           ))}
@@ -262,7 +263,7 @@ const ImagePicker = ({
           <div className="flex justify-end">
             <FileUploadClear asChild>
               <Button type="button" variant="outline" size="sm" disabled={disabled || isUploading}>
-                Clear All
+                {i18n.t("common:imagePicker.clearAll")}
               </Button>
             </FileUploadClear>
           </div>
@@ -315,7 +316,7 @@ const ImagePicker = ({
         </div>
       )}
 
-      <ConfirmationDialog isOpen={isDeleteDialogOpen} onClose={handleCancelDelete} onConfirm={handleConfirmDelete} title="Delete Image" description="Are you sure you want to delete this image? This action cannot be undone." confirmText="Delete" cancelText="Cancel" variant="destructive" icon={<TrashIcon className="h-5 w-5" />} isLoading={isDeleting} />
+      <ConfirmationDialog isOpen={isDeleteDialogOpen} onClose={handleCancelDelete} onConfirm={handleConfirmDelete} title={i18n.t("common:imagePicker.deleteTitle")} description={i18n.t("common:imagePicker.deleteDescription")} variant="destructive" icon={<TrashIcon className="h-5 w-5" />} isLoading={isDeleting} />
     </div>
   );
 };

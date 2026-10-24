@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Bot, Pencil, ThumbsDown, ThumbsUp } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -23,13 +24,15 @@ export function CopilotUsage({
   usage: SuggestionUsage;
   assistantAgentId: string | null;
 }) {
+  const { t } = useTranslation("library");
   const total = usage.followed + usage.adapted + usage.ignored || 1;
 
   return (
     <div className="space-y-4">
       <Card className="p-5">
         <h3 className="mb-3 flex items-center gap-2 font-semibold">
-          <Bot className="size-4 text-primary" /> How you used the co-pilot
+          <Bot className="size-4 text-primary" />{" "}
+          {t("detail.copilot.howYouUsed")}
         </h3>
         <div className="flex h-3 overflow-hidden rounded-full bg-muted">
           <div
@@ -43,14 +46,16 @@ export function CopilotUsage({
         </div>
         <p className="mt-2 text-sm">
           <span className="font-medium text-emerald-600">
-            {usage.followed} followed
+            {t("detail.copilot.followed", { count: usage.followed })}
           </span>{" "}
           ·{" "}
           <span className="font-medium text-sky-600">
-            {usage.adapted} adapted
+            {t("detail.copilot.adapted", { count: usage.adapted })}
           </span>{" "}
           ·{" "}
-          <span className="text-muted-foreground">{usage.ignored} ignored</span>
+          <span className="text-muted-foreground">
+            {t("detail.copilot.ignored", { count: usage.ignored })}
+          </span>
         </p>
         <p className="mt-3 text-sm">{usage.effect_on_outcome}</p>
       </Card>
@@ -58,11 +63,11 @@ export function CopilotUsage({
       {usage.copilot_improvements.length > 0 && (
         <Card className="p-5">
           <div className="mb-3 flex items-center justify-between gap-2">
-            <h3 className="font-semibold">Improve your co-pilot</h3>
+            <h3 className="font-semibold">{t("detail.copilot.improve")}</h3>
             {assistantAgentId && (
               <Button asChild size="sm" variant="outline">
                 <Link to={Routes.assistant_agents.detail(assistantAgentId)}>
-                  <Pencil /> Edit co-pilot
+                  <Pencil /> {t("detail.copilot.edit")}
                 </Link>
               </Button>
             )}
@@ -76,7 +81,9 @@ export function CopilotUsage({
       )}
 
       <Card className="p-5">
-        <h3 className="mb-3 font-semibold">Suggestion by suggestion</h3>
+        <h3 className="mb-3 font-semibold">
+          {t("detail.copilot.bySuggestion")}
+        </h3>
         <ul className="space-y-3">
           {usage.items.map((item) => (
             <li
@@ -94,12 +101,12 @@ export function CopilotUsage({
                 {item.helpful ? (
                   <ThumbsUp
                     className="size-3.5 text-emerald-600"
-                    aria-label="Helpful"
+                    aria-label={t("detail.copilot.helpful")}
                   />
                 ) : (
                   <ThumbsDown
                     className="size-3.5 text-muted-foreground"
-                    aria-label="Not helpful"
+                    aria-label={t("detail.copilot.notHelpful")}
                   />
                 )}
               </div>

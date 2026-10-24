@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { UserMinus } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -15,6 +16,7 @@ import { initials } from "@/lib/format";
 import { assignableRoles } from "../utils/role-rules.utils";
 
 export function MembersTab({ organisation }: { organisation: Organisation }) {
+  const { t } = useTranslation("organisation");
   const { can, role: myRole } = usePermissions();
   const { data: members, isPending } = useMembers(organisation.id);
   const updateRole = useUpdateMemberRole();
@@ -38,10 +40,10 @@ export function MembersTab({ organisation }: { organisation: Organisation }) {
                 <div className="min-w-0">
                   <p className="flex items-center gap-2 truncate text-sm font-medium">
                     <span className="truncate">{member.full_name || member.email}</span>
-                    {member.is_you && <Badge variant="outline">You</Badge>}
+                    {member.is_you && <Badge variant="outline">{t("members.you")}</Badge>}
                   </p>
                   <p className="truncate text-xs text-muted-foreground">
-                    {member.email} · joined {formatDate(member.joined_at)}
+                    {member.email} · {t("members.joined", { date: formatDate(member.joined_at) })}
                   </p>
                 </div>
               </div>
@@ -49,7 +51,7 @@ export function MembersTab({ organisation }: { organisation: Organisation }) {
               <div className="flex items-center gap-2 sm:shrink-0">
                 {canManage && member.can_change_role ? (
                   <Select value={member.role} onValueChange={(value) => updateRole.mutate({ orgId: organisation.id, memberId: member.id, role: value as OrgRole })} disabled={updateRole.isPending}>
-                    <SelectTrigger className="h-9 w-full sm:w-32" aria-label={`Role of ${member.full_name || member.email}`}>
+                    <SelectTrigger className="h-9 w-full sm:w-32" aria-label={t("members.roleOf", { name: member.full_name || member.email })}>
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -66,7 +68,7 @@ export function MembersTab({ organisation }: { organisation: Organisation }) {
                   </Badge>
                 )}
                 {canManage && member.can_remove && (
-                  <Button variant="ghost" size="icon" className="shrink-0 text-muted-foreground hover:text-destructive" onClick={() => setToRemove(member)} aria-label={`Remove ${member.full_name || member.email}`}>
+                  <Button variant="ghost" size="icon" className="shrink-0 text-muted-foreground hover:text-destructive" onClick={() => setToRemove(member)} aria-label={t("members.removeAria", { name: member.full_name || member.email })}>
                     <UserMinus />
                   </Button>
                 )}
@@ -80,9 +82,9 @@ export function MembersTab({ organisation }: { organisation: Organisation }) {
         isOpen={!!toRemove}
         onClose={() => setToRemove(null)}
         onConfirm={() => toRemove && remove.mutate({ orgId: organisation.id, memberId: toRemove.id }, { onSuccess: () => setToRemove(null) })}
-        title={`Remove ${toRemove?.full_name || toRemove?.email}?`}
-        description="They lose access to this organisation immediately. Calls they made stay in the organisation. They can be invited again later."
-        confirmText="Remove"
+        title={t("members.removeTitle", { name: toRemove?.full_name || toRemove?.email })}
+        description={t("members.removeDescription")}
+        confirmText={t("members.remove")}
         variant="destructive"
         isLoading={remove.isPending}
       />

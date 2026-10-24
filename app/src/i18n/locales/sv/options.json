@@ -1,0 +1,303 @@
+{
+  "agents": {
+    "status": {
+      "active": "Aktiva",
+      "archived": "Arkiverade",
+      "all": "Alla"
+    },
+    "modelSpeed": {
+      "fastest": "Snabbast",
+      "fast": "Snabb",
+      "balanced": "Balanserad",
+      "thorough": "Grundlig"
+    },
+    "relativeCost": {
+      "1": "Låg kostnad",
+      "2": "Måttlig kostnad",
+      "3": "Högre kostnad",
+      "4": "Premiumkostnad"
+    },
+    "alternatives": {
+      "none": "Inga",
+      "one": "1 alternativ",
+      "two": "2 alternativ"
+    },
+    "methodology": {
+      "spin": "SPIN Selling",
+      "bant": "BANT",
+      "meddic": "MEDDIC",
+      "challenger": "Challenger",
+      "sandler": "Sandler",
+      "custom": "Anpassad / ingen"
+    },
+    "scriptStage": {
+      "opener": "Inledning",
+      "pitch": "Pitch",
+      "discovery": "Behovsanalys",
+      "objectionHandling": "Invändningshantering",
+      "close": "Avslut",
+      "other": "Övrigt"
+    },
+    "frequency": {
+      "objectionsOnly": "Endast invändningar och frågor",
+      "balanced": "Balanserad",
+      "constant": "Ständig vägledning"
+    },
+    "frequencyDescription": {
+      "objectionsOnly": "Håller sig tyst tills prospekten invänder, frågar något eller visar intresse.",
+      "balanced": "Reagerar på allt väsentligt prospekten säger, plus enstaka påminnelser.",
+      "constant": "Visar alltid nästa bästa replik. Perfekt för nya säljare och för träning."
+    },
+    "length": {
+      "short": "Kort (upp till 20 ord)",
+      "medium": "Medel (upp till 35 ord)"
+    },
+    "tone": {
+      "professional": "Professionell",
+      "friendly": "Vänlig",
+      "consultative": "Rådgivande",
+      "assertive": "Bestämd"
+    }
+  },
+  "calls": {
+    "severity": {
+      "low": "Liten",
+      "medium": "Måttlig",
+      "high": "Kritisk"
+    },
+    "interest": {
+      "low": "Lågt intresse",
+      "medium": "Visst intresse",
+      "high": "Högt intresse"
+    },
+    "suggestionUsage": {
+      "followed": "Följd",
+      "adapted": "Anpassad",
+      "ignored": "Ignorerad"
+    },
+    "revealKind": {
+      "painPoint": "Dold smärtpunkt",
+      "hiddenInfo": "Dold information",
+      "objection": "Planerad invändning",
+      "conversionCondition": "Villkor för att konvertera"
+    },
+    "endReason": {
+      "user": "Avslutades av dig",
+      "prospectHungUp": "Prospekten la på",
+      "timeLimit": "Tidsgränsen nåddes",
+      "interrupted": "Anslutningen avbröts"
+    },
+    "sort": {
+      "newest": "Nyaste först",
+      "oldest": "Äldsta först",
+      "highestScore": "Högsta poäng",
+      "lowestScore": "Lägsta poäng",
+      "longest": "Längsta"
+    },
+    "scoreRange": {
+      "any": "Valfri poäng",
+      "excellent": "80+ utmärkt",
+      "good": "60–79 bra",
+      "below60": "Under 60"
+    },
+    "dateRange": {
+      "any": "Alla tider"
+    },
+    "kind": {
+      "live": "Livesamtal",
+      "practice": "Övning",
+      "all": "Live och övning"
+    },
+    "outcomeFilter": {
+      "all": "Alla utfall",
+      "none": "Inget utfall registrerat"
+    },
+    "outcome": {
+      "meetingBooked": "Möte / demo bokat",
+      "dealWon": "Affär avslutad / vunnen",
+      "followUp": "Uppföljning bokad",
+      "lost": "Inte intresserad / förlorad",
+      "noDecision": "Inget beslut / återkoppling",
+      "gatekeeper": "Grindvakt / fel person",
+      "custom": "Anpassat utfall"
+    },
+    "status": {
+      "inProgress": "Pågår",
+      "analyzing": "Analyseras",
+      "analyzed": "Analyserad",
+      "analysisFailed": "Analysen misslyckades",
+      "ended": "Inte analyserad"
+    },
+    "typeFilter": {
+      "all": "Alla samtalstyper"
+    },
+    "type": {
+      "onlineMeeting": "Onlinemöte",
+      "microphone": "Telefon / mikrofon",
+      "practice": "Övningspass"
+    },
+    "typeDescription": {
+      "microphone": "Ett samtal på telefonens högtalare eller en annan enhet. CallZen lyssnar via den här enhetens mikrofon. Bäst för kallsamtal.",
+      "onlineMeeting": "Google Meet, Zoom, Teams eller något annat webbmöte. Du delar mötesflikens ljud så att båda sidor fångas upp separat."
+    },
+    "speaker": {
+      "user": "Du",
+      "prospect": "Prospekt",
+      "unknown": "Identifierar …"
+    },
+    "suggestionType": {
+      "opener": "Inledning / krok",
+      "discoveryQuestion": "Behovsfråga",
+      "objectionResponse": "Svar på invändning",
+      "valueStatement": "Värdeargument",
+      "buyingSignal": "Köpsignal upptäckt",
+      "nextStep": "Nästa steg / avslut",
+      "reminder": "Påminnelse",
+      "warning": "Varning",
+      "consent": "Samtyckesinformation",
+      "answer": "Svar"
+    },
+    "marker": {
+      "mistake": "Misstag",
+      "strength": "Styrkor",
+      "objection": "Invändningar",
+      "buyingSignal": "Köpsignaler",
+      "bookmark": "Bokmärken"
+    }
+  },
+  "periods": {
+    "last7Days": "Senaste 7 dagarna",
+    "last30Days": "Senaste 30 dagarna",
+    "last90Days": "Senaste 90 dagarna",
+    "last12Months": "Senaste 12 månaderna"
+  },
+  "organisations": {
+    "invitation": {
+      "pending": "Väntande",
+      "expired": "Utgången",
+      "accepted": "Accepterad",
+      "revoked": "Återkallad"
+    },
+    "role": {
+      "owner": "Ägare",
+      "admin": "Administratör",
+      "member": "Medlem"
+    },
+    "roleDescription": {
+      "owner": "Full kontroll. Kan ändra rollbehörigheter, ta bort organisationen och hantera alla medlemmar. Har alltid alla behörigheter.",
+      "admin": "Leder teamet i det dagliga: hanterar co-piloter, medlemmar och inbjudningar inom de behörigheter som ägaren ger.",
+      "member": "Säljer och övar. Ser bara sina egna samtal om inte ägaren ger mer åtkomst."
+    }
+  },
+  "practice": {
+    "budget": {
+      "none": "Ingen budget",
+      "limited": "Begränsad budget",
+      "available": "Budget finns",
+      "priceSensitive": "Priskänslig"
+    },
+    "authority": {
+      "decisionMaker": "Beslutsfattare",
+      "influencer": "Påverkare",
+      "gatekeeper": "Grindvakt",
+      "needsApproval": "Behöver godkännande"
+    },
+    "difficulty": {
+      "1": {
+        "label": "Mycket lätt",
+        "description": "Vänlig och öppen, nästan inga invändningar."
+      },
+      "2": {
+        "label": "Lätt",
+        "description": "Öppen, ett par milda invändningar, köper lätt."
+      },
+      "3": {
+        "label": "Medel",
+        "description": "Viss skepsis och genuina invändningar. Kräver en bra behovsanalys."
+      },
+      "4": {
+        "label": "Svår",
+        "description": "Reserverad och upptagen, hårda upprepade invändningar, kan lägga på tidigt."
+      },
+      "5": {
+        "label": "Mycket svår",
+        "description": "Fientlig mot säljsamtal. Köper bara med utmärkt teknik."
+      }
+    },
+    "difficultyFilter": {
+      "any": "Valfri svårighetsgrad"
+    },
+    "patience": {
+      "1": "Lägger på nästan direkt",
+      "2": "Otålig",
+      "3": "Genomsnittlig",
+      "4": "Tålmodig",
+      "5": "Mycket tålmodig"
+    },
+    "persistence": {
+      "1": "Släpper det lätt",
+      "2": "Tar upp det en gång till",
+      "3": "Återkommer hela tiden"
+    },
+    "temperature": {
+      "cold": "Kall",
+      "warm": "Ljum"
+    },
+    "temperatureDescription": {
+      "cold": "Har aldrig hört talas om dig, har inte visat intresse och är kanske upptagen eller irriterad över samtalet.",
+      "warm": "Har visat intresse eller haft tidigare kontakt och är mer öppen för att prata."
+    },
+    "temperatureFilter": {
+      "any": "Valfri temperatur"
+    },
+    "mood": {
+      "neutral": "Neutral",
+      "rushed": "Stressad",
+      "irritated": "Irriterad",
+      "curious": "Nyfiken",
+      "distracted": "Distraherad",
+      "enthusiastic": "Entusiastisk"
+    },
+    "personality": {
+      "analytical": "Analytisk",
+      "driver": "Drivande / rakt på sak",
+      "amiable": "Vänlig / social",
+      "expressive": "Expressiv / pratsam",
+      "skeptical": "Skeptisk",
+      "indecisive": "Obeslutsam"
+    },
+    "scenario": {
+      "coldCall": "Kallsamtal",
+      "inbound": "Inkommande förfrågan",
+      "followUp": "Uppföljning",
+      "demoFollowUp": "Efter en demo",
+      "discovery": "Behovssamtal",
+      "renewal": "Förnyelse",
+      "negotiation": "Prisförhandling",
+      "gatekeeper": "Grindvakt"
+    },
+    "timeline": {
+      "urgent": "Akut behov",
+      "within3Months": "Inom 3 månader",
+      "justResearching": "Bara research",
+      "none": "Ingen tidsplan"
+    }
+  },
+  "usage": {
+    "kind": {
+      "suggestion": "Liveförslag",
+      "ask": "Co-pilotfrågor",
+      "analysis": "Samtalsanalyser",
+      "practiceTurn": "Övningssvar (webbläsarröst)",
+      "practiceVoice": "Röstminuter för övning",
+      "transcription": "Livetranskribering",
+      "generation": "Prospektgenerering"
+    }
+  },
+  "users": {
+    "outputLanguageMode": {
+      "conversation": "Samma språk som samtalet",
+      "interface": "Mitt gränssnittsspråk"
+    }
+  }
+}

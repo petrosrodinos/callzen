@@ -1,4 +1,5 @@
 import { useFieldArray, type UseFormReturn } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { Plus, ShieldQuestion, Trash2 } from "lucide-react";
 import {
   FormControl,
@@ -19,6 +20,7 @@ export function ObjectionsSection({
 }: {
   form: UseFormReturn<AssistantAgentFormValues>;
 }) {
+  const { t } = useTranslation("assistant");
   const { fields, append, remove } = useFieldArray({
     control: form.control,
     name: "objection_library",
@@ -28,22 +30,22 @@ export function ObjectionsSection({
 
   return (
     <FormSection
-      title="Objection library"
-      description="Common objections and the responses you prefer. When the prospect raises one, the co-pilot recognises it and suggests your answer, adapted to the moment."
+      title={t("objections.title")}
+      description={t("objections.description")}
       actions={
         <Button type="button" size="sm" variant="outline" onClick={add}>
-          <Plus /> Add objection
+          <Plus /> {t("objections.add")}
         </Button>
       }
     >
       {!fields.length ? (
         <EmptyState
           icon={ShieldQuestion}
-          title="No objections yet"
-          description='Add the ones you hear most: "too expensive", "send me an email", "we already have a provider"…'
+          title={t("objections.emptyTitle")}
+          description={t("objections.emptyDescription")}
           action={
             <Button type="button" size="sm" onClick={add}>
-              <Plus /> Add objection
+              <Plus /> {t("objections.add")}
             </Button>
           }
         />
@@ -59,8 +61,8 @@ export function ObjectionsSection({
                     <FormItem className="flex-1">
                       <FormControl>
                         <Input
-                          placeholder='Objection, e.g. "It is too expensive"'
-                          aria-label="Objection"
+                          placeholder={t("objections.objectionPlaceholder")}
+                          aria-label={t("objections.objection")}
                           {...objectionField}
                         />
                       </FormControl>
@@ -73,7 +75,7 @@ export function ObjectionsSection({
                   variant="ghost"
                   size="icon"
                   onClick={() => remove(index)}
-                  aria-label="Remove objection"
+                  aria-label={t("objections.remove")}
                 >
                   <Trash2 />
                 </Button>
@@ -86,8 +88,8 @@ export function ObjectionsSection({
                     <FormControl>
                       <Textarea
                         rows={2}
-                        placeholder="Your preferred response"
-                        aria-label="Response"
+                        placeholder={t("objections.responsePlaceholder")}
+                        aria-label={t("objections.response")}
                         {...responseField}
                       />
                     </FormControl>

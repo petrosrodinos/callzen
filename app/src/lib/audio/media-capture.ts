@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 export class CaptureError extends Error {
     constructor(message: string) {
         super(message);
@@ -12,23 +13,23 @@ export const isTabAudioCaptureSupported = (): boolean =>
     typeof navigator !== "undefined" && !!navigator.mediaDevices?.getDisplayMedia && !/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
 export const getMicrophoneStream = async (): Promise<MediaStream> => {
-    if (!isMediaCaptureSupported()) throw new CaptureError("This browser does not support microphone capture. Try the latest Chrome, Edge or Safari.");
+    if (!isMediaCaptureSupported()) throw new CaptureError(i18n.t("common:errors.audio.micUnsupported"));
     try {
         return await navigator.mediaDevices.getUserMedia({
             audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true },
         });
     } catch (error) {
         const name = (error as DOMException)?.name;
-        if (name === "NotAllowedError") throw new CaptureError("Microphone access was blocked. Allow it in your browser's site settings and try again.");
-        if (name === "NotFoundError") throw new CaptureError("No microphone was found. Connect one and try again.");
-        throw new CaptureError("Could not access the microphone.");
+        if (name === "NotAllowedError") throw new CaptureError(i18n.t("common:errors.audio.micBlocked"));
+        if (name === "NotFoundError") throw new CaptureError(i18n.t("common:errors.audio.micNotFound"));
+        throw new CaptureError(i18n.t("common:errors.audio.micFailed"));
     }
 };
 
 // Captures the meeting tab's audio (the other participants). Chrome requires video to be requested,
 // so the video track is stopped immediately.
 export const getTabAudioStream = async (): Promise<MediaStream> => {
-    if (!isTabAudioCaptureSupported()) throw new CaptureError("Capturing meeting audio needs a desktop browser such as Chrome or Edge.");
+    if (!isTabAudioCaptureSupported()) throw new CaptureError(i18n.t("common:errors.audio.tabUnsupported"));
     let stream: MediaStream;
     try {
         stream = await navigator.mediaDevices.getDisplayMedia({
@@ -36,12 +37,12 @@ export const getTabAudioStream = async (): Promise<MediaStream> => {
             audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false },
         });
     } catch {
-        throw new CaptureError("Screen sharing was cancelled. Pick your meeting tab and enable \"Share tab audio\".");
+        throw new CaptureError(i18n.t("common:errors.audio.shareCancelled"));
     }
 
     stream.getVideoTracks().forEach((track) => track.stop());
     if (!stream.getAudioTracks().length) {
-        throw new CaptureError("No audio was shared. Select the meeting's browser tab and turn on \"Share tab audio\".");
+        throw new CaptureError(i18n.t("common:errors.audio.noAudioShared"));
     }
     return new MediaStream(stream.getAudioTracks());
 };

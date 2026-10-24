@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { AlertCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import type { DashboardOverview } from "@/features/dashboard/interfaces/dashboard.interfaces";
@@ -9,17 +10,19 @@ export function RecurringMistakesCard({
 }: {
   mistakes: DashboardOverview["recurring_mistakes"];
 }) {
+  const { t } = useTranslation("dashboard");
   return (
     <Card className="p-5">
       <h2 className="flex items-center gap-2 font-semibold">
-        <AlertCircle className="size-4 text-amber-500" /> Recurring mistakes
+        <AlertCircle className="size-4 text-amber-500" />{" "}
+        {t("mistakes.title")}
       </h2>
       <p className="mb-4 text-sm text-muted-foreground">
-        From your last 20 analyzed calls
+        {t("mistakes.subtitle")}
       </p>
       {!mistakes.length ? (
         <p className="text-sm text-muted-foreground">
-          No patterns yet. Keep going.
+          {t("mistakes.empty")}
         </p>
       ) : (
         <ul className="space-y-3">
@@ -28,8 +31,7 @@ export function RecurringMistakesCard({
               <div className="flex items-center justify-between gap-2 text-sm">
                 <span className="font-medium">{mistake.label}</span>
                 <span className="shrink-0 text-xs text-muted-foreground">
-                  {mistake.calls_affected} call
-                  {mistake.calls_affected === 1 ? "" : "s"}
+                  {t("mistakes.callsAffected", { count: mistake.calls_affected })}
                 </span>
               </div>
               <p className="line-clamp-2 text-xs text-muted-foreground">
@@ -42,7 +44,7 @@ export function RecurringMistakesCard({
                     to={Routes.library.detail(call.call_id)}
                     className="max-w-40 truncate rounded bg-muted px-1.5 py-0.5 text-[11px] hover:bg-muted/70"
                   >
-                    {call.title ?? "View call"}
+                    {call.title ?? t("mistakes.viewCall")}
                   </Link>
                 ))}
               </div>

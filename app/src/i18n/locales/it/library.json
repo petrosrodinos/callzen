@@ -1,0 +1,220 @@
+{
+  "index": {
+    "title": "Libreria chiamate",
+    "description": "Tutte le chiamate dal vivo e le sessioni di pratica, con registrazioni, trascrizioni e analisi.",
+    "startCall": "Avvia una chiamata",
+    "searchPlaceholder": "Cerca per prospect, azienda o note",
+    "searchLabel": "Cerca chiamate",
+    "filtersButton": "Filtri",
+    "clearFilters": "Cancella filtri",
+    "filters": {
+      "whose": "Di chi sono le chiamate",
+      "everyone": "Chiamate di tutti",
+      "mine": "Solo le mie",
+      "kind": "Dal vivo o pratica",
+      "type": "Tipo di chiamata",
+      "copilot": "Copilota",
+      "allCopilots": "Tutti i copiloti",
+      "outcome": "Esito",
+      "score": "Punteggio",
+      "date": "Data",
+      "sort": "Ordina"
+    },
+    "empty": {
+      "noMatchTitle": "Nessuna chiamata corrisponde",
+      "noCallsTitle": "Ancora nessuna chiamata",
+      "noMatchDescription": "Prova a rimuovere alcuni filtri.",
+      "noCallsDescription": "Le tue chiamate dal vivo e le sessioni di pratica appariranno qui.",
+      "startPractising": "Inizia a esercitarti"
+    },
+    "previousPage": "Pagina precedente",
+    "nextPage": "Pagina successiva",
+    "callCount_one": "{{count}} chiamata",
+    "callCount_other": "{{count}} chiamate"
+  },
+  "detail": {
+    "pageTitle": "Chiamata",
+    "notFound": {
+      "title": "Chiamata non trovata",
+      "description": "Potrebbe essere stata eliminata.",
+      "back": "Torna alla libreria"
+    },
+    "recordingTranscript": "Registrazione e trascrizione",
+    "tabs": {
+      "reveal": "Risultato e rivelazione",
+      "overview": "Panoramica",
+      "moments": "Errori e punti di forza",
+      "metrics": "Metriche",
+      "prospect": "Prospect",
+      "copilot": "Copilota",
+      "followUp": "Follow-up"
+    },
+    "followUpSubject": "Follow-up",
+    "followUpSubjectCompany": "Follow-up – {{company}}",
+    "timeline": {
+      "bookmark": "Segnalibro",
+      "label": "Cronologia della chiamata",
+      "markerAt": "{{label}} a {{time}}"
+    },
+    "status": {
+      "preparing": "Preparazione del tuo report sulle prestazioni…",
+      "preparingHint": "Di solito richiede meno di un minuto. Puoi lasciare questa pagina: sarà pronto nella tua libreria.",
+      "failed": "L'analisi non è stata completata",
+      "noAnalysis": "Nessuna analisi per questa chiamata",
+      "safe": "La registrazione e la trascrizione sono al sicuro.",
+      "canRetry": "Puoi riprovare.",
+      "retry": "Riprova l'analisi"
+    },
+    "header": {
+      "back": "Libreria chiamate",
+      "practice": "Pratica",
+      "copilot": "Copilota: {{name}}",
+      "practiceSession": "Sessione di pratica",
+      "call": "Chiamata",
+      "by": "di {{name}}",
+      "outcomeLabel": "Esito della chiamata",
+      "recordOutcome": "Registra esito",
+      "retry": "Riprova",
+      "moreActions": "Altre azioni",
+      "rerun": "Riesegui analisi",
+      "recreatingProspect": "Ricreazione del prospect…",
+      "practiceWithProspect": "Esercitati con questo prospect",
+      "harder": "Prova una versione più difficile",
+      "retention": "Conservazione",
+      "deleteRecording": "Elimina solo la registrazione",
+      "deleteTranscript": "Elimina trascrizione",
+      "deleteCall": "Elimina chiamata definitivamente",
+      "confirm": {
+        "confirmText": "Elimina definitivamente",
+        "call": {
+          "title": "Eliminare definitivamente questa chiamata?",
+          "description": "Registrazione, trascrizione, suggerimenti e analisi vengono eliminati definitivamente. L'operazione non può essere annullata."
+        },
+        "recording": {
+          "title": "Eliminare la registrazione?",
+          "description": "L'audio viene eliminato definitivamente. Trascrizione e analisi vengono mantenute."
+        },
+        "transcript": {
+          "title": "Eliminare la trascrizione?",
+          "description": "La trascrizione viene eliminata definitivamente. L'analisi viene mantenuta, ma non potrai rieseguirla."
+        }
+      }
+    },
+    "recording": {
+      "saving": "Salvataggio della registrazione…",
+      "noAudio": "Nessun audio memorizzato per questa chiamata. Trascrizione e analisi vengono mantenute.",
+      "loadError": "Impossibile caricare la registrazione. Potrebbe essere ancora in caricamento; aggiorna tra un momento.",
+      "download": "Scarica registrazione"
+    },
+    "transcript": {
+      "empty": "Nessuna trascrizione memorizzata per questa chiamata.",
+      "playFrom": "Riproduci da {{time}}",
+      "switchSpeaker": "Cambia interlocutore",
+      "wrongSpeaker": "Interlocutore sbagliato? Cambialo"
+    },
+    "overview": {
+      "overallScore": "Punteggio complessivo",
+      "verdict": "Verdetto",
+      "skillScores": "Punteggi per competenza",
+      "focusNextTime": "Su cosa concentrarsi la prossima volta",
+      "nextSteps": "Prossimi passi"
+    },
+    "moments": {
+      "jumpTo": "Vai a {{time}}",
+      "mistakes": "Errori ({{count}})",
+      "noMistakes": "Nessun errore segnalato. Ottimo lavoro.",
+      "whatHappened": "Cosa è successo",
+      "whyItMatters": "Perché è importante",
+      "doInstead": "Fai invece così",
+      "strengths": "Punti di forza ({{count}})",
+      "noStrengths": "Nessun punto di forza particolare questa volta."
+    },
+    "metrics": {
+      "talkRatio": "Rapporto parlato/ascolto",
+      "talkedPercent": "Hai parlato per il {{percent}}% del tempo",
+      "you": "Tu",
+      "prospect": "Prospect",
+      "talkHint": "I migliori venditori di solito parlano il 40–60% del tempo nelle chiamate di scoperta.",
+      "questionsAsked": "Domande poste",
+      "longestMonologue": "Monologo più lungo",
+      "speakingPace": "Ritmo del parlato",
+      "paceValue": "{{value}} parole/min",
+      "paceHint": "Intervallo naturale: 130–170",
+      "fillerWords": "Intercalari",
+      "interruptions": "Interruzioni",
+      "objectionsHandled": "Obiezioni gestite",
+      "objections": "Obiezioni",
+      "buyingSignals": "Segnali d'acquisto",
+      "actedOn": "Colto",
+      "missed": "Perso"
+    },
+    "insights": {
+      "noneIdentified": "Nessuno individuato",
+      "summary": "Riepilogo del prospect",
+      "needs": "Esigenze",
+      "painPoints": "Punti critici",
+      "objections": "Obiezioni",
+      "buyingSignals": "Segnali d'acquisto",
+      "keyInfo": "Informazioni chiave emerse",
+      "fields": {
+        "budget": "Budget",
+        "timeline": "Tempistiche",
+        "decisionMakers": "Decisori",
+        "competitors": "Concorrenti"
+      },
+      "notDiscussed": "Non discusso"
+    },
+    "copilot": {
+      "howYouUsed": "Come hai usato il copilota",
+      "followed": "{{count}} seguiti",
+      "adapted": "{{count}} adattati",
+      "ignored": "{{count}} ignorati",
+      "improve": "Migliora il tuo copilota",
+      "edit": "Modifica copilota",
+      "bySuggestion": "Suggerimento per suggerimento",
+      "helpful": "Utile",
+      "notHelpful": "Non utile"
+    },
+    "followUp": {
+      "empty": "Nessun messaggio di follow-up suggerito per questa chiamata.",
+      "copyFailed": "Copia non riuscita",
+      "copyFailedDescription": "Seleziona il testo e copialo manualmente.",
+      "title": "Bozza di follow-up",
+      "copied": "Copiato",
+      "copy": "Copia",
+      "openInEmail": "Apri nell'email",
+      "label": "Messaggio di follow-up"
+    },
+    "notes": {
+      "title": "Note personali",
+      "placeholder": "Qualcosa da ricordare di questa chiamata…",
+      "save": "Salva note"
+    },
+    "reveal": {
+      "objective": "Obiettivo",
+      "yes": "Sì",
+      "no": "No",
+      "prospectThinking": "Cosa pensava il prospect",
+      "lostAttention": "Dove hai perso la loro attenzione",
+      "hiddenLayer": "Il livello nascosto, rivelato",
+      "met": "Soddisfatta",
+      "uncovered": "Scoperto",
+      "notMet": "Non soddisfatta",
+      "missed": "Mancato",
+      "nothingHidden": "Nessun elemento nascosto è stato configurato per questo prospect.",
+      "whatWouldChange": "Cosa avrebbe cambiato l'esito"
+    },
+    "rerun": {
+      "title": "Riesegui analisi",
+      "description": "Prova un modello diverso o le categorie di punteggio più recenti del tuo copilota. Il report precedente viene sostituito.",
+      "modelName": "Modello di analisi",
+      "useCurrent": "Usa le categorie di punteggio attuali del copilota",
+      "useCurrentHint": "Altrimenti vengono usate le categorie del momento della chiamata."
+    },
+    "suggestedPractice": {
+      "title": "Pratica suggerita",
+      "preparing": "Preparazione…",
+      "practiceThis": "Esercitati su questo"
+    }
+  }
+}

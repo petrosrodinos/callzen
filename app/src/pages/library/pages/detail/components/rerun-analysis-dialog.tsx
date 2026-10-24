@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { RefreshCw } from "lucide-react";
 import {
   Dialog,
@@ -30,6 +31,7 @@ export function RerunAnalysisDialog({
   open,
   onOpenChange,
 }: RerunAnalysisDialogProps) {
+  const { t } = useTranslation("library");
   const { data: catalog } = useCatalog();
   const rerun = useRerunAnalysis();
   const [selectedModel, setModel] = useState(currentModel ?? "");
@@ -43,15 +45,12 @@ export function RerunAnalysisDialog({
     >
       <DialogContent className="max-h-[90dvh] overflow-y-auto sm:max-w-2xl">
         <DialogHeader>
-          <DialogTitle>Re-run analysis</DialogTitle>
-          <DialogDescription>
-            Try a different model or your co-pilot's latest scoring categories.
-            The previous report is replaced.
-          </DialogDescription>
+          <DialogTitle>{t("detail.rerun.title")}</DialogTitle>
+          <DialogDescription>{t("detail.rerun.description")}</DialogDescription>
         </DialogHeader>
         {catalog && (
           <ModelPicker
-            name="Analysis model"
+            name={t("detail.rerun.modelName")}
             purpose="analysis"
             models={catalog.ai_models}
             recommended={catalog.recommended_analysis_model}
@@ -63,10 +62,10 @@ export function RerunAnalysisDialog({
           <div className="flex items-center justify-between gap-3 rounded-lg border p-3">
             <div>
               <Label htmlFor="current-criteria">
-                Use the co-pilot's current scoring categories
+                {t("detail.rerun.useCurrent")}
               </Label>
               <p className="text-xs text-muted-foreground">
-                Otherwise the categories from the time of the call are used.
+                {t("detail.rerun.useCurrentHint")}
               </p>
             </div>
             <Switch
@@ -90,7 +89,7 @@ export function RerunAnalysisDialog({
             disabled={!model || rerun.isPending}
             loading={rerun.isPending}
           >
-            {!rerun.isPending && <RefreshCw />} Re-run analysis
+            {!rerun.isPending && <RefreshCw />} {t("detail.rerun.title")}
           </Button>
         </DialogFooter>
       </DialogContent>

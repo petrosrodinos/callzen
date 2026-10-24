@@ -1,0 +1,57 @@
+{
+  "sidebar": {
+    "plan": "Copiloto de ventas",
+    "toggle": "Mostrar u ocultar la barra lateral",
+    "groups": {
+      "sell": "Vender",
+      "train": "Entrenar",
+      "account": "Cuenta",
+      "admin": "Administración"
+    },
+    "items": {
+      "dashboard": "Panel",
+      "startCall": "Iniciar una llamada",
+      "callLibrary": "Biblioteca de llamadas",
+      "practice": "Práctica",
+      "copilots": "Copilotos",
+      "organisation": "Organización",
+      "settings": "Ajustes",
+      "usage": "Uso y costes",
+      "privacy": "Privacidad y datos",
+      "health": "Estado",
+      "users": "Usuarios",
+      "alerts": "Alertas"
+    }
+  },
+  "userMenu": {
+    "settings": "Ajustes",
+    "usage": "Uso y costes",
+    "privacy": "Privacidad y datos",
+    "logout": "Cerrar sesión"
+  },
+  "orgSwitcher": {
+    "switch": "Cambiar de organización",
+    "pendingCount_one": "{{count}} invitación pendiente",
+    "pendingCount_other": "{{count}} invitaciones pendientes",
+    "organisation": "Organización",
+    "yourOrganisations": "Tus organizaciones",
+    "members_one": "{{count}} miembro",
+    "members_other": "{{count}} miembros",
+    "pendingInvitations": "Invitaciones pendientes",
+    "settings": "Ajustes de la organización",
+    "create": "Crear organización"
+  },
+  "sidebarNav": {
+    "placeholder": "Selecciona una sección"
+  },
+  "navbar": {
+    "home": "Inicio",
+    "templates": "Plantillas",
+    "pricing": "Precios",
+    "roadmap": "Hoja de ruta",
+    "contact": "Contacto",
+    "login": "Iniciar sesión",
+    "signup": "Registrarse",
+    "dashboard": "Panel"
+  }
+}

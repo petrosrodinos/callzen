@@ -1,0 +1,32 @@
+{
+  "notFound": {
+    "pageTitle": "Not found",
+    "title": "This page doesn’t exist",
+    "description": "The link may be broken or the page was removed.",
+    "cta": "Back to dashboard"
+  },
+  "app": {
+    "dashboard": "Dashboard",
+    "startCall": "Start a call"
+  },
+  "health": {
+    "title": "System Health",
+    "subtitle": "Live status for the API and connected infrastructure.",
+    "refresh": "Refresh",
+    "loadError": "Unable to load health status.",
+    "lastChecked": "Last checked",
+    "uptime": "Uptime",
+    "uptimeMs": "Uptime (ms)",
+    "responseTime": "Response time",
+    "status": {
+      "ok": "OK",
+      "down": "Down",
+      "not_configured": "Not configured"
+    },
+    "cards": {
+      "api": "Core application availability.",
+      "postgres": "Database connectivity via Prisma.",
+      "redis": "Cache and queue connectivity."
+    }
+  }
+}

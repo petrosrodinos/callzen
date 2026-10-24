@@ -11,10 +11,6 @@ export const SUPPORTED_LANGUAGES: { code: string; name: string }[] = [
   { code: 'ro', name: 'Romanian' },
   { code: 'tr', name: 'Turkish' },
   { code: 'sv', name: 'Swedish' },
-  { code: 'ar', name: 'Arabic' },
-  { code: 'hi', name: 'Hindi' },
-  { code: 'ja', name: 'Japanese' },
-  { code: 'zh', name: 'Chinese' },
 ];
 
 export const languageName = (code: string | null | undefined): string =>

@@ -1,0 +1,57 @@
+{
+  "sidebar": {
+    "plan": "Sales co-pilot",
+    "toggle": "Zijbalk in-/uitklappen",
+    "groups": {
+      "sell": "Verkopen",
+      "train": "Trainen",
+      "account": "Account",
+      "admin": "Beheer"
+    },
+    "items": {
+      "dashboard": "Dashboard",
+      "startCall": "Gesprek starten",
+      "callLibrary": "Gespreksbibliotheek",
+      "practice": "Oefenen",
+      "copilots": "Co-pilots",
+      "organisation": "Organisatie",
+      "settings": "Instellingen",
+      "usage": "Gebruik & kosten",
+      "privacy": "Privacy & gegevens",
+      "health": "Status",
+      "users": "Gebruikers",
+      "alerts": "Meldingen"
+    }
+  },
+  "userMenu": {
+    "settings": "Instellingen",
+    "usage": "Gebruik & kosten",
+    "privacy": "Privacy & gegevens",
+    "logout": "Uitloggen"
+  },
+  "orgSwitcher": {
+    "switch": "Van organisatie wisselen",
+    "pendingCount_one": "{{count}} openstaande uitnodiging",
+    "pendingCount_other": "{{count}} openstaande uitnodigingen",
+    "organisation": "Organisatie",
+    "yourOrganisations": "Je organisaties",
+    "members_one": "{{count}} lid",
+    "members_other": "{{count}} leden",
+    "pendingInvitations": "Openstaande uitnodigingen",
+    "settings": "Organisatie-instellingen",
+    "create": "Organisatie aanmaken"
+  },
+  "sidebarNav": {
+    "placeholder": "Kies een sectie"
+  },
+  "navbar": {
+    "home": "Home",
+    "templates": "Sjablonen",
+    "pricing": "Prijzen",
+    "roadmap": "Roadmap",
+    "contact": "Contact",
+    "login": "Inloggen",
+    "signup": "Registreren",
+    "dashboard": "Dashboard"
+  }
+}

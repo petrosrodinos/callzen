@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useFieldArray, useForm, type FieldErrors } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -79,13 +80,13 @@ type FieldName = keyof PracticeAgentFormValues;
 // Which form fields live on which tab, used to jump to the tab with a validation error.
 const TABS: {
   id: string;
-  label: string;
+  labelKey: string;
   icon: LucideIcon;
   fields: FieldName[];
 }[] = [
   {
     id: "scenario",
-    label: "Scenario",
+    labelKey: "form.tabs.scenario",
     icon: Target,
     fields: [
       "name",
@@ -99,7 +100,7 @@ const TABS: {
   },
   {
     id: "behaviour",
-    label: "Difficulty & personality",
+    labelKey: "form.tabs.behaviour",
     icon: Gauge,
     fields: [
       "lead_temperature",
@@ -116,7 +117,7 @@ const TABS: {
   },
   {
     id: "hidden",
-    label: "Hidden layer",
+    labelKey: "form.tabs.hidden",
     icon: EyeOff,
     fields: [
       "pain_points",
@@ -127,7 +128,7 @@ const TABS: {
   },
   {
     id: "identity",
-    label: "Identity & background",
+    labelKey: "form.tabs.identity",
     icon: UserRound,
     fields: [
       "prospect_name",
@@ -144,7 +145,7 @@ const TABS: {
   },
   {
     id: "voice",
-    label: "Voice",
+    labelKey: "form.tabs.voice",
     icon: AudioLines,
     fields: ["voice_provider", "voice"],
   },
@@ -158,6 +159,7 @@ export function PracticeAgentForm({
   isNew,
   onSubmit,
 }: PracticeAgentFormProps) {
+  const { t } = useTranslation("practice");
   const form = useForm<PracticeAgentFormValues>({
     resolver: zodResolver(practiceAgentSchema),
     defaultValues,
@@ -191,7 +193,7 @@ export function PracticeAgentForm({
       (errors) => {
         showFirstTabWithError(errors);
         toast({
-          title: "Please fix the highlighted fields",
+          title: t("form.fixFields"),
           variant: "error",
           duration: 2500,
         });
@@ -206,7 +208,7 @@ export function PracticeAgentForm({
             <TabsList className="w-max">
               {TABS.map((item) => (
                 <TabsTrigger key={item.id} value={item.id} className="gap-1.5">
-                  <item.icon className="size-4" /> {item.label}
+                  <item.icon className="size-4" /> {t(item.labelKey)}
                 </TabsTrigger>
               ))}
             </TabsList>
@@ -214,18 +216,18 @@ export function PracticeAgentForm({
           <div className="mt-5">
             <TabsContent value="scenario" className="mt-0 space-y-4">
               <FormSection
-                title="Role & scenario"
-                description="Who the prospect is and the situation of the call."
+                title={t("form.scenario.sectionTitle")}
+                description={t("form.scenario.sectionDescription")}
               >
                 <FormField
                   control={form.control}
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Scenario name</FormLabel>
+                      <FormLabel>{t("form.scenario.name")}</FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="Cold Call – Busy Clinic Owner"
+                          placeholder={t("form.scenario.namePlaceholder")}
                           {...field}
                         />
                       </FormControl>
@@ -238,11 +240,11 @@ export function PracticeAgentForm({
                   name="role_prompt"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Who is the prospect?</FormLabel>
+                      <FormLabel>{t("form.scenario.whoLabel")}</FormLabel>
                       <FormControl>
                         <Textarea
                           rows={3}
-                          placeholder="The operations manager of a 50-person logistics company who is frustrated with their current software."
+                          placeholder={t("form.scenario.whoPlaceholder")}
                           {...field}
                         />
                       </FormControl>
@@ -254,7 +256,7 @@ export function PracticeAgentForm({
                   <FormSelectField
                     control={form.control}
                     name="scenario_type"
-                    label="Scenario type"
+                    label={t("form.scenario.type")}
                     options={ScenarioTypeFormOptions}
                   />
                   <FormField
@@ -262,9 +264,12 @@ export function PracticeAgentForm({
                     name="user_objective"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Your objective</FormLabel>
+                        <FormLabel>{t("form.scenario.objective")}</FormLabel>
                         <FormControl>
-                          <Input placeholder="Book a meeting" {...field} />
+                          <Input
+                            placeholder={t("form.scenario.objectivePlaceholder")}
+                            {...field}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -276,11 +281,11 @@ export function PracticeAgentForm({
                   name="scenario_context"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Situation</FormLabel>
+                      <FormLabel>{t("form.scenario.situation")}</FormLabel>
                       <FormControl>
                         <Textarea
                           rows={2}
-                          placeholder="A cold call out of the blue during a busy workday."
+                          placeholder={t("form.scenario.situationPlaceholder")}
                           {...field}
                         />
                       </FormControl>
@@ -294,10 +299,10 @@ export function PracticeAgentForm({
                     name="selling_product"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>What you're selling</FormLabel>
+                        <FormLabel>{t("form.scenario.selling")}</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="Scheduling software for clinics"
+                            placeholder={t("form.scenario.sellingPlaceholder")}
                             {...field}
                           />
                         </FormControl>
@@ -310,7 +315,7 @@ export function PracticeAgentForm({
                     name="linked_assistant_agent_id"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Share product context with</FormLabel>
+                        <FormLabel>{t("form.scenario.shareContext")}</FormLabel>
                         <Select
                           value={field.value || NONE}
                           onValueChange={(value) =>
@@ -323,7 +328,9 @@ export function PracticeAgentForm({
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value={NONE}>No co-pilot</SelectItem>
+                            <SelectItem value={NONE}>
+                              {t("form.scenario.noCopilot")}
+                            </SelectItem>
                             {assistantAgents.map((agent) => (
                               <SelectItem key={agent.id} value={agent.id}>
                                 {agent.name}
@@ -332,7 +339,7 @@ export function PracticeAgentForm({
                           </SelectContent>
                         </Select>
                         <FormDescription>
-                          Also pre-selects this co-pilot for practice.
+                          {t("form.scenario.copilotHint")}
                         </FormDescription>
                       </FormItem>
                     )}
@@ -342,17 +349,17 @@ export function PracticeAgentForm({
             </TabsContent>
 
             <TabsContent value="behaviour" className="mt-0 space-y-4">
-              <FormSection title="How hard is this prospect?">
+              <FormSection title={t("form.behaviour.hardTitle")}>
                 <FormField
                   control={form.control}
                   name="lead_temperature"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Lead temperature</FormLabel>
+                      <FormLabel>{t("form.behaviour.leadTemperature")}</FormLabel>
                       <div
                         className="grid grid-cols-2 gap-2"
                         role="radiogroup"
-                        aria-label="Lead temperature"
+                        aria-label={t("form.behaviour.leadTemperature")}
                       >
                         {LeadTemperatureFormOptions.map((option) => (
                           <button
@@ -385,9 +392,9 @@ export function PracticeAgentForm({
                     name="difficulty"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Difficulty</FormLabel>
+                        <FormLabel>{t("form.behaviour.difficulty")}</FormLabel>
                         <ScalePicker
-                          ariaLabel="Difficulty"
+                          ariaLabel={t("form.behaviour.difficulty")}
                           value={field.value}
                           onChange={field.onChange}
                           options={DifficultyFormOptions}
@@ -400,9 +407,9 @@ export function PracticeAgentForm({
                     name="patience"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Patience before hanging up</FormLabel>
+                        <FormLabel>{t("form.behaviour.patienceLabel")}</FormLabel>
                         <ScalePicker
-                          ariaLabel="Patience"
+                          ariaLabel={t("form.behaviour.patience")}
                           value={field.value}
                           onChange={field.onChange}
                           options={PatienceFormOptions.map((o) => ({
@@ -416,40 +423,40 @@ export function PracticeAgentForm({
                 </div>
               </FormSection>
 
-              <FormSection title="Personality & situation">
+              <FormSection title={t("form.behaviour.personalityTitle")}>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   <FormSelectField
                     control={form.control}
                     name="personality"
-                    label="Personality"
+                    label={t("form.behaviour.personality")}
                     options={PersonalityFormOptions}
                     allowEmpty
                   />
                   <FormSelectField
                     control={form.control}
                     name="mood"
-                    label="Mood"
+                    label={t("form.behaviour.mood")}
                     options={MoodFormOptions}
                     allowEmpty
                   />
                   <FormSelectField
                     control={form.control}
                     name="decision_authority"
-                    label="Decision authority"
+                    label={t("form.behaviour.decisionAuthority")}
                     options={DecisionAuthorityFormOptions}
                     allowEmpty
                   />
                   <FormSelectField
                     control={form.control}
                     name="budget"
-                    label="Budget"
+                    label={t("form.behaviour.budget")}
                     options={BudgetFormOptions}
                     allowEmpty
                   />
                   <FormSelectField
                     control={form.control}
                     name="timeline"
-                    label="Timeline"
+                    label={t("form.behaviour.timeline")}
                     options={TimelineFormOptions}
                     allowEmpty
                   />
@@ -458,10 +465,10 @@ export function PracticeAgentForm({
                     name="communication_style"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Communication style</FormLabel>
+                        <FormLabel>{t("form.behaviour.communicationStyle")}</FormLabel>
                         <FormControl>
                           <Input
-                            placeholder="Short answers, casual"
+                            placeholder={t("form.behaviour.communicationPlaceholder")}
                             {...field}
                           />
                         </FormControl>
@@ -474,10 +481,10 @@ export function PracticeAgentForm({
                   name="current_solution"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Current solution / competitor</FormLabel>
+                      <FormLabel>{t("form.behaviour.currentSolution")}</FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="Uses spreadsheets; mostly satisfied"
+                          placeholder={t("form.behaviour.currentSolutionPlaceholder")}
                           {...field}
                         />
                       </FormControl>
@@ -489,24 +496,23 @@ export function PracticeAgentForm({
 
             <TabsContent value="hidden" className="mt-0 space-y-4">
               <FormSection
-                title="Hidden layer"
+                title={t("form.hidden.title")}
                 description={
                   <span className="inline-flex items-center gap-1">
-                    <EyeOff className="size-3.5" /> Never shown before or during
-                    the session. Revealed in the analysis.
+                    <EyeOff className="size-3.5" /> {t("form.hidden.description")}
                   </span>
                 }
               >
                 <StringListField
                   control={form.control}
                   name="pain_points"
-                  label="Real pain points"
-                  description="Revealed only through good discovery questions."
-                  placeholder="Loses two jobs a week to double bookings"
-                  addLabel="Add pain point"
+                  label={t("form.hidden.painPoints")}
+                  description={t("form.hidden.painPointsDescription")}
+                  placeholder={t("form.hidden.painPointsPlaceholder")}
+                  addLabel={t("form.hidden.addPainPoint")}
                 />
                 <div className="space-y-2">
-                  <FormLabel>Objections</FormLabel>
+                  <FormLabel>{t("form.hidden.objections")}</FormLabel>
                   <ul className="space-y-2">
                     {objections.fields.map((field, index) => (
                       <li
@@ -520,8 +526,10 @@ export function PracticeAgentForm({
                             <FormItem className="flex-1">
                               <FormControl>
                                 <Input
-                                  placeholder='"We are happy with our current vendor"'
-                                  aria-label={`Objection ${index + 1}`}
+                                  placeholder={t("form.hidden.objectionPlaceholder")}
+                                  aria-label={t("form.hidden.objectionN", {
+                                    n: index + 1,
+                                  })}
                                   {...textField}
                                 />
                               </FormControl>
@@ -542,7 +550,7 @@ export function PracticeAgentForm({
                                   }
                                 >
                                   <FormControl>
-                                    <SelectTrigger aria-label="Persistence">
+                                    <SelectTrigger aria-label={t("form.hidden.persistence")}>
                                       <SelectValue />
                                     </SelectTrigger>
                                   </FormControl>
@@ -567,7 +575,7 @@ export function PracticeAgentForm({
                             variant="ghost"
                             size="icon"
                             onClick={() => objections.remove(index)}
-                            aria-label="Remove objection"
+                            aria-label={t("form.hidden.removeObjection")}
                           >
                             <Trash2 />
                           </Button>
@@ -583,53 +591,56 @@ export function PracticeAgentForm({
                       objections.append({ text: "", persistence: 2 })
                     }
                   >
-                    <Plus /> Add objection
+                    <Plus /> {t("form.hidden.addObjection")}
                   </Button>
                 </div>
                 <StringListField
                   control={form.control}
                   name="hidden_information"
-                  label="Hidden information"
-                  description="Shared only if asked the right question or after trust is built."
-                  placeholder="Budget was already approved for Q3"
-                  addLabel="Add hidden fact"
+                  label={t("form.hidden.hiddenInfo")}
+                  description={t("form.hidden.hiddenInfoDescription")}
+                  placeholder={t("form.hidden.hiddenInfoPlaceholder")}
+                  addLabel={t("form.hidden.addHiddenFact")}
                 />
                 <StringListField
                   control={form.control}
                   name="conversion_conditions"
-                  label="Conditions to convert"
-                  description="What you must do for the prospect to agree."
-                  placeholder="Must quantify ROI before discussing price"
-                  addLabel="Add condition"
+                  label={t("form.hidden.conditions")}
+                  description={t("form.hidden.conditionsDescription")}
+                  placeholder={t("form.hidden.conditionsPlaceholder")}
+                  addLabel={t("form.hidden.addCondition")}
                 />
               </FormSection>
             </TabsContent>
 
             <TabsContent value="identity" className="mt-0 space-y-4">
               <FormSection
-                title="Identity & background"
-                description="Details that make the persona consistent and realistic."
+                title={t("form.identity.title")}
+                description={t("form.identity.description")}
               >
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {(
                     [
-                      ["prospect_name", "Prospect name", "Daniel Brooks"],
-                      ["job_title", "Job title", "Owner"],
-                      ["company", "Company", "Brooks Plumbing"],
-                      ["industry", "Industry", "Home services"],
-                      ["age_range", "Age range", "45-55"],
-                      ["accent", "Accent / regional style", "American"],
+                      ["prospect_name", "prospectName"],
+                      ["job_title", "jobTitle"],
+                      ["company", "company"],
+                      ["industry", "industry"],
+                      ["age_range", "ageRange"],
+                      ["accent", "accent"],
                     ] as const
-                  ).map(([name, label, placeholder]) => (
+                  ).map(([name, key]) => (
                     <FormField
                       key={name}
                       control={form.control}
                       name={name}
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>{label}</FormLabel>
+                          <FormLabel>{t(`form.identity.${key}`)}</FormLabel>
                           <FormControl>
-                            <Input placeholder={placeholder} {...field} />
+                            <Input
+                              placeholder={t(`form.identity.${key}Placeholder`)}
+                              {...field}
+                            />
                           </FormControl>
                         </FormItem>
                       )}
@@ -640,13 +651,13 @@ export function PracticeAgentForm({
                     name="time_limit_minutes"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Time limit (minutes)</FormLabel>
+                        <FormLabel>{t("form.identity.timeLimit")}</FormLabel>
                         <FormControl>
                           <Input
                             type="number"
                             min={1}
                             max={60}
-                            placeholder="No limit"
+                            placeholder={t("form.identity.noLimit")}
                             value={field.value ?? ""}
                             onChange={(event) =>
                               field.onChange(
@@ -667,17 +678,16 @@ export function PracticeAgentForm({
                   name="languages"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Languages the prospect speaks</FormLabel>
+                      <FormLabel>{t("form.identity.languages")}</FormLabel>
                       <LanguageMultiSelect
-                        ariaLabel="Prospect languages"
+                        ariaLabel={t("form.identity.languagesAria")}
                         languages={catalog.languages}
                         value={field.value}
                         onChange={field.onChange}
                         max={catalog.max_conversation_languages ?? 5}
                       />
                       <FormDescription>
-                        The prospect starts in the starred language and switches
-                        if you switch to another one they speak.
+                        {t("form.identity.languagesHint")}
                       </FormDescription>
                       <FormMessage />
                     </FormItem>
@@ -688,11 +698,11 @@ export function PracticeAgentForm({
                   name="background_story"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Background story</FormLabel>
+                      <FormLabel>{t("form.identity.background")}</FormLabel>
                       <FormControl>
                         <Textarea
                           rows={3}
-                          placeholder="Started the business 15 years ago and distrusts salespeople."
+                          placeholder={t("form.identity.backgroundPlaceholder")}
                           {...field}
                         />
                       </FormControl>
@@ -704,17 +714,16 @@ export function PracticeAgentForm({
                   name="briefing"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Pre-call briefing</FormLabel>
+                      <FormLabel>{t("form.identity.briefing")}</FormLabel>
                       <FormControl>
                         <Textarea
                           rows={2}
-                          placeholder="Daniel Brooks, owner of Brooks Plumbing. Lead from a business directory. Never heard of you."
+                          placeholder={t("form.identity.briefingPlaceholder")}
                           {...field}
                         />
                       </FormControl>
                       <FormDescription>
-                        What a salesperson would realistically know before
-                        dialing. Shown before the session.
+                        {t("form.identity.briefingHint")}
                       </FormDescription>
                     </FormItem>
                   )}
@@ -724,8 +733,8 @@ export function PracticeAgentForm({
 
             <TabsContent value="voice" className="mt-0 space-y-4">
               <FormSection
-                title="Voice"
-                description="Pick the provider and a voice that fits the persona."
+                title={t("form.voice.title")}
+                description={t("form.voice.description")}
               >
                 <VoicePicker
                   providers={catalog.voice_providers}
@@ -749,7 +758,7 @@ export function PracticeAgentForm({
         <div className="sticky bottom-0 z-20 -mx-4 mt-8 border-t bg-background/95 backdrop-blur sm:-mx-6">
           <div className="pb-safe flex items-center justify-end gap-2 px-4 pt-3 sm:px-6">
             <Button type="submit" variant="outline" disabled={isSaving}>
-              <Save /> {isNew ? "Save" : "Save changes"}
+              <Save /> {isNew ? t("form.save") : t("form.saveChanges")}
             </Button>
             <Button
               type="button"
@@ -757,7 +766,7 @@ export function PracticeAgentForm({
               loading={isSaving}
               onClick={() => void submit(true)()}
             >
-              {!isSaving && <Play />} Save & practice
+              {!isSaving && <Play />} {t("form.saveAndPractice")}
             </Button>
           </div>
         </div>

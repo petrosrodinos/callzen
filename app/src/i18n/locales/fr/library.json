@@ -1,0 +1,220 @@
+{
+  "index": {
+    "title": "Bibliothèque d'appels",
+    "description": "Tous vos appels en direct et sessions d'entraînement, avec enregistrements, transcriptions et analyses.",
+    "startCall": "Démarrer un appel",
+    "searchPlaceholder": "Rechercher par prospect, entreprise ou notes",
+    "searchLabel": "Rechercher des appels",
+    "filtersButton": "Filtres",
+    "clearFilters": "Effacer les filtres",
+    "filters": {
+      "whose": "Appels de qui",
+      "everyone": "Appels de tout le monde",
+      "mine": "Uniquement les miens",
+      "kind": "En direct ou entraînement",
+      "type": "Type d'appel",
+      "copilot": "Copilote",
+      "allCopilots": "Tous les copilotes",
+      "outcome": "Résultat",
+      "score": "Score",
+      "date": "Date",
+      "sort": "Trier"
+    },
+    "empty": {
+      "noMatchTitle": "Aucun appel ne correspond",
+      "noCallsTitle": "Aucun appel pour le moment",
+      "noMatchDescription": "Essayez de retirer certains filtres.",
+      "noCallsDescription": "Vos appels en direct et sessions d'entraînement apparaîtront ici.",
+      "startPractising": "Commencer à s'entraîner"
+    },
+    "previousPage": "Page précédente",
+    "nextPage": "Page suivante",
+    "callCount_one": "{{count}} appel",
+    "callCount_other": "{{count}} appels"
+  },
+  "detail": {
+    "pageTitle": "Appel",
+    "notFound": {
+      "title": "Appel introuvable",
+      "description": "Elle a peut-être été supprimée.",
+      "back": "Retour à la bibliothèque"
+    },
+    "recordingTranscript": "Enregistrement et transcription",
+    "tabs": {
+      "reveal": "Résultat et révélation",
+      "overview": "Aperçu",
+      "moments": "Erreurs et points forts",
+      "metrics": "Métriques",
+      "prospect": "Prospect",
+      "copilot": "Copilote",
+      "followUp": "Suivi"
+    },
+    "followUpSubject": "Suite à notre échange",
+    "followUpSubjectCompany": "Suite à notre échange – {{company}}",
+    "timeline": {
+      "bookmark": "Signet",
+      "label": "Chronologie de l'appel",
+      "markerAt": "{{label}} à {{time}}"
+    },
+    "status": {
+      "preparing": "Préparation de votre rapport de performance…",
+      "preparingHint": "Cela prend généralement moins d'une minute. Vous pouvez quitter cette page ; il sera prêt dans votre bibliothèque.",
+      "failed": "L'analyse n'a pas abouti",
+      "noAnalysis": "Aucune analyse pour cet appel",
+      "safe": "Votre enregistrement et votre transcription sont en sécurité.",
+      "canRetry": "Vous pouvez réessayer.",
+      "retry": "Relancer l'analyse"
+    },
+    "header": {
+      "back": "Bibliothèque d'appels",
+      "practice": "Entraînement",
+      "copilot": "Copilote : {{name}}",
+      "practiceSession": "Session d'entraînement",
+      "call": "Appel",
+      "by": "par {{name}}",
+      "outcomeLabel": "Résultat de l'appel",
+      "recordOutcome": "Enregistrer le résultat",
+      "retry": "Réessayer",
+      "moreActions": "Plus d'actions",
+      "rerun": "Relancer l'analyse",
+      "recreatingProspect": "Recréation du prospect…",
+      "practiceWithProspect": "S'entraîner avec ce prospect",
+      "harder": "Essayer une version plus difficile",
+      "retention": "Conservation",
+      "deleteRecording": "Supprimer uniquement l'enregistrement",
+      "deleteTranscript": "Supprimer la transcription",
+      "deleteCall": "Supprimer l'appel définitivement",
+      "confirm": {
+        "confirmText": "Supprimer définitivement",
+        "call": {
+          "title": "Supprimer définitivement cet appel ?",
+          "description": "L'enregistrement, la transcription, les suggestions et l'analyse sont supprimés définitivement. Cette action est irréversible."
+        },
+        "recording": {
+          "title": "Supprimer l'enregistrement ?",
+          "description": "L'audio est supprimé définitivement. La transcription et l'analyse sont conservées."
+        },
+        "transcript": {
+          "title": "Supprimer la transcription ?",
+          "description": "La transcription est supprimée définitivement. L'analyse est conservée, mais vous ne pourrez pas la relancer."
+        }
+      }
+    },
+    "recording": {
+      "saving": "Enregistrement en cours de sauvegarde…",
+      "noAudio": "Aucun audio n'est conservé pour cet appel. La transcription et l'analyse sont conservées.",
+      "loadError": "L'enregistrement n'a pas pu être chargé. Il est peut-être encore en cours d'envoi ; actualisez dans un instant.",
+      "download": "Télécharger l'enregistrement"
+    },
+    "transcript": {
+      "empty": "Aucune transcription n'est conservée pour cet appel.",
+      "playFrom": "Lire à partir de {{time}}",
+      "switchSpeaker": "Changer d'interlocuteur",
+      "wrongSpeaker": "Mauvais interlocuteur ? Changez-le"
+    },
+    "overview": {
+      "overallScore": "Score global",
+      "verdict": "Verdict",
+      "skillScores": "Scores par compétence",
+      "focusNextTime": "À travailler la prochaine fois",
+      "nextSteps": "Prochaines étapes"
+    },
+    "moments": {
+      "jumpTo": "Aller à {{time}}",
+      "mistakes": "Erreurs ({{count}})",
+      "noMistakes": "Aucune erreur signalée. Beau travail.",
+      "whatHappened": "Ce qui s'est passé",
+      "whyItMatters": "Pourquoi c'est important",
+      "doInstead": "Faites plutôt ceci",
+      "strengths": "Points forts ({{count}})",
+      "noStrengths": "Aucun point fort marquant cette fois."
+    },
+    "metrics": {
+      "talkRatio": "Ratio parole/écoute",
+      "talkedPercent": "Vous avez parlé {{percent}} % du temps",
+      "you": "Vous",
+      "prospect": "Prospect",
+      "talkHint": "Les meilleurs commerciaux parlent généralement 40 à 60 % du temps lors des appels de découverte.",
+      "questionsAsked": "Questions posées",
+      "longestMonologue": "Monologue le plus long",
+      "speakingPace": "Débit de parole",
+      "paceValue": "{{value}} mots/min",
+      "paceHint": "Plage naturelle : 130–170",
+      "fillerWords": "Mots de remplissage",
+      "interruptions": "Interruptions",
+      "objectionsHandled": "Objections traitées",
+      "objections": "Objections",
+      "buyingSignals": "Signaux d'achat",
+      "actedOn": "Exploité",
+      "missed": "Manqué"
+    },
+    "insights": {
+      "noneIdentified": "Aucun identifié",
+      "summary": "Résumé du prospect",
+      "needs": "Besoins",
+      "painPoints": "Points de friction",
+      "objections": "Objections",
+      "buyingSignals": "Signaux d'achat",
+      "keyInfo": "Informations clés révélées",
+      "fields": {
+        "budget": "Budget",
+        "timeline": "Calendrier",
+        "decisionMakers": "Décideurs",
+        "competitors": "Concurrents"
+      },
+      "notDiscussed": "Non abordé"
+    },
+    "copilot": {
+      "howYouUsed": "Comment vous avez utilisé le copilote",
+      "followed": "{{count}} suivies",
+      "adapted": "{{count}} adaptées",
+      "ignored": "{{count}} ignorées",
+      "improve": "Améliorer votre copilote",
+      "edit": "Modifier le copilote",
+      "bySuggestion": "Suggestion par suggestion",
+      "helpful": "Utile",
+      "notHelpful": "Pas utile"
+    },
+    "followUp": {
+      "empty": "Aucun message de suivi n'a été suggéré pour cet appel.",
+      "copyFailed": "Échec de la copie",
+      "copyFailedDescription": "Sélectionnez le texte et copiez-le manuellement.",
+      "title": "Brouillon de suivi",
+      "copied": "Copié",
+      "copy": "Copier",
+      "openInEmail": "Ouvrir dans la messagerie",
+      "label": "Message de suivi"
+    },
+    "notes": {
+      "title": "Notes personnelles",
+      "placeholder": "Tout ce qu'il faut retenir de cet appel…",
+      "save": "Enregistrer les notes"
+    },
+    "reveal": {
+      "objective": "Objectif",
+      "yes": "Oui",
+      "no": "Non",
+      "prospectThinking": "Ce que pensait le prospect",
+      "lostAttention": "Où vous avez perdu son attention",
+      "hiddenLayer": "La couche cachée, révélée",
+      "met": "Remplie",
+      "uncovered": "Découvert",
+      "notMet": "Non remplie",
+      "missed": "Manqué",
+      "nothingHidden": "Aucun élément caché n'a été configuré pour ce prospect.",
+      "whatWouldChange": "Ce qui aurait changé l'issue"
+    },
+    "rerun": {
+      "title": "Relancer l'analyse",
+      "description": "Essayez un autre modèle ou les dernières catégories de notation de votre copilote. Le rapport précédent est remplacé.",
+      "modelName": "Modèle d'analyse",
+      "useCurrent": "Utiliser les catégories de notation actuelles du copilote",
+      "useCurrentHint": "Sinon, les catégories en vigueur au moment de l'appel sont utilisées."
+    },
+    "suggestedPractice": {
+      "title": "Entraînement suggéré",
+      "preparing": "Préparation…",
+      "practiceThis": "S'entraîner là-dessus"
+    }
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "nav": {
+    "aria": "Ana menü",
+    "home": "CallZen ana sayfa",
+    "live": "Canlı yardımcı pilot",
+    "practice": "Alıştırma",
+    "reviews": "Görüşme analizleri",
+    "teams": "Ekipler",
+    "createAccount": "Hesap oluştur"
+  },
+  "actions": {
+    "openDashboard": "Panoyu aç",
+    "createAccount": "Hesabını oluştur",
+    "signIn": "Giriş yap"
+  },
+  "footer": {
+    "consent": "Bir görüşmeyi kaydetmeden önce her zaman onay alın.",
+    "aria": "Alt bilgi",
+    "dashboard": "Pano",
+    "signIn": "Giriş yap",
+    "createAccount": "Hesap oluştur"
+  },
+  "hero": {
+    "title": "Onlar hâlâ konuşurken, bir sonraki adımda ne söyleyeceğini bil.",
+    "lede": "CallZen satış görüşmeni dinler, itirazları ve satın alma sinyallerini anında işaretler ve bir sonraki cümleni önerir. Ardından görüşmeyi puanlar ve zor bölümleri yapay zekâ müşteri adaylarıyla prova etmeni sağlar."
+  },
+  "demo": {
+    "aria": "CallZen yardımcı pilotuyla canlı görüşme örneği",
+    "live": "Canlı görüşme",
+    "replay": "Yeniden oynat",
+    "prospect": "Müşteri adayı",
+    "you": "Sen",
+    "prospectOne": "Gördüklerimizi beğendik. Dürüst olmak gerekirse fiyat <mark>bütçemizin çok üzerinde</mark>.",
+    "youLine": "Haklısınız. Hangi aralıkta düşünüyordunuz? Yavaş takibin size satışa mal olduğunu söylemiştiniz, o hâlde ikisini yan yana koyalım.",
+    "prospectTwo": "Kullanıcı başına kırk civarı. Ama evet, kimse zamanında geri aramadığı için <mark>geçen çeyrekte iki yenilemeyi kaybettik</mark>.",
+    "copilot": "Yardımcı pilot",
+    "script": "Akış",
+    "stages": {
+      "opening": "Açılış",
+      "discovery": "Keşif",
+      "pitch": "Sunum",
+      "objections": "İtirazları yanıtlama",
+      "close": "Kapanış"
+    },
+    "objection": {
+      "kind": "Fiyat itirazı",
+      "why": "Müşteri adayı fiyatın bütçenin üzerinde olduğunu söylüyor."
+    },
+    "reply": {
+      "kind": "Önerilen yanıt",
+      "said": "Söylendi",
+      "text": "“Hangi aralıkta düşünüyordunuz? Bunu yavaş takibin size maliyetiyle karşılaştıralım.”"
+    },
+    "signal": {
+      "kind": "Satın alma sinyali",
+      "why": "Yavaş takibin kendilerine maliyetini dile getirdiler. Kapanışa geç ve bir kurulum görüşmesi öner."
+    }
+  },
+  "ways": {
+    "title": "Zaten yaptığın görüşmelerle çalışır",
+    "phone": {
+      "title": "Telefon görüşmeleri",
+      "text": "Görüşmeyi hoparlöre al, CallZen mikrofonundan dinlesin. Eklenti yok, değiştirilecek arama uygulaması yok."
+    },
+    "online": {
+      "title": "Çevrimiçi toplantılar",
+      "text": "Toplantı sekmesini paylaş, CallZen iki tarafı da duyar; seni ve müşteri adayını ayrı ayrı yazıya dökerek önerilerin doğru kişiye yanıt vermesini sağlar."
+    }
+  },
+  "practice": {
+    "title": "Direnç gösteren bir müşteri adayıyla prova yap",
+    "intro": "Alıştırma müşterileri gerçek alıcılar gibi davranır. Asıl sorunlarını kendilerine saklar, itirazları en rahatsız edici ana bırakır ve sabırları tükenir. Birini cümlenin ortasında kes, cevap vermek için durur; hem de sesli olarak.",
+    "describe": {
+      "title": "Anlat, yapılandırma",
+      "text": "Kimi arayacağını tek cümleyle yaz, CallZen müşteri adayını senin için oluştursun."
+    },
+    "replay": {
+      "title": "Kötü giden bir görüşmeyi yeniden oyna",
+      "text": "Canlı bir görüşmedeki gerçek müşteri adayını alıştırma müşterisine dönüştür ve yeniden dene."
+    },
+    "withCopilot": {
+      "title": "Yardımcı pilotla ya da onsuz alıştırma yap",
+      "text": "Öğrenirken önerileri açık tut, sonra tek başına nasıl yaptığını görmek için kapat."
+    },
+    "dossier": {
+      "aria": "Örnek alıştırma müşterisi",
+      "role": "Operasyon müdürü, bölgesel lojistik şirketi",
+      "difficulty": "Zorluk: yüksek",
+      "patience": "Sabır: düşük",
+      "voice": "Sesli görüşme",
+      "knownLabel": "Bildiklerin",
+      "known": "Soğuk e-postana yanıt verdi. On iki satış temsilcisinden oluşan bir ekibi yönetiyor.",
+      "secretsLabel": "Sana söylemedikleri",
+      "hidden": "Sen açana kadar gizli",
+      "hintRevealed": "Analiz sana bunu gösterir.",
+      "hintHidden": "Alıştırmada bunları görüşme sırasında öğrenirsin.",
+      "hide": "Tekrar gizle",
+      "reveal": "Görüşmeden sonra göster"
+    },
+    "secrets": {
+      "pain": {
+        "label": "Temel sorun",
+        "text": "Yavaş takip yüzünden geçen çeyrekte iki yenilemeyi kaybetti."
+      },
+      "objection": {
+        "label": "Öne süreceği itiraz",
+        "text": "“Bunun için zaten bir aracımız var.”"
+      },
+      "yes": {
+        "label": "Evet demesini sağlayan şey",
+        "text": "Bir haftadan kısa sürede tamamlanan bir kurulum."
+      }
+    }
+  },
+  "review": {
+    "title": "Görüşmeden sonra işlerin tam nerede döndüğünü gör",
+    "copy": "Her görüşme ağırlıklı bir puan, kategori puanları ile hataların ve güçlü yönlerin bir listesini alır. Her biri kayıttaki ilgili ana işaret eder; böylece tahmin etmek yerine dinleyebilirsin.",
+    "aria": "Örnek görüşme analizi",
+    "sample": "Örnek analiz, {{duration}} görüşme, puan <score>78</score>",
+    "you": "Sen",
+    "prospect": "Müşteri adayı",
+    "markerAt": "{{kind}}, {{time}}",
+    "kinds": {
+      "mistake": "Hata",
+      "strength": "Güçlü yön",
+      "objection": "İtiraz"
+    },
+    "markers": {
+      "pitchedEarly": "Ekibin büyüklüğünü sormadan önce sunuma geçtin.",
+      "priceObjection": "Fiyat itirazı. Rakamı savunmadan önce bütçelerini sordun.",
+      "askedCost": "Yavaş takibin onlara maliyetini sordun, sonra yanıtlamalarına izin verdin.",
+      "weakClose": "Bir sonraki adımı planlamak yerine “haber verin” diyerek bitirdin."
+    },
+    "metrics": {
+      "talkRatio": "Konuşma oranı",
+      "pace": "Hız",
+      "paceValue": "148 kelime/dk",
+      "fillers": "Dolgu sözcükleri",
+      "interruptions": "Sözü kesmeler",
+      "objections": "İtirazlar"
+    },
+    "after": {
+      "followUp": {
+        "title": "Takip e-postası taslağı",
+        "text": "CallZen, müşteri adayının gerçekte söylediklerine dayanarak göndereceğin bir sonraki e-postayı yazar."
+      },
+      "practice": {
+        "title": "Buna uygun bir alıştırma oturumu",
+        "text": "Bu görüşmede yaptığın hataları hedefleyen alıştırma müşterisini önerir."
+      },
+      "trends": {
+        "title": "Görüşmeler boyunca eğilimler",
+        "text": "Panon, puanını zaman içinde ve sürekli tekrarlayan hataları gösterir."
+      }
+    }
+  },
+  "playbook": {
+    "title": "Ekibinin nasıl sattığını ona öğret",
+    "copy": "Bir yardımcı pilot, satış kılavuzu kadar iyidir. Seninkini bir kez hazırla, sonra her görüşmede kullan.",
+    "items": {
+      "stages": {
+        "title": "Akış aşamaları",
+        "text": "Görüşmeni aşamalara böl. Yardımcı pilot, konuşma ilerledikçe hangi aşamada olduğunu takip eder."
+      },
+      "objections": {
+        "title": "İtiraz kütüphanesi",
+        "text": "Fiyat, zamanlama ve rakip itirazlarını nasıl yanıtladığını yaz. Öneriler senin yanıtlarından yola çıkar."
+      },
+      "knowledge": {
+        "title": "Ürün bilgisi",
+        "text": "Önerilerin gerçek fiyatlarını, özelliklerini ve sınırlarını kullanması için belgelerini içe aktar."
+      },
+      "tone": {
+        "title": "Ton ve metodoloji",
+        "text": "Nasıl konuşacağını ve hangi satış yöntemini izleyeceğini seç."
+      },
+      "frequency": {
+        "title": "Ne sıklıkla konuşur",
+        "text": "Önerilerin ne sıklıkla görüneceğini ayarla; seni bunaltmadan yardımcı olsun."
+      },
+      "languages": {
+        "title": "Beş dile kadar",
+        "text": "Her yardımcı pilot birden çok görüşme dilini yönetebilir ve hangisinin konuşulduğunu algılar."
+      }
+    }
+  },
+  "teams": {
+    "title": "Birlikte satış yapan ekipler için tasarlandı",
+    "copy": "Yardımcı pilotlar, müşteri adayları ve görüşmeler bir kuruluşun içinde yer alır; birden çok kuruluşa üye olabilir ve aralarında geçiş yapabilirsin. İnsanları e-postayla davet et; davetler yedi gün geçerlidir.",
+    "roles": {
+      "owner": {
+        "name": "Sahip",
+        "text": "Yöneticilerin ve üyelerin neler yapabileceği dâhil her şeyi denetler."
+      },
+      "admin": {
+        "name": "Yönetici",
+        "text": "Ekibi, sahibin verdiği izinlerle yönetir."
+      },
+      "member": {
+        "name": "Üye",
+        "text": "Yardımcı pilotları kullanır, müşteri adaylarını yönetir ve kendi görüşmelerini inceler."
+      }
+    },
+    "consent": {
+      "title": "Önce onay, neyin saklanacağına sen karar ver",
+      "copy": "Bir görüşmeyi kaydetmeden önce her zaman onay al. CallZen sana bunu hatırlatır ve buna uygun denetimler sunar: kayıtların ne kadar süre saklanacağını belirle, işin bittiğinde hesabını ve verilerini sil."
+    }
+  },
+  "closing": {
+    "title": "Bir sonraki görüşmeni bir yardımcı pilotla yap.",
+    "copy": "İlk yardımcı pilotunu kur, bir görüşme başlat ve müşteri adayı hâlâ konuşurken önerilerin gelişini izle."
+  }
+}

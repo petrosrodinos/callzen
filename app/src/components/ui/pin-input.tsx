@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
@@ -156,7 +157,7 @@ const PinInput = ({ className, children, ref, ...props }: PinInputProps) => {
         autoComplete: otp ? "one-time-code" : "off",
         disabled: disabled,
         readOnly: readOnly,
-        "aria-label": ariaLabel ? ariaLabel : `Pin input ${counter} of ${length}`,
+        "aria-label": ariaLabel ? ariaLabel : i18n.t("common:pinInput.field", { counter, length }),
         ref: (node: HTMLInputElement | null) => {
           if (node) {
             refMap?.set(pinIndex, node);
@@ -172,7 +173,7 @@ const PinInput = ({ className, children, ref, ...props }: PinInputProps) => {
 
   return (
     <PinInputContext.Provider value={true}>
-      <div ref={ref} aria-label="Pin Input" className={className} {...rest}>
+      <div ref={ref} aria-label={i18n.t("common:pinInput.label")} className={className} {...rest}>
         {clones}
         <input type="hidden" name={name} form={form} value={pinValue} />
       </div>

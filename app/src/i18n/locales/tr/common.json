@@ -1,0 +1,430 @@
+{
+  "actions": {
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "close": "Kapat",
+    "confirm": "Onayla",
+    "back": "Geri",
+    "next": "İleri",
+    "search": "Ara",
+    "retry": "Tekrar deneyin",
+    "loading": "Yükleniyor…",
+    "logout": "Çıkış yap"
+  },
+  "language": {
+    "label": "Dil",
+    "switch": "Dili değiştir"
+  },
+  "dates": {
+    "today": "Bugün",
+    "yesterday": "Dün"
+  },
+  "pagination": {
+    "previous": "Önceki sayfa",
+    "next": "Sonraki sayfa"
+  },
+  "theme": {
+    "toggle": "Temayı değiştir",
+    "light": "Açık",
+    "dark": "Koyu",
+    "system": "Sistem"
+  },
+  "errorBoundary": {
+    "title": "Bir şeyler ters gitti",
+    "description": "Beklenmeyen bir hata oluştu. Lütfen sayfayı yenilemeyi deneyin; sorun devam ederse destek ekibiyle iletişime geçin.",
+    "details": "Hata ayrıntıları"
+  },
+  "scoreRing": {
+    "aria": "{{label}}: 100 üzerinden {{score}}",
+    "score": "Puan",
+    "notAvailable": "mevcut değil"
+  },
+  "select": {
+    "placeholder": "Seçin",
+    "notSpecified": "Belirtilmedi"
+  },
+  "modelPicker": {
+    "quality": "Kalite {{value}}/5",
+    "slow": "Yanıtlamadan önce düşünür; bu yüzden canlı görüşmelerde öneriler geç gelebilir.",
+    "recommended": "Önerilen"
+  },
+  "countdown": {
+    "passed": "Randevu zamanı geçti"
+  },
+  "phoneInput": {
+    "search": "Ülke ara...",
+    "empty": "Ülke bulunamadı."
+  },
+  "callRow": {
+    "practiceSession": "Alıştırma oturumu",
+    "untitled": "Adsız görüşme",
+    "practice": "Alıştırma",
+    "objectiveMet": "Hedef karşılandı",
+    "notMet": "Karşılanmadı",
+    "analyzing": "Analiz ediliyor",
+    "live": "Canlı"
+  },
+  "languageSelect": {
+    "label": "Dil",
+    "placeholder": "Bir dil seçin"
+  },
+  "languageMultiSelect": {
+    "primaryLanguage": "Birincil dil",
+    "makePrimary": "Birincil yap",
+    "primaryAria": "{{name}} (birincil)",
+    "makePrimaryAria": "{{name}} dilini birincil yap",
+    "removeAria": "{{name}} dilini kaldır",
+    "maximum": "En fazla {{count}} dil",
+    "add": "Dil ekle",
+    "search": "Dil ara…",
+    "empty": "Dil bulunamadı.",
+    "primary": "Birincil",
+    "hint": "En fazla {{count}} dil. Yıldızlı olan varsayılandır; başka bir etikete tıklayarak onu varsayılan yapabilirsiniz."
+  },
+  "liveAssist": {
+    "label": "Canlı destek",
+    "mutedTitle": "Öneriler sessize alındı. Görüşme kaydedilmeye devam ediyor.",
+    "resume": "Önerilere devam et",
+    "empty": "Müşteri adayı konuşur konuşmaz öneriler burada görünecek.",
+    "recent": "Son öneriler ({{count}})",
+    "copilot": "Co-pilot",
+    "thinking": "Düşünüyor…",
+    "activeUsing": "Etkin · {{model}} kullanılıyor",
+    "active": "Etkin",
+    "paused": "Öneriler duraklatıldı · kayıt sürüyor",
+    "reconnecting_one": "Yeniden bağlanılıyor · {{count}} satır sırada",
+    "reconnecting_other": "Yeniden bağlanılıyor · {{count}} satır sırada",
+    "frequencyLabel": "Öneri sıklığı",
+    "frequency": "Sıklık",
+    "suggestNow": "Şimdi öner",
+    "unmute": "Önerilerin sesini aç",
+    "mute": "Önerileri sessize al",
+    "updating": "Güncelleniyor",
+    "or": "Veya:",
+    "alt": "Alternatif:",
+    "unpin": "Sabitlemeyi kaldır",
+    "pin": "Sabitle",
+    "dismiss": "Kapat",
+    "helpful": "Yararlı",
+    "notHelpful": "Yararlı değil",
+    "askPlaceholder": "Co-pilot'a sorun… ör. 50 kullanıcı için fiyat?",
+    "askLabel": "Co-pilot'a sorun",
+    "ask": "Sor",
+    "scriptProgress": "Konuşma metni ilerlemesi · {{done}}/{{total}}",
+    "audioLevel": "{{label}} ses düzeyi"
+  },
+  "micCheck": {
+    "ready": "Mikrofon hazır",
+    "speak": "Test için konuşun",
+    "prompt": "Başlamadan önce mikrofonunuzu kontrol edin.",
+    "test": "Mikrofonu test et"
+  },
+  "recording": {
+    "recording": "Kaydediliyor",
+    "listening": "Dinleniyor · kaydedilmiyor",
+    "paused": "Duraklatıldı",
+    "off": "Kayıt yapılmıyor",
+    "connecting": "Bağlanıyor…"
+  },
+  "transcript": {
+    "empty": "Konuşmalar ilerledikçe döküm burada görünecek.",
+    "notSaved": "Henüz kaydedilmedi",
+    "switchSpeaker": "Konuşmacıyı değiştir",
+    "wrongSpeaker": "Konuşmacı yanlış mı? Değiştirin"
+  },
+  "imageUploader": {
+    "upload": "{{label}} yükle",
+    "wait": "Lütfen bekleyin...",
+    "hint": "PNG, JPG, en fazla 5 MB"
+  },
+  "imagePicker": {
+    "uploadText": "Görsel yükle",
+    "uploadSubtext": "Görselleri buraya sürükleyip bırakın veya göz atmak için tıklayın",
+    "fileTypeText": "JPG, PNG, JPEG desteklenir, dosya başına en fazla 10 MB",
+    "existingImages": "Mevcut görseller",
+    "choose": "Görsel seç",
+    "uploading": "Görseller yükleniyor",
+    "uploadingSubtext": "Görselleriniz yüklenirken lütfen bekleyin",
+    "uploadingButton": "Yükleniyor...",
+    "fileRejected": "Dosya reddedildi",
+    "image": "Görsel",
+    "clearAll": "Tümünü temizle",
+    "deleteTitle": "Görseli sil",
+    "deleteDescription": "Bu görseli silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
+  },
+  "fileUpload": {
+    "maxFiles_one": "En fazla {{count}} dosyaya izin verilir",
+    "maxFiles_other": "En fazla {{count}} dosyaya izin verilir",
+    "typeNotAccepted": "Dosya türü kabul edilmiyor",
+    "tooLarge": "Dosya çok büyük",
+    "uploadFailed": "Yükleme başarısız",
+    "label": "Dosya yükleme",
+    "statusError": "Hata: {{error}}",
+    "statusUploading": "Yükleniyor: %{{progress}} tamamlandı",
+    "statusComplete": "Yükleme tamamlandı",
+    "statusReady": "Yüklemeye hazır"
+  },
+  "pinInput": {
+    "field": "PIN girişi {{counter}} / {{length}}",
+    "label": "PIN girişi"
+  },
+  "organisationGate": {
+    "errorTitle": "Kuruluşlarınız yüklenemedi",
+    "errorDescription": "Bağlantınızı kontrol edip tekrar deneyin.",
+    "retry": "Yeniden dene",
+    "signOut": "Oturumu kapat",
+    "emptyTitle": "Henüz kuruluş yok",
+    "emptyDescription": "Çalışma alanınızı kurmak için sayfayı yenileyin.",
+    "reload": "Yenile"
+  },
+  "requirePermission": {
+    "title": "Rolünüz buna izin vermiyor",
+    "description": "Bu sayfaya erişiminiz yok. Rolünüzün izinlerini değiştirmesi için bir sahibe başvurun.",
+    "descriptionWithOrg": "Rolünüzün bu sayfaya erişimi yok (kuruluş: {{organisation}}, rol: {{role}}). Rolünüzün izinlerini değiştirmesi için bir sahibe başvurun.",
+    "back": "Panoya dön"
+  },
+  "toasts": {
+    "assistantAgents": {
+      "coPilotCreated": "Co-pilot oluşturuldu",
+      "coPilotDuplicated": "Co-pilot çoğaltıldı",
+      "defaultCoPilotUpdated": "Varsayılan co-pilot güncellendi",
+      "coPilotArchived": "Co-pilot arşivlendi",
+      "coPilotRestored": "Co-pilot geri yüklendi",
+      "coPilotDeleted": "Co-pilot silindi",
+      "couldNotCreateTheCoPilot": "Co-pilot oluşturulamadı",
+      "changesSaved": "Değişiklikler kaydedildi",
+      "couldNotSaveChanges": "Değişiklikler kaydedilemedi",
+      "couldNotDuplicate": "Çoğaltılamadı",
+      "couldNotSetDefault": "Varsayılan olarak ayarlanamadı",
+      "couldNotUpdateTheCoPilot": "Co-pilot güncellenemedi",
+      "couldNotDeleteTheCoPilot": "Co-pilot silinemedi",
+      "readyToUse": "{{name}} kullanıma hazır."
+    },
+    "calls": {
+      "callStarted": "Görüşme başladı",
+      "callUpdated": "Görüşme güncellendi",
+      "savedToYourCallLibrary": "Çağrı kitaplığınıza kaydedildi.",
+      "bookmarkRemoved": "Yer imi kaldırıldı",
+      "speakerUpdated": "Konuşmacı güncellendi",
+      "theCoPilotIsListening": "Co-pilot dinliyor.",
+      "couldNotStartTheCall": "Görüşme başlatılamadı",
+      "practiceSessionReady": "Alıştırma oturumu hazır",
+      "couldNotStartThePracticeSession": "Alıştırma oturumu başlatılamadı",
+      "couldNotUpdateTheCall": "Görüşme güncellenemedi",
+      "callEnded": "Görüşme sona erdi",
+      "yourPerformanceReportIsBeingPrepared": "Performans raporunuz hazırlanıyor.",
+      "couldNotEndTheCall": "Görüşme sonlandırılamadı",
+      "callPermanentlyDeleted": "Görüşme kalıcı olarak silindi",
+      "couldNotDeleteTheCall": "Görüşme silinemedi",
+      "thanksForTheFeedback": "Geri bildiriminiz için teşekkürler",
+      "couldNotUpdateTheSuggestion": "Öneri güncellenemedi",
+      "noAnswer": "Yanıt yok",
+      "momentBookmarked": "An yer imine eklendi",
+      "couldNotBookmark": "Yer imine eklenemedi",
+      "couldNotRemoveTheBookmark": "Yer imi kaldırılamadı",
+      "couldNotUpdateTheSpeaker": "Konuşmacı güncellenemedi",
+      "recordingSaved": "Kayıt kaydedildi",
+      "recordingUploadFailed": "Kayıt yüklenemedi",
+      "recordingPermanentlyDeleted": "Kayıt kalıcı olarak silindi",
+      "transcriptAndAnalysisWereKept": "Döküm ve analiz korundu.",
+      "couldNotDeleteTheRecording": "Kayıt silinemedi",
+      "transcriptPermanentlyDeleted": "Döküm kalıcı olarak silindi",
+      "couldNotDeleteTheTranscript": "Döküm silinemedi",
+      "analysisStarted": "Analiz başladı",
+      "thisUsuallyTakesUnderAMinute": "Bu genellikle bir dakikadan kısa sürer.",
+      "couldNotStartTheAnalysis": "Analiz başlatılamadı"
+    },
+    "organisations": {
+      "roleUpdated": "Rol güncellendi",
+      "memberRemoved": "Üye kaldırıldı",
+      "organisationCreated": "Kuruluş oluşturuldu",
+      "couldNotCreateTheOrganisation": "Kuruluş oluşturulamadı",
+      "organisationRenamed": "Kuruluşun adı değiştirildi",
+      "couldNotRenameTheOrganisation": "Kuruluşun adı değiştirilemedi",
+      "organisationPermanentlyDeleted": "Kuruluş kalıcı olarak silindi",
+      "couldNotDeleteTheOrganisation": "Kuruluş silinemedi",
+      "couldNotChangeTheRole": "Rol değiştirilemedi",
+      "couldNotRemoveTheMember": "Üye kaldırılamadı",
+      "permissionsSaved": "İzinler kaydedildi",
+      "theChangeAppliesToEveryoneWith": "Değişiklik, bu role sahip herkes için hemen geçerli olur.",
+      "couldNotSavePermissions": "İzinler kaydedilemedi",
+      "permissionsResetToThePreset": "İzinler hazır ayara sıfırlandı",
+      "couldNotResetPermissions": "İzinler sıfırlanamadı",
+      "invitationSent": "Davet gönderildi",
+      "invitationCreated": "Davet oluşturuldu",
+      "couldNotSendTheInvitation": "Davet gönderilemedi",
+      "invitationResent": "Davet yeniden gönderildi",
+      "newLinkCreated": "Yeni bağlantı oluşturuldu",
+      "couldNotResendTheInvitation": "Davet yeniden gönderilemedi",
+      "invitationRevoked": "Davet iptal edildi",
+      "theLinkNoLongerWorks": "Bağlantı artık çalışmıyor.",
+      "couldNotRevokeTheInvitation": "Davet iptal edilemedi",
+      "youCanSwitchOrganisationsFromThe": "Kuruluşlar arasında istediğiniz zaman kenar çubuğundan geçiş yapabilirsiniz.",
+      "couldNotAcceptTheInvitation": "Davet kabul edilemedi",
+      "workingIn": "Artık {{name}} içinde çalışıyorsunuz.",
+      "emailedTo": "{{email}} adresine e-posta gönderdik.",
+      "emailedFresh": "{{email}} adresine yeni bir bağlantı gönderdik.",
+      "welcomeTo": "{{name}} çalışma alanına hoş geldiniz",
+      "emailUnavailableInvite": "E-posta şu anda kullanılamıyor. Davet bağlantısını kopyalayıp kendiniz paylaşın.",
+      "emailUnavailableLink": "E-posta şu anda kullanılamıyor. Yeni bağlantıyı kopyalayıp kendiniz paylaşın."
+    },
+    "practiceAgents": {
+      "prospectCreated": "Müşteri adayı oluşturuldu",
+      "prospectRecreatedFromTheCall": "Müşteri adayı görüşmeden yeniden oluşturuldu",
+      "prospectDuplicated": "Müşteri adayı çoğaltıldı",
+      "prospectArchived": "Müşteri adayı arşivlendi",
+      "prospectRestored": "Müşteri adayı geri yüklendi",
+      "prospectDeleted": "Müşteri adayı silindi",
+      "couldNotCreateTheProspect": "Müşteri adayı oluşturulamadı",
+      "changesSaved": "Değişiklikler kaydedildi",
+      "couldNotSaveChanges": "Değişiklikler kaydedilemedi",
+      "prospectGenerated": "Müşteri adayı üretildi",
+      "reviewAndAdjustTheDetailsThen": "Ayrıntıları gözden geçirip düzenleyin, ardından kaydedin.",
+      "couldNotGenerateTheProspect": "Müşteri adayı üretilemedi",
+      "randomProspectReady": "Rastgele müşteri adayı hazır",
+      "reviewItThenSave": "Gözden geçirin, ardından kaydedin.",
+      "couldNotGenerateARandomProspect": "Rastgele müşteri adayı üretilemedi",
+      "couldNotRecreateTheProspect": "Müşteri adayı yeniden oluşturulamadı",
+      "couldNotDuplicate": "Çoğaltılamadı",
+      "harderVersionCreated": "Daha zor sürüm oluşturuldu",
+      "couldNotCreateAHarderVersion": "Daha zor sürüm oluşturulamadı",
+      "couldNotUpdateTheProspect": "Müşteri adayı güncellenemedi",
+      "couldNotDeleteTheProspect": "Müşteri adayı silinemedi"
+    },
+    "auth": {
+      "loginSuccessful": "Giriş başarılı",
+      "youHaveSuccessfullyLoggedIn": "Başarıyla giriş yaptınız",
+      "couldNotSignIn": "Giriş yapılamadı",
+      "anUnexpectedErrorOccurred": "Beklenmeyen bir hata oluştu",
+      "welcomeToCallzen": "CallZen'e hoş geldiniz",
+      "yourAccountIsReady": "Hesabınız hazır.",
+      "couldNotSignUp": "Kayıt olunamadı",
+      "adminLoginSuccessful": "Yönetici girişi başarılı",
+      "youHaveSuccessfullyLoggedInAs": "Yönetici olarak başarıyla giriş yaptınız",
+      "couldNotAdminLoginToAccount": "Hesaba yönetici girişi yapılamadı"
+    },
+    "user": {
+      "settingsSaved": "Ayarlar kaydedildi",
+      "couldNotSaveSettings": "Ayarlar kaydedilemedi",
+      "accountDeleted": "Hesap silindi",
+      "allYourDataWasPermanentlyRemoved": "Tüm verileriniz kalıcı olarak silindi.",
+      "couldNotDeleteYourAccount": "Hesabınız silinemedi"
+    }
+  },
+  "errors": {
+    "calls": {
+      "failedToLoadCalls": "Görüşmeler yüklenemedi.",
+      "failedToLoadTheCall": "Görüşme yüklenemedi.",
+      "failedToStartTheCall": "Görüşme başlatılamadı.",
+      "failedToUpdateTheCall": "Görüşme güncellenemedi.",
+      "failedToDeleteTheCall": "Görüşme silinemedi.",
+      "failedToUpdateTheSpeaker": "Konuşmacı güncellenemedi.",
+      "failedToAddTheBookmark": "Yer imi eklenemedi.",
+      "failedToRemoveTheBookmark": "Yer imi kaldırılamadı.",
+      "failedToStartThePracticeSession": "Alıştırma oturumu başlatılamadı.",
+      "failedToEndTheCall": "Görüşme sonlandırılamadı.",
+      "failedToSaveTheTranscript": "Döküm kaydedilemedi.",
+      "failedToDeleteTheTranscript": "Döküm silinemedi.",
+      "failedToGenerateASuggestion": "Öneri üretilemedi.",
+      "failedToUpdateTheSuggestion": "Öneri güncellenemedi.",
+      "theCoPilotCouldNotAnswer": "Co-pilot şu anda yanıt veremedi.",
+      "failedToUploadTheRecording": "Kayıt yüklenemedi.",
+      "failedToLoadTheRecording": "Kayıt yüklenemedi.",
+      "failedToDeleteTheRecording": "Kayıt silinemedi.",
+      "failedToStartTheAnalysis": "Analiz başlatılamadı.",
+      "couldNotStartTheRealtimeAudio": "Gerçek zamanlı ses oturumu başlatılamadı.",
+      "theProspectDidNotRespondTry": "Müşteri adayı yanıt vermedi. Tekrar deneyin.",
+      "couldNotConnectToTheRealtime": "Gerçek zamanlı ses hizmetine bağlanılamadı."
+    },
+    "dashboard": {
+      "failedToLoadYourProgress": "İlerlemeniz yüklenemedi."
+    },
+    "organisations": {
+      "failedToLoadMembers": "Üyeler yüklenemedi.",
+      "failedToRemoveTheMember": "Üye kaldırılamadı.",
+      "failedToLoadRoles": "Roller yüklenemedi.",
+      "failedToLoadYourOrganisations": "Kuruluşlarınız yüklenemedi.",
+      "failedToLoadPermissions": "İzinler yüklenemedi.",
+      "failedToCreateTheOrganisation": "Kuruluş oluşturulamadı.",
+      "failedToRenameTheOrganisation": "Kuruluşun adı değiştirilemedi.",
+      "failedToDeleteTheOrganisation": "Kuruluş silinemedi.",
+      "failedToChangeTheRole": "Rol değiştirilemedi.",
+      "failedToSavePermissions": "İzinler kaydedilemedi.",
+      "failedToResetPermissions": "İzinler sıfırlanamadı.",
+      "failedToLoadInvitations": "Davetler yüklenemedi.",
+      "failedToSendTheInvitation": "Davet gönderilemedi.",
+      "failedToResendTheInvitation": "Davet yeniden gönderilemedi.",
+      "failedToRevokeTheInvitation": "Davet iptal edilemedi.",
+      "thisInvitationLinkIsNotValid": "Bu davet bağlantısı geçerli değil.",
+      "failedToLoadYourInvitations": "Davetleriniz yüklenemedi.",
+      "failedToAcceptTheInvitation": "Davet kabul edilemedi."
+    },
+    "practiceAgents": {
+      "failedToLoadPracticeProspects": "Alıştırma müşteri adayları yüklenemedi.",
+      "failedToLoadThePracticeProspect": "Alıştırma müşteri adayı yüklenemedi.",
+      "failedToCreateThePracticeProspect": "Alıştırma müşteri adayı oluşturulamadı.",
+      "failedToSaveThePracticeProspect": "Alıştırma müşteri adayı kaydedilemedi.",
+      "failedToRecreateTheProspectFrom": "Müşteri adayı bu görüşmeden yeniden oluşturulamadı.",
+      "failedToDuplicateTheProspect": "Müşteri adayı çoğaltılamadı.",
+      "failedToUpdateTheProspect": "Müşteri adayı güncellenemedi.",
+      "failedToDeleteTheProspect": "Müşteri adayı silinemedi.",
+      "failedToGenerateTheProspectPlease": "Müşteri adayı üretilemedi. Lütfen tekrar deneyin.",
+      "failedToGenerateARandomProspect": "Rastgele müşteri adayı üretilemedi. Lütfen tekrar deneyin.",
+      "failedToCreateAHarderVersion": "Daha zor sürüm oluşturulamadı."
+    },
+    "usage": {
+      "failedToLoadUsage": "Kullanım verileri yüklenemedi."
+    },
+    "user": {
+      "failedToLoadYourProfile": "Profiliniz yüklenemedi.",
+      "failedToSaveYourSettings": "Ayarlarınız kaydedilemedi.",
+      "failedToDeleteYourAccount": "Hesabınız silinemedi."
+    },
+    "assistantAgents": {
+      "failedToLoadAssistantAgents": "Asistan ajanlar yüklenemedi.",
+      "failedToLoadTheAssistantAgent": "Asistan ajan yüklenemedi.",
+      "failedToCreateTheAssistantAgent": "Asistan ajan oluşturulamadı.",
+      "failedToSaveTheAssistantAgent": "Asistan ajan kaydedilemedi.",
+      "failedToDuplicateTheAssistantAgent": "Asistan ajan çoğaltılamadı.",
+      "failedToSetTheDefaultAgent": "Varsayılan ajan ayarlanamadı.",
+      "failedToUpdateTheAgent": "Ajan güncellenemedi.",
+      "failedToDeleteTheAssistantAgent": "Asistan ajan silinemedi."
+    },
+    "auth": {
+      "failedToSignInPleaseTry": "Giriş yapılamadı. Lütfen tekrar deneyin.",
+      "failedToSignUpPleaseTry": "Kayıt olunamadı. Lütfen tekrar deneyin.",
+      "failedToRefreshAccountTokenPlease": "Hesap belirteci yenilenemedi. Lütfen tekrar deneyin.",
+      "failedToAdminLoginToAccount": "Hesaba yönetici girişi yapılamadı. Lütfen tekrar deneyin."
+    },
+    "catalog": {
+      "failedToLoadModelsAndTemplates": "Modeller ve şablonlar yüklenemedi."
+    },
+    "googleMaps": {
+      "failedToFetchTimezonePleaseTry": "Saat dilimi alınamadı. Lütfen tekrar deneyin."
+    },
+    "health": {
+      "failedToFetchHealthStatusPlease": "Sistem durumu alınamadı. Lütfen tekrar deneyin."
+    },
+    "lib": {
+      "network": "Sunucuya ulaşılamıyor. Bağlantınızı kontrol edip tekrar deneyin."
+    },
+    "audio": {
+      "speechUnsupported": "Bu tarayıcıda konuşma tanıma desteklenmiyor. Chrome veya Edge kullanın.",
+      "speechBlocked": "Konuşma tanıma için mikrofon erişimi engellendi.",
+      "micUnsupported": "Bu tarayıcı mikrofon kaydını desteklemiyor. Chrome, Edge veya Safari'nin en son sürümünü deneyin.",
+      "micBlocked": "Mikrofon erişimi engellendi. Tarayıcınızın site ayarlarından izin verip tekrar deneyin.",
+      "micNotFound": "Mikrofon bulunamadı. Bir mikrofon bağlayıp tekrar deneyin.",
+      "micFailed": "Mikrofona erişilemedi.",
+      "tabUnsupported": "Toplantı sesini kaydetmek için Chrome veya Edge gibi bir masaüstü tarayıcı gerekir.",
+      "shareCancelled": "Ekran paylaşımı iptal edildi. Toplantı sekmenizi seçin ve \"Sekme sesini paylaş\" seçeneğini etkinleştirin.",
+      "noAudioShared": "Hiç ses paylaşılmadı. Toplantının tarayıcı sekmesini seçin ve \"Sekme sesini paylaş\" seçeneğini açın.",
+      "realtimeTimeout": "Gerçek zamanlı veri kanalı zamanında açılmadı"
+    },
+    "websocket": {
+      "notConnected": "WebSocket bağlı değil",
+      "timeout": "WebSocket gönderim zaman aşımı"
+    }
+  }
+}

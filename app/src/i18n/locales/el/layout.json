@@ -1,0 +1,57 @@
+{
+  "sidebar": {
+    "plan": "Co-pilot πωλήσεων",
+    "toggle": "Εναλλαγή πλαϊνής γραμμής",
+    "groups": {
+      "sell": "Πωλήσεις",
+      "train": "Εκπαίδευση",
+      "account": "Λογαριασμός",
+      "admin": "Διαχείριση"
+    },
+    "items": {
+      "dashboard": "Πίνακας ελέγχου",
+      "startCall": "Έναρξη κλήσης",
+      "callLibrary": "Βιβλιοθήκη κλήσεων",
+      "practice": "Εξάσκηση",
+      "copilots": "Co-pilots",
+      "organisation": "Οργανισμός",
+      "settings": "Ρυθμίσεις",
+      "usage": "Χρήση και κόστη",
+      "privacy": "Απόρρητο και δεδομένα",
+      "health": "Κατάσταση",
+      "users": "Χρήστες",
+      "alerts": "Ειδοποιήσεις"
+    }
+  },
+  "userMenu": {
+    "settings": "Ρυθμίσεις",
+    "usage": "Χρήση και κόστη",
+    "privacy": "Απόρρητο και δεδομένα",
+    "logout": "Αποσύνδεση"
+  },
+  "orgSwitcher": {
+    "switch": "Αλλαγή οργανισμού",
+    "pendingCount_one": "{{count}} εκκρεμής πρόσκληση",
+    "pendingCount_other": "{{count}} εκκρεμείς προσκλήσεις",
+    "organisation": "Οργανισμός",
+    "yourOrganisations": "Οι οργανισμοί σας",
+    "members_one": "{{count}} μέλος",
+    "members_other": "{{count}} μέλη",
+    "pendingInvitations": "Εκκρεμείς προσκλήσεις",
+    "settings": "Ρυθμίσεις οργανισμού",
+    "create": "Δημιουργία οργανισμού"
+  },
+  "sidebarNav": {
+    "placeholder": "Επιλέξτε ενότητα"
+  },
+  "navbar": {
+    "home": "Αρχική",
+    "templates": "Πρότυπα",
+    "pricing": "Τιμές",
+    "roadmap": "Οδικός χάρτης",
+    "contact": "Επικοινωνία",
+    "login": "Σύνδεση",
+    "signup": "Εγγραφή",
+    "dashboard": "Πίνακας ελέγχου"
+  }
+}

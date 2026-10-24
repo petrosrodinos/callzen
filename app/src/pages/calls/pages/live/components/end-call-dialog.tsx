@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { PhoneOff } from "lucide-react";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -15,6 +16,7 @@ interface EndCallDialogProps {
 }
 
 export function EndCallDialog({ open, onOpenChange, onConfirm, isPending }: EndCallDialogProps) {
+  const { t } = useTranslation("calls");
   const [outcome, setOutcome] = useState<CallOutcome | null>(null);
   const [custom, setCustom] = useState("");
 
@@ -22,10 +24,10 @@ export function EndCallDialog({ open, onOpenChange, onConfirm, isPending }: EndC
     <Dialog open={open} onOpenChange={(next) => !isPending && onOpenChange(next)}>
       <DialogContent className="sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle>End the call?</DialogTitle>
-          <DialogDescription>Optionally record how it went. Outcomes link your performance to real results.</DialogDescription>
+          <DialogTitle>{t("endCall.title")}</DialogTitle>
+          <DialogDescription>{t("endCall.description")}</DialogDescription>
         </DialogHeader>
-        <div role="radiogroup" aria-label="Call outcome" className="grid grid-cols-2 gap-2">
+        <div role="radiogroup" aria-label={t("endCall.outcomeLabel")} className="grid grid-cols-2 gap-2">
           {CallOutcomeFormOptions.map((option) => (
             <button
               key={option.id}
@@ -39,13 +41,13 @@ export function EndCallDialog({ open, onOpenChange, onConfirm, isPending }: EndC
             </button>
           ))}
         </div>
-        {outcome === CallOutcomes.CUSTOM && <Input value={custom} onChange={(event) => setCustom(event.target.value)} placeholder="Describe the outcome" aria-label="Custom outcome" autoFocus />}
+        {outcome === CallOutcomes.CUSTOM && <Input value={custom} onChange={(event) => setCustom(event.target.value)} placeholder={t("endCall.customPlaceholder")} aria-label={t("endCall.customLabel")} autoFocus />}
         <DialogFooter className="gap-2">
           <Button variant="outline" onClick={() => onOpenChange(false)} disabled={isPending}>
-            Keep talking
+            {t("endCall.keepTalking")}
           </Button>
           <Button variant="destructive" onClick={() => onConfirm(outcome ?? undefined, outcome === CallOutcomes.CUSTOM ? custom.trim() || undefined : undefined)} disabled={isPending} loading={isPending}>
-            {!isPending && <PhoneOff />} End call
+            {!isPending && <PhoneOff />} {t("endCall.confirm")}
           </Button>
         </DialogFooter>
       </DialogContent>

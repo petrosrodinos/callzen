@@ -1,0 +1,109 @@
+{
+  "endCall": {
+    "title": "Terminar a chamada?",
+    "description": "Opcionalmente, registe como correu. Os resultados ligam o seu desempenho a resultados reais.",
+    "outcomeLabel": "Resultado da chamada",
+    "customPlaceholder": "Descreva o resultado",
+    "customLabel": "Resultado personalizado",
+    "keepTalking": "Continuar a falar",
+    "confirm": "Terminar chamada"
+  },
+  "manualLine": {
+    "whoSaid": "Quem disse",
+    "prospectSaid": "O cliente disse",
+    "iSaid": "Eu disse",
+    "placeholder": "Escreva uma frase da conversa",
+    "addTranscriptLine": "Adicionar uma linha à transcrição",
+    "addLine": "Adicionar linha"
+  },
+  "live": {
+    "title": "Chamada ao vivo",
+    "badge": "Ao vivo",
+    "you": "Você",
+    "mic": "Microfone",
+    "meeting": "Reunião",
+    "switchCopilot": "Mudar de copiloto",
+    "copilot": "Copiloto",
+    "reconnect": "Reconectar",
+    "dismiss": "Dispensar",
+    "connectTitle": "Ligue o seu áudio para começar a captar",
+    "connectMeeting": "Escolha o separador do navegador da reunião e ative «Partilhar áudio do separador»; depois permita o microfone.",
+    "connectMic": "Permita o acesso ao microfone. Coloque o telemóvel em alta-voz perto deste dispositivo.",
+    "connectAudio": "Ligar áudio",
+    "transcript": "Transcrição ao vivo",
+    "hide": "Ocultar",
+    "show": "Mostrar ({{count}})",
+    "resumeCapture": "Retomar captação",
+    "pauseCapture": "Pausar captação",
+    "pauseCaptureHint": "Pausar captação (momentos fora do tema ou sensíveis)",
+    "bookmark": "Marcar este momento",
+    "endCall": "Terminar chamada",
+    "sources": {
+      "microphone": "Microfone",
+      "meeting": "Reunião"
+    },
+    "notices": {
+      "reconnecting": "A ligação de transcrição foi interrompida. A reconectar…",
+      "switchedToBrowser": "A transcrição ao vivo não está disponível. Mudou para o reconhecimento de voz do seu navegador.",
+      "aiUnavailableBrowser": "A transcrição por IA não está disponível, por isso está a ser usado o reconhecimento de voz do seu navegador. A deteção de interlocutores pode ser menos precisa.",
+      "manualFallback": "A transcrição não está disponível para este áudio. Adicione frases importantes manualmente para que o copiloto possa ajudar na mesma.",
+      "audioStopped": "O áudio de {{label}} parou (o separador foi fechado ou o dispositivo desligado). O que foi captado está seguro. Reconecte para continuar."
+    }
+  },
+  "new": {
+    "title": "Iniciar uma chamada",
+    "description": "Escolha como está a ligar e qual o copiloto a usar. Tudo, exceto o copiloto, é opcional.",
+    "audioCaptureFailed": "Falha na captação de áudio",
+    "validation": {
+      "chooseCopilot": "Escolha um copiloto",
+      "confirmBeforeStarting": "Confirme antes de começar"
+    },
+    "noCopilot": {
+      "title": "Crie primeiro um copiloto",
+      "description": "O copiloto usa o seu guião, objeções e conhecimento para sugerir o que dizer. Com um modelo, demora um minuto.",
+      "cta": "Criar copiloto"
+    },
+    "callType": "Tipo de chamada",
+    "meetingUnsupported": "Requer um navegador de computador como o Chrome ou o Edge.",
+    "copilot": {
+      "title": "Copiloto",
+      "agentLabel": "Agente assistente",
+      "defaultSuffix": "{{name}} (predefinido)",
+      "goal": "Objetivo: {{goal}}"
+    },
+    "context": {
+      "title": "Contexto da chamada",
+      "description": "Ajuda o copiloto a personalizar as sugestões e a análise.",
+      "prospectName": "Nome do potencial cliente",
+      "prospectNamePlaceholder": "Dr. Papadopoulos",
+      "company": "Empresa",
+      "companyPlaceholder": "Clínica Dentária Smile",
+      "role": "Cargo",
+      "rolePlaceholder": "Proprietário da clínica",
+      "goal": "Objetivo desta chamada",
+      "goalPlaceholder": "Agendar uma demonstração",
+      "goalHint": "Deixe vazio para usar o objetivo do copiloto.",
+      "notes": "Notas",
+      "notesPlaceholder": "Recomendado pela Ana. Atualmente usa calendários em papel.",
+      "priorCall": "Chamada anterior com este potencial cliente",
+      "none": "Nenhuma",
+      "callFallback": "Chamada",
+      "language": "Idioma da conversa",
+      "autoDetect": "Deteção automática ({{languages}})",
+      "autoDetectHint": "A deteção automática segue o idioma, dos do copiloto, que o potencial cliente falar."
+    },
+    "recording": {
+      "title": "Gravação",
+      "keep": "Manter a gravação de áudio",
+      "keepHint": "Desative para obter sugestões e uma análise sem guardar o áudio."
+    },
+    "consent": {
+      "title": "Consentimento de gravação",
+      "text": "As leis de gravação variam consoante o país e algumas exigem o consentimento de todos os participantes. É responsável por o obter. Pode ativar uma frase de consentimento que o seu copiloto sugere no início de cada chamada.",
+      "checkbox": "Compreendo e obterei consentimento sempre que for exigido."
+    },
+    "footerMeeting": "De seguida, escolha o separador da reunião e ative «Partilhar áudio do separador».",
+    "footerMic": "Coloque o telemóvel em alta-voz perto deste dispositivo.",
+    "startCall": "Iniciar chamada"
+  }
+}

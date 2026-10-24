@@ -1,0 +1,303 @@
+{
+  "agents": {
+    "status": {
+      "active": "Active",
+      "archived": "Archived",
+      "all": "All"
+    },
+    "modelSpeed": {
+      "fastest": "Fastest",
+      "fast": "Fast",
+      "balanced": "Balanced",
+      "thorough": "Thorough"
+    },
+    "relativeCost": {
+      "1": "Low cost",
+      "2": "Moderate cost",
+      "3": "Higher cost",
+      "4": "Premium cost"
+    },
+    "alternatives": {
+      "none": "None",
+      "one": "1 alternative",
+      "two": "2 alternatives"
+    },
+    "methodology": {
+      "spin": "SPIN Selling",
+      "bant": "BANT",
+      "meddic": "MEDDIC",
+      "challenger": "Challenger",
+      "sandler": "Sandler",
+      "custom": "Custom / none"
+    },
+    "scriptStage": {
+      "opener": "Opener",
+      "pitch": "Pitch",
+      "discovery": "Discovery",
+      "objectionHandling": "Objection handling",
+      "close": "Close",
+      "other": "Other"
+    },
+    "frequency": {
+      "objectionsOnly": "Only objections & questions",
+      "balanced": "Balanced",
+      "constant": "Constant guidance"
+    },
+    "frequencyDescription": {
+      "objectionsOnly": "Stays quiet until the prospect objects, asks something or shows interest.",
+      "balanced": "Reacts to everything meaningful the prospect says, plus occasional nudges.",
+      "constant": "Always shows the next best line. Great for new reps and practice."
+    },
+    "length": {
+      "short": "Short (up to 20 words)",
+      "medium": "Medium (up to 35 words)"
+    },
+    "tone": {
+      "professional": "Professional",
+      "friendly": "Friendly",
+      "consultative": "Consultative",
+      "assertive": "Assertive"
+    }
+  },
+  "calls": {
+    "severity": {
+      "low": "Minor",
+      "medium": "Moderate",
+      "high": "Critical"
+    },
+    "interest": {
+      "low": "Low interest",
+      "medium": "Some interest",
+      "high": "High interest"
+    },
+    "suggestionUsage": {
+      "followed": "Followed",
+      "adapted": "Adapted",
+      "ignored": "Ignored"
+    },
+    "revealKind": {
+      "painPoint": "Hidden pain point",
+      "hiddenInfo": "Hidden information",
+      "objection": "Planned objection",
+      "conversionCondition": "Condition to convert"
+    },
+    "endReason": {
+      "user": "Ended by you",
+      "prospectHungUp": "Prospect hung up",
+      "timeLimit": "Time limit reached",
+      "interrupted": "Connection interrupted"
+    },
+    "sort": {
+      "newest": "Newest first",
+      "oldest": "Oldest first",
+      "highestScore": "Highest score",
+      "lowestScore": "Lowest score",
+      "longest": "Longest"
+    },
+    "scoreRange": {
+      "any": "Any score",
+      "excellent": "80+ excellent",
+      "good": "60–79 good",
+      "below60": "Below 60"
+    },
+    "dateRange": {
+      "any": "Any time"
+    },
+    "kind": {
+      "live": "Live call",
+      "practice": "Practice",
+      "all": "Live & practice"
+    },
+    "outcomeFilter": {
+      "all": "All outcomes",
+      "none": "No outcome recorded"
+    },
+    "outcome": {
+      "meetingBooked": "Meeting / demo booked",
+      "dealWon": "Deal closed / won",
+      "followUp": "Follow-up scheduled",
+      "lost": "Not interested / lost",
+      "noDecision": "No decision / callback",
+      "gatekeeper": "Gatekeeper / wrong person",
+      "custom": "Custom outcome"
+    },
+    "status": {
+      "inProgress": "In progress",
+      "analyzing": "Analyzing",
+      "analyzed": "Analyzed",
+      "analysisFailed": "Analysis failed",
+      "ended": "Not analyzed"
+    },
+    "typeFilter": {
+      "all": "All call types"
+    },
+    "type": {
+      "onlineMeeting": "Online meeting",
+      "microphone": "Phone / microphone",
+      "practice": "Practice session"
+    },
+    "typeDescription": {
+      "microphone": "A call on your phone's speaker or another device. CallZen listens through this device's microphone. Best for cold calls.",
+      "onlineMeeting": "Google Meet, Zoom, Teams or any web meeting. You share the meeting tab's audio so both sides are captured separately."
+    },
+    "speaker": {
+      "user": "You",
+      "prospect": "Prospect",
+      "unknown": "Detecting…"
+    },
+    "suggestionType": {
+      "opener": "Opener / Hook",
+      "discoveryQuestion": "Discovery question",
+      "objectionResponse": "Objection response",
+      "valueStatement": "Value statement",
+      "buyingSignal": "Buying signal detected",
+      "nextStep": "Next step / Close",
+      "reminder": "Reminder",
+      "warning": "Warning",
+      "consent": "Consent disclosure",
+      "answer": "Answer"
+    },
+    "marker": {
+      "mistake": "Mistakes",
+      "strength": "Strengths",
+      "objection": "Objections",
+      "buyingSignal": "Buying signals",
+      "bookmark": "Bookmarks"
+    }
+  },
+  "periods": {
+    "last7Days": "Last 7 days",
+    "last30Days": "Last 30 days",
+    "last90Days": "Last 90 days",
+    "last12Months": "Last 12 months"
+  },
+  "organisations": {
+    "invitation": {
+      "pending": "Pending",
+      "expired": "Expired",
+      "accepted": "Accepted",
+      "revoked": "Revoked"
+    },
+    "role": {
+      "owner": "Owner",
+      "admin": "Admin",
+      "member": "Member"
+    },
+    "roleDescription": {
+      "owner": "Full control. Can change role permissions, delete the organisation and manage every member. Always has every permission.",
+      "admin": "Runs the team day to day: manages co-pilots, members and invitations within the permissions the owner grants.",
+      "member": "Sells and practices. Sees only their own calls unless the owner grants more."
+    }
+  },
+  "practice": {
+    "budget": {
+      "none": "No budget",
+      "limited": "Limited budget",
+      "available": "Budget available",
+      "priceSensitive": "Price-sensitive"
+    },
+    "authority": {
+      "decisionMaker": "Decision maker",
+      "influencer": "Influencer",
+      "gatekeeper": "Gatekeeper",
+      "needsApproval": "Needs approval"
+    },
+    "difficulty": {
+      "1": {
+        "label": "Very easy",
+        "description": "Friendly and open, almost no objections."
+      },
+      "2": {
+        "label": "Easy",
+        "description": "Open, a couple of mild objections, converts readily."
+      },
+      "3": {
+        "label": "Medium",
+        "description": "Some skepticism and genuine objections. Needs good discovery."
+      },
+      "4": {
+        "label": "Hard",
+        "description": "Guarded and busy, tough repeated objections, may hang up early."
+      },
+      "5": {
+        "label": "Very hard",
+        "description": "Hostile to sales calls. Converts only with excellent technique."
+      }
+    },
+    "difficultyFilter": {
+      "any": "Any difficulty"
+    },
+    "patience": {
+      "1": "Hangs up almost immediately",
+      "2": "Impatient",
+      "3": "Average",
+      "4": "Patient",
+      "5": "Very patient"
+    },
+    "persistence": {
+      "1": "Drops it easily",
+      "2": "Raises it again once",
+      "3": "Keeps coming back"
+    },
+    "temperature": {
+      "cold": "Cold",
+      "warm": "Warm"
+    },
+    "temperatureDescription": {
+      "cold": "Never heard of you, no expressed interest, possibly busy or annoyed at being called.",
+      "warm": "Has shown interest or had prior contact, and is more open to talking."
+    },
+    "temperatureFilter": {
+      "any": "Any temperature"
+    },
+    "mood": {
+      "neutral": "Neutral",
+      "rushed": "Rushed",
+      "irritated": "Irritated",
+      "curious": "Curious",
+      "distracted": "Distracted",
+      "enthusiastic": "Enthusiastic"
+    },
+    "personality": {
+      "analytical": "Analytical",
+      "driver": "Driver / direct",
+      "amiable": "Amiable / friendly",
+      "expressive": "Expressive / talkative",
+      "skeptical": "Skeptical",
+      "indecisive": "Indecisive"
+    },
+    "scenario": {
+      "coldCall": "Cold call",
+      "inbound": "Inbound inquiry",
+      "followUp": "Follow-up",
+      "demoFollowUp": "After a demo",
+      "discovery": "Discovery call",
+      "renewal": "Renewal",
+      "negotiation": "Price negotiation",
+      "gatekeeper": "Gatekeeper"
+    },
+    "timeline": {
+      "urgent": "Urgent need",
+      "within3Months": "Within 3 months",
+      "justResearching": "Just researching",
+      "none": "No timeline"
+    }
+  },
+  "usage": {
+    "kind": {
+      "suggestion": "Live suggestions",
+      "ask": "Co-pilot questions",
+      "analysis": "Call analyses",
+      "practiceTurn": "Practice replies (browser voice)",
+      "practiceVoice": "Practice voice minutes",
+      "transcription": "Live transcription",
+      "generation": "Prospect generation"
+    }
+  },
+  "users": {
+    "outputLanguageMode": {
+      "conversation": "Same language as the conversation",
+      "interface": "My interface language"
+    }
+  }
+}

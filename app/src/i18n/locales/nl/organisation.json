@@ -1,0 +1,88 @@
+{
+  "page": {
+    "title": "Organisatie",
+    "description": "Beheer wie bij deze organisatie hoort, wat elke rol mag doen en wie je hebt uitgenodigd.",
+    "nothing": "Niets om te tonen"
+  },
+  "tabs": {
+    "general": "Algemeen",
+    "members": "Leden",
+    "invitations": "Uitnodigingen",
+    "roles": "Rollen en rechten"
+  },
+  "create": {
+    "title": "Een organisatie maken",
+    "description": "Elke organisatie heeft eigen copiloten, prospects, gesprekken en leden. Jij wordt de eigenaar en kunt je team uitnodigen.",
+    "name": "Naam van de organisatie",
+    "namePlaceholder": "Acme verkoopteam",
+    "nameHint": "Je teamgenoten zien deze naam in hun uitnodiging.",
+    "submit": "Organisatie maken"
+  },
+  "general": {
+    "details": "Details",
+    "detailsDescription_one": "Gemaakt op {{date}} · {{count}} lid",
+    "detailsDescription_other": "Gemaakt op {{date}} · {{count}} leden",
+    "name": "Naam van de organisatie",
+    "saveName": "Naam opslaan",
+    "yourRole": "Jouw rol:",
+    "deleteTitle": "Organisatie verwijderen",
+    "deleteDescription": "Verwijdert de organisatie definitief met al haar copiloten, prospects, gesprekken, opnames en analyses, en verwijdert alle leden. Dit kan niet ongedaan worden gemaakt.",
+    "deleteDialogTitle": "{{name}} verwijderen?",
+    "deleteDialogDescription": "Typ <strong>{{name}}</strong> om te bevestigen. Alles in deze organisatie wordt voor alle leden verwijderd.",
+    "confirmAria": "Typ de naam van de organisatie om te bevestigen",
+    "deletePermanently": "Definitief verwijderen"
+  },
+  "invitations": {
+    "copyFailed": "Kopiëren mislukt",
+    "copyFailedHint": "Selecteer de link en kopieer hem handmatig.",
+    "inviteTitle": "Iemand uitnodigen",
+    "inviteDescription": "Ze krijgen een e-mail met een link die 7 dagen geldig is. Iedereen kan bij meerdere organisaties horen, dus bestaande CallZen-gebruikers hoeven alleen te accepteren en te wisselen.",
+    "email": "E-mail",
+    "emailPlaceholder": "collega@bedrijf.com",
+    "role": "Rol",
+    "send": "Uitnodiging versturen",
+    "emptyTitle": "Nog geen uitnodigingen",
+    "emptyDescription": "Uitnodigingen die je verstuurt verschijnen hier, zodat je ze opnieuw kunt versturen of intrekken.",
+    "invited": "uitgenodigd {{when}}",
+    "invitedBy": "uitgenodigd {{when}} door {{name}}",
+    "sentTimes": "{{count}}× verstuurd",
+    "expires": "Verloopt op {{date}}",
+    "expired": "Verlopen {{when}}",
+    "resend": "Opnieuw versturen",
+    "revoke": "Intrekken",
+    "copied": "Gekopieerd",
+    "copyLink": "Link kopiëren",
+    "revokeTitle": "De uitnodiging voor {{email}} intrekken?",
+    "revokeDescription": "De link werkt meteen niet meer. Je kunt altijd een nieuwe uitnodiging versturen."
+  },
+  "members": {
+    "you": "Jij",
+    "joined": "lid sinds {{date}}",
+    "roleOf": "Rol van {{name}}",
+    "removeAria": "{{name}} verwijderen",
+    "removeTitle": "{{name}} verwijderen?",
+    "removeDescription": "Deze persoon verliest direct de toegang tot deze organisatie. Gesprekken die ze voerde blijven in de organisatie. Ze kunnen later opnieuw worden uitgenodigd.",
+    "remove": "Verwijderen"
+  },
+  "roles": {
+    "role": "Rol",
+    "membersCount_one": "{{count}} lid",
+    "membersCount_other": "{{count}} leden",
+    "ownersOnlyEdit": "Alleen eigenaren kunnen wijzigen wat elke rol mag doen.",
+    "ownerLocked": "Eigenaren hebben altijd alle rechten, dus deze rol kan niet worden beperkt.",
+    "ownersOnly": "Alleen eigenaren",
+    "toggleAria": "{{permission}} voor {{role}}",
+    "reset": "Terug naar voorinstelling",
+    "unsaved": "Niet-opgeslagen wijzigingen",
+    "customised": "Aangepast",
+    "usingPreset": "Voorinstelling in gebruik",
+    "discard": "Verwerpen",
+    "save": "Rechten van {{role}} opslaan"
+  },
+  "validation": {
+    "nameMin": "De naam moet minstens {{min}} tekens bevatten",
+    "nameMax": "De naam mag maximaal {{max}} tekens bevatten",
+    "emailRequired": "Voer een e-mailadres in",
+    "emailInvalid": "Voer een geldig e-mailadres in"
+  }
+}

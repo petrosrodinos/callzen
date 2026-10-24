@@ -1,0 +1,109 @@
+{
+  "endCall": {
+    "title": "Avsluta samtalet?",
+    "description": "Du kan anteckna hur det gick. Utfall kopplar din prestation till verkliga resultat.",
+    "outcomeLabel": "Samtalets utfall",
+    "customPlaceholder": "Beskriv utfallet",
+    "customLabel": "Eget utfall",
+    "keepTalking": "Fortsätt prata",
+    "confirm": "Avsluta samtal"
+  },
+  "manualLine": {
+    "whoSaid": "Vem sa det",
+    "prospectSaid": "Prospekten sa",
+    "iSaid": "Jag sa",
+    "placeholder": "Skriv en replik från samtalet",
+    "addTranscriptLine": "Lägg till en rad i transkriptet",
+    "addLine": "Lägg till rad"
+  },
+  "live": {
+    "title": "Liveamtal",
+    "badge": "Live",
+    "you": "Du",
+    "mic": "Mikrofon",
+    "meeting": "Möte",
+    "switchCopilot": "Byt copilot",
+    "copilot": "Copilot",
+    "reconnect": "Anslut igen",
+    "dismiss": "Stäng",
+    "connectTitle": "Anslut ljudet för att börja spela in",
+    "connectMeeting": "Välj mötets webbläsarflik och aktivera ”Dela flikens ljud” och tillåt sedan mikrofonen.",
+    "connectMic": "Tillåt mikrofonåtkomst. Sätt telefonen på högtalare nära den här enheten.",
+    "connectAudio": "Anslut ljud",
+    "transcript": "Livetranskript",
+    "hide": "Dölj",
+    "show": "Visa ({{count}})",
+    "resumeCapture": "Återuppta inspelning",
+    "pauseCapture": "Pausa inspelning",
+    "pauseCaptureHint": "Pausa inspelning (off-topic eller känsliga stunder)",
+    "bookmark": "Bokmärk det här ögonblicket",
+    "endCall": "Avsluta samtal",
+    "sources": {
+      "microphone": "Mikrofon",
+      "meeting": "Möte"
+    },
+    "notices": {
+      "reconnecting": "Transkriptionsanslutningen föll. Ansluter igen…",
+      "switchedToBrowser": "Livetranskription är inte tillgänglig. Bytte till webbläsarens taligenkänning.",
+      "aiUnavailableBrowser": "AI-transkription är inte tillgänglig, så webbläsarens taligenkänning används i stället. Talaridentifieringen kan vara mindre exakt.",
+      "manualFallback": "Transkription är inte tillgänglig för det här ljudet. Lägg till viktiga repliker manuellt så att copiloten ändå kan hjälpa till.",
+      "audioStopped": "Ljudet ({{label}}) stoppades (fliken stängdes eller enheten kopplades från). Det som spelats in är säkert. Anslut igen för att fortsätta."
+    }
+  },
+  "new": {
+    "title": "Starta ett samtal",
+    "description": "Välj hur du ringer och vilken copilot du vill använda. Allt utom copiloten är valfritt.",
+    "audioCaptureFailed": "Ljudinspelningen misslyckades",
+    "validation": {
+      "chooseCopilot": "Välj en copilot",
+      "confirmBeforeStarting": "Bekräfta innan du startar"
+    },
+    "noCopilot": {
+      "title": "Skapa en copilot först",
+      "description": "Copiloten använder ditt manus, dina invändningar och din kunskap för att föreslå vad du ska säga. Med en mall tar det en minut.",
+      "cta": "Skapa copilot"
+    },
+    "callType": "Samtalstyp",
+    "meetingUnsupported": "Kräver en webbläsare för dator, som Chrome eller Edge.",
+    "copilot": {
+      "title": "Copilot",
+      "agentLabel": "Assistentagent",
+      "defaultSuffix": "{{name}} (standard)",
+      "goal": "Mål: {{goal}}"
+    },
+    "context": {
+      "title": "Samtalskontext",
+      "description": "Hjälper copiloten att anpassa förslag och analys.",
+      "prospectName": "Prospektens namn",
+      "prospectNamePlaceholder": "Dr. Papadopoulos",
+      "company": "Företag",
+      "companyPlaceholder": "Smile Tandklinik",
+      "role": "Roll",
+      "rolePlaceholder": "Klinikägare",
+      "goal": "Mål med det här samtalet",
+      "goalPlaceholder": "Boka en demo",
+      "goalHint": "Lämna tomt för att använda copilotens mål.",
+      "notes": "Anteckningar",
+      "notesPlaceholder": "Rekommenderad av Anna. Använder för närvarande pappersalmanackor.",
+      "priorCall": "Tidigare samtal med den här prospekten",
+      "none": "Inget",
+      "callFallback": "Samtal",
+      "language": "Samtalsspråk",
+      "autoDetect": "Identifiera automatiskt ({{languages}})",
+      "autoDetectHint": "Automatisk identifiering följer vilket av copilotens språk prospekten talar."
+    },
+    "recording": {
+      "title": "Inspelning",
+      "keep": "Behåll ljudinspelningen",
+      "keepHint": "Stäng av för att få förslag och en analys utan att lagra ljud."
+    },
+    "consent": {
+      "title": "Samtycke till inspelning",
+      "text": "Lagar om inspelning skiljer sig åt mellan länder och vissa kräver samtycke från alla deltagare. Du ansvarar för att inhämta det. Du kan aktivera en samtyckesreplik som din copilot föreslår i början av varje samtal.",
+      "checkbox": "Jag förstår och kommer att inhämta samtycke där det krävs."
+    },
+    "footerMeeting": "Välj sedan mötesfliken och aktivera ”Dela flikens ljud”.",
+    "footerMic": "Sätt telefonen på högtalare nära den här enheten.",
+    "startCall": "Starta samtal"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "title": "Dashboard",
+  "greeting": "Ciao {{name}}",
+  "descriptionTeam": "Come se la cavano tutti i membri di {{organisation}}.",
+  "defaultOrganisation": "la tua organizzazione",
+  "descriptionMe": "Le tue prestazioni nelle chiamate dal vivo e nell'allenamento, e su cosa lavorare ora.",
+  "scope": {
+    "me": "Io",
+    "team": "Team"
+  },
+  "period": "Periodo",
+  "practice": "Allenamento",
+  "stats": {
+    "averageScore": "Punteggio medio",
+    "averageScoreHint": "Dal vivo {{live}} · Allenamento {{practice}}",
+    "calls": "Chiamate",
+    "callsHint": "{{live}} dal vivo · {{practice}} di allenamento",
+    "meetingsBooked": "Appuntamenti fissati",
+    "fromLiveCalls": "Da chiamate dal vivo",
+    "practiceStreak": "Serie di allenamento",
+    "streakDays": "{{count}} g",
+    "talkMinutes": "{{minutes}} min di chiamate"
+  },
+  "gettingStarted": {
+    "heading": "Configura tutto in tre passaggi",
+    "subheading": "La maggior parte delle persone finisce in meno di cinque minuti.",
+    "createCopilot": {
+      "title": "Crea il tuo copilota",
+      "text": "Parti da un modello: script, obiezioni e obiettivo con un clic.",
+      "cta": "Crea copilota"
+    },
+    "waitCopilot": {
+      "title": "Attendi un copilota",
+      "text": "Un amministratore di questa organizzazione configura i copiloti che userai. Chiedi a lui se non ce n'è ancora nessuno disponibile.",
+      "cta": "Visualizza organizzazione"
+    },
+    "practice": {
+      "title": "Fai pratica con un potenziale cliente IA",
+      "text": "Parla ad alta voce con un potenziale cliente realistico, con il copilota che ti fa da coach.",
+      "cta": "Allenati ora"
+    },
+    "firstCall": {
+      "title": "Fai la tua prima chiamata assistita",
+      "text": "Telefono in vivavoce o riunione online. Ricevi suggerimenti in tempo reale.",
+      "cta": "Avvia una chiamata"
+    }
+  },
+  "highlights": {
+    "title": "In evidenza",
+    "empty": "Dopo alcune chiamate analizzate vedrai qui cosa sta migliorando e cosa richiede attenzione."
+  },
+  "outcomes": {
+    "title": "Esiti delle chiamate dal vivo",
+    "subtitle": "Quota di chiamate con un esito registrato",
+    "empty": "Registra gli esiti alla fine delle chiamate dal vivo per collegare le prestazioni ai risultati."
+  },
+  "invitations": {
+    "title": "Sei stato invitato",
+    "from": "Da {{name}}",
+    "expires": "scade {{when}}",
+    "accept": "Accetta"
+  },
+  "practiceProgress": {
+    "title": "Progressi dell'allenamento",
+    "withCopilot": "Con copilota",
+    "onYourOwn": "Da solo",
+    "empty": "Nessuna sessione di allenamento in questo periodo.",
+    "tabs": {
+      "level": "Livello",
+      "lead": "Lead",
+      "scenario": "Scenario",
+      "copilot": "Copilota"
+    },
+    "columns": {
+      "group": "Gruppo",
+      "sessions": "Sessioni",
+      "won": "Riuscite",
+      "avg": "Media"
+    }
+  },
+  "recentCalls": {
+    "title": "Chiamate recenti",
+    "viewAll": "Vedi tutte",
+    "empty": "Ancora nessuna chiamata."
+  },
+  "recommended": {
+    "title": "Allenamento consigliato",
+    "subtitle": "Scenari creati a partire dai tuoi punti deboli recenti",
+    "empty": "I consigli compaiono dopo la tua prima chiamata analizzata. Nel frattempo, prova uno scenario già pronto.",
+    "browse": "Sfoglia gli scenari",
+    "preparing": "Preparazione…",
+    "practice": "Allenati"
+  },
+  "mistakes": {
+    "title": "Errori ricorrenti",
+    "subtitle": "Dalle tue ultime 20 chiamate analizzate",
+    "empty": "Ancora nessun andamento. Continua così.",
+    "callsAffected_one": "{{count}} chiamata",
+    "callsAffected_other": "{{count}} chiamate",
+    "viewCall": "Vedi chiamata"
+  },
+  "scoreTrend": {
+    "title": "Andamento del punteggio",
+    "subtitle": "Ogni chiamata analizzata, dalla più vecchia alla più recente",
+    "emptyTitle": "Dati ancora insufficienti",
+    "emptyDescription": "L'andamento compare dopo due chiamate analizzate o sessioni di allenamento.",
+    "liveCalls": "Chiamate dal vivo",
+    "practice": "Allenamento"
+  },
+  "skills": {
+    "title": "Competenze",
+    "subtitle": "Prima le più deboli. Le barre confrontano le chiamate dal vivo con l'allenamento.",
+    "empty": "I punteggi delle competenze compaiono dopo la tua prima chiamata analizzata.",
+    "live": "Dal vivo",
+    "practice": "Allenamento"
+  }
+}

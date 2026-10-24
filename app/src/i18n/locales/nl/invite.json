@@ -1,0 +1,39 @@
+{
+  "pageTitle": "Uitnodiging",
+  "notFound": {
+    "title": "Uitnodiging niet gevonden",
+    "defaultMessage": "Deze link is ongeldig of is vervangen door een nieuwere uitnodiging.",
+    "resend": "Vraag de persoon die je heeft uitgenodigd om hem opnieuw te sturen.",
+    "cta": "Naar CallZen"
+  },
+  "status": {
+    "pending": "in afwachting",
+    "expired": "verlopen",
+    "accepted": "geaccepteerd",
+    "revoked": "ingetrokken"
+  },
+  "inactive": {
+    "title": "Deze uitnodiging is {{status}}",
+    "used": "Hij is al gebruikt om lid te worden van {{organisation}}.",
+    "askInviter": "Vraag {{inviter}} om je een nieuwe te sturen.",
+    "askAdmins": "Vraag de beheerders van de organisatie om je een nieuwe te sturen.",
+    "cta": "CallZen openen"
+  },
+  "join": {
+    "title": "Word lid van {{organisation}}",
+    "invitedBy": "{{inviter}} heeft je uitgenodigd als <badge>{{role}}</badge>",
+    "invitedByTeammate": "Een teamgenoot heeft je uitgenodigd als <badge>{{role}}</badge>",
+    "sentTo": "Verstuurd naar {{email}} · verloopt op {{date}}",
+    "signInHint": "Log in om te accepteren. Je kunt bij meerdere organisaties horen en ertussen wisselen.",
+    "createHint": "Maak met dit e-mailadres een gratis account aan om lid te worden.",
+    "signInCta": "Inloggen om te accepteren",
+    "createCta": "Account aanmaken en lid worden",
+    "needAccount": "Ik moet een account aanmaken",
+    "haveAccount": "Ik heb al een account",
+    "accept": "Accepteren en lid worden",
+    "signedInAs": "Ingelogd als {{email}}. Deze organisatie wordt toegevoegd aan je bestaande organisaties.",
+    "mismatch": "Deze uitnodiging is voor <strong>{{invited}}</strong>, maar je bent ingelogd als <strong>{{current}}</strong>.",
+    "signOut": "Uitloggen en {{email}} gebruiken",
+    "back": "Terug naar CallZen"
+  }
+}

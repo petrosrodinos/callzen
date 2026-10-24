@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import axios from "axios";
 import axiosInstance from "@/config/api/axios";
 import { ApiRoutes } from "@/config/api/routes";
@@ -29,6 +30,6 @@ export const getHealth = async (scope: HealthScope): Promise<HealthResponse> => 
             return error.response.data as HealthResponse;
         }
 
-        throw new Error("Failed to fetch health status. Please try again.", { cause: error });
+        throw new Error(i18n.t("common:errors.health.failedToFetchHealthStatusPlease"), { cause: error });
     }
 };

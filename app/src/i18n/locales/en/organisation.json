@@ -1,0 +1,88 @@
+{
+  "page": {
+    "title": "Organisation",
+    "description": "Manage who belongs to this organisation, what each role can do, and who you've invited.",
+    "nothing": "Nothing to show"
+  },
+  "tabs": {
+    "general": "General",
+    "members": "Members",
+    "invitations": "Invitations",
+    "roles": "Roles & permissions"
+  },
+  "create": {
+    "title": "Create an organisation",
+    "description": "Each organisation has its own co-pilots, prospects, calls and members. You'll be its owner and can invite your team.",
+    "name": "Organisation name",
+    "namePlaceholder": "Acme Sales Team",
+    "nameHint": "Your teammates will see this name in their invitation.",
+    "submit": "Create organisation"
+  },
+  "general": {
+    "details": "Details",
+    "detailsDescription_one": "Created {{date}} · {{count}} member",
+    "detailsDescription_other": "Created {{date}} · {{count}} members",
+    "name": "Organisation name",
+    "saveName": "Save name",
+    "yourRole": "Your role:",
+    "deleteTitle": "Delete organisation",
+    "deleteDescription": "Permanently deletes the organisation with all its co-pilots, prospects, calls, recordings and analyses, and removes every member. This cannot be undone.",
+    "deleteDialogTitle": "Delete {{name}}?",
+    "deleteDialogDescription": "Type <strong>{{name}}</strong> to confirm. Everything in this organisation is deleted for all members.",
+    "confirmAria": "Type the organisation name to confirm",
+    "deletePermanently": "Delete permanently"
+  },
+  "invitations": {
+    "copyFailed": "Copy failed",
+    "copyFailedHint": "Select the link and copy it manually.",
+    "inviteTitle": "Invite someone",
+    "inviteDescription": "They get an email with a link that works for 7 days. Anyone can belong to several organisations, so existing CallZen users just accept and switch.",
+    "email": "Email",
+    "emailPlaceholder": "teammate@company.com",
+    "role": "Role",
+    "send": "Send invitation",
+    "emptyTitle": "No invitations yet",
+    "emptyDescription": "Invitations you send appear here so you can resend or revoke them.",
+    "invited": "invited {{when}}",
+    "invitedBy": "invited {{when}} by {{name}}",
+    "sentTimes": "sent {{count}}×",
+    "expires": "Expires {{date}}",
+    "expired": "Expired {{when}}",
+    "resend": "Resend",
+    "revoke": "Revoke",
+    "copied": "Copied",
+    "copyLink": "Copy link",
+    "revokeTitle": "Revoke the invitation for {{email}}?",
+    "revokeDescription": "The link stops working immediately. You can send a new invitation any time."
+  },
+  "members": {
+    "you": "You",
+    "joined": "joined {{date}}",
+    "roleOf": "Role of {{name}}",
+    "removeAria": "Remove {{name}}",
+    "removeTitle": "Remove {{name}}?",
+    "removeDescription": "They lose access to this organisation immediately. Calls they made stay in the organisation. They can be invited again later.",
+    "remove": "Remove"
+  },
+  "roles": {
+    "role": "Role",
+    "membersCount_one": "{{count}} member",
+    "membersCount_other": "{{count}} members",
+    "ownersOnlyEdit": "Only owners can change what each role is allowed to do.",
+    "ownerLocked": "Owners always have every permission, so this role can't be restricted.",
+    "ownersOnly": "Owners only",
+    "toggleAria": "{{permission}} for {{role}}",
+    "reset": "Reset to preset",
+    "unsaved": "Unsaved changes",
+    "customised": "Customised",
+    "usingPreset": "Using the preset",
+    "discard": "Discard",
+    "save": "Save {{role}} permissions"
+  },
+  "validation": {
+    "nameMin": "Name must be at least {{min}} characters",
+    "nameMax": "Name must be {{max}} characters or fewer",
+    "emailRequired": "Enter an email address",
+    "emailInvalid": "Enter a valid email address"
+  }
+}

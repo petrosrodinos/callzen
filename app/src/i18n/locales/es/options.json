@@ -1,0 +1,303 @@
+{
+  "agents": {
+    "status": {
+      "active": "Activos",
+      "archived": "Archivados",
+      "all": "Todos"
+    },
+    "modelSpeed": {
+      "fastest": "Más rápido",
+      "fast": "Rápido",
+      "balanced": "Equilibrado",
+      "thorough": "Exhaustivo"
+    },
+    "relativeCost": {
+      "1": "Coste bajo",
+      "2": "Coste moderado",
+      "3": "Coste más alto",
+      "4": "Coste premium"
+    },
+    "alternatives": {
+      "none": "Ninguna",
+      "one": "1 alternativa",
+      "two": "2 alternativas"
+    },
+    "methodology": {
+      "spin": "SPIN Selling",
+      "bant": "BANT",
+      "meddic": "MEDDIC",
+      "challenger": "Challenger",
+      "sandler": "Sandler",
+      "custom": "Personalizada / ninguna"
+    },
+    "scriptStage": {
+      "opener": "Apertura",
+      "pitch": "Propuesta de valor",
+      "discovery": "Descubrimiento",
+      "objectionHandling": "Gestión de objeciones",
+      "close": "Cierre",
+      "other": "Otro"
+    },
+    "frequency": {
+      "objectionsOnly": "Solo objeciones y preguntas",
+      "balanced": "Equilibrada",
+      "constant": "Guía constante"
+    },
+    "frequencyDescription": {
+      "objectionsOnly": "Permanece en silencio hasta que el prospecto pone una objeción, pregunta algo o muestra interés.",
+      "balanced": "Reacciona a todo lo relevante que dice el prospecto, con empujones ocasionales.",
+      "constant": "Siempre muestra la mejor frase siguiente. Ideal para vendedores nuevos y para practicar."
+    },
+    "length": {
+      "short": "Corto (hasta 20 palabras)",
+      "medium": "Medio (hasta 35 palabras)"
+    },
+    "tone": {
+      "professional": "Profesional",
+      "friendly": "Amigable",
+      "consultative": "Consultivo",
+      "assertive": "Asertivo"
+    }
+  },
+  "calls": {
+    "severity": {
+      "low": "Leve",
+      "medium": "Moderada",
+      "high": "Crítica"
+    },
+    "interest": {
+      "low": "Interés bajo",
+      "medium": "Algo de interés",
+      "high": "Interés alto"
+    },
+    "suggestionUsage": {
+      "followed": "Seguida",
+      "adapted": "Adaptada",
+      "ignored": "Ignorada"
+    },
+    "revealKind": {
+      "painPoint": "Punto de dolor oculto",
+      "hiddenInfo": "Información oculta",
+      "objection": "Objeción planificada",
+      "conversionCondition": "Condición para convertir"
+    },
+    "endReason": {
+      "user": "Finalizada por ti",
+      "prospectHungUp": "El prospecto colgó",
+      "timeLimit": "Límite de tiempo alcanzado",
+      "interrupted": "Conexión interrumpida"
+    },
+    "sort": {
+      "newest": "Más recientes primero",
+      "oldest": "Más antiguos primero",
+      "highestScore": "Mayor puntuación",
+      "lowestScore": "Menor puntuación",
+      "longest": "Más largas"
+    },
+    "scoreRange": {
+      "any": "Cualquier puntuación",
+      "excellent": "80+ excelente",
+      "good": "60–79 buena",
+      "below60": "Menos de 60"
+    },
+    "dateRange": {
+      "any": "Cualquier fecha"
+    },
+    "kind": {
+      "live": "Llamada en vivo",
+      "practice": "Práctica",
+      "all": "En vivo y práctica"
+    },
+    "outcomeFilter": {
+      "all": "Todos los resultados",
+      "none": "Sin resultado registrado"
+    },
+    "outcome": {
+      "meetingBooked": "Reunión / demo agendada",
+      "dealWon": "Venta cerrada / ganada",
+      "followUp": "Seguimiento programado",
+      "lost": "No interesado / perdido",
+      "noDecision": "Sin decisión / devolver llamada",
+      "gatekeeper": "Filtro / persona equivocada",
+      "custom": "Resultado personalizado"
+    },
+    "status": {
+      "inProgress": "En curso",
+      "analyzing": "Analizando",
+      "analyzed": "Analizada",
+      "analysisFailed": "Error en el análisis",
+      "ended": "Sin analizar"
+    },
+    "typeFilter": {
+      "all": "Todos los tipos de llamada"
+    },
+    "type": {
+      "onlineMeeting": "Reunión en línea",
+      "microphone": "Teléfono / micrófono",
+      "practice": "Sesión de práctica"
+    },
+    "typeDescription": {
+      "microphone": "Una llamada con el altavoz de tu teléfono u otro dispositivo. CallZen escucha a través del micrófono de este dispositivo. Ideal para llamadas en frío.",
+      "onlineMeeting": "Google Meet, Zoom, Teams o cualquier reunión web. Compartes el audio de la pestaña de la reunión para capturar ambas partes por separado."
+    },
+    "speaker": {
+      "user": "Tú",
+      "prospect": "Prospecto",
+      "unknown": "Detectando…"
+    },
+    "suggestionType": {
+      "opener": "Apertura / gancho",
+      "discoveryQuestion": "Pregunta de descubrimiento",
+      "objectionResponse": "Respuesta a objeción",
+      "valueStatement": "Propuesta de valor",
+      "buyingSignal": "Señal de compra detectada",
+      "nextStep": "Siguiente paso / cierre",
+      "reminder": "Recordatorio",
+      "warning": "Advertencia",
+      "consent": "Aviso de consentimiento",
+      "answer": "Respuesta"
+    },
+    "marker": {
+      "mistake": "Errores",
+      "strength": "Fortalezas",
+      "objection": "Objeciones",
+      "buyingSignal": "Señales de compra",
+      "bookmark": "Marcadores"
+    }
+  },
+  "periods": {
+    "last7Days": "Últimos 7 días",
+    "last30Days": "Últimos 30 días",
+    "last90Days": "Últimos 90 días",
+    "last12Months": "Últimos 12 meses"
+  },
+  "organisations": {
+    "invitation": {
+      "pending": "Pendiente",
+      "expired": "Caducada",
+      "accepted": "Aceptada",
+      "revoked": "Revocada"
+    },
+    "role": {
+      "owner": "Propietario",
+      "admin": "Administrador",
+      "member": "Miembro"
+    },
+    "roleDescription": {
+      "owner": "Control total. Puede cambiar los permisos de los roles, eliminar la organización y gestionar a todos los miembros. Siempre tiene todos los permisos.",
+      "admin": "Dirige el equipo en el día a día: gestiona copilotos, miembros e invitaciones dentro de los permisos que concede el propietario.",
+      "member": "Vende y practica. Solo ve sus propias llamadas, a menos que el propietario conceda más acceso."
+    }
+  },
+  "practice": {
+    "budget": {
+      "none": "Sin presupuesto",
+      "limited": "Presupuesto limitado",
+      "available": "Presupuesto disponible",
+      "priceSensitive": "Sensible al precio"
+    },
+    "authority": {
+      "decisionMaker": "Decisor",
+      "influencer": "Influenciador",
+      "gatekeeper": "Filtro de acceso",
+      "needsApproval": "Necesita aprobación"
+    },
+    "difficulty": {
+      "1": {
+        "label": "Muy fácil",
+        "description": "Amable y abierto, casi sin objeciones."
+      },
+      "2": {
+        "label": "Fácil",
+        "description": "Abierto, un par de objeciones leves, convierte con facilidad."
+      },
+      "3": {
+        "label": "Medio",
+        "description": "Cierto escepticismo y objeciones reales. Requiere un buen descubrimiento."
+      },
+      "4": {
+        "label": "Difícil",
+        "description": "Reservado y ocupado, objeciones duras y repetidas, puede colgar pronto."
+      },
+      "5": {
+        "label": "Muy difícil",
+        "description": "Hostil a las llamadas de venta. Solo convierte con una técnica excelente."
+      }
+    },
+    "difficultyFilter": {
+      "any": "Cualquier dificultad"
+    },
+    "patience": {
+      "1": "Cuelga casi de inmediato",
+      "2": "Impaciente",
+      "3": "Normal",
+      "4": "Paciente",
+      "5": "Muy paciente"
+    },
+    "persistence": {
+      "1": "Lo deja pasar fácilmente",
+      "2": "Lo plantea de nuevo una vez",
+      "3": "Insiste una y otra vez"
+    },
+    "temperature": {
+      "cold": "Frío",
+      "warm": "Cálido"
+    },
+    "temperatureDescription": {
+      "cold": "No te conoce, no ha mostrado interés, posiblemente esté ocupado o molesto por la llamada.",
+      "warm": "Ha mostrado interés o tuvo contacto previo, y está más abierto a hablar."
+    },
+    "temperatureFilter": {
+      "any": "Cualquier temperatura"
+    },
+    "mood": {
+      "neutral": "Neutral",
+      "rushed": "Con prisa",
+      "irritated": "Irritado",
+      "curious": "Curioso",
+      "distracted": "Distraído",
+      "enthusiastic": "Entusiasta"
+    },
+    "personality": {
+      "analytical": "Analítico",
+      "driver": "Dominante / directo",
+      "amiable": "Afable / amigable",
+      "expressive": "Expresivo / hablador",
+      "skeptical": "Escéptico",
+      "indecisive": "Indeciso"
+    },
+    "scenario": {
+      "coldCall": "Llamada en frío",
+      "inbound": "Consulta entrante",
+      "followUp": "Seguimiento",
+      "demoFollowUp": "Después de una demo",
+      "discovery": "Llamada de descubrimiento",
+      "renewal": "Renovación",
+      "negotiation": "Negociación de precio",
+      "gatekeeper": "Filtro de acceso"
+    },
+    "timeline": {
+      "urgent": "Necesidad urgente",
+      "within3Months": "En 3 meses",
+      "justResearching": "Solo investigando",
+      "none": "Sin plazo"
+    }
+  },
+  "usage": {
+    "kind": {
+      "suggestion": "Sugerencias en vivo",
+      "ask": "Preguntas al copiloto",
+      "analysis": "Análisis de llamadas",
+      "practiceTurn": "Respuestas de práctica (voz del navegador)",
+      "practiceVoice": "Minutos de voz de práctica",
+      "transcription": "Transcripción en vivo",
+      "generation": "Generación de prospectos"
+    }
+  },
+  "users": {
+    "outputLanguageMode": {
+      "conversation": "El mismo idioma que la conversación",
+      "interface": "El idioma de mi interfaz"
+    }
+  }
+}

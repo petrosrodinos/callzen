@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Save, Trash2 } from "lucide-react";
@@ -15,6 +16,7 @@ import { formatDate } from "@/lib/date";
 import { organisationNameSchema, type OrganisationNameFormValues } from "../validation-schemas/organisation.schema";
 
 export function GeneralTab({ organisation }: { organisation: Organisation }) {
+  const { t } = useTranslation("organisation");
   const { can } = usePermissions();
   const { organisations } = useActiveOrganisation();
   const update = useUpdateOrganisation();
@@ -27,7 +29,7 @@ export function GeneralTab({ organisation }: { organisation: Organisation }) {
 
   return (
     <div className="space-y-4">
-      <FormSection title="Details" description={`Created ${formatDate(organisation.created_at)} · ${organisation.members_count} member${organisation.members_count === 1 ? "" : "s"}`}>
+      <FormSection title={t("general.details")} description={t("general.detailsDescription", { date: formatDate(organisation.created_at), count: organisation.members_count })}>
         <Form {...form}>
           <form onSubmit={form.handleSubmit((values) => update.mutate({ orgId: organisation.id, name: values.name }))} className="space-y-4">
             <FormField
@@ -35,7 +37,7 @@ export function GeneralTab({ organisation }: { organisation: Organisation }) {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Organisation name</FormLabel>
+                  <FormLabel>{t("general.name")}</FormLabel>
                   <FormControl>
                     <Input disabled={!canRename} {...field} />
                   </FormControl>
@@ -45,23 +47,23 @@ export function GeneralTab({ organisation }: { organisation: Organisation }) {
             />
             {canRename && (
               <Button type="submit" disabled={update.isPending || !form.formState.isDirty} loading={update.isPending}>
-                {!update.isPending && <Save />} Save name
+                {!update.isPending && <Save />} {t("general.saveName")}
               </Button>
             )}
           </form>
         </Form>
         <div className="flex flex-col gap-1 rounded-lg bg-muted/50 p-3 text-sm">
           <span className="flex items-center gap-2">
-            Your role: <Badge>{getOrgRoleLabel(organisation.role)}</Badge>
+            {t("general.yourRole")} <Badge>{getOrgRoleLabel(organisation.role)}</Badge>
           </span>
           <span className="text-muted-foreground">{OrgRoleDescriptionOptions[organisation.role]}</span>
         </div>
       </FormSection>
 
       {can(Permissions.ORG_DELETE) && organisations.length > 1 && (
-        <FormSection title="Delete organisation" description="Permanently deletes the organisation with all its co-pilots, prospects, calls, recordings and analyses, and removes every member. This cannot be undone." className="border-destructive/40">
+        <FormSection title={t("general.deleteTitle")} description={t("general.deleteDescription")} className="border-destructive/40">
           <Button variant="destructive" onClick={() => setDeleteOpen(true)}>
-            <Trash2 /> Delete organisation
+            <Trash2 /> {t("general.deleteTitle")}
           </Button>
         </FormSection>
       )}
@@ -69,15 +71,15 @@ export function GeneralTab({ organisation }: { organisation: Organisation }) {
       <Dialog open={deleteOpen} onOpenChange={(open) => !remove.isPending && setDeleteOpen(open)}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Delete {organisation.name}?</DialogTitle>
+            <DialogTitle>{t("general.deleteDialogTitle", { name: organisation.name })}</DialogTitle>
             <DialogDescription>
-              Type <span className="font-semibold text-foreground">{organisation.name}</span> to confirm. Everything in this organisation is deleted for all members.
+              <Trans t={t} i18nKey="general.deleteDialogDescription" values={{ name: organisation.name }} components={{ strong: <span className="font-semibold text-foreground" /> }} />
             </DialogDescription>
           </DialogHeader>
-          <Input value={confirmName} onChange={(event) => setConfirmName(event.target.value)} placeholder={organisation.name} aria-label="Type the organisation name to confirm" autoComplete="off" />
+          <Input value={confirmName} onChange={(event) => setConfirmName(event.target.value)} placeholder={organisation.name} aria-label={t("general.confirmAria")} autoComplete="off" />
           <DialogFooter>
             <Button variant="destructive" disabled={confirmName !== organisation.name || remove.isPending} loading={remove.isPending} onClick={() => remove.mutate({ orgId: organisation.id, confirmName })}>
-              Delete permanently
+              {t("general.deletePermanently")}
             </Button>
           </DialogFooter>
         </DialogContent>

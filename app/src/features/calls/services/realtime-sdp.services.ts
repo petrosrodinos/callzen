@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import realtimeAxios from "@/config/api/realtime-axios";
 import { ApiError } from "@/lib/api-error";
 
@@ -11,6 +12,6 @@ export const exchangeRealtimeSdp = async ({ url, clientSecret, offerSdp }: { url
         });
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Could not connect to the realtime audio service.");
+        throw new ApiError(error, i18n.t("common:errors.calls.couldNotConnectToTheRealtime"));
     }
 };

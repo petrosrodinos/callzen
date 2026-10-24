@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "@/hooks/use-toast";
 import { CallStatuses, type CallQuery } from "../interfaces/calls.interfaces";
@@ -60,10 +61,10 @@ export const useStartLiveCall = () => {
         mutationFn: startLiveCall,
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: "Call started", description: "The co-pilot is listening.", duration: 1500 });
+            toast({ title: i18n.t("common:toasts.calls.callStarted"), description: i18n.t("common:toasts.calls.theCoPilotIsListening"), duration: 1500 });
         },
         onError: (error) => {
-            toast({ title: "Could not start the call", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.calls.couldNotStartTheCall"), description: error.message, variant: "error" });
         },
     });
 };
@@ -74,10 +75,10 @@ export const useStartPracticeCall = () => {
         mutationFn: startPracticeCall,
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: "Practice session ready", duration: 1500 });
+            toast({ title: i18n.t("common:toasts.calls.practiceSessionReady"), duration: 1500 });
         },
         onError: (error) => {
-            toast({ title: "Could not start the practice session", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.calls.couldNotStartThePracticeSession"), description: error.message, variant: "error" });
         },
     });
 };
@@ -88,10 +89,10 @@ export const useUpdateCall = () => {
         mutationFn: updateCall,
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: "Call updated", duration: 1500 });
+            toast({ title: i18n.t("common:toasts.calls.callUpdated"), duration: 1500 });
         },
         onError: (error) => {
-            toast({ title: "Could not update the call", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.calls.couldNotUpdateTheCall"), description: error.message, variant: "error" });
         },
     });
 };
@@ -103,13 +104,13 @@ export const useEndCall = () => {
         onSuccess: (call) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
             toast({
-                title: "Call ended",
-                description: call.status === CallStatuses.ANALYZING ? "Your performance report is being prepared." : "Saved to your call library.",
+                title: i18n.t("common:toasts.calls.callEnded"),
+                description: call.status === CallStatuses.ANALYZING ? i18n.t("common:toasts.calls.yourPerformanceReportIsBeingPrepared") : i18n.t("common:toasts.calls.savedToYourCallLibrary"),
                 duration: 2500,
             });
         },
         onError: (error) => {
-            toast({ title: "Could not end the call", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.calls.couldNotEndTheCall"), description: error.message, variant: "error" });
         },
     });
 };
@@ -121,10 +122,10 @@ export const useDeleteCall = () => {
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
             queryClient.invalidateQueries({ queryKey: ["dashboard"] });
-            toast({ title: "Call permanently deleted", duration: 2000 });
+            toast({ title: i18n.t("common:toasts.calls.callPermanentlyDeleted"), duration: 2000 });
         },
         onError: (error) => {
-            toast({ title: "Could not delete the call", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.calls.couldNotDeleteTheCall"), description: error.message, variant: "error" });
         },
     });
 };
@@ -145,10 +146,10 @@ export const useUpdateSuggestion = () => {
         mutationFn: updateSuggestion,
         onSuccess: (_suggestion, variables) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY, "detail", variables.id] });
-            if (variables.feedback !== undefined) toast({ title: "Thanks for the feedback", duration: 1200 });
+            if (variables.feedback !== undefined) toast({ title: i18n.t("common:toasts.calls.thanksForTheFeedback"), duration: 1200 });
         },
         onError: (error) => {
-            toast({ title: "Could not update the suggestion", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.calls.couldNotUpdateTheSuggestion"), description: error.message, variant: "error" });
         },
     });
 };
@@ -157,7 +158,7 @@ export const useAskCopilot = () => {
     return useMutation({
         mutationFn: askCopilot,
         onError: (error) => {
-            toast({ title: "No answer", description: error.message, variant: "warning", duration: 2500 });
+            toast({ title: i18n.t("common:toasts.calls.noAnswer"), description: error.message, variant: "warning", duration: 2500 });
         },
     });
 };
@@ -168,10 +169,10 @@ export const useAddBookmark = () => {
         mutationFn: addBookmark,
         onSuccess: (_bookmark, variables) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY, "detail", variables.id] });
-            toast({ title: "Moment bookmarked", duration: 1200 });
+            toast({ title: i18n.t("common:toasts.calls.momentBookmarked"), duration: 1200 });
         },
         onError: (error) => {
-            toast({ title: "Could not bookmark", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.calls.couldNotBookmark"), description: error.message, variant: "error" });
         },
     });
 };
@@ -182,10 +183,10 @@ export const useDeleteBookmark = () => {
         mutationFn: deleteBookmark,
         onSuccess: (_result, variables) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY, "detail", variables.id] });
-            toast({ title: "Bookmark removed", duration: 1200 });
+            toast({ title: i18n.t("common:toasts.calls.bookmarkRemoved"), duration: 1200 });
         },
         onError: (error) => {
-            toast({ title: "Could not remove the bookmark", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.calls.couldNotRemoveTheBookmark"), description: error.message, variant: "error" });
         },
     });
 };
@@ -196,10 +197,10 @@ export const useUpdateSegmentSpeaker = () => {
         mutationFn: updateSegmentSpeaker,
         onSuccess: (_segment, variables) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY, "detail", variables.id] });
-            toast({ title: "Speaker updated", duration: 1200 });
+            toast({ title: i18n.t("common:toasts.calls.speakerUpdated"), duration: 1200 });
         },
         onError: (error) => {
-            toast({ title: "Could not update the speaker", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.calls.couldNotUpdateTheSpeaker"), description: error.message, variant: "error" });
         },
     });
 };
@@ -213,10 +214,10 @@ export const useUploadRecording = () => {
         retryDelay: (attempt) => Math.min(1000 * 2 ** attempt, 15000),
         onSuccess: (_result, variables) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY, "detail", variables.id] });
-            toast({ title: "Recording saved", duration: 1500 });
+            toast({ title: i18n.t("common:toasts.calls.recordingSaved"), duration: 1500 });
         },
         onError: (error) => {
-            toast({ title: "Recording upload failed", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.calls.recordingUploadFailed"), description: error.message, variant: "error" });
         },
     });
 };
@@ -228,10 +229,10 @@ export const useDeleteRecording = () => {
         onSuccess: (_call, id) => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
             queryClient.removeQueries({ queryKey: [QUERY_KEY, "recording", id] });
-            toast({ title: "Recording permanently deleted", description: "Transcript and analysis were kept.", duration: 2500 });
+            toast({ title: i18n.t("common:toasts.calls.recordingPermanentlyDeleted"), description: i18n.t("common:toasts.calls.transcriptAndAnalysisWereKept"), duration: 2500 });
         },
         onError: (error) => {
-            toast({ title: "Could not delete the recording", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.calls.couldNotDeleteTheRecording"), description: error.message, variant: "error" });
         },
     });
 };
@@ -242,10 +243,10 @@ export const useDeleteTranscript = () => {
         mutationFn: deleteTranscript,
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: "Transcript permanently deleted", duration: 2000 });
+            toast({ title: i18n.t("common:toasts.calls.transcriptPermanentlyDeleted"), duration: 2000 });
         },
         onError: (error) => {
-            toast({ title: "Could not delete the transcript", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.calls.couldNotDeleteTheTranscript"), description: error.message, variant: "error" });
         },
     });
 };
@@ -256,10 +257,10 @@ export const useRerunAnalysis = () => {
         mutationFn: rerunAnalysis,
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: "Analysis started", description: "This usually takes under a minute.", duration: 2500 });
+            toast({ title: i18n.t("common:toasts.calls.analysisStarted"), description: i18n.t("common:toasts.calls.thisUsuallyTakesUnderAMinute"), duration: 2500 });
         },
         onError: (error) => {
-            toast({ title: "Could not start the analysis", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.calls.couldNotStartTheAnalysis"), description: error.message, variant: "error" });
         },
     });
 };

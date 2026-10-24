@@ -1,0 +1,32 @@
+{
+  "notFound": {
+    "pageTitle": "Não encontrada",
+    "title": "Esta página não existe",
+    "description": "A ligação pode estar quebrada ou a página foi removida.",
+    "cta": "Voltar ao painel"
+  },
+  "app": {
+    "dashboard": "Painel",
+    "startCall": "Iniciar uma chamada"
+  },
+  "health": {
+    "title": "Estado do sistema",
+    "subtitle": "Estado em tempo real da API e da infraestrutura ligada.",
+    "refresh": "Atualizar",
+    "loadError": "Não foi possível carregar o estado de saúde.",
+    "lastChecked": "Última verificação",
+    "uptime": "Tempo de atividade",
+    "uptimeMs": "Tempo de atividade (ms)",
+    "responseTime": "Tempo de resposta",
+    "status": {
+      "ok": "OK",
+      "down": "Inativo",
+      "not_configured": "Não configurado"
+    },
+    "cards": {
+      "api": "Disponibilidade da aplicação principal.",
+      "postgres": "Conectividade da base de dados através do Prisma.",
+      "redis": "Conectividade da cache e da fila."
+    }
+  }
+}

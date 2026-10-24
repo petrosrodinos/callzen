@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { NotebookPen } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -12,6 +13,7 @@ export function NotesCard({
   callId: string;
   notes: string | null;
 }) {
+  const { t } = useTranslation("library");
   const [value, setValue] = useState(notes ?? "");
   const update = useUpdateCall();
   const dirty = value !== (notes ?? "");
@@ -19,14 +21,15 @@ export function NotesCard({
   return (
     <Card className="space-y-3 p-5">
       <h3 className="flex items-center gap-2 font-semibold">
-        <NotebookPen className="size-4 text-primary" /> Personal notes
+        <NotebookPen className="size-4 text-primary" />{" "}
+        {t("detail.notes.title")}
       </h3>
       <Textarea
         value={value}
         onChange={(event) => setValue(event.target.value)}
         rows={4}
-        placeholder="Anything to remember about this call…"
-        aria-label="Personal notes"
+        placeholder={t("detail.notes.placeholder")}
+        aria-label={t("detail.notes.title")}
       />
       <div className="flex justify-end">
         <Button
@@ -37,7 +40,7 @@ export function NotesCard({
             update.mutate({ id: callId, dto: { user_notes: value } })
           }
         >
-          Save notes
+          {t("detail.notes.save")}
         </Button>
       </div>
     </Card>

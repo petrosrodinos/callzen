@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import axiosInstance from "@/config/api/axios";
 import { ApiRoutes } from "@/config/api/routes";
 import { ApiError } from "@/lib/api-error";
@@ -13,7 +14,7 @@ export const getAssistantAgents = async (query?: AssistantAgentQuery): Promise<A
         const response = await axiosInstance.get(ApiRoutes.assistant_agents.prefix, { params: query });
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to load assistant agents.");
+        throw new ApiError(error, i18n.t("common:errors.assistantAgents.failedToLoadAssistantAgents"));
     }
 };
 
@@ -22,7 +23,7 @@ export const getAssistantAgent = async (id: string): Promise<AssistantAgent> => 
         const response = await axiosInstance.get(ApiRoutes.assistant_agents.detail(id));
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to load the assistant agent.");
+        throw new ApiError(error, i18n.t("common:errors.assistantAgents.failedToLoadTheAssistantAgent"));
     }
 };
 
@@ -31,7 +32,7 @@ export const createAssistantAgent = async (dto: CreateAssistantAgentDto): Promis
         const response = await axiosInstance.post(ApiRoutes.assistant_agents.prefix, dto);
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to create the assistant agent.");
+        throw new ApiError(error, i18n.t("common:errors.assistantAgents.failedToCreateTheAssistantAgent"));
     }
 };
 
@@ -40,7 +41,7 @@ export const updateAssistantAgent = async ({ id, dto }: { id: string; dto: Updat
         const response = await axiosInstance.patch(ApiRoutes.assistant_agents.detail(id), dto);
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to save the assistant agent.");
+        throw new ApiError(error, i18n.t("common:errors.assistantAgents.failedToSaveTheAssistantAgent"));
     }
 };
 
@@ -49,7 +50,7 @@ export const duplicateAssistantAgent = async (id: string): Promise<AssistantAgen
         const response = await axiosInstance.post(ApiRoutes.assistant_agents.duplicate(id));
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to duplicate the assistant agent.");
+        throw new ApiError(error, i18n.t("common:errors.assistantAgents.failedToDuplicateTheAssistantAgent"));
     }
 };
 
@@ -58,7 +59,7 @@ export const setDefaultAssistantAgent = async (id: string): Promise<AssistantAge
         const response = await axiosInstance.post(ApiRoutes.assistant_agents.set_default(id));
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to set the default agent.");
+        throw new ApiError(error, i18n.t("common:errors.assistantAgents.failedToSetTheDefaultAgent"));
     }
 };
 
@@ -68,7 +69,7 @@ export const archiveAssistantAgent = async ({ id, archived }: { id: string; arch
         const response = await axiosInstance.post(route);
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to update the agent.");
+        throw new ApiError(error, i18n.t("common:errors.assistantAgents.failedToUpdateTheAgent"));
     }
 };
 
@@ -77,6 +78,6 @@ export const deleteAssistantAgent = async (id: string): Promise<{ id: string }> 
         const response = await axiosInstance.delete(ApiRoutes.assistant_agents.detail(id));
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to delete the assistant agent.");
+        throw new ApiError(error, i18n.t("common:errors.assistantAgents.failedToDeleteTheAssistantAgent"));
     }
 };

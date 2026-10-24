@@ -3,6 +3,7 @@ import { AudioLines, Bot, Building2, ChartNoAxesCombined, Gauge, Headphones, Lib
 import { type SidebarData } from "../types";
 import { Routes } from "@/routes/routes";
 import { RoleTypes } from "@/features/user/interfaces/user.interface";
+import i18n from "@/i18n";
 import { environments } from "@/config/environments";
 import { Permissions } from "@/features/organisations/interfaces/organisations.interfaces";
 
@@ -11,41 +12,41 @@ export const sidebarData: SidebarData = {
     {
       name: environments.APP_NAME,
       logo: AudioLines,
-      plan: "Sales co-pilot",
+      plan: i18n.t("layout:sidebar.plan"),
     },
   ],
   navGroups: [
     {
-      title: "Sell",
+      title: i18n.t("layout:sidebar.groups.sell"),
       items: [
-        { title: "Dashboard", url: Routes.dashboard, icon: Gauge },
-        { title: "Start a call", url: Routes.calls.new, icon: PhoneCall, permission: Permissions.CALLS_CREATE },
-        { title: "Call library", url: Routes.library.root, icon: Library },
+        { title: i18n.t("layout:sidebar.items.dashboard"), url: Routes.dashboard, icon: Gauge },
+        { title: i18n.t("layout:sidebar.items.startCall"), url: Routes.calls.new, icon: PhoneCall, permission: Permissions.CALLS_CREATE },
+        { title: i18n.t("layout:sidebar.items.callLibrary"), url: Routes.library.root, icon: Library },
       ],
     },
     {
-      title: "Train",
+      title: i18n.t("layout:sidebar.groups.train"),
       items: [
-        { title: "Practice", url: Routes.practice.root, icon: Headphones, permission: Permissions.CALLS_CREATE },
-        { title: "Co-pilots", url: Routes.assistant_agents.root, icon: Bot, permission: Permissions.AGENTS_VIEW },
+        { title: i18n.t("layout:sidebar.items.practice"), url: Routes.practice.root, icon: Headphones, permission: Permissions.CALLS_CREATE },
+        { title: i18n.t("layout:sidebar.items.copilots"), url: Routes.assistant_agents.root, icon: Bot, permission: Permissions.AGENTS_VIEW },
       ],
     },
     {
-      title: "Account",
+      title: i18n.t("layout:sidebar.groups.account"),
       items: [
-        { title: "Organisation", url: Routes.organisation.root, icon: Building2 },
-        { title: "Settings", url: Routes.settings.root, icon: Settings },
-        { title: "Usage & costs", url: Routes.settings.usage, icon: ChartNoAxesCombined },
-        { title: "Privacy & data", url: Routes.settings.privacy, icon: ShieldCheck },
+        { title: i18n.t("layout:sidebar.items.organisation"), url: Routes.organisation.root, icon: Building2 },
+        { title: i18n.t("layout:sidebar.items.settings"), url: Routes.settings.root, icon: Settings },
+        { title: i18n.t("layout:sidebar.items.usage"), url: Routes.settings.usage, icon: ChartNoAxesCombined },
+        { title: i18n.t("layout:sidebar.items.privacy"), url: Routes.settings.privacy, icon: ShieldCheck },
       ],
     },
     {
       access: [RoleTypes.ADMIN],
-      title: "Admin",
+      title: i18n.t("layout:sidebar.groups.admin"),
       items: [
-        { title: "Health", url: Routes.admin.health, icon: IconHeartbeat },
-        { title: "Users", url: Routes.admin.users, icon: IconUser },
-        { title: "Alerts", url: Routes.admin.alerts, icon: IconAlertTriangle },
+        { title: i18n.t("layout:sidebar.items.health"), url: Routes.admin.health, icon: IconHeartbeat },
+        { title: i18n.t("layout:sidebar.items.users"), url: Routes.admin.users, icon: IconUser },
+        { title: i18n.t("layout:sidebar.items.alerts"), url: Routes.admin.alerts, icon: IconAlertTriangle },
       ],
     },
   ],

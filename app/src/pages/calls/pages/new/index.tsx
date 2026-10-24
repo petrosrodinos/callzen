@@ -1,5 +1,6 @@
 import { useEffect, useState, type FC } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Bot, CheckCircle2, Mic, MonitorSmartphone, Phone, ShieldAlert } from "lucide-react";
@@ -35,7 +36,8 @@ import { newCallSchema, type NewCallFormValues } from "../../validation-schemas/
 const TYPE_ICONS = { [CallTypes.MICROPHONE]: Mic, [CallTypes.ONLINE_MEETING]: MonitorSmartphone } as const;
 
 const NewCallPage: FC = () => {
-  usePageMetadata({ title: "Start a call" });
+  const { t } = useTranslation("calls");
+  usePageMetadata({ title: t("new.title") });
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { data: agents, isPending: agentsPending } = useAssistantAgents({ status: "active" });
@@ -88,7 +90,7 @@ const NewCallPage: FC = () => {
 
   const onSubmit = async (values: NewCallFormValues) => {
     if (consentNeeded && !values.consent_acknowledged) {
-      form.setError("consent_acknowledged", { message: "Please confirm before starting" });
+      form.setError("consent_acknowledged", { message: t("new.validation.confirmBeforeStarting") });
       return;
     }
 
@@ -103,7 +105,7 @@ const NewCallPage: FC = () => {
       stopStream(remote);
       stopStream(microphone);
       setCapturing(false);
-      toast({ title: "Audio capture failed", description: (error as Error).message, variant: "error" });
+      toast({ title: t("new.audioCaptureFailed"), description: (error as Error).message, variant: "error" });
       return;
     }
 
@@ -141,14 +143,14 @@ const NewCallPage: FC = () => {
   if (!agents?.length) {
     return (
       <>
-        <PageHeader title="Start a call" />
+        <PageHeader title={t("new.title")} />
         <EmptyState
           icon={Bot}
-          title="Create a co-pilot first"
-          description="The co-pilot uses your script, objections and knowledge to suggest what to say. It takes a minute with a template."
+          title={t("new.noCopilot.title")}
+          description={t("new.noCopilot.description")}
           action={
             <Button asChild>
-              <Link to={Routes.assistant_agents.new}>Create co-pilot</Link>
+              <Link to={Routes.assistant_agents.new}>{t("new.noCopilot.cta")}</Link>
             </Button>
           }
         />
@@ -160,7 +162,7 @@ const NewCallPage: FC = () => {
 
   return (
     <div className="mx-auto max-w-3xl">
-      <PageHeader title="Start a call" description="Pick how you're calling and which co-pilot to use. Everything except the co-pilot is optional." />
+      <PageHeader title={t("new.title")} description={t("new.description")} />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <FormField
@@ -168,7 +170,7 @@ const NewCallPage: FC = () => {
             name="call_type"
             render={({ field }) => (
               <FormItem>
-                <div role="radiogroup" aria-label="Call type" className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <div role="radiogroup" aria-label={t("new.callType")} className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   {LiveCallTypeDescriptionOptions.map((option) => {
                     const Icon = TYPE_ICONS[option.id as keyof typeof TYPE_ICONS];
                     const disabled = option.id === CallTypes.ONLINE_MEETING && !meetingSupported;
@@ -190,7 +192,7 @@ const NewCallPage: FC = () => {
                           <span className="flex items-center gap-2 font-medium">
                             {option.label} {selected && <CheckCircle2 className="size-4 text-primary" />}
                           </span>
-                          <span className="mt-1 block text-xs text-muted-foreground">{disabled ? "Needs a desktop browser like Chrome or Edge." : option.description}</span>
+                          <span className="mt-1 block text-xs text-muted-foreground">{disabled ? t("new.meetingUnsupported") : option.description}</span>
                         </span>
                       </button>
                     );
@@ -200,18 +202,18 @@ const NewCallPage: FC = () => {
             )}
           />
 
-          <FormSection title="Co-pilot">
-            <FormSelectField control={form.control} name="assistant_agent_id" label="Assistant agent" options={agents.map((agent) => ({ id: agent.id, label: agent.is_default ? `${agent.name} (default)` : agent.name }))} />
-            {selectedAgent?.call_goal && <p className="-mt-2 text-xs text-muted-foreground">Goal: {selectedAgent.call_goal}</p>}
+          <FormSection title={t("new.copilot.title")}>
+            <FormSelectField control={form.control} name="assistant_agent_id" label={t("new.copilot.agentLabel")} options={agents.map((agent) => ({ id: agent.id, label: agent.is_default ? t("new.copilot.defaultSuffix", { name: agent.name }) : agent.name }))} />
+            {selectedAgent?.call_goal && <p className="-mt-2 text-xs text-muted-foreground">{t("new.copilot.goal", { goal: selectedAgent.call_goal })}</p>}
           </FormSection>
 
-          <FormSection title="Call context" description="Helps the co-pilot personalise suggestions and the analysis.">
+          <FormSection title={t("new.context.title")} description={t("new.context.description")}>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               {(
                 [
-                  ["prospect_name", "Prospect name", "Dr. Papadopoulos"],
-                  ["prospect_company", "Company", "Smile Dental Clinic"],
-                  ["prospect_role", "Role", "Clinic owner"],
+                  ["prospect_name", t("new.context.prospectName"), t("new.context.prospectNamePlaceholder")],
+                  ["prospect_company", t("new.context.company"), t("new.context.companyPlaceholder")],
+                  ["prospect_role", t("new.context.role"), t("new.context.rolePlaceholder")],
                 ] as const
               ).map(([name, label, placeholder]) => (
                 <FormField
@@ -234,11 +236,11 @@ const NewCallPage: FC = () => {
               name="goal"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Goal of this call</FormLabel>
+                  <FormLabel>{t("new.context.goal")}</FormLabel>
                   <FormControl>
-                    <Input placeholder={selectedAgent?.call_goal ?? "Book a demo"} {...field} />
+                    <Input placeholder={selectedAgent?.call_goal ?? t("new.context.goalPlaceholder")} {...field} />
                   </FormControl>
-                  <FormDescription>Leave empty to use the co-pilot's goal.</FormDescription>
+                  <FormDescription>{t("new.context.goalHint")}</FormDescription>
                 </FormItem>
               )}
             />
@@ -247,9 +249,9 @@ const NewCallPage: FC = () => {
               name="context_notes"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Notes</FormLabel>
+                  <FormLabel>{t("new.context.notes")}</FormLabel>
                   <FormControl>
-                    <Textarea rows={2} placeholder="Referred by Anna. Currently uses paper calendars." {...field} />
+                    <Textarea rows={2} placeholder={t("new.context.notesPlaceholder")} {...field} />
                   </FormControl>
                 </FormItem>
               )}
@@ -258,25 +260,25 @@ const NewCallPage: FC = () => {
               <FormSelectField
                 control={form.control}
                 name="prior_call_id"
-                label="Previous call with this prospect"
+                label={t("new.context.priorCall")}
                 allowEmpty
-                emptyLabel="None"
-                options={(recentCalls?.data ?? []).map((call) => ({ id: call.id, label: `${call.title ?? call.prospect_name ?? "Call"} · ${formatShortDate(call.started_at)}` }))}
+                emptyLabel={t("new.context.none")}
+                options={(recentCalls?.data ?? []).map((call) => ({ id: call.id, label: `${call.title ?? call.prospect_name ?? t("new.context.callFallback")} · ${formatShortDate(call.started_at)}` }))}
               />
               <FormField
                 control={form.control}
                 name="language"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Conversation language</FormLabel>
+                    <FormLabel>{t("new.context.language")}</FormLabel>
                     <LanguageSelect
                       value={field.value}
                       onValueChange={field.onChange}
-                      ariaLabel="Conversation language"
+                      ariaLabel={t("new.context.language")}
                       codes={agentLanguageCodes}
-                      leadingOptions={agentLanguageCodes.length > 1 ? [{ id: AUTO_LANGUAGE, label: `Auto-detect (${agentLanguageCodes.map(languageLabel).join(", ")})` }] : []}
+                      leadingOptions={agentLanguageCodes.length > 1 ? [{ id: AUTO_LANGUAGE, label: t("new.context.autoDetect", { languages: agentLanguageCodes.map(languageLabel).join(", ") }) }] : []}
                     />
-                    {agentLanguageCodes.length > 1 && <FormDescription>Auto-detect follows whichever of the co-pilot's languages the prospect speaks.</FormDescription>}
+                    {agentLanguageCodes.length > 1 && <FormDescription>{t("new.context.autoDetectHint")}</FormDescription>}
                     <FormMessage />
                   </FormItem>
                 )}
@@ -284,15 +286,15 @@ const NewCallPage: FC = () => {
             </div>
           </FormSection>
 
-          <FormSection title="Recording">
+          <FormSection title={t("new.recording.title")}>
             <FormField
               control={form.control}
               name="keep_recording"
               render={({ field }) => (
                 <FormItem className="flex items-center justify-between gap-4">
                   <div>
-                    <FormLabel>Keep the audio recording</FormLabel>
-                    <FormDescription>Turn off to get suggestions and an analysis without storing audio.</FormDescription>
+                    <FormLabel>{t("new.recording.keep")}</FormLabel>
+                    <FormDescription>{t("new.recording.keepHint")}</FormDescription>
                   </div>
                   <FormControl>
                     <Switch checked={field.value} onCheckedChange={field.onChange} />
@@ -306,9 +308,9 @@ const NewCallPage: FC = () => {
           {consentNeeded && (
             <Alert className="border-amber-500/40 bg-amber-500/5">
               <ShieldAlert className="size-4 text-amber-600" />
-              <AlertTitle>Recording consent</AlertTitle>
+              <AlertTitle>{t("new.consent.title")}</AlertTitle>
               <AlertDescription className="space-y-3">
-                <p>Recording laws differ by country and some require every participant's consent. You're responsible for getting it. You can enable a consent line your co-pilot suggests at the start of each call.</p>
+                <p>{t("new.consent.text")}</p>
                 <FormField
                   control={form.control}
                   name="consent_acknowledged"
@@ -318,7 +320,7 @@ const NewCallPage: FC = () => {
                         <Checkbox checked={field.value} onCheckedChange={(checked) => field.onChange(checked === true)} />
                       </FormControl>
                       <div className="space-y-1">
-                        <FormLabel className="font-normal leading-snug text-foreground">I understand and will get consent where it's required.</FormLabel>
+                        <FormLabel className="font-normal leading-snug text-foreground">{t("new.consent.checkbox")}</FormLabel>
                         <FormMessage />
                       </div>
                     </FormItem>
@@ -330,9 +332,9 @@ const NewCallPage: FC = () => {
 
           <div className="sticky bottom-0 z-20 -mx-4 border-t bg-background/95 backdrop-blur sm:-mx-6">
             <div className="pb-safe flex items-center gap-3 px-4 pt-3 sm:px-6">
-              <p className="hidden text-xs text-muted-foreground sm:block">{form.watch("call_type") === CallTypes.ONLINE_MEETING ? "Next, choose your meeting tab and enable “Share tab audio”." : "Put your phone on speaker near this device."}</p>
+              <p className="hidden text-xs text-muted-foreground sm:block">{form.watch("call_type") === CallTypes.ONLINE_MEETING ? t("new.footerMeeting") : t("new.footerMic")}</p>
               <Button type="submit" size="lg" className="ml-auto w-full sm:w-auto" disabled={busy} loading={busy}>
-                {!busy && <Phone />} Start call
+                {!busy && <Phone />} {t("new.startCall")}
               </Button>
             </div>
           </div>

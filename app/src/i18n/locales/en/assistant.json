@@ -1,0 +1,173 @@
+{
+  "list": {
+    "title": "Co-pilots",
+    "description": "Each co-pilot has its own script, objection library, knowledge and style. Create one per product, audience or call stage.",
+    "new": "New co-pilot",
+    "searchPlaceholder": "Search co-pilots",
+    "filterByStatus": "Filter by status",
+    "empty": {
+      "noMatch": "No co-pilots match",
+      "createFirst": "Create your first co-pilot",
+      "none": "No co-pilots yet",
+      "descriptionManage": "Pick a template like Generic Cold Call or B2B Discovery and tailor it to your product in a couple of minutes.",
+      "descriptionMember": "An admin of this organisation creates the co-pilots you'll use on calls."
+    }
+  },
+  "card": {
+    "default": "Default",
+    "archived": "Archived",
+    "actionsFor": "Actions for {{name}}",
+    "edit": "Edit",
+    "makeDefault": "Make default",
+    "duplicate": "Duplicate",
+    "restore": "Restore",
+    "archive": "Archive",
+    "delete": "Delete",
+    "noDescription": "No description",
+    "goal": "Goal:",
+    "calls": "Calls",
+    "avgScore": "Avg score",
+    "trend": "Trend",
+    "usedAgo": "used {{when}}",
+    "neverUsed": "never used",
+    "useOnCall": "Use on a call",
+    "practice": "Practice",
+    "deleteTitle": "Delete {{name}}?",
+    "deleteDescription": "The co-pilot is permanently deleted. Past calls keep their transcripts and analyses."
+  },
+  "editor": {
+    "newTitle": "New co-pilot",
+    "fallbackTitle": "Co-pilot",
+    "newDescription": "Start from a template or from scratch. You can change everything later.",
+    "editDescription": "Script, knowledge, objection handling, style and scoring for this co-pilot.",
+    "create": "Create co-pilot",
+    "save": "Save changes"
+  },
+  "form": {
+    "tabs": {
+      "basics": "Basics",
+      "script": "Script",
+      "objections": "Objections",
+      "knowledge": "Knowledge",
+      "style": "Style",
+      "models": "AI models",
+      "analysis": "Scoring"
+    },
+    "fixFields": "Please fix the highlighted fields",
+    "templates": "Templates",
+    "unsavedChanges": "Unsaved changes"
+  },
+  "analysis": {
+    "title": "Scoring categories",
+    "description": "What the post-call analysis scores and how much each category counts toward the overall score.",
+    "reset": "Reset",
+    "add": "Add category",
+    "categoryName": "Category name",
+    "weight": "Weight",
+    "remove": "Remove category"
+  },
+  "basics": {
+    "title": "Basics",
+    "description": "What this co-pilot is for and the outcome it pushes toward.",
+    "name": "Name",
+    "namePlaceholder": "Cold Call – Dental Clinics",
+    "purpose": "Purpose",
+    "purposePlaceholder": "Short cold calls to dental clinic owners, focused on booking a demo.",
+    "callGoal": "Call goal",
+    "callGoalPlaceholder": "Book a 20-minute demo",
+    "callGoalHint": "The co-pilot keeps steering the conversation toward this outcome.",
+    "languages": "Conversation languages",
+    "methodology": "Sales methodology",
+    "default": "Default co-pilot",
+    "defaultHint": "Pre-selected when you start a call."
+  },
+  "knowledge": {
+    "tooLarge": "{{name}} is too large",
+    "tooLargeHint": "Files up to 2 MB are supported.",
+    "trimmed": "Knowledge was trimmed",
+    "trimmedHint": "Only the first {{max}} characters are kept.",
+    "imported_one": "Imported {{count}} file",
+    "imported_other": "Imported {{count}} files",
+    "title": "Knowledge & context",
+    "description": "Product details, pricing, FAQs, competitor comparisons, case studies, ideal customer profile. Used for answers and key info cards during calls.",
+    "import": "Import documents",
+    "placeholder": "Product: …\nPricing: Starter $99/month per location, 50 seats $399/month\nKey benefit: reduces no-shows by 30%\nCompetitors: …\nFAQ: …",
+    "importHint": "Imports .txt, .md, .csv, .json and .html files."
+  },
+  "models": {
+    "notConfigured": "AI is not configured on the server yet, so suggestions and analysis are unavailable.",
+    "realtimeTitle": "Real-time suggestions",
+    "realtimeDescription": "Speed matters most here: a late suggestion is a useless one.",
+    "realtimeModel": "Real-time model",
+    "analysisTitle": "Post-call analysis",
+    "analysisDescription": "Analysis can favour depth over speed. If a model is unavailable, CallZen falls back to the recommended one and tells you.",
+    "analysisModel": "Analysis model"
+  },
+  "objections": {
+    "title": "Objection library",
+    "description": "Common objections and the responses you prefer. When the prospect raises one, the co-pilot recognises it and suggests your answer, adapted to the moment.",
+    "add": "Add objection",
+    "emptyTitle": "No objections yet",
+    "emptyDescription": "Add the ones you hear most: \"too expensive\", \"send me an email\", \"we already have a provider\"…",
+    "objectionPlaceholder": "Objection, e.g. \"It is too expensive\"",
+    "objection": "Objection",
+    "remove": "Remove objection",
+    "responsePlaceholder": "Your preferred response",
+    "response": "Response"
+  },
+  "script": {
+    "title": "Script",
+    "description": "Organise your script in stages. The co-pilot follows it, tracks progress live, and adapts when the conversation goes elsewhere.",
+    "addStage": "Add stage",
+    "emptyTitle": "No script yet",
+    "emptyDescription": "Without a script the co-pilot relies on your goal, instructions and knowledge.",
+    "addFirstStage": "Add first stage",
+    "stageType": "Stage type",
+    "stageTitlePlaceholder": "Stage title (optional)",
+    "stageTitle": "Stage title",
+    "moveUp": "Move up",
+    "moveDown": "Move down",
+    "remove": "Remove stage",
+    "whatToSay": "What to say",
+    "contentPlaceholder": "What to say or ask in this stage. Use {placeholders} for names."
+  },
+  "style": {
+    "instructionsTitle": "Instructions & tone",
+    "instructionsDescription": "Rules the co-pilot always follows, in your own words.",
+    "instructions": "Instructions",
+    "instructionsPlaceholder": "Keep suggestions under 20 words.\nNever discount more than 10%.\nAlways push for a specific meeting time.",
+    "tone": "Tone",
+    "suggestionsTitle": "Suggestions",
+    "suggestionsDescription": "How often and how much the co-pilot shows during calls. You can also change frequency mid-call.",
+    "frequency": "Frequency",
+    "suggestionFrequency": "Suggestion frequency",
+    "length": "Length",
+    "alternatives": "Alternative phrasings",
+    "consentTitle": "Recording consent",
+    "consentDescription": "Recording laws differ by region and some require everyone's consent. You are responsible for getting it.",
+    "suggestConsent": "Suggest a consent line first",
+    "suggestConsentHint": "The first suggestion of every call will be your disclosure line.",
+    "consentLine": "Consent disclosure line",
+    "consentLineHint": "Leave empty to use your default from Settings."
+  },
+  "templates": {
+    "stats": "{{stages}} · {{objections}} · Goal: {{goal}}",
+    "stages_one": "{{count}} script stage",
+    "stages_other": "{{count}} script stages",
+    "objections_one": "{{count}} objection",
+    "objections_other": "{{count}} objections",
+    "scratch": "Start from scratch",
+    "scratchHint": "Write your own script and rules"
+  },
+  "validation": {
+    "name": "Give your co-pilot a name",
+    "stageContent": "Write what to say in this stage",
+    "knowledgeMax": "Knowledge is limited to {{max}} characters",
+    "objection": "Describe the objection",
+    "response": "Write your preferred response",
+    "languagesMin": "Pick at least one language",
+    "languagesMax": "Up to {{max}} languages",
+    "categoryName": "Name the category",
+    "categoryMin": "Keep at least one scoring category"
+  }
+}

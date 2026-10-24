@@ -1,0 +1,90 @@
+{
+  "page": {
+    "title": "Organizație",
+    "description": "Gestionează cine face parte din această organizație, ce poate face fiecare rol și pe cine ai invitat.",
+    "nothing": "Nimic de afișat"
+  },
+  "tabs": {
+    "general": "General",
+    "members": "Membri",
+    "invitations": "Invitații",
+    "roles": "Roluri și permisiuni"
+  },
+  "create": {
+    "title": "Creează o organizație",
+    "description": "Fiecare organizație are proprii copiloți, potențiali clienți, apeluri și membri. Vei fi proprietarul ei și îți poți invita echipa.",
+    "name": "Numele organizației",
+    "namePlaceholder": "Echipa de vânzări Acme",
+    "nameHint": "Colegii tăi vor vedea acest nume în invitație.",
+    "submit": "Creează organizația"
+  },
+  "general": {
+    "details": "Detalii",
+    "detailsDescription_one": "Creată la {{date}} · {{count}} membru",
+    "detailsDescription_few": "Creată la {{date}} · {{count}} membri",
+    "detailsDescription_other": "Creată la {{date}} · {{count}} de membri",
+    "name": "Numele organizației",
+    "saveName": "Salvează numele",
+    "yourRole": "Rolul tău:",
+    "deleteTitle": "Șterge organizația",
+    "deleteDescription": "Șterge definitiv organizația împreună cu toți copiloții, potențialii clienți, apelurile, înregistrările și analizele ei și elimină toți membrii. Această acțiune nu poate fi anulată.",
+    "deleteDialogTitle": "Ștergi {{name}}?",
+    "deleteDialogDescription": "Scrie <strong>{{name}}</strong> pentru a confirma. Tot ce se află în această organizație este șters pentru toți membrii.",
+    "confirmAria": "Scrie numele organizației pentru a confirma",
+    "deletePermanently": "Șterge definitiv"
+  },
+  "invitations": {
+    "copyFailed": "Copierea a eșuat",
+    "copyFailedHint": "Selectează linkul și copiază-l manual.",
+    "inviteTitle": "Invită pe cineva",
+    "inviteDescription": "Primesc un e-mail cu un link valabil 7 zile. Oricine poate face parte din mai multe organizații, așa că utilizatorii CallZen existenți doar acceptă și comută.",
+    "email": "E-mail",
+    "emailPlaceholder": "coleg@companie.com",
+    "role": "Rol",
+    "send": "Trimite invitația",
+    "emptyTitle": "Încă nu există invitații",
+    "emptyDescription": "Invitațiile pe care le trimiți apar aici, ca să le poți retrimite sau revoca.",
+    "invited": "invitat {{when}}",
+    "invitedBy": "invitat {{when}} de {{name}}",
+    "sentTimes": "trimisă de {{count}}×",
+    "expires": "Expiră la {{date}}",
+    "expired": "A expirat {{when}}",
+    "resend": "Retrimite",
+    "revoke": "Revocă",
+    "copied": "Copiat",
+    "copyLink": "Copiază linkul",
+    "revokeTitle": "Revoci invitația pentru {{email}}?",
+    "revokeDescription": "Linkul nu mai funcționează imediat. Poți trimite o nouă invitație oricând."
+  },
+  "members": {
+    "you": "Tu",
+    "joined": "s-a alăturat la {{date}}",
+    "roleOf": "Rolul lui {{name}}",
+    "removeAria": "Elimină pe {{name}}",
+    "removeTitle": "Elimini pe {{name}}?",
+    "removeDescription": "Pierde imediat accesul la această organizație. Apelurile efectuate rămân în organizație. Poate fi invitat din nou mai târziu.",
+    "remove": "Elimină"
+  },
+  "roles": {
+    "role": "Rol",
+    "membersCount_one": "{{count}} membru",
+    "membersCount_few": "{{count}} membri",
+    "membersCount_other": "{{count}} de membri",
+    "ownersOnlyEdit": "Doar proprietarii pot schimba ce are voie să facă fiecare rol.",
+    "ownerLocked": "Proprietarii au întotdeauna toate permisiunile, așa că acest rol nu poate fi restricționat.",
+    "ownersOnly": "Doar proprietari",
+    "toggleAria": "{{permission}} pentru {{role}}",
+    "reset": "Revino la presetare",
+    "unsaved": "Modificări nesalvate",
+    "customised": "Personalizat",
+    "usingPreset": "Se folosește presetarea",
+    "discard": "Renunță",
+    "save": "Salvează permisiunile pentru {{role}}"
+  },
+  "validation": {
+    "nameMin": "Numele trebuie să aibă cel puțin {{min}} caractere",
+    "nameMax": "Numele poate avea cel mult {{max}} de caractere",
+    "emailRequired": "Introdu o adresă de e-mail",
+    "emailInvalid": "Introdu o adresă de e-mail validă"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "page": {
+    "title": "Organisation",
+    "description": "Hantera vem som tillhör den här organisationen, vad varje roll får göra och vem du har bjudit in.",
+    "nothing": "Inget att visa"
+  },
+  "tabs": {
+    "general": "Allmänt",
+    "members": "Medlemmar",
+    "invitations": "Inbjudningar",
+    "roles": "Roller och behörigheter"
+  },
+  "create": {
+    "title": "Skapa en organisation",
+    "description": "Varje organisation har sina egna copiloter, prospekt, samtal och medlemmar. Du blir ägare och kan bjuda in ditt team.",
+    "name": "Organisationens namn",
+    "namePlaceholder": "Acme säljteam",
+    "nameHint": "Dina teamkollegor ser det här namnet i sin inbjudan.",
+    "submit": "Skapa organisation"
+  },
+  "general": {
+    "details": "Detaljer",
+    "detailsDescription_one": "Skapad {{date}} · {{count}} medlem",
+    "detailsDescription_other": "Skapad {{date}} · {{count}} medlemmar",
+    "name": "Organisationens namn",
+    "saveName": "Spara namn",
+    "yourRole": "Din roll:",
+    "deleteTitle": "Ta bort organisation",
+    "deleteDescription": "Tar bort organisationen permanent med alla dess copiloter, prospekt, samtal, inspelningar och analyser, och tar bort alla medlemmar. Detta kan inte ångras.",
+    "deleteDialogTitle": "Ta bort {{name}}?",
+    "deleteDialogDescription": "Skriv <strong>{{name}}</strong> för att bekräfta. Allt i den här organisationen tas bort för alla medlemmar.",
+    "confirmAria": "Skriv organisationens namn för att bekräfta",
+    "deletePermanently": "Ta bort permanent"
+  },
+  "invitations": {
+    "copyFailed": "Kopieringen misslyckades",
+    "copyFailedHint": "Markera länken och kopiera den manuellt.",
+    "inviteTitle": "Bjud in någon",
+    "inviteDescription": "De får ett mejl med en länk som gäller i 7 dagar. Alla kan tillhöra flera organisationer, så befintliga CallZen-användare behöver bara acceptera och byta.",
+    "email": "E-post",
+    "emailPlaceholder": "kollega@foretag.se",
+    "role": "Roll",
+    "send": "Skicka inbjudan",
+    "emptyTitle": "Inga inbjudningar ännu",
+    "emptyDescription": "Inbjudningar du skickar visas här så att du kan skicka dem igen eller återkalla dem.",
+    "invited": "inbjuden {{when}}",
+    "invitedBy": "inbjuden {{when}} av {{name}}",
+    "sentTimes": "skickad {{count}}×",
+    "expires": "Går ut {{date}}",
+    "expired": "Gick ut {{when}}",
+    "resend": "Skicka igen",
+    "revoke": "Återkalla",
+    "copied": "Kopierad",
+    "copyLink": "Kopiera länk",
+    "revokeTitle": "Återkalla inbjudan för {{email}}?",
+    "revokeDescription": "Länken slutar fungera omedelbart. Du kan skicka en ny inbjudan när som helst."
+  },
+  "members": {
+    "you": "Du",
+    "joined": "gick med {{date}}",
+    "roleOf": "Roll för {{name}}",
+    "removeAria": "Ta bort {{name}}",
+    "removeTitle": "Ta bort {{name}}?",
+    "removeDescription": "De förlorar åtkomsten till den här organisationen omedelbart. Samtal de har gjort finns kvar i organisationen. De kan bjudas in igen senare.",
+    "remove": "Ta bort"
+  },
+  "roles": {
+    "role": "Roll",
+    "membersCount_one": "{{count}} medlem",
+    "membersCount_other": "{{count}} medlemmar",
+    "ownersOnlyEdit": "Bara ägare kan ändra vad varje roll får göra.",
+    "ownerLocked": "Ägare har alltid alla behörigheter, så den här rollen kan inte begränsas.",
+    "ownersOnly": "Endast ägare",
+    "toggleAria": "{{permission}} för {{role}}",
+    "reset": "Återställ till förinställning",
+    "unsaved": "Osparade ändringar",
+    "customised": "Anpassad",
+    "usingPreset": "Använder förinställningen",
+    "discard": "Ignorera",
+    "save": "Spara behörigheter för {{role}}"
+  },
+  "validation": {
+    "nameMin": "Namnet måste vara minst {{min}} tecken",
+    "nameMax": "Namnet får vara högst {{max}} tecken",
+    "emailRequired": "Ange en e-postadress",
+    "emailInvalid": "Ange en giltig e-postadress"
+  }
+}

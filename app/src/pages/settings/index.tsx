@@ -1,4 +1,5 @@
 import { useEffect, type FC } from "react";
+import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Save } from "lucide-react";
@@ -12,6 +13,7 @@ import { FormSelectField } from "@/components/ui/form-select-field";
 import { FormSkeleton } from "@/components/ui/page-skeletons";
 import { LanguageSelect } from "@/components/ui/language-select";
 import { ThemeSwitch } from "@/components/ui/theme-switch";
+import { UiLanguageSwitch } from "@/components/ui/ui-language-switch";
 import {
   Form,
   FormControl,
@@ -31,7 +33,8 @@ import {
 } from "./validation-schemas/settings.schema";
 
 const SettingsPage: FC = () => {
-  usePageMetadata({ title: "Settings" });
+  const { t } = useTranslation("settings");
+  usePageMetadata({ title: t("title") });
   const { data: me, isPending } = useMe();
   const updateMe = useUpdateMe();
 
@@ -62,7 +65,7 @@ const SettingsPage: FC = () => {
 
   return (
     <div className="mx-auto max-w-4xl">
-      <PageHeader title="Settings" />
+      <PageHeader title={t("title")} />
       <SettingsNav />
       {isPending ? (
         <FormSkeleton />
@@ -72,13 +75,13 @@ const SettingsPage: FC = () => {
             onSubmit={form.handleSubmit((values) => updateMe.mutate(values))}
             className="space-y-4"
           >
-            <FormSection title="Profile">
+            <FormSection title={t("profile.title")}>
               <FormField
                 control={form.control}
                 name="full_name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Full name</FormLabel>
+                    <FormLabel>{t("profile.fullName")}</FormLabel>
                     <FormControl>
                       <Input autoComplete="name" {...field} />
                     </FormControl>
@@ -87,23 +90,32 @@ const SettingsPage: FC = () => {
                 )}
               />
               <div className="space-y-1.5">
-                <FormLabel>Email</FormLabel>
-                <Input value={me?.email ?? ""} disabled aria-label="Email" />
+                <FormLabel>{t("profile.email")}</FormLabel>
+                <Input value={me?.email ?? ""} disabled aria-label={t("profile.email")} />
               </div>
               <div className="flex items-center justify-between gap-4 rounded-lg border p-3">
                 <div>
-                  <p className="text-sm font-medium">Appearance</p>
+                  <p className="text-sm font-medium">{t("appearance.title")}</p>
                   <p className="text-xs text-muted-foreground">
-                    Light, dark or follow your system.
+                    {t("appearance.description")}
                   </p>
                 </div>
                 <ThemeSwitch />
               </div>
+              <div className="flex items-center justify-between gap-4 rounded-lg border p-3">
+                <div>
+                  <p className="text-sm font-medium">{t("appearance.language")}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {t("appearance.languageDescription")}
+                  </p>
+                </div>
+                <UiLanguageSwitch />
+              </div>
             </FormSection>
 
             <FormSection
-              title="Languages"
-              description="Calls and practice can happen in many languages."
+              title={t("languages.title")}
+              description={t("languages.description")}
             >
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <FormField
@@ -111,8 +123,8 @@ const SettingsPage: FC = () => {
                   name="interface_language"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Your language</FormLabel>
-                      <LanguageSelect value={field.value} onValueChange={field.onChange} ariaLabel="Your language" />
+                      <FormLabel>{t("languages.yourLanguage")}</FormLabel>
+                      <LanguageSelect value={field.value} onValueChange={field.onChange} ariaLabel={t("languages.yourLanguage")} />
                       <FormMessage />
                     </FormItem>
                   )}
@@ -122,8 +134,8 @@ const SettingsPage: FC = () => {
                   name="preferred_language"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Templates & examples in</FormLabel>
-                      <LanguageSelect value={field.value} onValueChange={field.onChange} ariaLabel="Templates and examples language" />
+                      <FormLabel>{t("languages.templates")}</FormLabel>
+                      <LanguageSelect value={field.value} onValueChange={field.onChange} ariaLabel={t("languages.templatesAria")} />
                       <FormMessage />
                     </FormItem>
                   )}
@@ -131,15 +143,15 @@ const SettingsPage: FC = () => {
                 <FormSelectField
                   control={form.control}
                   name="output_language_mode"
-                  label="Suggestions & analysis in"
+                  label={t("languages.output")}
                   options={OutputLanguageModeFormOptions}
                 />
               </div>
             </FormSection>
 
             <FormSection
-              title="Recording"
-              description="You are responsible for getting consent where recording laws require it."
+              title={t("recording.title")}
+              description={t("recording.description")}
             >
               <FormField
                 control={form.control}
@@ -147,10 +159,9 @@ const SettingsPage: FC = () => {
                 render={({ field }) => (
                   <FormItem className="flex items-center justify-between gap-4 rounded-lg border p-3">
                     <div>
-                      <FormLabel>Keep audio recordings by default</FormLabel>
+                      <FormLabel>{t("recording.keep")}</FormLabel>
                       <FormDescription>
-                        When off, only transcripts and analyses are stored. You
-                        can change it per call.
+                        {t("recording.keepHint")}
                       </FormDescription>
                     </div>
                     <FormControl>
@@ -167,7 +178,7 @@ const SettingsPage: FC = () => {
                 name="consent_line"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Default consent disclosure line</FormLabel>
+                    <FormLabel>{t("recording.consentLine")}</FormLabel>
                     <FormControl>
                       <Textarea
                         rows={3}
@@ -176,8 +187,7 @@ const SettingsPage: FC = () => {
                       />
                     </FormControl>
                     <FormDescription>
-                      Suggested as the first line of calls when a co-pilot has
-                      the consent line enabled.
+                      {t("recording.consentLineHint")}
                     </FormDescription>
                   </FormItem>
                 )}
@@ -190,7 +200,7 @@ const SettingsPage: FC = () => {
                 disabled={updateMe.isPending || !form.formState.isDirty}
                 loading={updateMe.isPending}
               >
-                {!updateMe.isPending && <Save />} Save settings
+                {!updateMe.isPending && <Save />} {t("save")}
               </Button>
             </div>
           </form>

@@ -1,0 +1,430 @@
+{
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "search": "Search",
+    "retry": "Try again",
+    "loading": "Loading…",
+    "logout": "Log out"
+  },
+  "language": {
+    "label": "Language",
+    "switch": "Change language"
+  },
+  "dates": {
+    "today": "Today",
+    "yesterday": "Yesterday"
+  },
+  "pagination": {
+    "previous": "Previous page",
+    "next": "Next page"
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "errorBoundary": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. Please try refreshing the page or contact support if the problem persists.",
+    "details": "Error details"
+  },
+  "scoreRing": {
+    "aria": "{{label}}: {{score}} out of 100",
+    "score": "Score",
+    "notAvailable": "not available"
+  },
+  "select": {
+    "placeholder": "Select",
+    "notSpecified": "Not specified"
+  },
+  "modelPicker": {
+    "quality": "Quality {{value}}/5",
+    "slow": "Thinks before answering, so suggestions may arrive late on live calls.",
+    "recommended": "Recommended"
+  },
+  "countdown": {
+    "passed": "Appointment has passed"
+  },
+  "phoneInput": {
+    "search": "Search country...",
+    "empty": "No country found."
+  },
+  "callRow": {
+    "practiceSession": "Practice session",
+    "untitled": "Untitled call",
+    "practice": "Practice",
+    "objectiveMet": "Objective met",
+    "notMet": "Not met",
+    "analyzing": "Analyzing",
+    "live": "Live"
+  },
+  "languageSelect": {
+    "label": "Language",
+    "placeholder": "Select a language"
+  },
+  "languageMultiSelect": {
+    "primaryLanguage": "Primary language",
+    "makePrimary": "Make primary",
+    "primaryAria": "{{name}} (primary)",
+    "makePrimaryAria": "Make {{name}} primary",
+    "removeAria": "Remove {{name}}",
+    "maximum": "Maximum of {{count}} languages",
+    "add": "Add a language",
+    "search": "Search languages…",
+    "empty": "No language found.",
+    "primary": "Primary",
+    "hint": "Up to {{count}} languages. The starred one is the default; click another chip to make it the default."
+  },
+  "liveAssist": {
+    "label": "Live assist",
+    "mutedTitle": "Suggestions are muted. The call is still being captured.",
+    "resume": "Resume suggestions",
+    "empty": "Suggestions will appear here as soon as the prospect speaks.",
+    "recent": "Recent suggestions ({{count}})",
+    "copilot": "Co-pilot",
+    "thinking": "Thinking…",
+    "activeUsing": "Active · using {{model}}",
+    "active": "Active",
+    "paused": "Suggestions paused · capture continues",
+    "reconnecting_one": "Reconnecting · {{count}} line queued",
+    "reconnecting_other": "Reconnecting · {{count}} lines queued",
+    "frequencyLabel": "Suggestion frequency",
+    "frequency": "Frequency",
+    "suggestNow": "Suggest now",
+    "unmute": "Unmute suggestions",
+    "mute": "Mute suggestions",
+    "updating": "Updating",
+    "or": "Or:",
+    "alt": "Alt:",
+    "unpin": "Unpin",
+    "pin": "Pin",
+    "dismiss": "Dismiss",
+    "helpful": "Helpful",
+    "notHelpful": "Not helpful",
+    "askPlaceholder": "Ask the co-pilot… e.g. pricing for 50 seats?",
+    "askLabel": "Ask the co-pilot",
+    "ask": "Ask",
+    "scriptProgress": "Script progress · {{done}}/{{total}}",
+    "audioLevel": "{{label}} audio level"
+  },
+  "micCheck": {
+    "ready": "Microphone ready",
+    "speak": "Speak to test",
+    "prompt": "Check your microphone before starting.",
+    "test": "Test microphone"
+  },
+  "recording": {
+    "recording": "Recording",
+    "listening": "Listening · not recorded",
+    "paused": "Paused",
+    "off": "Not capturing",
+    "connecting": "Connecting…"
+  },
+  "transcript": {
+    "empty": "The transcript will appear here as people speak.",
+    "notSaved": "Not saved yet",
+    "switchSpeaker": "Switch speaker",
+    "wrongSpeaker": "Wrong speaker? Switch it"
+  },
+  "imageUploader": {
+    "upload": "Upload {{label}}",
+    "wait": "Please wait...",
+    "hint": "PNG, JPG up to 5MB"
+  },
+  "imagePicker": {
+    "uploadText": "Upload images",
+    "uploadSubtext": "Drag and drop images here, or click to browse",
+    "fileTypeText": "Supports JPG, PNG, JPEG up to 10MB each",
+    "existingImages": "Existing Images",
+    "choose": "Choose Images",
+    "uploading": "Uploading images",
+    "uploadingSubtext": "Please wait while your images are being uploaded",
+    "uploadingButton": "Uploading...",
+    "fileRejected": "File rejected",
+    "image": "Image",
+    "clearAll": "Clear All",
+    "deleteTitle": "Delete Image",
+    "deleteDescription": "Are you sure you want to delete this image? This action cannot be undone."
+  },
+  "fileUpload": {
+    "maxFiles_one": "Maximum {{count}} file allowed",
+    "maxFiles_other": "Maximum {{count}} files allowed",
+    "typeNotAccepted": "File type not accepted",
+    "tooLarge": "File too large",
+    "uploadFailed": "Upload failed",
+    "label": "File upload",
+    "statusError": "Error: {{error}}",
+    "statusUploading": "Uploading: {{progress}}% complete",
+    "statusComplete": "Upload complete",
+    "statusReady": "Ready to upload"
+  },
+  "pinInput": {
+    "field": "Pin input {{counter}} of {{length}}",
+    "label": "Pin input"
+  },
+  "organisationGate": {
+    "errorTitle": "Couldn't load your organisations",
+    "errorDescription": "Check your connection and try again.",
+    "retry": "Retry",
+    "signOut": "Sign out",
+    "emptyTitle": "No organisation yet",
+    "emptyDescription": "Reload to set up your workspace.",
+    "reload": "Reload"
+  },
+  "requirePermission": {
+    "title": "Your role doesn't allow this",
+    "description": "You don't have access to this page. Ask an owner to change your role's permissions.",
+    "descriptionWithOrg": "Your role in {{organisation}} ({{role}}) doesn't have access to this page. Ask an owner to change your role's permissions.",
+    "back": "Back to dashboard"
+  },
+  "toasts": {
+    "assistantAgents": {
+      "coPilotCreated": "Co-pilot created",
+      "coPilotDuplicated": "Co-pilot duplicated",
+      "defaultCoPilotUpdated": "Default co-pilot updated",
+      "coPilotArchived": "Co-pilot archived",
+      "coPilotRestored": "Co-pilot restored",
+      "coPilotDeleted": "Co-pilot deleted",
+      "couldNotCreateTheCoPilot": "Could not create the co-pilot",
+      "changesSaved": "Changes saved",
+      "couldNotSaveChanges": "Could not save changes",
+      "couldNotDuplicate": "Could not duplicate",
+      "couldNotSetDefault": "Could not set default",
+      "couldNotUpdateTheCoPilot": "Could not update the co-pilot",
+      "couldNotDeleteTheCoPilot": "Could not delete the co-pilot",
+      "readyToUse": "{{name}} is ready to use."
+    },
+    "calls": {
+      "callStarted": "Call started",
+      "callUpdated": "Call updated",
+      "savedToYourCallLibrary": "Saved to your call library.",
+      "bookmarkRemoved": "Bookmark removed",
+      "speakerUpdated": "Speaker updated",
+      "theCoPilotIsListening": "The co-pilot is listening.",
+      "couldNotStartTheCall": "Could not start the call",
+      "practiceSessionReady": "Practice session ready",
+      "couldNotStartThePracticeSession": "Could not start the practice session",
+      "couldNotUpdateTheCall": "Could not update the call",
+      "callEnded": "Call ended",
+      "yourPerformanceReportIsBeingPrepared": "Your performance report is being prepared.",
+      "couldNotEndTheCall": "Could not end the call",
+      "callPermanentlyDeleted": "Call permanently deleted",
+      "couldNotDeleteTheCall": "Could not delete the call",
+      "thanksForTheFeedback": "Thanks for the feedback",
+      "couldNotUpdateTheSuggestion": "Could not update the suggestion",
+      "noAnswer": "No answer",
+      "momentBookmarked": "Moment bookmarked",
+      "couldNotBookmark": "Could not bookmark",
+      "couldNotRemoveTheBookmark": "Could not remove the bookmark",
+      "couldNotUpdateTheSpeaker": "Could not update the speaker",
+      "recordingSaved": "Recording saved",
+      "recordingUploadFailed": "Recording upload failed",
+      "recordingPermanentlyDeleted": "Recording permanently deleted",
+      "transcriptAndAnalysisWereKept": "Transcript and analysis were kept.",
+      "couldNotDeleteTheRecording": "Could not delete the recording",
+      "transcriptPermanentlyDeleted": "Transcript permanently deleted",
+      "couldNotDeleteTheTranscript": "Could not delete the transcript",
+      "analysisStarted": "Analysis started",
+      "thisUsuallyTakesUnderAMinute": "This usually takes under a minute.",
+      "couldNotStartTheAnalysis": "Could not start the analysis"
+    },
+    "organisations": {
+      "roleUpdated": "Role updated",
+      "memberRemoved": "Member removed",
+      "organisationCreated": "Organisation created",
+      "couldNotCreateTheOrganisation": "Could not create the organisation",
+      "organisationRenamed": "Organisation renamed",
+      "couldNotRenameTheOrganisation": "Could not rename the organisation",
+      "organisationPermanentlyDeleted": "Organisation permanently deleted",
+      "couldNotDeleteTheOrganisation": "Could not delete the organisation",
+      "couldNotChangeTheRole": "Could not change the role",
+      "couldNotRemoveTheMember": "Could not remove the member",
+      "permissionsSaved": "Permissions saved",
+      "theChangeAppliesToEveryoneWith": "The change applies to everyone with this role right away.",
+      "couldNotSavePermissions": "Could not save permissions",
+      "permissionsResetToThePreset": "Permissions reset to the preset",
+      "couldNotResetPermissions": "Could not reset permissions",
+      "invitationSent": "Invitation sent",
+      "invitationCreated": "Invitation created",
+      "couldNotSendTheInvitation": "Could not send the invitation",
+      "invitationResent": "Invitation resent",
+      "newLinkCreated": "New link created",
+      "couldNotResendTheInvitation": "Could not resend the invitation",
+      "invitationRevoked": "Invitation revoked",
+      "theLinkNoLongerWorks": "The link no longer works.",
+      "couldNotRevokeTheInvitation": "Could not revoke the invitation",
+      "youCanSwitchOrganisationsFromThe": "You can switch organisations from the sidebar at any time.",
+      "couldNotAcceptTheInvitation": "Could not accept the invitation",
+      "workingIn": "You are now working in {{name}}.",
+      "emailedTo": "We emailed {{email}}.",
+      "emailedFresh": "We emailed {{email}} a fresh link.",
+      "welcomeTo": "Welcome to {{name}}",
+      "emailUnavailableInvite": "Email isn't available right now. Copy the invite link and share it yourself.",
+      "emailUnavailableLink": "Email isn't available right now. Copy the new link and share it yourself."
+    },
+    "practiceAgents": {
+      "prospectCreated": "Prospect created",
+      "prospectRecreatedFromTheCall": "Prospect recreated from the call",
+      "prospectDuplicated": "Prospect duplicated",
+      "prospectArchived": "Prospect archived",
+      "prospectRestored": "Prospect restored",
+      "prospectDeleted": "Prospect deleted",
+      "couldNotCreateTheProspect": "Could not create the prospect",
+      "changesSaved": "Changes saved",
+      "couldNotSaveChanges": "Could not save changes",
+      "prospectGenerated": "Prospect generated",
+      "reviewAndAdjustTheDetailsThen": "Review and adjust the details, then save.",
+      "couldNotGenerateTheProspect": "Could not generate the prospect",
+      "randomProspectReady": "Random prospect ready",
+      "reviewItThenSave": "Review it, then save.",
+      "couldNotGenerateARandomProspect": "Could not generate a random prospect",
+      "couldNotRecreateTheProspect": "Could not recreate the prospect",
+      "couldNotDuplicate": "Could not duplicate",
+      "harderVersionCreated": "Harder version created",
+      "couldNotCreateAHarderVersion": "Could not create a harder version",
+      "couldNotUpdateTheProspect": "Could not update the prospect",
+      "couldNotDeleteTheProspect": "Could not delete the prospect"
+    },
+    "auth": {
+      "loginSuccessful": "Login successful",
+      "youHaveSuccessfullyLoggedIn": "You have successfully logged in",
+      "couldNotSignIn": "Could not sign in",
+      "anUnexpectedErrorOccurred": "An unexpected error occurred",
+      "welcomeToCallzen": "Welcome to CallZen",
+      "yourAccountIsReady": "Your account is ready.",
+      "couldNotSignUp": "Could not sign up",
+      "adminLoginSuccessful": "Admin login successful",
+      "youHaveSuccessfullyLoggedInAs": "You have successfully logged in as admin",
+      "couldNotAdminLoginToAccount": "Could not admin login to account"
+    },
+    "user": {
+      "settingsSaved": "Settings saved",
+      "couldNotSaveSettings": "Could not save settings",
+      "accountDeleted": "Account deleted",
+      "allYourDataWasPermanentlyRemoved": "All your data was permanently removed.",
+      "couldNotDeleteYourAccount": "Could not delete your account"
+    }
+  },
+  "errors": {
+    "calls": {
+      "failedToLoadCalls": "Failed to load calls.",
+      "failedToLoadTheCall": "Failed to load the call.",
+      "failedToStartTheCall": "Failed to start the call.",
+      "failedToUpdateTheCall": "Failed to update the call.",
+      "failedToDeleteTheCall": "Failed to delete the call.",
+      "failedToUpdateTheSpeaker": "Failed to update the speaker.",
+      "failedToAddTheBookmark": "Failed to add the bookmark.",
+      "failedToRemoveTheBookmark": "Failed to remove the bookmark.",
+      "failedToStartThePracticeSession": "Failed to start the practice session.",
+      "failedToEndTheCall": "Failed to end the call.",
+      "failedToSaveTheTranscript": "Failed to save the transcript.",
+      "failedToDeleteTheTranscript": "Failed to delete the transcript.",
+      "failedToGenerateASuggestion": "Failed to generate a suggestion.",
+      "failedToUpdateTheSuggestion": "Failed to update the suggestion.",
+      "theCoPilotCouldNotAnswer": "The co-pilot could not answer right now.",
+      "failedToUploadTheRecording": "Failed to upload the recording.",
+      "failedToLoadTheRecording": "Failed to load the recording.",
+      "failedToDeleteTheRecording": "Failed to delete the recording.",
+      "failedToStartTheAnalysis": "Failed to start the analysis.",
+      "couldNotStartTheRealtimeAudio": "Could not start the realtime audio session.",
+      "theProspectDidNotRespondTry": "The prospect did not respond. Try again.",
+      "couldNotConnectToTheRealtime": "Could not connect to the realtime audio service."
+    },
+    "dashboard": {
+      "failedToLoadYourProgress": "Failed to load your progress."
+    },
+    "organisations": {
+      "failedToLoadMembers": "Failed to load members.",
+      "failedToRemoveTheMember": "Failed to remove the member.",
+      "failedToLoadRoles": "Failed to load roles.",
+      "failedToLoadYourOrganisations": "Failed to load your organisations.",
+      "failedToLoadPermissions": "Failed to load permissions.",
+      "failedToCreateTheOrganisation": "Failed to create the organisation.",
+      "failedToRenameTheOrganisation": "Failed to rename the organisation.",
+      "failedToDeleteTheOrganisation": "Failed to delete the organisation.",
+      "failedToChangeTheRole": "Failed to change the role.",
+      "failedToSavePermissions": "Failed to save permissions.",
+      "failedToResetPermissions": "Failed to reset permissions.",
+      "failedToLoadInvitations": "Failed to load invitations.",
+      "failedToSendTheInvitation": "Failed to send the invitation.",
+      "failedToResendTheInvitation": "Failed to resend the invitation.",
+      "failedToRevokeTheInvitation": "Failed to revoke the invitation.",
+      "thisInvitationLinkIsNotValid": "This invitation link is not valid.",
+      "failedToLoadYourInvitations": "Failed to load your invitations.",
+      "failedToAcceptTheInvitation": "Failed to accept the invitation."
+    },
+    "practiceAgents": {
+      "failedToLoadPracticeProspects": "Failed to load practice prospects.",
+      "failedToLoadThePracticeProspect": "Failed to load the practice prospect.",
+      "failedToCreateThePracticeProspect": "Failed to create the practice prospect.",
+      "failedToSaveThePracticeProspect": "Failed to save the practice prospect.",
+      "failedToRecreateTheProspectFrom": "Failed to recreate the prospect from this call.",
+      "failedToDuplicateTheProspect": "Failed to duplicate the prospect.",
+      "failedToUpdateTheProspect": "Failed to update the prospect.",
+      "failedToDeleteTheProspect": "Failed to delete the prospect.",
+      "failedToGenerateTheProspectPlease": "Failed to generate the prospect. Please try again.",
+      "failedToGenerateARandomProspect": "Failed to generate a random prospect. Please try again.",
+      "failedToCreateAHarderVersion": "Failed to create a harder version."
+    },
+    "usage": {
+      "failedToLoadUsage": "Failed to load usage."
+    },
+    "user": {
+      "failedToLoadYourProfile": "Failed to load your profile.",
+      "failedToSaveYourSettings": "Failed to save your settings.",
+      "failedToDeleteYourAccount": "Failed to delete your account."
+    },
+    "assistantAgents": {
+      "failedToLoadAssistantAgents": "Failed to load assistant agents.",
+      "failedToLoadTheAssistantAgent": "Failed to load the assistant agent.",
+      "failedToCreateTheAssistantAgent": "Failed to create the assistant agent.",
+      "failedToSaveTheAssistantAgent": "Failed to save the assistant agent.",
+      "failedToDuplicateTheAssistantAgent": "Failed to duplicate the assistant agent.",
+      "failedToSetTheDefaultAgent": "Failed to set the default agent.",
+      "failedToUpdateTheAgent": "Failed to update the agent.",
+      "failedToDeleteTheAssistantAgent": "Failed to delete the assistant agent."
+    },
+    "auth": {
+      "failedToSignInPleaseTry": "Failed to sign in. Please try again.",
+      "failedToSignUpPleaseTry": "Failed to sign up. Please try again.",
+      "failedToRefreshAccountTokenPlease": "Failed to refresh account token. Please try again.",
+      "failedToAdminLoginToAccount": "Failed to admin login to account. Please try again."
+    },
+    "catalog": {
+      "failedToLoadModelsAndTemplates": "Failed to load models and templates."
+    },
+    "googleMaps": {
+      "failedToFetchTimezonePleaseTry": "Failed to fetch timezone. Please try again."
+    },
+    "health": {
+      "failedToFetchHealthStatusPlease": "Failed to fetch health status. Please try again."
+    },
+    "lib": {
+      "network": "Cannot reach the server. Check your connection and try again."
+    },
+    "audio": {
+      "speechUnsupported": "Speech recognition is not supported in this browser. Use Chrome or Edge.",
+      "speechBlocked": "Microphone access for speech recognition was blocked.",
+      "micUnsupported": "This browser does not support microphone capture. Try the latest Chrome, Edge or Safari.",
+      "micBlocked": "Microphone access was blocked. Allow it in your browser's site settings and try again.",
+      "micNotFound": "No microphone was found. Connect one and try again.",
+      "micFailed": "Could not access the microphone.",
+      "tabUnsupported": "Capturing meeting audio needs a desktop browser such as Chrome or Edge.",
+      "shareCancelled": "Screen sharing was cancelled. Pick your meeting tab and enable \"Share tab audio\".",
+      "noAudioShared": "No audio was shared. Select the meeting's browser tab and turn on \"Share tab audio\".",
+      "realtimeTimeout": "Realtime data channel did not open in time"
+    },
+    "websocket": {
+      "notConnected": "WebSocket not connected",
+      "timeout": "WebSocket emit timeout"
+    }
+  }
+}

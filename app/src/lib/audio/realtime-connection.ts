@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 // Thin wrapper around an OpenAI Realtime WebRTC session: sends one local audio track,
 // optionally plays the remote audio, and exposes the JSON event data channel.
 
@@ -45,7 +46,7 @@ export class RealtimeConnection {
         const channel = peer.createDataChannel("oai-events");
         this.channel = channel;
         const opened = new Promise<void>((resolve, reject) => {
-            const timer = window.setTimeout(() => reject(new Error("Realtime data channel did not open in time")), 15000);
+            const timer = window.setTimeout(() => reject(new Error(i18n.t("common:errors.audio.realtimeTimeout"))), 15000);
             channel.onopen = () => {
                 window.clearTimeout(timer);
                 resolve();

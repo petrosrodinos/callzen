@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import axiosInstance from "@/config/api/axios";
 import { ApiRoutes } from "@/config/api/routes";
 import { ApiError } from "@/lib/api-error";
@@ -15,7 +16,7 @@ export const getPracticeAgents = async (query?: PracticeAgentQuery): Promise<Pra
         const response = await axiosInstance.get(ApiRoutes.practice_agents.prefix, { params: query });
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to load practice prospects.");
+        throw new ApiError(error, i18n.t("common:errors.practiceAgents.failedToLoadPracticeProspects"));
     }
 };
 
@@ -24,7 +25,7 @@ export const getPracticeAgent = async (id: string): Promise<PracticeAgent> => {
         const response = await axiosInstance.get(ApiRoutes.practice_agents.detail(id));
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to load the practice prospect.");
+        throw new ApiError(error, i18n.t("common:errors.practiceAgents.failedToLoadThePracticeProspect"));
     }
 };
 
@@ -33,7 +34,7 @@ export const createPracticeAgent = async (dto: CreatePracticeAgentDto): Promise<
         const response = await axiosInstance.post(ApiRoutes.practice_agents.prefix, dto);
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to create the practice prospect.");
+        throw new ApiError(error, i18n.t("common:errors.practiceAgents.failedToCreateThePracticeProspect"));
     }
 };
 
@@ -42,7 +43,7 @@ export const updatePracticeAgent = async ({ id, dto }: { id: string; dto: Update
         const response = await axiosInstance.patch(ApiRoutes.practice_agents.detail(id), dto);
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to save the practice prospect.");
+        throw new ApiError(error, i18n.t("common:errors.practiceAgents.failedToSaveThePracticeProspect"));
     }
 };
 
@@ -52,7 +53,7 @@ export const generatePracticeAgent = async (dto: GeneratePracticeAgentDto): Prom
         const response = await axiosInstance.post(ApiRoutes.practice_agents.generate, dto, { timeout: 90000 });
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to generate the prospect. Please try again.");
+        throw new ApiError(error, i18n.t("common:errors.practiceAgents.failedToGenerateTheProspectPlease"));
     }
 };
 
@@ -61,7 +62,7 @@ export const randomizePracticeAgent = async (dto: RandomizePracticeAgentDto): Pr
         const response = await axiosInstance.post(ApiRoutes.practice_agents.randomize, dto, { timeout: 90000 });
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to generate a random prospect. Please try again.");
+        throw new ApiError(error, i18n.t("common:errors.practiceAgents.failedToGenerateARandomProspect"));
     }
 };
 
@@ -70,7 +71,7 @@ export const createPracticeAgentFromCall = async (callId: string): Promise<Pract
         const response = await axiosInstance.post(ApiRoutes.practice_agents.from_call(callId), undefined, { timeout: 90000 });
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to recreate the prospect from this call.");
+        throw new ApiError(error, i18n.t("common:errors.practiceAgents.failedToRecreateTheProspectFrom"));
     }
 };
 
@@ -79,7 +80,7 @@ export const duplicatePracticeAgent = async (id: string): Promise<PracticeAgent>
         const response = await axiosInstance.post(ApiRoutes.practice_agents.duplicate(id));
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to duplicate the prospect.");
+        throw new ApiError(error, i18n.t("common:errors.practiceAgents.failedToDuplicateTheProspect"));
     }
 };
 
@@ -88,7 +89,7 @@ export const harderPracticeAgent = async (id: string): Promise<PracticeAgent> =>
         const response = await axiosInstance.post(ApiRoutes.practice_agents.harder(id));
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to create a harder version.");
+        throw new ApiError(error, i18n.t("common:errors.practiceAgents.failedToCreateAHarderVersion"));
     }
 };
 
@@ -98,7 +99,7 @@ export const archivePracticeAgent = async ({ id, archived }: { id: string; archi
         const response = await axiosInstance.post(route);
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to update the prospect.");
+        throw new ApiError(error, i18n.t("common:errors.practiceAgents.failedToUpdateTheProspect"));
     }
 };
 
@@ -107,6 +108,6 @@ export const deletePracticeAgent = async (id: string): Promise<{ id: string }> =
         const response = await axiosInstance.delete(ApiRoutes.practice_agents.detail(id));
         return response.data;
     } catch (error) {
-        throw new ApiError(error, "Failed to delete the prospect.");
+        throw new ApiError(error, i18n.t("common:errors.practiceAgents.failedToDeleteTheProspect"));
     }
 };

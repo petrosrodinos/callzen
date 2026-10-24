@@ -1,0 +1,213 @@
+{
+  "nav": {
+    "aria": "Menu główne",
+    "home": "Strona główna CallZen",
+    "live": "Współpilot na żywo",
+    "practice": "Ćwiczenia",
+    "reviews": "Analizy rozmów",
+    "teams": "Zespoły",
+    "createAccount": "Utwórz konto"
+  },
+  "actions": {
+    "openDashboard": "Otwórz panel",
+    "createAccount": "Utwórz konto",
+    "signIn": "Zaloguj się"
+  },
+  "footer": {
+    "consent": "Zawsze uzyskaj zgodę przed nagraniem rozmowy.",
+    "aria": "Stopka",
+    "dashboard": "Panel",
+    "signIn": "Zaloguj się",
+    "createAccount": "Utwórz konto"
+  },
+  "hero": {
+    "title": "Wiedz, co powiedzieć dalej, gdy rozmówca jeszcze mówi.",
+    "lede": "CallZen słucha Twojej rozmowy sprzedażowej, na bieżąco wychwytuje obiekcje i sygnały zakupowe oraz podpowiada kolejne zdanie. Potem ocenia rozmowę i pozwala przećwiczyć trudne momenty z potencjalnymi klientami opartymi na AI."
+  },
+  "demo": {
+    "aria": "Przykład rozmowy na żywo ze współpilotem CallZen",
+    "live": "Rozmowa na żywo",
+    "replay": "Odtwórz ponownie",
+    "prospect": "Potencjalny klient",
+    "you": "Ty",
+    "prospectOne": "Podoba nam się to, co zobaczyliśmy. Szczerze mówiąc, cena jest <mark>znacznie wyższa niż nasz budżet</mark>.",
+    "youLine": "Rozumiem. Jakiego przedziału się spodziewaliście? Wspomniałeś, że wolne działania następcze kosztują Cię klientów, zestawmy więc te dwie rzeczy.",
+    "prospectTwo": "Około czterdziestu za licencję. Ale tak, <mark>straciliśmy dwa odnowienia w zeszłym kwartale</mark>, bo nikt nie oddzwonił na czas.",
+    "copilot": "Współpilot",
+    "script": "Skrypt",
+    "stages": {
+      "opening": "Otwarcie",
+      "discovery": "Rozpoznanie potrzeb",
+      "pitch": "Prezentacja",
+      "objections": "Obsługa obiekcji",
+      "close": "Zamknięcie"
+    },
+    "objection": {
+      "kind": "Obiekcja cenowa",
+      "why": "Potencjalny klient mówi, że cena przekracza budżet."
+    },
+    "reply": {
+      "kind": "Sugerowana odpowiedź",
+      "said": "Powiedziane",
+      "text": "„Jakiego przedziału się spodziewaliście? Porównajmy go z tym, ile kosztują Was wolne działania następcze.”"
+    },
+    "signal": {
+      "kind": "Sygnał zakupowy",
+      "why": "Wskazali, ile kosztują ich wolne działania następcze. Przejdź do zamknięcia i zaproponuj rozmowę o wdrożeniu."
+    }
+  },
+  "ways": {
+    "title": "Działa z rozmowami, które już prowadzisz",
+    "phone": {
+      "title": "Rozmowy telefoniczne",
+      "text": "Włącz głośnik, a CallZen słucha przez Twój mikrofon. Bez wtyczek i bez zmiany aplikacji do dzwonienia."
+    },
+    "online": {
+      "title": "Spotkania online",
+      "text": "Udostępnij kartę spotkania, a CallZen usłyszy obie strony i osobno zapisze Twoje słowa oraz słowa klienta, dzięki czemu podpowiedzi odpowiadają właściwej osobie."
+    }
+  },
+  "practice": {
+    "title": "Ćwicz na kliencie, który stawia opór",
+    "intro": "Klienci ćwiczeniowi zachowują się jak prawdziwi kupujący. Zatrzymują dla siebie prawdziwe problemy, zostawiają obiekcje na najmniej wygodny moment i tracą cierpliwość. Przerwij któremuś w pół zdania, a przerwie, żeby Ci odpowiedzieć — głosem.",
+    "describe": {
+      "title": "Opisz, nie konfiguruj",
+      "text": "Napisz jedno zdanie o tym, do kogo dzwonisz, a CallZen stworzy klienta za Ciebie."
+    },
+    "replay": {
+      "title": "Odtwórz nieudaną rozmowę",
+      "text": "Zamień prawdziwego klienta z rozmowy na żywo w klienta ćwiczeniowego i spróbuj jeszcze raz."
+    },
+    "withCopilot": {
+      "title": "Ćwicz ze współpilotem lub bez",
+      "text": "Zostaw podpowiedzi włączone podczas nauki, a potem wyłącz je, by sprawdzić, jak radzisz sobie sam."
+    },
+    "dossier": {
+      "aria": "Przykład klienta ćwiczeniowego",
+      "role": "Dyrektor operacyjna, regionalna firma logistyczna",
+      "difficulty": "Trudność: wysoka",
+      "patience": "Cierpliwość: niska",
+      "voice": "Rozmowa głosowa",
+      "knownLabel": "Co wiesz",
+      "known": "Odpowiedziała na Twój zimny e-mail. Kieruje zespołem dwunastu handlowców.",
+      "secretsLabel": "Czego Ci nie mówi",
+      "hidden": "Ukryte, dopóki tego nie odkryjesz",
+      "hintRevealed": "Tak pokazuje to analiza.",
+      "hintHidden": "W ćwiczeniu dowiadujesz się tego w trakcie rozmowy.",
+      "hide": "Ukryj ponownie",
+      "reveal": "Odkryj po rozmowie"
+    },
+    "secrets": {
+      "pain": {
+        "label": "Problem",
+        "text": "W zeszłym kwartale straciła dwa odnowienia przez wolne działania następcze."
+      },
+      "objection": {
+        "label": "Obiekcja, którą zgłosi",
+        "text": "„Mamy już do tego narzędzie.”"
+      },
+      "yes": {
+        "label": "Co sprawi, że powie tak",
+        "text": "Wdrożenie trwające krócej niż tydzień."
+      }
+    }
+  },
+  "review": {
+    "title": "Po rozmowie zobacz dokładnie, gdzie nastąpił zwrot",
+    "copy": "Każda rozmowa otrzymuje ocenę ważoną, oceny w kategoriach oraz listę błędów i mocnych stron. Każda pozycja wskazuje moment nagrania, więc możesz go odsłuchać zamiast zgadywać.",
+    "aria": "Przykładowa analiza rozmowy",
+    "sample": "Przykładowa analiza, rozmowa {{duration}}, wynik <score>78</score>",
+    "you": "Ty",
+    "prospect": "Potencjalny klient",
+    "markerAt": "{{kind}} w {{time}}",
+    "kinds": {
+      "mistake": "Błąd",
+      "strength": "Mocna strona",
+      "objection": "Obiekcja"
+    },
+    "markers": {
+      "pitchedEarly": "Prezentacja oferty przed zapytaniem o wielkość zespołu.",
+      "priceObjection": "Obiekcja cenowa. Zapytałeś o budżet, zanim obroniłeś kwotę.",
+      "askedCost": "Zapytałeś, ile kosztują ich wolne działania następcze, i pozwoliłeś im odpowiedzieć.",
+      "weakClose": "Zakończenie słowami „dajcie znać” zamiast umówienia kolejnego kroku."
+    },
+    "metrics": {
+      "talkRatio": "Udział w rozmowie",
+      "pace": "Tempo",
+      "paceValue": "148 słów/min",
+      "fillers": "Słowa-wypełniacze",
+      "interruptions": "Przerwania",
+      "objections": "Obiekcje"
+    },
+    "after": {
+      "followUp": {
+        "title": "Szkic wiadomości następczej",
+        "text": "CallZen pisze e-mail, który wysłałbyś w następnej kolejności, na podstawie tego, co klient faktycznie powiedział."
+      },
+      "practice": {
+        "title": "Pasująca sesja ćwiczeniowa",
+        "text": "Podpowiada klienta ćwiczeniowego, który dotyczy błędów popełnionych w tej rozmowie."
+      },
+      "trends": {
+        "title": "Trendy z wielu rozmów",
+        "text": "Panel pokazuje Twój wynik w czasie oraz błędy, które wciąż wracają."
+      }
+    }
+  },
+  "playbook": {
+    "title": "Naucz go, jak sprzedaje Twój zespół",
+    "copy": "Współpilot jest tak dobry, jak jego playbook. Skonfiguruj swój raz i używaj go w każdej rozmowie.",
+    "items": {
+      "stages": {
+        "title": "Etapy skryptu",
+        "text": "Rozpisz rozmowę na etapy. Współpilot śledzi, na którym jesteś, w miarę jak toczy się rozmowa."
+      },
+      "objections": {
+        "title": "Biblioteka obiekcji",
+        "text": "Zapisz, jak odpowiadasz na obiekcje dotyczące ceny, terminu i konkurencji. Podpowiedzi wychodzą od Twoich odpowiedzi."
+      },
+      "knowledge": {
+        "title": "Wiedza o produkcie",
+        "text": "Zaimportuj swoje dokumenty, aby podpowiedzi opierały się na prawdziwych cenach, funkcjach i ograniczeniach."
+      },
+      "tone": {
+        "title": "Ton i metodyka",
+        "text": "Wybierz, jak ma brzmieć i jaką metodą sprzedaży ma się kierować."
+      },
+      "frequency": {
+        "title": "Jak często się odzywa",
+        "text": "Ustaw częstotliwość podpowiedzi, aby pomagał, nie przytłaczając Cię."
+      },
+      "languages": {
+        "title": "Do pięciu języków",
+        "text": "Każdy współpilot obsługuje kilka języków rozmowy i wykrywa, którym się posługujecie."
+      }
+    }
+  },
+  "teams": {
+    "title": "Stworzony dla zespołów, które sprzedają razem",
+    "copy": "Współpiloci, potencjalni klienci i rozmowy należą do organizacji, a Ty możesz należeć do kilku i przełączać się między nimi. Zapraszaj osoby e-mailem; zaproszenia ważne są siedem dni.",
+    "roles": {
+      "owner": {
+        "name": "Właściciel",
+        "text": "Kontroluje wszystko, w tym to, co mogą robić administratorzy i członkowie."
+      },
+      "admin": {
+        "name": "Administrator",
+        "text": "Zarządza zespołem z uprawnieniami nadanymi przez właściciela."
+      },
+      "member": {
+        "name": "Członek",
+        "text": "Korzysta ze współpilotów, zarządza potencjalnymi klientami i analizuje własne rozmowy."
+      }
+    },
+    "consent": {
+      "title": "Najpierw zgoda, a Ty decydujesz, co jest przechowywane",
+      "copy": "Zawsze uzyskaj zgodę przed nagraniem rozmowy. CallZen Ci o tym przypomina i daje odpowiednie ustawienia: określ, jak długo przechowywane są nagrania, i usuń konto wraz z danymi, gdy skończysz."
+    }
+  },
+  "closing": {
+    "title": "Poprowadź następną rozmowę ze współpilotem.",
+    "copy": "Skonfiguruj pierwszego współpilota, rozpocznij rozmowę i zobacz, jak podpowiedzi pojawiają się, gdy klient jeszcze mówi."
+  }
+}

@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useRef, useState, type FC } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { FileQuestion } from "lucide-react";
 import { useIsMutating } from "@tanstack/react-query";
 import { Card } from "@/components/ui/card";
@@ -37,6 +38,7 @@ import { RerunAnalysisDialog } from "./components/rerun-analysis-dialog";
 import { buildTimelineMarkers, callDurationMs } from "./utils/timeline.utils";
 
 const CallDetailPage: FC = () => {
+  const { t } = useTranslation("library");
   const { callId } = useParams<{ callId: string }>();
   const { data: call, isPending, isError } = useCall(callId);
   const justEnded = !!(useLocation().state as { justEnded?: boolean } | null)
@@ -54,7 +56,7 @@ const CallDetailPage: FC = () => {
   const [focusMs, setFocusMs] = useState<number | null>(null);
   const [rerunOpen, setRerunOpen] = useState(false);
 
-  usePageMetadata({ title: call?.title ?? "Call" });
+  usePageMetadata({ title: call?.title ?? t("detail.pageTitle") });
 
   const markers = useMemo(
     () => (call ? buildTimelineMarkers(call) : []),
@@ -77,11 +79,11 @@ const CallDetailPage: FC = () => {
     return (
       <EmptyState
         icon={FileQuestion}
-        title="Call not found"
-        description="It may have been deleted."
+        title={t("detail.notFound.title")}
+        description={t("detail.notFound.description")}
         action={
           <Button asChild>
-            <Link to={Routes.library.root}>Back to library</Link>
+            <Link to={Routes.library.root}>{t("detail.notFound.back")}</Link>
           </Button>
         }
       />
@@ -105,7 +107,7 @@ const CallDetailPage: FC = () => {
 
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
         <Card className="order-1 h-fit space-y-4 p-4 lg:order-2 lg:sticky lg:top-20">
-          <h2 className="font-semibold">Recording & transcript</h2>
+          <h2 className="font-semibold">{t("detail.recordingTranscript")}</h2>
           <RecordingPlayer
             callId={call.id}
             hasRecording={call.has_recording}
@@ -146,19 +148,31 @@ const CallDetailPage: FC = () => {
               <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
                 <TabsList className="w-max">
                   {isPractice && analysis.practice_result && (
-                    <TabsTrigger value="reveal">Result & reveal</TabsTrigger>
+                    <TabsTrigger value="reveal">
+                      {t("detail.tabs.reveal")}
+                    </TabsTrigger>
                   )}
-                  <TabsTrigger value="overview">Overview</TabsTrigger>
-                  <TabsTrigger value="moments">
-                    Mistakes & strengths
+                  <TabsTrigger value="overview">
+                    {t("detail.tabs.overview")}
                   </TabsTrigger>
-                  <TabsTrigger value="metrics">Metrics</TabsTrigger>
-                  <TabsTrigger value="insights">Prospect</TabsTrigger>
+                  <TabsTrigger value="moments">
+                    {t("detail.tabs.moments")}
+                  </TabsTrigger>
+                  <TabsTrigger value="metrics">
+                    {t("detail.tabs.metrics")}
+                  </TabsTrigger>
+                  <TabsTrigger value="insights">
+                    {t("detail.tabs.prospect")}
+                  </TabsTrigger>
                   {analysis.suggestion_usage && (
-                    <TabsTrigger value="copilot">Co-pilot</TabsTrigger>
+                    <TabsTrigger value="copilot">
+                      {t("detail.tabs.copilot")}
+                    </TabsTrigger>
                   )}
                   {!isPractice && (
-                    <TabsTrigger value="follow-up">Follow-up</TabsTrigger>
+                    <TabsTrigger value="follow-up">
+                      {t("detail.tabs.followUp")}
+                    </TabsTrigger>
                   )}
                 </TabsList>
               </div>
@@ -201,7 +215,13 @@ const CallDetailPage: FC = () => {
                   <TabsContent value="follow-up">
                     <FollowUpCard
                       draft={analysis.follow_up_draft}
-                      prospectEmailSubject={`Following up${call.prospect_company ? ` – ${call.prospect_company}` : ""}`}
+                      prospectEmailSubject={
+                        call.prospect_company
+                          ? t("detail.followUpSubjectCompany", {
+                              company: call.prospect_company,
+                            })
+                          : t("detail.followUpSubject")
+                      }
                     />
                   </TabsContent>
                 )}

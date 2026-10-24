@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -8,15 +9,16 @@ import { useCalls } from "@/features/calls/hooks/use-calls";
 import { Routes } from "@/routes/routes";
 
 export function RecentCallsCard() {
+  const { t } = useTranslation("dashboard");
   const { data, isPending } = useCalls({ limit: 5 });
 
   return (
     <Card className="p-5">
       <div className="mb-3 flex items-center justify-between">
-        <h2 className="font-semibold">Recent calls</h2>
+        <h2 className="font-semibold">{t("recentCalls.title")}</h2>
         <Button asChild size="sm" variant="ghost">
           <Link to={Routes.library.root}>
-            View all <ArrowRight />
+            {t("recentCalls.viewAll")} <ArrowRight />
           </Link>
         </Button>
       </div>
@@ -24,7 +26,7 @@ export function RecentCallsCard() {
         <ListSkeleton rows={3} />
       ) : !data?.data.length ? (
         <p className="py-6 text-center text-sm text-muted-foreground">
-          No calls yet.
+          {t("recentCalls.empty")}
         </p>
       ) : (
         <ul className="divide-y">

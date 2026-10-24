@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 import { formatClock } from "@/lib/date";
 import {
@@ -21,6 +22,7 @@ export function CallTimeline({
   currentMs,
   onSeek,
 }: CallTimelineProps) {
+  const { t } = useTranslation("library");
   const progress = Math.min(100, (currentMs / durationMs) * 100);
   const presentKinds = TimelineMarkerOptions.filter((option) =>
     markers.some((marker) => marker.kind === option.id),
@@ -35,7 +37,7 @@ export function CallTimeline({
           onSeek(((event.clientX - rect.left) / rect.width) * durationMs);
         }}
         role="slider"
-        aria-label="Call timeline"
+        aria-label={t("detail.timeline.label")}
         aria-valuemin={0}
         aria-valuemax={Math.round(durationMs / 1000)}
         aria-valuenow={Math.round(currentMs / 1000)}
@@ -70,7 +72,10 @@ export function CallTimeline({
                   event.stopPropagation();
                   onSeek(marker.atMs);
                 }}
-                aria-label={`${marker.label} at ${formatClock(marker.atMs)}`}
+                aria-label={t("detail.timeline.markerAt", {
+                  label: marker.label,
+                  time: formatClock(marker.atMs),
+                })}
               />
             </TooltipTrigger>
             <TooltipContent>

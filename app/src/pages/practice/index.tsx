@@ -1,4 +1,5 @@
 import { useState, type FC } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Dices, Headphones, Plus, Search, WandSparkles } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
@@ -33,7 +34,8 @@ import { GenerateProspectDialog } from "./components/generate-prospect-dialog";
 import { RandomProspectDialog } from "./components/random-prospect-dialog";
 
 const PracticePage: FC = () => {
-  usePageMetadata({ title: "Practice" });
+  const { t } = useTranslation("practice");
+  usePageMetadata({ title: t("list.title") });
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const copilotId = searchParams.get("copilot");
@@ -76,20 +78,20 @@ const PracticePage: FC = () => {
   return (
     <>
       <PageHeader
-        title="Practice"
-        description="Rehearse out loud against realistic AI prospects. Turn on the co-pilot to train exactly like a real call, or go solo to build independent skill."
+        title={t("list.title")}
+        description={t("list.description")}
         actions={
           canManage && (
             <>
               <Button variant="outline" onClick={() => setDialog("random")}>
-                <Dices /> Random
+                <Dices /> {t("list.random")}
               </Button>
               <Button variant="outline" onClick={() => setDialog("generate")}>
-                <WandSparkles /> Describe one
+                <WandSparkles /> {t("list.describeOne")}
               </Button>
               <Button asChild>
                 <Link to={Routes.practice.agents_new}>
-                  <Plus /> New prospect
+                  <Plus /> {t("list.newProspect")}
                 </Link>
               </Button>
             </>
@@ -100,7 +102,7 @@ const PracticePage: FC = () => {
       {canManage && (
         <section className="mb-8">
           <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-            Ready-made scenarios
+            {t("list.readyMade")}
           </h2>
           <div className="-mx-4 flex snap-x gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
             {(catalog?.practice_templates ?? []).map((template) => (
@@ -122,16 +124,16 @@ const PracticePage: FC = () => {
       <section>
         <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center">
           <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground sm:mr-auto">
-            Your prospects
+            {t("list.yourProspects")}
           </h2>
           <div className="relative sm:w-56">
             <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              placeholder="Search"
+              placeholder={t("list.search")}
               className="pl-9"
-              aria-label="Search prospects"
+              aria-label={t("list.searchAria")}
             />
           </div>
           <div className="grid grid-cols-2 gap-2 sm:flex">
@@ -141,7 +143,7 @@ const PracticePage: FC = () => {
                 setTemperature(value as LeadTemperature | "all")
               }
             >
-              <SelectTrigger className="sm:w-40" aria-label="Lead temperature">
+              <SelectTrigger className="sm:w-40" aria-label={t("list.leadTemperatureAria")}>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -153,7 +155,7 @@ const PracticePage: FC = () => {
               </SelectContent>
             </Select>
             <Select value={difficulty} onValueChange={setDifficulty}>
-              <SelectTrigger className="sm:w-40" aria-label="Difficulty">
+              <SelectTrigger className="sm:w-40" aria-label={t("list.difficultyAria")}>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -174,14 +176,14 @@ const PracticePage: FC = () => {
             icon={Headphones}
             title={
               filtersActive
-                ? "No prospects match your filters"
-                : "No prospects yet"
+                ? t("list.emptyFiltered")
+                : t("list.emptyNone")
             }
-            description="Use a ready-made scenario above, describe a prospect in one sentence, or generate a random one so you can't memorise it."
+            description={t("list.emptyDescription")}
             action={
               canManage && (
                 <Button onClick={() => setDialog("generate")}>
-                  <WandSparkles /> Describe a prospect
+                  <WandSparkles /> {t("list.describeProspect")}
                 </Button>
               )
             }

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
 import { useForm, type FieldErrors } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowLeft, Save } from "lucide-react";
@@ -31,23 +33,23 @@ interface AssistantAgentFormProps {
 const TABS = [
   {
     id: "basics",
-    label: "Basics",
+    label: i18n.t("assistant:form.tabs.basics"),
     fields: ["name", "description", "call_goal", "languages", "methodology"],
   },
-  { id: "script", label: "Script", fields: ["script"] },
-  { id: "objections", label: "Objections", fields: ["objection_library"] },
-  { id: "knowledge", label: "Knowledge", fields: ["knowledge"] },
+  { id: "script", label: i18n.t("assistant:form.tabs.script"), fields: ["script"] },
+  { id: "objections", label: i18n.t("assistant:form.tabs.objections"), fields: ["objection_library"] },
+  { id: "knowledge", label: i18n.t("assistant:form.tabs.knowledge"), fields: ["knowledge"] },
   {
     id: "style",
-    label: "Style",
+    label: i18n.t("assistant:form.tabs.style"),
     fields: ["instructions", "tone", "suggestion_frequency", "consent_line"],
   },
   {
     id: "models",
-    label: "AI models",
+    label: i18n.t("assistant:form.tabs.models"),
     fields: ["realtime_model", "analysis_model"],
   },
-  { id: "analysis", label: "Scoring", fields: ["analysis_criteria"] },
+  { id: "analysis", label: i18n.t("assistant:form.tabs.analysis"), fields: ["analysis_criteria"] },
 ] as const;
 
 export function AssistantAgentForm({
@@ -58,6 +60,7 @@ export function AssistantAgentForm({
   submitLabel,
   onBack,
 }: AssistantAgentFormProps) {
+  const { t } = useTranslation("assistant");
   const [tab, setTab] = useState<string>("basics");
   const form = useForm<AssistantAgentFormValues>({
     resolver: zodResolver(assistantAgentSchema),
@@ -65,12 +68,12 @@ export function AssistantAgentForm({
   });
 
   const onInvalid = (errors: FieldErrors<AssistantAgentFormValues>) => {
-    const invalidTab = TABS.find((t) =>
-      t.fields.some((field) => field in errors),
+    const invalidTab = TABS.find((item) =>
+      item.fields.some((field) => field in errors),
     );
     if (invalidTab) setTab(invalidTab.id);
     toast({
-      title: "Please fix the highlighted fields",
+      title: t("form.fixFields"),
       variant: "error",
       duration: 2500,
     });
@@ -82,10 +85,10 @@ export function AssistantAgentForm({
         <Tabs value={tab} onValueChange={setTab}>
           <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
             <TabsList className="w-max">
-              {TABS.map((t) => (
-                <TabsTrigger key={t.id} value={t.id}>
-                  {t.label}
-                  {t.fields.some((field) => field in form.formState.errors) && (
+              {TABS.map((item) => (
+                <TabsTrigger key={item.id} value={item.id}>
+                  {item.label}
+                  {item.fields.some((field) => field in form.formState.errors) && (
                     <span className="ml-1.5 size-1.5 rounded-full bg-destructive" />
                   )}
                 </TabsTrigger>
@@ -131,11 +134,11 @@ export function AssistantAgentForm({
           <div className="pb-safe flex items-center gap-2 px-4 pt-3 sm:px-6">
             {onBack && (
               <Button type="button" variant="ghost" onClick={onBack}>
-                <ArrowLeft /> Templates
+                <ArrowLeft /> {t("form.templates")}
               </Button>
             )}
             <span className="hidden text-xs text-muted-foreground sm:inline">
-              {form.formState.isDirty ? "Unsaved changes" : ""}
+              {form.formState.isDirty ? t("form.unsavedChanges") : ""}
             </span>
             <Button
               type="submit"

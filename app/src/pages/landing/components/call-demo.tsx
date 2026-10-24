@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Check, RotateCcw } from "lucide-react";
+import { Trans, useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 
-const STAGES = ["Opening", "Discovery", "Pitch", "Handle objections", "Close"];
+const STAGES = ["opening", "discovery", "pitch", "objections", "close"] as const;
 const STEP_DELAYS = [700, 1500, 600, 900, 2600, 1800, 1000];
 const LAST_STEP = STEP_DELAYS.length;
 const CLOCK = ["04:08", "04:09", "04:14", "04:15", "04:17", "04:24", "04:31", "04:33"];
@@ -14,6 +15,7 @@ const prefersReducedMotion = () =>
 const stageIndexFor = (step: number) => (step >= 7 ? 4 : step >= 3 ? 3 : 2);
 
 export function CallDemo() {
+  const { t } = useTranslation("landing");
   const [reduced] = useState(prefersReducedMotion);
   const [step, setStep] = useState(reduced ? LAST_STEP : 0);
   const [run, setRun] = useState(0);
@@ -37,7 +39,7 @@ export function CallDemo() {
   const stageIndex = stageIndexFor(step);
 
   return (
-    <section id="live" className="lz-stage" aria-label="Example of a live call with the CallZen co-pilot">
+    <section id="live" className="lz-stage" aria-label={t("demo.aria")}>
       <header className="lz-stage__bar">
         <span className="lz-stage__status">
           <span className={cn("lz-wave", playing && "is-live")} aria-hidden="true">
@@ -45,11 +47,11 @@ export function CallDemo() {
               <span key={i} style={{ ["--i" as string]: i }} />
             ))}
           </span>
-          Live call
+          {t("demo.live")}
         </span>
         {!playing && !reduced && (
           <button type="button" className="lz-replay" onClick={replay}>
-            <RotateCcw className="size-3.5" aria-hidden="true" /> Replay
+            <RotateCcw className="size-3.5" aria-hidden="true" /> {t("demo.replay")}
           </button>
         )}
         <span className="lz-stage__clock">{CLOCK[step]}</span>
@@ -59,42 +61,39 @@ export function CallDemo() {
         <ol className="lz-transcript">
           {step >= 1 && (
             <li className="lz-line lz-line--prospect" key={`p1-${run}`}>
-              <span className="lz-line__who">Prospect</span>
+              <span className="lz-line__who">{t("demo.prospect")}</span>
               <p className="lz-line__text">
-                We like what we&rsquo;ve seen. Honestly, the price is{" "}
-                <mark className={cn("lz-mark lz-mark--objection", step >= 2 && "is-on")}>
-                  well above what we budgeted
-                </mark>
-                .
+                <Trans
+                  t={t}
+                  i18nKey="demo.prospectOne"
+                  components={{ mark: <mark className={cn("lz-mark lz-mark--objection", step >= 2 && "is-on")} /> }}
+                />
               </p>
             </li>
           )}
           {step >= 5 && (
             <li className="lz-line lz-line--you" key={`y-${run}`}>
-              <span className="lz-line__who">You</span>
-              <p className="lz-line__text">
-                Fair. What range were you working with? You mentioned slow follow-up costs you deals, so let&rsquo;s put
-                the two side by side.
-              </p>
+              <span className="lz-line__who">{t("demo.you")}</span>
+              <p className="lz-line__text">{t("demo.youLine")}</p>
             </li>
           )}
           {step >= 6 && (
             <li className="lz-line lz-line--prospect" key={`p2-${run}`}>
-              <span className="lz-line__who">Prospect</span>
+              <span className="lz-line__who">{t("demo.prospect")}</span>
               <p className="lz-line__text">
-                Around forty a seat. But yes, we{" "}
-                <mark className={cn("lz-mark lz-mark--signal", step >= 7 && "is-on")}>
-                  lost two renewals last quarter
-                </mark>{" "}
-                because nobody called back in time.
+                <Trans
+                  t={t}
+                  i18nKey="demo.prospectTwo"
+                  components={{ mark: <mark className={cn("lz-mark lz-mark--signal", step >= 7 && "is-on")} /> }}
+                />
               </p>
             </li>
           )}
         </ol>
 
-        <aside className="lz-rail" aria-label="Co-pilot">
+        <aside className="lz-rail" aria-label={t("demo.copilot")}>
           <div>
-            <p className="lz-rail__title">Script</p>
+            <p className="lz-rail__title">{t("demo.script")}</p>
             <ol className="lz-stages">
               {STAGES.map((stage, i) => (
                 <li
@@ -102,7 +101,7 @@ export function CallDemo() {
                   data-state={i < stageIndex ? "done" : i === stageIndex ? "current" : "next"}
                   aria-current={i === stageIndex ? "step" : undefined}
                 >
-                  {stage}
+                  {t(`demo.stages.${stage}`)}
                 </li>
               ))}
             </ol>
@@ -110,31 +109,29 @@ export function CallDemo() {
 
           {step >= 3 && (
             <div className="lz-note lz-note--objection" key={`o-${run}`}>
-              <p className="lz-note__kind">Price objection</p>
-              <p className="lz-note__why">The prospect says the price is above budget.</p>
+              <p className="lz-note__kind">{t("demo.objection.kind")}</p>
+              <p className="lz-note__why">{t("demo.objection.why")}</p>
             </div>
           )}
 
           {step >= 4 && (
             <div className="lz-note lz-note--reply" key={`r-${run}`}>
               <p className="lz-note__kind">
-                Suggested reply
+                {t("demo.reply.kind")}
                 {step >= 5 && (
                   <span className="lz-said">
-                    <Check className="size-3" aria-hidden="true" /> Said
+                    <Check className="size-3" aria-hidden="true" /> {t("demo.reply.said")}
                   </span>
                 )}
               </p>
-              <p className="lz-note__say">
-                &ldquo;What range were you working with? Let&rsquo;s compare it to what slow follow-up costs you.&rdquo;
-              </p>
+              <p className="lz-note__say">{t("demo.reply.text")}</p>
             </div>
           )}
 
           {step >= 7 && (
             <div className="lz-note lz-note--signal" key={`s-${run}`}>
-              <p className="lz-note__kind">Buying signal</p>
-              <p className="lz-note__why">They named what slow follow-up costs them. Move to the close and offer a setup call.</p>
+              <p className="lz-note__kind">{t("demo.signal.kind")}</p>
+              <p className="lz-note__why">{t("demo.signal.why")}</p>
             </div>
           )}
         </aside>

@@ -1,0 +1,39 @@
+{
+  "pageTitle": "Invitation",
+  "notFound": {
+    "title": "Invitation introuvable",
+    "defaultMessage": "Ce lien n’est pas valide ou a été remplacé par une invitation plus récente.",
+    "resend": "Demandez à la personne qui vous a invité de la renvoyer.",
+    "cta": "Aller sur CallZen"
+  },
+  "status": {
+    "pending": "en attente",
+    "expired": "expirée",
+    "accepted": "acceptée",
+    "revoked": "révoquée"
+  },
+  "inactive": {
+    "title": "Cette invitation est {{status}}",
+    "used": "Elle a déjà servi à rejoindre {{organisation}}.",
+    "askInviter": "Demandez à {{inviter}} de vous en envoyer une nouvelle.",
+    "askAdmins": "Demandez aux administrateurs de l’organisation de vous en envoyer une nouvelle.",
+    "cta": "Ouvrir CallZen"
+  },
+  "join": {
+    "title": "Rejoindre {{organisation}}",
+    "invitedBy": "{{inviter}} vous a invité en tant que <badge>{{role}}</badge>",
+    "invitedByTeammate": "Un collègue vous a invité en tant que <badge>{{role}}</badge>",
+    "sentTo": "Envoyée à {{email}} · expire le {{date}}",
+    "signInHint": "Connectez-vous pour accepter. Vous pouvez appartenir à plusieurs organisations et passer de l’une à l’autre.",
+    "createHint": "Créez votre compte gratuit avec cet e-mail pour rejoindre l’organisation.",
+    "signInCta": "Se connecter pour accepter",
+    "createCta": "Créer un compte et rejoindre",
+    "needAccount": "Je dois créer un compte",
+    "haveAccount": "J’ai déjà un compte",
+    "accept": "Accepter et rejoindre",
+    "signedInAs": "Connecté en tant que {{email}}. Cette organisation sera ajoutée à celles que vous avez déjà.",
+    "mismatch": "Cette invitation est destinée à <strong>{{invited}}</strong>, mais vous êtes connecté en tant que <strong>{{current}}</strong>.",
+    "signOut": "Se déconnecter et utiliser {{email}}",
+    "back": "Retour à CallZen"
+  }
+}

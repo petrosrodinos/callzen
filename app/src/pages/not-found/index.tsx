@@ -1,5 +1,6 @@
 import type { FC } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Compass } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -7,16 +8,17 @@ import { Routes } from "@/routes/routes";
 import { usePageMetadata } from "@/hooks/use-page-metadata";
 
 const NotFoundPage: FC = () => {
-  usePageMetadata({ title: "Not found" });
+  const { t } = useTranslation("admin");
+  usePageMetadata({ title: t("notFound.pageTitle") });
   return (
     <div className="flex min-h-dvh items-center justify-center p-4">
       <EmptyState
         icon={Compass}
-        title="This page doesn't exist"
-        description="The link may be broken or the page was removed."
+        title={t("notFound.title")}
+        description={t("notFound.description")}
         action={
           <Button asChild>
-            <Link to={Routes.dashboard}>Back to dashboard</Link>
+            <Link to={Routes.dashboard}>{t("notFound.cta")}</Link>
           </Button>
         }
         className="w-full max-w-lg"

@@ -1,0 +1,173 @@
+{
+  "list": {
+    "title": "Yardımcı pilotlar",
+    "description": "Her yardımcı pilotun kendi senaryosu, itiraz kütüphanesi, bilgisi ve üslubu vardır. Ürün, hedef kitle veya görüşme aşaması başına bir tane oluşturun.",
+    "new": "Yeni yardımcı pilot",
+    "searchPlaceholder": "Yardımcı pilot ara",
+    "filterByStatus": "Duruma göre filtrele",
+    "empty": {
+      "noMatch": "Eşleşen yardımcı pilot yok",
+      "createFirst": "İlk yardımcı pilotunuzu oluşturun",
+      "none": "Henüz yardımcı pilot yok",
+      "descriptionManage": "Generic Cold Call veya B2B Discovery gibi bir şablon seçin ve birkaç dakikada ürününüze göre uyarlayın.",
+      "descriptionMember": "Görüşmelerde kullanacağınız yardımcı pilotları bu kuruluşun bir yöneticisi oluşturur."
+    }
+  },
+  "card": {
+    "default": "Varsayılan",
+    "archived": "Arşivlendi",
+    "actionsFor": "{{name}} için işlemler",
+    "edit": "Düzenle",
+    "makeDefault": "Varsayılan yap",
+    "duplicate": "Çoğalt",
+    "restore": "Geri yükle",
+    "archive": "Arşivle",
+    "delete": "Sil",
+    "noDescription": "Açıklama yok",
+    "goal": "Hedef:",
+    "calls": "Görüşmeler",
+    "avgScore": "Ort. puan",
+    "trend": "Eğilim",
+    "usedAgo": "{{when}} kullanıldı",
+    "neverUsed": "hiç kullanılmadı",
+    "useOnCall": "Görüşmede kullan",
+    "practice": "Alıştırma yap",
+    "deleteTitle": "{{name}} silinsin mi?",
+    "deleteDescription": "Yardımcı pilot kalıcı olarak silinir. Geçmiş görüşmeler transkriptlerini ve analizlerini korur."
+  },
+  "editor": {
+    "newTitle": "Yeni yardımcı pilot",
+    "fallbackTitle": "Yardımcı pilot",
+    "newDescription": "Bir şablonla veya sıfırdan başlayın. Her şeyi daha sonra değiştirebilirsiniz.",
+    "editDescription": "Bu yardımcı pilotun senaryosu, bilgisi, itiraz yönetimi, üslubu ve puanlaması.",
+    "create": "Yardımcı pilot oluştur",
+    "save": "Değişiklikleri kaydet"
+  },
+  "form": {
+    "tabs": {
+      "basics": "Temel",
+      "script": "Senaryo",
+      "objections": "İtirazlar",
+      "knowledge": "Bilgi",
+      "style": "Üslup",
+      "models": "Yapay zekâ modelleri",
+      "analysis": "Puanlama"
+    },
+    "fixFields": "Lütfen vurgulanan alanları düzeltin",
+    "templates": "Şablonlar",
+    "unsavedChanges": "Kaydedilmemiş değişiklikler"
+  },
+  "analysis": {
+    "title": "Puanlama kategorileri",
+    "description": "Görüşme sonrası analizin neyi puanladığı ve her kategorinin genel puana ne kadar katkı yaptığı.",
+    "reset": "Sıfırla",
+    "add": "Kategori ekle",
+    "categoryName": "Kategori adı",
+    "weight": "Ağırlık",
+    "remove": "Kategoriyi kaldır"
+  },
+  "basics": {
+    "title": "Temel",
+    "description": "Bu yardımcı pilotun ne için olduğu ve hangi sonuca yönlendirdiği.",
+    "name": "Ad",
+    "namePlaceholder": "Soğuk arama – Diş klinikleri",
+    "purpose": "Amaç",
+    "purposePlaceholder": "Diş kliniği sahiplerine yönelik, demo ayarlamaya odaklı kısa soğuk aramalar.",
+    "callGoal": "Görüşme hedefi",
+    "callGoalPlaceholder": "20 dakikalık bir demo ayarla",
+    "callGoalHint": "Yardımcı pilot, konuşmayı sürekli bu sonuca doğru yönlendirir.",
+    "languages": "Konuşma dilleri",
+    "methodology": "Satış metodolojisi",
+    "default": "Varsayılan yardımcı pilot",
+    "defaultHint": "Bir görüşme başlattığınızda önceden seçilir."
+  },
+  "knowledge": {
+    "tooLarge": "{{name}} çok büyük",
+    "tooLargeHint": "2 MB'a kadar dosyalar desteklenir.",
+    "trimmed": "Bilgi kısaltıldı",
+    "trimmedHint": "Yalnızca ilk {{max}} karakter tutulur.",
+    "imported_one": "{{count}} dosya içe aktarıldı",
+    "imported_other": "{{count}} dosya içe aktarıldı",
+    "title": "Bilgi ve bağlam",
+    "description": "Ürün ayrıntıları, fiyatlandırma, SSS, rakip karşılaştırmaları, vaka çalışmaları, ideal müşteri profili. Görüşmeler sırasında yanıtlar ve temel bilgi kartları için kullanılır.",
+    "import": "Belge içe aktar",
+    "placeholder": "Ürün: …\nFiyatlandırma: Starter lokasyon başına aylık 99 $, 50 kullanıcı aylık 399 $\nTemel fayda: randevuya gelmeyenleri %30 azaltır\nRakipler: …\nSSS: …",
+    "importHint": ".txt, .md, .csv, .json ve .html dosyalarını içe aktarır."
+  },
+  "models": {
+    "notConfigured": "Yapay zekâ sunucuda henüz yapılandırılmadığından öneriler ve analiz kullanılamıyor.",
+    "realtimeTitle": "Gerçek zamanlı öneriler",
+    "realtimeDescription": "Burada en önemli şey hızdır: geç gelen bir öneri işe yaramaz.",
+    "realtimeModel": "Gerçek zamanlı model",
+    "analysisTitle": "Görüşme sonrası analiz",
+    "analysisDescription": "Analiz, hız yerine derinliği tercih edebilir. Bir model kullanılamıyorsa CallZen önerilen modele geçer ve sizi bilgilendirir.",
+    "analysisModel": "Analiz modeli"
+  },
+  "objections": {
+    "title": "İtiraz kütüphanesi",
+    "description": "Sık karşılaşılan itirazlar ve tercih ettiğiniz yanıtlar. Potansiyel müşteri bir itiraz dile getirdiğinde yardımcı pilot onu tanır ve yanıtınızı o ana uyarlayarak önerir.",
+    "add": "İtiraz ekle",
+    "emptyTitle": "Henüz itiraz yok",
+    "emptyDescription": "En sık duyduklarınızı ekleyin: \"çok pahalı\", \"bana e-posta gönderin\", \"zaten bir sağlayıcımız var\"…",
+    "objectionPlaceholder": "İtiraz, ör. \"Çok pahalı\"",
+    "objection": "İtiraz",
+    "remove": "İtirazı kaldır",
+    "responsePlaceholder": "Tercih ettiğiniz yanıt",
+    "response": "Yanıt"
+  },
+  "script": {
+    "title": "Senaryo",
+    "description": "Senaryonuzu aşamalara ayırın. Yardımcı pilot onu izler, ilerlemeyi canlı takip eder ve konuşma başka yöne gittiğinde uyum sağlar.",
+    "addStage": "Aşama ekle",
+    "emptyTitle": "Henüz senaryo yok",
+    "emptyDescription": "Senaryo olmadan yardımcı pilot hedefinize, talimatlarınıza ve bilginize dayanır.",
+    "addFirstStage": "İlk aşamayı ekle",
+    "stageType": "Aşama türü",
+    "stageTitlePlaceholder": "Aşama başlığı (isteğe bağlı)",
+    "stageTitle": "Aşama başlığı",
+    "moveUp": "Yukarı taşı",
+    "moveDown": "Aşağı taşı",
+    "remove": "Aşamayı kaldır",
+    "whatToSay": "Ne söylenecek",
+    "contentPlaceholder": "Bu aşamada ne söylenecek veya sorulacak. İsimler için {placeholders} kullanın."
+  },
+  "style": {
+    "instructionsTitle": "Talimatlar ve ton",
+    "instructionsDescription": "Yardımcı pilotun her zaman uyduğu kurallar, kendi ifadenizle.",
+    "instructions": "Talimatlar",
+    "instructionsPlaceholder": "Önerileri 20 kelimenin altında tutun.\nAsla %10'dan fazla indirim yapmayın.\nHer zaman belirli bir toplantı saati için ısrar edin.",
+    "tone": "Ton",
+    "suggestionsTitle": "Öneriler",
+    "suggestionsDescription": "Yardımcı pilotun görüşmeler sırasında ne sıklıkta ve ne kadar gösterdiği. Sıklığı görüşme sırasında da değiştirebilirsiniz.",
+    "frequency": "Sıklık",
+    "suggestionFrequency": "Öneri sıklığı",
+    "length": "Uzunluk",
+    "alternatives": "Alternatif ifadeler",
+    "consentTitle": "Kayıt onayı",
+    "consentDescription": "Kayıt yasaları bölgeye göre değişir ve bazıları herkesin onayını gerektirir. Onayı almak sizin sorumluluğunuzdadır.",
+    "suggestConsent": "Önce bir onay cümlesi öner",
+    "suggestConsentHint": "Her görüşmenin ilk önerisi bilgilendirme cümleniz olur.",
+    "consentLine": "Onay bilgilendirme cümlesi",
+    "consentLineHint": "Ayarlar'daki varsayılanı kullanmak için boş bırakın."
+  },
+  "templates": {
+    "stats": "{{stages}} · {{objections}} · Hedef: {{goal}}",
+    "stages_one": "{{count}} senaryo aşaması",
+    "stages_other": "{{count}} senaryo aşaması",
+    "objections_one": "{{count}} itiraz",
+    "objections_other": "{{count}} itiraz",
+    "scratch": "Sıfırdan başla",
+    "scratchHint": "Kendi senaryonuzu ve kurallarınızı yazın"
+  },
+  "validation": {
+    "name": "Yardımcı pilotunuza bir ad verin",
+    "stageContent": "Bu aşamada ne söyleneceğini yazın",
+    "knowledgeMax": "Bilgi {{max}} karakterle sınırlıdır",
+    "objection": "İtirazı açıklayın",
+    "response": "Tercih ettiğiniz yanıtı yazın",
+    "languagesMin": "En az bir dil seçin",
+    "languagesMax": "En fazla {{max}} dil",
+    "categoryName": "Kategoriyi adlandırın",
+    "categoryMin": "En az bir puanlama kategorisi bırakın"
+  }
+}

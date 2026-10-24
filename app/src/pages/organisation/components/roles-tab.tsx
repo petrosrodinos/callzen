@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Info, Lock, RotateCcw, Save } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -34,6 +35,7 @@ const applyToggle = (current: Permission[], permission: Permission, enabled: boo
 };
 
 export function RolesTab({ organisation }: { organisation: Organisation }) {
+  const { t } = useTranslation("organisation");
   const { can } = usePermissions();
   const { data: roles, isPending } = useRoles(organisation.id);
   const { data: catalog } = usePermissionCatalog();
@@ -61,7 +63,7 @@ export function RolesTab({ organisation }: { organisation: Organisation }) {
   return (
     <div className="space-y-4">
       <Card className="p-4 sm:p-5">
-        <div role="tablist" aria-label="Role" className="grid grid-cols-3 gap-1 rounded-lg bg-muted p-1">
+        <div role="tablist" aria-label={t("roles.role")} className="grid grid-cols-3 gap-1 rounded-lg bg-muted p-1">
           {OrgRoleFormOptions.map((option) => {
             const summary = roles?.find((item) => item.role === option.id);
             return (
@@ -75,7 +77,7 @@ export function RolesTab({ organisation }: { organisation: Organisation }) {
               >
                 {option.label}
                 <span className="text-[11px] font-normal text-muted-foreground">
-                  {summary?.members_count ?? 0} member{summary?.members_count === 1 ? "" : "s"}
+                  {t("roles.membersCount", { count: summary?.members_count ?? 0 })}
                 </span>
               </button>
             );
@@ -84,12 +86,12 @@ export function RolesTab({ organisation }: { organisation: Organisation }) {
         <p className="mt-3 text-sm text-muted-foreground">{OrgRoleDescriptionOptions[selected]}</p>
         {!canEdit && (
           <p className="mt-3 flex items-start gap-2 rounded-lg bg-muted/60 p-3 text-sm text-muted-foreground">
-            <Info className="mt-0.5 size-4 shrink-0" /> Only owners can change what each role is allowed to do.
+            <Info className="mt-0.5 size-4 shrink-0" /> {t("roles.ownersOnlyEdit")}
           </p>
         )}
         {role && !role.editable && (
           <p className="mt-3 flex items-start gap-2 rounded-lg bg-muted/60 p-3 text-sm text-muted-foreground">
-            <Lock className="mt-0.5 size-4 shrink-0" /> Owners always have every permission, so this role can't be restricted.
+            <Lock className="mt-0.5 size-4 shrink-0" /> {t("roles.ownerLocked")}
           </p>
         )}
       </Card>
@@ -109,7 +111,7 @@ export function RolesTab({ organisation }: { organisation: Organisation }) {
                       {definition.label}
                       {ownerOnly && (
                         <Badge variant="outline" className="gap-1 text-[10px] font-normal">
-                          <Lock className="size-3" /> Owners only
+                          <Lock className="size-3" /> {t("roles.ownersOnly")}
                         </Badge>
                       )}
                     </p>
@@ -119,7 +121,7 @@ export function RolesTab({ organisation }: { organisation: Organisation }) {
                     checked={definition.owner_only ? selected === OrgRoles.OWNER : checked}
                     disabled={locked}
                     onCheckedChange={(value) => setDrafts((previous) => ({ ...previous, [selected]: applyToggle(current, definition.key, value) }))}
-                    aria-label={`${definition.label} for ${getOrgRoleLabel(selected)}`}
+                    aria-label={t("roles.toggleAria", { permission: definition.label, role: getOrgRoleLabel(selected) })}
                     className="mt-0.5 shrink-0"
                   />
                 </li>
@@ -133,17 +135,17 @@ export function RolesTab({ organisation }: { organisation: Organisation }) {
         <div className="sticky bottom-0 z-20 -mx-4 border-t bg-background/95 backdrop-blur sm:-mx-6">
           <div className="pb-safe flex flex-wrap items-center gap-2 px-4 pt-3 sm:px-6">
             <Button variant="ghost" onClick={() => reset.mutate({ orgId: organisation.id, role: selected }, { onSuccess: discard })} disabled={reset.isPending || (!role?.customised && !dirty)}>
-              <RotateCcw /> Reset to preset
+              <RotateCcw /> {t("roles.reset")}
             </Button>
-            <span className="hidden text-xs text-muted-foreground sm:inline">{dirty ? "Unsaved changes" : role?.customised ? "Customised" : "Using the preset"}</span>
+            <span className="hidden text-xs text-muted-foreground sm:inline">{dirty ? t("roles.unsaved") : role?.customised ? t("roles.customised") : t("roles.usingPreset")}</span>
             <div className="ml-auto flex gap-2">
               {dirty && (
                 <Button variant="outline" onClick={discard}>
-                  Discard
+                  {t("roles.discard")}
                 </Button>
               )}
               <Button onClick={() => update.mutate({ orgId: organisation.id, role: selected, permissions: current }, { onSuccess: discard })} disabled={!dirty || update.isPending} loading={update.isPending}>
-                {!update.isPending && <Save />} Save {getOrgRoleLabel(selected)} permissions
+                {!update.isPending && <Save />} {t("roles.save", { role: getOrgRoleLabel(selected) })}
               </Button>
             </div>
           </div>

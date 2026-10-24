@@ -1,0 +1,57 @@
+{
+  "sidebar": {
+    "plan": "Säljco-pilot",
+    "toggle": "Växla sidofält",
+    "groups": {
+      "sell": "Sälj",
+      "train": "Träna",
+      "account": "Konto",
+      "admin": "Admin"
+    },
+    "items": {
+      "dashboard": "Översikt",
+      "startCall": "Starta ett samtal",
+      "callLibrary": "Samtalsbibliotek",
+      "practice": "Övning",
+      "copilots": "Co-piloter",
+      "organisation": "Organisation",
+      "settings": "Inställningar",
+      "usage": "Användning och kostnader",
+      "privacy": "Integritet och data",
+      "health": "Status",
+      "users": "Användare",
+      "alerts": "Aviseringar"
+    }
+  },
+  "userMenu": {
+    "settings": "Inställningar",
+    "usage": "Användning och kostnader",
+    "privacy": "Integritet och data",
+    "logout": "Logga ut"
+  },
+  "orgSwitcher": {
+    "switch": "Byt organisation",
+    "pendingCount_one": "{{count}} väntande inbjudan",
+    "pendingCount_other": "{{count}} väntande inbjudningar",
+    "organisation": "Organisation",
+    "yourOrganisations": "Dina organisationer",
+    "members_one": "{{count}} medlem",
+    "members_other": "{{count}} medlemmar",
+    "pendingInvitations": "Väntande inbjudningar",
+    "settings": "Organisationsinställningar",
+    "create": "Skapa organisation"
+  },
+  "sidebarNav": {
+    "placeholder": "Välj ett avsnitt"
+  },
+  "navbar": {
+    "home": "Hem",
+    "templates": "Mallar",
+    "pricing": "Priser",
+    "roadmap": "Roadmap",
+    "contact": "Kontakt",
+    "login": "Logga in",
+    "signup": "Registrera dig",
+    "dashboard": "Översikt"
+  }
+}

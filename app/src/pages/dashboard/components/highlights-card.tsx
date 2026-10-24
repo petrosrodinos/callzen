@@ -1,11 +1,13 @@
 import { Sparkles } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Card } from "@/components/ui/card";
 
 export function HighlightsCard({ highlights }: { highlights: string[] }) {
+  const { t } = useTranslation("dashboard");
   return (
     <Card className="p-5">
       <h2 className="flex items-center gap-2 font-semibold">
-        <Sparkles className="size-4 text-primary" /> Highlights
+        <Sparkles className="size-4 text-primary" /> {t("highlights.title")}
       </h2>
       {highlights.length ? (
         <ul className="mt-4 space-y-3">
@@ -20,8 +22,7 @@ export function HighlightsCard({ highlights }: { highlights: string[] }) {
         </ul>
       ) : (
         <p className="mt-4 text-sm text-muted-foreground">
-          After a few analyzed calls you'll see what's improving and what needs
-          attention here.
+          {t("highlights.empty")}
         </p>
       )}
     </Card>

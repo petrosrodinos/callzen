@@ -1,0 +1,57 @@
+{
+  "sidebar": {
+    "plan": "Vertriebs-Co-Pilot",
+    "toggle": "Seitenleiste umschalten",
+    "groups": {
+      "sell": "Verkaufen",
+      "train": "Trainieren",
+      "account": "Konto",
+      "admin": "Admin"
+    },
+    "items": {
+      "dashboard": "Dashboard",
+      "startCall": "Anruf starten",
+      "callLibrary": "Anrufbibliothek",
+      "practice": "Übung",
+      "copilots": "Co-Piloten",
+      "organisation": "Organisation",
+      "settings": "Einstellungen",
+      "usage": "Nutzung & Kosten",
+      "privacy": "Datenschutz & Daten",
+      "health": "Systemstatus",
+      "users": "Benutzer",
+      "alerts": "Warnungen"
+    }
+  },
+  "userMenu": {
+    "settings": "Einstellungen",
+    "usage": "Nutzung & Kosten",
+    "privacy": "Datenschutz & Daten",
+    "logout": "Abmelden"
+  },
+  "orgSwitcher": {
+    "switch": "Organisation wechseln",
+    "pendingCount_one": "{{count}} ausstehende Einladung",
+    "pendingCount_other": "{{count}} ausstehende Einladungen",
+    "organisation": "Organisation",
+    "yourOrganisations": "Ihre Organisationen",
+    "members_one": "{{count}} Mitglied",
+    "members_other": "{{count}} Mitglieder",
+    "pendingInvitations": "Ausstehende Einladungen",
+    "settings": "Organisationseinstellungen",
+    "create": "Organisation erstellen"
+  },
+  "sidebarNav": {
+    "placeholder": "Bereich auswählen"
+  },
+  "navbar": {
+    "home": "Startseite",
+    "templates": "Vorlagen",
+    "pricing": "Preise",
+    "roadmap": "Roadmap",
+    "contact": "Kontakt",
+    "login": "Anmelden",
+    "signup": "Registrieren",
+    "dashboard": "Dashboard"
+  }
+}

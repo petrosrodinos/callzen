@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import { IconLoader } from '@tabler/icons-react'
 import { cn } from '@/lib/utils'
 import { FormControl } from '@/components/ui/form'
@@ -37,7 +38,7 @@ export function SelectDropdown({
     <Select {...defaultState}>
       <FormControl>
         <SelectTrigger disabled={disabled} className={cn(className)}>
-          <SelectValue placeholder={placeholder ?? 'Select'} />
+          <SelectValue placeholder={placeholder ?? i18n.t('common:select.placeholder')} />
         </SelectTrigger>
       </FormControl>
       <SelectContent>
@@ -46,7 +47,7 @@ export function SelectDropdown({
             <div className='flex items-center justify-center gap-2'>
               <IconLoader className='h-5 w-5 animate-spin' />
               {'  '}
-              Loading...
+              {i18n.t("common:actions.loading")}
             </div>
           </SelectItem>
         ) : (

@@ -21,6 +21,7 @@ import {
   speakText,
 } from "@/lib/audio/browser-speech";
 import { createClientId } from "@/lib/format";
+import i18n from "@/i18n";
 import type { CopilotSession } from "@/hooks/use-copilot-session";
 
 export type PracticeVoiceStatus =
@@ -289,9 +290,7 @@ export const usePracticeVoice = ({
         onRemoteStream: (stream) => recorder.addStream("prospect", stream),
         onStateChange: (state) => {
           if (state === "failed")
-            setError(
-              "The voice connection dropped. End the session to save what was captured.",
-            );
+            setError(i18n.t("practice:session.connectionDropped"));
         },
       });
       connectionRef.current = connection;

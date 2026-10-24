@@ -1,0 +1,213 @@
+{
+  "nav": {
+    "aria": "Hauptnavigation",
+    "home": "CallZen Startseite",
+    "live": "Live-Copilot",
+    "practice": "Üben",
+    "reviews": "Gesprächsanalysen",
+    "teams": "Teams",
+    "createAccount": "Konto erstellen"
+  },
+  "actions": {
+    "openDashboard": "Dashboard öffnen",
+    "createAccount": "Konto erstellen",
+    "signIn": "Anmelden"
+  },
+  "footer": {
+    "consent": "Holen Sie vor jeder Gesprächsaufzeichnung immer die Einwilligung ein.",
+    "aria": "Fußbereich",
+    "dashboard": "Dashboard",
+    "signIn": "Anmelden",
+    "createAccount": "Konto erstellen"
+  },
+  "hero": {
+    "title": "Wissen, was Sie als Nächstes sagen, während Ihr Gegenüber noch spricht.",
+    "lede": "CallZen hört Ihrem Verkaufsgespräch zu, markiert Einwände und Kaufsignale, sobald sie auftreten, und schlägt Ihnen den nächsten Satz vor. Danach bewertet es das Gespräch und lässt Sie die schwierigen Stellen mit KI-Interessenten üben."
+  },
+  "demo": {
+    "aria": "Beispiel eines Live-Gesprächs mit dem CallZen-Copilot",
+    "live": "Live-Gespräch",
+    "replay": "Wiederholen",
+    "prospect": "Interessent",
+    "you": "Sie",
+    "prospectOne": "Uns gefällt, was wir gesehen haben. Ehrlich gesagt liegt der Preis <mark>deutlich über unserem Budget</mark>.",
+    "youLine": "Verständlich. In welchem Rahmen haben Sie geplant? Sie sagten, dass langsames Nachfassen Sie Abschlüsse kostet – stellen wir beides einmal nebeneinander.",
+    "prospectTwo": "Etwa vierzig pro Platz. Aber ja, wir haben <mark>letztes Quartal zwei Verlängerungen verloren</mark>, weil niemand rechtzeitig zurückgerufen hat.",
+    "copilot": "Copilot",
+    "script": "Leitfaden",
+    "stages": {
+      "opening": "Einstieg",
+      "discovery": "Bedarfsanalyse",
+      "pitch": "Präsentation",
+      "objections": "Einwandbehandlung",
+      "close": "Abschluss"
+    },
+    "objection": {
+      "kind": "Preiseinwand",
+      "why": "Der Interessent sagt, der Preis liege über dem Budget."
+    },
+    "reply": {
+      "kind": "Vorgeschlagene Antwort",
+      "said": "Gesagt",
+      "text": "„In welchem Rahmen haben Sie geplant? Vergleichen wir ihn mit dem, was Sie langsames Nachfassen kostet.“"
+    },
+    "signal": {
+      "kind": "Kaufsignal",
+      "why": "Er hat genannt, was ihn langsames Nachfassen kostet. Gehen Sie zum Abschluss über und bieten Sie ein Einrichtungsgespräch an."
+    }
+  },
+  "ways": {
+    "title": "Funktioniert mit den Gesprächen, die Sie ohnehin führen",
+    "phone": {
+      "title": "Telefonate",
+      "text": "Stellen Sie das Gespräch auf Lautsprecher und CallZen hört über Ihr Mikrofon mit. Kein Plug-in, kein Wechsel der Telefonsoftware."
+    },
+    "online": {
+      "title": "Online-Meetings",
+      "text": "Teilen Sie den Meeting-Tab und CallZen hört beide Seiten, transkribiert Sie und den Interessenten getrennt, damit die Vorschläge auf die richtige Person eingehen."
+    }
+  },
+  "practice": {
+    "title": "Üben Sie mit einem Interessenten, der Widerstand leistet",
+    "intro": "Übungs-Interessenten verhalten sich wie echte Käufer. Sie behalten ihre wahren Probleme für sich, heben sich Einwände für den unangenehmsten Moment auf und verlieren die Geduld. Unterbrechen Sie einen mitten im Satz, hält er inne und antwortet Ihnen – per Stimme.",
+    "describe": {
+      "title": "Beschreiben statt konfigurieren",
+      "text": "Schreiben Sie einen Satz dazu, wen Sie anrufen, und CallZen erstellt den Interessenten für Sie."
+    },
+    "replay": {
+      "title": "Ein missglücktes Gespräch wiederholen",
+      "text": "Machen Sie aus einem echten Interessenten eines Live-Gesprächs einen Übungs-Interessenten und starten Sie einen neuen Versuch."
+    },
+    "withCopilot": {
+      "title": "Mit oder ohne Copilot üben",
+      "text": "Lassen Sie die Vorschläge beim Lernen eingeschaltet und schalten Sie sie dann aus, um zu sehen, wie Sie allein zurechtkommen."
+    },
+    "dossier": {
+      "aria": "Beispiel eines Übungs-Interessenten",
+      "role": "Leiterin Betrieb, regionales Logistikunternehmen",
+      "difficulty": "Schwierigkeit: hoch",
+      "patience": "Geduld: gering",
+      "voice": "Sprachanruf",
+      "knownLabel": "Was Sie wissen",
+      "known": "Hat auf Ihre Kaltakquise-E-Mail geantwortet. Leitet ein Team von zwölf Vertriebsmitarbeitern.",
+      "secretsLabel": "Was sie Ihnen verschweigt",
+      "hidden": "Verborgen, bis Sie es aufdecken",
+      "hintRevealed": "Das zeigt Ihnen die Analyse.",
+      "hintHidden": "Beim Üben finden Sie das erst im Gespräch heraus.",
+      "hide": "Wieder verbergen",
+      "reveal": "Nach dem Gespräch aufdecken"
+    },
+    "secrets": {
+      "pain": {
+        "label": "Schmerzpunkt",
+        "text": "Hat letztes Quartal zwei Verlängerungen durch langsames Nachfassen verloren."
+      },
+      "objection": {
+        "label": "Einwand, den sie bringen wird",
+        "text": "„Wir haben dafür bereits ein Tool.“"
+      },
+      "yes": {
+        "label": "Was sie zum Ja bewegt",
+        "text": "Eine Einrichtung, die weniger als eine Woche dauert."
+      }
+    }
+  },
+  "review": {
+    "title": "Sehen Sie nach dem Gespräch genau, wo es gekippt ist",
+    "copy": "Jedes Gespräch erhält eine gewichtete Gesamtwertung, Kategoriewerte sowie eine Liste von Fehlern und Stärken. Jeder Eintrag verweist auf die Stelle in der Aufzeichnung, sodass Sie sie anhören können, statt zu raten.",
+    "aria": "Beispiel einer Gesprächsanalyse",
+    "sample": "Beispielanalyse, Gespräch von {{duration}}, Wertung <score>78</score>",
+    "you": "Sie",
+    "prospect": "Interessent",
+    "markerAt": "{{kind}} bei {{time}}",
+    "kinds": {
+      "mistake": "Fehler",
+      "strength": "Stärke",
+      "objection": "Einwand"
+    },
+    "markers": {
+      "pitchedEarly": "Präsentation gestartet, bevor Sie nach der Teamgröße gefragt haben.",
+      "priceObjection": "Preiseinwand. Sie haben nach dem Budget gefragt, bevor Sie die Zahl verteidigt haben.",
+      "askedCost": "Gefragt, was langsames Nachfassen sie kostet, und sie dann antworten lassen.",
+      "weakClose": "Mit „Sagen Sie mir Bescheid“ geendet, statt den nächsten Schritt zu vereinbaren."
+    },
+    "metrics": {
+      "talkRatio": "Redeanteil",
+      "pace": "Sprechtempo",
+      "paceValue": "148 Wörter/Min.",
+      "fillers": "Füllwörter",
+      "interruptions": "Unterbrechungen",
+      "objections": "Einwände"
+    },
+    "after": {
+      "followUp": {
+        "title": "Ein Entwurf für das Nachfassen",
+        "text": "CallZen schreibt die E-Mail, die Sie als Nächstes senden würden – basierend auf dem, was der Interessent tatsächlich gesagt hat."
+      },
+      "practice": {
+        "title": "Eine passende Übungssitzung",
+        "text": "Es schlägt den Übungs-Interessenten vor, der genau die Fehler trainiert, die Ihnen in diesem Gespräch unterlaufen sind."
+      },
+      "trends": {
+        "title": "Trends über mehrere Gespräche",
+        "text": "Ihr Dashboard zeigt Ihre Wertung im Zeitverlauf und die Fehler, die immer wiederkehren."
+      }
+    }
+  },
+  "playbook": {
+    "title": "Bringen Sie ihm bei, wie Ihr Team verkauft",
+    "copy": "Ein Copilot ist nur so gut wie sein Playbook. Richten Sie Ihres einmal ein und nutzen Sie es in jedem Gespräch.",
+    "items": {
+      "stages": {
+        "title": "Gesprächsphasen",
+        "text": "Gliedern Sie Ihr Gespräch in Phasen. Der Copilot verfolgt, in welcher Sie sich gerade befinden, während sich das Gespräch entwickelt."
+      },
+      "objections": {
+        "title": "Einwand-Bibliothek",
+        "text": "Halten Sie fest, wie Sie auf Preis-, Timing- und Wettbewerbseinwände antworten. Die Vorschläge gehen von Ihren Antworten aus."
+      },
+      "knowledge": {
+        "title": "Produktwissen",
+        "text": "Importieren Sie Ihre Dokumente, damit die Vorschläge Ihre echten Preise, Funktionen und Grenzen verwenden."
+      },
+      "tone": {
+        "title": "Ton und Methodik",
+        "text": "Legen Sie fest, wie er klingt und welcher Verkaufsmethode er folgt."
+      },
+      "frequency": {
+        "title": "Wie oft er sich meldet",
+        "text": "Bestimmen Sie, wie häufig Vorschläge erscheinen, damit er hilft, ohne Sie zu bedrängen."
+      },
+      "languages": {
+        "title": "Bis zu fünf Sprachen",
+        "text": "Jeder Copilot kann mehrere Gesprächssprachen verarbeiten und erkennt, welche gerade gesprochen wird."
+      }
+    }
+  },
+  "teams": {
+    "title": "Gemacht für Teams, die gemeinsam verkaufen",
+    "copy": "Copilots, Interessenten und Gespräche gehören zu einer Organisation, und Sie können mehreren angehören und zwischen ihnen wechseln. Laden Sie Personen per E-Mail ein; Einladungen sind sieben Tage gültig.",
+    "roles": {
+      "owner": {
+        "name": "Inhaber",
+        "text": "Kontrolliert alles, einschließlich dessen, was Admins und Mitglieder tun dürfen."
+      },
+      "admin": {
+        "name": "Admin",
+        "text": "Verwaltet das Team mit den Berechtigungen, die der Inhaber erteilt."
+      },
+      "member": {
+        "name": "Mitglied",
+        "text": "Nutzt Copilots, verwaltet Interessenten und wertet die eigenen Gespräche aus."
+      }
+    },
+    "consent": {
+      "title": "Erst die Einwilligung, und Sie entscheiden, was gespeichert wird",
+      "copy": "Holen Sie vor jeder Gesprächsaufzeichnung immer die Einwilligung ein. CallZen erinnert Sie daran und bietet passende Einstellungen: Legen Sie fest, wie lange Aufzeichnungen aufbewahrt werden, und löschen Sie Ihr Konto samt Daten, wenn Sie fertig sind."
+    }
+  },
+  "closing": {
+    "title": "Führen Sie Ihr nächstes Gespräch mit einem Copilot.",
+    "copy": "Richten Sie Ihren ersten Copilot ein, starten Sie ein Gespräch und sehen Sie die Vorschläge eintreffen, während der Interessent noch spricht."
+  }
+}

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Dumbbell, Loader2, Play } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -14,13 +15,15 @@ export function SuggestedPracticeCard({
   items: SuggestedPractice[];
   assistantAgentId: string | null;
 }) {
+  const { t } = useTranslation("library");
   const { start, isPending, pendingTitle } = useStartRecommendedPractice();
   if (!items.length) return null;
 
   return (
     <Card className="p-5">
       <h3 className="mb-3 flex items-center gap-2 font-semibold">
-        <Dumbbell className="size-4 text-primary" /> Suggested practice
+        <Dumbbell className="size-4 text-primary" />{" "}
+        {t("detail.suggestedPractice.title")}
       </h3>
       <ul className="space-y-3">
         {items.map((item) => {
@@ -49,7 +52,9 @@ export function SuggestedPracticeCard({
                 disabled={isPending}
               >
                 {loading ? <Loader2 className="animate-spin" /> : <Play />}{" "}
-                {loading ? "Preparing…" : "Practice this"}
+                {loading
+                  ? t("detail.suggestedPractice.preparing")
+                  : t("detail.suggestedPractice.practiceThis")}
               </Button>
             </li>
           );

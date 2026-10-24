@@ -1,0 +1,117 @@
+{
+  "title": "Tableau de bord",
+  "greeting": "Bonjour {{name}}",
+  "descriptionTeam": "Les performances de toute l'équipe de {{organisation}}.",
+  "defaultOrganisation": "votre organisation",
+  "descriptionMe": "Vos performances sur les appels réels et l'entraînement, et ce qu'il faut travailler ensuite.",
+  "scope": {
+    "me": "Moi",
+    "team": "Équipe"
+  },
+  "period": "Période",
+  "practice": "Entraînement",
+  "stats": {
+    "averageScore": "Score moyen",
+    "averageScoreHint": "Réel {{live}} · Entraînement {{practice}}",
+    "calls": "Appels",
+    "callsHint": "{{live}} réels · {{practice}} d'entraînement",
+    "meetingsBooked": "Rendez-vous obtenus",
+    "fromLiveCalls": "Issus d'appels réels",
+    "practiceStreak": "Série d'entraînement",
+    "streakDays": "{{count}} j",
+    "talkMinutes": "{{minutes}} min d'appels"
+  },
+  "gettingStarted": {
+    "heading": "Démarrez en trois étapes",
+    "subheading": "La plupart des utilisateurs terminent en moins de cinq minutes.",
+    "createCopilot": {
+      "title": "Créez votre copilote",
+      "text": "Partez d'un modèle : script, objections et objectif en un clic.",
+      "cta": "Créer un copilote"
+    },
+    "waitCopilot": {
+      "title": "Attendez un copilote",
+      "text": "Un administrateur de cette organisation configure les copilotes que vous utiliserez. Demandez-lui si aucun n'est encore disponible.",
+      "cta": "Voir l'organisation"
+    },
+    "practice": {
+      "title": "Répétez avec un prospect IA",
+      "text": "Parlez à voix haute à un prospect réaliste, avec le copilote qui vous coache.",
+      "cta": "S'entraîner maintenant"
+    },
+    "firstCall": {
+      "title": "Passez votre premier appel assisté",
+      "text": "Téléphone en haut-parleur ou réunion en ligne. Recevez des suggestions en direct.",
+      "cta": "Démarrer un appel"
+    }
+  },
+  "highlights": {
+    "title": "Points clés",
+    "empty": "Après quelques appels analysés, vous verrez ici ce qui s'améliore et ce qui demande de l'attention."
+  },
+  "outcomes": {
+    "title": "Résultats des appels réels",
+    "subtitle": "Part des appels avec un résultat enregistré",
+    "empty": "Enregistrez les résultats à la fin des appels réels pour relier la performance aux résultats."
+  },
+  "invitations": {
+    "title": "Vous avez été invité",
+    "from": "De {{name}}",
+    "expires": "expire {{when}}",
+    "accept": "Accepter"
+  },
+  "practiceProgress": {
+    "title": "Progression de l'entraînement",
+    "withCopilot": "Avec copilote",
+    "onYourOwn": "En autonomie",
+    "empty": "Aucune session d'entraînement sur cette période.",
+    "tabs": {
+      "level": "Niveau",
+      "lead": "Prospect",
+      "scenario": "Scénario",
+      "copilot": "Copilote"
+    },
+    "columns": {
+      "group": "Groupe",
+      "sessions": "Sessions",
+      "won": "Réussies",
+      "avg": "Moy."
+    }
+  },
+  "recentCalls": {
+    "title": "Appels récents",
+    "viewAll": "Tout voir",
+    "empty": "Aucun appel pour le moment."
+  },
+  "recommended": {
+    "title": "Entraînement recommandé",
+    "subtitle": "Scénarios conçus à partir de vos points faibles récents",
+    "empty": "Les recommandations apparaissent après votre premier appel analysé. En attendant, essayez un scénario prêt à l'emploi.",
+    "browse": "Parcourir les scénarios",
+    "preparing": "Préparation…",
+    "practice": "S'entraîner"
+  },
+  "mistakes": {
+    "title": "Erreurs récurrentes",
+    "subtitle": "Sur vos 20 derniers appels analysés",
+    "empty": "Aucun schéma pour le moment. Continuez.",
+    "callsAffected_one": "{{count}} appel",
+    "callsAffected_other": "{{count}} appels",
+    "viewCall": "Voir l'appel"
+  },
+  "scoreTrend": {
+    "title": "Évolution du score",
+    "subtitle": "Chaque appel analysé, du plus ancien au plus récent",
+    "emptyTitle": "Pas encore assez de données",
+    "emptyDescription": "Votre courbe apparaît après deux appels analysés ou sessions d'entraînement.",
+    "liveCalls": "Appels réels",
+    "practice": "Entraînement"
+  },
+  "skills": {
+    "title": "Compétences",
+    "subtitle": "Les plus faibles d'abord. Les barres comparent les appels réels à l'entraînement.",
+    "empty": "Les scores de compétences apparaissent après votre premier appel analysé.",
+    "live": "Réel",
+    "practice": "Entraînement"
+  }
+}

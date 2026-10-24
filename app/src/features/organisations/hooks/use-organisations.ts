@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "@/hooks/use-toast";
 import { useOrganisationStore } from "@/stores/organisation";
@@ -74,10 +75,10 @@ export const useCreateOrganisation = () => {
         onSuccess: async (organisation: Organisation) => {
             await queryClient.invalidateQueries({ queryKey: ["organisations"] });
             switchOrganisation(organisation.id);
-            toast({ title: "Organisation created", description: `You are now working in ${organisation.name}.`, duration: 2500 });
+            toast({ title: i18n.t("common:toasts.organisations.organisationCreated"), description: i18n.t("common:toasts.organisations.workingIn", { name: organisation.name }), duration: 2500 });
         },
         onError: (error) => {
-            toast({ title: "Could not create the organisation", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.organisations.couldNotCreateTheOrganisation"), description: error.message, variant: "error" });
         },
     });
 };
@@ -88,10 +89,10 @@ export const useUpdateOrganisation = () => {
         mutationFn: updateOrganisation,
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["organisations"] });
-            toast({ title: "Organisation renamed", duration: 1800 });
+            toast({ title: i18n.t("common:toasts.organisations.organisationRenamed"), duration: 1800 });
         },
         onError: (error) => {
-            toast({ title: "Could not rename the organisation", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.organisations.couldNotRenameTheOrganisation"), description: error.message, variant: "error" });
         },
     });
 };
@@ -112,10 +113,10 @@ export const useDeleteOrganisation = () => {
         mutationFn: deleteOrganisation,
         onSuccess: async () => {
             await cleanup();
-            toast({ title: "Organisation permanently deleted", duration: 2500 });
+            toast({ title: i18n.t("common:toasts.organisations.organisationPermanentlyDeleted"), duration: 2500 });
         },
         onError: (error) => {
-            toast({ title: "Could not delete the organisation", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.organisations.couldNotDeleteTheOrganisation"), description: error.message, variant: "error" });
         },
     });
 };
@@ -131,10 +132,10 @@ export const useUpdateMemberRole = () => {
             queryClient.invalidateQueries({ queryKey: ["members"] });
             queryClient.invalidateQueries({ queryKey: ["roles"] });
             queryClient.invalidateQueries({ queryKey: ["organisations"] });
-            toast({ title: "Role updated", duration: 1800 });
+            toast({ title: i18n.t("common:toasts.organisations.roleUpdated"), duration: 1800 });
         },
         onError: (error) => {
-            toast({ title: "Could not change the role", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.organisations.couldNotChangeTheRole"), description: error.message, variant: "error" });
         },
     });
 };
@@ -147,10 +148,10 @@ export const useRemoveMember = () => {
             queryClient.invalidateQueries({ queryKey: ["members"] });
             queryClient.invalidateQueries({ queryKey: ["roles"] });
             queryClient.invalidateQueries({ queryKey: ["organisations"] });
-            toast({ title: "Member removed", duration: 1800 });
+            toast({ title: i18n.t("common:toasts.organisations.memberRemoved"), duration: 1800 });
         },
         onError: (error) => {
-            toast({ title: "Could not remove the member", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.organisations.couldNotRemoveTheMember"), description: error.message, variant: "error" });
         },
     });
 };
@@ -165,10 +166,10 @@ export const useUpdateRolePermissions = () => {
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["roles"] });
             queryClient.invalidateQueries({ queryKey: ["organisations"] });
-            toast({ title: "Permissions saved", description: "The change applies to everyone with this role right away.", duration: 2500 });
+            toast({ title: i18n.t("common:toasts.organisations.permissionsSaved"), description: i18n.t("common:toasts.organisations.theChangeAppliesToEveryoneWith"), duration: 2500 });
         },
         onError: (error) => {
-            toast({ title: "Could not save permissions", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.organisations.couldNotSavePermissions"), description: error.message, variant: "error" });
         },
     });
 };
@@ -180,10 +181,10 @@ export const useResetRolePermissions = () => {
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["roles"] });
             queryClient.invalidateQueries({ queryKey: ["organisations"] });
-            toast({ title: "Permissions reset to the preset", duration: 2000 });
+            toast({ title: i18n.t("common:toasts.organisations.permissionsResetToThePreset"), duration: 2000 });
         },
         onError: (error) => {
-            toast({ title: "Could not reset permissions", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.organisations.couldNotResetPermissions"), description: error.message, variant: "error" });
         },
     });
 };
@@ -198,14 +199,14 @@ export const useInviteMember = () => {
         onSuccess: (result) => {
             queryClient.invalidateQueries({ queryKey: ["invitations"] });
             toast({
-                title: result.email_sent ? "Invitation sent" : "Invitation created",
-                description: result.email_sent ? `We emailed ${result.invitation.email}.` : "Email isn't available right now. Copy the invite link and share it yourself.",
+                title: result.email_sent ? i18n.t("common:toasts.organisations.invitationSent") : i18n.t("common:toasts.organisations.invitationCreated"),
+                description: result.email_sent ? i18n.t("common:toasts.organisations.emailedTo", { email: result.invitation.email }) : i18n.t("common:toasts.organisations.emailUnavailableInvite"),
                 variant: result.email_sent ? "success" : "warning",
                 duration: 3500,
             });
         },
         onError: (error) => {
-            toast({ title: "Could not send the invitation", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.organisations.couldNotSendTheInvitation"), description: error.message, variant: "error" });
         },
     });
 };
@@ -217,14 +218,14 @@ export const useResendInvitation = () => {
         onSuccess: (result) => {
             queryClient.invalidateQueries({ queryKey: ["invitations"] });
             toast({
-                title: result.email_sent ? "Invitation resent" : "New link created",
-                description: result.email_sent ? `We emailed ${result.invitation.email} a fresh link.` : "Email isn't available right now. Copy the new link and share it yourself.",
+                title: result.email_sent ? i18n.t("common:toasts.organisations.invitationResent") : i18n.t("common:toasts.organisations.newLinkCreated"),
+                description: result.email_sent ? i18n.t("common:toasts.organisations.emailedFresh", { email: result.invitation.email }) : i18n.t("common:toasts.organisations.emailUnavailableLink"),
                 variant: result.email_sent ? "success" : "warning",
                 duration: 3500,
             });
         },
         onError: (error) => {
-            toast({ title: "Could not resend the invitation", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.organisations.couldNotResendTheInvitation"), description: error.message, variant: "error" });
         },
     });
 };
@@ -235,10 +236,10 @@ export const useRevokeInvitation = () => {
         mutationFn: revokeInvitation,
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["invitations"] });
-            toast({ title: "Invitation revoked", description: "The link no longer works.", duration: 2200 });
+            toast({ title: i18n.t("common:toasts.organisations.invitationRevoked"), description: i18n.t("common:toasts.organisations.theLinkNoLongerWorks"), duration: 2200 });
         },
         onError: (error) => {
-            toast({ title: "Could not revoke the invitation", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.organisations.couldNotRevokeTheInvitation"), description: error.message, variant: "error" });
         },
     });
 };
@@ -258,7 +259,7 @@ const useAcceptSuccess = () => {
         await queryClient.invalidateQueries({ queryKey: ["organisations"] });
         queryClient.invalidateQueries({ queryKey: ["my-invitations"] });
         switchOrganisation(accepted.organisation_id);
-        toast({ title: `Welcome to ${accepted.organisation_name}`, description: "You can switch organisations from the sidebar at any time.", duration: 3000 });
+        toast({ title: i18n.t("common:toasts.organisations.welcomeTo", { name: accepted.organisation_name }), description: i18n.t("common:toasts.organisations.youCanSwitchOrganisationsFromThe"), duration: 3000 });
     };
 };
 
@@ -268,7 +269,7 @@ export const useAcceptInvitationByToken = () => {
         mutationFn: acceptInvitationByToken,
         onSuccess: onAccepted,
         onError: (error) => {
-            toast({ title: "Could not accept the invitation", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.organisations.couldNotAcceptTheInvitation"), description: error.message, variant: "error" });
         },
     });
 };
@@ -279,7 +280,7 @@ export const useAcceptInvitationById = () => {
         mutationFn: acceptInvitationById,
         onSuccess: onAccepted,
         onError: (error) => {
-            toast({ title: "Could not accept the invitation", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.organisations.couldNotAcceptTheInvitation"), description: error.message, variant: "error" });
         },
     });
 };

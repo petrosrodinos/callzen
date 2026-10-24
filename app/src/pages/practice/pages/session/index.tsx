@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type FC } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Navigate,
   useLocation,
@@ -45,6 +46,7 @@ import { usePracticeVoice } from "./hooks/use-practice-voice";
 import { SpeakingBars } from "./components/speaking-bars";
 
 const PracticeSessionPage: FC = () => {
+  const { t } = useTranslation("practice");
   const { callId } = useParams<{ callId: string }>();
   const location = useLocation();
   const navigate = useNavigate();
@@ -61,7 +63,9 @@ const PracticeSessionPage: FC = () => {
   const stopVoiceRef = useRef<() => Promise<Blob | null>>(async () => null);
 
   usePageMetadata({
-    title: call?.title ? `Practice · ${call.title}` : "Practice session",
+    title: call?.title
+      ? t("session.pageTitleWithName", { title: call.title })
+      : t("session.pageTitle"),
   });
 
   const copilot = useCopilotSession({ call, getElapsedMs: clock.now });
@@ -144,7 +148,7 @@ const PracticeSessionPage: FC = () => {
     return <Navigate to={Routes.library.detail(call.id)} replace />;
 
   const practice = call.practice;
-  const prospectName = practice?.prospect_name || "Prospect";
+  const prospectName = practice?.prospect_name || t("session.prospect");
   const live = voice.status === "live";
   const remainingMs = timeLimitMs
     ? Math.max(0, timeLimitMs - clock.elapsedMs)
@@ -154,7 +158,7 @@ const PracticeSessionPage: FC = () => {
     <div className="mx-auto max-w-6xl space-y-4">
       <div className="flex flex-wrap items-center gap-2">
         <Badge className="gap-1 bg-amber-500 text-white hover:bg-amber-500">
-          <Headphones className="size-3" /> Practice
+          <Headphones className="size-3" /> {t("session.badge")}
         </Badge>
         <RecordingIndicator
           state={
@@ -167,12 +171,12 @@ const PracticeSessionPage: FC = () => {
                 : "off"
           }
         />
-        {call.copilot_enabled && <Badge variant="outline">Co-pilot on</Badge>}
+        {call.copilot_enabled && <Badge variant="outline">{t("session.copilotOn")}</Badge>}
         <span className="ml-auto font-mono text-sm tabular-nums">
           {formatClock(clock.elapsedMs)}
           {remainingMs !== null && (
             <span className="ml-2 text-muted-foreground">
-              ({formatClock(remainingMs)} left)
+              {t("session.timeLeft", { time: formatClock(remainingMs) })}
             </span>
           )}
         </span>
@@ -180,7 +184,7 @@ const PracticeSessionPage: FC = () => {
 
       {voice.error && (
         <Alert variant="destructive">
-          <AlertTitle>Audio problem</AlertTitle>
+          <AlertTitle>{t("session.audioProblem")}</AlertTitle>
           <AlertDescription>{voice.error}</AlertDescription>
         </Alert>
       )}
@@ -229,19 +233,20 @@ const PracticeSessionPage: FC = () => {
               <div className="mt-5 h-8" aria-live="polite">
                 {voice.status === "connecting" ? (
                   <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-                    <Loader2 className="size-4 animate-spin" /> Dialing…
+                    <Loader2 className="size-4 animate-spin" />{" "}
+                    {t("session.dialing")}
                   </span>
                 ) : voice.prospectSpeaking ? (
-                  <SpeakingBars label={`${prospectName} is speaking`} />
+                  <SpeakingBars label={t("session.isSpeaking", { name: prospectName })} />
                 ) : voice.prospectThinking ? (
                   <span className="text-sm text-muted-foreground">…</span>
                 ) : voice.userSpeaking ? (
                   <span className="text-sm text-emerald-600">
-                    You're speaking
+                    {t("session.youreSpeaking")}
                   </span>
                 ) : live ? (
                   <span className="text-sm text-muted-foreground">
-                    Listening
+                    {t("session.listening")}
                   </span>
                 ) : null}
               </div>
@@ -258,7 +263,7 @@ const PracticeSessionPage: FC = () => {
                   size="lg"
                   onClick={() => void voice.start().then(() => clock.start())}
                 >
-                  <Mic /> Connect
+                  <Mic /> {t("session.connect")}
                 </Button>
               ) : (
                 <>
@@ -269,7 +274,9 @@ const PracticeSessionPage: FC = () => {
                     onClick={voice.toggleMic}
                     disabled={!live}
                     aria-label={
-                      voice.micMuted ? "Unmute microphone" : "Mute microphone"
+                      voice.micMuted
+                        ? t("session.unmute")
+                        : t("session.mute")
                     }
                     aria-pressed={voice.micMuted}
                   >
@@ -281,7 +288,7 @@ const PracticeSessionPage: FC = () => {
                     className="size-14 rounded-full shadow-lg"
                     onClick={() => void endSession(CallEndReasons.USER)}
                     disabled={isFinishing || voice.status === "ending"}
-                    aria-label="End call"
+                    aria-label={t("session.endCall")}
                   >
                     {isFinishing ? (
                       <Loader2 className="animate-spin" />
@@ -295,7 +302,7 @@ const PracticeSessionPage: FC = () => {
                     className="size-12 rounded-full"
                     onClick={() => setTyping((v) => !v)}
                     disabled={!live}
-                    aria-label="Type instead of speaking"
+                    aria-label={t("session.typeInstead")}
                     aria-pressed={typing}
                   >
                     <Keyboard />
@@ -316,15 +323,15 @@ const PracticeSessionPage: FC = () => {
                 <Input
                   value={typed}
                   onChange={(event) => setTyped(event.target.value)}
-                  placeholder="Type what you'd say…"
-                  aria-label="Type your line"
+                  placeholder={t("session.typePlaceholder")}
+                  aria-label={t("session.typeLine")}
                   autoFocus
                 />
                 <Button
                   type="submit"
                   size="icon"
                   disabled={!typed.trim()}
-                  aria-label="Send"
+                  aria-label={t("session.send")}
                 >
                   <Send />
                 </Button>
@@ -334,14 +341,14 @@ const PracticeSessionPage: FC = () => {
 
           <Card className="p-4">
             <div className="mb-2 flex items-center justify-between">
-              <h2 className="text-sm font-semibold">Transcript</h2>
+              <h2 className="text-sm font-semibold">{t("session.transcript")}</h2>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setShowTranscript((v) => !v)}
               >
                 {showTranscript ? <EyeOff /> : <Eye />}{" "}
-                {showTranscript ? "Hide" : "Show"}
+                {showTranscript ? t("session.hide") : t("session.show")}
               </Button>
             </div>
             {showTranscript ? (
@@ -357,7 +364,7 @@ const PracticeSessionPage: FC = () => {
               />
             ) : (
               <p className="py-4 text-center text-sm text-muted-foreground">
-                Hidden for a more realistic call. It's saved either way.
+                {t("session.transcriptHidden")}
               </p>
             )}
           </Card>

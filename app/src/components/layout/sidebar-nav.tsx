@@ -4,6 +4,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
   items: {
@@ -15,6 +16,7 @@ interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 export default function SidebarNav({ className, items, ...props }: SidebarNavProps) {
+  const { t } = useTranslation("layout");
   const location = useLocation();
   const navigate = useNavigate();
   const [val, setVal] = useState(location.pathname ?? "/settings");
@@ -29,7 +31,7 @@ export default function SidebarNav({ className, items, ...props }: SidebarNavPro
       <div className="p-1 md:hidden">
         <Select value={val} onValueChange={handleSelect}>
           <SelectTrigger className="h-12 sm:w-48">
-            <SelectValue placeholder="Theme" />
+            <SelectValue placeholder={t("sidebarNav.placeholder")} />
           </SelectTrigger>
           <SelectContent>
             {items.map((item) => (

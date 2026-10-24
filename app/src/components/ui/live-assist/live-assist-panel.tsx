@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useState, type FormEvent } from "react";
 import {
   BellOff,
@@ -41,18 +42,19 @@ interface LiveAssistPanelProps {
 }
 
 export function LiveAssistPanel({ session, script, agentName, className }: LiveAssistPanelProps) {
+  const { t } = useTranslation("common");
   const { primary, pinned, history, latestInfoCard, muted, health } = session;
 
   return (
-    <section className={cn("flex flex-col gap-3", className)} aria-label="Live assist">
+    <section className={cn("flex flex-col gap-3", className)} aria-label={t("liveAssist.label")}>
       <PanelToolbar session={session} agentName={agentName} />
 
       {muted ? (
         <div className="flex flex-col items-center gap-2 rounded-xl border border-dashed p-6 text-center text-sm text-muted-foreground">
           <BellOff className="size-5" />
-          Suggestions are muted. The call is still being captured.
+          {t("liveAssist.mutedTitle")}
           <Button size="sm" variant="outline" onClick={() => session.setMuted(false)}>
-            Resume suggestions
+            {t("liveAssist.resume")}
           </Button>
         </div>
       ) : primary ? (
@@ -60,7 +62,7 @@ export function LiveAssistPanel({ session, script, agentName, className }: LiveA
       ) : (
         <div className="flex min-h-36 flex-col items-center justify-center gap-2 rounded-xl border border-dashed p-6 text-center text-sm text-muted-foreground">
           {health === "thinking" ? <Loader2 className="size-5 animate-spin" /> : <WandSparkles className="size-5" />}
-          Suggestions will appear here as soon as the prospect speaks.
+          {t("liveAssist.empty")}
         </div>
       )}
 
@@ -90,7 +92,7 @@ export function LiveAssistPanel({ session, script, agentName, className }: LiveA
           <CollapsibleTrigger asChild>
             <Button variant="ghost" size="sm" className="w-full justify-between text-muted-foreground">
               <span className="flex items-center gap-2">
-                <History className="size-4" /> Recent suggestions ({history.length})
+                <History className="size-4" /> {t("liveAssist.recent", { count: history.length })}
               </span>
               <ChevronDown className="size-4" />
             </Button>
@@ -107,6 +109,7 @@ export function LiveAssistPanel({ session, script, agentName, className }: LiveA
 }
 
 function PanelToolbar({ session, agentName }: { session: CopilotSession; agentName?: string }) {
+  const { t } = useTranslation("common");
   const { health, muted, frequency, fallbackModel } = session;
 
   return (
@@ -116,14 +119,14 @@ function PanelToolbar({ session, agentName }: { session: CopilotSession; agentNa
           <Zap className="size-4" />
         </span>
         <div className="min-w-0">
-          <p className="truncate text-sm font-semibold leading-tight">{agentName ?? "Co-pilot"}</p>
+          <p className="truncate text-sm font-semibold leading-tight">{agentName ?? t("liveAssist.copilot")}</p>
           <p className={cn("text-xs leading-tight", health === "unavailable" || health === "offline" ? "text-amber-600 dark:text-amber-400" : "text-muted-foreground")}>
-            {health === "thinking" && "Thinking…"}
-            {health === "ok" && (fallbackModel ? `Active · using ${fallbackModel}` : "Active")}
-            {health === "unavailable" && "Suggestions paused · capture continues"}
+            {health === "thinking" && t("liveAssist.thinking")}
+            {health === "ok" && (fallbackModel ? t("liveAssist.activeUsing", { model: fallbackModel }) : t("liveAssist.active"))}
+            {health === "unavailable" && t("liveAssist.paused")}
             {health === "offline" && (
               <span className="inline-flex items-center gap-1">
-                <WifiOff className="size-3" /> Reconnecting · {session.pendingCount} line(s) queued
+                <WifiOff className="size-3" /> {t("liveAssist.reconnecting", { count: session.pendingCount })}
               </span>
             )}
           </p>
@@ -131,8 +134,8 @@ function PanelToolbar({ session, agentName }: { session: CopilotSession; agentNa
       </div>
 
       <Select value={frequency} onValueChange={(value) => session.setFrequency(value as SuggestionFrequency)}>
-        <SelectTrigger className="h-8 w-auto min-w-0 gap-1 text-xs" aria-label="Suggestion frequency">
-          <SelectValue placeholder="Frequency" />
+        <SelectTrigger className="h-8 w-auto min-w-0 gap-1 text-xs" aria-label={t("liveAssist.frequencyLabel")}>
+          <SelectValue placeholder={t("liveAssist.frequency")} />
         </SelectTrigger>
         <SelectContent>
           {SuggestionFrequencyFormOptions.map((option) => (
@@ -145,26 +148,27 @@ function PanelToolbar({ session, agentName }: { session: CopilotSession; agentNa
 
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button size="icon" variant="outline" className="size-8" onClick={() => void session.requestSuggestionNow()} disabled={muted || health === "thinking"} aria-label="Suggest now">
+          <Button size="icon" variant="outline" className="size-8" onClick={() => void session.requestSuggestionNow()} disabled={muted || health === "thinking"} aria-label={t("liveAssist.suggestNow")}>
             <WandSparkles />
           </Button>
         </TooltipTrigger>
-        <TooltipContent>Suggest now</TooltipContent>
+        <TooltipContent>{t("liveAssist.suggestNow")}</TooltipContent>
       </Tooltip>
 
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button size="icon" variant={muted ? "secondary" : "outline"} className="size-8" onClick={() => session.setMuted(!muted)} aria-label={muted ? "Unmute suggestions" : "Mute suggestions"} aria-pressed={muted}>
+          <Button size="icon" variant={muted ? "secondary" : "outline"} className="size-8" onClick={() => session.setMuted(!muted)} aria-label={muted ? t("liveAssist.unmute") : t("liveAssist.mute")} aria-pressed={muted}>
             {muted ? <BellOff /> : <Bell />}
           </Button>
         </TooltipTrigger>
-        <TooltipContent>{muted ? "Unmute suggestions" : "Mute suggestions"}</TooltipContent>
+        <TooltipContent>{muted ? t("liveAssist.unmute") : t("liveAssist.mute")}</TooltipContent>
       </Tooltip>
     </div>
   );
 }
 
 function PrimarySuggestion({ suggestion, session, thinking }: { suggestion: Suggestion; session: CopilotSession; thinking: boolean }) {
+  const { t } = useTranslation("common");
   const isPinned = suggestion.status === SuggestionStatuses.PINNED;
 
   return (
@@ -173,7 +177,7 @@ function PrimarySuggestion({ suggestion, session, thinking }: { suggestion: Sugg
       <div className="mb-2 flex items-start gap-2">
         <SuggestionTypeBadge type={suggestion.type} />
         {suggestion.reason && <span className="truncate pt-0.5 text-xs text-muted-foreground">{suggestion.reason}</span>}
-        {thinking && <Loader2 className="ml-auto size-4 shrink-0 animate-spin text-muted-foreground" aria-label="Updating" />}
+        {thinking && <Loader2 className="ml-auto size-4 shrink-0 animate-spin text-muted-foreground" aria-label={t("liveAssist.updating")} />}
       </div>
       <p className="text-lg font-medium leading-snug sm:text-xl">{suggestion.text}</p>
 
@@ -181,7 +185,7 @@ function PrimarySuggestion({ suggestion, session, thinking }: { suggestion: Sugg
         <ul className="mt-3 space-y-1.5 border-t pt-3">
           {suggestion.alternatives.map((alternative, index) => (
             <li key={index} className="flex gap-2 text-sm text-muted-foreground">
-              <span className="font-semibold text-foreground/60">{index === 0 ? "Or:" : "Alt:"}</span>
+              <span className="font-semibold text-foreground/60">{index === 0 ? t("liveAssist.or") : t("liveAssist.alt")}</span>
               {alternative}
             </li>
           ))}
@@ -190,16 +194,16 @@ function PrimarySuggestion({ suggestion, session, thinking }: { suggestion: Sugg
 
       <div className="mt-3 flex items-center gap-1">
         <Button size="sm" variant="ghost" className="h-7 px-2 text-xs" onClick={() => session.pin(suggestion)}>
-          {isPinned ? <PinOff /> : <Pin />} {isPinned ? "Unpin" : "Pin"}
+          {isPinned ? <PinOff /> : <Pin />} {isPinned ? t("liveAssist.unpin") : t("liveAssist.pin")}
         </Button>
         <Button size="sm" variant="ghost" className="h-7 px-2 text-xs" onClick={() => session.dismiss(suggestion)}>
-          <X /> Dismiss
+          <X /> {t("liveAssist.dismiss")}
         </Button>
         <div className="ml-auto flex items-center">
-          <Button size="icon" variant="ghost" className={cn("size-7", suggestion.feedback === "UP" && "text-emerald-600")} onClick={() => session.rateSuggestion(suggestion, "UP")} aria-label="Helpful" aria-pressed={suggestion.feedback === "UP"}>
+          <Button size="icon" variant="ghost" className={cn("size-7", suggestion.feedback === "UP" && "text-emerald-600")} onClick={() => session.rateSuggestion(suggestion, "UP")} aria-label={t("liveAssist.helpful")} aria-pressed={suggestion.feedback === "UP"}>
             <ThumbsUp />
           </Button>
-          <Button size="icon" variant="ghost" className={cn("size-7", suggestion.feedback === "DOWN" && "text-red-600")} onClick={() => session.rateSuggestion(suggestion, "DOWN")} aria-label="Not helpful" aria-pressed={suggestion.feedback === "DOWN"}>
+          <Button size="icon" variant="ghost" className={cn("size-7", suggestion.feedback === "DOWN" && "text-red-600")} onClick={() => session.rateSuggestion(suggestion, "DOWN")} aria-label={t("liveAssist.notHelpful")} aria-pressed={suggestion.feedback === "DOWN"}>
             <ThumbsDown />
           </Button>
         </div>
@@ -209,6 +213,7 @@ function PrimarySuggestion({ suggestion, session, thinking }: { suggestion: Sugg
 }
 
 function CompactSuggestion({ suggestion, session, muted = false }: { suggestion: Suggestion; session: CopilotSession; muted?: boolean }) {
+  const { t } = useTranslation("common");
   const isPinned = suggestion.status === SuggestionStatuses.PINNED;
   return (
     <div className={cn("flex items-start gap-2 rounded-lg border p-2.5", muted && "opacity-80")}>
@@ -219,7 +224,7 @@ function CompactSuggestion({ suggestion, session, muted = false }: { suggestion:
         </div>
         <p className="text-sm">{suggestion.text}</p>
       </div>
-      <Button size="icon" variant="ghost" className="size-7 shrink-0" onClick={() => session.pin(suggestion)} aria-label={isPinned ? "Unpin" : "Pin"}>
+      <Button size="icon" variant="ghost" className="size-7 shrink-0" onClick={() => session.pin(suggestion)} aria-label={isPinned ? t("liveAssist.unpin") : t("liveAssist.pin")}>
         {isPinned ? <PinOff /> : <Pin />}
       </Button>
     </div>
@@ -227,6 +232,7 @@ function CompactSuggestion({ suggestion, session, muted = false }: { suggestion:
 }
 
 function AskCopilot({ session }: { session: CopilotSession }) {
+  const { t } = useTranslation("common");
   const [question, setQuestion] = useState("");
 
   const submit = async (event: FormEvent) => {
@@ -243,8 +249,8 @@ function AskCopilot({ session }: { session: CopilotSession }) {
 
   return (
     <form onSubmit={submit} className="flex gap-2">
-      <Input value={question} onChange={(event) => setQuestion(event.target.value)} placeholder="Ask the co-pilot… e.g. pricing for 50 seats?" aria-label="Ask the co-pilot" className="h-9" />
-      <Button type="submit" size="icon" className="size-9 shrink-0" disabled={session.isAsking || !question.trim()} aria-label="Ask">
+      <Input value={question} onChange={(event) => setQuestion(event.target.value)} placeholder={t("liveAssist.askPlaceholder")} aria-label={t("liveAssist.askLabel")} className="h-9" />
+      <Button type="submit" size="icon" className="size-9 shrink-0" disabled={session.isAsking || !question.trim()} aria-label={t("liveAssist.ask")}>
         {session.isAsking ? <Loader2 className="animate-spin" /> : <Send />}
       </Button>
     </form>
@@ -252,6 +258,7 @@ function AskCopilot({ session }: { session: CopilotSession }) {
 }
 
 function ScriptProgress({ script, completed }: { script: LiveAssistPanelProps["script"]; completed: string[] }) {
+  const { t } = useTranslation("common");
   const done = new Set(completed);
   const nextIndex = script.findIndex((stage) => !done.has(stage.id));
 
@@ -260,7 +267,7 @@ function ScriptProgress({ script, completed }: { script: LiveAssistPanelProps["s
       <CollapsibleTrigger asChild>
         <Button variant="ghost" size="sm" className="w-full justify-between text-muted-foreground">
           <span>
-            Script progress · {done.size}/{script.length}
+            {t("liveAssist.scriptProgress", { done: done.size, total: script.length })}
           </span>
           <ChevronDown className="size-4" />
         </Button>

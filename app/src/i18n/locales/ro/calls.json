@@ -1,0 +1,109 @@
+{
+  "endCall": {
+    "title": "Încheiem apelul?",
+    "description": "Opțional, notează cum a mers. Rezultatele leagă performanța ta de rezultate reale.",
+    "outcomeLabel": "Rezultatul apelului",
+    "customPlaceholder": "Descrie rezultatul",
+    "customLabel": "Rezultat personalizat",
+    "keepTalking": "Continuă conversația",
+    "confirm": "Încheie apelul"
+  },
+  "manualLine": {
+    "whoSaid": "Cine a spus",
+    "prospectSaid": "Prospectul a spus",
+    "iSaid": "Am spus eu",
+    "placeholder": "Scrie o replică din conversație",
+    "addTranscriptLine": "Adaugă o linie în transcriere",
+    "addLine": "Adaugă linia"
+  },
+  "live": {
+    "title": "Apel live",
+    "badge": "Live",
+    "you": "Tu",
+    "mic": "Microfon",
+    "meeting": "Întâlnire",
+    "switchCopilot": "Schimbă copilotul",
+    "copilot": "Copilot",
+    "reconnect": "Reconectează",
+    "dismiss": "Închide",
+    "connectTitle": "Conectează sunetul pentru a începe captarea",
+    "connectMeeting": "Alege fila de browser a întâlnirii și activează „Partajează sunetul filei”, apoi permite microfonul.",
+    "connectMic": "Permite accesul la microfon. Pune telefonul pe difuzor lângă acest dispozitiv.",
+    "connectAudio": "Conectează sunetul",
+    "transcript": "Transcriere live",
+    "hide": "Ascunde",
+    "show": "Arată ({{count}})",
+    "resumeCapture": "Reia captarea",
+    "pauseCapture": "Pune captarea în pauză",
+    "pauseCaptureHint": "Pune captarea în pauză (momente în afara subiectului sau sensibile)",
+    "bookmark": "Marchează acest moment",
+    "endCall": "Încheie apelul",
+    "sources": {
+      "microphone": "Microfon",
+      "meeting": "Întâlnire"
+    },
+    "notices": {
+      "reconnecting": "Conexiunea de transcriere a căzut. Se reconectează…",
+      "switchedToBrowser": "Transcrierea live nu este disponibilă. S-a trecut la recunoașterea vocală a browserului tău.",
+      "aiUnavailableBrowser": "Transcrierea IA nu este disponibilă, așa că se folosește recunoașterea vocală a browserului. Detectarea vorbitorilor poate fi mai puțin precisă.",
+      "manualFallback": "Transcrierea nu este disponibilă pentru acest sunet. Adaugă manual replicile importante pentru ca copilotul să te poată ajuta în continuare.",
+      "audioStopped": "Sunetul ({{label}}) s-a oprit (fila a fost închisă sau dispozitivul a fost deconectat). Ce s-a captat este în siguranță. Reconectează-te pentru a continua."
+    }
+  },
+  "new": {
+    "title": "Începe un apel",
+    "description": "Alege cum suni și ce copilot folosești. Totul, în afară de copilot, este opțional.",
+    "audioCaptureFailed": "Captarea sunetului a eșuat",
+    "validation": {
+      "chooseCopilot": "Alege un copilot",
+      "confirmBeforeStarting": "Confirmă înainte de a începe"
+    },
+    "noCopilot": {
+      "title": "Creează mai întâi un copilot",
+      "description": "Copilotul folosește scriptul, obiecțiile și cunoștințele tale pentru a sugera ce să spui. Durează un minut cu un șablon.",
+      "cta": "Creează copilot"
+    },
+    "callType": "Tipul apelului",
+    "meetingUnsupported": "Necesită un browser de desktop, precum Chrome sau Edge.",
+    "copilot": {
+      "title": "Copilot",
+      "agentLabel": "Agent asistent",
+      "defaultSuffix": "{{name}} (implicit)",
+      "goal": "Obiectiv: {{goal}}"
+    },
+    "context": {
+      "title": "Contextul apelului",
+      "description": "Ajută copilotul să personalizeze sugestiile și analiza.",
+      "prospectName": "Numele prospectului",
+      "prospectNamePlaceholder": "Dr. Papadopoulos",
+      "company": "Companie",
+      "companyPlaceholder": "Clinica Stomatologică Smile",
+      "role": "Funcție",
+      "rolePlaceholder": "Proprietarul clinicii",
+      "goal": "Obiectivul acestui apel",
+      "goalPlaceholder": "Programează o demonstrație",
+      "goalHint": "Lasă gol pentru a folosi obiectivul copilotului.",
+      "notes": "Notițe",
+      "notesPlaceholder": "Recomandat de Anna. Folosește în prezent calendare pe hârtie.",
+      "priorCall": "Apelul anterior cu acest prospect",
+      "none": "Niciunul",
+      "callFallback": "Apel",
+      "language": "Limba conversației",
+      "autoDetect": "Detectare automată ({{languages}})",
+      "autoDetectHint": "Detectarea automată urmează oricare dintre limbile copilotului pe care o vorbește prospectul."
+    },
+    "recording": {
+      "title": "Înregistrare",
+      "keep": "Păstrează înregistrarea audio",
+      "keepHint": "Dezactivează pentru a primi sugestii și o analiză fără a stoca sunetul."
+    },
+    "consent": {
+      "title": "Consimțământ pentru înregistrare",
+      "text": "Legile privind înregistrarea diferă de la o țară la alta, iar unele cer consimțământul fiecărui participant. Tu ești responsabil să îl obții. Poți activa o replică de consimțământ pe care copilotul tău o sugerează la începutul fiecărui apel.",
+      "checkbox": "Am înțeles și voi obține consimțământul acolo unde este necesar."
+    },
+    "footerMeeting": "Apoi alege fila întâlnirii și activează „Partajează sunetul filei”.",
+    "footerMic": "Pune telefonul pe difuzor lângă acest dispozitiv.",
+    "startCall": "Începe apelul"
+  }
+}

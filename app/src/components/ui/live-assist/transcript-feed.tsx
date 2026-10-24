@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useEffect, useRef } from "react";
 import { ArrowLeftRight, CloudOff } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -15,7 +16,8 @@ interface TranscriptFeedProps {
   className?: string;
 }
 
-export function TranscriptFeed({ segments, interim = [], prospectLabel, onFlipSpeaker, emptyText = "The transcript will appear here as people speak.", className }: TranscriptFeedProps) {
+export function TranscriptFeed({ segments, interim = [], prospectLabel, onFlipSpeaker, emptyText, className }: TranscriptFeedProps) {
+  const { t } = useTranslation("common");
   const bottomRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const stickToBottom = useRef(true);
@@ -36,7 +38,7 @@ export function TranscriptFeed({ segments, interim = [], prospectLabel, onFlipSp
       className={cn("space-y-3 overflow-y-auto overscroll-contain", className)}
       aria-live="polite"
     >
-      {!segments.length && !visibleInterim.length && <p className="py-8 text-center text-sm text-muted-foreground">{emptyText}</p>}
+      {!segments.length && !visibleInterim.length && <p className="py-8 text-center text-sm text-muted-foreground">{emptyText ?? t("transcript.empty")}</p>}
       {segments.map((segment) => {
         const isUser = segment.speaker === Speakers.USER;
         const label = segment.speaker === Speakers.PROSPECT && prospectLabel ? prospectLabel : getSpeakerLabel(segment.speaker);
@@ -45,14 +47,14 @@ export function TranscriptFeed({ segments, interim = [], prospectLabel, onFlipSp
             <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
               <span className="font-medium">{label}</span>
               <span className="tabular-nums">{formatClock(segment.start_ms)}</span>
-              {segment.pending && <CloudOff className="size-3" aria-label="Not saved yet" />}
+              {segment.pending && <CloudOff className="size-3" aria-label={t("transcript.notSaved")} />}
               {onFlipSpeaker && segment.id && (
                 <button
                   type="button"
                   onClick={() => onFlipSpeaker(segment)}
                   className="rounded p-0.5 opacity-60 hover:bg-muted hover:opacity-100 focus-visible:opacity-100 sm:opacity-0 sm:group-hover:opacity-100"
-                  aria-label="Switch speaker"
-                  title="Wrong speaker? Switch it"
+                  aria-label={t("transcript.switchSpeaker")}
+                  title={t("transcript.wrongSpeaker")}
                 >
                   <ArrowLeftRight className="size-3" />
                 </button>

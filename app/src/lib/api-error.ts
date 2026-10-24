@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import { isAxiosError } from "axios";
 
 // Turns an Axios/Nest error into a human-readable message; falls back when the server gave none.
@@ -6,7 +7,7 @@ export const getApiErrorMessage = (error: unknown, fallback: string): string => 
         const message = error.response?.data?.message;
         if (Array.isArray(message)) return message.join(". ");
         if (typeof message === "string" && message.trim()) return message;
-        if (!error.response) return "Cannot reach the server. Check your connection and try again.";
+        if (!error.response) return i18n.t("common:errors.lib.network");
     }
     return fallback;
 };

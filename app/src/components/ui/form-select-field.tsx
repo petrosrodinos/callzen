@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import type { Control, FieldPath, FieldValues } from "react-hook-form";
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -22,10 +23,10 @@ export function FormSelectField<T extends FieldValues>({
   name,
   label,
   options,
-  placeholder = "Select",
+  placeholder = i18n.t("common:select.placeholder"),
   description,
   allowEmpty = false,
-  emptyLabel = "Not specified",
+  emptyLabel = i18n.t("common:select.notSpecified"),
   numeric = false,
   className,
 }: FormSelectFieldProps<T>) {

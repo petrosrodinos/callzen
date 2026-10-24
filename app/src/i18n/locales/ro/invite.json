@@ -1,0 +1,39 @@
+{
+  "pageTitle": "Invitație",
+  "notFound": {
+    "title": "Invitația nu a fost găsită",
+    "defaultMessage": "Acest link nu este valid sau a fost înlocuit de o invitație mai nouă.",
+    "resend": "Roagă persoana care te-a invitat să o retrimită.",
+    "cta": "Mergi la CallZen"
+  },
+  "status": {
+    "pending": "în așteptare",
+    "expired": "expirată",
+    "accepted": "acceptată",
+    "revoked": "revocată"
+  },
+  "inactive": {
+    "title": "Această invitație este {{status}}",
+    "used": "A fost deja folosită pentru a te alătura organizației {{organisation}}.",
+    "askInviter": "Roagă-l pe {{inviter}} să îți trimită una nouă.",
+    "askAdmins": "Roagă administratorii organizației să îți trimită una nouă.",
+    "cta": "Deschide CallZen"
+  },
+  "join": {
+    "title": "Alătură-te organizației {{organisation}}",
+    "invitedBy": "{{inviter}} te-a invitat ca <badge>{{role}}</badge>",
+    "invitedByTeammate": "Un coleg te-a invitat ca <badge>{{role}}</badge>",
+    "sentTo": "Trimisă către {{email}} · expiră pe {{date}}",
+    "signInHint": "Autentifică-te pentru a accepta. Poți face parte din mai multe organizații și poți comuta între ele.",
+    "createHint": "Creează-ți contul gratuit cu acest e-mail pentru a te alătura.",
+    "signInCta": "Autentifică-te pentru a accepta",
+    "createCta": "Creează cont și alătură-te",
+    "needAccount": "Trebuie să îmi creez un cont",
+    "haveAccount": "Am deja un cont",
+    "accept": "Acceptă și alătură-te",
+    "signedInAs": "Autentificat ca {{email}}. Această organizație este adăugată la cele existente.",
+    "mismatch": "Această invitație este pentru <strong>{{invited}}</strong>, dar ești autentificat ca <strong>{{current}}</strong>.",
+    "signOut": "Deconectează-te și folosește {{email}}",
+    "back": "Înapoi la CallZen"
+  }
+}

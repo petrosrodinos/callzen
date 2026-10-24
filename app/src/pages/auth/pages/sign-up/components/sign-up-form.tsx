@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -10,6 +11,7 @@ import { LanguageSelect } from "@/components/ui/language-select";
 import { detectPreferredLanguage } from "@/config/constants/dropdowns/users/preferred-language.options";
 
 export function SignUpForm() {
+  const { t } = useTranslation("auth");
   const { mutate, isPending } = useSignup();
 
   const form = useForm<SignUpFormValues>({
@@ -37,7 +39,7 @@ export function SignUpForm() {
               name="full_name"
               render={({ field }) => (
                 <FormItem className="space-y-1">
-                  <FormLabel>Full name</FormLabel>
+                  <FormLabel>{t("fields.fullName")}</FormLabel>
                   <FormControl>
                     <Input placeholder="Maria Papadopoulou" autoComplete="name" {...field} />
                   </FormControl>
@@ -50,7 +52,7 @@ export function SignUpForm() {
               name="email"
               render={({ field }) => (
                 <FormItem className="space-y-1">
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>{t("fields.email")}</FormLabel>
                   <FormControl>
                     <Input placeholder="name@example.com" type="email" autoComplete="email" {...field} />
                   </FormControl>
@@ -63,7 +65,7 @@ export function SignUpForm() {
               name="password"
               render={({ field }) => (
                 <FormItem className="space-y-1">
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel>{t("fields.password")}</FormLabel>
                   <FormControl>
                     <PasswordInput placeholder="********" {...field} />
                   </FormControl>
@@ -76,7 +78,7 @@ export function SignUpForm() {
               name="confirm_password"
               render={({ field }) => (
                 <FormItem className="space-y-1">
-                  <FormLabel>Confirm password</FormLabel>
+                  <FormLabel>{t("fields.confirmPassword")}</FormLabel>
                   <FormControl>
                     <Input placeholder="********" {...field} type="password" />
                   </FormControl>
@@ -89,15 +91,15 @@ export function SignUpForm() {
               name="preferred_language"
               render={({ field }) => (
                 <FormItem className="space-y-1">
-                  <FormLabel>Language</FormLabel>
+                  <FormLabel>{t("fields.language")}</FormLabel>
                   <LanguageSelect value={field.value} onValueChange={field.onChange} />
-                  <FormDescription>Templates and examples will be in this language.</FormDescription>
+                  <FormDescription>{t("signUp.languageHint")}</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
             />
             <Button className="mt-2 w-full" disabled={isPending} loading={isPending}>
-              Create account
+              {t("signUp.submit")}
             </Button>
           </div>
         </form>

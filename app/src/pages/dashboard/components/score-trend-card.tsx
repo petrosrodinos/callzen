@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   CartesianGrid,
   Legend,
@@ -25,6 +26,7 @@ interface ScoreTrendCardProps {
 
 export function ScoreTrendCard({ data, className }: ScoreTrendCardProps) {
   const navigate = useNavigate();
+  const { t } = useTranslation("dashboard");
   const points = useMemo(
     () =>
       data.map((point, index) => ({
@@ -42,17 +44,17 @@ export function ScoreTrendCard({ data, className }: ScoreTrendCardProps) {
     <Card className={className}>
       <div className="flex items-center justify-between p-5 pb-2">
         <div>
-          <h2 className="font-semibold">Score trend</h2>
+          <h2 className="font-semibold">{t("scoreTrend.title")}</h2>
           <p className="text-sm text-muted-foreground">
-            Every analyzed call, oldest to newest
+            {t("scoreTrend.subtitle")}
           </p>
         </div>
       </div>
       {points.length < 2 ? (
         <EmptyState
           icon={LineChartIcon}
-          title="Not enough data yet"
-          description="Your trend appears after two analyzed calls or practice sessions."
+          title={t("scoreTrend.emptyTitle")}
+          description={t("scoreTrend.emptyDescription")}
           className="m-5 mt-2 border-none py-8"
         />
       ) : (
@@ -105,7 +107,7 @@ export function ScoreTrendCard({ data, className }: ScoreTrendCardProps) {
               <Line
                 type="monotone"
                 dataKey="live"
-                name="Live calls"
+                name={t("scoreTrend.liveCalls")}
                 stroke="var(--chart-1)"
                 strokeWidth={2.5}
                 dot={{ r: 3 }}
@@ -114,7 +116,7 @@ export function ScoreTrendCard({ data, className }: ScoreTrendCardProps) {
               <Line
                 type="monotone"
                 dataKey="practice"
-                name="Practice"
+                name={t("scoreTrend.practice")}
                 stroke="var(--chart-2)"
                 strokeWidth={2.5}
                 dot={{ r: 3 }}

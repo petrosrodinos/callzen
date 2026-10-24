@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { cn } from "@/lib/utils";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -13,6 +14,7 @@ interface UserAuthFormProps {
 }
 
 export function SignInForm({ className, ...props }: UserAuthFormProps) {
+  const { t } = useTranslation("auth");
   const { mutate, isPending } = useSignin();
 
   const form = useForm<SignInFormValues>({
@@ -37,7 +39,7 @@ export function SignInForm({ className, ...props }: UserAuthFormProps) {
               name="email"
               render={({ field }) => (
                 <FormItem className="space-y-1">
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>{t("fields.email")}</FormLabel>
                   <FormControl>
                     <Input placeholder="name@example.com" type="email" autoComplete="email" {...field} />
                   </FormControl>
@@ -51,7 +53,7 @@ export function SignInForm({ className, ...props }: UserAuthFormProps) {
               render={({ field }) => (
                 <FormItem className="space-y-1">
                   <div className="flex items-center justify-between">
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>{t("fields.password")}</FormLabel>
                   </div>
                   <FormControl>
                     <Input placeholder="••••••••" {...field} type="password" autoComplete="current-password" />
@@ -61,7 +63,7 @@ export function SignInForm({ className, ...props }: UserAuthFormProps) {
               )}
             />
             <Button className="mt-2 w-full" disabled={isPending} loading={isPending}>
-              Sign in
+              {t("signIn.submit")}
             </Button>
           </div>
         </form>

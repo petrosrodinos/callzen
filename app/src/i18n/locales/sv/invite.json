@@ -1,0 +1,39 @@
+{
+  "pageTitle": "Inbjudan",
+  "notFound": {
+    "title": "Inbjudan hittades inte",
+    "defaultMessage": "Länken är ogiltig eller har ersatts av en nyare inbjudan.",
+    "resend": "Be personen som bjöd in dig att skicka den igen.",
+    "cta": "Gå till CallZen"
+  },
+  "status": {
+    "pending": "väntande",
+    "expired": "utgången",
+    "accepted": "accepterad",
+    "revoked": "återkallad"
+  },
+  "inactive": {
+    "title": "Den här inbjudan är {{status}}",
+    "used": "Den har redan använts för att gå med i {{organisation}}.",
+    "askInviter": "Be {{inviter}} skicka en ny till dig.",
+    "askAdmins": "Be organisationens administratörer skicka en ny till dig.",
+    "cta": "Öppna CallZen"
+  },
+  "join": {
+    "title": "Gå med i {{organisation}}",
+    "invitedBy": "{{inviter}} har bjudit in dig som <badge>{{role}}</badge>",
+    "invitedByTeammate": "En teamkollega har bjudit in dig som <badge>{{role}}</badge>",
+    "sentTo": "Skickad till {{email}} · går ut {{date}}",
+    "signInHint": "Logga in för att acceptera. Du kan tillhöra flera organisationer och växla mellan dem.",
+    "createHint": "Skapa ditt kostnadsfria konto med den här e-postadressen för att gå med.",
+    "signInCta": "Logga in för att acceptera",
+    "createCta": "Skapa konto och gå med",
+    "needAccount": "Jag behöver skapa ett konto",
+    "haveAccount": "Jag har redan ett konto",
+    "accept": "Acceptera och gå med",
+    "signedInAs": "Inloggad som {{email}}. Den här organisationen läggs till bland dina befintliga.",
+    "mismatch": "Den här inbjudan gäller <strong>{{invited}}</strong>, men du är inloggad som <strong>{{current}}</strong>.",
+    "signOut": "Logga ut och använd {{email}}",
+    "back": "Tillbaka till CallZen"
+  }
+}

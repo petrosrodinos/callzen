@@ -1,0 +1,117 @@
+{
+  "title": "Gösterge paneli",
+  "greeting": "Merhaba {{name}}",
+  "descriptionTeam": "{{organisation}} kuruluşundaki herkesin performansı.",
+  "defaultOrganisation": "kuruluşunuz",
+  "descriptionMe": "Canlı aramalardaki ve alıştırmalardaki performansınız ve sırada üzerinde çalışmanız gerekenler.",
+  "scope": {
+    "me": "Ben",
+    "team": "Ekip"
+  },
+  "period": "Dönem",
+  "practice": "Alıştırma",
+  "stats": {
+    "averageScore": "Ortalama puan",
+    "averageScoreHint": "Canlı {{live}} · Alıştırma {{practice}}",
+    "calls": "Aramalar",
+    "callsHint": "{{live}} canlı · {{practice}} alıştırma",
+    "meetingsBooked": "Ayarlanan toplantılar",
+    "fromLiveCalls": "Canlı aramalardan",
+    "practiceStreak": "Alıştırma serisi",
+    "streakDays": "{{count}} g",
+    "talkMinutes": "Aramalarda {{minutes}} dk"
+  },
+  "gettingStarted": {
+    "heading": "Üç adımda kurulumu tamamlayın",
+    "subheading": "Çoğu kişi bunu beş dakikadan kısa sürede bitiriyor.",
+    "createCopilot": {
+      "title": "Yardımcı pilotunuzu oluşturun",
+      "text": "Bir şablonla başlayın: tek tıkla senaryo, itirazlar ve hedef.",
+      "cta": "Yardımcı pilot oluştur"
+    },
+    "waitCopilot": {
+      "title": "Bir yardımcı pilotu bekleyin",
+      "text": "Bu kuruluşun bir yöneticisi kullanacağınız yardımcı pilotları ayarlar. Henüz hiçbiri yoksa ona sorun.",
+      "cta": "Kuruluşu görüntüle"
+    },
+    "practice": {
+      "title": "Yapay zekâ müşteri adayıyla prova yapın",
+      "text": "Gerçekçi bir müşteri adayıyla sesli konuşun; yardımcı pilot size koçluk yapsın.",
+      "cta": "Şimdi alıştırma yap"
+    },
+    "firstCall": {
+      "title": "İlk destekli aramanızı yapın",
+      "text": "Hoparlördeki telefon ya da çevrimiçi toplantı. Önerileri canlı alın.",
+      "cta": "Arama başlat"
+    }
+  },
+  "highlights": {
+    "title": "Öne çıkanlar",
+    "empty": "Birkaç arama analiz edildikten sonra nelerin iyileştiğini ve nelere dikkat edilmesi gerektiğini burada göreceksiniz."
+  },
+  "outcomes": {
+    "title": "Canlı arama sonuçları",
+    "subtitle": "Sonucu kaydedilen aramaların payı",
+    "empty": "Performansı sonuçlarla ilişkilendirmek için canlı aramaların sonunda sonuçları kaydedin."
+  },
+  "invitations": {
+    "title": "Davet edildiniz",
+    "from": "Gönderen: {{name}}",
+    "expires": "{{when}} sona erer",
+    "accept": "Kabul et"
+  },
+  "practiceProgress": {
+    "title": "Alıştırma ilerlemesi",
+    "withCopilot": "Yardımcı pilotla",
+    "onYourOwn": "Kendi başınıza",
+    "empty": "Bu dönemde alıştırma oturumu yok.",
+    "tabs": {
+      "level": "Seviye",
+      "lead": "Aday",
+      "scenario": "Senaryo",
+      "copilot": "Yardımcı pilot"
+    },
+    "columns": {
+      "group": "Grup",
+      "sessions": "Oturum",
+      "won": "Başarılı",
+      "avg": "Ort."
+    }
+  },
+  "recentCalls": {
+    "title": "Son aramalar",
+    "viewAll": "Tümünü gör",
+    "empty": "Henüz arama yok."
+  },
+  "recommended": {
+    "title": "Önerilen alıştırma",
+    "subtitle": "Son zayıf noktalarınızdan oluşturulan senaryolar",
+    "empty": "Öneriler ilk analiz edilen aramanızdan sonra görünür. Bu arada hazır bir senaryo deneyin.",
+    "browse": "Senaryolara göz at",
+    "preparing": "Hazırlanıyor…",
+    "practice": "Alıştırma yap"
+  },
+  "mistakes": {
+    "title": "Tekrarlayan hatalar",
+    "subtitle": "Analiz edilen son 20 aramanızdan",
+    "empty": "Henüz bir örüntü yok. Devam edin.",
+    "callsAffected_one": "{{count}} arama",
+    "callsAffected_other": "{{count}} arama",
+    "viewCall": "Aramayı görüntüle"
+  },
+  "scoreTrend": {
+    "title": "Puan eğilimi",
+    "subtitle": "Analiz edilen her arama, eskiden yeniye",
+    "emptyTitle": "Henüz yeterli veri yok",
+    "emptyDescription": "Eğiliminiz, iki analiz edilmiş arama veya alıştırma oturumundan sonra görünür.",
+    "liveCalls": "Canlı aramalar",
+    "practice": "Alıştırma"
+  },
+  "skills": {
+    "title": "Beceriler",
+    "subtitle": "Önce en zayıflar. Çubuklar canlı aramaları alıştırmayla karşılaştırır.",
+    "empty": "Beceri puanları ilk analiz edilen aramanızdan sonra görünür.",
+    "live": "Canlı",
+    "practice": "Alıştırma"
+  }
+}

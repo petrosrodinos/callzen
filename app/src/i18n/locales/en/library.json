@@ -1,0 +1,220 @@
+{
+  "index": {
+    "title": "Call library",
+    "description": "Every live call and practice session, with recordings, transcripts and analyses.",
+    "startCall": "Start a call",
+    "searchPlaceholder": "Search by prospect, company or notes",
+    "searchLabel": "Search calls",
+    "filtersButton": "Filters",
+    "clearFilters": "Clear filters",
+    "filters": {
+      "whose": "Whose calls",
+      "everyone": "Everyone's calls",
+      "mine": "Only mine",
+      "kind": "Live or practice",
+      "type": "Call type",
+      "copilot": "Co-pilot",
+      "allCopilots": "All co-pilots",
+      "outcome": "Outcome",
+      "score": "Score",
+      "date": "Date",
+      "sort": "Sort"
+    },
+    "empty": {
+      "noMatchTitle": "No calls match",
+      "noCallsTitle": "No calls yet",
+      "noMatchDescription": "Try removing some filters.",
+      "noCallsDescription": "Your live calls and practice sessions will appear here.",
+      "startPractising": "Start practising"
+    },
+    "previousPage": "Previous page",
+    "nextPage": "Next page",
+    "callCount_one": "{{count}} call",
+    "callCount_other": "{{count}} calls"
+  },
+  "detail": {
+    "pageTitle": "Call",
+    "notFound": {
+      "title": "Call not found",
+      "description": "It may have been deleted.",
+      "back": "Back to library"
+    },
+    "recordingTranscript": "Recording & transcript",
+    "tabs": {
+      "reveal": "Result & reveal",
+      "overview": "Overview",
+      "moments": "Mistakes & strengths",
+      "metrics": "Metrics",
+      "prospect": "Prospect",
+      "copilot": "Co-pilot",
+      "followUp": "Follow-up"
+    },
+    "followUpSubject": "Following up",
+    "followUpSubjectCompany": "Following up – {{company}}",
+    "timeline": {
+      "bookmark": "Bookmark",
+      "label": "Call timeline",
+      "markerAt": "{{label}} at {{time}}"
+    },
+    "status": {
+      "preparing": "Preparing your performance report…",
+      "preparingHint": "Usually under a minute. You can leave this page; it'll be ready in your library.",
+      "failed": "The analysis didn't complete",
+      "noAnalysis": "No analysis for this call",
+      "safe": "Your recording and transcript are safe.",
+      "canRetry": "You can try again.",
+      "retry": "Retry analysis"
+    },
+    "header": {
+      "back": "Call library",
+      "practice": "Practice",
+      "copilot": "Co-pilot: {{name}}",
+      "practiceSession": "Practice session",
+      "call": "Call",
+      "by": "by {{name}}",
+      "outcomeLabel": "Call outcome",
+      "recordOutcome": "Record outcome",
+      "retry": "Retry",
+      "moreActions": "More actions",
+      "rerun": "Re-run analysis",
+      "recreatingProspect": "Recreating prospect…",
+      "practiceWithProspect": "Practice with this prospect",
+      "harder": "Try a harder version",
+      "retention": "Retention",
+      "deleteRecording": "Delete recording only",
+      "deleteTranscript": "Delete transcript",
+      "deleteCall": "Delete call permanently",
+      "confirm": {
+        "confirmText": "Delete permanently",
+        "call": {
+          "title": "Delete this call permanently?",
+          "description": "The recording, transcript, suggestions and analysis are permanently deleted. This can't be undone."
+        },
+        "recording": {
+          "title": "Delete the recording?",
+          "description": "The audio is permanently deleted. The transcript and analysis are kept."
+        },
+        "transcript": {
+          "title": "Delete the transcript?",
+          "description": "The transcript is permanently deleted. The analysis is kept, but you can't re-run it."
+        }
+      }
+    },
+    "recording": {
+      "saving": "Saving the recording…",
+      "noAudio": "No audio stored for this call. Transcript and analysis are kept.",
+      "loadError": "The recording could not be loaded. It may still be uploading; refresh in a moment.",
+      "download": "Download recording"
+    },
+    "transcript": {
+      "empty": "No transcript is stored for this call.",
+      "playFrom": "Play from {{time}}",
+      "switchSpeaker": "Switch speaker",
+      "wrongSpeaker": "Wrong speaker? Switch it"
+    },
+    "overview": {
+      "overallScore": "Overall score",
+      "verdict": "Verdict",
+      "skillScores": "Skill scores",
+      "focusNextTime": "Focus next time",
+      "nextSteps": "Next steps"
+    },
+    "moments": {
+      "jumpTo": "Jump to {{time}}",
+      "mistakes": "Mistakes ({{count}})",
+      "noMistakes": "No mistakes flagged. Nice work.",
+      "whatHappened": "What happened",
+      "whyItMatters": "Why it matters",
+      "doInstead": "Do this instead",
+      "strengths": "Strengths ({{count}})",
+      "noStrengths": "No standout strengths this time."
+    },
+    "metrics": {
+      "talkRatio": "Talk-to-listen ratio",
+      "talkedPercent": "You talked {{percent}}% of the time",
+      "you": "You",
+      "prospect": "Prospect",
+      "talkHint": "Top performers usually talk 40–60% of the time on discovery calls.",
+      "questionsAsked": "Questions asked",
+      "longestMonologue": "Longest monologue",
+      "speakingPace": "Speaking pace",
+      "paceValue": "{{value}} wpm",
+      "paceHint": "Natural range: 130–170",
+      "fillerWords": "Filler words",
+      "interruptions": "Interruptions",
+      "objectionsHandled": "Objections handled",
+      "objections": "Objections",
+      "buyingSignals": "Buying signals",
+      "actedOn": "Acted on",
+      "missed": "Missed"
+    },
+    "insights": {
+      "noneIdentified": "None identified",
+      "summary": "Prospect summary",
+      "needs": "Needs",
+      "painPoints": "Pain points",
+      "objections": "Objections",
+      "buyingSignals": "Buying signals",
+      "keyInfo": "Key information revealed",
+      "fields": {
+        "budget": "Budget",
+        "timeline": "Timeline",
+        "decisionMakers": "Decision makers",
+        "competitors": "Competitors"
+      },
+      "notDiscussed": "Not discussed"
+    },
+    "copilot": {
+      "howYouUsed": "How you used the co-pilot",
+      "followed": "{{count}} followed",
+      "adapted": "{{count}} adapted",
+      "ignored": "{{count}} ignored",
+      "improve": "Improve your co-pilot",
+      "edit": "Edit co-pilot",
+      "bySuggestion": "Suggestion by suggestion",
+      "helpful": "Helpful",
+      "notHelpful": "Not helpful"
+    },
+    "followUp": {
+      "empty": "No follow-up message was suggested for this call.",
+      "copyFailed": "Copy failed",
+      "copyFailedDescription": "Select the text and copy it manually.",
+      "title": "Draft follow-up",
+      "copied": "Copied",
+      "copy": "Copy",
+      "openInEmail": "Open in email",
+      "label": "Follow-up message"
+    },
+    "notes": {
+      "title": "Personal notes",
+      "placeholder": "Anything to remember about this call…",
+      "save": "Save notes"
+    },
+    "reveal": {
+      "objective": "Objective",
+      "yes": "Yes",
+      "no": "No",
+      "prospectThinking": "What the prospect was thinking",
+      "lostAttention": "Where you lost their attention",
+      "hiddenLayer": "The hidden layer, revealed",
+      "met": "Met",
+      "uncovered": "Uncovered",
+      "notMet": "Not met",
+      "missed": "Missed",
+      "nothingHidden": "Nothing hidden was configured for this prospect.",
+      "whatWouldChange": "What would have changed the outcome"
+    },
+    "rerun": {
+      "title": "Re-run analysis",
+      "description": "Try a different model or your co-pilot's latest scoring categories. The previous report is replaced.",
+      "modelName": "Analysis model",
+      "useCurrent": "Use the co-pilot's current scoring categories",
+      "useCurrentHint": "Otherwise the categories from the time of the call are used."
+    },
+    "suggestedPractice": {
+      "title": "Suggested practice",
+      "preparing": "Preparing…",
+      "practiceThis": "Practice this"
+    }
+  }
+}

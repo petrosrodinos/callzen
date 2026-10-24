@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import type { UseFormReturn } from "react-hook-form";
 import { FileUp } from "lucide-react";
 import {
@@ -23,6 +24,7 @@ export function KnowledgeSection({
 }: {
   form: UseFormReturn<AssistantAgentFormValues>;
 }) {
+  const { t } = useTranslation("assistant");
   const inputRef = useRef<HTMLInputElement>(null);
   const knowledge = form.watch("knowledge");
 
@@ -32,8 +34,8 @@ export function KnowledgeSection({
     for (const file of Array.from(files)) {
       if (file.size > 2 * 1024 * 1024) {
         toast({
-          title: `${file.name} is too large`,
-          description: "Files up to 2 MB are supported.",
+          title: t("knowledge.tooLarge", { name: file.name }),
+          description: t("knowledge.tooLargeHint"),
           variant: "error",
         });
         continue;
@@ -55,13 +57,13 @@ export function KnowledgeSection({
     });
     if (next.length > MAX_KNOWLEDGE)
       toast({
-        title: "Knowledge was trimmed",
-        description: "Only the first 60,000 characters are kept.",
+        title: t("knowledge.trimmed"),
+        description: t("knowledge.trimmedHint", { max: formatNumber(MAX_KNOWLEDGE) }),
         variant: "warning",
       });
     else
       toast({
-        title: `Imported ${parts.length} file${parts.length > 1 ? "s" : ""}`,
+        title: t("knowledge.imported", { count: parts.length }),
         duration: 2000,
       });
     if (inputRef.current) inputRef.current.value = "";
@@ -69,8 +71,8 @@ export function KnowledgeSection({
 
   return (
     <FormSection
-      title="Knowledge & context"
-      description="Product details, pricing, FAQs, competitor comparisons, case studies, ideal customer profile. Used for answers and key info cards during calls."
+      title={t("knowledge.title")}
+      description={t("knowledge.description")}
       actions={
         <>
           <input
@@ -87,7 +89,7 @@ export function KnowledgeSection({
             variant="outline"
             onClick={() => inputRef.current?.click()}
           >
-            <FileUp /> Import documents
+            <FileUp /> {t("knowledge.import")}
           </Button>
         </>
       }
@@ -101,14 +103,12 @@ export function KnowledgeSection({
               <Textarea
                 rows={14}
                 className="font-mono text-xs leading-relaxed"
-                placeholder={
-                  "Product: …\nPricing: Starter $99/month per location, 50 seats $399/month\nKey benefit: reduces no-shows by 30%\nCompetitors: …\nFAQ: …"
-                }
+                placeholder={t("knowledge.placeholder")}
                 {...field}
               />
             </FormControl>
             <FormDescription className="flex justify-between">
-              <span>Imports .txt, .md, .csv, .json and .html files.</span>
+              <span>{t("knowledge.importHint")}</span>
               <span className="tabular-nums">
                 {formatNumber(knowledge?.length ?? 0)} /{" "}
                 {formatNumber(MAX_KNOWLEDGE)}

@@ -1,0 +1,98 @@
+{
+  "title": "Ustawienia",
+  "save": "Zapisz ustawienia",
+  "nav": {
+    "profile": "Profil i preferencje",
+    "usage": "Użycie i koszty",
+    "privacy": "Prywatność i dane",
+    "sections": "Sekcje ustawień"
+  },
+  "validation": {
+    "enterName": "Wpisz swoje imię i nazwisko",
+    "enterPassword": "Wpisz swoje hasło",
+    "typeDelete": "Wpisz „DELETE”, aby potwierdzić"
+  },
+  "profile": {
+    "title": "Profil",
+    "fullName": "Imię i nazwisko",
+    "email": "E-mail"
+  },
+  "appearance": {
+    "title": "Wygląd",
+    "description": "Jasny, ciemny lub zgodny z systemem.",
+    "language": "Język interfejsu",
+    "languageDescription": "Język używany w menu, przyciskach i komunikatach."
+  },
+  "languages": {
+    "title": "Języki",
+    "description": "Rozmowy i ćwiczenia mogą odbywać się w wielu językach.",
+    "yourLanguage": "Twój język",
+    "templates": "Szablony i przykłady w języku",
+    "templatesAria": "Język szablonów i przykładów",
+    "output": "Podpowiedzi i analiza w języku"
+  },
+  "recording": {
+    "title": "Nagrywanie",
+    "description": "Odpowiadasz za uzyskanie zgody tam, gdzie wymagają tego przepisy o nagrywaniu.",
+    "keep": "Domyślnie zachowuj nagrania audio",
+    "keepHint": "Gdy wyłączone, przechowywane są tylko transkrypcje i analizy. Możesz to zmienić dla każdej rozmowy.",
+    "consentLine": "Domyślne zdanie informujące o zgodzie",
+    "consentLineHint": "Proponowane jako pierwsze zdanie rozmów, gdy asystent ma włączone zdanie o zgodzie."
+  },
+  "privacy": {
+    "yourData": {
+      "title": "Twoje dane",
+      "private": "Nagrania, transkrypcje, skrypty i konfiguracje agentów są prywatne i dostępne tylko dla Twojego konta.",
+      "delete": "W każdej chwili możesz usunąć dowolne nagranie, transkrypcję lub rozmowę na jej stronie. Usunięcie jest trwałe.",
+      "keepOnly": "Możesz zachować tylko transkrypcje i analizy, wyłączając nagrywanie w Ustawieniach lub dla pojedynczej rozmowy.",
+      "sensitive": "Poufne informacje, które podajesz (skrypty, cenniki, dane klientów), są przesyłane wyłącznie do wymienionych poniżej dostawców AI w celu tworzenia podpowiedzi i analiz."
+    },
+    "processors": {
+      "title": "Kto przetwarza Twoje dane",
+      "description": "Na podstawie wybranych modeli i dostawców głosu.",
+      "region": "Region: {{region}}"
+    },
+    "consent": {
+      "title": "Zgoda na nagrywanie",
+      "text": "Przepisy dotyczące nagrywania różnią się w zależności od kraju i regionu, a niektóre wymagają zgody każdego uczestnika. Przed nagraniem rozmowy upewnij się, że ją masz. Asystenci mogą podpowiadać Twoje zdanie o zgodzie jako pierwsze zdanie każdej rozmowy."
+    },
+    "deleteAccount": {
+      "title": "Usuń konto",
+      "description": "Trwale usuwa Twoje konto, asystentów, klientów, rozmowy, nagrania i analizy.",
+      "button": "Usuń konto"
+    },
+    "deleteDialog": {
+      "title": "Trwale usunąć konto?",
+      "description": "Wszystkie Twoje dane zostaną natychmiast usunięte i nie będzie można ich odzyskać.",
+      "password": "Hasło",
+      "confirmation": "Wpisz DELETE, aby potwierdzić",
+      "submit": "Usuń wszystko"
+    }
+  },
+  "usage": {
+    "period": "Okres",
+    "scopeOrg": "Wyświetlane jest użycie wszystkich osób w tej organizacji.",
+    "scopeMine": "Wyświetlane jest Twoje własne użycie w tej organizacji.",
+    "estimatedCost": "Szacowany koszt AI",
+    "listPrices": "Na podstawie cen katalogowych",
+    "liveMinutes": "Minuty rozmów na żywo",
+    "practiceMinutes": "Minuty ćwiczeń",
+    "analyses": "Analizy",
+    "suggestions_one": "{{count}} podpowiedź",
+    "suggestions_few": "{{count}} podpowiedzi",
+    "suggestions_many": "{{count}} podpowiedzi",
+    "suggestions_other": "{{count}} podpowiedzi",
+    "byActivity": "Według aktywności",
+    "byModel": "Według modelu i dostawcy",
+    "tokens": "{{tokens}} tokenów",
+    "priceList": {
+      "title": "Cennik",
+      "description": "Ile kosztuje każdy model i dostawca głosu, aby wyważyć jakość i wydatki.",
+      "model": "Model",
+      "speed": "Szybkość",
+      "input": "Wejście / 1 mln tokenów",
+      "output": "Wyjście / 1 mln tokenów",
+      "perMinute": "~{{price}} za minutę"
+    }
+  }
+}

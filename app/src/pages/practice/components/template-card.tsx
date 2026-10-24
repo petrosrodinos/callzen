@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Loader2, Play } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,7 @@ export function TemplateCard({
   isPending,
   disabled,
 }: TemplateCardProps) {
+  const { t } = useTranslation("practice");
   return (
     <Card className="flex w-72 shrink-0 snap-start flex-col p-4 sm:w-auto">
       <div className="flex items-start justify-between gap-2">
@@ -42,8 +44,8 @@ export function TemplateCard({
         </Badge>
       </div>
       <Button size="sm" className="mt-3" onClick={onUse} disabled={disabled}>
-        {isPending ? <Loader2 className="animate-spin" /> : <Play />} Practice
-        this
+        {isPending ? <Loader2 className="animate-spin" /> : <Play />}{" "}
+        {t("templateCard.practiceThis")}
       </Button>
     </Card>
   );

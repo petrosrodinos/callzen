@@ -1,11 +1,13 @@
 import { z } from "zod";
+import i18n from "@/i18n";
+import { formatNumber } from "@/lib/format";
 import {
   SuggestionFrequencies,
   SuggestionLengths,
 } from "@/features/assistant-agents/interfaces/assistant-agents.interfaces";
 
 export const assistantAgentSchema = z.object({
-  name: z.string().trim().min(1, "Give your co-pilot a name").max(120),
+  name: z.string().trim().min(1, i18n.t("assistant:validation.name")).max(120),
   description: z.string().max(1000),
   call_goal: z.string().max(300),
   script: z.array(
@@ -16,28 +18,28 @@ export const assistantAgentSchema = z.object({
       content: z
         .string()
         .trim()
-        .min(1, "Write what to say in this stage")
+        .min(1, i18n.t("assistant:validation.stageContent"))
         .max(4000),
     }),
   ),
   instructions: z.string().max(5000),
-  knowledge: z.string().max(60000, "Knowledge is limited to 60,000 characters"),
+  knowledge: z.string().max(60000, i18n.t("assistant:validation.knowledgeMax", { max: formatNumber(60000) })),
   objection_library: z.array(
     z.object({
       id: z.string(),
-      objection: z.string().trim().min(1, "Describe the objection").max(500),
+      objection: z.string().trim().min(1, i18n.t("assistant:validation.objection")).max(500),
       response: z
         .string()
         .trim()
-        .min(1, "Write your preferred response")
+        .min(1, i18n.t("assistant:validation.response"))
         .max(2000),
     }),
   ),
   methodology: z.string(),
   languages: z
     .array(z.string().min(2))
-    .min(1, "Pick at least one language")
-    .max(5, "Up to 5 languages"),
+    .min(1, i18n.t("assistant:validation.languagesMin"))
+    .max(5, i18n.t("assistant:validation.languagesMax", { max: 5 })),
   tone: z.string(),
   suggestion_frequency: z.enum([
     SuggestionFrequencies.OBJECTIONS_ONLY,
@@ -55,12 +57,12 @@ export const assistantAgentSchema = z.object({
     .array(
       z.object({
         key: z.string().min(1),
-        label: z.string().trim().min(1, "Name the category").max(120),
+        label: z.string().trim().min(1, i18n.t("assistant:validation.categoryName")).max(120),
         weight: z.number().min(0).max(5),
         description: z.string().max(500).optional(),
       }),
     )
-    .min(1, "Keep at least one scoring category"),
+    .min(1, i18n.t("assistant:validation.categoryMin")),
   consent_line: z.string().max(1000),
   suggest_consent_line: z.boolean(),
   is_default: z.boolean(),

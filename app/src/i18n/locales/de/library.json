@@ -1,0 +1,220 @@
+{
+  "index": {
+    "title": "Anrufbibliothek",
+    "description": "Alle Live-Anrufe und Übungssitzungen mit Aufzeichnungen, Transkripten und Analysen.",
+    "startCall": "Anruf starten",
+    "searchPlaceholder": "Nach Interessent, Unternehmen oder Notizen suchen",
+    "searchLabel": "Anrufe durchsuchen",
+    "filtersButton": "Filter",
+    "clearFilters": "Filter zurücksetzen",
+    "filters": {
+      "whose": "Wessen Anrufe",
+      "everyone": "Anrufe aller",
+      "mine": "Nur meine",
+      "kind": "Live oder Übung",
+      "type": "Anruftyp",
+      "copilot": "Copilot",
+      "allCopilots": "Alle Copiloten",
+      "outcome": "Ergebnis",
+      "score": "Bewertung",
+      "date": "Datum",
+      "sort": "Sortieren"
+    },
+    "empty": {
+      "noMatchTitle": "Keine passenden Anrufe",
+      "noCallsTitle": "Noch keine Anrufe",
+      "noMatchDescription": "Entfernen Sie einige Filter.",
+      "noCallsDescription": "Ihre Live-Anrufe und Übungssitzungen erscheinen hier.",
+      "startPractising": "Mit dem Üben beginnen"
+    },
+    "previousPage": "Vorherige Seite",
+    "nextPage": "Nächste Seite",
+    "callCount_one": "{{count}} Anruf",
+    "callCount_other": "{{count}} Anrufe"
+  },
+  "detail": {
+    "pageTitle": "Anruf",
+    "notFound": {
+      "title": "Anruf nicht gefunden",
+      "description": "Er wurde möglicherweise gelöscht.",
+      "back": "Zurück zur Bibliothek"
+    },
+    "recordingTranscript": "Aufzeichnung & Transkript",
+    "tabs": {
+      "reveal": "Ergebnis & Auflösung",
+      "overview": "Übersicht",
+      "moments": "Fehler & Stärken",
+      "metrics": "Kennzahlen",
+      "prospect": "Interessent",
+      "copilot": "Copilot",
+      "followUp": "Nachfassen"
+    },
+    "followUpSubject": "Nachfassen",
+    "followUpSubjectCompany": "Nachfassen – {{company}}",
+    "timeline": {
+      "bookmark": "Lesezeichen",
+      "label": "Anruf-Zeitleiste",
+      "markerAt": "{{label}} bei {{time}}"
+    },
+    "status": {
+      "preparing": "Ihr Leistungsbericht wird erstellt…",
+      "preparingHint": "Dauert normalerweise unter einer Minute. Sie können diese Seite verlassen; der Bericht ist dann in Ihrer Bibliothek verfügbar.",
+      "failed": "Die Analyse wurde nicht abgeschlossen",
+      "noAnalysis": "Keine Analyse für diesen Anruf",
+      "safe": "Ihre Aufzeichnung und Ihr Transkript sind sicher.",
+      "canRetry": "Sie können es erneut versuchen.",
+      "retry": "Analyse wiederholen"
+    },
+    "header": {
+      "back": "Anrufbibliothek",
+      "practice": "Übung",
+      "copilot": "Copilot: {{name}}",
+      "practiceSession": "Übungssitzung",
+      "call": "Anruf",
+      "by": "von {{name}}",
+      "outcomeLabel": "Anrufergebnis",
+      "recordOutcome": "Ergebnis erfassen",
+      "retry": "Wiederholen",
+      "moreActions": "Weitere Aktionen",
+      "rerun": "Analyse erneut ausführen",
+      "recreatingProspect": "Interessent wird nachgebildet…",
+      "practiceWithProspect": "Mit diesem Interessenten üben",
+      "harder": "Schwierigere Version ausprobieren",
+      "retention": "Aufbewahrung",
+      "deleteRecording": "Nur Aufzeichnung löschen",
+      "deleteTranscript": "Transkript löschen",
+      "deleteCall": "Anruf endgültig löschen",
+      "confirm": {
+        "confirmText": "Endgültig löschen",
+        "call": {
+          "title": "Diesen Anruf endgültig löschen?",
+          "description": "Aufzeichnung, Transkript, Vorschläge und Analyse werden endgültig gelöscht. Dies kann nicht rückgängig gemacht werden."
+        },
+        "recording": {
+          "title": "Aufzeichnung löschen?",
+          "description": "Die Audiodatei wird endgültig gelöscht. Transkript und Analyse bleiben erhalten."
+        },
+        "transcript": {
+          "title": "Transkript löschen?",
+          "description": "Das Transkript wird endgültig gelöscht. Die Analyse bleibt erhalten, kann aber nicht erneut ausgeführt werden."
+        }
+      }
+    },
+    "recording": {
+      "saving": "Aufzeichnung wird gespeichert…",
+      "noAudio": "Für diesen Anruf ist keine Audiodatei gespeichert. Transkript und Analyse bleiben erhalten.",
+      "loadError": "Die Aufzeichnung konnte nicht geladen werden. Möglicherweise wird sie noch hochgeladen; laden Sie in Kürze neu.",
+      "download": "Aufzeichnung herunterladen"
+    },
+    "transcript": {
+      "empty": "Für diesen Anruf ist kein Transkript gespeichert.",
+      "playFrom": "Ab {{time}} abspielen",
+      "switchSpeaker": "Sprecher wechseln",
+      "wrongSpeaker": "Falscher Sprecher? Jetzt wechseln"
+    },
+    "overview": {
+      "overallScore": "Gesamtbewertung",
+      "verdict": "Fazit",
+      "skillScores": "Bewertung nach Fähigkeiten",
+      "focusNextTime": "Nächstes Mal im Fokus",
+      "nextSteps": "Nächste Schritte"
+    },
+    "moments": {
+      "jumpTo": "Zu {{time}} springen",
+      "mistakes": "Fehler ({{count}})",
+      "noMistakes": "Keine Fehler markiert. Gute Arbeit!",
+      "whatHappened": "Was passiert ist",
+      "whyItMatters": "Warum das wichtig ist",
+      "doInstead": "Besser so",
+      "strengths": "Stärken ({{count}})",
+      "noStrengths": "Diesmal keine herausragenden Stärken."
+    },
+    "metrics": {
+      "talkRatio": "Sprech-Zuhör-Verhältnis",
+      "talkedPercent": "Sie haben {{percent}} % der Zeit gesprochen",
+      "you": "Sie",
+      "prospect": "Interessent",
+      "talkHint": "Spitzenverkäufer sprechen in Discovery-Calls meist 40–60 % der Zeit.",
+      "questionsAsked": "Gestellte Fragen",
+      "longestMonologue": "Längster Monolog",
+      "speakingPace": "Sprechtempo",
+      "paceValue": "{{value}} Wörter/Min.",
+      "paceHint": "Natürlicher Bereich: 130–170",
+      "fillerWords": "Füllwörter",
+      "interruptions": "Unterbrechungen",
+      "objectionsHandled": "Bearbeitete Einwände",
+      "objections": "Einwände",
+      "buyingSignals": "Kaufsignale",
+      "actedOn": "Genutzt",
+      "missed": "Verpasst"
+    },
+    "insights": {
+      "noneIdentified": "Keine erkannt",
+      "summary": "Zusammenfassung zum Interessenten",
+      "needs": "Bedürfnisse",
+      "painPoints": "Schmerzpunkte",
+      "objections": "Einwände",
+      "buyingSignals": "Kaufsignale",
+      "keyInfo": "Offengelegte Schlüsselinformationen",
+      "fields": {
+        "budget": "Budget",
+        "timeline": "Zeitplan",
+        "decisionMakers": "Entscheidungsträger",
+        "competitors": "Wettbewerber"
+      },
+      "notDiscussed": "Nicht besprochen"
+    },
+    "copilot": {
+      "howYouUsed": "Wie Sie den Copiloten genutzt haben",
+      "followed": "{{count}} befolgt",
+      "adapted": "{{count}} angepasst",
+      "ignored": "{{count}} ignoriert",
+      "improve": "Ihren Copiloten verbessern",
+      "edit": "Copilot bearbeiten",
+      "bySuggestion": "Vorschlag für Vorschlag",
+      "helpful": "Hilfreich",
+      "notHelpful": "Nicht hilfreich"
+    },
+    "followUp": {
+      "empty": "Für diesen Anruf wurde keine Nachfassnachricht vorgeschlagen.",
+      "copyFailed": "Kopieren fehlgeschlagen",
+      "copyFailedDescription": "Markieren Sie den Text und kopieren Sie ihn manuell.",
+      "title": "Entwurf für Nachfassen",
+      "copied": "Kopiert",
+      "copy": "Kopieren",
+      "openInEmail": "In E-Mail öffnen",
+      "label": "Nachfassnachricht"
+    },
+    "notes": {
+      "title": "Persönliche Notizen",
+      "placeholder": "Alles, was Sie sich zu diesem Anruf merken möchten…",
+      "save": "Notizen speichern"
+    },
+    "reveal": {
+      "objective": "Ziel",
+      "yes": "Ja",
+      "no": "Nein",
+      "prospectThinking": "Was der Interessent dachte",
+      "lostAttention": "Wo Sie seine Aufmerksamkeit verloren haben",
+      "hiddenLayer": "Die verborgene Ebene, aufgedeckt",
+      "met": "Erfüllt",
+      "uncovered": "Aufgedeckt",
+      "notMet": "Nicht erfüllt",
+      "missed": "Verpasst",
+      "nothingHidden": "Für diesen Interessenten wurde nichts Verborgenes konfiguriert.",
+      "whatWouldChange": "Was das Ergebnis verändert hätte"
+    },
+    "rerun": {
+      "title": "Analyse erneut ausführen",
+      "description": "Probieren Sie ein anderes Modell oder die neuesten Bewertungskategorien Ihres Copiloten aus. Der vorherige Bericht wird ersetzt.",
+      "modelName": "Analysemodell",
+      "useCurrent": "Aktuelle Bewertungskategorien des Copiloten verwenden",
+      "useCurrentHint": "Andernfalls werden die Kategorien zum Zeitpunkt des Anrufs verwendet."
+    },
+    "suggestedPractice": {
+      "title": "Empfohlene Übung",
+      "preparing": "Wird vorbereitet…",
+      "practiceThis": "Das üben"
+    }
+  }
+}

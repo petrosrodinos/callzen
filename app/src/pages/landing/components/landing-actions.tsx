@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useAuthStore } from "@/stores/auth";
 import { Routes } from "@/routes/routes";
 
 export function LandingActions() {
+  const { t } = useTranslation("landing");
   const { isLoggedIn } = useAuthStore();
 
   if (isLoggedIn) {
     return (
       <Link to={Routes.dashboard} className="lz-btn lz-btn--primary">
-        Open dashboard
+        {t("actions.openDashboard")}
       </Link>
     );
   }
@@ -16,10 +18,10 @@ export function LandingActions() {
   return (
     <>
       <Link to={Routes.auth.sign_up} className="lz-btn lz-btn--primary">
-        Create your account
+        {t("actions.createAccount")}
       </Link>
       <Link to={Routes.auth.sign_in} className="lz-btn lz-btn--quiet">
-        Sign in
+        {t("actions.signIn")}
       </Link>
     </>
   );

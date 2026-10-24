@@ -6,6 +6,7 @@ import {
   Quote,
   XCircle,
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -23,6 +24,7 @@ export function PracticeReveal({
   objective: string | null | undefined;
   onJump: (ms: number) => void;
 }) {
+  const { t } = useTranslation("library");
   const groups = PracticeRevealKindOptions.map((kind) => ({
     ...kind,
     items: result.reveal.filter((item) => item.kind === kind.id),
@@ -45,8 +47,10 @@ export function PracticeReveal({
         )}
         <div>
           <p className="font-semibold">
-            {objective ?? "Objective"}:{" "}
-            {result.objective_achieved ? "Yes" : "No"}
+            {objective ?? t("detail.reveal.objective")}:{" "}
+            {result.objective_achieved
+              ? t("detail.reveal.yes")
+              : t("detail.reveal.no")}
           </p>
           <p className="text-sm text-muted-foreground">
             {result.objective_explanation}
@@ -56,8 +60,8 @@ export function PracticeReveal({
 
       <Card className="p-5">
         <h3 className="mb-2 flex items-center gap-2 font-semibold">
-          <Quote className="size-4 text-primary" /> What the prospect was
-          thinking
+          <Quote className="size-4 text-primary" />{" "}
+          {t("detail.reveal.prospectThinking")}
         </h3>
         <p className="text-sm italic leading-relaxed">
           {result.prospect_thinking}
@@ -69,7 +73,7 @@ export function PracticeReveal({
             className="mt-3"
             onClick={() => onJump(result.lost_attention.at_ms as number)}
           >
-            <Play /> Where you lost their attention ·{" "}
+            <Play /> {t("detail.reveal.lostAttention")} ·{" "}
             {formatClock(result.lost_attention.at_ms)}
           </Button>
         )}
@@ -77,7 +81,8 @@ export function PracticeReveal({
 
       <Card className="p-5">
         <h3 className="mb-3 flex items-center gap-2 font-semibold">
-          <Eye className="size-4 text-primary" /> The hidden layer, revealed
+          <Eye className="size-4 text-primary" />{" "}
+          {t("detail.reveal.hiddenLayer")}
         </h3>
         <div className="space-y-4">
           {groups.map((group) => (
@@ -105,11 +110,11 @@ export function PracticeReveal({
                         >
                           {item.uncovered
                             ? group.id === "CONVERSION_CONDITION"
-                              ? "Met"
-                              : "Uncovered"
+                              ? t("detail.reveal.met")
+                              : t("detail.reveal.uncovered")
                             : group.id === "CONVERSION_CONDITION"
-                              ? "Not met"
-                              : "Missed"}
+                              ? t("detail.reveal.notMet")
+                              : t("detail.reveal.missed")}
                         </Badge>
                       </div>
                       {item.comment && (
@@ -125,7 +130,7 @@ export function PracticeReveal({
           ))}
           {!groups.length && (
             <p className="text-sm text-muted-foreground">
-              Nothing hidden was configured for this prospect.
+              {t("detail.reveal.nothingHidden")}
             </p>
           )}
         </div>
@@ -134,7 +139,9 @@ export function PracticeReveal({
       <Card className="flex items-start gap-3 p-5">
         <Lightbulb className="size-5 shrink-0 text-amber-500" />
         <div>
-          <h3 className="font-semibold">What would have changed the outcome</h3>
+          <h3 className="font-semibold">
+            {t("detail.reveal.whatWouldChange")}
+          </h3>
           <p className="mt-1 text-sm">{result.what_would_change_outcome}</p>
         </div>
       </Card>

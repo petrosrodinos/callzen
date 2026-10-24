@@ -1,0 +1,173 @@
+{
+  "list": {
+    "title": "Copiloten",
+    "description": "Elke copiloot heeft een eigen script, bezwaarbibliotheek, kennis en stijl. Maak er één per product, doelgroep of gespreksfase.",
+    "new": "Nieuwe copiloot",
+    "searchPlaceholder": "Copiloten zoeken",
+    "filterByStatus": "Filteren op status",
+    "empty": {
+      "noMatch": "Geen copiloten gevonden",
+      "createFirst": "Maak je eerste copiloot",
+      "none": "Nog geen copiloten",
+      "descriptionManage": "Kies een sjabloon zoals Generic Cold Call of B2B Discovery en pas het in een paar minuten aan op je product.",
+      "descriptionMember": "Een beheerder van deze organisatie maakt de copiloten aan die je tijdens gesprekken gebruikt."
+    }
+  },
+  "card": {
+    "default": "Standaard",
+    "archived": "Gearchiveerd",
+    "actionsFor": "Acties voor {{name}}",
+    "edit": "Bewerken",
+    "makeDefault": "Als standaard instellen",
+    "duplicate": "Dupliceren",
+    "restore": "Herstellen",
+    "archive": "Archiveren",
+    "delete": "Verwijderen",
+    "noDescription": "Geen beschrijving",
+    "goal": "Doel:",
+    "calls": "Gesprekken",
+    "avgScore": "Gem. score",
+    "trend": "Trend",
+    "usedAgo": "gebruikt {{when}}",
+    "neverUsed": "nooit gebruikt",
+    "useOnCall": "Gebruiken in een gesprek",
+    "practice": "Oefenen",
+    "deleteTitle": "{{name}} verwijderen?",
+    "deleteDescription": "De copiloot wordt definitief verwijderd. Eerdere gesprekken behouden hun transcripties en analyses."
+  },
+  "editor": {
+    "newTitle": "Nieuwe copiloot",
+    "fallbackTitle": "Copiloot",
+    "newDescription": "Begin met een sjabloon of helemaal opnieuw. Je kunt later alles aanpassen.",
+    "editDescription": "Script, kennis, bezwaarbehandeling, stijl en scoring voor deze copiloot.",
+    "create": "Copiloot maken",
+    "save": "Wijzigingen opslaan"
+  },
+  "form": {
+    "tabs": {
+      "basics": "Basis",
+      "script": "Script",
+      "objections": "Bezwaren",
+      "knowledge": "Kennis",
+      "style": "Stijl",
+      "models": "AI-modellen",
+      "analysis": "Scoring"
+    },
+    "fixFields": "Corrigeer de gemarkeerde velden",
+    "templates": "Sjablonen",
+    "unsavedChanges": "Niet-opgeslagen wijzigingen"
+  },
+  "analysis": {
+    "title": "Scorecategorieën",
+    "description": "Wat de analyse na het gesprek beoordeelt en hoe zwaar elke categorie meetelt in de totaalscore.",
+    "reset": "Herstellen",
+    "add": "Categorie toevoegen",
+    "categoryName": "Categorienaam",
+    "weight": "Gewicht",
+    "remove": "Categorie verwijderen"
+  },
+  "basics": {
+    "title": "Basis",
+    "description": "Waar deze copiloot voor dient en naar welk resultaat hij toewerkt.",
+    "name": "Naam",
+    "namePlaceholder": "Koude acquisitie – Tandartspraktijken",
+    "purpose": "Doel",
+    "purposePlaceholder": "Korte koude gesprekken met eigenaren van tandartspraktijken, gericht op het plannen van een demo.",
+    "callGoal": "Gespreksdoel",
+    "callGoalPlaceholder": "Een demo van 20 minuten inplannen",
+    "callGoalHint": "De copiloot stuurt het gesprek steeds naar dit resultaat toe.",
+    "languages": "Gesprekstalen",
+    "methodology": "Verkoopmethodiek",
+    "default": "Standaardcopiloot",
+    "defaultHint": "Vooraf geselecteerd als je een gesprek start."
+  },
+  "knowledge": {
+    "tooLarge": "{{name}} is te groot",
+    "tooLargeHint": "Bestanden tot 2 MB worden ondersteund.",
+    "trimmed": "Kennis is ingekort",
+    "trimmedHint": "Alleen de eerste {{max}} tekens blijven behouden.",
+    "imported_one": "{{count}} bestand geïmporteerd",
+    "imported_other": "{{count}} bestanden geïmporteerd",
+    "title": "Kennis en context",
+    "description": "Productdetails, prijzen, veelgestelde vragen, concurrentievergelijkingen, casestudy's, ideaal klantprofiel. Gebruikt voor antwoorden en infokaarten tijdens gesprekken.",
+    "import": "Documenten importeren",
+    "placeholder": "Product: …\nPrijzen: Starter $99/maand per locatie, 50 plekken $399/maand\nBelangrijkste voordeel: verlaagt no-shows met 30%\nConcurrenten: …\nFAQ: …",
+    "importHint": "Importeert .txt-, .md-, .csv-, .json- en .html-bestanden."
+  },
+  "models": {
+    "notConfigured": "AI is nog niet geconfigureerd op de server, dus suggesties en analyse zijn niet beschikbaar.",
+    "realtimeTitle": "Realtime suggesties",
+    "realtimeDescription": "Snelheid is hier het belangrijkst: een late suggestie is nutteloos.",
+    "realtimeModel": "Realtimemodel",
+    "analysisTitle": "Analyse na het gesprek",
+    "analysisDescription": "Analyse mag diepgang boven snelheid stellen. Als een model niet beschikbaar is, valt CallZen terug op het aanbevolen model en laat het je weten.",
+    "analysisModel": "Analysemodel"
+  },
+  "objections": {
+    "title": "Bezwaarbibliotheek",
+    "description": "Veelvoorkomende bezwaren en de antwoorden die je verkiest. Als de prospect er een opwerpt, herkent de copiloot het en stelt hij jouw antwoord voor, aangepast aan het moment.",
+    "add": "Bezwaar toevoegen",
+    "emptyTitle": "Nog geen bezwaren",
+    "emptyDescription": "Voeg de bezwaren toe die je het vaakst hoort: \"te duur\", \"stuur me een e-mail\", \"we hebben al een leverancier\"…",
+    "objectionPlaceholder": "Bezwaar, bijv. \"Het is te duur\"",
+    "objection": "Bezwaar",
+    "remove": "Bezwaar verwijderen",
+    "responsePlaceholder": "Je voorkeursantwoord",
+    "response": "Antwoord"
+  },
+  "script": {
+    "title": "Script",
+    "description": "Orden je script in fasen. De copiloot volgt het, houdt de voortgang live bij en past zich aan als het gesprek een andere kant op gaat.",
+    "addStage": "Fase toevoegen",
+    "emptyTitle": "Nog geen script",
+    "emptyDescription": "Zonder script vertrouwt de copiloot op je doel, instructies en kennis.",
+    "addFirstStage": "Eerste fase toevoegen",
+    "stageType": "Fasetype",
+    "stageTitlePlaceholder": "Fasetitel (optioneel)",
+    "stageTitle": "Fasetitel",
+    "moveUp": "Omhoog",
+    "moveDown": "Omlaag",
+    "remove": "Fase verwijderen",
+    "whatToSay": "Wat te zeggen",
+    "contentPlaceholder": "Wat je in deze fase zegt of vraagt. Gebruik {placeholders} voor namen."
+  },
+  "style": {
+    "instructionsTitle": "Instructies en toon",
+    "instructionsDescription": "Regels die de copiloot altijd volgt, in je eigen woorden.",
+    "instructions": "Instructies",
+    "instructionsPlaceholder": "Houd suggesties onder de 20 woorden.\nGeef nooit meer dan 10% korting.\nStuur altijd aan op een concreet afspraakmoment.",
+    "tone": "Toon",
+    "suggestionsTitle": "Suggesties",
+    "suggestionsDescription": "Hoe vaak en hoeveel de copiloot tijdens gesprekken toont. Je kunt de frequentie ook midden in een gesprek wijzigen.",
+    "frequency": "Frequentie",
+    "suggestionFrequency": "Frequentie van suggesties",
+    "length": "Lengte",
+    "alternatives": "Alternatieve formuleringen",
+    "consentTitle": "Toestemming voor opname",
+    "consentDescription": "Wetten over opnemen verschillen per regio en sommige vereisen toestemming van iedereen. Jij bent verantwoordelijk voor het verkrijgen ervan.",
+    "suggestConsent": "Eerst een toestemmingszin voorstellen",
+    "suggestConsentHint": "De eerste suggestie van elk gesprek is je mededelingszin.",
+    "consentLine": "Mededelingszin voor toestemming",
+    "consentLineHint": "Laat leeg om je standaard uit Instellingen te gebruiken."
+  },
+  "templates": {
+    "stats": "{{stages}} · {{objections}} · Doel: {{goal}}",
+    "stages_one": "{{count}} scriptfase",
+    "stages_other": "{{count}} scriptfasen",
+    "objections_one": "{{count}} bezwaar",
+    "objections_other": "{{count}} bezwaren",
+    "scratch": "Helemaal opnieuw beginnen",
+    "scratchHint": "Schrijf je eigen script en regels"
+  },
+  "validation": {
+    "name": "Geef je copiloot een naam",
+    "stageContent": "Schrijf wat je in deze fase zegt",
+    "knowledgeMax": "Kennis is beperkt tot {{max}} tekens",
+    "objection": "Beschrijf het bezwaar",
+    "response": "Schrijf je voorkeursantwoord",
+    "languagesMin": "Kies minstens één taal",
+    "languagesMax": "Maximaal {{max}} talen",
+    "categoryName": "Geef de categorie een naam",
+    "categoryMin": "Houd minstens één scorecategorie"
+  }
+}

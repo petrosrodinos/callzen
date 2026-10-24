@@ -1,4 +1,5 @@
 import { useState, type FC } from "react";
+import { useTranslation } from "react-i18next";
 import {
   BarChart3,
   Clock,
@@ -37,7 +38,8 @@ import { usePageMetadata } from "@/hooks/use-page-metadata";
 import { SettingsNav } from "../../components/settings-nav";
 
 const UsagePage: FC = () => {
-  usePageMetadata({ title: "Usage & costs" });
+  const { t } = useTranslation("settings");
+  usePageMetadata({ title: t("nav.usage") });
   const [days, setDays] = useState("30");
   const { data, isPending } = useUsageSummary(Number(days));
   const { data: catalog } = useCatalog();
@@ -50,10 +52,10 @@ const UsagePage: FC = () => {
   return (
     <div className="mx-auto max-w-4xl">
       <PageHeader
-        title="Settings"
+        title={t("title")}
         actions={
           <Select value={days} onValueChange={setDays}>
-            <SelectTrigger className="w-44" aria-label="Period">
+            <SelectTrigger className="w-44" aria-label={t("usage.period")}>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -69,8 +71,8 @@ const UsagePage: FC = () => {
       <SettingsNav />
       <p className="mb-4 text-sm text-muted-foreground">
         {orgWide
-          ? "Showing usage for everyone in this organisation."
-          : "Showing your own usage in this organisation."}
+          ? t("usage.scopeOrg")
+          : t("usage.scopeMine")}
       </p>
 
       {isPending || !data ? (
@@ -79,32 +81,32 @@ const UsagePage: FC = () => {
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
             <StatCard
-              label="Estimated AI cost"
+              label={t("usage.estimatedCost")}
               value={formatCurrency(data.estimated_cost_usd)}
               icon={DollarSign}
-              hint="Based on list prices"
+              hint={t("usage.listPrices")}
             />
             <StatCard
-              label="Live call minutes"
+              label={t("usage.liveMinutes")}
               value={formatNumber(data.live_minutes)}
               icon={Clock}
             />
             <StatCard
-              label="Practice minutes"
+              label={t("usage.practiceMinutes")}
               value={formatNumber(data.practice_minutes)}
               icon={Headphones}
             />
             <StatCard
-              label="Analyses"
+              label={t("usage.analyses")}
               value={data.analyses_count}
               icon={BarChart3}
-              hint={`${data.suggestions_count} suggestions`}
+              hint={t("usage.suggestions", { count: data.suggestions_count })}
             />
           </div>
 
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
             <Card className="p-5">
-              <h2 className="mb-3 font-semibold">By activity</h2>
+              <h2 className="mb-3 font-semibold">{t("usage.byActivity")}</h2>
               {!data.by_kind.length ? (
                 <p className="text-sm text-muted-foreground">
                   No usage in this period.
@@ -131,7 +133,7 @@ const UsagePage: FC = () => {
               )}
             </Card>
             <Card className="p-5">
-              <h2 className="mb-3 font-semibold">By model & provider</h2>
+              <h2 className="mb-3 font-semibold">{t("usage.byModel")}</h2>
               {!data.by_model.length ? (
                 <p className="text-sm text-muted-foreground">
                   No usage in this period.
@@ -149,8 +151,10 @@ const UsagePage: FC = () => {
                           {modelLabel(row.model)}
                         </span>
                         <span className="shrink-0 tabular-nums text-muted-foreground">
-                          {formatNumber(row.input_tokens + row.output_tokens)}{" "}
-                          tokens ·{" "}
+                          {t("usage.tokens", {
+                            tokens: formatNumber(row.input_tokens + row.output_tokens),
+                          })}{" "}
+                          ·{" "}
                           <span className="font-medium text-foreground">
                             {formatCurrency(row.cost_usd)}
                           </span>
@@ -165,23 +169,22 @@ const UsagePage: FC = () => {
           {catalog && (
             <Card className="p-5">
               <h2 className="flex items-center gap-2 font-semibold">
-                <Sparkles className="size-4 text-primary" /> Price list
+                <Sparkles className="size-4 text-primary" /> {t("usage.priceList.title")}
               </h2>
               <p className="mb-3 text-sm text-muted-foreground">
-                What each model and voice provider costs, so you can balance
-                quality and spend.
+                {t("usage.priceList.description")}
               </p>
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>Model</TableHead>
-                      <TableHead>Speed</TableHead>
+                      <TableHead>{t("usage.priceList.model")}</TableHead>
+                      <TableHead>{t("usage.priceList.speed")}</TableHead>
                       <TableHead className="text-right">
-                        Input / 1M tokens
+                        {t("usage.priceList.input")}
                       </TableHead>
                       <TableHead className="text-right">
-                        Output / 1M tokens
+                        {t("usage.priceList.output")}
                       </TableHead>
                     </TableRow>
                   </TableHeader>
@@ -212,8 +215,9 @@ const UsagePage: FC = () => {
                           colSpan={2}
                           className="text-right tabular-nums"
                         >
-                          ~{formatCurrency(provider.cost_per_minute_usd)} per
-                          minute
+                          {t("usage.priceList.perMinute", {
+                            price: formatCurrency(provider.cost_per_minute_usd),
+                          })}
                         </TableCell>
                       </TableRow>
                     ))}

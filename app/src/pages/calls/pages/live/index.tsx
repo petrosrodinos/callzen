@@ -1,5 +1,6 @@
 import { useEffect, useState, type FC } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { AlertTriangle, Bookmark, Mic, MonitorSmartphone, Pause, PhoneOff, Play, RefreshCw, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -26,6 +27,7 @@ import { EndCallDialog } from "./components/end-call-dialog";
 import { ManualLineInput } from "./components/manual-line-input";
 
 const LiveCallPage: FC = () => {
+  const { t } = useTranslation("calls");
   const { callId } = useParams<{ callId: string }>();
   const navigate = useNavigate();
   const { data: call, isPending, refetch } = useCall(callId);
@@ -36,7 +38,7 @@ const LiveCallPage: FC = () => {
   const [transcriptOpen, setTranscriptOpen] = useState(() => !window.matchMedia("(max-width: 767px)").matches);
   const [ending, setEnding] = useState(false);
 
-  usePageMetadata({ title: call?.title ?? "Live call" });
+  usePageMetadata({ title: call?.title ?? t("live.title") });
 
   const copilot = useCopilotSession({ call, getElapsedMs: clock.now });
   const capture = useLiveCapture({ call, copilot, clock });
@@ -75,7 +77,7 @@ const LiveCallPage: FC = () => {
     <div className="mx-auto max-w-7xl space-y-4 pb-24 lg:pb-0">
       <Card className="flex flex-wrap items-center gap-x-3 gap-y-2 p-3 sm:p-4">
         <Badge variant="destructive" className="gap-1">
-          {call.call_type === "ONLINE_MEETING" ? <MonitorSmartphone className="size-3" /> : <Mic className="size-3" />} Live
+          {call.call_type === "ONLINE_MEETING" ? <MonitorSmartphone className="size-3" /> : <Mic className="size-3" />} {t("live.badge")}
         </Badge>
         <RecordingIndicator state={recordingState} />
         <span className="font-mono text-sm tabular-nums">{formatClock(clock.elapsedMs)}</span>
@@ -83,14 +85,14 @@ const LiveCallPage: FC = () => {
         <div className="flex w-full items-center gap-2 md:ml-auto md:w-auto">
           {capturing && (
             <span className="hidden items-center gap-3 lg:flex">
-              <AudioLevelMeter getLevel={() => capture.getLevel("user")} label={capture.isMeeting ? "You" : "Mic"} />
-              {capture.isMeeting && <AudioLevelMeter getLevel={() => capture.getLevel("prospect")} label="Meeting" />}
+              <AudioLevelMeter getLevel={() => capture.getLevel("user")} label={capture.isMeeting ? t("live.you") : t("live.mic")} />
+              {capture.isMeeting && <AudioLevelMeter getLevel={() => capture.getLevel("prospect")} label={t("live.meeting")} />}
             </span>
           )}
           {agents && agents.length > 1 && (
             <Select value={call.assistant_agent_id ?? undefined} onValueChange={switchAgent} disabled={updateCall.isPending}>
-              <SelectTrigger className="h-9 min-w-0 flex-1 md:w-48 md:flex-none" aria-label="Switch co-pilot">
-                <SelectValue placeholder="Co-pilot" />
+              <SelectTrigger className="h-9 min-w-0 flex-1 md:w-48 md:flex-none" aria-label={t("live.switchCopilot")}>
+                <SelectValue placeholder={t("live.copilot")} />
               </SelectTrigger>
               <SelectContent>
                 {agents.map((agent) => (
@@ -113,10 +115,10 @@ const LiveCallPage: FC = () => {
           <p className="flex-1">{capture.notice}</p>
           {capture.status === "interrupted" && (
             <Button size="sm" variant="outline" onClick={() => void capture.reconnect()}>
-              <RefreshCw /> Reconnect
+              <RefreshCw /> {t("live.reconnect")}
             </Button>
           )}
-          <button type="button" onClick={capture.dismissNotice} aria-label="Dismiss" className="rounded p-0.5 hover:bg-amber-500/20">
+          <button type="button" onClick={capture.dismissNotice} aria-label={t("live.dismiss")} className="rounded p-0.5 hover:bg-amber-500/20">
             <X className="size-4" />
           </button>
         </div>
@@ -124,10 +126,10 @@ const LiveCallPage: FC = () => {
 
       {capture.status === "needs-audio" && (
         <Card className="flex flex-col items-center gap-3 p-6 text-center">
-          <p className="font-medium">Connect your audio to start capturing</p>
-          <p className="max-w-md text-sm text-muted-foreground">{capture.isMeeting ? "Choose the meeting's browser tab and enable “Share tab audio”, then allow the microphone." : "Allow microphone access. Put your phone on speaker near this device."}</p>
+          <p className="font-medium">{t("live.connectTitle")}</p>
+          <p className="max-w-md text-sm text-muted-foreground">{capture.isMeeting ? t("live.connectMeeting") : t("live.connectMic")}</p>
           <Button onClick={() => void capture.reconnect()}>
-            <Mic /> Connect audio
+            <Mic /> {t("live.connectAudio")}
           </Button>
         </Card>
       )}
@@ -140,10 +142,10 @@ const LiveCallPage: FC = () => {
         <Card className="flex flex-col p-4 lg:sticky lg:top-20 lg:h-[calc(100dvh-7rem)]">
           <Collapsible open={transcriptOpen} onOpenChange={setTranscriptOpen} className="flex min-h-0 flex-1 flex-col">
             <div className="flex items-center justify-between">
-              <h2 className="text-sm font-semibold">Live transcript</h2>
+              <h2 className="text-sm font-semibold">{t("live.transcript")}</h2>
               <CollapsibleTrigger asChild>
                 <Button variant="ghost" size="sm">
-                  {transcriptOpen ? "Hide" : `Show (${copilot.segments.length})`}
+                  {transcriptOpen ? t("live.hide") : t("live.show", { count: copilot.segments.length })}
                 </Button>
               </CollapsibleTrigger>
             </div>
@@ -179,27 +181,28 @@ interface CallControlsProps {
 }
 
 function CallControls({ paused, capturing, onPause, onResume, onBookmark, onEnd, large = false }: CallControlsProps) {
+  const { t } = useTranslation("calls");
   const size = large ? "size-12 rounded-full" : "size-9";
   return (
     <>
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button size="icon" variant={paused ? "secondary" : "outline"} className={size} onClick={paused ? onResume : onPause} disabled={!capturing} aria-label={paused ? "Resume capture" : "Pause capture"}>
+          <Button size="icon" variant={paused ? "secondary" : "outline"} className={size} onClick={paused ? onResume : onPause} disabled={!capturing} aria-label={paused ? t("live.resumeCapture") : t("live.pauseCapture")}>
             {paused ? <Play /> : <Pause />}
           </Button>
         </TooltipTrigger>
-        <TooltipContent>{paused ? "Resume capture" : "Pause capture (off-topic or sensitive moments)"}</TooltipContent>
+        <TooltipContent>{paused ? t("live.resumeCapture") : t("live.pauseCaptureHint")}</TooltipContent>
       </Tooltip>
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button size="icon" variant="outline" className={size} onClick={onBookmark} disabled={!capturing} aria-label="Bookmark this moment">
+          <Button size="icon" variant="outline" className={size} onClick={onBookmark} disabled={!capturing} aria-label={t("live.bookmark")}>
             <Bookmark />
           </Button>
         </TooltipTrigger>
-        <TooltipContent>Bookmark this moment</TooltipContent>
+        <TooltipContent>{t("live.bookmark")}</TooltipContent>
       </Tooltip>
       <Button variant="destructive" className={large ? "h-12 rounded-full px-6" : "h-9"} onClick={onEnd}>
-        <PhoneOff /> End call
+        <PhoneOff /> {t("live.endCall")}
       </Button>
     </>
   );

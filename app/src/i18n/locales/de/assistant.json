@@ -1,0 +1,173 @@
+{
+  "list": {
+    "title": "Co-Piloten",
+    "description": "Jeder Co-Pilot hat sein eigenes Skript, seine eigene Einwandbibliothek, sein Wissen und seinen Stil. Erstellen Sie einen pro Produkt, Zielgruppe oder Gesprächsphase.",
+    "new": "Neuer Co-Pilot",
+    "searchPlaceholder": "Co-Piloten suchen",
+    "filterByStatus": "Nach Status filtern",
+    "empty": {
+      "noMatch": "Keine passenden Co-Piloten",
+      "createFirst": "Erstellen Sie Ihren ersten Co-Piloten",
+      "none": "Noch keine Co-Piloten",
+      "descriptionManage": "Wählen Sie eine Vorlage wie Generic Cold Call oder B2B Discovery und passen Sie sie in wenigen Minuten an Ihr Produkt an.",
+      "descriptionMember": "Ein Administrator dieser Organisation erstellt die Co-Piloten, die Sie in Gesprächen verwenden."
+    }
+  },
+  "card": {
+    "default": "Standard",
+    "archived": "Archiviert",
+    "actionsFor": "Aktionen für {{name}}",
+    "edit": "Bearbeiten",
+    "makeDefault": "Als Standard festlegen",
+    "duplicate": "Duplizieren",
+    "restore": "Wiederherstellen",
+    "archive": "Archivieren",
+    "delete": "Löschen",
+    "noDescription": "Keine Beschreibung",
+    "goal": "Ziel:",
+    "calls": "Anrufe",
+    "avgScore": "Ø Bewertung",
+    "trend": "Trend",
+    "usedAgo": "verwendet {{when}}",
+    "neverUsed": "nie verwendet",
+    "useOnCall": "Im Anruf verwenden",
+    "practice": "Üben",
+    "deleteTitle": "{{name}} löschen?",
+    "deleteDescription": "Der Co-Pilot wird dauerhaft gelöscht. Vergangene Anrufe behalten ihre Transkripte und Analysen."
+  },
+  "editor": {
+    "newTitle": "Neuer Co-Pilot",
+    "fallbackTitle": "Co-Pilot",
+    "newDescription": "Beginnen Sie mit einer Vorlage oder von Grund auf. Sie können später alles ändern.",
+    "editDescription": "Skript, Wissen, Einwandbehandlung, Stil und Bewertung für diesen Co-Piloten.",
+    "create": "Co-Piloten erstellen",
+    "save": "Änderungen speichern"
+  },
+  "form": {
+    "tabs": {
+      "basics": "Grundlagen",
+      "script": "Skript",
+      "objections": "Einwände",
+      "knowledge": "Wissen",
+      "style": "Stil",
+      "models": "KI-Modelle",
+      "analysis": "Bewertung"
+    },
+    "fixFields": "Bitte korrigieren Sie die markierten Felder",
+    "templates": "Vorlagen",
+    "unsavedChanges": "Nicht gespeicherte Änderungen"
+  },
+  "analysis": {
+    "title": "Bewertungskategorien",
+    "description": "Was die Analyse nach dem Anruf bewertet und wie stark jede Kategorie in die Gesamtbewertung einfließt.",
+    "reset": "Zurücksetzen",
+    "add": "Kategorie hinzufügen",
+    "categoryName": "Kategoriename",
+    "weight": "Gewichtung",
+    "remove": "Kategorie entfernen"
+  },
+  "basics": {
+    "title": "Grundlagen",
+    "description": "Wofür dieser Co-Pilot da ist und auf welches Ergebnis er hinarbeitet.",
+    "name": "Name",
+    "namePlaceholder": "Kaltakquise – Zahnarztpraxen",
+    "purpose": "Zweck",
+    "purposePlaceholder": "Kurze Kaltakquise-Anrufe bei Inhabern von Zahnarztpraxen mit dem Ziel, eine Demo zu vereinbaren.",
+    "callGoal": "Gesprächsziel",
+    "callGoalPlaceholder": "Eine 20-minütige Demo vereinbaren",
+    "callGoalHint": "Der Co-Pilot steuert das Gespräch immer wieder auf dieses Ergebnis zu.",
+    "languages": "Gesprächssprachen",
+    "methodology": "Vertriebsmethodik",
+    "default": "Standard-Co-Pilot",
+    "defaultHint": "Wird beim Start eines Anrufs vorausgewählt."
+  },
+  "knowledge": {
+    "tooLarge": "{{name}} ist zu groß",
+    "tooLargeHint": "Dateien bis 2 MB werden unterstützt.",
+    "trimmed": "Wissen wurde gekürzt",
+    "trimmedHint": "Es werden nur die ersten {{max}} Zeichen beibehalten.",
+    "imported_one": "{{count}} Datei importiert",
+    "imported_other": "{{count}} Dateien importiert",
+    "title": "Wissen und Kontext",
+    "description": "Produktdetails, Preise, FAQs, Wettbewerbsvergleiche, Fallstudien, ideales Kundenprofil. Wird für Antworten und Infokarten während der Anrufe verwendet.",
+    "import": "Dokumente importieren",
+    "placeholder": "Produkt: …\nPreise: Starter 99 $/Monat pro Standort, 50 Plätze 399 $/Monat\nHauptvorteil: senkt Terminausfälle um 30 %\nWettbewerber: …\nFAQ: …",
+    "importHint": "Importiert .txt-, .md-, .csv-, .json- und .html-Dateien."
+  },
+  "models": {
+    "notConfigured": "KI ist auf dem Server noch nicht konfiguriert, daher sind Vorschläge und Analysen nicht verfügbar.",
+    "realtimeTitle": "Echtzeit-Vorschläge",
+    "realtimeDescription": "Geschwindigkeit zählt hier am meisten: Ein verspäteter Vorschlag ist nutzlos.",
+    "realtimeModel": "Echtzeitmodell",
+    "analysisTitle": "Analyse nach dem Anruf",
+    "analysisDescription": "Die Analyse kann Gründlichkeit vor Geschwindigkeit stellen. Ist ein Modell nicht verfügbar, greift CallZen auf das empfohlene zurück und informiert Sie.",
+    "analysisModel": "Analysemodell"
+  },
+  "objections": {
+    "title": "Einwandbibliothek",
+    "description": "Häufige Einwände und die Antworten, die Sie bevorzugen. Wenn der Interessent einen vorbringt, erkennt der Co-Pilot ihn und schlägt Ihre Antwort vor, angepasst an den Moment.",
+    "add": "Einwand hinzufügen",
+    "emptyTitle": "Noch keine Einwände",
+    "emptyDescription": "Fügen Sie die hinzu, die Sie am häufigsten hören: „zu teuer“, „schicken Sie mir eine E-Mail“, „wir haben schon einen Anbieter“ …",
+    "objectionPlaceholder": "Einwand, z. B. „Das ist zu teuer“",
+    "objection": "Einwand",
+    "remove": "Einwand entfernen",
+    "responsePlaceholder": "Ihre bevorzugte Antwort",
+    "response": "Antwort"
+  },
+  "script": {
+    "title": "Skript",
+    "description": "Gliedern Sie Ihr Skript in Phasen. Der Co-Pilot folgt ihm, verfolgt den Fortschritt live und passt sich an, wenn das Gespräch eine andere Richtung nimmt.",
+    "addStage": "Phase hinzufügen",
+    "emptyTitle": "Noch kein Skript",
+    "emptyDescription": "Ohne Skript stützt sich der Co-Pilot auf Ihr Ziel, Ihre Anweisungen und Ihr Wissen.",
+    "addFirstStage": "Erste Phase hinzufügen",
+    "stageType": "Phasentyp",
+    "stageTitlePlaceholder": "Phasentitel (optional)",
+    "stageTitle": "Phasentitel",
+    "moveUp": "Nach oben",
+    "moveDown": "Nach unten",
+    "remove": "Phase entfernen",
+    "whatToSay": "Was zu sagen ist",
+    "contentPlaceholder": "Was in dieser Phase gesagt oder gefragt werden soll. Verwenden Sie {placeholders} für Namen."
+  },
+  "style": {
+    "instructionsTitle": "Anweisungen und Ton",
+    "instructionsDescription": "Regeln, die der Co-Pilot immer befolgt, in Ihren eigenen Worten.",
+    "instructions": "Anweisungen",
+    "instructionsPlaceholder": "Halte Vorschläge unter 20 Wörtern.\nGewähre nie mehr als 10 % Rabatt.\nDränge immer auf einen konkreten Termin.",
+    "tone": "Ton",
+    "suggestionsTitle": "Vorschläge",
+    "suggestionsDescription": "Wie oft und wie viel der Co-Pilot während der Anrufe anzeigt. Die Häufigkeit können Sie auch mitten im Anruf ändern.",
+    "frequency": "Häufigkeit",
+    "suggestionFrequency": "Häufigkeit der Vorschläge",
+    "length": "Länge",
+    "alternatives": "Alternative Formulierungen",
+    "consentTitle": "Einwilligung zur Aufzeichnung",
+    "consentDescription": "Aufzeichnungsgesetze unterscheiden sich je nach Region, und einige verlangen die Einwilligung aller Beteiligten. Sie sind dafür verantwortlich, sie einzuholen.",
+    "suggestConsent": "Zuerst einen Einwilligungssatz vorschlagen",
+    "suggestConsentHint": "Der erste Vorschlag jedes Anrufs ist Ihr Hinweissatz.",
+    "consentLine": "Hinweissatz zur Einwilligung",
+    "consentLineHint": "Leer lassen, um Ihren Standard aus den Einstellungen zu verwenden."
+  },
+  "templates": {
+    "stats": "{{stages}} · {{objections}} · Ziel: {{goal}}",
+    "stages_one": "{{count}} Skriptphase",
+    "stages_other": "{{count}} Skriptphasen",
+    "objections_one": "{{count}} Einwand",
+    "objections_other": "{{count}} Einwände",
+    "scratch": "Von Grund auf beginnen",
+    "scratchHint": "Schreiben Sie Ihr eigenes Skript und Ihre eigenen Regeln"
+  },
+  "validation": {
+    "name": "Geben Sie Ihrem Co-Piloten einen Namen",
+    "stageContent": "Schreiben Sie, was in dieser Phase gesagt werden soll",
+    "knowledgeMax": "Das Wissen ist auf {{max}} Zeichen begrenzt",
+    "objection": "Beschreiben Sie den Einwand",
+    "response": "Schreiben Sie Ihre bevorzugte Antwort",
+    "languagesMin": "Wählen Sie mindestens eine Sprache",
+    "languagesMax": "Bis zu {{max}} Sprachen",
+    "categoryName": "Benennen Sie die Kategorie",
+    "categoryMin": "Behalten Sie mindestens eine Bewertungskategorie"
+  }
+}

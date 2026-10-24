@@ -1,0 +1,88 @@
+{
+  "page": {
+    "title": "Organizzazione",
+    "description": "Gestisci chi appartiene a questa organizzazione, cosa può fare ogni ruolo e chi hai invitato.",
+    "nothing": "Niente da mostrare"
+  },
+  "tabs": {
+    "general": "Generale",
+    "members": "Membri",
+    "invitations": "Inviti",
+    "roles": "Ruoli e autorizzazioni"
+  },
+  "create": {
+    "title": "Crea un'organizzazione",
+    "description": "Ogni organizzazione ha i propri copiloti, potenziali clienti, chiamate e membri. Ne sarai il proprietario e potrai invitare il tuo team.",
+    "name": "Nome dell'organizzazione",
+    "namePlaceholder": "Team vendite Acme",
+    "nameHint": "I tuoi colleghi vedranno questo nome nel loro invito.",
+    "submit": "Crea organizzazione"
+  },
+  "general": {
+    "details": "Dettagli",
+    "detailsDescription_one": "Creata il {{date}} · {{count}} membro",
+    "detailsDescription_other": "Creata il {{date}} · {{count}} membri",
+    "name": "Nome dell'organizzazione",
+    "saveName": "Salva nome",
+    "yourRole": "Il tuo ruolo:",
+    "deleteTitle": "Elimina organizzazione",
+    "deleteDescription": "Elimina definitivamente l'organizzazione con tutti i suoi copiloti, potenziali clienti, chiamate, registrazioni e analisi, e rimuove tutti i membri. L'operazione non può essere annullata.",
+    "deleteDialogTitle": "Eliminare {{name}}?",
+    "deleteDialogDescription": "Digita <strong>{{name}}</strong> per confermare. Tutto in questa organizzazione viene eliminato per tutti i membri.",
+    "confirmAria": "Digita il nome dell'organizzazione per confermare",
+    "deletePermanently": "Elimina definitivamente"
+  },
+  "invitations": {
+    "copyFailed": "Copia non riuscita",
+    "copyFailedHint": "Seleziona il link e copialo manualmente.",
+    "inviteTitle": "Invita qualcuno",
+    "inviteDescription": "Ricevono un'email con un link valido per 7 giorni. Chiunque può appartenere a più organizzazioni, quindi gli utenti CallZen esistenti devono solo accettare e passare all'organizzazione.",
+    "email": "Email",
+    "emailPlaceholder": "collega@azienda.com",
+    "role": "Ruolo",
+    "send": "Invia invito",
+    "emptyTitle": "Ancora nessun invito",
+    "emptyDescription": "Gli inviti che invii compaiono qui, così puoi reinviarli o revocarli.",
+    "invited": "invitato {{when}}",
+    "invitedBy": "invitato {{when}} da {{name}}",
+    "sentTimes": "inviato {{count}}×",
+    "expires": "Scade il {{date}}",
+    "expired": "Scaduto {{when}}",
+    "resend": "Reinvia",
+    "revoke": "Revoca",
+    "copied": "Copiato",
+    "copyLink": "Copia link",
+    "revokeTitle": "Revocare l'invito per {{email}}?",
+    "revokeDescription": "Il link smette di funzionare immediatamente. Puoi inviare un nuovo invito in qualsiasi momento."
+  },
+  "members": {
+    "you": "Tu",
+    "joined": "iscritto il {{date}}",
+    "roleOf": "Ruolo di {{name}}",
+    "removeAria": "Rimuovi {{name}}",
+    "removeTitle": "Rimuovere {{name}}?",
+    "removeDescription": "Perde subito l'accesso a questa organizzazione. Le chiamate effettuate restano nell'organizzazione. Potrà essere invitato di nuovo in seguito.",
+    "remove": "Rimuovi"
+  },
+  "roles": {
+    "role": "Ruolo",
+    "membersCount_one": "{{count}} membro",
+    "membersCount_other": "{{count}} membri",
+    "ownersOnlyEdit": "Solo i proprietari possono modificare ciò che ogni ruolo può fare.",
+    "ownerLocked": "I proprietari hanno sempre tutte le autorizzazioni, quindi questo ruolo non può essere limitato.",
+    "ownersOnly": "Solo proprietari",
+    "toggleAria": "{{permission}} per {{role}}",
+    "reset": "Ripristina predefinito",
+    "unsaved": "Modifiche non salvate",
+    "customised": "Personalizzato",
+    "usingPreset": "Impostazione predefinita in uso",
+    "discard": "Annulla",
+    "save": "Salva autorizzazioni di {{role}}"
+  },
+  "validation": {
+    "nameMin": "Il nome deve contenere almeno {{min}} caratteri",
+    "nameMax": "Il nome deve contenere al massimo {{max}} caratteri",
+    "emailRequired": "Inserisci un indirizzo email",
+    "emailInvalid": "Inserisci un indirizzo email valido"
+  }
+}

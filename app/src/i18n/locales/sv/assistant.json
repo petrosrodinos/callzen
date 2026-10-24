@@ -1,0 +1,173 @@
+{
+  "list": {
+    "title": "Copiloter",
+    "description": "Varje copilot har sitt eget manus, sitt eget invändningsbibliotek, sin egen kunskap och stil. Skapa en per produkt, målgrupp eller samtalsfas.",
+    "new": "Ny copilot",
+    "searchPlaceholder": "Sök copiloter",
+    "filterByStatus": "Filtrera efter status",
+    "empty": {
+      "noMatch": "Inga copiloter matchar",
+      "createFirst": "Skapa din första copilot",
+      "none": "Inga copiloter ännu",
+      "descriptionManage": "Välj en mall som Generic Cold Call eller B2B Discovery och anpassa den efter din produkt på ett par minuter.",
+      "descriptionMember": "En administratör i den här organisationen skapar de copiloter du använder i samtal."
+    }
+  },
+  "card": {
+    "default": "Standard",
+    "archived": "Arkiverad",
+    "actionsFor": "Åtgärder för {{name}}",
+    "edit": "Redigera",
+    "makeDefault": "Gör till standard",
+    "duplicate": "Duplicera",
+    "restore": "Återställ",
+    "archive": "Arkivera",
+    "delete": "Ta bort",
+    "noDescription": "Ingen beskrivning",
+    "goal": "Mål:",
+    "calls": "Samtal",
+    "avgScore": "Snittpoäng",
+    "trend": "Trend",
+    "usedAgo": "använd {{when}}",
+    "neverUsed": "aldrig använd",
+    "useOnCall": "Använd i ett samtal",
+    "practice": "Öva",
+    "deleteTitle": "Ta bort {{name}}?",
+    "deleteDescription": "Copiloten tas bort permanent. Tidigare samtal behåller sina utskrifter och analyser."
+  },
+  "editor": {
+    "newTitle": "Ny copilot",
+    "fallbackTitle": "Copilot",
+    "newDescription": "Börja från en mall eller från grunden. Du kan ändra allt senare.",
+    "editDescription": "Manus, kunskap, invändningshantering, stil och poängsättning för den här copiloten.",
+    "create": "Skapa copilot",
+    "save": "Spara ändringar"
+  },
+  "form": {
+    "tabs": {
+      "basics": "Grunder",
+      "script": "Manus",
+      "objections": "Invändningar",
+      "knowledge": "Kunskap",
+      "style": "Stil",
+      "models": "AI-modeller",
+      "analysis": "Poängsättning"
+    },
+    "fixFields": "Åtgärda de markerade fälten",
+    "templates": "Mallar",
+    "unsavedChanges": "Osparade ändringar"
+  },
+  "analysis": {
+    "title": "Poängkategorier",
+    "description": "Vad analysen efter samtalet poängsätter och hur mycket varje kategori väger i totalpoängen.",
+    "reset": "Återställ",
+    "add": "Lägg till kategori",
+    "categoryName": "Kategorinamn",
+    "weight": "Vikt",
+    "remove": "Ta bort kategori"
+  },
+  "basics": {
+    "title": "Grunder",
+    "description": "Vad den här copiloten är till för och vilket resultat den styr mot.",
+    "name": "Namn",
+    "namePlaceholder": "Kallringning – Tandläkarmottagningar",
+    "purpose": "Syfte",
+    "purposePlaceholder": "Korta kallsamtal till ägare av tandläkarmottagningar, med fokus på att boka en demo.",
+    "callGoal": "Samtalsmål",
+    "callGoalPlaceholder": "Boka en demo på 20 minuter",
+    "callGoalHint": "Copiloten styr hela tiden samtalet mot det här resultatet.",
+    "languages": "Samtalsspråk",
+    "methodology": "Säljmetodik",
+    "default": "Standardcopilot",
+    "defaultHint": "Förvald när du startar ett samtal."
+  },
+  "knowledge": {
+    "tooLarge": "{{name}} är för stor",
+    "tooLargeHint": "Filer upp till 2 MB stöds.",
+    "trimmed": "Kunskapen har kortats ned",
+    "trimmedHint": "Endast de första {{max}} tecknen behålls.",
+    "imported_one": "{{count}} fil importerad",
+    "imported_other": "{{count}} filer importerade",
+    "title": "Kunskap och kontext",
+    "description": "Produktinformation, priser, vanliga frågor, konkurrentjämförelser, kundcase, idealisk kundprofil. Används för svar och infokort under samtal.",
+    "import": "Importera dokument",
+    "placeholder": "Produkt: …\nPriser: Starter 99 $/månad per plats, 50 platser 399 $/månad\nHuvudfördel: minskar uteblivna besök med 30 %\nKonkurrenter: …\nVanliga frågor: …",
+    "importHint": "Importerar .txt-, .md-, .csv-, .json- och .html-filer."
+  },
+  "models": {
+    "notConfigured": "AI är inte konfigurerat på servern ännu, så förslag och analys är inte tillgängliga.",
+    "realtimeTitle": "Realtidsförslag",
+    "realtimeDescription": "Snabbhet är viktigast här: ett försenat förslag är värdelöst.",
+    "realtimeModel": "Realtidsmodell",
+    "analysisTitle": "Analys efter samtal",
+    "analysisDescription": "Analysen kan prioritera djup framför snabbhet. Om en modell inte är tillgänglig använder CallZen den rekommenderade och meddelar dig.",
+    "analysisModel": "Analysmodell"
+  },
+  "objections": {
+    "title": "Invändningsbibliotek",
+    "description": "Vanliga invändningar och de svar du föredrar. När prospekten tar upp en känner copiloten igen den och föreslår ditt svar, anpassat till situationen.",
+    "add": "Lägg till invändning",
+    "emptyTitle": "Inga invändningar ännu",
+    "emptyDescription": "Lägg till dem du hör oftast: ”för dyrt”, ”skicka ett mejl”, ”vi har redan en leverantör”…",
+    "objectionPlaceholder": "Invändning, t.ex. ”Det är för dyrt”",
+    "objection": "Invändning",
+    "remove": "Ta bort invändning",
+    "responsePlaceholder": "Ditt föredragna svar",
+    "response": "Svar"
+  },
+  "script": {
+    "title": "Manus",
+    "description": "Organisera ditt manus i faser. Copiloten följer det, spårar framsteg live och anpassar sig när samtalet tar en annan riktning.",
+    "addStage": "Lägg till fas",
+    "emptyTitle": "Inget manus ännu",
+    "emptyDescription": "Utan manus utgår copiloten från ditt mål, dina instruktioner och din kunskap.",
+    "addFirstStage": "Lägg till första fasen",
+    "stageType": "Fastyp",
+    "stageTitlePlaceholder": "Fasens titel (valfritt)",
+    "stageTitle": "Fasens titel",
+    "moveUp": "Flytta upp",
+    "moveDown": "Flytta ned",
+    "remove": "Ta bort fas",
+    "whatToSay": "Vad du ska säga",
+    "contentPlaceholder": "Vad du ska säga eller fråga i den här fasen. Använd {placeholders} för namn."
+  },
+  "style": {
+    "instructionsTitle": "Instruktioner och ton",
+    "instructionsDescription": "Regler som copiloten alltid följer, med dina egna ord.",
+    "instructions": "Instruktioner",
+    "instructionsPlaceholder": "Håll förslagen under 20 ord.\nGe aldrig mer än 10 % rabatt.\nDriv alltid på för en bestämd mötestid.",
+    "tone": "Ton",
+    "suggestionsTitle": "Förslag",
+    "suggestionsDescription": "Hur ofta och hur mycket copiloten visar under samtal. Du kan även ändra frekvensen mitt i ett samtal.",
+    "frequency": "Frekvens",
+    "suggestionFrequency": "Förslagsfrekvens",
+    "length": "Längd",
+    "alternatives": "Alternativa formuleringar",
+    "consentTitle": "Samtycke till inspelning",
+    "consentDescription": "Lagar om inspelning skiljer sig mellan regioner och vissa kräver allas samtycke. Du ansvarar för att inhämta det.",
+    "suggestConsent": "Föreslå en samtyckesmening först",
+    "suggestConsentHint": "Det första förslaget i varje samtal blir din informationsmening.",
+    "consentLine": "Informationsmening för samtycke",
+    "consentLineHint": "Lämna tomt för att använda din standard från Inställningar."
+  },
+  "templates": {
+    "stats": "{{stages}} · {{objections}} · Mål: {{goal}}",
+    "stages_one": "{{count}} manusfas",
+    "stages_other": "{{count}} manusfaser",
+    "objections_one": "{{count}} invändning",
+    "objections_other": "{{count}} invändningar",
+    "scratch": "Börja från grunden",
+    "scratchHint": "Skriv ditt eget manus och dina egna regler"
+  },
+  "validation": {
+    "name": "Ge din copilot ett namn",
+    "stageContent": "Skriv vad som ska sägas i den här fasen",
+    "knowledgeMax": "Kunskapen är begränsad till {{max}} tecken",
+    "objection": "Beskriv invändningen",
+    "response": "Skriv ditt föredragna svar",
+    "languagesMin": "Välj minst ett språk",
+    "languagesMax": "Upp till {{max}} språk",
+    "categoryName": "Namnge kategorin",
+    "categoryMin": "Behåll minst en poängkategori"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "title": "Dashboard",
+  "greeting": "Hallo {{name}}",
+  "descriptionTeam": "So schneidet das ganze Team von {{organisation}} ab.",
+  "defaultOrganisation": "Ihre Organisation",
+  "descriptionMe": "Ihre Leistung bei Live-Anrufen und im Training und woran Sie als Nächstes arbeiten sollten.",
+  "scope": {
+    "me": "Ich",
+    "team": "Team"
+  },
+  "period": "Zeitraum",
+  "practice": "Training",
+  "stats": {
+    "averageScore": "Durchschnittliche Bewertung",
+    "averageScoreHint": "Live {{live}} · Training {{practice}}",
+    "calls": "Anrufe",
+    "callsHint": "{{live}} live · {{practice}} Training",
+    "meetingsBooked": "Vereinbarte Termine",
+    "fromLiveCalls": "Aus Live-Anrufen",
+    "practiceStreak": "Trainingsserie",
+    "streakDays": "{{count}} T",
+    "talkMinutes": "{{minutes}} Min. in Anrufen"
+  },
+  "gettingStarted": {
+    "heading": "In drei Schritten startklar",
+    "subheading": "Die meisten sind in unter fünf Minuten fertig.",
+    "createCopilot": {
+      "title": "Erstellen Sie Ihren Co-Piloten",
+      "text": "Starten Sie mit einer Vorlage: Skript, Einwände und Ziel mit einem Klick.",
+      "cta": "Co-Piloten erstellen"
+    },
+    "waitCopilot": {
+      "title": "Auf einen Co-Piloten warten",
+      "text": "Ein Administrator dieser Organisation richtet die Co-Piloten ein, die Sie nutzen werden. Fragen Sie nach, falls noch keiner verfügbar ist.",
+      "cta": "Organisation anzeigen"
+    },
+    "practice": {
+      "title": "Mit einem KI-Interessenten üben",
+      "text": "Sprechen Sie laut mit einem realistischen Interessenten, während der Co-Pilot Sie coacht.",
+      "cta": "Jetzt üben"
+    },
+    "firstCall": {
+      "title": "Führen Sie Ihren ersten unterstützten Anruf",
+      "text": "Telefon auf Lautsprecher oder ein Online-Meeting. Erhalten Sie Vorschläge in Echtzeit.",
+      "cta": "Anruf starten"
+    }
+  },
+  "highlights": {
+    "title": "Highlights",
+    "empty": "Nach ein paar analysierten Anrufen sehen Sie hier, was sich verbessert und was Aufmerksamkeit braucht."
+  },
+  "outcomes": {
+    "title": "Ergebnisse von Live-Anrufen",
+    "subtitle": "Anteil der Anrufe mit erfasstem Ergebnis",
+    "empty": "Erfassen Sie Ergebnisse am Ende von Live-Anrufen, um Leistung mit Resultaten zu verknüpfen."
+  },
+  "invitations": {
+    "title": "Sie wurden eingeladen",
+    "from": "Von {{name}}",
+    "expires": "läuft {{when}} ab",
+    "accept": "Annehmen"
+  },
+  "practiceProgress": {
+    "title": "Trainingsfortschritt",
+    "withCopilot": "Mit Co-Pilot",
+    "onYourOwn": "Auf eigene Faust",
+    "empty": "Keine Trainingseinheiten in diesem Zeitraum.",
+    "tabs": {
+      "level": "Stufe",
+      "lead": "Lead",
+      "scenario": "Szenario",
+      "copilot": "Co-Pilot"
+    },
+    "columns": {
+      "group": "Gruppe",
+      "sessions": "Einheiten",
+      "won": "Erreicht",
+      "avg": "Ø"
+    }
+  },
+  "recentCalls": {
+    "title": "Letzte Anrufe",
+    "viewAll": "Alle anzeigen",
+    "empty": "Noch keine Anrufe."
+  },
+  "recommended": {
+    "title": "Empfohlenes Training",
+    "subtitle": "Szenarien auf Basis Ihrer jüngsten Schwachstellen",
+    "empty": "Empfehlungen erscheinen nach Ihrem ersten analysierten Anruf. Probieren Sie in der Zwischenzeit ein fertiges Szenario aus.",
+    "browse": "Szenarien durchsuchen",
+    "preparing": "Wird vorbereitet…",
+    "practice": "Üben"
+  },
+  "mistakes": {
+    "title": "Wiederkehrende Fehler",
+    "subtitle": "Aus Ihren letzten 20 analysierten Anrufen",
+    "empty": "Noch keine Muster. Weiter so.",
+    "callsAffected_one": "{{count}} Anruf",
+    "callsAffected_other": "{{count}} Anrufe",
+    "viewCall": "Anruf ansehen"
+  },
+  "scoreTrend": {
+    "title": "Bewertungsverlauf",
+    "subtitle": "Jeder analysierte Anruf, vom ältesten zum neuesten",
+    "emptyTitle": "Noch nicht genug Daten",
+    "emptyDescription": "Ihr Verlauf erscheint nach zwei analysierten Anrufen oder Trainingseinheiten.",
+    "liveCalls": "Live-Anrufe",
+    "practice": "Training"
+  },
+  "skills": {
+    "title": "Fähigkeiten",
+    "subtitle": "Die schwächsten zuerst. Die Balken vergleichen Live-Anrufe mit dem Training.",
+    "empty": "Fähigkeitsbewertungen erscheinen nach Ihrem ersten analysierten Anruf.",
+    "live": "Live",
+    "practice": "Training"
+  }
+}

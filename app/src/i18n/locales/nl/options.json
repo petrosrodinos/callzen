@@ -1,0 +1,303 @@
+{
+  "agents": {
+    "status": {
+      "active": "Actief",
+      "archived": "Gearchiveerd",
+      "all": "Alle"
+    },
+    "modelSpeed": {
+      "fastest": "Snelst",
+      "fast": "Snel",
+      "balanced": "Gebalanceerd",
+      "thorough": "Grondig"
+    },
+    "relativeCost": {
+      "1": "Lage kosten",
+      "2": "Matige kosten",
+      "3": "Hogere kosten",
+      "4": "Premium kosten"
+    },
+    "alternatives": {
+      "none": "Geen",
+      "one": "1 alternatief",
+      "two": "2 alternatieven"
+    },
+    "methodology": {
+      "spin": "SPIN Selling",
+      "bant": "BANT",
+      "meddic": "MEDDIC",
+      "challenger": "Challenger",
+      "sandler": "Sandler",
+      "custom": "Aangepast / geen"
+    },
+    "scriptStage": {
+      "opener": "Opening",
+      "pitch": "Pitch",
+      "discovery": "Behoeftenanalyse",
+      "objectionHandling": "Bezwaren behandelen",
+      "close": "Afsluiting",
+      "other": "Overig"
+    },
+    "frequency": {
+      "objectionsOnly": "Alleen bezwaren en vragen",
+      "balanced": "Gebalanceerd",
+      "constant": "Constante begeleiding"
+    },
+    "frequencyDescription": {
+      "objectionsOnly": "Blijft stil tot de prospect een bezwaar maakt, iets vraagt of interesse toont.",
+      "balanced": "Reageert op alles wat de prospect zinvols zegt, plus af en toe een duwtje.",
+      "constant": "Toont altijd de beste volgende zin. Ideaal voor nieuwe verkopers en om te oefenen."
+    },
+    "length": {
+      "short": "Kort (maximaal 20 woorden)",
+      "medium": "Gemiddeld (maximaal 35 woorden)"
+    },
+    "tone": {
+      "professional": "Professioneel",
+      "friendly": "Vriendelijk",
+      "consultative": "Adviserend",
+      "assertive": "Assertief"
+    }
+  },
+  "calls": {
+    "severity": {
+      "low": "Beperkt",
+      "medium": "Matig",
+      "high": "Kritiek"
+    },
+    "interest": {
+      "low": "Weinig interesse",
+      "medium": "Enige interesse",
+      "high": "Veel interesse"
+    },
+    "suggestionUsage": {
+      "followed": "Gevolgd",
+      "adapted": "Aangepast",
+      "ignored": "Genegeerd"
+    },
+    "revealKind": {
+      "painPoint": "Verborgen pijnpunt",
+      "hiddenInfo": "Verborgen informatie",
+      "objection": "Gepland bezwaar",
+      "conversionCondition": "Voorwaarde om te converteren"
+    },
+    "endReason": {
+      "user": "Door jou beëindigd",
+      "prospectHungUp": "Prospect heeft opgehangen",
+      "timeLimit": "Tijdslimiet bereikt",
+      "interrupted": "Verbinding verbroken"
+    },
+    "sort": {
+      "newest": "Nieuwste eerst",
+      "oldest": "Oudste eerst",
+      "highestScore": "Hoogste score",
+      "lowestScore": "Laagste score",
+      "longest": "Langste"
+    },
+    "scoreRange": {
+      "any": "Elke score",
+      "excellent": "80+ uitstekend",
+      "good": "60–79 goed",
+      "below60": "Onder 60"
+    },
+    "dateRange": {
+      "any": "Altijd"
+    },
+    "kind": {
+      "live": "Live gesprek",
+      "practice": "Oefening",
+      "all": "Live en oefening"
+    },
+    "outcomeFilter": {
+      "all": "Alle uitkomsten",
+      "none": "Geen uitkomst vastgelegd"
+    },
+    "outcome": {
+      "meetingBooked": "Afspraak / demo ingepland",
+      "dealWon": "Deal gesloten / gewonnen",
+      "followUp": "Follow-up gepland",
+      "lost": "Geen interesse / verloren",
+      "noDecision": "Geen besluit / terugbellen",
+      "gatekeeper": "Poortwachter / verkeerde persoon",
+      "custom": "Aangepaste uitkomst"
+    },
+    "status": {
+      "inProgress": "Bezig",
+      "analyzing": "Wordt geanalyseerd",
+      "analyzed": "Geanalyseerd",
+      "analysisFailed": "Analyse mislukt",
+      "ended": "Niet geanalyseerd"
+    },
+    "typeFilter": {
+      "all": "Alle gesprekstypen"
+    },
+    "type": {
+      "onlineMeeting": "Online vergadering",
+      "microphone": "Telefoon / microfoon",
+      "practice": "Oefensessie"
+    },
+    "typeDescription": {
+      "microphone": "Een gesprek via de speaker van je telefoon of een ander apparaat. CallZen luistert mee via de microfoon van dit apparaat. Het beste voor koude acquisitie.",
+      "onlineMeeting": "Google Meet, Zoom, Teams of een andere webvergadering. Je deelt het geluid van het vergadertabblad, zodat beide kanten apart worden opgenomen."
+    },
+    "speaker": {
+      "user": "Jij",
+      "prospect": "Prospect",
+      "unknown": "Detecteren…"
+    },
+    "suggestionType": {
+      "opener": "Opener / hook",
+      "discoveryQuestion": "Verkennende vraag",
+      "objectionResponse": "Reactie op bezwaar",
+      "valueStatement": "Waardepropositie",
+      "buyingSignal": "Koopsignaal gedetecteerd",
+      "nextStep": "Volgende stap / afsluiting",
+      "reminder": "Herinnering",
+      "warning": "Waarschuwing",
+      "consent": "Toestemmingsmelding",
+      "answer": "Antwoord"
+    },
+    "marker": {
+      "mistake": "Fouten",
+      "strength": "Sterke punten",
+      "objection": "Bezwaren",
+      "buyingSignal": "Koopsignalen",
+      "bookmark": "Bladwijzers"
+    }
+  },
+  "periods": {
+    "last7Days": "Laatste 7 dagen",
+    "last30Days": "Laatste 30 dagen",
+    "last90Days": "Laatste 90 dagen",
+    "last12Months": "Laatste 12 maanden"
+  },
+  "organisations": {
+    "invitation": {
+      "pending": "In afwachting",
+      "expired": "Verlopen",
+      "accepted": "Geaccepteerd",
+      "revoked": "Ingetrokken"
+    },
+    "role": {
+      "owner": "Eigenaar",
+      "admin": "Beheerder",
+      "member": "Lid"
+    },
+    "roleDescription": {
+      "owner": "Volledige controle. Kan rolrechten wijzigen, de organisatie verwijderen en alle leden beheren. Heeft altijd alle rechten.",
+      "admin": "Leidt het team dagelijks: beheert co-piloten, leden en uitnodigingen binnen de rechten die de eigenaar toekent.",
+      "member": "Verkoopt en oefent. Ziet alleen de eigen gesprekken, tenzij de eigenaar meer toestaat."
+    }
+  },
+  "practice": {
+    "budget": {
+      "none": "Geen budget",
+      "limited": "Beperkt budget",
+      "available": "Budget beschikbaar",
+      "priceSensitive": "Prijsgevoelig"
+    },
+    "authority": {
+      "decisionMaker": "Beslisser",
+      "influencer": "Beïnvloeder",
+      "gatekeeper": "Poortwachter",
+      "needsApproval": "Heeft goedkeuring nodig"
+    },
+    "difficulty": {
+      "1": {
+        "label": "Heel makkelijk",
+        "description": "Vriendelijk en open, bijna geen bezwaren."
+      },
+      "2": {
+        "label": "Makkelijk",
+        "description": "Open, een paar milde bezwaren, laat zich makkelijk overtuigen."
+      },
+      "3": {
+        "label": "Gemiddeld",
+        "description": "Enige scepsis en echte bezwaren. Vraagt om een goede behoefteanalyse."
+      },
+      "4": {
+        "label": "Moeilijk",
+        "description": "Terughoudend en druk, stevige herhaalde bezwaren, kan vroeg ophangen."
+      },
+      "5": {
+        "label": "Heel moeilijk",
+        "description": "Vijandig tegenover verkoopgesprekken. Laat zich alleen overtuigen met uitstekende techniek."
+      }
+    },
+    "difficultyFilter": {
+      "any": "Elke moeilijkheid"
+    },
+    "patience": {
+      "1": "Hangt bijna meteen op",
+      "2": "Ongeduldig",
+      "3": "Gemiddeld",
+      "4": "Geduldig",
+      "5": "Zeer geduldig"
+    },
+    "persistence": {
+      "1": "Laat het snel los",
+      "2": "Brengt het nog één keer ter sprake",
+      "3": "Blijft erop terugkomen"
+    },
+    "temperature": {
+      "cold": "Koud",
+      "warm": "Warm"
+    },
+    "temperatureDescription": {
+      "cold": "Kent je niet, heeft geen interesse getoond en is mogelijk druk of geïrriteerd door het telefoontje.",
+      "warm": "Heeft interesse getoond of had eerder contact en staat meer open voor een gesprek."
+    },
+    "temperatureFilter": {
+      "any": "Elke temperatuur"
+    },
+    "mood": {
+      "neutral": "Neutraal",
+      "rushed": "Gehaast",
+      "irritated": "Geïrriteerd",
+      "curious": "Nieuwsgierig",
+      "distracted": "Afgeleid",
+      "enthusiastic": "Enthousiast"
+    },
+    "personality": {
+      "analytical": "Analytisch",
+      "driver": "Doorzetter / direct",
+      "amiable": "Vriendelijk / aimabel",
+      "expressive": "Expressief / spraakzaam",
+      "skeptical": "Sceptisch",
+      "indecisive": "Besluiteloos"
+    },
+    "scenario": {
+      "coldCall": "Koude acquisitie",
+      "inbound": "Inkomende aanvraag",
+      "followUp": "Follow-up",
+      "demoFollowUp": "Na een demo",
+      "discovery": "Verkennend gesprek",
+      "renewal": "Verlenging",
+      "negotiation": "Prijsonderhandeling",
+      "gatekeeper": "Poortwachter"
+    },
+    "timeline": {
+      "urgent": "Dringende behoefte",
+      "within3Months": "Binnen 3 maanden",
+      "justResearching": "Alleen aan het oriënteren",
+      "none": "Geen tijdlijn"
+    }
+  },
+  "usage": {
+    "kind": {
+      "suggestion": "Live suggesties",
+      "ask": "Co-pilotvragen",
+      "analysis": "Gespreksanalyses",
+      "practiceTurn": "Oefenantwoorden (browserstem)",
+      "practiceVoice": "Oefenspraakminuten",
+      "transcription": "Live transcriptie",
+      "generation": "Prospectgeneratie"
+    }
+  },
+  "users": {
+    "outputLanguageMode": {
+      "conversation": "Dezelfde taal als het gesprek",
+      "interface": "Mijn interfacetaal"
+    }
+  }
+}

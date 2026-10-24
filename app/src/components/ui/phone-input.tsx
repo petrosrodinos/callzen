@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import * as React from "react";
 import { CheckIcon, ChevronsUpDown } from "lucide-react";
 import * as RPNInput from "react-phone-number-input";
@@ -88,11 +89,11 @@ const CountrySelect = ({ disabled, value: selectedCountry, options: countryList,
                 }
               }, 0);
             }}
-            placeholder="Search country..."
+            placeholder={i18n.t("common:phoneInput.search")}
           />
           <CommandList>
             <ScrollArea ref={scrollAreaRef} className="h-72">
-              <CommandEmpty>No country found.</CommandEmpty>
+              <CommandEmpty>{i18n.t("common:phoneInput.empty")}</CommandEmpty>
               <CommandGroup>{countryList.map(({ value, label }) => (value ? <CountrySelectOption key={value} country={value} countryName={label} selectedCountry={selectedCountry} onChange={onChange} onSelectComplete={() => setIsOpen(false)} /> : null))}</CommandGroup>
             </ScrollArea>
           </CommandList>

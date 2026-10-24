@@ -1,0 +1,39 @@
+{
+  "pageTitle": "Davet",
+  "notFound": {
+    "title": "Davet bulunamadı",
+    "defaultMessage": "Bu bağlantı geçersiz ya da daha yeni bir davetle değiştirilmiş.",
+    "resend": "Seni davet eden kişiden daveti yeniden göndermesini iste.",
+    "cta": "CallZen'e git"
+  },
+  "status": {
+    "pending": "beklemede",
+    "expired": "süresi dolmuş",
+    "accepted": "kabul edilmiş",
+    "revoked": "iptal edilmiş"
+  },
+  "inactive": {
+    "title": "Bu davet {{status}}",
+    "used": "Bu davet {{organisation}} kuruluşuna katılmak için zaten kullanılmış.",
+    "askInviter": "{{inviter}} kişisinden sana yenisini göndermesini iste.",
+    "askAdmins": "Kuruluşun yöneticilerinden sana yenisini göndermelerini iste.",
+    "cta": "CallZen'i aç"
+  },
+  "join": {
+    "title": "{{organisation}} kuruluşuna katıl",
+    "invitedBy": "{{inviter}} seni <badge>{{role}}</badge> olarak davet etti",
+    "invitedByTeammate": "Bir ekip arkadaşın seni <badge>{{role}}</badge> olarak davet etti",
+    "sentTo": "{{email}} adresine gönderildi · son geçerlilik: {{date}}",
+    "signInHint": "Kabul etmek için giriş yap. Birden çok kuruluşa üye olabilir ve aralarında geçiş yapabilirsin.",
+    "createHint": "Katılmak için bu e-posta adresiyle ücretsiz hesabını oluştur.",
+    "signInCta": "Kabul etmek için giriş yap",
+    "createCta": "Hesap oluştur ve katıl",
+    "needAccount": "Hesap oluşturmam gerekiyor",
+    "haveAccount": "Zaten bir hesabım var",
+    "accept": "Kabul et ve katıl",
+    "signedInAs": "{{email}} olarak giriş yaptın. Bu kuruluş mevcut kuruluşlarına eklenir.",
+    "mismatch": "Bu davet <strong>{{invited}}</strong> için, ancak sen <strong>{{current}}</strong> olarak giriş yapmışsın.",
+    "signOut": "Çıkış yap ve {{email}} kullan",
+    "back": "CallZen'e dön"
+  }
+}

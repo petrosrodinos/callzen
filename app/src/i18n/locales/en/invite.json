@@ -1,0 +1,39 @@
+{
+  "pageTitle": "Invitation",
+  "notFound": {
+    "title": "Invitation not found",
+    "defaultMessage": "This link is invalid or was replaced by a newer invitation.",
+    "resend": "Ask the person who invited you to resend it.",
+    "cta": "Go to CallZen"
+  },
+  "status": {
+    "pending": "pending",
+    "expired": "expired",
+    "accepted": "accepted",
+    "revoked": "revoked"
+  },
+  "inactive": {
+    "title": "This invitation is {{status}}",
+    "used": "It was already used to join {{organisation}}.",
+    "askInviter": "Ask {{inviter}} to send you a new one.",
+    "askAdmins": "Ask the organisation’s admins to send you a new one.",
+    "cta": "Open CallZen"
+  },
+  "join": {
+    "title": "Join {{organisation}}",
+    "invitedBy": "{{inviter}} invited you as <badge>{{role}}</badge>",
+    "invitedByTeammate": "A teammate invited you as <badge>{{role}}</badge>",
+    "sentTo": "Sent to {{email}} · expires {{date}}",
+    "signInHint": "Sign in to accept. You can belong to several organisations and switch between them.",
+    "createHint": "Create your free account with this email to join.",
+    "signInCta": "Sign in to accept",
+    "createCta": "Create account & join",
+    "needAccount": "I need to create an account",
+    "haveAccount": "I already have an account",
+    "accept": "Accept & join",
+    "signedInAs": "Signed in as {{email}}. This organisation is added to your existing ones.",
+    "mismatch": "This invitation is for <strong>{{invited}}</strong>, but you’re signed in as <strong>{{current}}</strong>.",
+    "signOut": "Sign out and use {{email}}",
+    "back": "Back to CallZen"
+  }
+}

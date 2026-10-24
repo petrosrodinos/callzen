@@ -1,0 +1,109 @@
+{
+  "endCall": {
+    "title": "End the call?",
+    "description": "Optionally record how it went. Outcomes link your performance to real results.",
+    "outcomeLabel": "Call outcome",
+    "customPlaceholder": "Describe the outcome",
+    "customLabel": "Custom outcome",
+    "keepTalking": "Keep talking",
+    "confirm": "End call"
+  },
+  "manualLine": {
+    "whoSaid": "Who said it",
+    "prospectSaid": "Prospect said",
+    "iSaid": "I said",
+    "placeholder": "Type a line from the conversation",
+    "addTranscriptLine": "Add a transcript line",
+    "addLine": "Add line"
+  },
+  "live": {
+    "title": "Live call",
+    "badge": "Live",
+    "you": "You",
+    "mic": "Mic",
+    "meeting": "Meeting",
+    "switchCopilot": "Switch co-pilot",
+    "copilot": "Co-pilot",
+    "reconnect": "Reconnect",
+    "dismiss": "Dismiss",
+    "connectTitle": "Connect your audio to start capturing",
+    "connectMeeting": "Choose the meeting's browser tab and enable “Share tab audio”, then allow the microphone.",
+    "connectMic": "Allow microphone access. Put your phone on speaker near this device.",
+    "connectAudio": "Connect audio",
+    "transcript": "Live transcript",
+    "hide": "Hide",
+    "show": "Show ({{count}})",
+    "resumeCapture": "Resume capture",
+    "pauseCapture": "Pause capture",
+    "pauseCaptureHint": "Pause capture (off-topic or sensitive moments)",
+    "bookmark": "Bookmark this moment",
+    "endCall": "End call",
+    "sources": {
+      "microphone": "Microphone",
+      "meeting": "Meeting"
+    },
+    "notices": {
+      "reconnecting": "Transcription connection dropped. Reconnecting…",
+      "switchedToBrowser": "Live transcription is unavailable. Switched to your browser's speech recognition.",
+      "aiUnavailableBrowser": "AI transcription is unavailable, so your browser's speech recognition is being used instead. Speaker detection may be less accurate.",
+      "manualFallback": "Transcription is unavailable for this audio. Add key lines manually so the co-pilot can still help.",
+      "audioStopped": "{{label}} audio stopped (the tab was closed or the device disconnected). What was captured is safe. Reconnect to continue."
+    }
+  },
+  "new": {
+    "title": "Start a call",
+    "description": "Pick how you're calling and which co-pilot to use. Everything except the co-pilot is optional.",
+    "audioCaptureFailed": "Audio capture failed",
+    "validation": {
+      "chooseCopilot": "Choose a co-pilot",
+      "confirmBeforeStarting": "Please confirm before starting"
+    },
+    "noCopilot": {
+      "title": "Create a co-pilot first",
+      "description": "The co-pilot uses your script, objections and knowledge to suggest what to say. It takes a minute with a template.",
+      "cta": "Create co-pilot"
+    },
+    "callType": "Call type",
+    "meetingUnsupported": "Needs a desktop browser like Chrome or Edge.",
+    "copilot": {
+      "title": "Co-pilot",
+      "agentLabel": "Assistant agent",
+      "defaultSuffix": "{{name}} (default)",
+      "goal": "Goal: {{goal}}"
+    },
+    "context": {
+      "title": "Call context",
+      "description": "Helps the co-pilot personalise suggestions and the analysis.",
+      "prospectName": "Prospect name",
+      "prospectNamePlaceholder": "Dr. Papadopoulos",
+      "company": "Company",
+      "companyPlaceholder": "Smile Dental Clinic",
+      "role": "Role",
+      "rolePlaceholder": "Clinic owner",
+      "goal": "Goal of this call",
+      "goalPlaceholder": "Book a demo",
+      "goalHint": "Leave empty to use the co-pilot's goal.",
+      "notes": "Notes",
+      "notesPlaceholder": "Referred by Anna. Currently uses paper calendars.",
+      "priorCall": "Previous call with this prospect",
+      "none": "None",
+      "callFallback": "Call",
+      "language": "Conversation language",
+      "autoDetect": "Auto-detect ({{languages}})",
+      "autoDetectHint": "Auto-detect follows whichever of the co-pilot's languages the prospect speaks."
+    },
+    "recording": {
+      "title": "Recording",
+      "keep": "Keep the audio recording",
+      "keepHint": "Turn off to get suggestions and an analysis without storing audio."
+    },
+    "consent": {
+      "title": "Recording consent",
+      "text": "Recording laws differ by country and some require every participant's consent. You're responsible for getting it. You can enable a consent line your co-pilot suggests at the start of each call.",
+      "checkbox": "I understand and will get consent where it's required."
+    },
+    "footerMeeting": "Next, choose your meeting tab and enable “Share tab audio”.",
+    "footerMic": "Put your phone on speaker near this device.",
+    "startCall": "Start call"
+  }
+}

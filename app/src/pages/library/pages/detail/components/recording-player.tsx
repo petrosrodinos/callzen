@@ -1,4 +1,5 @@
 import { useEffect, useMemo, type RefObject } from "react";
+import { useTranslation } from "react-i18next";
 import { Download, Loader2, VolumeX } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
@@ -21,6 +22,7 @@ export function RecordingPlayer({
   fileName,
   uploading = false,
 }: RecordingPlayerProps) {
+  const { t } = useTranslation("library");
   const {
     data: blob,
     isPending,
@@ -36,7 +38,8 @@ export function RecordingPlayer({
         className="flex items-center gap-2 rounded-lg bg-muted/50 px-3 py-2.5 text-sm text-muted-foreground"
         role="status"
       >
-        <Loader2 className="size-4 animate-spin" /> Saving the recording…
+        <Loader2 className="size-4 animate-spin" />{" "}
+        {t("detail.recording.saving")}
       </p>
     );
   }
@@ -44,8 +47,7 @@ export function RecordingPlayer({
   if (!hasRecording) {
     return (
       <p className="flex items-center gap-2 rounded-lg bg-muted/50 px-3 py-2.5 text-sm text-muted-foreground">
-        <VolumeX className="size-4" /> No audio stored for this call. Transcript
-        and analysis are kept.
+        <VolumeX className="size-4" /> {t("detail.recording.noAudio")}
       </p>
     );
   }
@@ -54,8 +56,7 @@ export function RecordingPlayer({
   if (isError || !url)
     return (
       <p className="text-sm text-destructive">
-        The recording could not be loaded. It may still be uploading; refresh in
-        a moment.
+        {t("detail.recording.loadError")}
       </p>
     );
 
@@ -76,7 +77,7 @@ export function RecordingPlayer({
         size="icon"
         variant="ghost"
         className="shrink-0"
-        aria-label="Download recording"
+        aria-label={t("detail.recording.download")}
       >
         <a href={url} download={fileName}>
           <Download />

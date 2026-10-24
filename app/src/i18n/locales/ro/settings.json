@@ -1,0 +1,97 @@
+{
+  "title": "Setări",
+  "save": "Salvează setările",
+  "nav": {
+    "profile": "Profil și preferințe",
+    "usage": "Utilizare și costuri",
+    "privacy": "Confidențialitate și date",
+    "sections": "Secțiunile setărilor"
+  },
+  "validation": {
+    "enterName": "Introdu numele tău",
+    "enterPassword": "Introdu parola",
+    "typeDelete": "Scrie „DELETE” pentru a confirma"
+  },
+  "profile": {
+    "title": "Profil",
+    "fullName": "Nume complet",
+    "email": "E-mail"
+  },
+  "appearance": {
+    "title": "Aspect",
+    "description": "Luminos, întunecat sau conform sistemului.",
+    "language": "Limba interfeței",
+    "languageDescription": "Limba folosită pentru meniuri, butoane și mesaje."
+  },
+  "languages": {
+    "title": "Limbi",
+    "description": "Apelurile și exersarea pot avea loc în multe limbi.",
+    "yourLanguage": "Limba ta",
+    "templates": "Șabloane și exemple în",
+    "templatesAria": "Limba șabloanelor și a exemplelor",
+    "output": "Sugestii și analiză în"
+  },
+  "recording": {
+    "title": "Înregistrare",
+    "description": "Ești responsabil să obții consimțământul acolo unde legile privind înregistrarea îl cer.",
+    "keep": "Păstrează implicit înregistrările audio",
+    "keepHint": "Când este dezactivat, se stochează doar transcrierile și analizele. Poți schimba asta pentru fiecare apel.",
+    "consentLine": "Replica implicită de informare privind consimțământul",
+    "consentLineHint": "Sugerată ca prima replică a apelurilor atunci când un copilot are replica de consimțământ activată."
+  },
+  "privacy": {
+    "yourData": {
+      "title": "Datele tale",
+      "private": "Înregistrările, transcrierile, scripturile și configurațiile agenților sunt private și aparțin contului tău.",
+      "delete": "Poți șterge oricând orice înregistrare, transcriere sau apel de pe pagina sa. Ștergerea este permanentă.",
+      "keepOnly": "Poți păstra doar transcrierile și analizele dezactivând înregistrările din Setări sau pentru fiecare apel.",
+      "sensitive": "Informațiile sensibile pe care le furnizezi (scripturi, prețuri, date despre clienți) sunt trimise doar furnizorilor de IA de mai jos pentru a produce sugestii și analize."
+    },
+    "processors": {
+      "title": "Cine îți prelucrează datele",
+      "description": "În funcție de modelele și furnizorii de voce pe care îi selectezi.",
+      "region": "Regiune: {{region}}"
+    },
+    "consent": {
+      "title": "Consimțământ pentru înregistrare",
+      "text": "Legile privind înregistrarea diferă în funcție de țară și regiune, iar unele cer consimțământul fiecărui participant. Înainte de a înregistra un apel, asigură-te că îl ai. Copiloții pot sugera replica ta de consimțământ ca prima replică a fiecărui apel."
+    },
+    "deleteAccount": {
+      "title": "Șterge contul",
+      "description": "Șterge definitiv contul tău, copiloții, prospecții, apelurile, înregistrările și analizele.",
+      "button": "Șterge contul"
+    },
+    "deleteDialog": {
+      "title": "Ștergi definitiv contul?",
+      "description": "Toate datele tale sunt eliminate imediat și nu pot fi recuperate.",
+      "password": "Parolă",
+      "confirmation": "Scrie DELETE pentru a confirma",
+      "submit": "Șterge totul"
+    }
+  },
+  "usage": {
+    "period": "Perioadă",
+    "scopeOrg": "Se afișează utilizarea tuturor din această organizație.",
+    "scopeMine": "Se afișează propria ta utilizare în această organizație.",
+    "estimatedCost": "Cost IA estimat",
+    "listPrices": "Pe baza prețurilor de listă",
+    "liveMinutes": "Minute de apeluri live",
+    "practiceMinutes": "Minute de exersare",
+    "analyses": "Analize",
+    "suggestions_one": "{{count}} sugestie",
+    "suggestions_few": "{{count}} sugestii",
+    "suggestions_other": "{{count}} de sugestii",
+    "byActivity": "După activitate",
+    "byModel": "După model și furnizor",
+    "tokens": "{{tokens}} tokeni",
+    "priceList": {
+      "title": "Listă de prețuri",
+      "description": "Cât costă fiecare model și furnizor de voce, pentru a echilibra calitatea și cheltuielile.",
+      "model": "Model",
+      "speed": "Viteză",
+      "input": "Intrare / 1 mil. tokeni",
+      "output": "Ieșire / 1 mil. tokeni",
+      "perMinute": "~{{price}} pe minut"
+    }
+  }
+}

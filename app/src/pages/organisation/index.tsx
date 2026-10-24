@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 import { Building2, Mail, Settings2, ShieldCheck, Users } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
@@ -16,34 +17,35 @@ import { InvitationsTab } from "./components/invitations-tab";
 import { RolesTab } from "./components/roles-tab";
 
 const OrganisationPage: FC = () => {
-  usePageMetadata({ title: "Organisation" });
+  const { t } = useTranslation("organisation");
+  usePageMetadata({ title: t("page.title") });
   const { organisation, can, isPending } = usePermissions();
   const [params, setParams] = useSearchParams();
 
   if (isPending || !organisation) return <DetailSkeleton />;
 
   const tabs = [
-    { id: "general", label: "General", icon: Settings2, visible: true },
-    { id: "members", label: "Members", icon: Users, visible: can(Permissions.MEMBERS_VIEW) },
-    { id: "invitations", label: "Invitations", icon: Mail, visible: can(Permissions.MEMBERS_INVITE) },
-    { id: "roles", label: "Roles & permissions", icon: ShieldCheck, visible: can(Permissions.MEMBERS_VIEW) },
+    { id: "general", label: t("tabs.general"), icon: Settings2, visible: true },
+    { id: "members", label: t("tabs.members"), icon: Users, visible: can(Permissions.MEMBERS_VIEW) },
+    { id: "invitations", label: t("tabs.invitations"), icon: Mail, visible: can(Permissions.MEMBERS_INVITE) },
+    { id: "roles", label: t("tabs.roles"), icon: ShieldCheck, visible: can(Permissions.MEMBERS_VIEW) },
   ].filter((tab) => tab.visible);
 
   const requested = params.get("tab") ?? "general";
   const active = tabs.some((tab) => tab.id === requested) ? requested : "general";
 
-  if (!tabs.length) return <EmptyState icon={Building2} title="Nothing to show" />;
+  if (!tabs.length) return <EmptyState icon={Building2} title={t("page.nothing")} />;
 
   return (
     <div className="mx-auto max-w-4xl">
       <PageHeader
         eyebrow={
           <Badge variant="secondary" className="gap-1">
-            <Building2 className="size-3" /> Your role: {getOrgRoleLabel(organisation.role)}
+            <Building2 className="size-3" /> {t("general.yourRole")} {getOrgRoleLabel(organisation.role)}
           </Badge>
         }
         title={organisation.name}
-        description="Manage who belongs to this organisation, what each role can do, and who you've invited."
+        description={t("page.description")}
       />
       <Tabs value={active} onValueChange={(value) => setParams({ tab: value }, { replace: true })}>
         <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">

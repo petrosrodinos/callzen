@@ -1,4 +1,5 @@
 import { useFieldArray, type UseFormReturn } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { Plus, RotateCcw, Trash2 } from "lucide-react";
 import {
   FormControl,
@@ -20,6 +21,7 @@ export function AnalysisSection({
   form: UseFormReturn<AssistantAgentFormValues>;
   defaults: AnalysisCriterion[];
 }) {
+  const { t } = useTranslation("assistant");
   const { fields, append, remove, replace } = useFieldArray({
     control: form.control,
     name: "analysis_criteria",
@@ -32,8 +34,8 @@ export function AnalysisSection({
 
   return (
     <FormSection
-      title="Scoring categories"
-      description="What the post-call analysis scores and how much each category counts toward the overall score."
+      title={t("analysis.title")}
+      description={t("analysis.description")}
       actions={
         <>
           <Button
@@ -42,7 +44,7 @@ export function AnalysisSection({
             variant="ghost"
             onClick={() => replace(defaults)}
           >
-            <RotateCcw /> Reset
+            <RotateCcw /> {t("analysis.reset")}
           </Button>
           <Button
             type="button"
@@ -52,7 +54,7 @@ export function AnalysisSection({
               append({ key: `custom_${Date.now()}`, label: "", weight: 1 })
             }
           >
-            <Plus /> Add category
+            <Plus /> {t("analysis.add")}
           </Button>
         </>
       }
@@ -75,7 +77,7 @@ export function AnalysisSection({
                   <FormItem className="min-w-0 flex-1 basis-full sm:basis-auto">
                     <FormControl>
                       <Input
-                        aria-label="Category name"
+                        aria-label={t("analysis.categoryName")}
                         {...labelField}
                         onBlur={(event) => {
                           labelField.onBlur();
@@ -105,7 +107,7 @@ export function AnalysisSection({
                         step="0.5"
                         min={0}
                         max={5}
-                        aria-label="Weight"
+                        aria-label={t("analysis.weight")}
                         value={weightField.value}
                         onChange={(event) =>
                           weightField.onChange(
@@ -128,7 +130,7 @@ export function AnalysisSection({
                 size="icon"
                 onClick={() => remove(index)}
                 disabled={fields.length <= 1}
-                aria-label="Remove category"
+                aria-label={t("analysis.remove")}
               >
                 <Trash2 />
               </Button>

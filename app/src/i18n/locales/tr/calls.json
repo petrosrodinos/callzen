@@ -1,0 +1,109 @@
+{
+  "endCall": {
+    "title": "Arama sonlandırılsın mı?",
+    "description": "İsteğe bağlı olarak nasıl geçtiğini kaydedin. Sonuçlar performansınızı gerçek sonuçlarla ilişkilendirir.",
+    "outcomeLabel": "Arama sonucu",
+    "customPlaceholder": "Sonucu açıklayın",
+    "customLabel": "Özel sonuç",
+    "keepTalking": "Konuşmaya devam et",
+    "confirm": "Aramayı sonlandır"
+  },
+  "manualLine": {
+    "whoSaid": "Kim söyledi",
+    "prospectSaid": "Aday söyledi",
+    "iSaid": "Ben söyledim",
+    "placeholder": "Konuşmadan bir cümle yazın",
+    "addTranscriptLine": "Transkripte satır ekle",
+    "addLine": "Satır ekle"
+  },
+  "live": {
+    "title": "Canlı arama",
+    "badge": "Canlı",
+    "you": "Siz",
+    "mic": "Mikrofon",
+    "meeting": "Toplantı",
+    "switchCopilot": "Yardımcı pilotu değiştir",
+    "copilot": "Yardımcı pilot",
+    "reconnect": "Yeniden bağlan",
+    "dismiss": "Kapat",
+    "connectTitle": "Kayda başlamak için sesinizi bağlayın",
+    "connectMeeting": "Toplantının tarayıcı sekmesini seçin ve “Sekme sesini paylaş” seçeneğini etkinleştirin, ardından mikrofona izin verin.",
+    "connectMic": "Mikrofon erişimine izin verin. Telefonunuzu bu cihazın yanında hoparlöre alın.",
+    "connectAudio": "Sesi bağla",
+    "transcript": "Canlı transkript",
+    "hide": "Gizle",
+    "show": "Göster ({{count}})",
+    "resumeCapture": "Kaydı sürdür",
+    "pauseCapture": "Kaydı duraklat",
+    "pauseCaptureHint": "Kaydı duraklat (konu dışı veya hassas anlar)",
+    "bookmark": "Bu ana yer imi ekle",
+    "endCall": "Aramayı sonlandır",
+    "sources": {
+      "microphone": "Mikrofon",
+      "meeting": "Toplantı"
+    },
+    "notices": {
+      "reconnecting": "Transkripsiyon bağlantısı koptu. Yeniden bağlanılıyor…",
+      "switchedToBrowser": "Canlı transkripsiyon kullanılamıyor. Tarayıcınızın konuşma tanımasına geçildi.",
+      "aiUnavailableBrowser": "Yapay zekâ transkripsiyonu kullanılamıyor, bu nedenle bunun yerine tarayıcınızın konuşma tanıması kullanılıyor. Konuşmacı algılama daha az doğru olabilir.",
+      "manualFallback": "Bu ses için transkripsiyon kullanılamıyor. Yardımcı pilotun yine de yardımcı olabilmesi için önemli cümleleri elle ekleyin.",
+      "audioStopped": "{{label}} sesi durdu (sekme kapatıldı veya cihaz bağlantısı kesildi). Kaydedilenler güvende. Devam etmek için yeniden bağlanın."
+    }
+  },
+  "new": {
+    "title": "Arama başlat",
+    "description": "Nasıl aradığınızı ve hangi yardımcı pilotu kullanacağınızı seçin. Yardımcı pilot dışındaki her şey isteğe bağlıdır.",
+    "audioCaptureFailed": "Ses yakalama başarısız oldu",
+    "validation": {
+      "chooseCopilot": "Bir yardımcı pilot seçin",
+      "confirmBeforeStarting": "Başlamadan önce lütfen onaylayın"
+    },
+    "noCopilot": {
+      "title": "Önce bir yardımcı pilot oluşturun",
+      "description": "Yardımcı pilot, ne söyleyeceğinizi önermek için senaryonuzu, itirazlarınızı ve bilginizi kullanır. Şablonla bir dakika sürer.",
+      "cta": "Yardımcı pilot oluştur"
+    },
+    "callType": "Arama türü",
+    "meetingUnsupported": "Chrome veya Edge gibi bir masaüstü tarayıcı gerekir.",
+    "copilot": {
+      "title": "Yardımcı pilot",
+      "agentLabel": "Asistan ajan",
+      "defaultSuffix": "{{name}} (varsayılan)",
+      "goal": "Hedef: {{goal}}"
+    },
+    "context": {
+      "title": "Arama bağlamı",
+      "description": "Yardımcı pilotun önerileri ve analizi kişiselleştirmesine yardımcı olur.",
+      "prospectName": "Aday adı",
+      "prospectNamePlaceholder": "Dr. Papadopoulos",
+      "company": "Şirket",
+      "companyPlaceholder": "Smile Diş Kliniği",
+      "role": "Görev",
+      "rolePlaceholder": "Klinik sahibi",
+      "goal": "Bu aramanın hedefi",
+      "goalPlaceholder": "Demo planla",
+      "goalHint": "Yardımcı pilotun hedefini kullanmak için boş bırakın.",
+      "notes": "Notlar",
+      "notesPlaceholder": "Anna tavsiye etti. Şu anda kâğıt takvim kullanıyor.",
+      "priorCall": "Bu adayla önceki arama",
+      "none": "Yok",
+      "callFallback": "Arama",
+      "language": "Konuşma dili",
+      "autoDetect": "Otomatik algıla ({{languages}})",
+      "autoDetectHint": "Otomatik algılama, yardımcı pilotun dillerinden adayın konuştuğunu takip eder."
+    },
+    "recording": {
+      "title": "Kayıt",
+      "keep": "Ses kaydını sakla",
+      "keepHint": "Ses saklamadan öneri ve analiz almak için kapatın."
+    },
+    "consent": {
+      "title": "Kayıt izni",
+      "text": "Kayıt yasaları ülkeye göre değişir ve bazıları her katılımcının iznini gerektirir. İzni almak sizin sorumluluğunuzdadır. Yardımcı pilotunuzun her aramanın başında önerdiği bir izin cümlesini etkinleştirebilirsiniz.",
+      "checkbox": "Anladım ve gerekli olduğu yerlerde izin alacağım."
+    },
+    "footerMeeting": "Ardından toplantı sekmenizi seçin ve “Sekme sesini paylaş” seçeneğini etkinleştirin.",
+    "footerMic": "Telefonunuzu bu cihazın yanında hoparlöre alın.",
+    "startCall": "Aramayı başlat"
+  }
+}

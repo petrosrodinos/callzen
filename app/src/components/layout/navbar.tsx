@@ -7,7 +7,9 @@ import { useAuthStore } from "@/stores/auth";
 import Logo from "@/assets/favicon.ico";
 import { Suspense } from "react";
 import { ThemeSwitch } from "../ui/theme-switch";
+import { UiLanguageSwitch } from "@/components/ui/ui-language-switch";
 import { environments } from "@/config/environments";
+import i18n from "@/i18n";
 
 interface MenuItem {
   title: string;
@@ -57,28 +59,28 @@ const NavbarContent = ({
     title: environments.APP_NAME,
   },
   menu = [
-    { title: "Home", url: "#hero" },
+    { title: i18n.t("layout:navbar.home"), url: "#hero" },
     {
-      title: "Templates",
+      title: i18n.t("layout:navbar.templates"),
       url: `${environments.LANDING_URL}/#templates`,
     },
     {
-      title: "Pricing",
+      title: i18n.t("layout:navbar.pricing"),
       url: `${environments.LANDING_URL}/#pricing`,
     },
     {
-      title: "Roadmap",
+      title: i18n.t("layout:navbar.roadmap"),
       url: `${environments.LANDING_URL}/#roadmap`,
     },
     {
-      title: "Contact",
+      title: i18n.t("layout:navbar.contact"),
       url: `${environments.LANDING_URL}/#contact`,
     },
   ],
   auth = {
-    login: { title: "Login", url: "/auth/sign-in" },
-    signup: { title: "Sign up", url: "/auth/sign-up" },
-    dashboard: { title: "Dashboard", url: "/console/dashboard" },
+    login: { title: i18n.t("layout:navbar.login"), url: "/auth/sign-in" },
+    signup: { title: i18n.t("layout:navbar.signup"), url: "/auth/sign-up" },
+    dashboard: { title: i18n.t("layout:navbar.dashboard"), url: "/console/dashboard" },
   },
 }: Navbar1Props) => {
   const { isLoggedIn } = useAuthStore();
@@ -103,6 +105,7 @@ const NavbarContent = ({
 
           <div className="flex items-center gap-2">
             <ThemeSwitch />
+            <UiLanguageSwitch />
             {isLoggedIn ? (
               <Button asChild size="sm">
                 <a href={auth.dashboard?.url}>{auth.dashboard?.title}</a>
@@ -128,6 +131,7 @@ const NavbarContent = ({
             </a>
             <div className="flex items-center gap-2">
               <ThemeSwitch />
+              <UiLanguageSwitch />
               <Sheet>
                 <SheetTrigger asChild>
                   <Button variant="outline" size="icon">

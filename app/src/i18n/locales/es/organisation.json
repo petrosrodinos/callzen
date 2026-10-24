@@ -1,0 +1,88 @@
+{
+  "page": {
+    "title": "Organización",
+    "description": "Gestiona quién pertenece a esta organización, qué puede hacer cada rol y a quién has invitado.",
+    "nothing": "Nada que mostrar"
+  },
+  "tabs": {
+    "general": "General",
+    "members": "Miembros",
+    "invitations": "Invitaciones",
+    "roles": "Roles y permisos"
+  },
+  "create": {
+    "title": "Crear una organización",
+    "description": "Cada organización tiene sus propios copilotos, clientes potenciales, llamadas y miembros. Serás su propietario y podrás invitar a tu equipo.",
+    "name": "Nombre de la organización",
+    "namePlaceholder": "Equipo de ventas Acme",
+    "nameHint": "Tus compañeros verán este nombre en su invitación.",
+    "submit": "Crear organización"
+  },
+  "general": {
+    "details": "Detalles",
+    "detailsDescription_one": "Creada el {{date}} · {{count}} miembro",
+    "detailsDescription_other": "Creada el {{date}} · {{count}} miembros",
+    "name": "Nombre de la organización",
+    "saveName": "Guardar nombre",
+    "yourRole": "Tu rol:",
+    "deleteTitle": "Eliminar organización",
+    "deleteDescription": "Elimina de forma permanente la organización con todos sus copilotos, clientes potenciales, llamadas, grabaciones y análisis, y quita a todos los miembros. Esta acción no se puede deshacer.",
+    "deleteDialogTitle": "¿Eliminar {{name}}?",
+    "deleteDialogDescription": "Escribe <strong>{{name}}</strong> para confirmar. Todo lo de esta organización se elimina para todos los miembros.",
+    "confirmAria": "Escribe el nombre de la organización para confirmar",
+    "deletePermanently": "Eliminar permanentemente"
+  },
+  "invitations": {
+    "copyFailed": "Error al copiar",
+    "copyFailedHint": "Selecciona el enlace y cópialo manualmente.",
+    "inviteTitle": "Invitar a alguien",
+    "inviteDescription": "Reciben un correo con un enlace válido durante 7 días. Cualquiera puede pertenecer a varias organizaciones, así que los usuarios actuales de CallZen solo tienen que aceptar y cambiar.",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "companero@empresa.com",
+    "role": "Rol",
+    "send": "Enviar invitación",
+    "emptyTitle": "Aún no hay invitaciones",
+    "emptyDescription": "Las invitaciones que envíes aparecerán aquí para que puedas reenviarlas o revocarlas.",
+    "invited": "invitado {{when}}",
+    "invitedBy": "invitado {{when}} por {{name}}",
+    "sentTimes": "enviada {{count}}×",
+    "expires": "Caduca el {{date}}",
+    "expired": "Caducó {{when}}",
+    "resend": "Reenviar",
+    "revoke": "Revocar",
+    "copied": "Copiado",
+    "copyLink": "Copiar enlace",
+    "revokeTitle": "¿Revocar la invitación para {{email}}?",
+    "revokeDescription": "El enlace deja de funcionar de inmediato. Puedes enviar una nueva invitación cuando quieras."
+  },
+  "members": {
+    "you": "Tú",
+    "joined": "se unió el {{date}}",
+    "roleOf": "Rol de {{name}}",
+    "removeAria": "Quitar a {{name}}",
+    "removeTitle": "¿Quitar a {{name}}?",
+    "removeDescription": "Pierde el acceso a esta organización de inmediato. Las llamadas que hizo permanecen en la organización. Se le puede volver a invitar más adelante.",
+    "remove": "Quitar"
+  },
+  "roles": {
+    "role": "Rol",
+    "membersCount_one": "{{count}} miembro",
+    "membersCount_other": "{{count}} miembros",
+    "ownersOnlyEdit": "Solo los propietarios pueden cambiar lo que puede hacer cada rol.",
+    "ownerLocked": "Los propietarios siempre tienen todos los permisos, por lo que este rol no se puede restringir.",
+    "ownersOnly": "Solo propietarios",
+    "toggleAria": "{{permission}} para {{role}}",
+    "reset": "Restablecer a la preconfiguración",
+    "unsaved": "Cambios sin guardar",
+    "customised": "Personalizado",
+    "usingPreset": "Usando la preconfiguración",
+    "discard": "Descartar",
+    "save": "Guardar permisos de {{role}}"
+  },
+  "validation": {
+    "nameMin": "El nombre debe tener al menos {{min}} caracteres",
+    "nameMax": "El nombre debe tener como máximo {{max}} caracteres",
+    "emailRequired": "Introduce una dirección de correo electrónico",
+    "emailInvalid": "Introduce una dirección de correo electrónico válida"
+  }
+}

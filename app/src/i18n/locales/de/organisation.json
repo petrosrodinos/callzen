@@ -1,0 +1,88 @@
+{
+  "page": {
+    "title": "Organisation",
+    "description": "Verwalten Sie, wer zu dieser Organisation gehört, was jede Rolle darf und wen Sie eingeladen haben.",
+    "nothing": "Nichts anzuzeigen"
+  },
+  "tabs": {
+    "general": "Allgemein",
+    "members": "Mitglieder",
+    "invitations": "Einladungen",
+    "roles": "Rollen und Berechtigungen"
+  },
+  "create": {
+    "title": "Organisation erstellen",
+    "description": "Jede Organisation hat ihre eigenen Co-Piloten, Interessenten, Anrufe und Mitglieder. Sie sind ihr Inhaber und können Ihr Team einladen.",
+    "name": "Name der Organisation",
+    "namePlaceholder": "Acme Vertriebsteam",
+    "nameHint": "Ihre Teamkollegen sehen diesen Namen in ihrer Einladung.",
+    "submit": "Organisation erstellen"
+  },
+  "general": {
+    "details": "Details",
+    "detailsDescription_one": "Erstellt am {{date}} · {{count}} Mitglied",
+    "detailsDescription_other": "Erstellt am {{date}} · {{count}} Mitglieder",
+    "name": "Name der Organisation",
+    "saveName": "Namen speichern",
+    "yourRole": "Ihre Rolle:",
+    "deleteTitle": "Organisation löschen",
+    "deleteDescription": "Löscht die Organisation dauerhaft mit allen Co-Piloten, Interessenten, Anrufen, Aufzeichnungen und Analysen und entfernt alle Mitglieder. Dies kann nicht rückgängig gemacht werden.",
+    "deleteDialogTitle": "{{name}} löschen?",
+    "deleteDialogDescription": "Geben Sie zur Bestätigung <strong>{{name}}</strong> ein. Alles in dieser Organisation wird für alle Mitglieder gelöscht.",
+    "confirmAria": "Geben Sie zur Bestätigung den Namen der Organisation ein",
+    "deletePermanently": "Dauerhaft löschen"
+  },
+  "invitations": {
+    "copyFailed": "Kopieren fehlgeschlagen",
+    "copyFailedHint": "Markieren Sie den Link und kopieren Sie ihn manuell.",
+    "inviteTitle": "Jemanden einladen",
+    "inviteDescription": "Sie erhalten eine E-Mail mit einem Link, der 7 Tage gültig ist. Jeder kann mehreren Organisationen angehören, bestehende CallZen-Nutzer müssen also nur annehmen und wechseln.",
+    "email": "E-Mail",
+    "emailPlaceholder": "kollege@firma.de",
+    "role": "Rolle",
+    "send": "Einladung senden",
+    "emptyTitle": "Noch keine Einladungen",
+    "emptyDescription": "Von Ihnen gesendete Einladungen erscheinen hier, damit Sie sie erneut senden oder widerrufen können.",
+    "invited": "eingeladen {{when}}",
+    "invitedBy": "eingeladen {{when}} von {{name}}",
+    "sentTimes": "{{count}}× gesendet",
+    "expires": "Läuft ab am {{date}}",
+    "expired": "Abgelaufen {{when}}",
+    "resend": "Erneut senden",
+    "revoke": "Widerrufen",
+    "copied": "Kopiert",
+    "copyLink": "Link kopieren",
+    "revokeTitle": "Einladung für {{email}} widerrufen?",
+    "revokeDescription": "Der Link funktioniert sofort nicht mehr. Sie können jederzeit eine neue Einladung senden."
+  },
+  "members": {
+    "you": "Sie",
+    "joined": "beigetreten am {{date}}",
+    "roleOf": "Rolle von {{name}}",
+    "removeAria": "{{name}} entfernen",
+    "removeTitle": "{{name}} entfernen?",
+    "removeDescription": "Der Zugriff auf diese Organisation entfällt sofort. Von dieser Person geführte Anrufe bleiben in der Organisation. Sie kann später erneut eingeladen werden.",
+    "remove": "Entfernen"
+  },
+  "roles": {
+    "role": "Rolle",
+    "membersCount_one": "{{count}} Mitglied",
+    "membersCount_other": "{{count}} Mitglieder",
+    "ownersOnlyEdit": "Nur Inhaber können ändern, was jede Rolle tun darf.",
+    "ownerLocked": "Inhaber haben immer alle Berechtigungen, daher kann diese Rolle nicht eingeschränkt werden.",
+    "ownersOnly": "Nur Inhaber",
+    "toggleAria": "{{permission}} für {{role}}",
+    "reset": "Auf Voreinstellung zurücksetzen",
+    "unsaved": "Nicht gespeicherte Änderungen",
+    "customised": "Angepasst",
+    "usingPreset": "Voreinstellung aktiv",
+    "discard": "Verwerfen",
+    "save": "Berechtigungen für {{role}} speichern"
+  },
+  "validation": {
+    "nameMin": "Der Name muss mindestens {{min}} Zeichen lang sein",
+    "nameMax": "Der Name darf höchstens {{max}} Zeichen lang sein",
+    "emailRequired": "Geben Sie eine E-Mail-Adresse ein",
+    "emailInvalid": "Geben Sie eine gültige E-Mail-Adresse ein"
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "nav": {
+    "aria": "Principal",
+    "home": "Pagina principală CallZen",
+    "live": "Copilot în timp real",
+    "practice": "Exersare",
+    "reviews": "Analize ale apelurilor",
+    "teams": "Echipe",
+    "createAccount": "Creează cont"
+  },
+  "actions": {
+    "openDashboard": "Deschide panoul",
+    "createAccount": "Creează-ți contul",
+    "signIn": "Autentificare"
+  },
+  "footer": {
+    "consent": "Cere întotdeauna consimțământul înainte de a înregistra un apel.",
+    "aria": "Subsol",
+    "dashboard": "Panou",
+    "signIn": "Autentificare",
+    "createAccount": "Creează cont"
+  },
+  "hero": {
+    "title": "Știi ce să spui în continuare, cât timp încă vorbesc.",
+    "lede": "CallZen ascultă apelul tău de vânzări, semnalează obiecțiile și semnalele de cumpărare pe măsură ce apar și îți sugerează următoarea replică. Apoi evaluează apelul și îți permite să exersezi părțile dificile cu clienți potențiali generați de IA."
+  },
+  "demo": {
+    "aria": "Exemplu de apel în timp real cu copilotul CallZen",
+    "live": "Apel în direct",
+    "replay": "Redă din nou",
+    "prospect": "Client potențial",
+    "you": "Tu",
+    "prospectOne": "Ne place ce am văzut. Sincer, prețul este <mark>mult peste ce am bugetat</mark>.",
+    "youLine": "E de înțeles. Cu ce interval lucrați? Ai spus că urmărirea lentă te costă vânzări, așa că haideți să le punem una lângă alta.",
+    "prospectTwo": "În jur de patruzeci pe utilizator. Dar da, <mark>am pierdut două reînnoiri trimestrul trecut</mark> pentru că nimeni nu a sunat înapoi la timp.",
+    "copilot": "Copilot",
+    "script": "Script",
+    "stages": {
+      "opening": "Deschidere",
+      "discovery": "Descoperire",
+      "pitch": "Prezentare",
+      "objections": "Gestionarea obiecțiilor",
+      "close": "Închidere"
+    },
+    "objection": {
+      "kind": "Obiecție de preț",
+      "why": "Clientul potențial spune că prețul depășește bugetul."
+    },
+    "reply": {
+      "kind": "Răspuns sugerat",
+      "said": "Spus",
+      "text": "„Cu ce interval lucrați? Haideți să-l comparăm cu ce vă costă urmărirea lentă.”"
+    },
+    "signal": {
+      "kind": "Semnal de cumpărare",
+      "why": "Au spus cât îi costă urmărirea lentă. Treci la închidere și propune un apel de configurare."
+    }
+  },
+  "ways": {
+    "title": "Funcționează cu apelurile pe care le faci deja",
+    "phone": {
+      "title": "Apeluri telefonice",
+      "text": "Pune apelul pe difuzor și CallZen ascultă prin microfonul tău. Fără extensii, fără să schimbi aplicația de apelare."
+    },
+    "online": {
+      "title": "Întâlniri online",
+      "text": "Partajează fila întâlnirii și CallZen aude ambele părți, transcriindu-te separat pe tine și pe clientul potențial, astfel încât sugestiile să răspundă persoanei potrivite."
+    }
+  },
+  "practice": {
+    "title": "Exersează cu un client potențial care opune rezistență",
+    "intro": "Clienții de exersare se comportă ca niște cumpărători reali. Își păstrează adevăratele probleme pentru ei, lasă obiecțiile pentru cel mai incomod moment și își pierd răbdarea. Întrerupe-l pe unul în mijlocul frazei și se oprește ca să-ți răspundă, cu voce.",
+    "describe": {
+      "title": "Descrie, nu configura",
+      "text": "Scrie o propoziție despre cine urmează să suni și CallZen creează clientul potențial pentru tine."
+    },
+    "replay": {
+      "title": "Reia un apel care a mers prost",
+      "text": "Transformă un client potențial real dintr-un apel în direct într-un client de exersare și încearcă din nou."
+    },
+    "withCopilot": {
+      "title": "Exersează cu sau fără copilot",
+      "text": "Păstrează sugestiile active cât timp înveți, apoi dezactivează-le pentru a vedea cum te descurci singur."
+    },
+    "dossier": {
+      "aria": "Exemplu de client de exersare",
+      "role": "Director operațiuni, companie regională de logistică",
+      "difficulty": "Dificultate: ridicată",
+      "patience": "Răbdare: scăzută",
+      "voice": "Apel vocal",
+      "knownLabel": "Ce știi",
+      "known": "A răspuns la e-mailul tău inițial. Conduce o echipă de doisprezece agenți de vânzări.",
+      "secretsLabel": "Ce nu îți spune",
+      "hidden": "Ascuns până îl dezvălui",
+      "hintRevealed": "Aceasta este ceea ce îți arată analiza.",
+      "hintHidden": "La exersare, afli acestea în timpul apelului.",
+      "hide": "Ascunde din nou",
+      "reveal": "Dezvăluie după apel"
+    },
+    "secrets": {
+      "pain": {
+        "label": "Problemă principală",
+        "text": "A pierdut două reînnoiri trimestrul trecut din cauza urmăririi lente."
+      },
+      "objection": {
+        "label": "Obiecția pe care o va ridica",
+        "text": "„Avem deja un instrument pentru asta.”"
+      },
+      "yes": {
+        "label": "Ce o face să spună da",
+        "text": "O implementare care durează sub o săptămână."
+      }
+    }
+  },
+  "review": {
+    "title": "După apel, vezi exact unde s-a schimbat situația",
+    "copy": "Fiecare apel primește un scor ponderat, scoruri pe categorii și o listă de greșeli și puncte forte. Fiecare trimite la momentul din înregistrare, ca să îl poți asculta în loc să ghicești.",
+    "aria": "Exemplu de analiză a unui apel",
+    "sample": "Analiză de exemplu, apel de {{duration}}, scor <score>78</score>",
+    "you": "Tu",
+    "prospect": "Client potențial",
+    "markerAt": "{{kind}} la {{time}}",
+    "kinds": {
+      "mistake": "Greșeală",
+      "strength": "Punct forte",
+      "objection": "Obiecție"
+    },
+    "markers": {
+      "pitchedEarly": "Ai făcut prezentarea înainte să întrebi cât de mare este echipa.",
+      "priceObjection": "Obiecție de preț. Ai întrebat de buget înainte să aperi suma.",
+      "askedCost": "Ai întrebat cât îi costă urmărirea lentă, apoi i-ai lăsat să răspundă.",
+      "weakClose": "Ai încheiat cu „anunță-mă” în loc să fixezi pasul următor."
+    },
+    "metrics": {
+      "talkRatio": "Raport de vorbire",
+      "pace": "Ritm",
+      "paceValue": "148 cuvinte/min",
+      "fillers": "Cuvinte de umplutură",
+      "interruptions": "Întreruperi",
+      "objections": "Obiecții"
+    },
+    "after": {
+      "followUp": {
+        "title": "O ciornă de follow-up",
+        "text": "CallZen scrie e-mailul pe care l-ai trimite în continuare, pe baza a ceea ce a spus de fapt clientul potențial."
+      },
+      "practice": {
+        "title": "O sesiune de exersare potrivită",
+        "text": "Îți sugerează clientul de exersare care vizează greșelile făcute în acest apel."
+      },
+      "trends": {
+        "title": "Tendințe între apeluri",
+        "text": "Panoul tău arată scorul în timp și greșelile care revin."
+      }
+    }
+  },
+  "playbook": {
+    "title": "Învață-l cum vinde echipa ta",
+    "copy": "Un copilot este la fel de bun ca ghidul său de vânzări. Configurează-l pe al tău o singură dată, apoi folosește-l la fiecare apel.",
+    "items": {
+      "stages": {
+        "title": "Etapele scriptului",
+        "text": "Împarte apelul în etape. Copilotul urmărește în care te afli pe măsură ce conversația avansează."
+      },
+      "objections": {
+        "title": "Bibliotecă de obiecții",
+        "text": "Notează cum răspunzi la obiecții legate de preț, moment și concurenți. Sugestiile pornesc de la răspunsurile tale."
+      },
+      "knowledge": {
+        "title": "Cunoștințe despre produs",
+        "text": "Importă-ți documentele ca sugestiile să folosească prețurile, funcțiile și limitele tale reale."
+      },
+      "tone": {
+        "title": "Ton și metodologie",
+        "text": "Alege cum sună și ce metodă de vânzare urmează."
+      },
+      "frequency": {
+        "title": "Cât de des intervine",
+        "text": "Setează cât de des apar sugestiile, ca să te ajute fără să te sufoce."
+      },
+      "languages": {
+        "title": "Până la cinci limbi",
+        "text": "Fiecare copilot poate gestiona mai multe limbi de conversație și detectează care este vorbită."
+      }
+    }
+  },
+  "teams": {
+    "title": "Creat pentru echipele care vând împreună",
+    "copy": "Copilotii, clienții potențiali și apelurile aparțin unei organizații, iar tu poți face parte din mai multe și poți comuta între ele. Invită persoane prin e-mail; invitațiile sunt valabile șapte zile.",
+    "roles": {
+      "owner": {
+        "name": "Proprietar",
+        "text": "Controlează totul, inclusiv ce pot face administratorii și membrii."
+      },
+      "admin": {
+        "name": "Administrator",
+        "text": "Gestionează echipa cu permisiunile acordate de proprietar."
+      },
+      "member": {
+        "name": "Membru",
+        "text": "Folosește copilotii, gestionează clienții potențiali și își analizează propriile apeluri."
+      }
+    },
+    "consent": {
+      "title": "Mai întâi consimțământul, iar tu decizi ce se păstrează",
+      "copy": "Cere întotdeauna consimțământul înainte de a înregistra un apel. CallZen ți-o reamintește și îți oferă controalele potrivite: stabilește cât timp sunt păstrate înregistrările și șterge-ți contul și datele când ai terminat."
+    }
+  },
+  "closing": {
+    "title": "Fă următorul apel cu un copilot.",
+    "copy": "Configurează-ți primul copilot, începe un apel și vezi cum sosesc sugestiile cât timp clientul potențial încă vorbește."
+  }
+}

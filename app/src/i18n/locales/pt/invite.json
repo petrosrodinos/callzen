@@ -1,0 +1,39 @@
+{
+  "pageTitle": "Convite",
+  "notFound": {
+    "title": "Convite não encontrado",
+    "defaultMessage": "Esta ligação é inválida ou foi substituída por um convite mais recente.",
+    "resend": "Peça à pessoa que o convidou para o reenviar.",
+    "cta": "Ir para o CallZen"
+  },
+  "status": {
+    "pending": "pendente",
+    "expired": "expirado",
+    "accepted": "aceite",
+    "revoked": "revogado"
+  },
+  "inactive": {
+    "title": "Este convite está {{status}}",
+    "used": "Já foi utilizado para aderir a {{organisation}}.",
+    "askInviter": "Peça a {{inviter}} que lhe envie um novo.",
+    "askAdmins": "Peça aos administradores da organização que lhe enviem um novo.",
+    "cta": "Abrir o CallZen"
+  },
+  "join": {
+    "title": "Aderir a {{organisation}}",
+    "invitedBy": "{{inviter}} convidou-o como <badge>{{role}}</badge>",
+    "invitedByTeammate": "Um colega convidou-o como <badge>{{role}}</badge>",
+    "sentTo": "Enviado para {{email}} · expira em {{date}}",
+    "signInHint": "Inicie sessão para aceitar. Pode pertencer a várias organizações e alternar entre elas.",
+    "createHint": "Crie a sua conta gratuita com este email para aderir.",
+    "signInCta": "Iniciar sessão para aceitar",
+    "createCta": "Criar conta e aderir",
+    "needAccount": "Preciso de criar uma conta",
+    "haveAccount": "Já tenho uma conta",
+    "accept": "Aceitar e aderir",
+    "signedInAs": "Sessão iniciada como {{email}}. Esta organização será adicionada às que já tem.",
+    "mismatch": "Este convite é para <strong>{{invited}}</strong>, mas iniciou sessão como <strong>{{current}}</strong>.",
+    "signOut": "Terminar sessão e usar {{email}}",
+    "back": "Voltar ao CallZen"
+  }
+}

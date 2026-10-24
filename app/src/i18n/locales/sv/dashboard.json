@@ -1,0 +1,117 @@
+{
+  "title": "Översikt",
+  "greeting": "Hej {{name}}",
+  "descriptionTeam": "Hur det går för alla i {{organisation}}.",
+  "defaultOrganisation": "din organisation",
+  "descriptionMe": "Dina resultat i liveamtal och övning, och vad du bör arbeta med härnäst.",
+  "scope": {
+    "me": "Jag",
+    "team": "Team"
+  },
+  "period": "Period",
+  "practice": "Öva",
+  "stats": {
+    "averageScore": "Genomsnittligt betyg",
+    "averageScoreHint": "Live {{live}} · Övning {{practice}}",
+    "calls": "Samtal",
+    "callsHint": "{{live}} live · {{practice}} övning",
+    "meetingsBooked": "Bokade möten",
+    "fromLiveCalls": "Från liveamtal",
+    "practiceStreak": "Övningsstreak",
+    "streakDays": "{{count}} d",
+    "talkMinutes": "{{minutes}} min i samtal"
+  },
+  "gettingStarted": {
+    "heading": "Kom igång i tre steg",
+    "subheading": "De flesta blir klara på under fem minuter.",
+    "createCopilot": {
+      "title": "Skapa din copilot",
+      "text": "Börja från en mall: manus, invändningar och mål med ett klick.",
+      "cta": "Skapa copilot"
+    },
+    "waitCopilot": {
+      "title": "Vänta på en copilot",
+      "text": "En administratör för den här organisationen ställer in de copiloter du ska använda. Fråga dem om ingen är tillgänglig ännu.",
+      "cta": "Visa organisation"
+    },
+    "practice": {
+      "title": "Öva med en AI-prospekt",
+      "text": "Prata högt med en realistisk prospekt medan copiloten coachar dig.",
+      "cta": "Öva nu"
+    },
+    "firstCall": {
+      "title": "Ta ditt första assisterade samtal",
+      "text": "Telefon på högtalare eller ett onlinemöte. Få förslag i realtid.",
+      "cta": "Starta ett samtal"
+    }
+  },
+  "highlights": {
+    "title": "Höjdpunkter",
+    "empty": "Efter några analyserade samtal ser du här vad som förbättras och vad som behöver uppmärksamhet."
+  },
+  "outcomes": {
+    "title": "Resultat av liveamtal",
+    "subtitle": "Andel samtal med ett registrerat resultat",
+    "empty": "Registrera resultat i slutet av liveamtal för att koppla prestation till utfall."
+  },
+  "invitations": {
+    "title": "Du har blivit inbjuden",
+    "from": "Från {{name}}",
+    "expires": "går ut {{when}}",
+    "accept": "Acceptera"
+  },
+  "practiceProgress": {
+    "title": "Övningsframsteg",
+    "withCopilot": "Med copilot",
+    "onYourOwn": "På egen hand",
+    "empty": "Inga övningspass under den här perioden.",
+    "tabs": {
+      "level": "Nivå",
+      "lead": "Lead",
+      "scenario": "Scenario",
+      "copilot": "Copilot"
+    },
+    "columns": {
+      "group": "Grupp",
+      "sessions": "Pass",
+      "won": "Lyckade",
+      "avg": "Snitt"
+    }
+  },
+  "recentCalls": {
+    "title": "Senaste samtal",
+    "viewAll": "Visa alla",
+    "empty": "Inga samtal ännu."
+  },
+  "recommended": {
+    "title": "Rekommenderad övning",
+    "subtitle": "Scenarier baserade på dina senaste svaga punkter",
+    "empty": "Rekommendationer visas efter ditt första analyserade samtal. Testa under tiden ett färdigt scenario.",
+    "browse": "Bläddra bland scenarier",
+    "preparing": "Förbereder…",
+    "practice": "Öva"
+  },
+  "mistakes": {
+    "title": "Återkommande misstag",
+    "subtitle": "Från dina senaste 20 analyserade samtal",
+    "empty": "Inga mönster ännu. Fortsätt så.",
+    "callsAffected_one": "{{count}} samtal",
+    "callsAffected_other": "{{count}} samtal",
+    "viewCall": "Visa samtal"
+  },
+  "scoreTrend": {
+    "title": "Betygstrend",
+    "subtitle": "Varje analyserat samtal, från äldsta till nyaste",
+    "emptyTitle": "Inte tillräckligt med data ännu",
+    "emptyDescription": "Din trend visas efter två analyserade samtal eller övningspass.",
+    "liveCalls": "Liveamtal",
+    "practice": "Övning"
+  },
+  "skills": {
+    "title": "Färdigheter",
+    "subtitle": "Svagast först. Staplarna jämför liveamtal med övning.",
+    "empty": "Färdighetsbetyg visas efter ditt första analyserade samtal.",
+    "live": "Live",
+    "practice": "Övning"
+  }
+}

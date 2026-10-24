@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { AlertTriangle, Loader2, RefreshCw } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -14,16 +15,16 @@ export function AnalysisStatus({
   call: Call;
   onRetry: () => void;
 }) {
+  const { t } = useTranslation("library");
   if (call.status === CallStatuses.ANALYZING) {
     return (
       <Card className="space-y-4 p-5" role="status" aria-live="polite">
         <div className="flex items-center gap-3">
           <Loader2 className="size-5 animate-spin text-primary" />
           <div>
-            <p className="font-medium">Preparing your performance report…</p>
+            <p className="font-medium">{t("detail.status.preparing")}</p>
             <p className="text-sm text-muted-foreground">
-              Usually under a minute. You can leave this page; it'll be ready in
-              your library.
+              {t("detail.status.preparingHint")}
             </p>
           </div>
         </div>
@@ -47,17 +48,17 @@ export function AnalysisStatus({
         <div className="flex-1">
           <p className="font-medium">
             {call.status === CallStatuses.ANALYSIS_FAILED
-              ? "The analysis didn't complete"
-              : "No analysis for this call"}
+              ? t("detail.status.failed")
+              : t("detail.status.noAnalysis")}
           </p>
           <p className="text-sm text-muted-foreground">
-            {call.analysis_error ?? "Your recording and transcript are safe."}{" "}
-            {canRetry && "You can try again."}
+            {call.analysis_error ?? t("detail.status.safe")}{" "}
+            {canRetry && t("detail.status.canRetry")}
           </p>
         </div>
         {canRetry && (
           <Button onClick={onRetry}>
-            <RefreshCw /> Retry analysis
+            <RefreshCw /> {t("detail.status.retry")}
           </Button>
         )}
       </Card>

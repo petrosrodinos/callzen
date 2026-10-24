@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -8,19 +9,20 @@ export function SkillsCard({
 }: {
   categories: DashboardCategory[];
 }) {
+  const { t } = useTranslation("dashboard");
   const sorted = [...categories].sort(
     (a, b) => (a.average ?? 0) - (b.average ?? 0),
   );
 
   return (
     <Card className="p-5">
-      <h2 className="font-semibold">Skills</h2>
+      <h2 className="font-semibold">{t("skills.title")}</h2>
       <p className="mb-4 text-sm text-muted-foreground">
-        Weakest first. Bars compare live calls with practice.
+        {t("skills.subtitle")}
       </p>
       {!sorted.length ? (
         <p className="py-8 text-center text-sm text-muted-foreground">
-          Skill scores appear after your first analyzed call.
+          {t("skills.empty")}
         </p>
       ) : (
         <ul className="space-y-3.5">
@@ -56,12 +58,12 @@ export function SkillsCard({
                 <Bar
                   value={category.live_average}
                   className="bg-[var(--chart-1)]"
-                  label="Live"
+                  label={t("skills.live")}
                 />
                 <Bar
                   value={category.practice_average}
                   className="bg-[var(--chart-2)]"
-                  label="Practice"
+                  label={t("skills.practice")}
                 />
               </div>
             </li>

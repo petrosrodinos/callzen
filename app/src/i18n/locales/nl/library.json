@@ -1,0 +1,220 @@
+{
+  "index": {
+    "title": "Gesprekkenbibliotheek",
+    "description": "Elk live gesprek en elke oefensessie, met opnames, transcripties en analyses.",
+    "startCall": "Gesprek starten",
+    "searchPlaceholder": "Zoeken op prospect, bedrijf of notities",
+    "searchLabel": "Gesprekken zoeken",
+    "filtersButton": "Filters",
+    "clearFilters": "Filters wissen",
+    "filters": {
+      "whose": "Van wie",
+      "everyone": "Gesprekken van iedereen",
+      "mine": "Alleen mijn gesprekken",
+      "kind": "Live of oefening",
+      "type": "Gesprekstype",
+      "copilot": "Copiloot",
+      "allCopilots": "Alle copiloten",
+      "outcome": "Uitkomst",
+      "score": "Score",
+      "date": "Datum",
+      "sort": "Sorteren"
+    },
+    "empty": {
+      "noMatchTitle": "Geen gesprekken gevonden",
+      "noCallsTitle": "Nog geen gesprekken",
+      "noMatchDescription": "Probeer enkele filters te verwijderen.",
+      "noCallsDescription": "Je live gesprekken en oefensessies verschijnen hier.",
+      "startPractising": "Begin met oefenen"
+    },
+    "previousPage": "Vorige pagina",
+    "nextPage": "Volgende pagina",
+    "callCount_one": "{{count}} gesprek",
+    "callCount_other": "{{count}} gesprekken"
+  },
+  "detail": {
+    "pageTitle": "Gesprek",
+    "notFound": {
+      "title": "Gesprek niet gevonden",
+      "description": "Het is mogelijk verwijderd.",
+      "back": "Terug naar de bibliotheek"
+    },
+    "recordingTranscript": "Opname en transcriptie",
+    "tabs": {
+      "reveal": "Resultaat en onthulling",
+      "overview": "Overzicht",
+      "moments": "Fouten en sterke punten",
+      "metrics": "Statistieken",
+      "prospect": "Prospect",
+      "copilot": "Copiloot",
+      "followUp": "Opvolging"
+    },
+    "followUpSubject": "Opvolging",
+    "followUpSubjectCompany": "Opvolging – {{company}}",
+    "timeline": {
+      "bookmark": "Bladwijzer",
+      "label": "Tijdlijn van het gesprek",
+      "markerAt": "{{label}} op {{time}}"
+    },
+    "status": {
+      "preparing": "Je prestatierapport wordt voorbereid…",
+      "preparingHint": "Duurt meestal minder dan een minuut. Je kunt deze pagina verlaten; het staat daarna klaar in je bibliotheek.",
+      "failed": "De analyse is niet voltooid",
+      "noAnalysis": "Geen analyse voor dit gesprek",
+      "safe": "Je opname en transcriptie zijn veilig.",
+      "canRetry": "Je kunt het opnieuw proberen.",
+      "retry": "Analyse opnieuw proberen"
+    },
+    "header": {
+      "back": "Gesprekkenbibliotheek",
+      "practice": "Oefening",
+      "copilot": "Copiloot: {{name}}",
+      "practiceSession": "Oefensessie",
+      "call": "Gesprek",
+      "by": "door {{name}}",
+      "outcomeLabel": "Uitkomst van het gesprek",
+      "recordOutcome": "Uitkomst vastleggen",
+      "retry": "Opnieuw",
+      "moreActions": "Meer acties",
+      "rerun": "Analyse opnieuw uitvoeren",
+      "recreatingProspect": "Prospect wordt opnieuw aangemaakt…",
+      "practiceWithProspect": "Oefenen met dit prospect",
+      "harder": "Probeer een moeilijkere versie",
+      "retention": "Bewaartermijn",
+      "deleteRecording": "Alleen opname verwijderen",
+      "deleteTranscript": "Transcriptie verwijderen",
+      "deleteCall": "Gesprek permanent verwijderen",
+      "confirm": {
+        "confirmText": "Permanent verwijderen",
+        "call": {
+          "title": "Dit gesprek permanent verwijderen?",
+          "description": "De opname, transcriptie, suggesties en analyse worden permanent verwijderd. Dit kan niet ongedaan worden gemaakt."
+        },
+        "recording": {
+          "title": "De opname verwijderen?",
+          "description": "De audio wordt permanent verwijderd. De transcriptie en analyse blijven bewaard."
+        },
+        "transcript": {
+          "title": "De transcriptie verwijderen?",
+          "description": "De transcriptie wordt permanent verwijderd. De analyse blijft bewaard, maar je kunt hem niet opnieuw uitvoeren."
+        }
+      }
+    },
+    "recording": {
+      "saving": "Opname wordt opgeslagen…",
+      "noAudio": "Er is geen audio opgeslagen voor dit gesprek. De transcriptie en analyse blijven bewaard.",
+      "loadError": "De opname kon niet worden geladen. Mogelijk wordt hij nog geüpload; vernieuw over een moment.",
+      "download": "Opname downloaden"
+    },
+    "transcript": {
+      "empty": "Er is geen transcriptie opgeslagen voor dit gesprek.",
+      "playFrom": "Afspelen vanaf {{time}}",
+      "switchSpeaker": "Spreker wisselen",
+      "wrongSpeaker": "Verkeerde spreker? Wissel hem"
+    },
+    "overview": {
+      "overallScore": "Totaalscore",
+      "verdict": "Oordeel",
+      "skillScores": "Vaardigheidsscores",
+      "focusNextTime": "Focus voor de volgende keer",
+      "nextSteps": "Volgende stappen"
+    },
+    "moments": {
+      "jumpTo": "Spring naar {{time}}",
+      "mistakes": "Fouten ({{count}})",
+      "noMistakes": "Geen fouten gemarkeerd. Goed gedaan.",
+      "whatHappened": "Wat er gebeurde",
+      "whyItMatters": "Waarom het ertoe doet",
+      "doInstead": "Doe dit in plaats daarvan",
+      "strengths": "Sterke punten ({{count}})",
+      "noStrengths": "Dit keer geen opvallende sterke punten."
+    },
+    "metrics": {
+      "talkRatio": "Praat-luisterverhouding",
+      "talkedPercent": "Je praatte {{percent}}% van de tijd",
+      "you": "Jij",
+      "prospect": "Prospect",
+      "talkHint": "Topverkopers praten bij discovery-gesprekken meestal 40–60% van de tijd.",
+      "questionsAsked": "Gestelde vragen",
+      "longestMonologue": "Langste monoloog",
+      "speakingPace": "Spreektempo",
+      "paceValue": "{{value}} woorden/min",
+      "paceHint": "Natuurlijk bereik: 130–170",
+      "fillerWords": "Stopwoorden",
+      "interruptions": "Onderbrekingen",
+      "objectionsHandled": "Afgehandelde bezwaren",
+      "objections": "Bezwaren",
+      "buyingSignals": "Koopsignalen",
+      "actedOn": "Opgepakt",
+      "missed": "Gemist"
+    },
+    "insights": {
+      "noneIdentified": "Geen geïdentificeerd",
+      "summary": "Samenvatting van het prospect",
+      "needs": "Behoeften",
+      "painPoints": "Pijnpunten",
+      "objections": "Bezwaren",
+      "buyingSignals": "Koopsignalen",
+      "keyInfo": "Onthulde sleutelinformatie",
+      "fields": {
+        "budget": "Budget",
+        "timeline": "Tijdlijn",
+        "decisionMakers": "Beslissers",
+        "competitors": "Concurrenten"
+      },
+      "notDiscussed": "Niet besproken"
+    },
+    "copilot": {
+      "howYouUsed": "Hoe je de copiloot gebruikte",
+      "followed": "{{count}} gevolgd",
+      "adapted": "{{count}} aangepast",
+      "ignored": "{{count}} genegeerd",
+      "improve": "Verbeter je copiloot",
+      "edit": "Copiloot bewerken",
+      "bySuggestion": "Suggestie voor suggestie",
+      "helpful": "Nuttig",
+      "notHelpful": "Niet nuttig"
+    },
+    "followUp": {
+      "empty": "Er is geen opvolgbericht voorgesteld voor dit gesprek.",
+      "copyFailed": "Kopiëren mislukt",
+      "copyFailedDescription": "Selecteer de tekst en kopieer hem handmatig.",
+      "title": "Concept-opvolging",
+      "copied": "Gekopieerd",
+      "copy": "Kopiëren",
+      "openInEmail": "Openen in e-mail",
+      "label": "Opvolgbericht"
+    },
+    "notes": {
+      "title": "Persoonlijke notities",
+      "placeholder": "Alles wat je wilt onthouden over dit gesprek…",
+      "save": "Notities opslaan"
+    },
+    "reveal": {
+      "objective": "Doel",
+      "yes": "Ja",
+      "no": "Nee",
+      "prospectThinking": "Wat het prospect dacht",
+      "lostAttention": "Waar je zijn aandacht verloor",
+      "hiddenLayer": "De verborgen laag, onthuld",
+      "met": "Voldaan",
+      "uncovered": "Ontdekt",
+      "notMet": "Niet voldaan",
+      "missed": "Gemist",
+      "nothingHidden": "Er is niets verborgens ingesteld voor dit prospect.",
+      "whatWouldChange": "Wat de uitkomst had veranderd"
+    },
+    "rerun": {
+      "title": "Analyse opnieuw uitvoeren",
+      "description": "Probeer een ander model of de nieuwste scorecategorieën van je copiloot. Het vorige rapport wordt vervangen.",
+      "modelName": "Analysemodel",
+      "useCurrent": "De huidige scorecategorieën van de copiloot gebruiken",
+      "useCurrentHint": "Anders worden de categorieën van het moment van het gesprek gebruikt."
+    },
+    "suggestedPractice": {
+      "title": "Voorgestelde oefening",
+      "preparing": "Voorbereiden…",
+      "practiceThis": "Dit oefenen"
+    }
+  }
+}

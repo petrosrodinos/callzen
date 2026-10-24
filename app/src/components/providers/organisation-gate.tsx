@@ -8,9 +8,11 @@ import { useOrganisations } from "@/features/organisations/hooks/use-organisatio
 import { useOrganisationStore } from "@/stores/organisation";
 import { useAuthStore } from "@/stores/auth";
 import { Routes } from "@/routes/routes";
+import { useTranslation } from "react-i18next";
 
 // Makes sure there is a valid active organisation before any organisation-scoped page renders.
 export function OrganisationGate({ children }: { children: ReactNode }) {
+  const { t } = useTranslation("common");
   const { data: organisations, isPending, isError, refetch } = useOrganisations();
   const activeId = useOrganisationStore((state) => state.activeOrganisationId);
   const setActive = useOrganisationStore((state) => state.setActiveOrganisationId);
@@ -29,13 +31,13 @@ export function OrganisationGate({ children }: { children: ReactNode }) {
     return (
       <EmptyState
         icon={Building2}
-        title="Couldn't load your organisations"
-        description="Check your connection and try again."
+        title={t("organisationGate.errorTitle")}
+        description={t("organisationGate.errorDescription")}
         action={
           <div className="flex gap-2">
-            <Button onClick={() => void refetch()}>Retry</Button>
+            <Button onClick={() => void refetch()}>{t("organisationGate.retry")}</Button>
             <Button variant="outline" onClick={() => logout()}>
-              Sign out
+              {t("organisationGate.signOut")}
             </Button>
           </div>
         }
@@ -46,7 +48,7 @@ export function OrganisationGate({ children }: { children: ReactNode }) {
 
   if (!organisations?.length) {
     // Memberships can all disappear (removed everywhere); the API creates a personal one on demand.
-    return location.pathname === Routes.dashboard ? <EmptyState icon={Building2} title="No organisation yet" description="Reload to set up your workspace." action={<Button onClick={() => window.location.reload()}>Reload</Button>} className="mx-auto mt-10 max-w-lg" /> : <Navigate to={Routes.dashboard} replace />;
+    return location.pathname === Routes.dashboard ? <EmptyState icon={Building2} title={t("organisationGate.emptyTitle")} description={t("organisationGate.emptyDescription")} action={<Button onClick={() => window.location.reload()}>{t("organisationGate.reload")}</Button>} className="mx-auto mt-10 max-w-lg" /> : <Navigate to={Routes.dashboard} replace />;
   }
 
   if (!valid) return <DetailSkeleton />;

@@ -1,0 +1,92 @@
+{
+  "page": {
+    "title": "Organizacja",
+    "description": "Zarządzaj tym, kto należy do tej organizacji, co może robić każda rola i kogo zaprosiłeś.",
+    "nothing": "Nie ma nic do pokazania"
+  },
+  "tabs": {
+    "general": "Ogólne",
+    "members": "Członkowie",
+    "invitations": "Zaproszenia",
+    "roles": "Role i uprawnienia"
+  },
+  "create": {
+    "title": "Utwórz organizację",
+    "description": "Każda organizacja ma własnych współpilotów, potencjalnych klientów, rozmowy i członków. Zostaniesz jej właścicielem i możesz zaprosić swój zespół.",
+    "name": "Nazwa organizacji",
+    "namePlaceholder": "Zespół sprzedaży Acme",
+    "nameHint": "Twoi współpracownicy zobaczą tę nazwę w zaproszeniu.",
+    "submit": "Utwórz organizację"
+  },
+  "general": {
+    "details": "Szczegóły",
+    "detailsDescription_one": "Utworzono {{date}} · {{count}} członek",
+    "detailsDescription_few": "Utworzono {{date}} · {{count}} członków",
+    "detailsDescription_many": "Utworzono {{date}} · {{count}} członków",
+    "detailsDescription_other": "Utworzono {{date}} · {{count}} członka",
+    "name": "Nazwa organizacji",
+    "saveName": "Zapisz nazwę",
+    "yourRole": "Twoja rola:",
+    "deleteTitle": "Usuń organizację",
+    "deleteDescription": "Trwale usuwa organizację wraz ze wszystkimi współpilotami, potencjalnymi klientami, rozmowami, nagraniami i analizami oraz usuwa wszystkich członków. Tej operacji nie można cofnąć.",
+    "deleteDialogTitle": "Usunąć {{name}}?",
+    "deleteDialogDescription": "Wpisz <strong>{{name}}</strong>, aby potwierdzić. Wszystko w tej organizacji zostanie usunięte dla wszystkich członków.",
+    "confirmAria": "Wpisz nazwę organizacji, aby potwierdzić",
+    "deletePermanently": "Usuń trwale"
+  },
+  "invitations": {
+    "copyFailed": "Nie udało się skopiować",
+    "copyFailedHint": "Zaznacz link i skopiuj go ręcznie.",
+    "inviteTitle": "Zaproś kogoś",
+    "inviteDescription": "Otrzymają e-mail z linkiem ważnym przez 7 dni. Każdy może należeć do kilku organizacji, więc obecni użytkownicy CallZen po prostu akceptują zaproszenie i się przełączają.",
+    "email": "E-mail",
+    "emailPlaceholder": "wspolpracownik@firma.pl",
+    "role": "Rola",
+    "send": "Wyślij zaproszenie",
+    "emptyTitle": "Brak zaproszeń",
+    "emptyDescription": "Wysłane zaproszenia pojawią się tutaj, abyś mógł je ponownie wysłać lub cofnąć.",
+    "invited": "zaproszono {{when}}",
+    "invitedBy": "zaproszono {{when}} przez {{name}}",
+    "sentTimes": "wysłano {{count}}×",
+    "expires": "Wygasa {{date}}",
+    "expired": "Wygasło {{when}}",
+    "resend": "Wyślij ponownie",
+    "revoke": "Cofnij",
+    "copied": "Skopiowano",
+    "copyLink": "Kopiuj link",
+    "revokeTitle": "Cofnąć zaproszenie dla {{email}}?",
+    "revokeDescription": "Link natychmiast przestaje działać. W każdej chwili możesz wysłać nowe zaproszenie."
+  },
+  "members": {
+    "you": "Ty",
+    "joined": "dołączono {{date}}",
+    "roleOf": "Rola użytkownika {{name}}",
+    "removeAria": "Usuń użytkownika {{name}}",
+    "removeTitle": "Usunąć użytkownika {{name}}?",
+    "removeDescription": "Natychmiast traci dostęp do tej organizacji. Rozmowy, które przeprowadził, pozostają w organizacji. Można go zaprosić ponownie później.",
+    "remove": "Usuń"
+  },
+  "roles": {
+    "role": "Rola",
+    "membersCount_one": "{{count}} członek",
+    "membersCount_few": "{{count}} członków",
+    "membersCount_many": "{{count}} członków",
+    "membersCount_other": "{{count}} członka",
+    "ownersOnlyEdit": "Tylko właściciele mogą zmieniać, co wolno każdej roli.",
+    "ownerLocked": "Właściciele zawsze mają wszystkie uprawnienia, więc tej roli nie można ograniczyć.",
+    "ownersOnly": "Tylko właściciele",
+    "toggleAria": "{{permission}} dla roli {{role}}",
+    "reset": "Przywróć ustawienia domyślne",
+    "unsaved": "Niezapisane zmiany",
+    "customised": "Dostosowane",
+    "usingPreset": "Używane ustawienia domyślne",
+    "discard": "Odrzuć",
+    "save": "Zapisz uprawnienia roli {{role}}"
+  },
+  "validation": {
+    "nameMin": "Nazwa musi mieć co najmniej {{min}} znaki",
+    "nameMax": "Nazwa może mieć maksymalnie {{max}} znaków",
+    "emailRequired": "Podaj adres e-mail",
+    "emailInvalid": "Podaj prawidłowy adres e-mail"
+  }
+}

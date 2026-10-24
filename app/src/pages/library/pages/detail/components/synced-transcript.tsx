@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { ArrowLeftRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { formatClock } from "@/lib/date";
@@ -28,6 +29,7 @@ export function SyncedTranscript({
   onSeek,
   onFlipSpeaker,
 }: SyncedTranscriptProps) {
+  const { t } = useTranslation("library");
   const refs = useRef(new Map<string, HTMLLIElement>());
   const containerRef = useRef<HTMLOListElement>(null);
 
@@ -76,7 +78,7 @@ export function SyncedTranscript({
   if (!segments.length)
     return (
       <p className="py-8 text-center text-sm text-muted-foreground">
-        No transcript is stored for this call.
+        {t("detail.transcript.empty")}
       </p>
     );
 
@@ -103,7 +105,9 @@ export function SyncedTranscript({
               type="button"
               onClick={() => onSeek(segment.start_ms)}
               className="w-12 shrink-0 pt-0.5 text-left font-mono text-xs tabular-nums text-muted-foreground hover:text-primary"
-              aria-label={`Play from ${formatClock(segment.start_ms)}`}
+              aria-label={t("detail.transcript.playFrom", {
+                time: formatClock(segment.start_ms),
+              })}
             >
               {formatClock(segment.start_ms)}
             </button>
@@ -134,8 +138,8 @@ export function SyncedTranscript({
                     type="button"
                     onClick={() => onFlipSpeaker(segment)}
                     className="ml-auto rounded p-0.5 text-muted-foreground opacity-60 hover:bg-muted hover:opacity-100 sm:opacity-0 sm:group-hover:opacity-100"
-                    aria-label="Switch speaker"
-                    title="Wrong speaker? Switch it"
+                    aria-label={t("detail.transcript.switchSpeaker")}
+                    title={t("detail.transcript.wrongSpeaker")}
                   >
                     <ArrowLeftRight className="size-3" />
                   </button>

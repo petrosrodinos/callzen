@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Check, Copy, Mail } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -12,13 +13,14 @@ export function FollowUpCard({
   draft: string | null;
   prospectEmailSubject: string;
 }) {
+  const { t } = useTranslation("library");
   const [text, setText] = useState(draft ?? "");
   const [copied, setCopied] = useState(false);
 
   if (!draft)
     return (
       <p className="py-8 text-center text-sm text-muted-foreground">
-        No follow-up message was suggested for this call.
+        {t("detail.followUp.empty")}
       </p>
     );
 
@@ -29,8 +31,8 @@ export function FollowUpCard({
       window.setTimeout(() => setCopied(false), 1500);
     } catch {
       toast({
-        title: "Copy failed",
-        description: "Select the text and copy it manually.",
+        title: t("detail.followUp.copyFailed"),
+        description: t("detail.followUp.copyFailedDescription"),
         variant: "error",
       });
     }
@@ -39,16 +41,17 @@ export function FollowUpCard({
   return (
     <Card className="space-y-3 p-5">
       <div className="flex items-center justify-between gap-2">
-        <h3 className="font-semibold">Draft follow-up</h3>
+        <h3 className="font-semibold">{t("detail.followUp.title")}</h3>
         <div className="flex gap-2">
           <Button size="sm" variant="outline" onClick={() => void copy()}>
-            {copied ? <Check /> : <Copy />} {copied ? "Copied" : "Copy"}
+            {copied ? <Check /> : <Copy />}{" "}
+            {copied ? t("detail.followUp.copied") : t("detail.followUp.copy")}
           </Button>
           <Button asChild size="sm">
             <a
               href={`mailto:?subject=${encodeURIComponent(prospectEmailSubject)}&body=${encodeURIComponent(text)}`}
             >
-              <Mail /> Open in email
+              <Mail /> {t("detail.followUp.openInEmail")}
             </a>
           </Button>
         </div>
@@ -57,7 +60,7 @@ export function FollowUpCard({
         value={text}
         onChange={(event) => setText(event.target.value)}
         rows={12}
-        aria-label="Follow-up message"
+        aria-label={t("detail.followUp.label")}
         className="leading-relaxed"
       />
     </Card>

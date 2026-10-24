@@ -1,0 +1,96 @@
+{
+  "title": "Ayarlar",
+  "save": "Ayarları kaydet",
+  "nav": {
+    "profile": "Profil ve tercihler",
+    "usage": "Kullanım ve maliyetler",
+    "privacy": "Gizlilik ve veriler",
+    "sections": "Ayar bölümleri"
+  },
+  "validation": {
+    "enterName": "Adınızı girin",
+    "enterPassword": "Parolanızı girin",
+    "typeDelete": "Onaylamak için \"DELETE\" yazın"
+  },
+  "profile": {
+    "title": "Profil",
+    "fullName": "Ad soyad",
+    "email": "E-posta"
+  },
+  "appearance": {
+    "title": "Görünüm",
+    "description": "Açık, koyu veya sistemi izle.",
+    "language": "Arayüz dili",
+    "languageDescription": "Menülerde, düğmelerde ve mesajlarda kullanılan dil."
+  },
+  "languages": {
+    "title": "Diller",
+    "description": "Aramalar ve alıştırmalar birçok dilde yapılabilir.",
+    "yourLanguage": "Diliniz",
+    "templates": "Şablonlar ve örnekler şu dilde",
+    "templatesAria": "Şablon ve örnek dili",
+    "output": "Öneriler ve analiz şu dilde"
+  },
+  "recording": {
+    "title": "Kayıt",
+    "description": "Kayıt yasalarının gerektirdiği yerlerde izin almak sizin sorumluluğunuzdadır.",
+    "keep": "Ses kayıtlarını varsayılan olarak sakla",
+    "keepHint": "Kapalıyken yalnızca transkriptler ve analizler saklanır. Bunu arama başına değiştirebilirsiniz.",
+    "consentLine": "Varsayılan izin bilgilendirme cümlesi",
+    "consentLineHint": "Bir yardımcı pilotta izin cümlesi etkinse aramaların ilk cümlesi olarak önerilir."
+  },
+  "privacy": {
+    "yourData": {
+      "title": "Verileriniz",
+      "private": "Kayıtlar, transkriptler, senaryolar ve ajan yapılandırmaları hesabınıza özeldir.",
+      "delete": "Herhangi bir kaydı, transkripti veya aramayı sayfasından istediğiniz zaman silebilirsiniz. Silme kalıcıdır.",
+      "keepOnly": "Ayarlar'dan veya arama başına kayıtları kapatarak yalnızca transkriptleri ve analizleri saklayabilirsiniz.",
+      "sensitive": "Sağladığınız hassas bilgiler (senaryolar, fiyatlandırma, müşteri ayrıntıları) yalnızca öneri ve analiz üretmek için aşağıdaki yapay zekâ sağlayıcılarına gönderilir."
+    },
+    "processors": {
+      "title": "Verilerinizi kim işliyor",
+      "description": "Seçtiğiniz modellere ve ses sağlayıcılarına göre.",
+      "region": "Bölge: {{region}}"
+    },
+    "consent": {
+      "title": "Kayıt izni",
+      "text": "Kayıt yasaları ülkeye ve bölgeye göre değişir ve bazıları her katılımcının iznini gerektirir. Bir aramayı kaydetmeden önce iznin olduğundan emin olun. Yardımcı pilotlar, izin cümlenizi her aramanın ilk cümlesi olarak önerebilir."
+    },
+    "deleteAccount": {
+      "title": "Hesabı sil",
+      "description": "Hesabınızı, yardımcı pilotlarınızı, adaylarınızı, aramalarınızı, kayıtlarınızı ve analizlerinizi kalıcı olarak siler.",
+      "button": "Hesabı sil"
+    },
+    "deleteDialog": {
+      "title": "Hesabınız kalıcı olarak silinsin mi?",
+      "description": "Tüm verileriniz hemen kaldırılır ve geri alınamaz.",
+      "password": "Parola",
+      "confirmation": "Onaylamak için DELETE yazın",
+      "submit": "Her şeyi sil"
+    }
+  },
+  "usage": {
+    "period": "Dönem",
+    "scopeOrg": "Bu kuruluştaki herkesin kullanımı gösteriliyor.",
+    "scopeMine": "Bu kuruluştaki kendi kullanımınız gösteriliyor.",
+    "estimatedCost": "Tahmini yapay zekâ maliyeti",
+    "listPrices": "Liste fiyatlarına göre",
+    "liveMinutes": "Canlı arama dakikaları",
+    "practiceMinutes": "Alıştırma dakikaları",
+    "analyses": "Analizler",
+    "suggestions_one": "{{count}} öneri",
+    "suggestions_other": "{{count}} öneri",
+    "byActivity": "Etkinliğe göre",
+    "byModel": "Model ve sağlayıcıya göre",
+    "tokens": "{{tokens}} token",
+    "priceList": {
+      "title": "Fiyat listesi",
+      "description": "Kalite ile harcamayı dengelemeniz için her modelin ve ses sağlayıcısının maliyeti.",
+      "model": "Model",
+      "speed": "Hız",
+      "input": "Girdi / 1 milyon token",
+      "output": "Çıktı / 1 milyon token",
+      "perMinute": "dakika başına ~{{price}}"
+    }
+  }
+}

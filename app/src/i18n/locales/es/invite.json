@@ -1,0 +1,39 @@
+{
+  "pageTitle": "Invitación",
+  "notFound": {
+    "title": "Invitación no encontrada",
+    "defaultMessage": "Este enlace no es válido o fue sustituido por una invitación más reciente.",
+    "resend": "Pide a la persona que te invitó que te la vuelva a enviar.",
+    "cta": "Ir a CallZen"
+  },
+  "status": {
+    "pending": "pendiente",
+    "expired": "caducada",
+    "accepted": "aceptada",
+    "revoked": "revocada"
+  },
+  "inactive": {
+    "title": "Esta invitación está {{status}}",
+    "used": "Ya se usó para unirse a {{organisation}}.",
+    "askInviter": "Pide a {{inviter}} que te envíe una nueva.",
+    "askAdmins": "Pide a los administradores de la organización que te envíen una nueva.",
+    "cta": "Abrir CallZen"
+  },
+  "join": {
+    "title": "Unirse a {{organisation}}",
+    "invitedBy": "{{inviter}} te ha invitado como <badge>{{role}}</badge>",
+    "invitedByTeammate": "Un compañero te ha invitado como <badge>{{role}}</badge>",
+    "sentTo": "Enviada a {{email}} · caduca el {{date}}",
+    "signInHint": "Inicia sesión para aceptarla. Puedes pertenecer a varias organizaciones y cambiar entre ellas.",
+    "createHint": "Crea tu cuenta gratuita con este correo electrónico para unirte.",
+    "signInCta": "Iniciar sesión para aceptar",
+    "createCta": "Crear cuenta y unirme",
+    "needAccount": "Necesito crear una cuenta",
+    "haveAccount": "Ya tengo una cuenta",
+    "accept": "Aceptar y unirme",
+    "signedInAs": "Has iniciado sesión como {{email}}. Esta organización se añadirá a las que ya tienes.",
+    "mismatch": "Esta invitación es para <strong>{{invited}}</strong>, pero has iniciado sesión como <strong>{{current}}</strong>.",
+    "signOut": "Cerrar sesión y usar {{email}}",
+    "back": "Volver a CallZen"
+  }
+}

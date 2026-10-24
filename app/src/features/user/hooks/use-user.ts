@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "@/hooks/use-toast";
 import { useAuthStore } from "@/stores/auth";
@@ -23,10 +24,10 @@ export const useUpdateMe = () => {
             queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
             queryClient.invalidateQueries({ queryKey: ["catalog"] });
             updateUser({ full_name: user.full_name ?? user.email.split("@")[0] });
-            toast({ title: "Settings saved", duration: 1500 });
+            toast({ title: i18n.t("common:toasts.user.settingsSaved"), duration: 1500 });
         },
         onError: (error) => {
-            toast({ title: "Could not save settings", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.user.couldNotSaveSettings"), description: error.message, variant: "error" });
         },
     });
 };
@@ -36,11 +37,11 @@ export const useDeleteMe = () => {
     return useMutation({
         mutationFn: deleteMe,
         onSuccess: () => {
-            toast({ title: "Account deleted", description: "All your data was permanently removed.", duration: 3000 });
+            toast({ title: i18n.t("common:toasts.user.accountDeleted"), description: i18n.t("common:toasts.user.allYourDataWasPermanentlyRemoved"), duration: 3000 });
             logout();
         },
         onError: (error) => {
-            toast({ title: "Could not delete your account", description: error.message, variant: "error" });
+            toast({ title: i18n.t("common:toasts.user.couldNotDeleteYourAccount"), description: error.message, variant: "error" });
         },
     });
 };

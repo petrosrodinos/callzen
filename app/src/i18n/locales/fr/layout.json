@@ -1,0 +1,57 @@
+{
+  "sidebar": {
+    "plan": "Copilote commercial",
+    "toggle": "Afficher ou masquer la barre latérale",
+    "groups": {
+      "sell": "Vendre",
+      "train": "S'entraîner",
+      "account": "Compte",
+      "admin": "Administration"
+    },
+    "items": {
+      "dashboard": "Tableau de bord",
+      "startCall": "Démarrer un appel",
+      "callLibrary": "Bibliothèque d'appels",
+      "practice": "Entraînement",
+      "copilots": "Copilotes",
+      "organisation": "Organisation",
+      "settings": "Paramètres",
+      "usage": "Utilisation et coûts",
+      "privacy": "Confidentialité et données",
+      "health": "État du service",
+      "users": "Utilisateurs",
+      "alerts": "Alertes"
+    }
+  },
+  "userMenu": {
+    "settings": "Paramètres",
+    "usage": "Utilisation et coûts",
+    "privacy": "Confidentialité et données",
+    "logout": "Se déconnecter"
+  },
+  "orgSwitcher": {
+    "switch": "Changer d'organisation",
+    "pendingCount_one": "{{count}} invitation en attente",
+    "pendingCount_other": "{{count}} invitations en attente",
+    "organisation": "Organisation",
+    "yourOrganisations": "Vos organisations",
+    "members_one": "{{count}} membre",
+    "members_other": "{{count}} membres",
+    "pendingInvitations": "Invitations en attente",
+    "settings": "Paramètres de l'organisation",
+    "create": "Créer une organisation"
+  },
+  "sidebarNav": {
+    "placeholder": "Sélectionnez une section"
+  },
+  "navbar": {
+    "home": "Accueil",
+    "templates": "Modèles",
+    "pricing": "Tarifs",
+    "roadmap": "Feuille de route",
+    "contact": "Contact",
+    "login": "Connexion",
+    "signup": "S'inscrire",
+    "dashboard": "Tableau de bord"
+  }
+}

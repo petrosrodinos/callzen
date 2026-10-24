@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import i18n from "@/i18n";
 import { useCreateRealtimeSession } from "@/features/calls/hooks/use-calls";
 import { exchangeRealtimeSdp } from "@/features/calls/services/realtime-sdp.services";
 import { AUTO_LANGUAGE, CallTypes, Speakers, type Call, type Speaker } from "@/features/calls/interfaces/calls.interfaces";
@@ -80,10 +81,10 @@ export const useLiveCapture = ({ call, copilot, clock }: UseLiveCaptureOptions) 
         onPhrase: (phrase) => onPhrase(channel.speaker, phrase),
         onInterim: (text) => setInterim((prev) => ({ ...prev, [channel.speaker]: text })),
         onStatus: (state) => {
-          if (state === "reconnecting") setNotice("Transcription connection dropped. Reconnecting…");
+          if (state === "reconnecting") setNotice(i18n.t("calls:live.notices.reconnecting"));
           if (state === "live") setNotice(null);
           if (state === "failed") {
-            setNotice("Live transcription is unavailable. Switched to your browser's speech recognition.");
+            setNotice(i18n.t("calls:live.notices.switchedToBrowser"));
             if (startBrowserFallback(channel)) setEngine("browser");
             else setEngine("manual");
           }
@@ -98,10 +99,10 @@ export const useLiveCapture = ({ call, copilot, clock }: UseLiveCaptureOptions) 
         // Browser speech recognition can only hear the microphone, not a shared tab.
         if (channel.speaker !== Speakers.PROSPECT && startBrowserFallback(channel)) {
           setEngine("browser");
-          setNotice("AI transcription is unavailable, so your browser's speech recognition is being used instead. Speaker detection may be less accurate.");
+          setNotice(i18n.t("calls:live.notices.aiUnavailableBrowser"));
         } else {
           setEngine("manual");
-          setNotice("Transcription is unavailable for this audio. Add key lines manually so the co-pilot can still help.");
+          setNotice(i18n.t("calls:live.notices.manualFallback"));
         }
       }
     },
@@ -113,7 +114,7 @@ export const useLiveCapture = ({ call, copilot, clock }: UseLiveCaptureOptions) 
       track.addEventListener("ended", () => {
         if (!startedRef.current) return;
         setStatus("interrupted");
-        setNotice(`${label} audio stopped (the tab was closed or the device disconnected). What was captured is safe. Reconnect to continue.`);
+        setNotice(i18n.t("calls:live.notices.audioStopped", { label }));
       });
     });
   }, []);
@@ -126,8 +127,8 @@ export const useLiveCapture = ({ call, copilot, clock }: UseLiveCaptureOptions) 
       recorderRef.current = recorder;
       recorder.addStream("user", streams.microphone);
       if (streams.remote) recorder.addStream("prospect", streams.remote);
-      watchTrack(streams.microphone, "Microphone");
-      if (streams.remote) watchTrack(streams.remote, "Meeting");
+      watchTrack(streams.microphone, i18n.t("calls:live.sources.microphone"));
+      if (streams.remote) watchTrack(streams.remote, i18n.t("calls:live.sources.meeting"));
 
       const channels: Channel[] = streams.remote
         ? [

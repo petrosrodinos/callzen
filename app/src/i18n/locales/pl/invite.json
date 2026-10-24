@@ -1,0 +1,39 @@
+{
+  "pageTitle": "Zaproszenie",
+  "notFound": {
+    "title": "Nie znaleziono zaproszenia",
+    "defaultMessage": "Ten link jest nieprawidłowy lub został zastąpiony nowszym zaproszeniem.",
+    "resend": "Poproś osobę, która Cię zaprosiła, o ponowne wysłanie.",
+    "cta": "Przejdź do CallZen"
+  },
+  "status": {
+    "pending": "oczekujące",
+    "expired": "wygasłe",
+    "accepted": "zaakceptowane",
+    "revoked": "odwołane"
+  },
+  "inactive": {
+    "title": "To zaproszenie jest {{status}}",
+    "used": "Zostało już wykorzystane do dołączenia do organizacji {{organisation}}.",
+    "askInviter": "Poproś użytkownika {{inviter}} o wysłanie nowego.",
+    "askAdmins": "Poproś administratorów organizacji o wysłanie nowego.",
+    "cta": "Otwórz CallZen"
+  },
+  "join": {
+    "title": "Dołącz do organizacji {{organisation}}",
+    "invitedBy": "{{inviter}} zaprasza Cię jako <badge>{{role}}</badge>",
+    "invitedByTeammate": "Członek zespołu zaprasza Cię jako <badge>{{role}}</badge>",
+    "sentTo": "Wysłano na adres {{email}} · wygasa {{date}}",
+    "signInHint": "Zaloguj się, aby zaakceptować. Możesz należeć do kilku organizacji i przełączać się między nimi.",
+    "createHint": "Utwórz bezpłatne konto z tym adresem e-mail, aby dołączyć.",
+    "signInCta": "Zaloguj się, aby zaakceptować",
+    "createCta": "Utwórz konto i dołącz",
+    "needAccount": "Muszę utworzyć konto",
+    "haveAccount": "Mam już konto",
+    "accept": "Zaakceptuj i dołącz",
+    "signedInAs": "Zalogowano jako {{email}}. Ta organizacja zostanie dodana do Twoich dotychczasowych.",
+    "mismatch": "To zaproszenie jest dla adresu <strong>{{invited}}</strong>, ale jesteś zalogowany jako <strong>{{current}}</strong>.",
+    "signOut": "Wyloguj się i użyj adresu {{email}}",
+    "back": "Wróć do CallZen"
+  }
+}

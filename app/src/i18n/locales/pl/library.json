@@ -1,0 +1,222 @@
+{
+  "index": {
+    "title": "Biblioteka rozmów",
+    "description": "Wszystkie rozmowy na żywo i sesje treningowe, wraz z nagraniami, transkrypcjami i analizami.",
+    "startCall": "Rozpocznij rozmowę",
+    "searchPlaceholder": "Szukaj według potencjalnego klienta, firmy lub notatek",
+    "searchLabel": "Szukaj rozmów",
+    "filtersButton": "Filtry",
+    "clearFilters": "Wyczyść filtry",
+    "filters": {
+      "whose": "Czyje rozmowy",
+      "everyone": "Rozmowy wszystkich",
+      "mine": "Tylko moje",
+      "kind": "Na żywo czy trening",
+      "type": "Typ rozmowy",
+      "copilot": "Kopilot",
+      "allCopilots": "Wszystkie kopiloty",
+      "outcome": "Wynik",
+      "score": "Wynik punktowy",
+      "date": "Data",
+      "sort": "Sortuj"
+    },
+    "empty": {
+      "noMatchTitle": "Brak pasujących rozmów",
+      "noCallsTitle": "Brak rozmów",
+      "noMatchDescription": "Spróbuj usunąć niektóre filtry.",
+      "noCallsDescription": "Twoje rozmowy na żywo i sesje treningowe pojawią się tutaj.",
+      "startPractising": "Zacznij ćwiczyć"
+    },
+    "previousPage": "Poprzednia strona",
+    "nextPage": "Następna strona",
+    "callCount_one": "{{count}} rozmowa",
+    "callCount_few": "{{count}} rozmowy",
+    "callCount_many": "{{count}} rozmów",
+    "callCount_other": "{{count}} rozmowy"
+  },
+  "detail": {
+    "pageTitle": "Rozmowa",
+    "notFound": {
+      "title": "Nie znaleziono rozmowy",
+      "description": "Mogła zostać usunięta.",
+      "back": "Wróć do biblioteki"
+    },
+    "recordingTranscript": "Nagranie i transkrypcja",
+    "tabs": {
+      "reveal": "Wynik i odkrycie",
+      "overview": "Przegląd",
+      "moments": "Błędy i mocne strony",
+      "metrics": "Metryki",
+      "prospect": "Potencjalny klient",
+      "copilot": "Kopilot",
+      "followUp": "Kontynuacja"
+    },
+    "followUpSubject": "W nawiązaniu do rozmowy",
+    "followUpSubjectCompany": "W nawiązaniu do rozmowy – {{company}}",
+    "timeline": {
+      "bookmark": "Zakładka",
+      "label": "Oś czasu rozmowy",
+      "markerAt": "{{label}} w {{time}}"
+    },
+    "status": {
+      "preparing": "Przygotowujemy Twój raport skuteczności…",
+      "preparingHint": "Zwykle trwa to mniej niż minutę. Możesz opuścić tę stronę — raport będzie czekał w Twojej bibliotece.",
+      "failed": "Analiza nie została ukończona",
+      "noAnalysis": "Brak analizy tej rozmowy",
+      "safe": "Twoje nagranie i transkrypcja są bezpieczne.",
+      "canRetry": "Możesz spróbować ponownie.",
+      "retry": "Ponów analizę"
+    },
+    "header": {
+      "back": "Biblioteka rozmów",
+      "practice": "Trening",
+      "copilot": "Kopilot: {{name}}",
+      "practiceSession": "Sesja treningowa",
+      "call": "Rozmowa",
+      "by": "przez {{name}}",
+      "outcomeLabel": "Wynik rozmowy",
+      "recordOutcome": "Zapisz wynik",
+      "retry": "Spróbuj ponownie",
+      "moreActions": "Więcej działań",
+      "rerun": "Uruchom analizę ponownie",
+      "recreatingProspect": "Odtwarzanie potencjalnego klienta…",
+      "practiceWithProspect": "Ćwicz z tym potencjalnym klientem",
+      "harder": "Spróbuj trudniejszej wersji",
+      "retention": "Przechowywanie",
+      "deleteRecording": "Usuń tylko nagranie",
+      "deleteTranscript": "Usuń transkrypcję",
+      "deleteCall": "Usuń rozmowę na stałe",
+      "confirm": {
+        "confirmText": "Usuń na stałe",
+        "call": {
+          "title": "Usunąć tę rozmowę na stałe?",
+          "description": "Nagranie, transkrypcja, sugestie i analiza zostaną trwale usunięte. Tej operacji nie można cofnąć."
+        },
+        "recording": {
+          "title": "Usunąć nagranie?",
+          "description": "Dźwięk zostanie trwale usunięty. Transkrypcja i analiza zostaną zachowane."
+        },
+        "transcript": {
+          "title": "Usunąć transkrypcję?",
+          "description": "Transkrypcja zostanie trwale usunięta. Analiza zostanie zachowana, ale nie będzie można jej ponownie uruchomić."
+        }
+      }
+    },
+    "recording": {
+      "saving": "Zapisywanie nagrania…",
+      "noAudio": "Brak zapisanego dźwięku dla tej rozmowy. Transkrypcja i analiza zostały zachowane.",
+      "loadError": "Nie udało się załadować nagrania. Być może jest jeszcze przesyłane — odśwież stronę za chwilę.",
+      "download": "Pobierz nagranie"
+    },
+    "transcript": {
+      "empty": "Brak zapisanej transkrypcji tej rozmowy.",
+      "playFrom": "Odtwarzaj od {{time}}",
+      "switchSpeaker": "Zmień mówcę",
+      "wrongSpeaker": "Zły mówca? Zmień go"
+    },
+    "overview": {
+      "overallScore": "Wynik ogólny",
+      "verdict": "Werdykt",
+      "skillScores": "Wyniki umiejętności",
+      "focusNextTime": "Na czym skupić się następnym razem",
+      "nextSteps": "Następne kroki"
+    },
+    "moments": {
+      "jumpTo": "Przejdź do {{time}}",
+      "mistakes": "Błędy ({{count}})",
+      "noMistakes": "Nie oznaczono żadnych błędów. Dobra robota!",
+      "whatHappened": "Co się stało",
+      "whyItMatters": "Dlaczego to ważne",
+      "doInstead": "Zrób to zamiast tego",
+      "strengths": "Mocne strony ({{count}})",
+      "noStrengths": "Tym razem brak wyróżniających się mocnych stron."
+    },
+    "metrics": {
+      "talkRatio": "Stosunek mówienia do słuchania",
+      "talkedPercent": "Mówiłeś przez {{percent}}% czasu",
+      "you": "Ty",
+      "prospect": "Potencjalny klient",
+      "talkHint": "Najlepsi handlowcy zwykle mówią 40–60% czasu podczas rozmów rozpoznawczych.",
+      "questionsAsked": "Zadane pytania",
+      "longestMonologue": "Najdłuższy monolog",
+      "speakingPace": "Tempo mówienia",
+      "paceValue": "{{value}} słów/min",
+      "paceHint": "Naturalny zakres: 130–170",
+      "fillerWords": "Słowa-wypełniacze",
+      "interruptions": "Przerwania",
+      "objectionsHandled": "Obsłużone zastrzeżenia",
+      "objections": "Zastrzeżenia",
+      "buyingSignals": "Sygnały zakupowe",
+      "actedOn": "Wykorzystany",
+      "missed": "Przegapiony"
+    },
+    "insights": {
+      "noneIdentified": "Nie zidentyfikowano",
+      "summary": "Podsumowanie potencjalnego klienta",
+      "needs": "Potrzeby",
+      "painPoints": "Problemy",
+      "objections": "Zastrzeżenia",
+      "buyingSignals": "Sygnały zakupowe",
+      "keyInfo": "Ujawnione kluczowe informacje",
+      "fields": {
+        "budget": "Budżet",
+        "timeline": "Harmonogram",
+        "decisionMakers": "Decydenci",
+        "competitors": "Konkurenci"
+      },
+      "notDiscussed": "Nie omawiano"
+    },
+    "copilot": {
+      "howYouUsed": "Jak korzystano z kopilota",
+      "followed": "{{count}} zastosowano",
+      "adapted": "{{count}} zmodyfikowano",
+      "ignored": "{{count}} zignorowano",
+      "improve": "Ulepsz swojego kopilota",
+      "edit": "Edytuj kopilota",
+      "bySuggestion": "Sugestia po sugestii",
+      "helpful": "Pomocne",
+      "notHelpful": "Niepomocne"
+    },
+    "followUp": {
+      "empty": "Dla tej rozmowy nie zaproponowano wiadomości uzupełniającej.",
+      "copyFailed": "Kopiowanie nie powiodło się",
+      "copyFailedDescription": "Zaznacz tekst i skopiuj go ręcznie.",
+      "title": "Szkic wiadomości uzupełniającej",
+      "copied": "Skopiowano",
+      "copy": "Kopiuj",
+      "openInEmail": "Otwórz w e-mailu",
+      "label": "Wiadomość uzupełniająca"
+    },
+    "notes": {
+      "title": "Notatki osobiste",
+      "placeholder": "Wszystko, o czym warto pamiętać w związku z tą rozmową…",
+      "save": "Zapisz notatki"
+    },
+    "reveal": {
+      "objective": "Cel",
+      "yes": "Tak",
+      "no": "Nie",
+      "prospectThinking": "Co myślał potencjalny klient",
+      "lostAttention": "Gdzie straciłeś jego uwagę",
+      "hiddenLayer": "Ukryta warstwa — ujawniona",
+      "met": "Spełniony",
+      "uncovered": "Odkryto",
+      "notMet": "Niespełniony",
+      "missed": "Przegapiono",
+      "nothingHidden": "Dla tego potencjalnego klienta nie skonfigurowano żadnych ukrytych elementów.",
+      "whatWouldChange": "Co zmieniłoby wynik"
+    },
+    "rerun": {
+      "title": "Uruchom analizę ponownie",
+      "description": "Wypróbuj inny model lub najnowsze kategorie oceny swojego kopilota. Poprzedni raport zostanie zastąpiony.",
+      "modelName": "Model analizy",
+      "useCurrent": "Użyj aktualnych kategorii oceny kopilota",
+      "useCurrentHint": "W przeciwnym razie użyte zostaną kategorie z momentu rozmowy."
+    },
+    "suggestedPractice": {
+      "title": "Sugerowany trening",
+      "preparing": "Przygotowywanie…",
+      "practiceThis": "Przećwicz to"
+    }
+  }
+}

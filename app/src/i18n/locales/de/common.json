@@ -1,0 +1,430 @@
+{
+  "actions": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "close": "Schließen",
+    "confirm": "Bestätigen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "search": "Suchen",
+    "retry": "Erneut versuchen",
+    "loading": "Wird geladen…",
+    "logout": "Abmelden"
+  },
+  "language": {
+    "label": "Sprache",
+    "switch": "Sprache ändern"
+  },
+  "dates": {
+    "today": "Heute",
+    "yesterday": "Gestern"
+  },
+  "pagination": {
+    "previous": "Vorherige Seite",
+    "next": "Nächste Seite"
+  },
+  "theme": {
+    "toggle": "Design wechseln",
+    "light": "Hell",
+    "dark": "Dunkel",
+    "system": "System"
+  },
+  "errorBoundary": {
+    "title": "Etwas ist schiefgelaufen",
+    "description": "Ein unerwarteter Fehler ist aufgetreten. Bitte laden Sie die Seite neu oder wenden Sie sich an den Support, falls das Problem weiterhin besteht.",
+    "details": "Fehlerdetails"
+  },
+  "scoreRing": {
+    "aria": "{{label}}: {{score}} von 100",
+    "score": "Score",
+    "notAvailable": "nicht verfügbar"
+  },
+  "select": {
+    "placeholder": "Auswählen",
+    "notSpecified": "Nicht angegeben"
+  },
+  "modelPicker": {
+    "quality": "Qualität {{value}}/5",
+    "slow": "Denkt vor der Antwort nach, daher können Vorschläge bei Live-Anrufen verspätet eintreffen.",
+    "recommended": "Empfohlen"
+  },
+  "countdown": {
+    "passed": "Der Termin ist vorbei"
+  },
+  "phoneInput": {
+    "search": "Land suchen...",
+    "empty": "Kein Land gefunden."
+  },
+  "callRow": {
+    "practiceSession": "Übungssitzung",
+    "untitled": "Unbenannter Anruf",
+    "practice": "Übung",
+    "objectiveMet": "Ziel erreicht",
+    "notMet": "Nicht erreicht",
+    "analyzing": "Wird analysiert",
+    "live": "Live"
+  },
+  "languageSelect": {
+    "label": "Sprache",
+    "placeholder": "Sprache auswählen"
+  },
+  "languageMultiSelect": {
+    "primaryLanguage": "Hauptsprache",
+    "makePrimary": "Als Hauptsprache festlegen",
+    "primaryAria": "{{name}} (Hauptsprache)",
+    "makePrimaryAria": "{{name}} als Hauptsprache festlegen",
+    "removeAria": "{{name}} entfernen",
+    "maximum": "Höchstens {{count}} Sprachen",
+    "add": "Sprache hinzufügen",
+    "search": "Sprachen suchen…",
+    "empty": "Keine Sprache gefunden.",
+    "primary": "Haupt",
+    "hint": "Bis zu {{count}} Sprachen. Die mit Stern ist die Standardsprache; klicken Sie auf einen anderen Chip, um ihn als Standard festzulegen."
+  },
+  "liveAssist": {
+    "label": "Live-Assistent",
+    "mutedTitle": "Vorschläge sind stummgeschaltet. Der Anruf wird weiterhin aufgezeichnet.",
+    "resume": "Vorschläge fortsetzen",
+    "empty": "Vorschläge erscheinen hier, sobald der Interessent spricht.",
+    "recent": "Letzte Vorschläge ({{count}})",
+    "copilot": "Co-Pilot",
+    "thinking": "Denkt nach…",
+    "activeUsing": "Aktiv · mit {{model}}",
+    "active": "Aktiv",
+    "paused": "Vorschläge pausiert · Erfassung läuft weiter",
+    "reconnecting_one": "Verbindung wird wiederhergestellt · {{count}} Zeile in der Warteschlange",
+    "reconnecting_other": "Verbindung wird wiederhergestellt · {{count}} Zeilen in der Warteschlange",
+    "frequencyLabel": "Häufigkeit der Vorschläge",
+    "frequency": "Häufigkeit",
+    "suggestNow": "Jetzt vorschlagen",
+    "unmute": "Vorschläge einschalten",
+    "mute": "Vorschläge stummschalten",
+    "updating": "Wird aktualisiert",
+    "or": "Oder:",
+    "alt": "Alt.:",
+    "unpin": "Lösen",
+    "pin": "Anheften",
+    "dismiss": "Verwerfen",
+    "helpful": "Hilfreich",
+    "notHelpful": "Nicht hilfreich",
+    "askPlaceholder": "Fragen Sie den Co-Piloten… z. B. Preis für 50 Lizenzen?",
+    "askLabel": "Den Co-Piloten fragen",
+    "ask": "Fragen",
+    "scriptProgress": "Fortschritt im Leitfaden · {{done}}/{{total}}",
+    "audioLevel": "Audiopegel {{label}}"
+  },
+  "micCheck": {
+    "ready": "Mikrofon bereit",
+    "speak": "Sprechen Sie zum Testen",
+    "prompt": "Prüfen Sie Ihr Mikrofon, bevor Sie beginnen.",
+    "test": "Mikrofon testen"
+  },
+  "recording": {
+    "recording": "Aufnahme läuft",
+    "listening": "Hört zu · keine Aufnahme",
+    "paused": "Pausiert",
+    "off": "Keine Erfassung",
+    "connecting": "Verbindung wird hergestellt…"
+  },
+  "transcript": {
+    "empty": "Das Transkript erscheint hier, während gesprochen wird.",
+    "notSaved": "Noch nicht gespeichert",
+    "switchSpeaker": "Sprecher wechseln",
+    "wrongSpeaker": "Falscher Sprecher? Wechseln"
+  },
+  "imageUploader": {
+    "upload": "{{label}} hochladen",
+    "wait": "Bitte warten...",
+    "hint": "PNG, JPG bis 5 MB"
+  },
+  "imagePicker": {
+    "uploadText": "Bilder hochladen",
+    "uploadSubtext": "Bilder hierher ziehen oder zum Durchsuchen klicken",
+    "fileTypeText": "Unterstützt JPG, PNG, JPEG bis je 10 MB",
+    "existingImages": "Vorhandene Bilder",
+    "choose": "Bilder auswählen",
+    "uploading": "Bilder werden hochgeladen",
+    "uploadingSubtext": "Bitte warten Sie, während Ihre Bilder hochgeladen werden",
+    "uploadingButton": "Wird hochgeladen...",
+    "fileRejected": "Datei abgelehnt",
+    "image": "Bild",
+    "clearAll": "Alle entfernen",
+    "deleteTitle": "Bild löschen",
+    "deleteDescription": "Möchten Sie dieses Bild wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden."
+  },
+  "fileUpload": {
+    "maxFiles_one": "Maximal {{count}} Datei erlaubt",
+    "maxFiles_other": "Maximal {{count}} Dateien erlaubt",
+    "typeNotAccepted": "Dateityp nicht akzeptiert",
+    "tooLarge": "Datei zu groß",
+    "uploadFailed": "Upload fehlgeschlagen",
+    "label": "Datei-Upload",
+    "statusError": "Fehler: {{error}}",
+    "statusUploading": "Wird hochgeladen: {{progress}}% abgeschlossen",
+    "statusComplete": "Upload abgeschlossen",
+    "statusReady": "Bereit zum Hochladen"
+  },
+  "pinInput": {
+    "field": "PIN-Eingabe {{counter}} von {{length}}",
+    "label": "PIN-Eingabe"
+  },
+  "organisationGate": {
+    "errorTitle": "Ihre Organisationen konnten nicht geladen werden",
+    "errorDescription": "Prüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
+    "retry": "Erneut versuchen",
+    "signOut": "Abmelden",
+    "emptyTitle": "Noch keine Organisation",
+    "emptyDescription": "Laden Sie neu, um Ihren Arbeitsbereich einzurichten.",
+    "reload": "Neu laden"
+  },
+  "requirePermission": {
+    "title": "Ihre Rolle erlaubt dies nicht",
+    "description": "Sie haben keinen Zugriff auf diese Seite. Bitten Sie einen Inhaber, die Berechtigungen Ihrer Rolle zu ändern.",
+    "descriptionWithOrg": "Rolle in {{organisation}}: {{role}}. Diese Rolle hat keinen Zugriff auf diese Seite. Bitten Sie einen Inhaber, die Berechtigungen Ihrer Rolle zu ändern.",
+    "back": "Zurück zum Dashboard"
+  },
+  "toasts": {
+    "assistantAgents": {
+      "coPilotCreated": "Co-Pilot erstellt",
+      "coPilotDuplicated": "Co-Pilot dupliziert",
+      "defaultCoPilotUpdated": "Standard-Co-Pilot aktualisiert",
+      "coPilotArchived": "Co-Pilot archiviert",
+      "coPilotRestored": "Co-Pilot wiederhergestellt",
+      "coPilotDeleted": "Co-Pilot gelöscht",
+      "couldNotCreateTheCoPilot": "Co-Pilot konnte nicht erstellt werden",
+      "changesSaved": "Änderungen gespeichert",
+      "couldNotSaveChanges": "Änderungen konnten nicht gespeichert werden",
+      "couldNotDuplicate": "Duplizieren nicht möglich",
+      "couldNotSetDefault": "Standard konnte nicht festgelegt werden",
+      "couldNotUpdateTheCoPilot": "Co-Pilot konnte nicht aktualisiert werden",
+      "couldNotDeleteTheCoPilot": "Co-Pilot konnte nicht gelöscht werden",
+      "readyToUse": "{{name}} ist einsatzbereit."
+    },
+    "calls": {
+      "callStarted": "Anruf gestartet",
+      "callUpdated": "Anruf aktualisiert",
+      "savedToYourCallLibrary": "In Ihrer Anrufbibliothek gespeichert.",
+      "bookmarkRemoved": "Lesezeichen entfernt",
+      "speakerUpdated": "Sprecher aktualisiert",
+      "theCoPilotIsListening": "Der Co-Pilot hört zu.",
+      "couldNotStartTheCall": "Anruf konnte nicht gestartet werden",
+      "practiceSessionReady": "Übungssitzung bereit",
+      "couldNotStartThePracticeSession": "Übungssitzung konnte nicht gestartet werden",
+      "couldNotUpdateTheCall": "Anruf konnte nicht aktualisiert werden",
+      "callEnded": "Anruf beendet",
+      "yourPerformanceReportIsBeingPrepared": "Ihr Leistungsbericht wird erstellt.",
+      "couldNotEndTheCall": "Anruf konnte nicht beendet werden",
+      "callPermanentlyDeleted": "Anruf endgültig gelöscht",
+      "couldNotDeleteTheCall": "Anruf konnte nicht gelöscht werden",
+      "thanksForTheFeedback": "Danke für Ihr Feedback",
+      "couldNotUpdateTheSuggestion": "Vorschlag konnte nicht aktualisiert werden",
+      "noAnswer": "Keine Antwort",
+      "momentBookmarked": "Moment mit Lesezeichen versehen",
+      "couldNotBookmark": "Lesezeichen konnte nicht gesetzt werden",
+      "couldNotRemoveTheBookmark": "Lesezeichen konnte nicht entfernt werden",
+      "couldNotUpdateTheSpeaker": "Sprecher konnte nicht aktualisiert werden",
+      "recordingSaved": "Aufnahme gespeichert",
+      "recordingUploadFailed": "Aufnahme-Upload fehlgeschlagen",
+      "recordingPermanentlyDeleted": "Aufnahme endgültig gelöscht",
+      "transcriptAndAnalysisWereKept": "Transkript und Analyse wurden beibehalten.",
+      "couldNotDeleteTheRecording": "Aufnahme konnte nicht gelöscht werden",
+      "transcriptPermanentlyDeleted": "Transkript endgültig gelöscht",
+      "couldNotDeleteTheTranscript": "Transkript konnte nicht gelöscht werden",
+      "analysisStarted": "Analyse gestartet",
+      "thisUsuallyTakesUnderAMinute": "Das dauert normalerweise weniger als eine Minute.",
+      "couldNotStartTheAnalysis": "Analyse konnte nicht gestartet werden"
+    },
+    "organisations": {
+      "roleUpdated": "Rolle aktualisiert",
+      "memberRemoved": "Mitglied entfernt",
+      "organisationCreated": "Organisation erstellt",
+      "couldNotCreateTheOrganisation": "Organisation konnte nicht erstellt werden",
+      "organisationRenamed": "Organisation umbenannt",
+      "couldNotRenameTheOrganisation": "Organisation konnte nicht umbenannt werden",
+      "organisationPermanentlyDeleted": "Organisation endgültig gelöscht",
+      "couldNotDeleteTheOrganisation": "Organisation konnte nicht gelöscht werden",
+      "couldNotChangeTheRole": "Rolle konnte nicht geändert werden",
+      "couldNotRemoveTheMember": "Mitglied konnte nicht entfernt werden",
+      "permissionsSaved": "Berechtigungen gespeichert",
+      "theChangeAppliesToEveryoneWith": "Die Änderung gilt sofort für alle mit dieser Rolle.",
+      "couldNotSavePermissions": "Berechtigungen konnten nicht gespeichert werden",
+      "permissionsResetToThePreset": "Berechtigungen auf die Vorlage zurückgesetzt",
+      "couldNotResetPermissions": "Berechtigungen konnten nicht zurückgesetzt werden",
+      "invitationSent": "Einladung gesendet",
+      "invitationCreated": "Einladung erstellt",
+      "couldNotSendTheInvitation": "Einladung konnte nicht gesendet werden",
+      "invitationResent": "Einladung erneut gesendet",
+      "newLinkCreated": "Neuer Link erstellt",
+      "couldNotResendTheInvitation": "Einladung konnte nicht erneut gesendet werden",
+      "invitationRevoked": "Einladung widerrufen",
+      "theLinkNoLongerWorks": "Der Link funktioniert nicht mehr.",
+      "couldNotRevokeTheInvitation": "Einladung konnte nicht widerrufen werden",
+      "youCanSwitchOrganisationsFromThe": "Sie können jederzeit über die Seitenleiste zwischen Organisationen wechseln.",
+      "couldNotAcceptTheInvitation": "Einladung konnte nicht angenommen werden",
+      "workingIn": "Sie arbeiten jetzt in {{name}}.",
+      "emailedTo": "Wir haben eine E-Mail an {{email}} gesendet.",
+      "emailedFresh": "Wir haben {{email}} einen neuen Link per E-Mail gesendet.",
+      "welcomeTo": "Willkommen bei {{name}}",
+      "emailUnavailableInvite": "E-Mail ist derzeit nicht verfügbar. Kopieren Sie den Einladungslink und teilen Sie ihn selbst.",
+      "emailUnavailableLink": "E-Mail ist derzeit nicht verfügbar. Kopieren Sie den neuen Link und teilen Sie ihn selbst."
+    },
+    "practiceAgents": {
+      "prospectCreated": "Interessent erstellt",
+      "prospectRecreatedFromTheCall": "Interessent aus dem Anruf neu erstellt",
+      "prospectDuplicated": "Interessent dupliziert",
+      "prospectArchived": "Interessent archiviert",
+      "prospectRestored": "Interessent wiederhergestellt",
+      "prospectDeleted": "Interessent gelöscht",
+      "couldNotCreateTheProspect": "Interessent konnte nicht erstellt werden",
+      "changesSaved": "Änderungen gespeichert",
+      "couldNotSaveChanges": "Änderungen konnten nicht gespeichert werden",
+      "prospectGenerated": "Interessent generiert",
+      "reviewAndAdjustTheDetailsThen": "Prüfen und passen Sie die Details an und speichern Sie dann.",
+      "couldNotGenerateTheProspect": "Interessent konnte nicht generiert werden",
+      "randomProspectReady": "Zufälliger Interessent bereit",
+      "reviewItThenSave": "Prüfen Sie ihn und speichern Sie dann.",
+      "couldNotGenerateARandomProspect": "Zufälliger Interessent konnte nicht generiert werden",
+      "couldNotRecreateTheProspect": "Interessent konnte nicht neu erstellt werden",
+      "couldNotDuplicate": "Duplizieren nicht möglich",
+      "harderVersionCreated": "Schwierigere Version erstellt",
+      "couldNotCreateAHarderVersion": "Schwierigere Version konnte nicht erstellt werden",
+      "couldNotUpdateTheProspect": "Interessent konnte nicht aktualisiert werden",
+      "couldNotDeleteTheProspect": "Interessent konnte nicht gelöscht werden"
+    },
+    "auth": {
+      "loginSuccessful": "Anmeldung erfolgreich",
+      "youHaveSuccessfullyLoggedIn": "Sie haben sich erfolgreich angemeldet",
+      "couldNotSignIn": "Anmeldung nicht möglich",
+      "anUnexpectedErrorOccurred": "Ein unerwarteter Fehler ist aufgetreten",
+      "welcomeToCallzen": "Willkommen bei CallZen",
+      "yourAccountIsReady": "Ihr Konto ist bereit.",
+      "couldNotSignUp": "Registrierung nicht möglich",
+      "adminLoginSuccessful": "Admin-Anmeldung erfolgreich",
+      "youHaveSuccessfullyLoggedInAs": "Sie haben sich erfolgreich als Admin angemeldet",
+      "couldNotAdminLoginToAccount": "Admin-Anmeldung beim Konto nicht möglich"
+    },
+    "user": {
+      "settingsSaved": "Einstellungen gespeichert",
+      "couldNotSaveSettings": "Einstellungen konnten nicht gespeichert werden",
+      "accountDeleted": "Konto gelöscht",
+      "allYourDataWasPermanentlyRemoved": "Alle Ihre Daten wurden endgültig entfernt.",
+      "couldNotDeleteYourAccount": "Konto konnte nicht gelöscht werden"
+    }
+  },
+  "errors": {
+    "calls": {
+      "failedToLoadCalls": "Anrufe konnten nicht geladen werden.",
+      "failedToLoadTheCall": "Der Anruf konnte nicht geladen werden.",
+      "failedToStartTheCall": "Der Anruf konnte nicht gestartet werden.",
+      "failedToUpdateTheCall": "Der Anruf konnte nicht aktualisiert werden.",
+      "failedToDeleteTheCall": "Der Anruf konnte nicht gelöscht werden.",
+      "failedToUpdateTheSpeaker": "Der Sprecher konnte nicht aktualisiert werden.",
+      "failedToAddTheBookmark": "Das Lesezeichen konnte nicht hinzugefügt werden.",
+      "failedToRemoveTheBookmark": "Das Lesezeichen konnte nicht entfernt werden.",
+      "failedToStartThePracticeSession": "Die Übungssitzung konnte nicht gestartet werden.",
+      "failedToEndTheCall": "Der Anruf konnte nicht beendet werden.",
+      "failedToSaveTheTranscript": "Das Transkript konnte nicht gespeichert werden.",
+      "failedToDeleteTheTranscript": "Das Transkript konnte nicht gelöscht werden.",
+      "failedToGenerateASuggestion": "Es konnte kein Vorschlag generiert werden.",
+      "failedToUpdateTheSuggestion": "Der Vorschlag konnte nicht aktualisiert werden.",
+      "theCoPilotCouldNotAnswer": "Der Co-Pilot kann gerade nicht antworten.",
+      "failedToUploadTheRecording": "Die Aufnahme konnte nicht hochgeladen werden.",
+      "failedToLoadTheRecording": "Die Aufnahme konnte nicht geladen werden.",
+      "failedToDeleteTheRecording": "Die Aufnahme konnte nicht gelöscht werden.",
+      "failedToStartTheAnalysis": "Die Analyse konnte nicht gestartet werden.",
+      "couldNotStartTheRealtimeAudio": "Die Echtzeit-Audiositzung konnte nicht gestartet werden.",
+      "theProspectDidNotRespondTry": "Der Interessent hat nicht geantwortet. Versuchen Sie es erneut.",
+      "couldNotConnectToTheRealtime": "Verbindung zum Echtzeit-Audiodienst nicht möglich."
+    },
+    "dashboard": {
+      "failedToLoadYourProgress": "Ihr Fortschritt konnte nicht geladen werden."
+    },
+    "organisations": {
+      "failedToLoadMembers": "Mitglieder konnten nicht geladen werden.",
+      "failedToRemoveTheMember": "Das Mitglied konnte nicht entfernt werden.",
+      "failedToLoadRoles": "Rollen konnten nicht geladen werden.",
+      "failedToLoadYourOrganisations": "Ihre Organisationen konnten nicht geladen werden.",
+      "failedToLoadPermissions": "Berechtigungen konnten nicht geladen werden.",
+      "failedToCreateTheOrganisation": "Die Organisation konnte nicht erstellt werden.",
+      "failedToRenameTheOrganisation": "Die Organisation konnte nicht umbenannt werden.",
+      "failedToDeleteTheOrganisation": "Die Organisation konnte nicht gelöscht werden.",
+      "failedToChangeTheRole": "Die Rolle konnte nicht geändert werden.",
+      "failedToSavePermissions": "Berechtigungen konnten nicht gespeichert werden.",
+      "failedToResetPermissions": "Berechtigungen konnten nicht zurückgesetzt werden.",
+      "failedToLoadInvitations": "Einladungen konnten nicht geladen werden.",
+      "failedToSendTheInvitation": "Die Einladung konnte nicht gesendet werden.",
+      "failedToResendTheInvitation": "Die Einladung konnte nicht erneut gesendet werden.",
+      "failedToRevokeTheInvitation": "Die Einladung konnte nicht widerrufen werden.",
+      "thisInvitationLinkIsNotValid": "Dieser Einladungslink ist ungültig.",
+      "failedToLoadYourInvitations": "Ihre Einladungen konnten nicht geladen werden.",
+      "failedToAcceptTheInvitation": "Die Einladung konnte nicht angenommen werden."
+    },
+    "practiceAgents": {
+      "failedToLoadPracticeProspects": "Übungs-Interessenten konnten nicht geladen werden.",
+      "failedToLoadThePracticeProspect": "Der Übungs-Interessent konnte nicht geladen werden.",
+      "failedToCreateThePracticeProspect": "Der Übungs-Interessent konnte nicht erstellt werden.",
+      "failedToSaveThePracticeProspect": "Der Übungs-Interessent konnte nicht gespeichert werden.",
+      "failedToRecreateTheProspectFrom": "Der Interessent konnte nicht aus diesem Anruf neu erstellt werden.",
+      "failedToDuplicateTheProspect": "Der Interessent konnte nicht dupliziert werden.",
+      "failedToUpdateTheProspect": "Der Interessent konnte nicht aktualisiert werden.",
+      "failedToDeleteTheProspect": "Der Interessent konnte nicht gelöscht werden.",
+      "failedToGenerateTheProspectPlease": "Der Interessent konnte nicht generiert werden. Bitte versuchen Sie es erneut.",
+      "failedToGenerateARandomProspect": "Ein zufälliger Interessent konnte nicht generiert werden. Bitte versuchen Sie es erneut.",
+      "failedToCreateAHarderVersion": "Eine schwierigere Version konnte nicht erstellt werden."
+    },
+    "usage": {
+      "failedToLoadUsage": "Die Nutzung konnte nicht geladen werden."
+    },
+    "user": {
+      "failedToLoadYourProfile": "Ihr Profil konnte nicht geladen werden.",
+      "failedToSaveYourSettings": "Ihre Einstellungen konnten nicht gespeichert werden.",
+      "failedToDeleteYourAccount": "Ihr Konto konnte nicht gelöscht werden."
+    },
+    "assistantAgents": {
+      "failedToLoadAssistantAgents": "Assistenten konnten nicht geladen werden.",
+      "failedToLoadTheAssistantAgent": "Der Assistent konnte nicht geladen werden.",
+      "failedToCreateTheAssistantAgent": "Der Assistent konnte nicht erstellt werden.",
+      "failedToSaveTheAssistantAgent": "Der Assistent konnte nicht gespeichert werden.",
+      "failedToDuplicateTheAssistantAgent": "Der Assistent konnte nicht dupliziert werden.",
+      "failedToSetTheDefaultAgent": "Der Standardassistent konnte nicht festgelegt werden.",
+      "failedToUpdateTheAgent": "Der Assistent konnte nicht aktualisiert werden.",
+      "failedToDeleteTheAssistantAgent": "Der Assistent konnte nicht gelöscht werden."
+    },
+    "auth": {
+      "failedToSignInPleaseTry": "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+      "failedToSignUpPleaseTry": "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+      "failedToRefreshAccountTokenPlease": "Das Konto-Token konnte nicht erneuert werden. Bitte versuchen Sie es erneut.",
+      "failedToAdminLoginToAccount": "Admin-Anmeldung beim Konto fehlgeschlagen. Bitte versuchen Sie es erneut."
+    },
+    "catalog": {
+      "failedToLoadModelsAndTemplates": "Modelle und Vorlagen konnten nicht geladen werden."
+    },
+    "googleMaps": {
+      "failedToFetchTimezonePleaseTry": "Die Zeitzone konnte nicht abgerufen werden. Bitte versuchen Sie es erneut."
+    },
+    "health": {
+      "failedToFetchHealthStatusPlease": "Der Systemstatus konnte nicht abgerufen werden. Bitte versuchen Sie es erneut."
+    },
+    "lib": {
+      "network": "Der Server ist nicht erreichbar. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut."
+    },
+    "audio": {
+      "speechUnsupported": "Spracherkennung wird in diesem Browser nicht unterstützt. Verwenden Sie Chrome oder Edge.",
+      "speechBlocked": "Der Mikrofonzugriff für die Spracherkennung wurde blockiert.",
+      "micUnsupported": "Dieser Browser unterstützt keine Mikrofonaufnahme. Probieren Sie die neueste Version von Chrome, Edge oder Safari.",
+      "micBlocked": "Der Mikrofonzugriff wurde blockiert. Erlauben Sie ihn in den Website-Einstellungen Ihres Browsers und versuchen Sie es erneut.",
+      "micNotFound": "Es wurde kein Mikrofon gefunden. Schließen Sie eines an und versuchen Sie es erneut.",
+      "micFailed": "Auf das Mikrofon konnte nicht zugegriffen werden.",
+      "tabUnsupported": "Zum Erfassen von Meeting-Audio ist ein Desktop-Browser wie Chrome oder Edge erforderlich.",
+      "shareCancelled": "Die Bildschirmfreigabe wurde abgebrochen. Wählen Sie Ihren Meeting-Tab aus und aktivieren Sie „Tab-Audio teilen“.",
+      "noAudioShared": "Es wurde kein Audio geteilt. Wählen Sie den Browser-Tab des Meetings aus und aktivieren Sie „Tab-Audio teilen“.",
+      "realtimeTimeout": "Der Echtzeit-Datenkanal wurde nicht rechtzeitig geöffnet"
+    },
+    "websocket": {
+      "notConnected": "WebSocket nicht verbunden",
+      "timeout": "WebSocket-Sendezeitüberschreitung"
+    }
+  }
+}

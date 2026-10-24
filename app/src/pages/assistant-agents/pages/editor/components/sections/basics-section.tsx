@@ -1,4 +1,5 @@
 import type { UseFormReturn } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import {
   FormControl,
   FormDescription,
@@ -34,19 +35,20 @@ export function BasicsSection({
   languages,
   maxLanguages,
 }: BasicsSectionProps) {
+  const { t } = useTranslation("assistant");
   return (
     <FormSection
-      title="Basics"
-      description="What this co-pilot is for and the outcome it pushes toward."
+      title={t("basics.title")}
+      description={t("basics.description")}
     >
       <FormField
         control={form.control}
         name="name"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Name</FormLabel>
+            <FormLabel>{t("basics.name")}</FormLabel>
             <FormControl>
-              <Input placeholder="Cold Call – Dental Clinics" {...field} />
+              <Input placeholder={t("basics.namePlaceholder")} {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -57,11 +59,11 @@ export function BasicsSection({
         name="description"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Purpose</FormLabel>
+            <FormLabel>{t("basics.purpose")}</FormLabel>
             <FormControl>
               <Textarea
                 rows={2}
-                placeholder="Short cold calls to dental clinic owners, focused on booking a demo."
+                placeholder={t("basics.purposePlaceholder")}
                 {...field}
               />
             </FormControl>
@@ -74,12 +76,12 @@ export function BasicsSection({
         name="call_goal"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Call goal</FormLabel>
+            <FormLabel>{t("basics.callGoal")}</FormLabel>
             <FormControl>
-              <Input placeholder="Book a 20-minute demo" {...field} />
+              <Input placeholder={t("basics.callGoalPlaceholder")} {...field} />
             </FormControl>
             <FormDescription>
-              The co-pilot keeps steering the conversation toward this outcome.
+              {t("basics.callGoalHint")}
             </FormDescription>
             <FormMessage />
           </FormItem>
@@ -91,9 +93,9 @@ export function BasicsSection({
           name="languages"
           render={({ field }) => (
             <FormItem className="sm:col-span-2">
-              <FormLabel>Conversation languages</FormLabel>
+              <FormLabel>{t("basics.languages")}</FormLabel>
               <LanguageMultiSelect
-                ariaLabel="Conversation languages"
+                ariaLabel={t("basics.languages")}
                 languages={languages}
                 value={field.value}
                 onChange={field.onChange}
@@ -108,7 +110,7 @@ export function BasicsSection({
           name="methodology"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Sales methodology</FormLabel>
+              <FormLabel>{t("basics.methodology")}</FormLabel>
               <Select value={field.value} onValueChange={field.onChange}>
                 <FormControl>
                   <SelectTrigger>
@@ -134,9 +136,9 @@ export function BasicsSection({
         render={({ field }) => (
           <FormItem className="flex items-center justify-between gap-4 rounded-lg border p-3">
             <div>
-              <FormLabel>Default co-pilot</FormLabel>
+              <FormLabel>{t("basics.default")}</FormLabel>
               <FormDescription>
-                Pre-selected when you start a call.
+                {t("basics.defaultHint")}
               </FormDescription>
             </div>
             <FormControl>

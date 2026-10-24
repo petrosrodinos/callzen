@@ -1,0 +1,432 @@
+{
+  "actions": {
+    "save": "Salvează",
+    "cancel": "Anulează",
+    "delete": "Șterge",
+    "edit": "Editează",
+    "close": "Închide",
+    "confirm": "Confirmă",
+    "back": "Înapoi",
+    "next": "Înainte",
+    "search": "Caută",
+    "retry": "Încearcă din nou",
+    "loading": "Se încarcă…",
+    "logout": "Deconectare"
+  },
+  "language": {
+    "label": "Limbă",
+    "switch": "Schimbă limba"
+  },
+  "dates": {
+    "today": "Astăzi",
+    "yesterday": "Ieri"
+  },
+  "pagination": {
+    "previous": "Pagina anterioară",
+    "next": "Pagina următoare"
+  },
+  "theme": {
+    "toggle": "Schimbă tema",
+    "light": "Luminoasă",
+    "dark": "Întunecată",
+    "system": "Sistem"
+  },
+  "errorBoundary": {
+    "title": "Ceva nu a funcționat",
+    "description": "A apărut o eroare neașteptată. Încearcă să reîmprospătezi pagina sau contactează asistența dacă problema persistă.",
+    "details": "Detalii eroare"
+  },
+  "scoreRing": {
+    "aria": "{{label}}: {{score}} din 100",
+    "score": "Scor",
+    "notAvailable": "indisponibil"
+  },
+  "select": {
+    "placeholder": "Selectează",
+    "notSpecified": "Nespecificat"
+  },
+  "modelPicker": {
+    "quality": "Calitate {{value}}/5",
+    "slow": "Se gândește înainte să răspundă, deci sugestiile pot sosi cu întârziere în apelurile live.",
+    "recommended": "Recomandat"
+  },
+  "countdown": {
+    "passed": "Programarea a trecut"
+  },
+  "phoneInput": {
+    "search": "Caută țara...",
+    "empty": "Nicio țară găsită."
+  },
+  "callRow": {
+    "practiceSession": "Sesiune de exersare",
+    "untitled": "Apel fără titlu",
+    "practice": "Exersare",
+    "objectiveMet": "Obiectiv atins",
+    "notMet": "Neatins",
+    "analyzing": "Se analizează",
+    "live": "Live"
+  },
+  "languageSelect": {
+    "label": "Limbă",
+    "placeholder": "Selectează o limbă"
+  },
+  "languageMultiSelect": {
+    "primaryLanguage": "Limba principală",
+    "makePrimary": "Setează ca principală",
+    "primaryAria": "{{name}} (principală)",
+    "makePrimaryAria": "Setează {{name}} ca limbă principală",
+    "removeAria": "Elimină {{name}}",
+    "maximum": "Număr maxim de limbi: {{count}}",
+    "add": "Adaugă o limbă",
+    "search": "Caută limbi…",
+    "empty": "Nicio limbă găsită.",
+    "primary": "Principală",
+    "hint": "Număr maxim de limbi: {{count}}. Limba marcată cu stea este cea implicită; fă clic pe alt chip pentru a o seta ca implicită."
+  },
+  "liveAssist": {
+    "label": "Asistență live",
+    "mutedTitle": "Sugestiile sunt dezactivate. Apelul este în continuare captat.",
+    "resume": "Reia sugestiile",
+    "empty": "Sugestiile vor apărea aici imediat ce prospectul începe să vorbească.",
+    "recent": "Sugestii recente ({{count}})",
+    "copilot": "Co-pilot",
+    "thinking": "Se gândește…",
+    "activeUsing": "Activ · folosește {{model}}",
+    "active": "Activ",
+    "paused": "Sugestii întrerupte · captarea continuă",
+    "reconnecting_one": "Se reconectează · {{count}} linie în așteptare",
+    "reconnecting_few": "Se reconectează · {{count}} linii în așteptare",
+    "reconnecting_other": "Se reconectează · {{count}} de linii în așteptare",
+    "frequencyLabel": "Frecvența sugestiilor",
+    "frequency": "Frecvență",
+    "suggestNow": "Sugerează acum",
+    "unmute": "Activează sugestiile",
+    "mute": "Dezactivează sugestiile",
+    "updating": "Se actualizează",
+    "or": "Sau:",
+    "alt": "Alt:",
+    "unpin": "Anulează fixarea",
+    "pin": "Fixează",
+    "dismiss": "Respinge",
+    "helpful": "Util",
+    "notHelpful": "Neutil",
+    "askPlaceholder": "Întreabă co-pilotul… ex. preț pentru 50 de licențe?",
+    "askLabel": "Întreabă co-pilotul",
+    "ask": "Întreabă",
+    "scriptProgress": "Progres script · {{done}}/{{total}}",
+    "audioLevel": "Nivel audio {{label}}"
+  },
+  "micCheck": {
+    "ready": "Microfon pregătit",
+    "speak": "Vorbește pentru a testa",
+    "prompt": "Verifică microfonul înainte de a începe.",
+    "test": "Testează microfonul"
+  },
+  "recording": {
+    "recording": "Se înregistrează",
+    "listening": "Ascultare · fără înregistrare",
+    "paused": "În pauză",
+    "off": "Fără captare",
+    "connecting": "Se conectează…"
+  },
+  "transcript": {
+    "empty": "Transcrierea va apărea aici pe măsură ce se vorbește.",
+    "notSaved": "Nesalvat încă",
+    "switchSpeaker": "Schimbă vorbitorul",
+    "wrongSpeaker": "Vorbitor greșit? Schimbă-l"
+  },
+  "imageUploader": {
+    "upload": "Încarcă {{label}}",
+    "wait": "Te rugăm să aștepți...",
+    "hint": "PNG, JPG până la 5 MB"
+  },
+  "imagePicker": {
+    "uploadText": "Încarcă imagini",
+    "uploadSubtext": "Trage și plasează imaginile aici sau fă clic pentru a naviga",
+    "fileTypeText": "Acceptă JPG, PNG, JPEG până la 10 MB fiecare",
+    "existingImages": "Imagini existente",
+    "choose": "Alege imagini",
+    "uploading": "Se încarcă imaginile",
+    "uploadingSubtext": "Te rugăm să aștepți până se încarcă imaginile",
+    "uploadingButton": "Se încarcă...",
+    "fileRejected": "Fișier respins",
+    "image": "Imagine",
+    "clearAll": "Șterge tot",
+    "deleteTitle": "Șterge imaginea",
+    "deleteDescription": "Sigur vrei să ștergi această imagine? Această acțiune nu poate fi anulată."
+  },
+  "fileUpload": {
+    "maxFiles_one": "Maximum {{count}} fișier permis",
+    "maxFiles_few": "Maximum {{count}} fișiere permise",
+    "maxFiles_other": "Maximum {{count}} de fișiere permise",
+    "typeNotAccepted": "Tip de fișier neacceptat",
+    "tooLarge": "Fișier prea mare",
+    "uploadFailed": "Încărcare eșuată",
+    "label": "Încărcare fișier",
+    "statusError": "Eroare: {{error}}",
+    "statusUploading": "Se încarcă: {{progress}}% finalizat",
+    "statusComplete": "Încărcare finalizată",
+    "statusReady": "Gata de încărcare"
+  },
+  "pinInput": {
+    "field": "Câmp PIN {{counter}} din {{length}}",
+    "label": "Cod PIN"
+  },
+  "organisationGate": {
+    "errorTitle": "Nu am putut încărca organizațiile tale",
+    "errorDescription": "Verifică conexiunea și încearcă din nou.",
+    "retry": "Reîncearcă",
+    "signOut": "Deconectare",
+    "emptyTitle": "Nicio organizație încă",
+    "emptyDescription": "Reîncarcă pagina pentru a-ți configura spațiul de lucru.",
+    "reload": "Reîncarcă"
+  },
+  "requirePermission": {
+    "title": "Rolul tău nu permite acest lucru",
+    "description": "Nu ai acces la această pagină. Roagă un proprietar să modifice permisiunile rolului tău.",
+    "descriptionWithOrg": "Rolul tău din {{organisation}} ({{role}}) nu are acces la această pagină. Roagă un proprietar să modifice permisiunile rolului tău.",
+    "back": "Înapoi la panou"
+  },
+  "toasts": {
+    "assistantAgents": {
+      "coPilotCreated": "Co-pilot creat",
+      "coPilotDuplicated": "Co-pilot duplicat",
+      "defaultCoPilotUpdated": "Co-pilotul implicit a fost actualizat",
+      "coPilotArchived": "Co-pilot arhivat",
+      "coPilotRestored": "Co-pilot restaurat",
+      "coPilotDeleted": "Co-pilot șters",
+      "couldNotCreateTheCoPilot": "Nu s-a putut crea co-pilotul",
+      "changesSaved": "Modificări salvate",
+      "couldNotSaveChanges": "Nu s-au putut salva modificările",
+      "couldNotDuplicate": "Nu s-a putut duplica",
+      "couldNotSetDefault": "Nu s-a putut seta ca implicit",
+      "couldNotUpdateTheCoPilot": "Nu s-a putut actualiza co-pilotul",
+      "couldNotDeleteTheCoPilot": "Nu s-a putut șterge co-pilotul",
+      "readyToUse": "{{name}} este gata de utilizare."
+    },
+    "calls": {
+      "callStarted": "Apel început",
+      "callUpdated": "Apel actualizat",
+      "savedToYourCallLibrary": "Salvat în biblioteca de apeluri.",
+      "bookmarkRemoved": "Marcaj eliminat",
+      "speakerUpdated": "Vorbitor actualizat",
+      "theCoPilotIsListening": "Co-pilotul ascultă.",
+      "couldNotStartTheCall": "Nu s-a putut începe apelul",
+      "practiceSessionReady": "Sesiune de exersare pregătită",
+      "couldNotStartThePracticeSession": "Nu s-a putut porni sesiunea de exersare",
+      "couldNotUpdateTheCall": "Nu s-a putut actualiza apelul",
+      "callEnded": "Apel încheiat",
+      "yourPerformanceReportIsBeingPrepared": "Raportul de performanță este în curs de pregătire.",
+      "couldNotEndTheCall": "Nu s-a putut încheia apelul",
+      "callPermanentlyDeleted": "Apel șters definitiv",
+      "couldNotDeleteTheCall": "Nu s-a putut șterge apelul",
+      "thanksForTheFeedback": "Mulțumim pentru feedback",
+      "couldNotUpdateTheSuggestion": "Nu s-a putut actualiza sugestia",
+      "noAnswer": "Fără răspuns",
+      "momentBookmarked": "Moment marcat",
+      "couldNotBookmark": "Nu s-a putut adăuga marcajul",
+      "couldNotRemoveTheBookmark": "Nu s-a putut elimina marcajul",
+      "couldNotUpdateTheSpeaker": "Nu s-a putut actualiza vorbitorul",
+      "recordingSaved": "Înregistrare salvată",
+      "recordingUploadFailed": "Încărcarea înregistrării a eșuat",
+      "recordingPermanentlyDeleted": "Înregistrare ștearsă definitiv",
+      "transcriptAndAnalysisWereKept": "Transcrierea și analiza au fost păstrate.",
+      "couldNotDeleteTheRecording": "Nu s-a putut șterge înregistrarea",
+      "transcriptPermanentlyDeleted": "Transcriere ștearsă definitiv",
+      "couldNotDeleteTheTranscript": "Nu s-a putut șterge transcrierea",
+      "analysisStarted": "Analiză începută",
+      "thisUsuallyTakesUnderAMinute": "De obicei durează sub un minut.",
+      "couldNotStartTheAnalysis": "Nu s-a putut porni analiza"
+    },
+    "organisations": {
+      "roleUpdated": "Rol actualizat",
+      "memberRemoved": "Membru eliminat",
+      "organisationCreated": "Organizație creată",
+      "couldNotCreateTheOrganisation": "Nu s-a putut crea organizația",
+      "organisationRenamed": "Organizație redenumită",
+      "couldNotRenameTheOrganisation": "Nu s-a putut redenumi organizația",
+      "organisationPermanentlyDeleted": "Organizație ștearsă definitiv",
+      "couldNotDeleteTheOrganisation": "Nu s-a putut șterge organizația",
+      "couldNotChangeTheRole": "Nu s-a putut schimba rolul",
+      "couldNotRemoveTheMember": "Nu s-a putut elimina membrul",
+      "permissionsSaved": "Permisiuni salvate",
+      "theChangeAppliesToEveryoneWith": "Modificarea se aplică imediat tuturor celor cu acest rol.",
+      "couldNotSavePermissions": "Nu s-au putut salva permisiunile",
+      "permissionsResetToThePreset": "Permisiunile au fost resetate la valorile prestabilite",
+      "couldNotResetPermissions": "Nu s-au putut reseta permisiunile",
+      "invitationSent": "Invitație trimisă",
+      "invitationCreated": "Invitație creată",
+      "couldNotSendTheInvitation": "Nu s-a putut trimite invitația",
+      "invitationResent": "Invitație retrimisă",
+      "newLinkCreated": "Link nou creat",
+      "couldNotResendTheInvitation": "Nu s-a putut retrimite invitația",
+      "invitationRevoked": "Invitație revocată",
+      "theLinkNoLongerWorks": "Linkul nu mai funcționează.",
+      "couldNotRevokeTheInvitation": "Nu s-a putut revoca invitația",
+      "youCanSwitchOrganisationsFromThe": "Poți schimba organizația oricând din bara laterală.",
+      "couldNotAcceptTheInvitation": "Nu s-a putut accepta invitația",
+      "workingIn": "Acum lucrezi în {{name}}.",
+      "emailedTo": "Am trimis un e-mail la {{email}}.",
+      "emailedFresh": "Am trimis un link nou la {{email}}.",
+      "welcomeTo": "Bun venit în {{name}}",
+      "emailUnavailableInvite": "E-mailul nu este disponibil momentan. Copiază linkul de invitație și trimite-l tu.",
+      "emailUnavailableLink": "E-mailul nu este disponibil momentan. Copiază noul link și trimite-l tu."
+    },
+    "practiceAgents": {
+      "prospectCreated": "Prospect creat",
+      "prospectRecreatedFromTheCall": "Prospect recreat din apel",
+      "prospectDuplicated": "Prospect duplicat",
+      "prospectArchived": "Prospect arhivat",
+      "prospectRestored": "Prospect restaurat",
+      "prospectDeleted": "Prospect șters",
+      "couldNotCreateTheProspect": "Nu s-a putut crea prospectul",
+      "changesSaved": "Modificări salvate",
+      "couldNotSaveChanges": "Nu s-au putut salva modificările",
+      "prospectGenerated": "Prospect generat",
+      "reviewAndAdjustTheDetailsThen": "Verifică și ajustează detaliile, apoi salvează.",
+      "couldNotGenerateTheProspect": "Nu s-a putut genera prospectul",
+      "randomProspectReady": "Prospect aleatoriu pregătit",
+      "reviewItThenSave": "Verifică-l, apoi salvează.",
+      "couldNotGenerateARandomProspect": "Nu s-a putut genera un prospect aleatoriu",
+      "couldNotRecreateTheProspect": "Nu s-a putut recrea prospectul",
+      "couldNotDuplicate": "Nu s-a putut duplica",
+      "harderVersionCreated": "Versiune mai dificilă creată",
+      "couldNotCreateAHarderVersion": "Nu s-a putut crea o versiune mai dificilă",
+      "couldNotUpdateTheProspect": "Nu s-a putut actualiza prospectul",
+      "couldNotDeleteTheProspect": "Nu s-a putut șterge prospectul"
+    },
+    "auth": {
+      "loginSuccessful": "Autentificare reușită",
+      "youHaveSuccessfullyLoggedIn": "Te-ai autentificat cu succes",
+      "couldNotSignIn": "Nu te-ai putut autentifica",
+      "anUnexpectedErrorOccurred": "A apărut o eroare neașteptată",
+      "welcomeToCallzen": "Bun venit la CallZen",
+      "yourAccountIsReady": "Contul tău este pregătit.",
+      "couldNotSignUp": "Nu te-ai putut înregistra",
+      "adminLoginSuccessful": "Autentificare de administrator reușită",
+      "youHaveSuccessfullyLoggedInAs": "Te-ai autentificat cu succes ca administrator",
+      "couldNotAdminLoginToAccount": "Nu s-a putut face autentificarea de administrator în cont"
+    },
+    "user": {
+      "settingsSaved": "Setări salvate",
+      "couldNotSaveSettings": "Nu s-au putut salva setările",
+      "accountDeleted": "Cont șters",
+      "allYourDataWasPermanentlyRemoved": "Toate datele tale au fost șterse definitiv.",
+      "couldNotDeleteYourAccount": "Nu s-a putut șterge contul"
+    }
+  },
+  "errors": {
+    "calls": {
+      "failedToLoadCalls": "Nu s-au putut încărca apelurile.",
+      "failedToLoadTheCall": "Nu s-a putut încărca apelul.",
+      "failedToStartTheCall": "Nu s-a putut începe apelul.",
+      "failedToUpdateTheCall": "Nu s-a putut actualiza apelul.",
+      "failedToDeleteTheCall": "Nu s-a putut șterge apelul.",
+      "failedToUpdateTheSpeaker": "Nu s-a putut actualiza vorbitorul.",
+      "failedToAddTheBookmark": "Nu s-a putut adăuga marcajul.",
+      "failedToRemoveTheBookmark": "Nu s-a putut elimina marcajul.",
+      "failedToStartThePracticeSession": "Nu s-a putut porni sesiunea de exersare.",
+      "failedToEndTheCall": "Nu s-a putut încheia apelul.",
+      "failedToSaveTheTranscript": "Nu s-a putut salva transcrierea.",
+      "failedToDeleteTheTranscript": "Nu s-a putut șterge transcrierea.",
+      "failedToGenerateASuggestion": "Nu s-a putut genera o sugestie.",
+      "failedToUpdateTheSuggestion": "Nu s-a putut actualiza sugestia.",
+      "theCoPilotCouldNotAnswer": "Co-pilotul nu poate răspunde momentan.",
+      "failedToUploadTheRecording": "Nu s-a putut încărca înregistrarea.",
+      "failedToLoadTheRecording": "Nu s-a putut încărca înregistrarea.",
+      "failedToDeleteTheRecording": "Nu s-a putut șterge înregistrarea.",
+      "failedToStartTheAnalysis": "Nu s-a putut porni analiza.",
+      "couldNotStartTheRealtimeAudio": "Nu s-a putut porni sesiunea audio în timp real.",
+      "theProspectDidNotRespondTry": "Prospectul nu a răspuns. Încearcă din nou.",
+      "couldNotConnectToTheRealtime": "Nu s-a putut conecta la serviciul audio în timp real."
+    },
+    "dashboard": {
+      "failedToLoadYourProgress": "Nu s-a putut încărca progresul tău."
+    },
+    "organisations": {
+      "failedToLoadMembers": "Nu s-au putut încărca membrii.",
+      "failedToRemoveTheMember": "Nu s-a putut elimina membrul.",
+      "failedToLoadRoles": "Nu s-au putut încărca rolurile.",
+      "failedToLoadYourOrganisations": "Nu s-au putut încărca organizațiile tale.",
+      "failedToLoadPermissions": "Nu s-au putut încărca permisiunile.",
+      "failedToCreateTheOrganisation": "Nu s-a putut crea organizația.",
+      "failedToRenameTheOrganisation": "Nu s-a putut redenumi organizația.",
+      "failedToDeleteTheOrganisation": "Nu s-a putut șterge organizația.",
+      "failedToChangeTheRole": "Nu s-a putut schimba rolul.",
+      "failedToSavePermissions": "Nu s-au putut salva permisiunile.",
+      "failedToResetPermissions": "Nu s-au putut reseta permisiunile.",
+      "failedToLoadInvitations": "Nu s-au putut încărca invitațiile.",
+      "failedToSendTheInvitation": "Nu s-a putut trimite invitația.",
+      "failedToResendTheInvitation": "Nu s-a putut retrimite invitația.",
+      "failedToRevokeTheInvitation": "Nu s-a putut revoca invitația.",
+      "thisInvitationLinkIsNotValid": "Acest link de invitație nu este valid.",
+      "failedToLoadYourInvitations": "Nu s-au putut încărca invitațiile tale.",
+      "failedToAcceptTheInvitation": "Nu s-a putut accepta invitația."
+    },
+    "practiceAgents": {
+      "failedToLoadPracticeProspects": "Nu s-au putut încărca prospecții de exersare.",
+      "failedToLoadThePracticeProspect": "Nu s-a putut încărca prospectul de exersare.",
+      "failedToCreateThePracticeProspect": "Nu s-a putut crea prospectul de exersare.",
+      "failedToSaveThePracticeProspect": "Nu s-a putut salva prospectul de exersare.",
+      "failedToRecreateTheProspectFrom": "Nu s-a putut recrea prospectul din acest apel.",
+      "failedToDuplicateTheProspect": "Nu s-a putut duplica prospectul.",
+      "failedToUpdateTheProspect": "Nu s-a putut actualiza prospectul.",
+      "failedToDeleteTheProspect": "Nu s-a putut șterge prospectul.",
+      "failedToGenerateTheProspectPlease": "Nu s-a putut genera prospectul. Încearcă din nou.",
+      "failedToGenerateARandomProspect": "Nu s-a putut genera un prospect aleatoriu. Încearcă din nou.",
+      "failedToCreateAHarderVersion": "Nu s-a putut crea o versiune mai dificilă."
+    },
+    "usage": {
+      "failedToLoadUsage": "Nu s-a putut încărca utilizarea."
+    },
+    "user": {
+      "failedToLoadYourProfile": "Nu s-a putut încărca profilul tău.",
+      "failedToSaveYourSettings": "Nu s-au putut salva setările tale.",
+      "failedToDeleteYourAccount": "Nu s-a putut șterge contul tău."
+    },
+    "assistantAgents": {
+      "failedToLoadAssistantAgents": "Nu s-au putut încărca agenții asistent.",
+      "failedToLoadTheAssistantAgent": "Nu s-a putut încărca agentul asistent.",
+      "failedToCreateTheAssistantAgent": "Nu s-a putut crea agentul asistent.",
+      "failedToSaveTheAssistantAgent": "Nu s-a putut salva agentul asistent.",
+      "failedToDuplicateTheAssistantAgent": "Nu s-a putut duplica agentul asistent.",
+      "failedToSetTheDefaultAgent": "Nu s-a putut seta agentul implicit.",
+      "failedToUpdateTheAgent": "Nu s-a putut actualiza agentul.",
+      "failedToDeleteTheAssistantAgent": "Nu s-a putut șterge agentul asistent."
+    },
+    "auth": {
+      "failedToSignInPleaseTry": "Autentificarea a eșuat. Încearcă din nou.",
+      "failedToSignUpPleaseTry": "Înregistrarea a eșuat. Încearcă din nou.",
+      "failedToRefreshAccountTokenPlease": "Nu s-a putut reîmprospăta tokenul contului. Încearcă din nou.",
+      "failedToAdminLoginToAccount": "Autentificarea de administrator în cont a eșuat. Încearcă din nou."
+    },
+    "catalog": {
+      "failedToLoadModelsAndTemplates": "Nu s-au putut încărca modelele și șabloanele."
+    },
+    "googleMaps": {
+      "failedToFetchTimezonePleaseTry": "Nu s-a putut obține fusul orar. Încearcă din nou."
+    },
+    "health": {
+      "failedToFetchHealthStatusPlease": "Nu s-a putut obține starea sistemului. Încearcă din nou."
+    },
+    "lib": {
+      "network": "Serverul nu poate fi contactat. Verifică conexiunea și încearcă din nou."
+    },
+    "audio": {
+      "speechUnsupported": "Recunoașterea vocală nu este acceptată în acest browser. Folosește Chrome sau Edge.",
+      "speechBlocked": "Accesul la microfon pentru recunoaștere vocală a fost blocat.",
+      "micUnsupported": "Acest browser nu acceptă captarea de la microfon. Încearcă cea mai recentă versiune de Chrome, Edge sau Safari.",
+      "micBlocked": "Accesul la microfon a fost blocat. Permite-l din setările site-ului în browser și încearcă din nou.",
+      "micNotFound": "Nu a fost găsit niciun microfon. Conectează unul și încearcă din nou.",
+      "micFailed": "Nu s-a putut accesa microfonul.",
+      "tabUnsupported": "Captarea audio a ședinței necesită un browser desktop, precum Chrome sau Edge.",
+      "shareCancelled": "Partajarea ecranului a fost anulată. Alege fila ședinței și activează „Distribuie conținutul audio al filei”.",
+      "noAudioShared": "Nu a fost partajat niciun conținut audio. Selectează fila de browser a ședinței și activează „Distribuie conținutul audio al filei”.",
+      "realtimeTimeout": "Canalul de date în timp real nu s-a deschis la timp"
+    },
+    "websocket": {
+      "notConnected": "WebSocket nu este conectat",
+      "timeout": "Timeout la emiterea WebSocket"
+    }
+  }
+}

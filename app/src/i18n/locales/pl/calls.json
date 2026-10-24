@@ -1,0 +1,109 @@
+{
+  "endCall": {
+    "title": "Zakończyć rozmowę?",
+    "description": "Opcjonalnie zapisz, jak poszło. Wyniki łączą Twoją skuteczność z rzeczywistymi rezultatami.",
+    "outcomeLabel": "Wynik rozmowy",
+    "customPlaceholder": "Opisz wynik",
+    "customLabel": "Własny wynik",
+    "keepTalking": "Kontynuuj rozmowę",
+    "confirm": "Zakończ rozmowę"
+  },
+  "manualLine": {
+    "whoSaid": "Kto to powiedział",
+    "prospectSaid": "Klient powiedział",
+    "iSaid": "Ja powiedziałem",
+    "placeholder": "Wpisz wypowiedź z rozmowy",
+    "addTranscriptLine": "Dodaj wiersz transkrypcji",
+    "addLine": "Dodaj wiersz"
+  },
+  "live": {
+    "title": "Rozmowa na żywo",
+    "badge": "Na żywo",
+    "you": "Ty",
+    "mic": "Mikrofon",
+    "meeting": "Spotkanie",
+    "switchCopilot": "Zmień asystenta",
+    "copilot": "Asystent",
+    "reconnect": "Połącz ponownie",
+    "dismiss": "Zamknij",
+    "connectTitle": "Połącz dźwięk, aby rozpocząć przechwytywanie",
+    "connectMeeting": "Wybierz kartę przeglądarki ze spotkaniem i włącz „Udostępnij dźwięk karty”, a następnie zezwól na użycie mikrofonu.",
+    "connectMic": "Zezwól na dostęp do mikrofonu. Włącz w telefonie głośnik i połóż go blisko tego urządzenia.",
+    "connectAudio": "Połącz dźwięk",
+    "transcript": "Transkrypcja na żywo",
+    "hide": "Ukryj",
+    "show": "Pokaż ({{count}})",
+    "resumeCapture": "Wznów przechwytywanie",
+    "pauseCapture": "Wstrzymaj przechwytywanie",
+    "pauseCaptureHint": "Wstrzymaj przechwytywanie (momenty nie na temat lub wrażliwe)",
+    "bookmark": "Dodaj zakładkę w tym momencie",
+    "endCall": "Zakończ rozmowę",
+    "sources": {
+      "microphone": "Mikrofon",
+      "meeting": "Spotkanie"
+    },
+    "notices": {
+      "reconnecting": "Utracono połączenie transkrypcji. Ponowne łączenie…",
+      "switchedToBrowser": "Transkrypcja na żywo jest niedostępna. Przełączono na rozpoznawanie mowy w przeglądarce.",
+      "aiUnavailableBrowser": "Transkrypcja AI jest niedostępna, dlatego używane jest rozpoznawanie mowy w przeglądarce. Wykrywanie mówców może być mniej dokładne.",
+      "manualFallback": "Transkrypcja jest niedostępna dla tego dźwięku. Dodaj kluczowe wypowiedzi ręcznie, aby asystent nadal mógł pomagać.",
+      "audioStopped": "Dźwięk ({{label}}) został zatrzymany (karta została zamknięta lub urządzenie odłączone). To, co przechwycono, jest bezpieczne. Połącz ponownie, aby kontynuować."
+    }
+  },
+  "new": {
+    "title": "Rozpocznij rozmowę",
+    "description": "Wybierz sposób dzwonienia i asystenta. Wszystko poza asystentem jest opcjonalne.",
+    "audioCaptureFailed": "Przechwytywanie dźwięku nie powiodło się",
+    "validation": {
+      "chooseCopilot": "Wybierz asystenta",
+      "confirmBeforeStarting": "Potwierdź przed rozpoczęciem"
+    },
+    "noCopilot": {
+      "title": "Najpierw utwórz asystenta",
+      "description": "Asystent wykorzystuje Twój skrypt, obiekcje i wiedzę, aby podpowiadać, co powiedzieć. Z szablonem zajmuje to minutę.",
+      "cta": "Utwórz asystenta"
+    },
+    "callType": "Typ rozmowy",
+    "meetingUnsupported": "Wymaga przeglądarki na komputer, np. Chrome lub Edge.",
+    "copilot": {
+      "title": "Asystent",
+      "agentLabel": "Agent asystent",
+      "defaultSuffix": "{{name}} (domyślny)",
+      "goal": "Cel: {{goal}}"
+    },
+    "context": {
+      "title": "Kontekst rozmowy",
+      "description": "Pomaga asystentowi spersonalizować podpowiedzi i analizę.",
+      "prospectName": "Imię i nazwisko klienta",
+      "prospectNamePlaceholder": "Dr Papadopoulos",
+      "company": "Firma",
+      "companyPlaceholder": "Klinika stomatologiczna Smile",
+      "role": "Stanowisko",
+      "rolePlaceholder": "Właściciel kliniki",
+      "goal": "Cel tej rozmowy",
+      "goalPlaceholder": "Umówić demo",
+      "goalHint": "Zostaw puste, aby użyć celu asystenta.",
+      "notes": "Notatki",
+      "notesPlaceholder": "Polecony przez Annę. Obecnie korzysta z papierowych kalendarzy.",
+      "priorCall": "Poprzednia rozmowa z tym klientem",
+      "none": "Brak",
+      "callFallback": "Rozmowa",
+      "language": "Język rozmowy",
+      "autoDetect": "Wykrywaj automatycznie ({{languages}})",
+      "autoDetectHint": "Automatyczne wykrywanie podąża za tym z języków asystenta, którym mówi klient."
+    },
+    "recording": {
+      "title": "Nagrywanie",
+      "keep": "Zachowaj nagranie audio",
+      "keepHint": "Wyłącz, aby otrzymywać podpowiedzi i analizę bez przechowywania dźwięku."
+    },
+    "consent": {
+      "title": "Zgoda na nagrywanie",
+      "text": "Przepisy dotyczące nagrywania różnią się w zależności od kraju, a niektóre wymagają zgody każdego uczestnika. Odpowiadasz za jej uzyskanie. Możesz włączyć zdanie o zgodzie, które asystent podpowiada na początku każdej rozmowy.",
+      "checkbox": "Rozumiem i uzyskam zgodę tam, gdzie jest wymagana."
+    },
+    "footerMeeting": "Następnie wybierz kartę ze spotkaniem i włącz „Udostępnij dźwięk karty”.",
+    "footerMic": "Włącz w telefonie głośnik i połóż go blisko tego urządzenia.",
+    "startCall": "Rozpocznij rozmowę"
+  }
+}

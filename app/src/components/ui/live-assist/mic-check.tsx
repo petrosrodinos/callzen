@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useEffect, useRef, useState } from "react";
 import { CheckCircle2, Mic, MicOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,7 @@ import { AudioLevelMeter } from "./audio-level-meter";
 
 // Lets people confirm microphone permission and levels before a call starts.
 export function MicCheck() {
+  const { t } = useTranslation("common");
   const [status, setStatus] = useState<"idle" | "ok" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
@@ -52,8 +54,8 @@ export function MicCheck() {
     return (
       <div className="flex items-center gap-3 rounded-lg border border-emerald-500/30 bg-emerald-500/5 px-3 py-2 text-sm">
         <CheckCircle2 className="size-4 text-emerald-600" />
-        Microphone ready
-        <AudioLevelMeter getLevel={getLevel} label="Speak to test" className="ml-auto" />
+        {t("micCheck.ready")}
+        <AudioLevelMeter getLevel={getLevel} label={t("micCheck.speak")} className="ml-auto" />
       </div>
     );
   }
@@ -62,10 +64,10 @@ export function MicCheck() {
     <div className="flex flex-col gap-2 rounded-lg border px-3 py-2 text-sm sm:flex-row sm:items-center">
       <span className="flex items-center gap-2 text-muted-foreground">
         {status === "error" ? <MicOff className="size-4 text-destructive" /> : <Mic className="size-4" />}
-        {status === "error" ? error : "Check your microphone before starting."}
+        {status === "error" ? error : t("micCheck.prompt")}
       </span>
       <Button type="button" size="sm" variant="outline" className="sm:ml-auto" onClick={() => void test()}>
-        Test microphone
+        {t("micCheck.test")}
       </Button>
     </div>
   );

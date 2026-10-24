@@ -1,18 +1,23 @@
 import { z } from "zod";
+import i18n from "@/i18n";
 import { LeadTemperatures } from "@/features/practice-agents/interfaces/practice-agents.interfaces";
 import { VoiceProviders } from "@/features/catalog/interfaces/catalog.interfaces";
 
 const textItem = z.object({
-  value: z.string().trim().min(1, "Can't be empty").max(500),
+  value: z
+    .string()
+    .trim()
+    .min(1, i18n.t("practice:validation.cantBeEmpty"))
+    .max(500),
 });
 
 export const practiceAgentSchema = z.object({
-  name: z.string().trim().min(1, "Name the scenario").max(120),
+  name: z.string().trim().min(1, i18n.t("practice:validation.nameScenario")).max(120),
   prospect_name: z.string().max(120),
   role_prompt: z
     .string()
     .trim()
-    .min(3, "Describe who the prospect is")
+    .min(3, i18n.t("practice:validation.describeProspect"))
     .max(4000),
   scenario_context: z.string().max(2000),
   scenario_type: z.string().min(1),
@@ -32,7 +37,11 @@ export const practiceAgentSchema = z.object({
   objections: z
     .array(
       z.object({
-        text: z.string().trim().min(1, "Can't be empty").max(500),
+        text: z
+          .string()
+          .trim()
+          .min(1, i18n.t("practice:validation.cantBeEmpty"))
+          .max(500),
         persistence: z.number().int().min(1).max(3),
       }),
     )
@@ -42,8 +51,8 @@ export const practiceAgentSchema = z.object({
   patience: z.number().int().min(1).max(5),
   languages: z
     .array(z.string().min(2))
-    .min(1, "Pick at least one language")
-    .max(5, "Up to 5 languages"),
+    .min(1, i18n.t("practice:validation.pickLanguage"))
+    .max(5, i18n.t("practice:validation.maxLanguages")),
   accent: z.string().max(80),
   industry: z.string().max(120),
   company: z.string().max(120),
@@ -65,7 +74,7 @@ export const generateFromDescriptionSchema = z.object({
   description: z
     .string()
     .trim()
-    .min(5, "Describe the prospect in a sentence")
+    .min(5, i18n.t("practice:validation.describeInSentence"))
     .max(2000),
 });
 

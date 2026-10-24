@@ -1,0 +1,213 @@
+{
+  "nav": {
+    "aria": "Principal",
+    "home": "Inicio de CallZen",
+    "live": "Copiloto en vivo",
+    "practice": "Práctica",
+    "reviews": "Revisión de llamadas",
+    "teams": "Equipos",
+    "createAccount": "Crear cuenta"
+  },
+  "actions": {
+    "openDashboard": "Abrir el panel",
+    "createAccount": "Crea tu cuenta",
+    "signIn": "Iniciar sesión"
+  },
+  "footer": {
+    "consent": "Pide siempre consentimiento antes de grabar una llamada.",
+    "aria": "Pie de página",
+    "dashboard": "Panel",
+    "signIn": "Iniciar sesión",
+    "createAccount": "Crear cuenta"
+  },
+  "hero": {
+    "title": "Sabe qué decir a continuación, mientras todavía están hablando.",
+    "lede": "CallZen escucha tu llamada de ventas, señala objeciones y señales de compra en el momento en que aparecen, y te sugiere tu siguiente frase. Después puntúa la llamada y te permite ensayar las partes difíciles con clientes potenciales de IA."
+  },
+  "demo": {
+    "aria": "Ejemplo de una llamada en vivo con el copiloto de CallZen",
+    "live": "Llamada en vivo",
+    "replay": "Repetir",
+    "prospect": "Cliente potencial",
+    "you": "Tú",
+    "prospectOne": "Nos gusta lo que hemos visto. Sinceramente, el precio está <mark>muy por encima de lo que habíamos presupuestado</mark>.",
+    "youLine": "Es justo. ¿Con qué rango estabais trabajando? Mencionaste que el seguimiento lento te cuesta ventas, así que pongamos ambas cosas una al lado de la otra.",
+    "prospectTwo": "Unos cuarenta por usuario. Pero sí, <mark>perdimos dos renovaciones el trimestre pasado</mark> porque nadie devolvió la llamada a tiempo.",
+    "copilot": "Copiloto",
+    "script": "Guion",
+    "stages": {
+      "opening": "Apertura",
+      "discovery": "Descubrimiento",
+      "pitch": "Propuesta",
+      "objections": "Gestión de objeciones",
+      "close": "Cierre"
+    },
+    "objection": {
+      "kind": "Objeción de precio",
+      "why": "El cliente potencial dice que el precio supera su presupuesto."
+    },
+    "reply": {
+      "kind": "Respuesta sugerida",
+      "said": "Dicho",
+      "text": "«¿Con qué rango estabais trabajando? Comparémoslo con lo que os cuesta el seguimiento lento.»"
+    },
+    "signal": {
+      "kind": "Señal de compra",
+      "why": "Han dicho cuánto les cuesta el seguimiento lento. Pasa al cierre y ofrece una llamada de configuración."
+    }
+  },
+  "ways": {
+    "title": "Funciona con las llamadas que ya haces",
+    "phone": {
+      "title": "Llamadas telefónicas",
+      "text": "Pon la llamada en altavoz y CallZen escucha a través de tu micrófono. Sin extensiones y sin cambiar de aplicación de llamadas."
+    },
+    "online": {
+      "title": "Reuniones en línea",
+      "text": "Comparte la pestaña de la reunión y CallZen oye a ambas partes, transcribiéndote a ti y al cliente potencial por separado para que las sugerencias respondan a la persona correcta."
+    }
+  },
+  "practice": {
+    "title": "Ensaya con un cliente potencial que pone resistencia",
+    "intro": "Los clientes de práctica se comportan como compradores reales. Se guardan sus verdaderos problemas, dejan las objeciones para el momento más incómodo y se quedan sin paciencia. Interrumpe a uno a mitad de frase y se detendrá para responderte, por voz.",
+    "describe": {
+      "title": "Describe, no configures",
+      "text": "Escribe una frase sobre a quién vas a llamar y CallZen crea al cliente potencial por ti."
+    },
+    "replay": {
+      "title": "Repite una llamada que salió mal",
+      "text": "Convierte a un cliente potencial real de una llamada en vivo en un cliente de práctica y vuelve a intentarlo."
+    },
+    "withCopilot": {
+      "title": "Practica con o sin copiloto",
+      "text": "Mantén las sugerencias activadas mientras aprendes y desactívalas después para ver cómo te desenvuelves solo."
+    },
+    "dossier": {
+      "aria": "Ejemplo de cliente de práctica",
+      "role": "Directora de operaciones, empresa regional de logística",
+      "difficulty": "Dificultad: alta",
+      "patience": "Paciencia: baja",
+      "voice": "Llamada de voz",
+      "knownLabel": "Lo que sabes",
+      "known": "Respondió a tu correo en frío. Dirige un equipo de doce comerciales.",
+      "secretsLabel": "Lo que no te cuenta",
+      "hidden": "Oculto hasta que lo reveles",
+      "hintRevealed": "Esto es lo que te muestra la revisión.",
+      "hintHidden": "En la práctica, lo descubres durante la llamada.",
+      "hide": "Ocultar de nuevo",
+      "reveal": "Revelar tras la llamada"
+    },
+    "secrets": {
+      "pain": {
+        "label": "Problema principal",
+        "text": "Perdió dos renovaciones el trimestre pasado por un seguimiento lento."
+      },
+      "objection": {
+        "label": "Objeción que planteará",
+        "text": "«Ya tenemos una herramienta para esto.»"
+      },
+      "yes": {
+        "label": "Lo que la hace decir que sí",
+        "text": "Una implantación que tarde menos de una semana."
+      }
+    }
+  },
+  "review": {
+    "title": "Tras la llamada, comprueba exactamente dónde cambió todo",
+    "copy": "Cada llamada recibe una puntuación ponderada, puntuaciones por categoría y una lista de errores y puntos fuertes. Cada uno apunta al momento exacto de la grabación, para que puedas escucharlo en lugar de suponerlo.",
+    "aria": "Ejemplo de revisión de llamada",
+    "sample": "Revisión de ejemplo, llamada de {{duration}}, puntuación <score>78</score>",
+    "you": "Tú",
+    "prospect": "Cliente potencial",
+    "markerAt": "{{kind}} a los {{time}}",
+    "kinds": {
+      "mistake": "Error",
+      "strength": "Punto fuerte",
+      "objection": "Objeción"
+    },
+    "markers": {
+      "pitchedEarly": "Presentaste la propuesta antes de preguntar cuántas personas tiene el equipo.",
+      "priceObjection": "Objeción de precio. Preguntaste por su presupuesto antes de defender la cifra.",
+      "askedCost": "Preguntaste cuánto les cuesta el seguimiento lento y les dejaste responder.",
+      "weakClose": "Terminaste con «avísame» en lugar de cerrar el siguiente paso."
+    },
+    "metrics": {
+      "talkRatio": "Proporción de habla",
+      "pace": "Ritmo",
+      "paceValue": "148 ppm",
+      "fillers": "Muletillas",
+      "interruptions": "Interrupciones",
+      "objections": "Objeciones"
+    },
+    "after": {
+      "followUp": {
+        "title": "Un borrador de seguimiento",
+        "text": "CallZen redacta el correo que enviarías a continuación, basándose en lo que el cliente potencial dijo realmente."
+      },
+      "practice": {
+        "title": "Una sesión de práctica a medida",
+        "text": "Te sugiere el cliente de práctica que trabaja los errores que cometiste en esta llamada."
+      },
+      "trends": {
+        "title": "Tendencias entre llamadas",
+        "text": "Tu panel muestra tu puntuación a lo largo del tiempo y los errores que se repiten."
+      }
+    }
+  },
+  "playbook": {
+    "title": "Enséñale cómo vende tu equipo",
+    "copy": "Un copiloto es tan bueno como su guía de ventas. Configura la tuya una vez y úsala en cada llamada.",
+    "items": {
+      "stages": {
+        "title": "Etapas del guion",
+        "text": "Organiza tu llamada en etapas. El copiloto sabe en cuál estás a medida que avanza la conversación."
+      },
+      "objections": {
+        "title": "Biblioteca de objeciones",
+        "text": "Anota cómo respondes a las objeciones de precio, de momento y de competencia. Las sugerencias parten de tus respuestas."
+      },
+      "knowledge": {
+        "title": "Conocimiento del producto",
+        "text": "Importa tus documentos para que las sugerencias usen tus precios, funciones y límites reales."
+      },
+      "tone": {
+        "title": "Tono y metodología",
+        "text": "Elige cómo suena y qué método de ventas sigue."
+      },
+      "frequency": {
+        "title": "Con qué frecuencia habla",
+        "text": "Define con qué frecuencia aparecen las sugerencias, para que ayude sin agobiarte."
+      },
+      "languages": {
+        "title": "Hasta cinco idiomas",
+        "text": "Cada copiloto puede manejar varios idiomas de conversación y detecta cuál se está hablando."
+      }
+    }
+  },
+  "teams": {
+    "title": "Pensado para equipos que venden juntos",
+    "copy": "Los copilotos, los clientes potenciales y las llamadas pertenecen a una organización, y puedes formar parte de varias y cambiar entre ellas. Invita a personas por correo electrónico; las invitaciones duran siete días.",
+    "roles": {
+      "owner": {
+        "name": "Propietario",
+        "text": "Lo controla todo, incluido lo que pueden hacer los administradores y los miembros."
+      },
+      "admin": {
+        "name": "Administrador",
+        "text": "Gestiona el equipo con los permisos que concede el propietario."
+      },
+      "member": {
+        "name": "Miembro",
+        "text": "Usa copilotos, gestiona clientes potenciales y revisa sus propias llamadas."
+      }
+    },
+    "consent": {
+      "title": "Primero el consentimiento, y tú decides qué se conserva",
+      "copy": "Pide siempre consentimiento antes de grabar una llamada. CallZen te lo recuerda y te da los controles necesarios: define cuánto tiempo se conservan las grabaciones y elimina tu cuenta y sus datos cuando termines."
+    }
+  },
+  "closing": {
+    "title": "Haz tu próxima llamada con un copiloto.",
+    "copy": "Configura tu primer copiloto, inicia una llamada y mira cómo llegan las sugerencias mientras el cliente potencial todavía está hablando."
+  }
+}

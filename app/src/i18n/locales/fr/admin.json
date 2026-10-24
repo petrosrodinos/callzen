@@ -1,0 +1,32 @@
+{
+  "notFound": {
+    "pageTitle": "Introuvable",
+    "title": "Cette page n’existe pas",
+    "description": "Le lien est peut-être rompu ou la page a été supprimée.",
+    "cta": "Retour au tableau de bord"
+  },
+  "app": {
+    "dashboard": "Tableau de bord",
+    "startCall": "Démarrer un appel"
+  },
+  "health": {
+    "title": "État du système",
+    "subtitle": "État en direct de l’API et de l’infrastructure connectée.",
+    "refresh": "Actualiser",
+    "loadError": "Impossible de charger l’état de santé.",
+    "lastChecked": "Dernière vérification",
+    "uptime": "Temps de fonctionnement",
+    "uptimeMs": "Temps de fonctionnement (ms)",
+    "responseTime": "Temps de réponse",
+    "status": {
+      "ok": "OK",
+      "down": "Hors service",
+      "not_configured": "Non configuré"
+    },
+    "cards": {
+      "api": "Disponibilité de l’application principale.",
+      "postgres": "Connectivité de la base de données via Prisma.",
+      "redis": "Connectivité du cache et de la file d’attente."
+    }
+  }
+}

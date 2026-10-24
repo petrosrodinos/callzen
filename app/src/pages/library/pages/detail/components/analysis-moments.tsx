@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { CheckCircle2, CircleAlert, Play } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -20,18 +21,20 @@ const JumpButton = ({
 }: {
   atMs: number | null;
   onJump: (ms: number) => void;
-}) =>
-  atMs === null ? null : (
+}) => {
+  const { t } = useTranslation("library");
+  return atMs === null ? null : (
     <Button
       variant="ghost"
       size="sm"
       className="h-7 shrink-0 px-2 font-mono text-xs"
       onClick={() => onJump(atMs)}
-      aria-label={`Jump to ${formatClock(atMs)}`}
+      aria-label={t("detail.moments.jumpTo", { time: formatClock(atMs) })}
     >
       <Play className="size-3" /> {formatClock(atMs)}
     </Button>
   );
+};
 
 export function AnalysisMoments({
   analysis,
@@ -40,16 +43,17 @@ export function AnalysisMoments({
   analysis: CallAnalysis;
   onJump: (ms: number) => void;
 }) {
+  const { t } = useTranslation("library");
   return (
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
       <section className="space-y-3">
         <h3 className="flex items-center gap-2 font-semibold">
-          <CircleAlert className="size-4 text-red-500" /> Mistakes (
-          {analysis.mistakes.length})
+          <CircleAlert className="size-4 text-red-500" />{" "}
+          {t("detail.moments.mistakes", { count: analysis.mistakes.length })}
         </h3>
         {!analysis.mistakes.length && (
           <p className="text-sm text-muted-foreground">
-            No mistakes flagged. Nice work.
+            {t("detail.moments.noMistakes")}
           </p>
         )}
         {analysis.mistakes.map((mistake, index) => (
@@ -72,19 +76,19 @@ export function AnalysisMoments({
             <dl className="space-y-2 text-sm">
               <div>
                 <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  What happened
+                  {t("detail.moments.whatHappened")}
                 </dt>
                 <dd>{mistake.what_happened}</dd>
               </div>
               <div>
                 <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                  Why it matters
+                  {t("detail.moments.whyItMatters")}
                 </dt>
                 <dd>{mistake.why_it_matters}</dd>
               </div>
               <div className="rounded-lg bg-emerald-500/10 p-3">
                 <dt className="text-xs font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-300">
-                  Do this instead
+                  {t("detail.moments.doInstead")}
                 </dt>
                 <dd className="mt-0.5">{mistake.what_to_do_instead}</dd>
               </div>
@@ -95,12 +99,12 @@ export function AnalysisMoments({
 
       <section className="space-y-3">
         <h3 className="flex items-center gap-2 font-semibold">
-          <CheckCircle2 className="size-4 text-emerald-500" /> Strengths (
-          {analysis.strengths.length})
+          <CheckCircle2 className="size-4 text-emerald-500" />{" "}
+          {t("detail.moments.strengths", { count: analysis.strengths.length })}
         </h3>
         {!analysis.strengths.length && (
           <p className="text-sm text-muted-foreground">
-            No standout strengths this time.
+            {t("detail.moments.noStrengths")}
           </p>
         )}
         {analysis.strengths.map((strength, index) => (

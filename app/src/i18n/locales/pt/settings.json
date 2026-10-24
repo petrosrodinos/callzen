@@ -1,0 +1,96 @@
+{
+  "title": "Definições",
+  "save": "Guardar definições",
+  "nav": {
+    "profile": "Perfil e preferências",
+    "usage": "Utilização e custos",
+    "privacy": "Privacidade e dados",
+    "sections": "Secções das definições"
+  },
+  "validation": {
+    "enterName": "Introduza o seu nome",
+    "enterPassword": "Introduza a sua palavra-passe",
+    "typeDelete": "Escreva \"DELETE\" para confirmar"
+  },
+  "profile": {
+    "title": "Perfil",
+    "fullName": "Nome completo",
+    "email": "E-mail"
+  },
+  "appearance": {
+    "title": "Aparência",
+    "description": "Claro, escuro ou conforme o sistema.",
+    "language": "Idioma da interface",
+    "languageDescription": "O idioma usado em menus, botões e mensagens."
+  },
+  "languages": {
+    "title": "Idiomas",
+    "description": "As chamadas e o treino podem decorrer em muitos idiomas.",
+    "yourLanguage": "O seu idioma",
+    "templates": "Modelos e exemplos em",
+    "templatesAria": "Idioma dos modelos e exemplos",
+    "output": "Sugestões e análise em"
+  },
+  "recording": {
+    "title": "Gravação",
+    "description": "É responsável por obter consentimento sempre que as leis de gravação o exijam.",
+    "keep": "Manter as gravações de áudio por predefinição",
+    "keepHint": "Quando desativado, apenas são guardadas as transcrições e as análises. Pode alterá-lo em cada chamada.",
+    "consentLine": "Frase de consentimento predefinida",
+    "consentLineHint": "Sugerida como primeira frase das chamadas quando um copiloto tem a frase de consentimento ativada."
+  },
+  "privacy": {
+    "yourData": {
+      "title": "Os seus dados",
+      "private": "As gravações, transcrições, guiões e configurações de agentes são privados e pertencem à sua conta.",
+      "delete": "Pode eliminar qualquer gravação, transcrição ou chamada a partir da respetiva página a qualquer momento. A eliminação é permanente.",
+      "keepOnly": "Pode manter apenas transcrições e análises desativando as gravações nas Definições ou em cada chamada.",
+      "sensitive": "A informação sensível que fornece (guiões, preços, dados de clientes) só é enviada aos fornecedores de IA abaixo para produzir sugestões e análises."
+    },
+    "processors": {
+      "title": "Quem processa os seus dados",
+      "description": "Com base nos modelos e fornecedores de voz que selecionar.",
+      "region": "Região: {{region}}"
+    },
+    "consent": {
+      "title": "Consentimento de gravação",
+      "text": "As leis de gravação variam consoante o país e a região, e algumas exigem o consentimento de todos os participantes. Antes de gravar uma chamada, certifique-se de que o tem. Os copilotos podem sugerir a sua frase de consentimento como primeira frase de cada chamada."
+    },
+    "deleteAccount": {
+      "title": "Eliminar conta",
+      "description": "Elimina permanentemente a sua conta, copilotos, potenciais clientes, chamadas, gravações e análises.",
+      "button": "Eliminar conta"
+    },
+    "deleteDialog": {
+      "title": "Eliminar permanentemente a sua conta?",
+      "description": "Todos os seus dados são removidos imediatamente e não podem ser recuperados.",
+      "password": "Palavra-passe",
+      "confirmation": "Escreva DELETE para confirmar",
+      "submit": "Eliminar tudo"
+    }
+  },
+  "usage": {
+    "period": "Período",
+    "scopeOrg": "A mostrar a utilização de todos os membros desta organização.",
+    "scopeMine": "A mostrar a sua própria utilização nesta organização.",
+    "estimatedCost": "Custo de IA estimado",
+    "listPrices": "Com base nos preços de tabela",
+    "liveMinutes": "Minutos de chamadas ao vivo",
+    "practiceMinutes": "Minutos de treino",
+    "analyses": "Análises",
+    "suggestions_one": "{{count}} sugestão",
+    "suggestions_other": "{{count}} sugestões",
+    "byActivity": "Por atividade",
+    "byModel": "Por modelo e fornecedor",
+    "tokens": "{{tokens}} tokens",
+    "priceList": {
+      "title": "Tabela de preços",
+      "description": "Quanto custa cada modelo e fornecedor de voz, para equilibrar qualidade e despesa.",
+      "model": "Modelo",
+      "speed": "Velocidade",
+      "input": "Entrada / 1M tokens",
+      "output": "Saída / 1M tokens",
+      "perMinute": "~{{price}} por minuto"
+    }
+  }
+}

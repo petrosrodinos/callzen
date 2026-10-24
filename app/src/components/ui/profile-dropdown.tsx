@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -26,7 +27,7 @@ export function ProfileDropdown() {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => logout()}>Log out</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => logout()}>{i18n.t("common:actions.logout")}</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

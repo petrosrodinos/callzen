@@ -1,21 +1,21 @@
+import { useTranslation } from "react-i18next";
+
 export function WaysSection() {
+  const { t } = useTranslation("landing");
   return (
     <section className="lz-section" aria-labelledby="ways-title">
       <div className="lz-wrap">
         <h2 id="ways-title" className="lz-h2">
-          Works with the calls you already make
+          {t("ways.title")}
         </h2>
         <div className="lz-ways">
           <div>
-            <h3 className="lz-h3">Phone calls</h3>
-            <p>Put the call on speaker and CallZen listens through your microphone. No plugin, no dialler to swap.</p>
+            <h3 className="lz-h3">{t("ways.phone.title")}</h3>
+            <p>{t("ways.phone.text")}</p>
           </div>
           <div>
-            <h3 className="lz-h3">Online meetings</h3>
-            <p>
-              Share the meeting tab and CallZen hears both sides, transcribing you and the prospect separately so
-              suggestions respond to the right person.
-            </p>
+            <h3 className="lz-h3">{t("ways.online.title")}</h3>
+            <p>{t("ways.online.text")}</p>
           </div>
         </div>
       </div>

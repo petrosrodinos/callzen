@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Card } from "@/components/ui/card";
 import type { DashboardOverview } from "@/features/dashboard/interfaces/dashboard.interfaces";
 import { getCallOutcomeLabel } from "@/config/constants/dropdowns/calls/call-outcome-form.options";
@@ -7,17 +8,17 @@ export function OutcomesCard({
 }: {
   outcomes: DashboardOverview["outcomes"];
 }) {
+  const { t } = useTranslation("dashboard");
   const sorted = [...outcomes].sort((a, b) => b.count - a.count);
   return (
     <Card className="p-5">
-      <h2 className="font-semibold">Live call outcomes</h2>
+      <h2 className="font-semibold">{t("outcomes.title")}</h2>
       <p className="mb-4 text-sm text-muted-foreground">
-        Share of calls with a recorded outcome
+        {t("outcomes.subtitle")}
       </p>
       {!sorted.length ? (
         <p className="text-sm text-muted-foreground">
-          Record outcomes at the end of live calls to link performance to
-          results.
+          {t("outcomes.empty")}
         </p>
       ) : (
         <ul className="space-y-3">

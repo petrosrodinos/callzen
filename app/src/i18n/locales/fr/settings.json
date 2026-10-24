@@ -1,0 +1,96 @@
+{
+  "title": "Paramètres",
+  "save": "Enregistrer les paramètres",
+  "nav": {
+    "profile": "Profil et préférences",
+    "usage": "Utilisation et coûts",
+    "privacy": "Confidentialité et données",
+    "sections": "Sections des paramètres"
+  },
+  "validation": {
+    "enterName": "Saisissez votre nom",
+    "enterPassword": "Saisissez votre mot de passe",
+    "typeDelete": "Saisissez « DELETE » pour confirmer"
+  },
+  "profile": {
+    "title": "Profil",
+    "fullName": "Nom complet",
+    "email": "E-mail"
+  },
+  "appearance": {
+    "title": "Apparence",
+    "description": "Clair, sombre ou selon votre système.",
+    "language": "Langue de l'interface",
+    "languageDescription": "La langue utilisée pour les menus, les boutons et les messages."
+  },
+  "languages": {
+    "title": "Langues",
+    "description": "Les appels et l'entraînement peuvent se faire dans de nombreuses langues.",
+    "yourLanguage": "Votre langue",
+    "templates": "Modèles et exemples en",
+    "templatesAria": "Langue des modèles et des exemples",
+    "output": "Suggestions et analyse en"
+  },
+  "recording": {
+    "title": "Enregistrement",
+    "description": "Il vous incombe d'obtenir le consentement lorsque les lois sur l'enregistrement l'exigent.",
+    "keep": "Conserver les enregistrements audio par défaut",
+    "keepHint": "Désactivé, seuls les transcriptions et les analyses sont stockées. Vous pouvez le modifier pour chaque appel.",
+    "consentLine": "Phrase d'information sur le consentement par défaut",
+    "consentLineHint": "Suggérée comme première phrase des appels lorsqu'un copilote a la phrase de consentement activée."
+  },
+  "privacy": {
+    "yourData": {
+      "title": "Vos données",
+      "private": "Les enregistrements, transcriptions, scripts et configurations d'agents sont privés et liés à votre compte.",
+      "delete": "Vous pouvez supprimer à tout moment un enregistrement, une transcription ou un appel depuis sa page. La suppression est définitive.",
+      "keepOnly": "Vous pouvez ne conserver que les transcriptions et les analyses en désactivant les enregistrements dans les Paramètres ou pour chaque appel.",
+      "sensitive": "Les informations sensibles que vous fournissez (scripts, tarifs, données clients) ne sont envoyées qu'aux fournisseurs d'IA ci-dessous pour produire des suggestions et des analyses."
+    },
+    "processors": {
+      "title": "Qui traite vos données",
+      "description": "Selon les modèles et les fournisseurs vocaux que vous sélectionnez.",
+      "region": "Région : {{region}}"
+    },
+    "consent": {
+      "title": "Consentement à l'enregistrement",
+      "text": "Les lois sur l'enregistrement varient selon les pays et les régions, et certaines exigent le consentement de chaque participant. Avant d'enregistrer un appel, assurez-vous de l'avoir. Les copilotes peuvent suggérer votre phrase de consentement comme première phrase de chaque appel."
+    },
+    "deleteAccount": {
+      "title": "Supprimer le compte",
+      "description": "Supprime définitivement votre compte, vos copilotes, prospects, appels, enregistrements et analyses.",
+      "button": "Supprimer le compte"
+    },
+    "deleteDialog": {
+      "title": "Supprimer définitivement votre compte ?",
+      "description": "Toutes vos données sont supprimées immédiatement et ne peuvent pas être récupérées.",
+      "password": "Mot de passe",
+      "confirmation": "Saisissez DELETE pour confirmer",
+      "submit": "Tout supprimer"
+    }
+  },
+  "usage": {
+    "period": "Période",
+    "scopeOrg": "Affichage de l'utilisation de tous les membres de cette organisation.",
+    "scopeMine": "Affichage de votre propre utilisation dans cette organisation.",
+    "estimatedCost": "Coût IA estimé",
+    "listPrices": "Basé sur les tarifs publics",
+    "liveMinutes": "Minutes d'appels réels",
+    "practiceMinutes": "Minutes d'entraînement",
+    "analyses": "Analyses",
+    "suggestions_one": "{{count}} suggestion",
+    "suggestions_other": "{{count}} suggestions",
+    "byActivity": "Par activité",
+    "byModel": "Par modèle et fournisseur",
+    "tokens": "{{tokens}} tokens",
+    "priceList": {
+      "title": "Grille tarifaire",
+      "description": "Ce que coûte chaque modèle et fournisseur vocal, pour équilibrer qualité et dépenses.",
+      "model": "Modèle",
+      "speed": "Vitesse",
+      "input": "Entrée / 1M tokens",
+      "output": "Sortie / 1M tokens",
+      "perMinute": "~{{price}} par minute"
+    }
+  }
+}

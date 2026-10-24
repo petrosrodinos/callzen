@@ -1,0 +1,39 @@
+{
+  "pageTitle": "Einladung",
+  "notFound": {
+    "title": "Einladung nicht gefunden",
+    "defaultMessage": "Dieser Link ist ungültig oder wurde durch eine neuere Einladung ersetzt.",
+    "resend": "Bitten Sie die Person, die Sie eingeladen hat, sie erneut zu senden.",
+    "cta": "Zu CallZen"
+  },
+  "status": {
+    "pending": "ausstehend",
+    "expired": "abgelaufen",
+    "accepted": "angenommen",
+    "revoked": "widerrufen"
+  },
+  "inactive": {
+    "title": "Diese Einladung ist {{status}}",
+    "used": "Sie wurde bereits verwendet, um {{organisation}} beizutreten.",
+    "askInviter": "Bitten Sie {{inviter}}, Ihnen eine neue zu senden.",
+    "askAdmins": "Bitten Sie die Admins der Organisation, Ihnen eine neue zu senden.",
+    "cta": "CallZen öffnen"
+  },
+  "join": {
+    "title": "{{organisation}} beitreten",
+    "invitedBy": "{{inviter}} hat Sie als <badge>{{role}}</badge> eingeladen",
+    "invitedByTeammate": "Ein Teammitglied hat Sie als <badge>{{role}}</badge> eingeladen",
+    "sentTo": "Gesendet an {{email}} · läuft ab am {{date}}",
+    "signInHint": "Melden Sie sich an, um anzunehmen. Sie können mehreren Organisationen angehören und zwischen ihnen wechseln.",
+    "createHint": "Erstellen Sie mit dieser E-Mail-Adresse Ihr kostenloses Konto, um beizutreten.",
+    "signInCta": "Zum Annehmen anmelden",
+    "createCta": "Konto erstellen und beitreten",
+    "needAccount": "Ich muss ein Konto erstellen",
+    "haveAccount": "Ich habe bereits ein Konto",
+    "accept": "Annehmen und beitreten",
+    "signedInAs": "Angemeldet als {{email}}. Diese Organisation wird zu Ihren bestehenden hinzugefügt.",
+    "mismatch": "Diese Einladung gilt für <strong>{{invited}}</strong>, Sie sind jedoch als <strong>{{current}}</strong> angemeldet.",
+    "signOut": "Abmelden und {{email}} verwenden",
+    "back": "Zurück zu CallZen"
+  }
+}

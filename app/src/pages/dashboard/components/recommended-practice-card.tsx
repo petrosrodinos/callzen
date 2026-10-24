@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Dumbbell, Loader2, Play } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -16,24 +17,24 @@ export function RecommendedPracticeCard({
   items: RecommendedPractice[];
   canStart: boolean;
 }) {
+  const { t } = useTranslation("dashboard");
   const { start, isPending, pendingTitle } = useStartRecommendedPractice();
 
   return (
     <Card className="p-5">
       <h2 className="flex items-center gap-2 font-semibold">
-        <Dumbbell className="size-4 text-primary" /> Recommended practice
+        <Dumbbell className="size-4 text-primary" /> {t("recommended.title")}
       </h2>
       <p className="mb-4 text-sm text-muted-foreground">
-        Scenarios built from your recent weak spots
+        {t("recommended.subtitle")}
       </p>
       {!items.length ? (
         <div className="space-y-3 text-sm text-muted-foreground">
           <p>
-            Recommendations appear after your first analyzed call. Meanwhile,
-            try a ready-made scenario.
+            {t("recommended.empty")}
           </p>
           <Button asChild size="sm" variant="outline">
-            <Link to={Routes.practice.root}>Browse scenarios</Link>
+            <Link to={Routes.practice.root}>{t("recommended.browse")}</Link>
           </Button>
         </div>
       ) : (
@@ -68,7 +69,7 @@ export function RecommendedPracticeCard({
                     className="shrink-0"
                   >
                     {loading ? <Loader2 className="animate-spin" /> : <Play />}
-                    {loading ? "Preparing…" : "Practice"}
+                    {loading ? t("recommended.preparing") : t("recommended.practice")}
                   </Button>
                 )}
               </li>

@@ -1,3 +1,4 @@
+import i18n from "@/i18n";
 import { useState, useEffect } from "react";
 import { Clock } from "lucide-react";
 
@@ -59,7 +60,7 @@ const CountdownTimer = ({ targetDate, className = "" }: CountdownTimerProps) => 
     return (
       <div className={`flex items-center gap-2 text-red-600 dark:text-red-400 ${className}`}>
         <Clock className="w-4 h-4" />
-        <span className="text-sm font-medium">Appointment has passed</span>
+        <span className="text-sm font-medium">{i18n.t("common:countdown.passed")}</span>
       </div>
     );
   }

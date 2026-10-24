@@ -1,0 +1,39 @@
+{
+  "pageTitle": "Invito",
+  "notFound": {
+    "title": "Invito non trovato",
+    "defaultMessage": "Questo link non è valido oppure è stato sostituito da un invito più recente.",
+    "resend": "Chiedi alla persona che ti ha invitato di inviarlo di nuovo.",
+    "cta": "Vai a CallZen"
+  },
+  "status": {
+    "pending": "in sospeso",
+    "expired": "scaduto",
+    "accepted": "accettato",
+    "revoked": "revocato"
+  },
+  "inactive": {
+    "title": "Questo invito è {{status}}",
+    "used": "È già stato usato per entrare in {{organisation}}.",
+    "askInviter": "Chiedi a {{inviter}} di inviartene uno nuovo.",
+    "askAdmins": "Chiedi agli amministratori dell’organizzazione di inviartene uno nuovo.",
+    "cta": "Apri CallZen"
+  },
+  "join": {
+    "title": "Unisciti a {{organisation}}",
+    "invitedBy": "{{inviter}} ti ha invitato come <badge>{{role}}</badge>",
+    "invitedByTeammate": "Un collega ti ha invitato come <badge>{{role}}</badge>",
+    "sentTo": "Inviato a {{email}} · scade il {{date}}",
+    "signInHint": "Accedi per accettare. Puoi far parte di più organizzazioni e passare dall’una all’altra.",
+    "createHint": "Crea il tuo account gratuito con questa email per unirti.",
+    "signInCta": "Accedi per accettare",
+    "createCta": "Crea account e unisciti",
+    "needAccount": "Devo creare un account",
+    "haveAccount": "Ho già un account",
+    "accept": "Accetta e unisciti",
+    "signedInAs": "Hai effettuato l’accesso come {{email}}. Questa organizzazione verrà aggiunta a quelle che hai già.",
+    "mismatch": "Questo invito è per <strong>{{invited}}</strong>, ma hai effettuato l’accesso come <strong>{{current}}</strong>.",
+    "signOut": "Esci e usa {{email}}",
+    "back": "Torna a CallZen"
+  }
+}

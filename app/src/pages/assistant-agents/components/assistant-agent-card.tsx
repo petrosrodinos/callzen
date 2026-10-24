@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   Archive,
   ArchiveRestore,
@@ -41,6 +42,7 @@ import { usePermissions } from "@/features/organisations/hooks/use-organisations
 import { Permissions } from "@/features/organisations/interfaces/organisations.interfaces";
 
 export function AssistantAgentCard({ agent }: { agent: AssistantAgent }) {
+  const { t } = useTranslation("assistant");
   const navigate = useNavigate();
   const { can } = usePermissions();
   const canManage = can(Permissions.AGENTS_MANAGE);
@@ -73,10 +75,10 @@ export function AssistantAgentCard({ agent }: { agent: AssistantAgent }) {
           <div className="mt-1 flex flex-wrap gap-1">
             {agent.is_default && (
               <Badge className="gap-1">
-                <Star className="size-3" /> Default
+                <Star className="size-3" /> {t("card.default")}
               </Badge>
             )}
-            {archived && <Badge variant="secondary">Archived</Badge>}
+            {archived && <Badge variant="secondary">{t("card.archived")}</Badge>}
             {agent.methodology && agent.methodology !== "CUSTOM" && (
               <Badge variant="outline">
                 {getMethodologyLabel(agent.methodology)}
@@ -98,7 +100,7 @@ export function AssistantAgentCard({ agent }: { agent: AssistantAgent }) {
                 variant="ghost"
                 size="icon"
                 className="-mr-2 -mt-1 shrink-0"
-                aria-label={`Actions for ${agent.name}`}
+                aria-label={t("card.actionsFor", { name: agent.name })}
               >
                 <MoreVertical />
               </Button>
@@ -109,15 +111,15 @@ export function AssistantAgentCard({ agent }: { agent: AssistantAgent }) {
                   navigate(Routes.assistant_agents.detail(agent.id))
                 }
               >
-                <Pencil /> Edit
+                <Pencil /> {t("card.edit")}
               </DropdownMenuItem>
               {!agent.is_default && !archived && (
                 <DropdownMenuItem onClick={() => setDefault.mutate(agent.id)}>
-                  <Star /> Make default
+                  <Star /> {t("card.makeDefault")}
                 </DropdownMenuItem>
               )}
               <DropdownMenuItem onClick={() => duplicate.mutate(agent.id)}>
-                <Copy /> Duplicate
+                <Copy /> {t("card.duplicate")}
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() =>
@@ -125,14 +127,14 @@ export function AssistantAgentCard({ agent }: { agent: AssistantAgent }) {
                 }
               >
                 {archived ? <ArchiveRestore /> : <Archive />}{" "}
-                {archived ? "Restore" : "Archive"}
+                {archived ? t("card.restore") : t("card.archive")}
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem
                 className="text-destructive focus:text-destructive"
                 onClick={() => setConfirmDelete(true)}
               >
-                <Trash2 /> Delete
+                <Trash2 /> {t("card.delete")}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -140,11 +142,11 @@ export function AssistantAgentCard({ agent }: { agent: AssistantAgent }) {
       </div>
 
       <p className="mt-3 line-clamp-2 min-h-10 text-sm text-muted-foreground">
-        {agent.description || agent.call_goal || "No description"}
+        {agent.description || agent.call_goal || t("card.noDescription")}
       </p>
       {agent.call_goal && (
         <p className="mt-2 line-clamp-1 text-xs">
-          <span className="text-muted-foreground">Goal:</span> {agent.call_goal}
+          <span className="text-muted-foreground">{t("card.goal")}</span> {agent.call_goal}
         </p>
       )}
 
@@ -153,11 +155,11 @@ export function AssistantAgentCard({ agent }: { agent: AssistantAgent }) {
           <p className="text-lg font-semibold tabular-nums">
             {stats?.calls_count ?? 0}
           </p>
-          <p className="text-[11px] text-muted-foreground">Calls</p>
+          <p className="text-[11px] text-muted-foreground">{t("card.calls")}</p>
         </div>
         <div className="flex flex-col items-center">
           <ScoreBadge score={stats?.average_score} className="mt-0.5" />
-          <p className="mt-1 text-[11px] text-muted-foreground">Avg score</p>
+          <p className="mt-1 text-[11px] text-muted-foreground">{t("card.avgScore")}</p>
         </div>
         <div>
           <p
@@ -180,27 +182,27 @@ export function AssistantAgentCard({ agent }: { agent: AssistantAgent }) {
               "–"
             )}
           </p>
-          <p className="text-[11px] text-muted-foreground">Trend</p>
+          <p className="text-[11px] text-muted-foreground">{t("card.trend")}</p>
         </div>
       </div>
 
       <p className="mt-3 text-xs text-muted-foreground">
         {getSuggestionFrequencyLabel(agent.suggestion_frequency)} ·{" "}
         {stats?.last_used_at
-          ? `used ${formatRelative(stats.last_used_at)}`
-          : "never used"}
+          ? t("card.usedAgo", { when: formatRelative(stats.last_used_at) })
+          : t("card.neverUsed")}
       </p>
 
       {!archived && canCall && (
         <div className="mt-4 flex gap-2">
           <Button asChild size="sm" className="flex-1">
             <Link to={`${Routes.calls.new}?agent=${agent.id}`}>
-              <PhoneCall /> Use on a call
+              <PhoneCall /> {t("card.useOnCall")}
             </Link>
           </Button>
           <Button asChild size="sm" variant="outline" className="flex-1">
             <Link to={`${Routes.practice.root}?copilot=${agent.id}`}>
-              <Headphones /> Practice
+              <Headphones /> {t("card.practice")}
             </Link>
           </Button>
         </div>
@@ -212,9 +214,9 @@ export function AssistantAgentCard({ agent }: { agent: AssistantAgent }) {
         onConfirm={() =>
           remove.mutate(agent.id, { onSuccess: () => setConfirmDelete(false) })
         }
-        title={`Delete ${agent.name}?`}
-        description="The co-pilot is permanently deleted. Past calls keep their transcripts and analyses."
-        confirmText="Delete"
+        title={t("card.deleteTitle", { name: agent.name })}
+        description={t("card.deleteDescription")}
+        confirmText={t("card.delete")}
         variant="destructive"
         isLoading={remove.isPending}
       />

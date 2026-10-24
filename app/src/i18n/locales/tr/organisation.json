@@ -1,0 +1,88 @@
+{
+  "page": {
+    "title": "Kuruluş",
+    "description": "Bu kuruluşa kimin ait olduğunu, her rolün neler yapabileceğini ve kimleri davet ettiğinizi yönetin.",
+    "nothing": "Gösterilecek bir şey yok"
+  },
+  "tabs": {
+    "general": "Genel",
+    "members": "Üyeler",
+    "invitations": "Davetler",
+    "roles": "Roller ve izinler"
+  },
+  "create": {
+    "title": "Kuruluş oluştur",
+    "description": "Her kuruluşun kendi yardımcı pilotları, potansiyel müşterileri, görüşmeleri ve üyeleri vardır. Sahibi siz olursunuz ve ekibinizi davet edebilirsiniz.",
+    "name": "Kuruluş adı",
+    "namePlaceholder": "Acme Satış Ekibi",
+    "nameHint": "Ekip arkadaşlarınız bu adı davetlerinde görecek.",
+    "submit": "Kuruluş oluştur"
+  },
+  "general": {
+    "details": "Ayrıntılar",
+    "detailsDescription_one": "{{date}} tarihinde oluşturuldu · {{count}} üye",
+    "detailsDescription_other": "{{date}} tarihinde oluşturuldu · {{count}} üye",
+    "name": "Kuruluş adı",
+    "saveName": "Adı kaydet",
+    "yourRole": "Rolünüz:",
+    "deleteTitle": "Kuruluşu sil",
+    "deleteDescription": "Kuruluşu tüm yardımcı pilotları, potansiyel müşterileri, görüşmeleri, kayıtları ve analizleriyle birlikte kalıcı olarak siler ve tüm üyeleri kaldırır. Bu işlem geri alınamaz.",
+    "deleteDialogTitle": "{{name}} silinsin mi?",
+    "deleteDialogDescription": "Onaylamak için <strong>{{name}}</strong> yazın. Bu kuruluştaki her şey tüm üyeler için silinir.",
+    "confirmAria": "Onaylamak için kuruluş adını yazın",
+    "deletePermanently": "Kalıcı olarak sil"
+  },
+  "invitations": {
+    "copyFailed": "Kopyalama başarısız",
+    "copyFailedHint": "Bağlantıyı seçip elle kopyalayın.",
+    "inviteTitle": "Birini davet et",
+    "inviteDescription": "7 gün geçerli bir bağlantı içeren bir e-posta alırlar. Herkes birden fazla kuruluşa ait olabilir; mevcut CallZen kullanıcıları yalnızca kabul edip geçiş yapar.",
+    "email": "E-posta",
+    "emailPlaceholder": "meslektas@sirket.com",
+    "role": "Rol",
+    "send": "Davet gönder",
+    "emptyTitle": "Henüz davet yok",
+    "emptyDescription": "Gönderdiğiniz davetler burada görünür; böylece yeniden gönderebilir veya iptal edebilirsiniz.",
+    "invited": "{{when}} davet edildi",
+    "invitedBy": "{{name}} tarafından {{when}} davet edildi",
+    "sentTimes": "{{count}}× gönderildi",
+    "expires": "Son geçerlilik: {{date}}",
+    "expired": "{{when}} süresi doldu",
+    "resend": "Yeniden gönder",
+    "revoke": "İptal et",
+    "copied": "Kopyalandı",
+    "copyLink": "Bağlantıyı kopyala",
+    "revokeTitle": "{{email}} için davet iptal edilsin mi?",
+    "revokeDescription": "Bağlantı hemen çalışmayı durdurur. İstediğiniz zaman yeni bir davet gönderebilirsiniz."
+  },
+  "members": {
+    "you": "Siz",
+    "joined": "{{date}} tarihinde katıldı",
+    "roleOf": "{{name}} kullanıcısının rolü",
+    "removeAria": "{{name}} kullanıcısını kaldır",
+    "removeTitle": "{{name}} kaldırılsın mı?",
+    "removeDescription": "Bu kuruluşa erişimini hemen kaybeder. Yaptığı görüşmeler kuruluşta kalır. Daha sonra yeniden davet edilebilir.",
+    "remove": "Kaldır"
+  },
+  "roles": {
+    "role": "Rol",
+    "membersCount_one": "{{count}} üye",
+    "membersCount_other": "{{count}} üye",
+    "ownersOnlyEdit": "Her rolün neler yapabileceğini yalnızca sahipler değiştirebilir.",
+    "ownerLocked": "Sahipler her zaman tüm izinlere sahiptir, bu nedenle bu rol kısıtlanamaz.",
+    "ownersOnly": "Yalnızca sahipler",
+    "toggleAria": "{{role}} için {{permission}}",
+    "reset": "Ön ayara sıfırla",
+    "unsaved": "Kaydedilmemiş değişiklikler",
+    "customised": "Özelleştirilmiş",
+    "usingPreset": "Ön ayar kullanılıyor",
+    "discard": "Vazgeç",
+    "save": "{{role}} izinlerini kaydet"
+  },
+  "validation": {
+    "nameMin": "Ad en az {{min}} karakter olmalıdır",
+    "nameMax": "Ad en fazla {{max}} karakter olmalıdır",
+    "emailRequired": "Bir e-posta adresi girin",
+    "emailInvalid": "Geçerli bir e-posta adresi girin"
+  }
+}

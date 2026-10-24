@@ -1,0 +1,109 @@
+{
+  "endCall": {
+    "title": "Gesprek beëindigen?",
+    "description": "Leg desgewenst vast hoe het ging. Resultaten koppelen je prestaties aan echte uitkomsten.",
+    "outcomeLabel": "Resultaat van het gesprek",
+    "customPlaceholder": "Beschrijf het resultaat",
+    "customLabel": "Eigen resultaat",
+    "keepTalking": "Doorpraten",
+    "confirm": "Gesprek beëindigen"
+  },
+  "manualLine": {
+    "whoSaid": "Wie zei het",
+    "prospectSaid": "Prospect zei",
+    "iSaid": "Ik zei",
+    "placeholder": "Typ een zin uit het gesprek",
+    "addTranscriptLine": "Transcriptregel toevoegen",
+    "addLine": "Regel toevoegen"
+  },
+  "live": {
+    "title": "Live gesprek",
+    "badge": "Live",
+    "you": "Jij",
+    "mic": "Microfoon",
+    "meeting": "Vergadering",
+    "switchCopilot": "Copiloot wisselen",
+    "copilot": "Copiloot",
+    "reconnect": "Opnieuw verbinden",
+    "dismiss": "Sluiten",
+    "connectTitle": "Verbind je audio om met opnemen te beginnen",
+    "connectMeeting": "Kies het browsertabblad van de vergadering en schakel “Tabbladaudio delen” in; sta daarna de microfoon toe.",
+    "connectMic": "Sta microfoontoegang toe. Zet je telefoon op de luidspreker vlak bij dit apparaat.",
+    "connectAudio": "Audio verbinden",
+    "transcript": "Live transcript",
+    "hide": "Verbergen",
+    "show": "Tonen ({{count}})",
+    "resumeCapture": "Opname hervatten",
+    "pauseCapture": "Opname pauzeren",
+    "pauseCaptureHint": "Opname pauzeren (off-topic of gevoelige momenten)",
+    "bookmark": "Dit moment markeren",
+    "endCall": "Gesprek beëindigen",
+    "sources": {
+      "microphone": "Microfoon",
+      "meeting": "Vergadering"
+    },
+    "notices": {
+      "reconnecting": "De transcriptieverbinding is verbroken. Opnieuw verbinden…",
+      "switchedToBrowser": "Live transcriptie is niet beschikbaar. Overgeschakeld naar de spraakherkenning van je browser.",
+      "aiUnavailableBrowser": "AI-transcriptie is niet beschikbaar, daarom wordt de spraakherkenning van je browser gebruikt. Sprekerherkenning kan minder nauwkeurig zijn.",
+      "manualFallback": "Transcriptie is niet beschikbaar voor deze audio. Voeg belangrijke zinnen handmatig toe zodat de copiloot toch kan helpen.",
+      "audioStopped": "De audio ({{label}}) is gestopt (het tabblad is gesloten of het apparaat is losgekoppeld). Wat is opgenomen is veilig. Verbind opnieuw om door te gaan."
+    }
+  },
+  "new": {
+    "title": "Gesprek starten",
+    "description": "Kies hoe je belt en welke copiloot je gebruikt. Alles behalve de copiloot is optioneel.",
+    "audioCaptureFailed": "Audio opnemen mislukt",
+    "validation": {
+      "chooseCopilot": "Kies een copiloot",
+      "confirmBeforeStarting": "Bevestig dit voordat je start"
+    },
+    "noCopilot": {
+      "title": "Maak eerst een copiloot",
+      "description": "De copiloot gebruikt je script, bezwaren en kennis om te suggereren wat je kunt zeggen. Met een sjabloon kost het een minuut.",
+      "cta": "Copiloot maken"
+    },
+    "callType": "Type gesprek",
+    "meetingUnsupported": "Vereist een desktopbrowser zoals Chrome of Edge.",
+    "copilot": {
+      "title": "Copiloot",
+      "agentLabel": "Assistentagent",
+      "defaultSuffix": "{{name}} (standaard)",
+      "goal": "Doel: {{goal}}"
+    },
+    "context": {
+      "title": "Gesprekscontext",
+      "description": "Helpt de copiloot suggesties en de analyse te personaliseren.",
+      "prospectName": "Naam prospect",
+      "prospectNamePlaceholder": "Dr. Papadopoulos",
+      "company": "Bedrijf",
+      "companyPlaceholder": "Tandartskliniek Smile",
+      "role": "Functie",
+      "rolePlaceholder": "Eigenaar van de kliniek",
+      "goal": "Doel van dit gesprek",
+      "goalPlaceholder": "Een demo inplannen",
+      "goalHint": "Laat leeg om het doel van de copiloot te gebruiken.",
+      "notes": "Notities",
+      "notesPlaceholder": "Aangedragen door Anna. Gebruikt momenteel papieren agenda's.",
+      "priorCall": "Vorig gesprek met deze prospect",
+      "none": "Geen",
+      "callFallback": "Gesprek",
+      "language": "Gesprekstaal",
+      "autoDetect": "Automatisch detecteren ({{languages}})",
+      "autoDetectHint": "Automatisch detecteren volgt welke van de talen van de copiloot de prospect spreekt."
+    },
+    "recording": {
+      "title": "Opname",
+      "keep": "Audio-opname bewaren",
+      "keepHint": "Schakel uit om suggesties en een analyse te krijgen zonder audio op te slaan."
+    },
+    "consent": {
+      "title": "Toestemming voor opname",
+      "text": "Wetten over opnemen verschillen per land en sommige vereisen toestemming van elke deelnemer. Jij bent verantwoordelijk om die te verkrijgen. Je kunt een toestemmingszin inschakelen die je copiloot aan het begin van elk gesprek voorstelt.",
+      "checkbox": "Ik begrijp het en zal toestemming vragen waar dat vereist is."
+    },
+    "footerMeeting": "Kies hierna het tabblad van je vergadering en schakel “Tabbladaudio delen” in.",
+    "footerMic": "Zet je telefoon op de luidspreker vlak bij dit apparaat.",
+    "startCall": "Gesprek starten"
+  }
+}

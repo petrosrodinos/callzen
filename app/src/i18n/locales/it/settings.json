@@ -1,0 +1,96 @@
+{
+  "title": "Impostazioni",
+  "save": "Salva impostazioni",
+  "nav": {
+    "profile": "Profilo e preferenze",
+    "usage": "Utilizzo e costi",
+    "privacy": "Privacy e dati",
+    "sections": "Sezioni delle impostazioni"
+  },
+  "validation": {
+    "enterName": "Inserisci il tuo nome",
+    "enterPassword": "Inserisci la tua password",
+    "typeDelete": "Digita \"DELETE\" per confermare"
+  },
+  "profile": {
+    "title": "Profilo",
+    "fullName": "Nome completo",
+    "email": "Email"
+  },
+  "appearance": {
+    "title": "Aspetto",
+    "description": "Chiaro, scuro o in base al sistema.",
+    "language": "Lingua dell'interfaccia",
+    "languageDescription": "La lingua usata per menu, pulsanti e messaggi."
+  },
+  "languages": {
+    "title": "Lingue",
+    "description": "Le chiamate e l'allenamento possono avvenire in molte lingue.",
+    "yourLanguage": "La tua lingua",
+    "templates": "Modelli ed esempi in",
+    "templatesAria": "Lingua di modelli ed esempi",
+    "output": "Suggerimenti e analisi in"
+  },
+  "recording": {
+    "title": "Registrazione",
+    "description": "Sei responsabile di ottenere il consenso dove le leggi sulla registrazione lo richiedono.",
+    "keep": "Conserva le registrazioni audio per impostazione predefinita",
+    "keepHint": "Se disattivato, vengono salvate solo trascrizioni e analisi. Puoi cambiarlo per ogni chiamata.",
+    "consentLine": "Frase di informativa sul consenso predefinita",
+    "consentLineHint": "Suggerita come prima frase delle chiamate quando un copilota ha attivato la frase di consenso."
+  },
+  "privacy": {
+    "yourData": {
+      "title": "I tuoi dati",
+      "private": "Registrazioni, trascrizioni, script e configurazioni degli agenti sono privati e accessibili solo dal tuo account.",
+      "delete": "Puoi eliminare qualsiasi registrazione, trascrizione o chiamata dalla sua pagina in qualsiasi momento. L'eliminazione è definitiva.",
+      "keepOnly": "Puoi conservare solo trascrizioni e analisi disattivando le registrazioni nelle Impostazioni o per singola chiamata.",
+      "sensitive": "Le informazioni sensibili che fornisci (script, prezzi, dati dei clienti) vengono inviate solo ai provider di IA indicati sotto per produrre suggerimenti e analisi."
+    },
+    "processors": {
+      "title": "Chi elabora i tuoi dati",
+      "description": "In base ai modelli e ai provider vocali che selezioni.",
+      "region": "Regione: {{region}}"
+    },
+    "consent": {
+      "title": "Consenso alla registrazione",
+      "text": "Le leggi sulla registrazione variano da paese a paese e da regione a regione, e alcune richiedono il consenso di ogni partecipante. Prima di registrare una chiamata, assicurati di averlo. I copiloti possono suggerire la tua frase di consenso come prima frase di ogni chiamata."
+    },
+    "deleteAccount": {
+      "title": "Elimina account",
+      "description": "Elimina definitivamente il tuo account, i copiloti, i potenziali clienti, le chiamate, le registrazioni e le analisi.",
+      "button": "Elimina account"
+    },
+    "deleteDialog": {
+      "title": "Eliminare definitivamente il tuo account?",
+      "description": "Tutti i tuoi dati vengono rimossi immediatamente e non possono essere recuperati.",
+      "password": "Password",
+      "confirmation": "Digita DELETE per confermare",
+      "submit": "Elimina tutto"
+    }
+  },
+  "usage": {
+    "period": "Periodo",
+    "scopeOrg": "Visualizzazione dell'utilizzo di tutti i membri di questa organizzazione.",
+    "scopeMine": "Visualizzazione del tuo utilizzo in questa organizzazione.",
+    "estimatedCost": "Costo IA stimato",
+    "listPrices": "Basato sui prezzi di listino",
+    "liveMinutes": "Minuti di chiamate dal vivo",
+    "practiceMinutes": "Minuti di allenamento",
+    "analyses": "Analisi",
+    "suggestions_one": "{{count}} suggerimento",
+    "suggestions_other": "{{count}} suggerimenti",
+    "byActivity": "Per attività",
+    "byModel": "Per modello e provider",
+    "tokens": "{{tokens}} token",
+    "priceList": {
+      "title": "Listino prezzi",
+      "description": "Quanto costa ogni modello e provider vocale, così puoi bilanciare qualità e spesa.",
+      "model": "Modello",
+      "speed": "Velocità",
+      "input": "Input / 1M token",
+      "output": "Output / 1M token",
+      "perMinute": "~{{price}} al minuto"
+    }
+  }
+}

@@ -1,0 +1,430 @@
+{
+  "actions": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "confirm": "Confirmar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "search": "Buscar",
+    "retry": "Reintentar",
+    "loading": "Cargando…",
+    "logout": "Cerrar sesión"
+  },
+  "language": {
+    "label": "Idioma",
+    "switch": "Cambiar idioma"
+  },
+  "dates": {
+    "today": "Hoy",
+    "yesterday": "Ayer"
+  },
+  "pagination": {
+    "previous": "Página anterior",
+    "next": "Página siguiente"
+  },
+  "theme": {
+    "toggle": "Cambiar tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  },
+  "errorBoundary": {
+    "title": "Algo salió mal",
+    "description": "Se produjo un error inesperado. Intenta recargar la página o contacta con soporte si el problema continúa.",
+    "details": "Detalles del error"
+  },
+  "scoreRing": {
+    "aria": "{{label}}: {{score}} de 100",
+    "score": "Puntuación",
+    "notAvailable": "no disponible"
+  },
+  "select": {
+    "placeholder": "Seleccionar",
+    "notSpecified": "Sin especificar"
+  },
+  "modelPicker": {
+    "quality": "Calidad {{value}}/5",
+    "slow": "Piensa antes de responder, por lo que las sugerencias pueden llegar tarde en las llamadas en vivo.",
+    "recommended": "Recomendado"
+  },
+  "countdown": {
+    "passed": "La cita ya ha pasado"
+  },
+  "phoneInput": {
+    "search": "Buscar país...",
+    "empty": "No se encontró ningún país."
+  },
+  "callRow": {
+    "practiceSession": "Sesión de práctica",
+    "untitled": "Llamada sin título",
+    "practice": "Práctica",
+    "objectiveMet": "Objetivo cumplido",
+    "notMet": "No cumplido",
+    "analyzing": "Analizando",
+    "live": "En vivo"
+  },
+  "languageSelect": {
+    "label": "Idioma",
+    "placeholder": "Selecciona un idioma"
+  },
+  "languageMultiSelect": {
+    "primaryLanguage": "Idioma principal",
+    "makePrimary": "Hacer principal",
+    "primaryAria": "{{name}} (principal)",
+    "makePrimaryAria": "Hacer de {{name}} el idioma principal",
+    "removeAria": "Quitar {{name}}",
+    "maximum": "Máximo: {{count}}",
+    "add": "Añadir un idioma",
+    "search": "Buscar idiomas…",
+    "empty": "No se encontró ningún idioma.",
+    "primary": "Principal",
+    "hint": "Máximo: {{count}}. El marcado con una estrella es el predeterminado; haz clic en otra etiqueta para cambiarlo."
+  },
+  "liveAssist": {
+    "label": "Asistencia en vivo",
+    "mutedTitle": "Las sugerencias están silenciadas. La llamada se sigue capturando.",
+    "resume": "Reanudar sugerencias",
+    "empty": "Las sugerencias aparecerán aquí en cuanto hable el cliente potencial.",
+    "recent": "Sugerencias recientes ({{count}})",
+    "copilot": "Copiloto",
+    "thinking": "Pensando…",
+    "activeUsing": "Activo · usando {{model}}",
+    "active": "Activo",
+    "paused": "Sugerencias en pausa · la captura continúa",
+    "reconnecting_one": "Reconectando · {{count}} línea en cola",
+    "reconnecting_other": "Reconectando · {{count}} líneas en cola",
+    "frequencyLabel": "Frecuencia de sugerencias",
+    "frequency": "Frecuencia",
+    "suggestNow": "Sugerir ahora",
+    "unmute": "Activar sugerencias",
+    "mute": "Silenciar sugerencias",
+    "updating": "Actualizando",
+    "or": "O:",
+    "alt": "Alt.:",
+    "unpin": "Desanclar",
+    "pin": "Anclar",
+    "dismiss": "Descartar",
+    "helpful": "Útil",
+    "notHelpful": "No útil",
+    "askPlaceholder": "Pregunta al copiloto… p. ej., ¿precio para 50 licencias?",
+    "askLabel": "Pregunta al copiloto",
+    "ask": "Preguntar",
+    "scriptProgress": "Progreso del guion · {{done}}/{{total}}",
+    "audioLevel": "Nivel de audio de {{label}}"
+  },
+  "micCheck": {
+    "ready": "Micrófono listo",
+    "speak": "Habla para probar",
+    "prompt": "Comprueba tu micrófono antes de empezar.",
+    "test": "Probar micrófono"
+  },
+  "recording": {
+    "recording": "Grabando",
+    "listening": "Escuchando · sin grabar",
+    "paused": "En pausa",
+    "off": "Sin captura",
+    "connecting": "Conectando…"
+  },
+  "transcript": {
+    "empty": "La transcripción aparecerá aquí a medida que se hable.",
+    "notSaved": "Aún sin guardar",
+    "switchSpeaker": "Cambiar de interlocutor",
+    "wrongSpeaker": "¿Interlocutor incorrecto? Cámbialo"
+  },
+  "imageUploader": {
+    "upload": "Subir {{label}}",
+    "wait": "Espera un momento...",
+    "hint": "PNG, JPG de hasta 5 MB"
+  },
+  "imagePicker": {
+    "uploadText": "Subir imágenes",
+    "uploadSubtext": "Arrastra y suelta las imágenes aquí o haz clic para explorar",
+    "fileTypeText": "Admite JPG, PNG, JPEG de hasta 10 MB cada una",
+    "existingImages": "Imágenes existentes",
+    "choose": "Elegir imágenes",
+    "uploading": "Subiendo imágenes",
+    "uploadingSubtext": "Espera mientras se suben tus imágenes",
+    "uploadingButton": "Subiendo...",
+    "fileRejected": "Archivo rechazado",
+    "image": "Imagen",
+    "clearAll": "Borrar todo",
+    "deleteTitle": "Eliminar imagen",
+    "deleteDescription": "¿Seguro que quieres eliminar esta imagen? Esta acción no se puede deshacer."
+  },
+  "fileUpload": {
+    "maxFiles_one": "Se permite un máximo de {{count}} archivo",
+    "maxFiles_other": "Se permite un máximo de {{count}} archivos",
+    "typeNotAccepted": "Tipo de archivo no admitido",
+    "tooLarge": "Archivo demasiado grande",
+    "uploadFailed": "Error al subir",
+    "label": "Subida de archivos",
+    "statusError": "Error: {{error}}",
+    "statusUploading": "Subiendo: {{progress}}% completado",
+    "statusComplete": "Subida completada",
+    "statusReady": "Listo para subir"
+  },
+  "pinInput": {
+    "field": "Campo de PIN {{counter}} de {{length}}",
+    "label": "Campo de PIN"
+  },
+  "organisationGate": {
+    "errorTitle": "No se pudieron cargar tus organizaciones",
+    "errorDescription": "Comprueba tu conexión e inténtalo de nuevo.",
+    "retry": "Reintentar",
+    "signOut": "Cerrar sesión",
+    "emptyTitle": "Aún no hay ninguna organización",
+    "emptyDescription": "Recarga para configurar tu espacio de trabajo.",
+    "reload": "Recargar"
+  },
+  "requirePermission": {
+    "title": "Tu rol no permite esto",
+    "description": "No tienes acceso a esta página. Pide a un propietario que cambie los permisos de tu rol.",
+    "descriptionWithOrg": "Tu rol en {{organisation}} (rol: {{role}}) no tiene acceso a esta página. Pide a un propietario que cambie los permisos de tu rol.",
+    "back": "Volver al panel"
+  },
+  "toasts": {
+    "assistantAgents": {
+      "coPilotCreated": "Copiloto creado",
+      "coPilotDuplicated": "Copiloto duplicado",
+      "defaultCoPilotUpdated": "Copiloto predeterminado actualizado",
+      "coPilotArchived": "Copiloto archivado",
+      "coPilotRestored": "Copiloto restaurado",
+      "coPilotDeleted": "Copiloto eliminado",
+      "couldNotCreateTheCoPilot": "No se pudo crear el copiloto",
+      "changesSaved": "Cambios guardados",
+      "couldNotSaveChanges": "No se pudieron guardar los cambios",
+      "couldNotDuplicate": "No se pudo duplicar",
+      "couldNotSetDefault": "No se pudo establecer como predeterminado",
+      "couldNotUpdateTheCoPilot": "No se pudo actualizar el copiloto",
+      "couldNotDeleteTheCoPilot": "No se pudo eliminar el copiloto",
+      "readyToUse": "{{name}} está listo para usar."
+    },
+    "calls": {
+      "callStarted": "Llamada iniciada",
+      "callUpdated": "Llamada actualizada",
+      "savedToYourCallLibrary": "Guardada en tu biblioteca de llamadas.",
+      "bookmarkRemoved": "Marcador eliminado",
+      "speakerUpdated": "Interlocutor actualizado",
+      "theCoPilotIsListening": "El copiloto está escuchando.",
+      "couldNotStartTheCall": "No se pudo iniciar la llamada",
+      "practiceSessionReady": "Sesión de práctica lista",
+      "couldNotStartThePracticeSession": "No se pudo iniciar la sesión de práctica",
+      "couldNotUpdateTheCall": "No se pudo actualizar la llamada",
+      "callEnded": "Llamada finalizada",
+      "yourPerformanceReportIsBeingPrepared": "Se está preparando tu informe de rendimiento.",
+      "couldNotEndTheCall": "No se pudo finalizar la llamada",
+      "callPermanentlyDeleted": "Llamada eliminada definitivamente",
+      "couldNotDeleteTheCall": "No se pudo eliminar la llamada",
+      "thanksForTheFeedback": "Gracias por tus comentarios",
+      "couldNotUpdateTheSuggestion": "No se pudo actualizar la sugerencia",
+      "noAnswer": "Sin respuesta",
+      "momentBookmarked": "Momento marcado",
+      "couldNotBookmark": "No se pudo añadir el marcador",
+      "couldNotRemoveTheBookmark": "No se pudo quitar el marcador",
+      "couldNotUpdateTheSpeaker": "No se pudo actualizar el interlocutor",
+      "recordingSaved": "Grabación guardada",
+      "recordingUploadFailed": "Error al subir la grabación",
+      "recordingPermanentlyDeleted": "Grabación eliminada definitivamente",
+      "transcriptAndAnalysisWereKept": "Se conservaron la transcripción y el análisis.",
+      "couldNotDeleteTheRecording": "No se pudo eliminar la grabación",
+      "transcriptPermanentlyDeleted": "Transcripción eliminada definitivamente",
+      "couldNotDeleteTheTranscript": "No se pudo eliminar la transcripción",
+      "analysisStarted": "Análisis iniciado",
+      "thisUsuallyTakesUnderAMinute": "Suele tardar menos de un minuto.",
+      "couldNotStartTheAnalysis": "No se pudo iniciar el análisis"
+    },
+    "organisations": {
+      "roleUpdated": "Rol actualizado",
+      "memberRemoved": "Miembro eliminado",
+      "organisationCreated": "Organización creada",
+      "couldNotCreateTheOrganisation": "No se pudo crear la organización",
+      "organisationRenamed": "Organización renombrada",
+      "couldNotRenameTheOrganisation": "No se pudo renombrar la organización",
+      "organisationPermanentlyDeleted": "Organización eliminada definitivamente",
+      "couldNotDeleteTheOrganisation": "No se pudo eliminar la organización",
+      "couldNotChangeTheRole": "No se pudo cambiar el rol",
+      "couldNotRemoveTheMember": "No se pudo eliminar al miembro",
+      "permissionsSaved": "Permisos guardados",
+      "theChangeAppliesToEveryoneWith": "El cambio se aplica de inmediato a todos los que tienen este rol.",
+      "couldNotSavePermissions": "No se pudieron guardar los permisos",
+      "permissionsResetToThePreset": "Permisos restablecidos a la configuración predefinida",
+      "couldNotResetPermissions": "No se pudieron restablecer los permisos",
+      "invitationSent": "Invitación enviada",
+      "invitationCreated": "Invitación creada",
+      "couldNotSendTheInvitation": "No se pudo enviar la invitación",
+      "invitationResent": "Invitación reenviada",
+      "newLinkCreated": "Nuevo enlace creado",
+      "couldNotResendTheInvitation": "No se pudo reenviar la invitación",
+      "invitationRevoked": "Invitación revocada",
+      "theLinkNoLongerWorks": "El enlace ya no funciona.",
+      "couldNotRevokeTheInvitation": "No se pudo revocar la invitación",
+      "youCanSwitchOrganisationsFromThe": "Puedes cambiar de organización desde la barra lateral en cualquier momento.",
+      "couldNotAcceptTheInvitation": "No se pudo aceptar la invitación",
+      "workingIn": "Ahora estás trabajando en {{name}}.",
+      "emailedTo": "Enviamos un correo a {{email}}.",
+      "emailedFresh": "Enviamos un nuevo enlace por correo a {{email}}.",
+      "welcomeTo": "Te damos la bienvenida a {{name}}",
+      "emailUnavailableInvite": "El correo no está disponible en este momento. Copia el enlace de invitación y compártelo tú mismo.",
+      "emailUnavailableLink": "El correo no está disponible en este momento. Copia el nuevo enlace y compártelo tú mismo."
+    },
+    "practiceAgents": {
+      "prospectCreated": "Cliente potencial creado",
+      "prospectRecreatedFromTheCall": "Cliente potencial recreado a partir de la llamada",
+      "prospectDuplicated": "Cliente potencial duplicado",
+      "prospectArchived": "Cliente potencial archivado",
+      "prospectRestored": "Cliente potencial restaurado",
+      "prospectDeleted": "Cliente potencial eliminado",
+      "couldNotCreateTheProspect": "No se pudo crear el cliente potencial",
+      "changesSaved": "Cambios guardados",
+      "couldNotSaveChanges": "No se pudieron guardar los cambios",
+      "prospectGenerated": "Cliente potencial generado",
+      "reviewAndAdjustTheDetailsThen": "Revisa y ajusta los detalles; después guarda.",
+      "couldNotGenerateTheProspect": "No se pudo generar el cliente potencial",
+      "randomProspectReady": "Cliente potencial aleatorio listo",
+      "reviewItThenSave": "Revísalo y guárdalo.",
+      "couldNotGenerateARandomProspect": "No se pudo generar un cliente potencial aleatorio",
+      "couldNotRecreateTheProspect": "No se pudo recrear el cliente potencial",
+      "couldNotDuplicate": "No se pudo duplicar",
+      "harderVersionCreated": "Versión más difícil creada",
+      "couldNotCreateAHarderVersion": "No se pudo crear una versión más difícil",
+      "couldNotUpdateTheProspect": "No se pudo actualizar el cliente potencial",
+      "couldNotDeleteTheProspect": "No se pudo eliminar el cliente potencial"
+    },
+    "auth": {
+      "loginSuccessful": "Inicio de sesión correcto",
+      "youHaveSuccessfullyLoggedIn": "Has iniciado sesión correctamente",
+      "couldNotSignIn": "No se pudo iniciar sesión",
+      "anUnexpectedErrorOccurred": "Se produjo un error inesperado",
+      "welcomeToCallzen": "Te damos la bienvenida a CallZen",
+      "yourAccountIsReady": "Tu cuenta está lista.",
+      "couldNotSignUp": "No se pudo completar el registro",
+      "adminLoginSuccessful": "Inicio de sesión de administrador correcto",
+      "youHaveSuccessfullyLoggedInAs": "Has iniciado sesión correctamente como administrador",
+      "couldNotAdminLoginToAccount": "No se pudo iniciar sesión como administrador en la cuenta"
+    },
+    "user": {
+      "settingsSaved": "Ajustes guardados",
+      "couldNotSaveSettings": "No se pudieron guardar los ajustes",
+      "accountDeleted": "Cuenta eliminada",
+      "allYourDataWasPermanentlyRemoved": "Todos tus datos se eliminaron definitivamente.",
+      "couldNotDeleteYourAccount": "No se pudo eliminar tu cuenta"
+    }
+  },
+  "errors": {
+    "calls": {
+      "failedToLoadCalls": "No se pudieron cargar las llamadas.",
+      "failedToLoadTheCall": "No se pudo cargar la llamada.",
+      "failedToStartTheCall": "No se pudo iniciar la llamada.",
+      "failedToUpdateTheCall": "No se pudo actualizar la llamada.",
+      "failedToDeleteTheCall": "No se pudo eliminar la llamada.",
+      "failedToUpdateTheSpeaker": "No se pudo actualizar el interlocutor.",
+      "failedToAddTheBookmark": "No se pudo añadir el marcador.",
+      "failedToRemoveTheBookmark": "No se pudo quitar el marcador.",
+      "failedToStartThePracticeSession": "No se pudo iniciar la sesión de práctica.",
+      "failedToEndTheCall": "No se pudo finalizar la llamada.",
+      "failedToSaveTheTranscript": "No se pudo guardar la transcripción.",
+      "failedToDeleteTheTranscript": "No se pudo eliminar la transcripción.",
+      "failedToGenerateASuggestion": "No se pudo generar una sugerencia.",
+      "failedToUpdateTheSuggestion": "No se pudo actualizar la sugerencia.",
+      "theCoPilotCouldNotAnswer": "El copiloto no pudo responder en este momento.",
+      "failedToUploadTheRecording": "No se pudo subir la grabación.",
+      "failedToLoadTheRecording": "No se pudo cargar la grabación.",
+      "failedToDeleteTheRecording": "No se pudo eliminar la grabación.",
+      "failedToStartTheAnalysis": "No se pudo iniciar el análisis.",
+      "couldNotStartTheRealtimeAudio": "No se pudo iniciar la sesión de audio en tiempo real.",
+      "theProspectDidNotRespondTry": "El cliente potencial no respondió. Inténtalo de nuevo.",
+      "couldNotConnectToTheRealtime": "No se pudo conectar con el servicio de audio en tiempo real."
+    },
+    "dashboard": {
+      "failedToLoadYourProgress": "No se pudo cargar tu progreso."
+    },
+    "organisations": {
+      "failedToLoadMembers": "No se pudieron cargar los miembros.",
+      "failedToRemoveTheMember": "No se pudo eliminar al miembro.",
+      "failedToLoadRoles": "No se pudieron cargar los roles.",
+      "failedToLoadYourOrganisations": "No se pudieron cargar tus organizaciones.",
+      "failedToLoadPermissions": "No se pudieron cargar los permisos.",
+      "failedToCreateTheOrganisation": "No se pudo crear la organización.",
+      "failedToRenameTheOrganisation": "No se pudo renombrar la organización.",
+      "failedToDeleteTheOrganisation": "No se pudo eliminar la organización.",
+      "failedToChangeTheRole": "No se pudo cambiar el rol.",
+      "failedToSavePermissions": "No se pudieron guardar los permisos.",
+      "failedToResetPermissions": "No se pudieron restablecer los permisos.",
+      "failedToLoadInvitations": "No se pudieron cargar las invitaciones.",
+      "failedToSendTheInvitation": "No se pudo enviar la invitación.",
+      "failedToResendTheInvitation": "No se pudo reenviar la invitación.",
+      "failedToRevokeTheInvitation": "No se pudo revocar la invitación.",
+      "thisInvitationLinkIsNotValid": "Este enlace de invitación no es válido.",
+      "failedToLoadYourInvitations": "No se pudieron cargar tus invitaciones.",
+      "failedToAcceptTheInvitation": "No se pudo aceptar la invitación."
+    },
+    "practiceAgents": {
+      "failedToLoadPracticeProspects": "No se pudieron cargar los clientes potenciales de práctica.",
+      "failedToLoadThePracticeProspect": "No se pudo cargar el cliente potencial de práctica.",
+      "failedToCreateThePracticeProspect": "No se pudo crear el cliente potencial de práctica.",
+      "failedToSaveThePracticeProspect": "No se pudo guardar el cliente potencial de práctica.",
+      "failedToRecreateTheProspectFrom": "No se pudo recrear el cliente potencial a partir de esta llamada.",
+      "failedToDuplicateTheProspect": "No se pudo duplicar el cliente potencial.",
+      "failedToUpdateTheProspect": "No se pudo actualizar el cliente potencial.",
+      "failedToDeleteTheProspect": "No se pudo eliminar el cliente potencial.",
+      "failedToGenerateTheProspectPlease": "No se pudo generar el cliente potencial. Inténtalo de nuevo.",
+      "failedToGenerateARandomProspect": "No se pudo generar un cliente potencial aleatorio. Inténtalo de nuevo.",
+      "failedToCreateAHarderVersion": "No se pudo crear una versión más difícil."
+    },
+    "usage": {
+      "failedToLoadUsage": "No se pudo cargar el uso."
+    },
+    "user": {
+      "failedToLoadYourProfile": "No se pudo cargar tu perfil.",
+      "failedToSaveYourSettings": "No se pudieron guardar tus ajustes.",
+      "failedToDeleteYourAccount": "No se pudo eliminar tu cuenta."
+    },
+    "assistantAgents": {
+      "failedToLoadAssistantAgents": "No se pudieron cargar los agentes asistentes.",
+      "failedToLoadTheAssistantAgent": "No se pudo cargar el agente asistente.",
+      "failedToCreateTheAssistantAgent": "No se pudo crear el agente asistente.",
+      "failedToSaveTheAssistantAgent": "No se pudo guardar el agente asistente.",
+      "failedToDuplicateTheAssistantAgent": "No se pudo duplicar el agente asistente.",
+      "failedToSetTheDefaultAgent": "No se pudo establecer el agente predeterminado.",
+      "failedToUpdateTheAgent": "No se pudo actualizar el agente.",
+      "failedToDeleteTheAssistantAgent": "No se pudo eliminar el agente asistente."
+    },
+    "auth": {
+      "failedToSignInPleaseTry": "No se pudo iniciar sesión. Inténtalo de nuevo.",
+      "failedToSignUpPleaseTry": "No se pudo completar el registro. Inténtalo de nuevo.",
+      "failedToRefreshAccountTokenPlease": "No se pudo renovar el token de la cuenta. Inténtalo de nuevo.",
+      "failedToAdminLoginToAccount": "No se pudo iniciar sesión como administrador en la cuenta. Inténtalo de nuevo."
+    },
+    "catalog": {
+      "failedToLoadModelsAndTemplates": "No se pudieron cargar los modelos y las plantillas."
+    },
+    "googleMaps": {
+      "failedToFetchTimezonePleaseTry": "No se pudo obtener la zona horaria. Inténtalo de nuevo."
+    },
+    "health": {
+      "failedToFetchHealthStatusPlease": "No se pudo obtener el estado del servicio. Inténtalo de nuevo."
+    },
+    "lib": {
+      "network": "No se puede conectar con el servidor. Comprueba tu conexión e inténtalo de nuevo."
+    },
+    "audio": {
+      "speechUnsupported": "Este navegador no admite el reconocimiento de voz. Usa Chrome o Edge.",
+      "speechBlocked": "Se bloqueó el acceso al micrófono para el reconocimiento de voz.",
+      "micUnsupported": "Este navegador no admite la captura de micrófono. Prueba con la última versión de Chrome, Edge o Safari.",
+      "micBlocked": "Se bloqueó el acceso al micrófono. Permítelo en la configuración del sitio de tu navegador e inténtalo de nuevo.",
+      "micNotFound": "No se encontró ningún micrófono. Conecta uno e inténtalo de nuevo.",
+      "micFailed": "No se pudo acceder al micrófono.",
+      "tabUnsupported": "Para capturar el audio de la reunión se necesita un navegador de escritorio, como Chrome o Edge.",
+      "shareCancelled": "Se canceló el uso compartido de pantalla. Elige la pestaña de tu reunión y activa \"Compartir audio de la pestaña\".",
+      "noAudioShared": "No se compartió audio. Selecciona la pestaña del navegador de la reunión y activa \"Compartir audio de la pestaña\".",
+      "realtimeTimeout": "El canal de datos en tiempo real no se abrió a tiempo"
+    },
+    "websocket": {
+      "notConnected": "WebSocket no conectado",
+      "timeout": "Tiempo de espera agotado al emitir por WebSocket"
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
 
 type MarkerKind = "mistake" | "strength" | "objection";
 type Speaker = "you" | "prospect";
@@ -28,23 +29,18 @@ const BARS = TURNS.flatMap((turn) => Array.from({ length: turn.bars }, () => tur
 
 const youShare = Math.round((BARS.filter((bar) => bar.who === "you").length / BARS.length) * 100);
 
-const MARKERS: { seconds: number; kind: MarkerKind; text: string }[] = [
-  { seconds: 112, kind: "mistake", text: "Pitched before asking how big the team is." },
-  { seconds: 252, kind: "objection", text: "Price objection. You asked for their budget before defending the number." },
-  { seconds: 400, kind: "strength", text: "Asked what slow follow-up costs them, then let them answer." },
-  { seconds: 485, kind: "mistake", text: "Ended with “let me know” instead of booking the next step." },
+const MARKERS: { seconds: number; kind: MarkerKind; key: string }[] = [
+  { seconds: 112, kind: "mistake", key: "pitchedEarly" },
+  { seconds: 252, kind: "objection", key: "priceObjection" },
+  { seconds: 400, kind: "strength", key: "askedCost" },
+  { seconds: 485, kind: "mistake", key: "weakClose" },
 ];
-
-const KIND_LABEL: Record<MarkerKind, string> = {
-  mistake: "Mistake",
-  strength: "Strength",
-  objection: "Objection",
-};
 
 const formatTime = (seconds: number) =>
   `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
 
 export function ReviewSection() {
+  const { t } = useTranslation("landing");
   const [selected, setSelected] = useState(0);
   const marker = MARKERS[selected];
 
@@ -53,25 +49,27 @@ export function ReviewSection() {
       <div className="lz-wrap">
         <div className="lz-review__head">
           <h2 id="review-title" className="lz-h2">
-            After the call, see exactly where it turned
+            {t("review.title")}
           </h2>
-          <p className="lz-copy">
-            Every call gets a weighted score, category scores, and a list of mistakes and strengths. Each one points to
-            the moment in the recording, so you can listen to it instead of guessing.
-          </p>
+          <p className="lz-copy">{t("review.copy")}</p>
         </div>
 
-        <div className="lz-timeline" role="group" aria-label="Sample call review">
+        <div className="lz-timeline" role="group" aria-label={t("review.aria")}>
           <div className="lz-timeline__meta">
             <span>
-              Sample review, {formatTime(DURATION_SECONDS)} call, score <span className="lz-timeline__score">78</span>
+              <Trans
+                t={t}
+                i18nKey="review.sample"
+                values={{ duration: formatTime(DURATION_SECONDS) }}
+                components={{ score: <span className="lz-timeline__score" /> }}
+              />
             </span>
             <span className="lz-key" aria-hidden="true">
               <span>
-                <i style={{ background: "var(--lz-indigo)" }} /> You
+                <i style={{ background: "var(--lz-indigo)" }} /> {t("review.you")}
               </span>
               <span>
-                <i style={{ background: "var(--lz-amber)" }} /> Prospect
+                <i style={{ background: "var(--lz-amber)" }} /> {t("review.prospect")}
               </span>
             </span>
           </div>
@@ -85,7 +83,7 @@ export function ReviewSection() {
                   className={`lz-pin lz-pin--${m.kind}`}
                   style={{ ["--at" as string]: `${(m.seconds / DURATION_SECONDS) * 100}%` }}
                   aria-pressed={i === selected}
-                  aria-label={`${KIND_LABEL[m.kind]} at ${formatTime(m.seconds)}`}
+                  aria-label={t("review.markerAt", { kind: t(`review.kinds.${m.kind}`), time: formatTime(m.seconds) })}
                   onClick={() => setSelected(i)}
                 />
               ))}
@@ -104,32 +102,32 @@ export function ReviewSection() {
 
           <div className={`lz-detail lz-pin--${marker.kind}`} aria-live="polite">
             <p className="lz-detail__kind">
-              {KIND_LABEL[marker.kind]} at {formatTime(marker.seconds)}
+              {t("review.markerAt", { kind: t(`review.kinds.${marker.kind}`), time: formatTime(marker.seconds) })}
             </p>
-            <p className="lz-detail__text">{marker.text}</p>
+            <p className="lz-detail__text">{t(`review.markers.${marker.key}`)}</p>
           </div>
 
           <dl className="lz-metrics">
             <div>
-              <dt>Talk ratio</dt>
+              <dt>{t("review.metrics.talkRatio")}</dt>
               <dd>
                 {youShare} / {100 - youShare}
               </dd>
             </div>
             <div>
-              <dt>Pace</dt>
-              <dd>148 wpm</dd>
+              <dt>{t("review.metrics.pace")}</dt>
+              <dd>{t("review.metrics.paceValue")}</dd>
             </div>
             <div>
-              <dt>Filler words</dt>
+              <dt>{t("review.metrics.fillers")}</dt>
               <dd>9</dd>
             </div>
             <div>
-              <dt>Interruptions</dt>
+              <dt>{t("review.metrics.interruptions")}</dt>
               <dd>2</dd>
             </div>
             <div>
-              <dt>Objections</dt>
+              <dt>{t("review.metrics.objections")}</dt>
               <dd>3</dd>
             </div>
           </dl>
@@ -137,16 +135,16 @@ export function ReviewSection() {
 
         <div className="lz-after">
           <div>
-            <h3 className="lz-h3">A follow-up draft</h3>
-            <p>CallZen writes the email you&rsquo;d send next, based on what the prospect actually said.</p>
+            <h3 className="lz-h3">{t("review.after.followUp.title")}</h3>
+            <p>{t("review.after.followUp.text")}</p>
           </div>
           <div>
-            <h3 className="lz-h3">A practice session to match</h3>
-            <p>It suggests the practice prospect that targets the mistakes you made on this call.</p>
+            <h3 className="lz-h3">{t("review.after.practice.title")}</h3>
+            <p>{t("review.after.practice.text")}</p>
           </div>
           <div>
-            <h3 className="lz-h3">Trends across calls</h3>
-            <p>Your dashboard shows your score over time and the mistakes that keep coming back.</p>
+            <h3 className="lz-h3">{t("review.after.trends.title")}</h3>
+            <p>{t("review.after.trends.text")}</p>
           </div>
         </div>
       </div>

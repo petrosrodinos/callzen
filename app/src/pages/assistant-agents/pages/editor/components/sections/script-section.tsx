@@ -1,4 +1,5 @@
 import { useFieldArray, type UseFormReturn } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { ArrowDown, ArrowUp, ListOrdered, Plus, Trash2 } from "lucide-react";
 import {
   FormControl,
@@ -28,6 +29,7 @@ export function ScriptSection({
 }: {
   form: UseFormReturn<AssistantAgentFormValues>;
 }) {
+  const { t } = useTranslation("assistant");
   const { fields, append, remove, move } = useFieldArray({
     control: form.control,
     name: "script",
@@ -43,22 +45,22 @@ export function ScriptSection({
 
   return (
     <FormSection
-      title="Script"
-      description="Organise your script in stages. The co-pilot follows it, tracks progress live, and adapts when the conversation goes elsewhere."
+      title={t("script.title")}
+      description={t("script.description")}
       actions={
         <Button type="button" size="sm" variant="outline" onClick={addStage}>
-          <Plus /> Add stage
+          <Plus /> {t("script.addStage")}
         </Button>
       }
     >
       {!fields.length ? (
         <EmptyState
           icon={ListOrdered}
-          title="No script yet"
-          description="Without a script the co-pilot relies on your goal, instructions and knowledge."
+          title={t("script.emptyTitle")}
+          description={t("script.emptyDescription")}
           action={
             <Button type="button" size="sm" onClick={addStage}>
-              <Plus /> Add first stage
+              <Plus /> {t("script.addFirstStage")}
             </Button>
           }
         />
@@ -80,7 +82,7 @@ export function ScriptSection({
                         onValueChange={stageField.onChange}
                       >
                         <FormControl>
-                          <SelectTrigger aria-label="Stage type">
+                          <SelectTrigger aria-label={t("script.stageType")}>
                             <SelectValue />
                           </SelectTrigger>
                         </FormControl>
@@ -102,8 +104,8 @@ export function ScriptSection({
                     <FormItem className="min-w-0 flex-1 space-y-0">
                       <FormControl>
                         <Input
-                          placeholder="Stage title (optional)"
-                          aria-label="Stage title"
+                          placeholder={t("script.stageTitlePlaceholder")}
+                          aria-label={t("script.stageTitle")}
                           {...titleField}
                         />
                       </FormControl>
@@ -117,7 +119,7 @@ export function ScriptSection({
                     size="icon"
                     disabled={index === 0}
                     onClick={() => move(index, index - 1)}
-                    aria-label="Move up"
+                    aria-label={t("script.moveUp")}
                   >
                     <ArrowUp />
                   </Button>
@@ -127,7 +129,7 @@ export function ScriptSection({
                     size="icon"
                     disabled={index === fields.length - 1}
                     onClick={() => move(index, index + 1)}
-                    aria-label="Move down"
+                    aria-label={t("script.moveDown")}
                   >
                     <ArrowDown />
                   </Button>
@@ -136,7 +138,7 @@ export function ScriptSection({
                     variant="ghost"
                     size="icon"
                     onClick={() => remove(index)}
-                    aria-label="Remove stage"
+                    aria-label={t("script.remove")}
                   >
                     <Trash2 />
                   </Button>
@@ -147,11 +149,11 @@ export function ScriptSection({
                 name={`script.${index}.content`}
                 render={({ field: contentField }) => (
                   <FormItem>
-                    <FormLabel className="sr-only">What to say</FormLabel>
+                    <FormLabel className="sr-only">{t("script.whatToSay")}</FormLabel>
                     <FormControl>
                       <Textarea
                         rows={3}
-                        placeholder="What to say or ask in this stage. Use {placeholders} for names."
+                        placeholder={t("script.contentPlaceholder")}
                         {...contentField}
                       />
                     </FormControl>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Ban, Check, Copy, Link2, Mail, RefreshCw, Send } from "lucide-react";
@@ -29,6 +30,7 @@ const STATUS_STYLES: Record<string, string> = {
 };
 
 export function InvitationsTab({ organisation }: { organisation: Organisation }) {
+  const { t } = useTranslation("organisation");
   const { role: myRole } = usePermissions();
   const { data: invitations, isPending } = useInvitations(organisation.id);
   const invite = useInviteMember();
@@ -48,7 +50,7 @@ export function InvitationsTab({ organisation }: { organisation: Organisation })
       setCopied(id);
       window.setTimeout(() => setCopied((current) => (current === id ? null : current)), 1600);
     } catch {
-      toast({ title: "Copy failed", description: "Select the link and copy it manually.", variant: "error" });
+      toast({ title: t("invitations.copyFailed"), description: t("invitations.copyFailedHint"), variant: "error" });
     }
   };
 
@@ -66,8 +68,8 @@ export function InvitationsTab({ organisation }: { organisation: Organisation })
   return (
     <div className="space-y-4">
       <Card className="p-4 sm:p-5">
-        <h2 className="font-semibold">Invite someone</h2>
-        <p className="mb-4 text-sm text-muted-foreground">They get an email with a link that works for 7 days. Anyone can belong to several organisations, so existing CallZen users just accept and switch.</p>
+        <h2 className="font-semibold">{t("invitations.inviteTitle")}</h2>
+        <p className="mb-4 text-sm text-muted-foreground">{t("invitations.inviteDescription")}</p>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onInvite)} className="flex flex-col gap-3 sm:flex-row sm:items-start">
             <FormField
@@ -75,9 +77,9 @@ export function InvitationsTab({ organisation }: { organisation: Organisation })
               name="email"
               render={({ field }) => (
                 <FormItem className="flex-1">
-                  <FormLabel className="sr-only">Email</FormLabel>
+                  <FormLabel className="sr-only">{t("invitations.email")}</FormLabel>
                   <FormControl>
-                    <Input type="email" placeholder="teammate@company.com" autoComplete="off" {...field} />
+                    <Input type="email" placeholder={t("invitations.emailPlaceholder")} autoComplete="off" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -88,10 +90,10 @@ export function InvitationsTab({ organisation }: { organisation: Organisation })
               name="role"
               render={({ field }) => (
                 <FormItem className="sm:w-36">
-                  <FormLabel className="sr-only">Role</FormLabel>
+                  <FormLabel className="sr-only">{t("invitations.role")}</FormLabel>
                   <Select value={field.value} onValueChange={field.onChange}>
                     <FormControl>
-                      <SelectTrigger aria-label="Role">
+                      <SelectTrigger aria-label={t("invitations.role")}>
                         <SelectValue />
                       </SelectTrigger>
                     </FormControl>
@@ -107,7 +109,7 @@ export function InvitationsTab({ organisation }: { organisation: Organisation })
               )}
             />
             <Button type="submit" disabled={invite.isPending} loading={invite.isPending}>
-              {!invite.isPending && <Send />} Send invitation
+              {!invite.isPending && <Send />} {t("invitations.send")}
             </Button>
           </form>
         </Form>
@@ -116,7 +118,7 @@ export function InvitationsTab({ organisation }: { organisation: Organisation })
       {isPending ? (
         <ListSkeleton rows={3} />
       ) : !invitations?.length ? (
-        <EmptyState icon={Mail} title="No invitations yet" description="Invitations you send appear here so you can resend or revoke them." />
+        <EmptyState icon={Mail} title={t("invitations.emptyTitle")} description={t("invitations.emptyDescription")} />
       ) : (
         <Card>
           <ul className="divide-y">
@@ -129,12 +131,11 @@ export function InvitationsTab({ organisation }: { organisation: Organisation })
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-sm font-medium">{invitation.email}</p>
                       <p className="text-xs text-muted-foreground">
-                        {getOrgRoleLabel(invitation.role)} · invited {formatRelative(invitation.created_at)}
-                        {invitation.invited_by && ` by ${invitation.invited_by}`}
-                        {invitation.send_count > 1 && ` · sent ${invitation.send_count}×`}
+                        {getOrgRoleLabel(invitation.role)} · {invitation.invited_by ? t("invitations.invitedBy", { when: formatRelative(invitation.created_at), name: invitation.invited_by }) : t("invitations.invited", { when: formatRelative(invitation.created_at) })}
+                        {invitation.send_count > 1 && ` · ${t("invitations.sentTimes", { count: invitation.send_count })}`}
                       </p>
                       <p className="text-xs text-muted-foreground">
-                        {pending ? `Expires ${formatDateTime(invitation.expires_at)}` : invitation.status === InvitationStatuses.EXPIRED ? `Expired ${formatRelative(invitation.expires_at)}` : ""}
+                        {pending ? t("invitations.expires", { date: formatDateTime(invitation.expires_at) }) : invitation.status === InvitationStatuses.EXPIRED ? t("invitations.expired", { when: formatRelative(invitation.expires_at) }) : ""}
                       </p>
                     </div>
                     <Badge variant="outline" className={cn("w-fit", STATUS_STYLES[invitation.status])}>
@@ -143,11 +144,11 @@ export function InvitationsTab({ organisation }: { organisation: Organisation })
                     {(pending || invitation.status === InvitationStatuses.EXPIRED) && (
                       <div className="flex gap-2">
                         <Button size="sm" variant="outline" onClick={() => resend.mutate({ orgId: organisation.id, invitationId: invitation.id }, { onSuccess: (result) => setLinks((previous) => ({ ...previous, [invitation.id]: result.invite_url })) })} disabled={resend.isPending && resend.variables?.invitationId === invitation.id}>
-                          <RefreshCw className={cn(resend.isPending && resend.variables?.invitationId === invitation.id && "animate-spin")} /> Resend
+                          <RefreshCw className={cn(resend.isPending && resend.variables?.invitationId === invitation.id && "animate-spin")} /> {t("invitations.resend")}
                         </Button>
                         {pending && (
                           <Button size="sm" variant="ghost" className="text-muted-foreground hover:text-destructive" onClick={() => setToRevoke(invitation)}>
-                            <Ban /> Revoke
+                            <Ban /> {t("invitations.revoke")}
                           </Button>
                         )}
                       </div>
@@ -158,7 +159,7 @@ export function InvitationsTab({ organisation }: { organisation: Organisation })
                       <Link2 className="size-4 shrink-0 text-muted-foreground" />
                       <code className="min-w-0 flex-1 truncate text-xs">{link}</code>
                       <Button size="sm" variant="outline" className="shrink-0" onClick={() => void copy(invitation.id, link)}>
-                        {copied === invitation.id ? <Check /> : <Copy />} {copied === invitation.id ? "Copied" : "Copy link"}
+                        {copied === invitation.id ? <Check /> : <Copy />} {copied === invitation.id ? t("invitations.copied") : t("invitations.copyLink")}
                       </Button>
                     </div>
                   )}
@@ -173,9 +174,9 @@ export function InvitationsTab({ organisation }: { organisation: Organisation })
         isOpen={!!toRevoke}
         onClose={() => setToRevoke(null)}
         onConfirm={() => toRevoke && revoke.mutate({ orgId: organisation.id, invitationId: toRevoke.id }, { onSuccess: () => setToRevoke(null) })}
-        title={`Revoke the invitation for ${toRevoke?.email}?`}
-        description="The link stops working immediately. You can send a new invitation any time."
-        confirmText="Revoke"
+        title={t("invitations.revokeTitle", { email: toRevoke?.email })}
+        description={t("invitations.revokeDescription")}
+        confirmText={t("invitations.revoke")}
         variant="destructive"
         isLoading={revoke.isPending}
       />
