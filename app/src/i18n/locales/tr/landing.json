@@ -24,38 +24,6 @@
     "title": "Onlar hâlâ konuşurken, bir sonraki adımda ne söyleyeceğini bil.",
     "lede": "CallZen satış görüşmeni dinler, itirazları ve satın alma sinyallerini anında işaretler ve bir sonraki cümleni önerir. Ardından görüşmeyi puanlar ve zor bölümleri yapay zekâ müşteri adaylarıyla prova etmeni sağlar."
   },
-  "demo": {
-    "aria": "CallZen yardımcı pilotuyla canlı görüşme örneği",
-    "live": "Canlı görüşme",
-    "replay": "Yeniden oynat",
-    "prospect": "Müşteri adayı",
-    "you": "Sen",
-    "prospectOne": "Gördüklerimizi beğendik. Dürüst olmak gerekirse fiyat <mark>bütçemizin çok üzerinde</mark>.",
-    "youLine": "Haklısınız. Hangi aralıkta düşünüyordunuz? Yavaş takibin size satışa mal olduğunu söylemiştiniz, o hâlde ikisini yan yana koyalım.",
-    "prospectTwo": "Kullanıcı başına kırk civarı. Ama evet, kimse zamanında geri aramadığı için <mark>geçen çeyrekte iki yenilemeyi kaybettik</mark>.",
-    "copilot": "Yardımcı pilot",
-    "script": "Akış",
-    "stages": {
-      "opening": "Açılış",
-      "discovery": "Keşif",
-      "pitch": "Sunum",
-      "objections": "İtirazları yanıtlama",
-      "close": "Kapanış"
-    },
-    "objection": {
-      "kind": "Fiyat itirazı",
-      "why": "Müşteri adayı fiyatın bütçenin üzerinde olduğunu söylüyor."
-    },
-    "reply": {
-      "kind": "Önerilen yanıt",
-      "said": "Söylendi",
-      "text": "“Hangi aralıkta düşünüyordunuz? Bunu yavaş takibin size maliyetiyle karşılaştıralım.”"
-    },
-    "signal": {
-      "kind": "Satın alma sinyali",
-      "why": "Yavaş takibin kendilerine maliyetini dile getirdiler. Kapanışa geç ve bir kurulum görüşmesi öner."
-    }
-  },
   "ways": {
     "title": "Zaten yaptığın görüşmelerle çalışır",
     "phone": {

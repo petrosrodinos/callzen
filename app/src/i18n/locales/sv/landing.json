@@ -24,38 +24,6 @@
     "title": "Vet vad du ska säga härnäst, medan de fortfarande pratar.",
     "lede": "CallZen lyssnar på ditt säljsamtal, flaggar invändningar och köpsignaler när de uppstår och föreslår din nästa replik. Efteråt poängsätter den samtalet och låter dig öva på de svåra delarna mot AI-prospekt."
   },
-  "demo": {
-    "aria": "Exempel på ett live-samtal med CallZens copilot",
-    "live": "Pågående samtal",
-    "replay": "Spela upp igen",
-    "prospect": "Prospekt",
-    "you": "Du",
-    "prospectOne": "Vi gillar det vi har sett. Ärligt talat ligger priset <mark>långt över vad vi har budgeterat</mark>.",
-    "youLine": "Förståeligt. Vilket intervall räknade ni med? Du nämnde att långsam uppföljning kostar dig affärer, så låt oss ställa de två mot varandra.",
-    "prospectTwo": "Runt fyrtio per användare. Men ja, vi <mark>förlorade två förnyelser förra kvartalet</mark> eftersom ingen ringde tillbaka i tid.",
-    "copilot": "Copilot",
-    "script": "Manus",
-    "stages": {
-      "opening": "Öppning",
-      "discovery": "Behovsanalys",
-      "pitch": "Presentation",
-      "objections": "Hantera invändningar",
-      "close": "Avslut"
-    },
-    "objection": {
-      "kind": "Prisinvändning",
-      "why": "Prospektet säger att priset ligger över budgeten."
-    },
-    "reply": {
-      "kind": "Föreslaget svar",
-      "said": "Sagt",
-      "text": "”Vilket intervall räknade ni med? Låt oss jämföra det med vad långsam uppföljning kostar er.”"
-    },
-    "signal": {
-      "kind": "Köpsignal",
-      "why": "De nämnde vad långsam uppföljning kostar dem. Gå vidare till avslutet och erbjud ett uppsättningssamtal."
-    }
-  },
   "ways": {
     "title": "Fungerar med de samtal du redan för",
     "phone": {

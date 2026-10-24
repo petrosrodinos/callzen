@@ -24,38 +24,6 @@
     "title": "Wiedz, co powiedzieć dalej, gdy rozmówca jeszcze mówi.",
     "lede": "CallZen słucha Twojej rozmowy sprzedażowej, na bieżąco wychwytuje obiekcje i sygnały zakupowe oraz podpowiada kolejne zdanie. Potem ocenia rozmowę i pozwala przećwiczyć trudne momenty z potencjalnymi klientami opartymi na AI."
   },
-  "demo": {
-    "aria": "Przykład rozmowy na żywo ze współpilotem CallZen",
-    "live": "Rozmowa na żywo",
-    "replay": "Odtwórz ponownie",
-    "prospect": "Potencjalny klient",
-    "you": "Ty",
-    "prospectOne": "Podoba nam się to, co zobaczyliśmy. Szczerze mówiąc, cena jest <mark>znacznie wyższa niż nasz budżet</mark>.",
-    "youLine": "Rozumiem. Jakiego przedziału się spodziewaliście? Wspomniałeś, że wolne działania następcze kosztują Cię klientów, zestawmy więc te dwie rzeczy.",
-    "prospectTwo": "Około czterdziestu za licencję. Ale tak, <mark>straciliśmy dwa odnowienia w zeszłym kwartale</mark>, bo nikt nie oddzwonił na czas.",
-    "copilot": "Współpilot",
-    "script": "Skrypt",
-    "stages": {
-      "opening": "Otwarcie",
-      "discovery": "Rozpoznanie potrzeb",
-      "pitch": "Prezentacja",
-      "objections": "Obsługa obiekcji",
-      "close": "Zamknięcie"
-    },
-    "objection": {
-      "kind": "Obiekcja cenowa",
-      "why": "Potencjalny klient mówi, że cena przekracza budżet."
-    },
-    "reply": {
-      "kind": "Sugerowana odpowiedź",
-      "said": "Powiedziane",
-      "text": "„Jakiego przedziału się spodziewaliście? Porównajmy go z tym, ile kosztują Was wolne działania następcze.”"
-    },
-    "signal": {
-      "kind": "Sygnał zakupowy",
-      "why": "Wskazali, ile kosztują ich wolne działania następcze. Przejdź do zamknięcia i zaproponuj rozmowę o wdrożeniu."
-    }
-  },
   "ways": {
     "title": "Działa z rozmowami, które już prowadzisz",
     "phone": {

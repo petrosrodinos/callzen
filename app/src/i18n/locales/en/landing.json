@@ -24,38 +24,6 @@
     "title": "Know what to say next, while they’re still talking.",
     "lede": "CallZen listens to your sales call, flags objections and buying signals as they happen, and suggests your next line. Afterwards it scores the call and lets you rehearse the hard parts against AI prospects."
   },
-  "demo": {
-    "aria": "Example of a live call with the CallZen co-pilot",
-    "live": "Live call",
-    "replay": "Replay",
-    "prospect": "Prospect",
-    "you": "You",
-    "prospectOne": "We like what we’ve seen. Honestly, the price is <mark>well above what we budgeted</mark>.",
-    "youLine": "Fair. What range were you working with? You mentioned slow follow-up costs you deals, so let’s put the two side by side.",
-    "prospectTwo": "Around forty a seat. But yes, we <mark>lost two renewals last quarter</mark> because nobody called back in time.",
-    "copilot": "Co-pilot",
-    "script": "Script",
-    "stages": {
-      "opening": "Opening",
-      "discovery": "Discovery",
-      "pitch": "Pitch",
-      "objections": "Handle objections",
-      "close": "Close"
-    },
-    "objection": {
-      "kind": "Price objection",
-      "why": "The prospect says the price is above budget."
-    },
-    "reply": {
-      "kind": "Suggested reply",
-      "said": "Said",
-      "text": "“What range were you working with? Let’s compare it to what slow follow-up costs you.”"
-    },
-    "signal": {
-      "kind": "Buying signal",
-      "why": "They named what slow follow-up costs them. Move to the close and offer a setup call."
-    }
-  },
   "ways": {
     "title": "Works with the calls you already make",
     "phone": {
@@ -209,5 +177,19 @@
   "closing": {
     "title": "Take your next call with a co-pilot.",
     "copy": "Set up your first co-pilot, start a call, and see the suggestions arrive while the prospect is still talking."
+  },
+  "salesDemo": {
+    "aria": "Simulated sales call with the CallZen co-pilot",
+    "intro": "Hear a simulated sales call and watch the co-pilot coach the seller as it happens.",
+    "play": "Play the demo with sound",
+    "playSilent": "Play without sound",
+    "soundOn": "Turn sound on",
+    "soundOff": "Turn sound off",
+    "skip": "Skip to review",
+    "replay": "Replay",
+    "ended": "Call ended",
+    "analysing": "Analysing the call…",
+    "reviewTitle": "Then the review, in seconds",
+    "reviewLead": "The same analysis you get after every real call: a score, the mistakes and strengths, and the numbers behind them."
   }
 }

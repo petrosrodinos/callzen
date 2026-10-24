@@ -24,38 +24,6 @@
     "title": "Weet wat je daarna moet zeggen, terwijl ze nog aan het praten zijn.",
     "lede": "CallZen luistert mee met je verkoopgesprek, signaleert bezwaren en koopsignalen zodra ze zich voordoen en stelt je volgende zin voor. Daarna beoordeelt het het gesprek en kun je de lastige momenten oefenen met AI-prospects."
   },
-  "demo": {
-    "aria": "Voorbeeld van een live gesprek met de CallZen-copiloot",
-    "live": "Live gesprek",
-    "replay": "Opnieuw afspelen",
-    "prospect": "Prospect",
-    "you": "Jij",
-    "prospectOne": "We vinden het mooi wat we gezien hebben. Eerlijk gezegd ligt de prijs <mark>ruim boven ons budget</mark>.",
-    "youLine": "Begrijpelijk. Binnen welke bandbreedte zaten jullie? Je zei dat trage opvolging je deals kost, dus laten we die twee naast elkaar leggen.",
-    "prospectTwo": "Rond de veertig per gebruiker. Maar ja, we <mark>hebben vorig kwartaal twee verlengingen verloren</mark> omdat niemand op tijd terugbelde.",
-    "copilot": "Copiloot",
-    "script": "Script",
-    "stages": {
-      "opening": "Opening",
-      "discovery": "Behoefteanalyse",
-      "pitch": "Pitch",
-      "objections": "Bezwaren behandelen",
-      "close": "Afsluiting"
-    },
-    "objection": {
-      "kind": "Prijsbezwaar",
-      "why": "De prospect zegt dat de prijs boven het budget ligt."
-    },
-    "reply": {
-      "kind": "Voorgesteld antwoord",
-      "said": "Gezegd",
-      "text": "“Binnen welke bandbreedte zaten jullie? Laten we die vergelijken met wat trage opvolging jullie kost.”"
-    },
-    "signal": {
-      "kind": "Koopsignaal",
-      "why": "Ze noemden wat trage opvolging hen kost. Ga naar de afsluiting en bied een setup-gesprek aan."
-    }
-  },
   "ways": {
     "title": "Werkt met de gesprekken die je al voert",
     "phone": {

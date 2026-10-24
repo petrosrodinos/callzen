@@ -18,12 +18,13 @@ interface TranscriptFeedProps {
 
 export function TranscriptFeed({ segments, interim = [], prospectLabel, onFlipSpeaker, emptyText, className }: TranscriptFeedProps) {
   const { t } = useTranslation("common");
-  const bottomRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const stickToBottom = useRef(true);
 
   useEffect(() => {
-    if (stickToBottom.current) bottomRef.current?.scrollIntoView({ block: "end" });
+    // Scroll the feed itself: scrollIntoView would also drag the page when the feed sits inside a longer one.
+    const el = containerRef.current;
+    if (el && stickToBottom.current) el.scrollTop = el.scrollHeight;
   }, [segments.length, interim]);
 
   const visibleInterim = interim.filter((item) => item.text);
@@ -76,7 +77,6 @@ export function TranscriptFeed({ segments, interim = [], prospectLabel, onFlipSp
           <p className="max-w-[90%] rounded-2xl border border-dashed px-3 py-2 text-sm text-muted-foreground">{item.text}…</p>
         </div>
       ))}
-      <div ref={bottomRef} />
     </div>
   );
 }

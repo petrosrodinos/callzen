@@ -24,38 +24,6 @@
     "title": "Sachez quoi dire ensuite, pendant qu’ils parlent encore.",
     "lede": "CallZen écoute votre appel de vente, repère les objections et les signaux d’achat au moment où ils surviennent, et vous suggère votre prochaine phrase. Ensuite, il note l’appel et vous permet de vous entraîner sur les passages difficiles face à des prospects IA."
   },
-  "demo": {
-    "aria": "Exemple d’appel en direct avec le copilote CallZen",
-    "live": "Appel en direct",
-    "replay": "Rejouer",
-    "prospect": "Prospect",
-    "you": "Vous",
-    "prospectOne": "Nous aimons ce que nous avons vu. Honnêtement, le prix est <mark>bien au-dessus de notre budget</mark>.",
-    "youLine": "C’est juste. Quelle fourchette aviez-vous en tête ? Vous avez dit qu’un suivi trop lent vous fait perdre des contrats, alors mettons les deux côte à côte.",
-    "prospectTwo": "Environ quarante par utilisateur. Mais oui, nous avons <mark>perdu deux renouvellements le trimestre dernier</mark> parce que personne n’a rappelé à temps.",
-    "copilot": "Copilote",
-    "script": "Script",
-    "stages": {
-      "opening": "Ouverture",
-      "discovery": "Découverte",
-      "pitch": "Présentation",
-      "objections": "Traitement des objections",
-      "close": "Conclusion"
-    },
-    "objection": {
-      "kind": "Objection sur le prix",
-      "why": "Le prospect dit que le prix dépasse son budget."
-    },
-    "reply": {
-      "kind": "Réponse suggérée",
-      "said": "Dit",
-      "text": "« Quelle fourchette aviez-vous en tête ? Comparons-la à ce que vous coûte un suivi trop lent. »"
-    },
-    "signal": {
-      "kind": "Signal d’achat",
-      "why": "Ils ont chiffré ce que leur coûte un suivi trop lent. Passez à la conclusion et proposez un appel de mise en place."
-    }
-  },
   "ways": {
     "title": "Fonctionne avec les appels que vous passez déjà",
     "phone": {

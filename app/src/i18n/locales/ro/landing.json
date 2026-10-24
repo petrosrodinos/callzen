@@ -24,38 +24,6 @@
     "title": "Știi ce să spui în continuare, cât timp încă vorbesc.",
     "lede": "CallZen ascultă apelul tău de vânzări, semnalează obiecțiile și semnalele de cumpărare pe măsură ce apar și îți sugerează următoarea replică. Apoi evaluează apelul și îți permite să exersezi părțile dificile cu clienți potențiali generați de IA."
   },
-  "demo": {
-    "aria": "Exemplu de apel în timp real cu copilotul CallZen",
-    "live": "Apel în direct",
-    "replay": "Redă din nou",
-    "prospect": "Client potențial",
-    "you": "Tu",
-    "prospectOne": "Ne place ce am văzut. Sincer, prețul este <mark>mult peste ce am bugetat</mark>.",
-    "youLine": "E de înțeles. Cu ce interval lucrați? Ai spus că urmărirea lentă te costă vânzări, așa că haideți să le punem una lângă alta.",
-    "prospectTwo": "În jur de patruzeci pe utilizator. Dar da, <mark>am pierdut două reînnoiri trimestrul trecut</mark> pentru că nimeni nu a sunat înapoi la timp.",
-    "copilot": "Copilot",
-    "script": "Script",
-    "stages": {
-      "opening": "Deschidere",
-      "discovery": "Descoperire",
-      "pitch": "Prezentare",
-      "objections": "Gestionarea obiecțiilor",
-      "close": "Închidere"
-    },
-    "objection": {
-      "kind": "Obiecție de preț",
-      "why": "Clientul potențial spune că prețul depășește bugetul."
-    },
-    "reply": {
-      "kind": "Răspuns sugerat",
-      "said": "Spus",
-      "text": "„Cu ce interval lucrați? Haideți să-l comparăm cu ce vă costă urmărirea lentă.”"
-    },
-    "signal": {
-      "kind": "Semnal de cumpărare",
-      "why": "Au spus cât îi costă urmărirea lentă. Treci la închidere și propune un apel de configurare."
-    }
-  },
   "ways": {
     "title": "Funcționează cu apelurile pe care le faci deja",
     "phone": {

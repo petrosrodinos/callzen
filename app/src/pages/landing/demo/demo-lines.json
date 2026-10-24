@@ -1,0 +1,15 @@
+[
+  { "id": "01", "speaker": "USER", "text": "Hi Dana, it's Jordan from Loopwise. Thanks for picking up. Before we start, is it okay if I record this call for my notes?" },
+  { "id": "02", "speaker": "PROSPECT", "text": "Sure, that's fine. I've only got about ten minutes though, so let's keep it tight." },
+  { "id": "03", "speaker": "USER", "text": "Understood. To make the ten minutes count: when a customer asks for a callback today, what actually happens?" },
+  { "id": "04", "speaker": "PROSPECT", "text": "Honestly, it's a bit of a mess. Requests land in a shared inbox, and whoever sees one first picks it up. Sometimes nobody does." },
+  { "id": "05", "speaker": "USER", "text": "That sounds frustrating. Has a missed callback actually cost you anything recently?" },
+  { "id": "06", "speaker": "PROSPECT", "text": "It has. We lost two renewals last quarter because nobody called back in time." },
+  { "id": "07", "speaker": "USER", "text": "Two renewals is real money. Loopwise gives every request an owner and nudges them within five minutes, so nothing sits in an inbox." },
+  { "id": "08", "speaker": "PROSPECT", "text": "That's interesting. But we already have a CRM that's supposed to do this, and your price is well above what we budgeted." },
+  { "id": "09", "speaker": "USER", "text": "Fair enough. What range were you working with? And what did those two renewals cost you, next to a seat price?" },
+  { "id": "10", "speaker": "PROSPECT", "text": "Around forty a seat. The two renewals were worth about thirty thousand together, so, yeah, the maths isn't great for us." },
+  { "id": "11", "speaker": "USER", "text": "Then let's start small: a pilot with your twelve reps, live inside a week. Can we book a setup call for Thursday?" },
+  { "id": "12", "speaker": "PROSPECT", "text": "Thursday works. Send me the invite and add Marcus from IT, he signs off on new tools." },
+  { "id": "13", "speaker": "USER", "text": "Perfect, I'll send it as soon as we hang up. Thanks Dana, speak Thursday." }
+]

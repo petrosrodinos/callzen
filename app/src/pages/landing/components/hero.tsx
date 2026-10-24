@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { LandingActions } from "./landing-actions";
-import { CallDemo } from "./call-demo";
+import { SalesDemo } from "../demo/sales-demo";
 
 export function Hero() {
   const { t } = useTranslation("landing");
@@ -14,7 +14,7 @@ export function Hero() {
             <LandingActions />
           </div>
         </div>
-        <CallDemo />
+        <SalesDemo />
       </div>
     </header>
   );

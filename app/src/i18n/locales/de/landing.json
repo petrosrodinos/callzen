@@ -24,38 +24,6 @@
     "title": "Wissen, was Sie als Nächstes sagen, während Ihr Gegenüber noch spricht.",
     "lede": "CallZen hört Ihrem Verkaufsgespräch zu, markiert Einwände und Kaufsignale, sobald sie auftreten, und schlägt Ihnen den nächsten Satz vor. Danach bewertet es das Gespräch und lässt Sie die schwierigen Stellen mit KI-Interessenten üben."
   },
-  "demo": {
-    "aria": "Beispiel eines Live-Gesprächs mit dem CallZen-Copilot",
-    "live": "Live-Gespräch",
-    "replay": "Wiederholen",
-    "prospect": "Interessent",
-    "you": "Sie",
-    "prospectOne": "Uns gefällt, was wir gesehen haben. Ehrlich gesagt liegt der Preis <mark>deutlich über unserem Budget</mark>.",
-    "youLine": "Verständlich. In welchem Rahmen haben Sie geplant? Sie sagten, dass langsames Nachfassen Sie Abschlüsse kostet – stellen wir beides einmal nebeneinander.",
-    "prospectTwo": "Etwa vierzig pro Platz. Aber ja, wir haben <mark>letztes Quartal zwei Verlängerungen verloren</mark>, weil niemand rechtzeitig zurückgerufen hat.",
-    "copilot": "Copilot",
-    "script": "Leitfaden",
-    "stages": {
-      "opening": "Einstieg",
-      "discovery": "Bedarfsanalyse",
-      "pitch": "Präsentation",
-      "objections": "Einwandbehandlung",
-      "close": "Abschluss"
-    },
-    "objection": {
-      "kind": "Preiseinwand",
-      "why": "Der Interessent sagt, der Preis liege über dem Budget."
-    },
-    "reply": {
-      "kind": "Vorgeschlagene Antwort",
-      "said": "Gesagt",
-      "text": "„In welchem Rahmen haben Sie geplant? Vergleichen wir ihn mit dem, was Sie langsames Nachfassen kostet.“"
-    },
-    "signal": {
-      "kind": "Kaufsignal",
-      "why": "Er hat genannt, was ihn langsames Nachfassen kostet. Gehen Sie zum Abschluss über und bieten Sie ein Einrichtungsgespräch an."
-    }
-  },
   "ways": {
     "title": "Funktioniert mit den Gesprächen, die Sie ohnehin führen",
     "phone": {

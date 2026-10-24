@@ -34,8 +34,31 @@ import { SuggestionFrequencyFormOptions } from "@/config/constants/dropdowns/age
 import { getScriptStageLabel } from "@/config/constants/dropdowns/agents/script-stage-form.options";
 import type { CopilotSession } from "@/hooks/use-copilot-session";
 
+// The slice of the co-pilot session the panel reads, so a scripted session (e.g. the landing-page demo) can drive it.
+export type LiveAssistSession = Pick<
+  CopilotSession,
+  | "primary"
+  | "pinned"
+  | "history"
+  | "latestInfoCard"
+  | "scriptProgress"
+  | "muted"
+  | "setMuted"
+  | "frequency"
+  | "setFrequency"
+  | "health"
+  | "fallbackModel"
+  | "pendingCount"
+  | "isAsking"
+  | "requestSuggestionNow"
+  | "ask"
+  | "pin"
+  | "dismiss"
+  | "rateSuggestion"
+>;
+
 interface LiveAssistPanelProps {
-  session: CopilotSession;
+  session: LiveAssistSession;
   script: { id: string; stage: string; title: string; content: string }[];
   agentName?: string;
   className?: string;
@@ -108,7 +131,7 @@ export function LiveAssistPanel({ session, script, agentName, className }: LiveA
   );
 }
 
-function PanelToolbar({ session, agentName }: { session: CopilotSession; agentName?: string }) {
+function PanelToolbar({ session, agentName }: { session: LiveAssistSession; agentName?: string }) {
   const { t } = useTranslation("common");
   const { health, muted, frequency, fallbackModel } = session;
 
@@ -167,7 +190,7 @@ function PanelToolbar({ session, agentName }: { session: CopilotSession; agentNa
   );
 }
 
-function PrimarySuggestion({ suggestion, session, thinking }: { suggestion: Suggestion; session: CopilotSession; thinking: boolean }) {
+function PrimarySuggestion({ suggestion, session, thinking }: { suggestion: Suggestion; session: LiveAssistSession; thinking: boolean }) {
   const { t } = useTranslation("common");
   const isPinned = suggestion.status === SuggestionStatuses.PINNED;
 
@@ -212,7 +235,7 @@ function PrimarySuggestion({ suggestion, session, thinking }: { suggestion: Sugg
   );
 }
 
-function CompactSuggestion({ suggestion, session, muted = false }: { suggestion: Suggestion; session: CopilotSession; muted?: boolean }) {
+function CompactSuggestion({ suggestion, session, muted = false }: { suggestion: Suggestion; session: LiveAssistSession; muted?: boolean }) {
   const { t } = useTranslation("common");
   const isPinned = suggestion.status === SuggestionStatuses.PINNED;
   return (
@@ -231,7 +254,7 @@ function CompactSuggestion({ suggestion, session, muted = false }: { suggestion:
   );
 }
 
-function AskCopilot({ session }: { session: CopilotSession }) {
+function AskCopilot({ session }: { session: LiveAssistSession }) {
   const { t } = useTranslation("common");
   const [question, setQuestion] = useState("");
 

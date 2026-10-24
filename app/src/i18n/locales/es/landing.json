@@ -24,38 +24,6 @@
     "title": "Sabe qué decir a continuación, mientras todavía están hablando.",
     "lede": "CallZen escucha tu llamada de ventas, señala objeciones y señales de compra en el momento en que aparecen, y te sugiere tu siguiente frase. Después puntúa la llamada y te permite ensayar las partes difíciles con clientes potenciales de IA."
   },
-  "demo": {
-    "aria": "Ejemplo de una llamada en vivo con el copiloto de CallZen",
-    "live": "Llamada en vivo",
-    "replay": "Repetir",
-    "prospect": "Cliente potencial",
-    "you": "Tú",
-    "prospectOne": "Nos gusta lo que hemos visto. Sinceramente, el precio está <mark>muy por encima de lo que habíamos presupuestado</mark>.",
-    "youLine": "Es justo. ¿Con qué rango estabais trabajando? Mencionaste que el seguimiento lento te cuesta ventas, así que pongamos ambas cosas una al lado de la otra.",
-    "prospectTwo": "Unos cuarenta por usuario. Pero sí, <mark>perdimos dos renovaciones el trimestre pasado</mark> porque nadie devolvió la llamada a tiempo.",
-    "copilot": "Copiloto",
-    "script": "Guion",
-    "stages": {
-      "opening": "Apertura",
-      "discovery": "Descubrimiento",
-      "pitch": "Propuesta",
-      "objections": "Gestión de objeciones",
-      "close": "Cierre"
-    },
-    "objection": {
-      "kind": "Objeción de precio",
-      "why": "El cliente potencial dice que el precio supera su presupuesto."
-    },
-    "reply": {
-      "kind": "Respuesta sugerida",
-      "said": "Dicho",
-      "text": "«¿Con qué rango estabais trabajando? Comparémoslo con lo que os cuesta el seguimiento lento.»"
-    },
-    "signal": {
-      "kind": "Señal de compra",
-      "why": "Han dicho cuánto les cuesta el seguimiento lento. Pasa al cierre y ofrece una llamada de configuración."
-    }
-  },
   "ways": {
     "title": "Funciona con las llamadas que ya haces",
     "phone": {
