@@ -30,6 +30,14 @@
       "sandler": "Sandler",
       "custom": "Personnalisée / aucune"
     },
+    "methodologyDescription": {
+      "spin": "Pose des questions sur la Situation, le Problème, l'Implication et le Bénéfice pour faire percevoir la valeur de la solution.",
+      "bant": "Qualifie selon le Budget, l'Autorité, le Besoin et le Calendrier pour juger vite si un lead vaut la peine.",
+      "meddic": "Qualifie les ventes complexes via Métriques, Acheteur économique, Critères et Processus de décision, Douleur et Champion.",
+      "challenger": "Apporte un éclairage nouveau, adapte le message et mène la conversation pour changer la perception du prospect.",
+      "sandler": "Accords préalables, identification des douleurs et du budget, sans pression : le prospect se convainc lui-même.",
+      "custom": "Aucun cadre imposé. L'agent suit uniquement votre script et vos instructions."
+    },
     "scriptStage": {
       "opener": "Accroche",
       "pitch": "Argumentaire",

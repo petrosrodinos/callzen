@@ -30,6 +30,14 @@
       "sandler": "Sandler",
       "custom": "Personalizada / ninguna"
     },
+    "methodologyDescription": {
+      "spin": "Pregunta por Situación, Problema, Implicación y Beneficio para que el prospecto perciba el valor de resolver su problema.",
+      "bant": "Califica por Presupuesto, Autoridad, Necesidad y Plazo para decidir rápido si vale la pena avanzar con un lead.",
+      "meddic": "Califica ventas complejas con Métricas, Comprador económico, Criterios y Proceso de decisión, Dolor y Champion.",
+      "challenger": "Aporta una idea nueva, adapta el mensaje y toma el control de la conversación para cambiar cómo piensa el prospecto.",
+      "sandler": "Acuerdos previos, detecta dolor y presupuesto, y deja que el prospecto se convenza solo, sin presionar.",
+      "custom": "Sin marco fijo. El agente solo sigue tu guion e instrucciones."
+    },
     "scriptStage": {
       "opener": "Apertura",
       "pitch": "Propuesta de valor",

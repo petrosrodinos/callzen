@@ -30,6 +30,14 @@
       "sandler": "Sandler",
       "custom": "Anpassad / ingen"
     },
+    "methodologyDescription": {
+      "spin": "Frågar om Situation, Problem, Konsekvens och Nytta så att kunden känner värdet av en lösning.",
+      "bant": "Kvalificerar på Budget, Beslutsmandat, Behov och Tidsram för att snabbt avgöra om ett lead är värt att driva.",
+      "meddic": "Kvalificerar komplexa affärer via Mätetal, Ekonomisk köpare, Beslutskriterier och -process, Smärta och Champion.",
+      "challenger": "Lär kunden något nytt, anpassar budskapet och styr samtalet för att ändra hur kunden tänker.",
+      "sandler": "Tydliga överenskommelser i förväg, avslöjar smärta och budget utan press: kunden övertygar sig själv.",
+      "custom": "Inget fast ramverk. Agenten följer bara ditt manus och dina instruktioner."
+    },
     "scriptStage": {
       "opener": "Inledning",
       "pitch": "Pitch",

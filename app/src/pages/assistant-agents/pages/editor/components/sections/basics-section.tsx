@@ -21,7 +21,7 @@ import {
 import { FormSection } from "@/components/ui/form-section";
 import { LanguageMultiSelect } from "@/components/ui/language-multi-select";
 import type { Language } from "@/features/catalog/interfaces/catalog.interfaces";
-import { MethodologyFormOptions } from "@/config/constants/dropdowns/agents/methodology-form.options";
+import { MethodologyFormOptions, getMethodologyLabel } from "@/config/constants/dropdowns/agents/methodology-form.options";
 import type { AssistantAgentFormValues } from "../../../../validation-schemas/assistant-agent.schema";
 
 interface BasicsSectionProps {
@@ -114,13 +114,20 @@ export function BasicsSection({
               <Select value={field.value} onValueChange={field.onChange}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue />
+                    <SelectValue>
+                      {getMethodologyLabel(field.value)}
+                    </SelectValue>
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
                   {MethodologyFormOptions.map((option) => (
                     <SelectItem key={option.id} value={option.id}>
-                      {option.label}
+                      <div className="flex max-w-xs flex-col gap-0.5">
+                        <span>{option.label}</span>
+                        <span className="text-xs text-muted-foreground">
+                          {option.description}
+                        </span>
+                      </div>
                     </SelectItem>
                   ))}
                 </SelectContent>

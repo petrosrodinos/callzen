@@ -30,6 +30,14 @@
       "sandler": "Sandler",
       "custom": "Własna / brak"
     },
+    "methodologyDescription": {
+      "spin": "Pyta o Sytuację, Problem, Implikacje i Korzyści, aby klient poczuł wartość rozwiązania.",
+      "bant": "Kwalifikuje wg Budżetu, Uprawnień, Potrzeby i Terminu, by szybko ocenić, czy lead jest wart zachodu.",
+      "meddic": "Kwalifikuje złożone transakcje przez Metryki, Decydenta finansowego, Kryteria i Proces decyzji, Ból i Championa.",
+      "challenger": "Uczy klienta czegoś nowego, dopasowuje przekaz i prowadzi rozmowę, by zmienić jego sposób myślenia.",
+      "sandler": "Ustalenia z góry, odkrywanie problemów i budżetu, bez nacisku: klient sam się przekonuje.",
+      "custom": "Brak stałego schematu. Agent trzyma się tylko Twojego skryptu i instrukcji."
+    },
     "scriptStage": {
       "opener": "Otwarcie",
       "pitch": "Prezentacja oferty",

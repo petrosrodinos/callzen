@@ -30,6 +30,14 @@
       "sandler": "Sandler",
       "custom": "Aangepast / geen"
     },
+    "methodologyDescription": {
+      "spin": "Vraagt naar Situatie, Probleem, Implicatie en Behoefte-oplossing zodat de prospect de waarde van een oplossing voelt.",
+      "bant": "Kwalificeert op Budget, Autoriteit, Behoefte en Tijdlijn om snel te bepalen of een lead de moeite waard is.",
+      "meddic": "Kwalificeert complexe deals via Metrics, Economische koper, Beslissingscriteria en -proces, Pijnpunt en Champion.",
+      "challenger": "Leert de prospect iets nieuws, past de boodschap aan en stuurt het gesprek om zijn kijk te herformuleren.",
+      "sandler": "Vooraf afspraken maken, pijn en budget ontdekken, zonder druk: de prospect overtuigt zichzelf.",
+      "custom": "Geen vast kader. De agent volgt alleen jouw script en instructies."
+    },
     "scriptStage": {
       "opener": "Opening",
       "pitch": "Pitch",

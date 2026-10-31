@@ -30,6 +30,14 @@
       "sandler": "Sandler",
       "custom": "Personalizada / nenhuma"
     },
+    "methodologyDescription": {
+      "spin": "Pergunta sobre Situação, Problema, Implicação e Benefício para o prospect sentir o valor de resolver o problema.",
+      "bant": "Qualifica por Orçamento, Autoridade, Necessidade e Prazo para decidir rápido se um lead vale a pena.",
+      "meddic": "Qualifica negócios complexos com Métricas, Comprador económico, Critérios e Processo de decisão, Dor e Champion.",
+      "challenger": "Ensina algo novo ao prospect, adapta a mensagem e conduz a conversa para mudar a forma como ele pensa.",
+      "sandler": "Acordos prévios, descoberta de dor e orçamento, sem pressão: o prospect convence-se a si próprio.",
+      "custom": "Sem estrutura fixa. O agente segue apenas o seu guião e instruções."
+    },
     "scriptStage": {
       "opener": "Abertura",
       "pitch": "Apresentação",

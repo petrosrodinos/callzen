@@ -30,6 +30,14 @@
       "sandler": "Sandler",
       "custom": "Özel / yok"
     },
+    "methodologyDescription": {
+      "spin": "Durum, Sorun, Etki ve Fayda sorularıyla müşterinin çözümün değerini hissetmesini sağlar.",
+      "bant": "Bütçe, Yetki, İhtiyaç ve Zamanlamaya göre değerlendirerek bir lead'in değip değmediğine hızla karar verir.",
+      "meddic": "Karmaşık satışları Metrikler, Ekonomik alıcı, Karar kriterleri ve süreci, Sorun ve Champion ile değerlendirir.",
+      "challenger": "Müşteriye yeni bir bakış açısı sunar, mesajı uyarlar ve görüşmeyi yöneterek düşünce biçimini değiştirir.",
+      "sandler": "Baştan anlaşma yapar, sorun ve bütçeyi ortaya çıkarır; baskı yapmadan müşterinin kendini ikna etmesini sağlar.",
+      "custom": "Sabit bir çerçeve yok. Asistan yalnızca senaryonuzu ve talimatlarınızı izler."
+    },
     "scriptStage": {
       "opener": "Açılış",
       "pitch": "Sunum",

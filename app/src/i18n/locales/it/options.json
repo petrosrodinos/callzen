@@ -30,6 +30,14 @@
       "sandler": "Sandler",
       "custom": "Personalizzata / nessuna"
     },
+    "methodologyDescription": {
+      "spin": "Chiede di Situazione, Problema, Implicazione e Beneficio per far percepire al prospect il valore della soluzione.",
+      "bant": "Qualifica per Budget, Autorità, Necessità e Tempistica per capire subito se un lead vale la pena.",
+      "meddic": "Qualifica trattative complesse con Metriche, Buyer economico, Criteri e Processo decisionale, Problema e Champion.",
+      "challenger": "Offre al prospect una nuova prospettiva, personalizza il messaggio e guida la conversazione per cambiarne la visione.",
+      "sandler": "Accordi preliminari, emersione di problemi e budget, senza pressioni: è il prospect a convincersi da solo.",
+      "custom": "Nessuno schema fisso. L'agente segue solo il tuo script e le tue istruzioni."
+    },
     "scriptStage": {
       "opener": "Apertura",
       "pitch": "Pitch",

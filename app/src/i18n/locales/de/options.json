@@ -30,6 +30,14 @@
       "sandler": "Sandler",
       "custom": "Benutzerdefiniert / keine"
     },
+    "methodologyDescription": {
+      "spin": "Fragt nach Situation, Problem, Implikation und Nutzen, damit der Interessent den Wert einer Lösung spürt.",
+      "bant": "Qualifiziert nach Budget, Entscheidungsbefugnis, Bedarf und Zeitrahmen, um schnell zu klären, ob sich ein Lead lohnt.",
+      "meddic": "Qualifiziert komplexe Deals über Kennzahlen, Geldgeber, Entscheidungskriterien, -prozess, Schmerzpunkt und Champion.",
+      "challenger": "Vermittelt neue Erkenntnisse, passt die Botschaft an und führt das Gespräch, um die Sichtweise des Interessenten neu zu rahmen.",
+      "sandler": "Klare Vorab-Vereinbarungen, Schmerzpunkte und Budget aufdecken; der Interessent überzeugt sich selbst, ganz ohne Druck.",
+      "custom": "Kein festes Schema. Der Agent folgt nur deinem Skript und deinen Anweisungen."
+    },
     "scriptStage": {
       "opener": "Einstieg",
       "pitch": "Pitch",

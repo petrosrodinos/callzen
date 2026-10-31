@@ -30,6 +30,14 @@
       "sandler": "Sandler",
       "custom": "Personalizată / niciuna"
     },
+    "methodologyDescription": {
+      "spin": "Întreabă despre Situație, Problemă, Implicații și Beneficii pentru ca prospectul să simtă valoarea soluției.",
+      "bant": "Califică după Buget, Autoritate, Nevoie și Termen pentru a decide rapid dacă un lead merită urmărit.",
+      "meddic": "Califică tranzacții complexe prin Metrici, Cumpărător economic, Criterii și Proces de decizie, Durere și Champion.",
+      "challenger": "Oferă prospectului o perspectivă nouă, adaptează mesajul și conduce conversația pentru a-i schimba viziunea.",
+      "sandler": "Înțelegeri din start, descoperirea problemelor și a bugetului, fără presiune: prospectul se convinge singur.",
+      "custom": "Fără cadru fix. Agentul urmează doar scriptul și instrucțiunile tale."
+    },
     "scriptStage": {
       "opener": "Deschidere",
       "pitch": "Prezentarea ofertei",

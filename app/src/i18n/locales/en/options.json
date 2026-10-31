@@ -30,6 +30,14 @@
       "sandler": "Sandler",
       "custom": "Custom / none"
     },
+    "methodologyDescription": {
+      "spin": "Asks about Situation, Problem, Implication and Need-payoff to help the prospect feel the value of solving their problem.",
+      "bant": "Qualifies on Budget, Authority, Need and Timeline to quickly decide if a lead is worth pursuing.",
+      "meddic": "Qualifies complex deals via Metrics, Economic buyer, Decision criteria, Decision process, Identified pain and Champion.",
+      "challenger": "Teaches the prospect something new, tailors the message and takes control of the conversation to reframe how they think.",
+      "sandler": "Up-front contracts, uncovers pain and budget, and lets the prospect sell themselves while avoiding pushy tactics.",
+      "custom": "No fixed framework. The agent follows only your script and instructions."
+    },
     "scriptStage": {
       "opener": "Opener",
       "pitch": "Pitch",
