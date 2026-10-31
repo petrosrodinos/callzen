@@ -134,7 +134,10 @@
       "analyzing": "Wird analysiert",
       "analyzed": "Analysiert",
       "analysisFailed": "Analyse fehlgeschlagen",
-      "ended": "Nicht analysiert"
+      "ended": "Nicht analysiert",
+      "queued": "In Warteschlange",
+      "transcribing": "Wird transkribiert",
+      "transcriptionFailed": "Transkription fehlgeschlagen"
     },
     "typeFilter": {
       "all": "Alle Anruftypen"
@@ -142,11 +145,13 @@
     "type": {
       "onlineMeeting": "Online-Meeting",
       "microphone": "Telefon / Mikrofon",
-      "practice": "Übungssitzung"
+      "practice": "Übungssitzung",
+      "upload": "Hochgeladene Aufnahme"
     },
     "typeDescription": {
       "microphone": "Ein Anruf über den Lautsprecher Ihres Telefons oder eines anderen Geräts. CallZen hört über das Mikrofon dieses Geräts mit. Am besten für Kaltakquise.",
-      "onlineMeeting": "Google Meet, Zoom, Teams oder jedes andere Web-Meeting. Sie teilen den Ton des Meeting-Tabs, sodass beide Seiten getrennt aufgezeichnet werden."
+      "onlineMeeting": "Google Meet, Zoom, Teams oder jedes andere Web-Meeting. Sie teilen den Ton des Meeting-Tabs, sodass beide Seiten getrennt aufgezeichnet werden.",
+      "upload": "Sie haben schon eine Aufnahme? Laden Sie eine mp3-, m4a- oder wav-Datei hoch und erhalten Sie dasselbe Transkript und denselben Leistungsbericht."
     },
     "speaker": {
       "user": "Sie",

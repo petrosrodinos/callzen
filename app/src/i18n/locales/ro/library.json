@@ -64,7 +64,14 @@
       "noAnalysis": "Nu există analiză pentru acest apel",
       "safe": "Înregistrarea și transcrierea ta sunt în siguranță.",
       "canRetry": "Poți încerca din nou.",
-      "retry": "Reîncearcă analiza"
+      "retry": "Reîncearcă analiza",
+      "queued": "Așteaptă în coadă…",
+      "queuedHint": "Înregistrarea ta va fi transcrisă în scurt timp. Poți părăsi această pagină.",
+      "transcribing": "Se transcrie înregistrarea ta…",
+      "transcribingHint": "Înregistrările lungi pot dura câteva minute. Poți părăsi această pagină; raportul va fi gata în biblioteca ta.",
+      "transcriptionFailed": "Transcrierea nu s-a finalizat",
+      "noTranscript": "Nu există transcriere pentru acest apel",
+      "retryTranscription": "Reîncearcă transcrierea"
     },
     "header": {
       "back": "Bibliotecă de apeluri",

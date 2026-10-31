@@ -64,7 +64,9 @@
     "objectiveMet": "Obiectiv atins",
     "notMet": "Neatins",
     "analyzing": "Se analizează",
-    "live": "Live"
+    "live": "Live",
+    "queued": "În coadă",
+    "transcribing": "Se transcrie"
   },
   "languageSelect": {
     "label": "Limbă",
@@ -239,7 +241,12 @@
       "couldNotDeleteTheTranscript": "Nu s-a putut șterge transcrierea",
       "analysisStarted": "Analiză începută",
       "thisUsuallyTakesUnderAMinute": "De obicei durează sub un minut.",
-      "couldNotStartTheAnalysis": "Nu s-a putut porni analiza"
+      "couldNotStartTheAnalysis": "Nu s-a putut porni analiza",
+      "recordingUploadedForAnalysis": "Înregistrare încărcată",
+      "weAreTranscribingIt": "O transcriem acum.",
+      "couldNotUploadTheRecording": "Nu s-a putut încărca înregistrarea",
+      "transcriptionRestarted": "Transcrierea a repornit",
+      "couldNotRetryTheTranscription": "Nu s-a putut reîncerca transcrierea"
     },
     "organisations": {
       "roleUpdated": "Rol actualizat",
@@ -341,7 +348,9 @@
       "failedToStartTheAnalysis": "Nu s-a putut porni analiza.",
       "couldNotStartTheRealtimeAudio": "Nu s-a putut porni sesiunea audio în timp real.",
       "theProspectDidNotRespondTry": "Prospectul nu a răspuns. Încearcă din nou.",
-      "couldNotConnectToTheRealtime": "Nu s-a putut conecta la serviciul audio în timp real."
+      "couldNotConnectToTheRealtime": "Nu s-a putut conecta la serviciul audio în timp real.",
+      "failedToUploadTheCall": "Încărcarea înregistrării a eșuat.",
+      "failedToRetryTheTranscription": "Reîncercarea transcrierii a eșuat."
     },
     "dashboard": {
       "failedToLoadYourProgress": "Nu s-a putut încărca progresul tău."

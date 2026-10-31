@@ -3,6 +3,9 @@ import i18n from "@/i18n";
 
 export const CallStatusOptions: { id: CallStatus; label: string }[] = [
     { id: CallStatuses.IN_PROGRESS, label: i18n.t("options:calls.status.inProgress") },
+    { id: CallStatuses.QUEUED, label: i18n.t("options:calls.status.queued") },
+    { id: CallStatuses.TRANSCRIBING, label: i18n.t("options:calls.status.transcribing") },
+    { id: CallStatuses.TRANSCRIPTION_FAILED, label: i18n.t("options:calls.status.transcriptionFailed") },
     { id: CallStatuses.ANALYZING, label: i18n.t("options:calls.status.analyzing") },
     { id: CallStatuses.ANALYZED, label: i18n.t("options:calls.status.analyzed") },
     { id: CallStatuses.ANALYSIS_FAILED, label: i18n.t("options:calls.status.analysisFailed") },

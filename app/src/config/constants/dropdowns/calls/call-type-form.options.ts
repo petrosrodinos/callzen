@@ -5,6 +5,7 @@ export const CallTypeFormOptions: { id: CallType; label: string }[] = [
     { id: CallTypes.ONLINE_MEETING, label: i18n.t("options:calls.type.onlineMeeting") },
     { id: CallTypes.MICROPHONE, label: i18n.t("options:calls.type.microphone") },
     { id: CallTypes.PRACTICE, label: i18n.t("options:calls.type.practice") },
+    { id: CallTypes.UPLOAD, label: i18n.t("options:calls.type.upload") },
 ];
 
 export function getCallTypeLabel(value: CallType | string | null | undefined): string {
@@ -21,5 +22,10 @@ export const LiveCallTypeDescriptionOptions: { id: CallType; label: string; desc
         id: CallTypes.ONLINE_MEETING,
         label: i18n.t("options:calls.type.onlineMeeting"),
         description: i18n.t("options:calls.typeDescription.onlineMeeting"),
+    },
+    {
+        id: CallTypes.UPLOAD,
+        label: i18n.t("options:calls.type.upload"),
+        description: i18n.t("options:calls.typeDescription.upload"),
     },
 ];

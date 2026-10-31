@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -35,6 +36,8 @@ import { ZodValidationPipe } from '@/shared/pipes/zod.validation.pipe';
 import { CallsService } from './services/calls.service';
 import { CopilotService } from './services/copilot.service';
 import { CallAnalysisService } from './services/call-analysis.service';
+import { CallTranscriptionService } from './services/call-transcription.service';
+import { UploadCallDto } from './dto/upload-call.dto';
 import { PracticeSessionService } from './services/practice-session.service';
 import { CreateCallDto, CreatePracticeCallDto } from './dto/create-call.dto';
 import { UpdateCallDto } from './dto/update-call.dto';
@@ -53,6 +56,8 @@ import {
 import { CallQuerySchema, type CallQueryType } from './dto/call-query.schema';
 
 const MAX_RECORDING_BYTES = 300 * 1024 * 1024;
+const UPLOAD_EXTENSIONS =
+  /\.(mp3|m4a|mp4|wav|webm|ogg|oga|aac|flac|opus|mpeg|mpga)$/i;
 
 @ApiTags('Calls')
 @ApiBearerAuth()
@@ -63,6 +68,7 @@ export class CallsController {
     private readonly callsService: CallsService,
     private readonly copilotService: CopilotService,
     private readonly analysisService: CallAnalysisService,
+    private readonly transcriptionService: CallTranscriptionService,
     private readonly practiceSessionService: PracticeSessionService,
   ) {}
 
@@ -71,6 +77,36 @@ export class CallsController {
   @ApiOperation({ summary: 'Start a live call (online meeting or microphone)' })
   startLive(@Org() ctx: OrgContext, @Body() dto: CreateCallDto) {
     return this.callsService.startLive(ctx, dto);
+  }
+
+  @RequirePermissions(Permissions.CALLS_CREATE)
+  @Post('upload')
+  @ApiOperation({
+    summary:
+      'Upload an existing recording to be transcribed and analyzed in the background',
+  })
+  @ApiConsumes('multipart/form-data')
+  @ApiBody({ type: UploadCallDto })
+  @UseInterceptors(
+    FileInterceptor('file', { limits: { fileSize: MAX_RECORDING_BYTES } }),
+  )
+  startUpload(
+    @Org() ctx: OrgContext,
+    @Body() dto: UploadCallDto,
+    @UploadedFile(
+      new ParseFilePipe({
+        validators: [
+          new MaxFileSizeValidator({ maxSize: MAX_RECORDING_BYTES }),
+        ],
+      }),
+    )
+    file: Express.Multer.File,
+  ) {
+    if (!UPLOAD_EXTENSIONS.test(file.originalname ?? ''))
+      throw new BadRequestException(
+        'Unsupported file type. Upload an mp3, m4a, wav, webm, ogg or aac recording.',
+      );
+    return this.callsService.startUpload(ctx, dto, file);
   }
 
   @RequirePermissions(Permissions.CALLS_CREATE)
@@ -307,6 +343,15 @@ export class CallsController {
     @Body() dto: RerunAnalysisDto,
   ) {
     return this.analysisService.rerun(ctx, id, dto);
+  }
+
+  @Post(':id/transcription/retry')
+  @ApiOperation({ summary: 'Retry the transcription of an uploaded recording' })
+  retryTranscription(
+    @Org() ctx: OrgContext,
+    @Param('id', ParseUUIDPipe) id: string,
+  ) {
+    return this.transcriptionService.retry(ctx, id);
   }
 
   @Post(':id/realtime-session')

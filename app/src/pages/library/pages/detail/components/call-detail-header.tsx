@@ -34,7 +34,7 @@ import {
 import { formatDateTime, formatDuration } from "@/lib/date";
 import {
   CallKinds,
-  CallStatuses,
+  isCallProcessing,
   type Call,
   type CallOutcome,
 } from "@/features/calls/interfaces/calls.interfaces";
@@ -74,7 +74,7 @@ export function CallDetailHeader({
   const fromCall = useCreatePracticeAgentFromCall();
   const harder = useHarderPracticeAgent();
   const isPractice = call.kind === CallKinds.PRACTICE;
-  const busy = call.status === CallStatuses.ANALYZING;
+  const busy = isCallProcessing(call.status);
   const { can } = usePermissions();
   const canManage = call.owner.is_you || can(Permissions.CALLS_MANAGE_ALL);
   const canPractise = can(Permissions.CALLS_CREATE);

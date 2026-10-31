@@ -134,7 +134,10 @@
       "analyzing": "Se analizează",
       "analyzed": "Analizat",
       "analysisFailed": "Analiza a eșuat",
-      "ended": "Neanalizat"
+      "ended": "Neanalizat",
+      "queued": "În coadă",
+      "transcribing": "Se transcrie",
+      "transcriptionFailed": "Transcrierea a eșuat"
     },
     "typeFilter": {
       "all": "Toate tipurile de apeluri"
@@ -142,11 +145,13 @@
     "type": {
       "onlineMeeting": "Întâlnire online",
       "microphone": "Telefon / microfon",
-      "practice": "Sesiune de exersare"
+      "practice": "Sesiune de exersare",
+      "upload": "Înregistrare încărcată"
     },
     "typeDescription": {
       "microphone": "Un apel pe difuzorul telefonului sau al altui dispozitiv. CallZen ascultă prin microfonul acestui dispozitiv. Ideal pentru apelurile la rece.",
-      "onlineMeeting": "Google Meet, Zoom, Teams sau orice întâlnire web. Partajezi sunetul filei întâlnirii, astfel încât ambele părți sunt captate separat."
+      "onlineMeeting": "Google Meet, Zoom, Teams sau orice întâlnire web. Partajezi sunetul filei întâlnirii, astfel încât ambele părți sunt captate separat.",
+      "upload": "Ai deja o înregistrare? Încarcă un fișier mp3, m4a sau wav și primești aceeași transcriere și același raport de performanță."
     },
     "speaker": {
       "user": "Tu",

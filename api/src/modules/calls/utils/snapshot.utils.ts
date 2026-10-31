@@ -123,7 +123,7 @@ export const buildCallContext = (call: {
   kind: string;
 }): string =>
   [
-    `Call type: ${call.kind === 'PRACTICE' ? 'practice session (AI prospect)' : call.call_type === 'MICROPHONE' ? 'phone call captured by microphone' : 'online meeting'}`,
+    `Call type: ${call.kind === 'PRACTICE' ? 'practice session (AI prospect)' : call.call_type === 'MICROPHONE' ? 'phone call captured by microphone' : call.call_type === 'UPLOAD' ? 'uploaded recording of a sales call (speakers were labelled automatically)' : 'online meeting'}`,
     `Prospect: ${call.prospect_name || 'unknown'}${call.prospect_role ? `, ${call.prospect_role}` : ''}${call.prospect_company ? ` at ${call.prospect_company}` : ''}`,
     call.goal && `Goal of this call: ${call.goal}`,
     call.context_notes && `Notes: ${call.context_notes}`,

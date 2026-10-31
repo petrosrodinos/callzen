@@ -187,7 +187,8 @@ export type CallKind = (typeof CallKind)[keyof typeof CallKind]
 export const CallType: {
   ONLINE_MEETING: 'ONLINE_MEETING',
   MICROPHONE: 'MICROPHONE',
-  PRACTICE: 'PRACTICE'
+  PRACTICE: 'PRACTICE',
+  UPLOAD: 'UPLOAD'
 };
 
 export type CallType = (typeof CallType)[keyof typeof CallType]
@@ -195,6 +196,9 @@ export type CallType = (typeof CallType)[keyof typeof CallType]
 
 export const CallStatus: {
   IN_PROGRESS: 'IN_PROGRESS',
+  QUEUED: 'QUEUED',
+  TRANSCRIBING: 'TRANSCRIBING',
+  TRANSCRIPTION_FAILED: 'TRANSCRIPTION_FAILED',
   ANALYZING: 'ANALYZING',
   ANALYZED: 'ANALYZED',
   ANALYSIS_FAILED: 'ANALYSIS_FAILED',
@@ -9404,6 +9408,8 @@ export namespace Prisma {
     recording_size: number | null
     user_notes: string | null
     analysis_error: string | null
+    transcription_error: string | null
+    source_filename: string | null
     created_at: Date | null
     updated_at: Date | null
   }
@@ -9439,6 +9445,8 @@ export namespace Prisma {
     recording_size: number | null
     user_notes: string | null
     analysis_error: string | null
+    transcription_error: string | null
+    source_filename: string | null
     created_at: Date | null
     updated_at: Date | null
   }
@@ -9475,6 +9483,8 @@ export namespace Prisma {
     user_notes: number
     script_progress: number
     analysis_error: number
+    transcription_error: number
+    source_filename: number
     agent_snapshot: number
     practice_snapshot: number
     created_at: number
@@ -9524,6 +9534,8 @@ export namespace Prisma {
     recording_size?: true
     user_notes?: true
     analysis_error?: true
+    transcription_error?: true
+    source_filename?: true
     created_at?: true
     updated_at?: true
   }
@@ -9559,6 +9571,8 @@ export namespace Prisma {
     recording_size?: true
     user_notes?: true
     analysis_error?: true
+    transcription_error?: true
+    source_filename?: true
     created_at?: true
     updated_at?: true
   }
@@ -9595,6 +9609,8 @@ export namespace Prisma {
     user_notes?: true
     script_progress?: true
     analysis_error?: true
+    transcription_error?: true
+    source_filename?: true
     agent_snapshot?: true
     practice_snapshot?: true
     created_at?: true
@@ -9720,6 +9736,8 @@ export namespace Prisma {
     user_notes: string | null
     script_progress: JsonValue
     analysis_error: string | null
+    transcription_error: string | null
+    source_filename: string | null
     agent_snapshot: JsonValue | null
     practice_snapshot: JsonValue | null
     created_at: Date
@@ -9777,6 +9795,8 @@ export namespace Prisma {
     user_notes?: boolean
     script_progress?: boolean
     analysis_error?: boolean
+    transcription_error?: boolean
+    source_filename?: boolean
     agent_snapshot?: boolean
     practice_snapshot?: boolean
     created_at?: boolean
@@ -9824,6 +9844,8 @@ export namespace Prisma {
     user_notes?: boolean
     script_progress?: boolean
     analysis_error?: boolean
+    transcription_error?: boolean
+    source_filename?: boolean
     agent_snapshot?: boolean
     practice_snapshot?: boolean
     created_at?: boolean
@@ -9866,6 +9888,8 @@ export namespace Prisma {
     user_notes?: boolean
     script_progress?: boolean
     analysis_error?: boolean
+    transcription_error?: boolean
+    source_filename?: boolean
     agent_snapshot?: boolean
     practice_snapshot?: boolean
     created_at?: boolean
@@ -9908,13 +9932,15 @@ export namespace Prisma {
     user_notes?: boolean
     script_progress?: boolean
     analysis_error?: boolean
+    transcription_error?: boolean
+    source_filename?: boolean
     agent_snapshot?: boolean
     practice_snapshot?: boolean
     created_at?: boolean
     updated_at?: boolean
   }
 
-  export type CallOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "organisation_id" | "user_id" | "kind" | "call_type" | "status" | "assistant_agent_id" | "practice_agent_id" | "copilot_enabled" | "title" | "prospect_name" | "prospect_company" | "prospect_role" | "context_notes" | "goal" | "prior_call_id" | "language" | "started_at" | "ended_at" | "duration_seconds" | "ended_reason" | "outcome" | "custom_outcome" | "objective_achieved" | "keep_recording" | "recording_path" | "recording_mime" | "recording_size" | "user_notes" | "script_progress" | "analysis_error" | "agent_snapshot" | "practice_snapshot" | "created_at" | "updated_at", ExtArgs["result"]["call"]>
+  export type CallOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "organisation_id" | "user_id" | "kind" | "call_type" | "status" | "assistant_agent_id" | "practice_agent_id" | "copilot_enabled" | "title" | "prospect_name" | "prospect_company" | "prospect_role" | "context_notes" | "goal" | "prior_call_id" | "language" | "started_at" | "ended_at" | "duration_seconds" | "ended_reason" | "outcome" | "custom_outcome" | "objective_achieved" | "keep_recording" | "recording_path" | "recording_mime" | "recording_size" | "user_notes" | "script_progress" | "analysis_error" | "transcription_error" | "source_filename" | "agent_snapshot" | "practice_snapshot" | "created_at" | "updated_at", ExtArgs["result"]["call"]>
   export type CallInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -9983,6 +10009,8 @@ export namespace Prisma {
       user_notes: string | null
       script_progress: Prisma.JsonValue
       analysis_error: string | null
+      transcription_error: string | null
+      source_filename: string | null
       agent_snapshot: Prisma.JsonValue | null
       practice_snapshot: Prisma.JsonValue | null
       created_at: Date
@@ -10449,6 +10477,8 @@ export namespace Prisma {
     readonly user_notes: FieldRef<"Call", 'String'>
     readonly script_progress: FieldRef<"Call", 'Json'>
     readonly analysis_error: FieldRef<"Call", 'String'>
+    readonly transcription_error: FieldRef<"Call", 'String'>
+    readonly source_filename: FieldRef<"Call", 'String'>
     readonly agent_snapshot: FieldRef<"Call", 'Json'>
     readonly practice_snapshot: FieldRef<"Call", 'Json'>
     readonly created_at: FieldRef<"Call", 'DateTime'>
@@ -21670,6 +21700,8 @@ export namespace Prisma {
     user_notes: 'user_notes',
     script_progress: 'script_progress',
     analysis_error: 'analysis_error',
+    transcription_error: 'transcription_error',
+    source_filename: 'source_filename',
     agent_snapshot: 'agent_snapshot',
     practice_snapshot: 'practice_snapshot',
     created_at: 'created_at',
@@ -22932,6 +22964,8 @@ export namespace Prisma {
     user_notes?: StringNullableFilter<"Call"> | string | null
     script_progress?: JsonFilter<"Call">
     analysis_error?: StringNullableFilter<"Call"> | string | null
+    transcription_error?: StringNullableFilter<"Call"> | string | null
+    source_filename?: StringNullableFilter<"Call"> | string | null
     agent_snapshot?: JsonNullableFilter<"Call">
     practice_snapshot?: JsonNullableFilter<"Call">
     created_at?: DateTimeFilter<"Call"> | Date | string
@@ -22978,6 +23012,8 @@ export namespace Prisma {
     user_notes?: SortOrderInput | SortOrder
     script_progress?: SortOrder
     analysis_error?: SortOrderInput | SortOrder
+    transcription_error?: SortOrderInput | SortOrder
+    source_filename?: SortOrderInput | SortOrder
     agent_snapshot?: SortOrderInput | SortOrder
     practice_snapshot?: SortOrderInput | SortOrder
     created_at?: SortOrder
@@ -23027,6 +23063,8 @@ export namespace Prisma {
     user_notes?: StringNullableFilter<"Call"> | string | null
     script_progress?: JsonFilter<"Call">
     analysis_error?: StringNullableFilter<"Call"> | string | null
+    transcription_error?: StringNullableFilter<"Call"> | string | null
+    source_filename?: StringNullableFilter<"Call"> | string | null
     agent_snapshot?: JsonNullableFilter<"Call">
     practice_snapshot?: JsonNullableFilter<"Call">
     created_at?: DateTimeFilter<"Call"> | Date | string
@@ -23073,6 +23111,8 @@ export namespace Prisma {
     user_notes?: SortOrderInput | SortOrder
     script_progress?: SortOrder
     analysis_error?: SortOrderInput | SortOrder
+    transcription_error?: SortOrderInput | SortOrder
+    source_filename?: SortOrderInput | SortOrder
     agent_snapshot?: SortOrderInput | SortOrder
     practice_snapshot?: SortOrderInput | SortOrder
     created_at?: SortOrder
@@ -23119,6 +23159,8 @@ export namespace Prisma {
     user_notes?: StringNullableWithAggregatesFilter<"Call"> | string | null
     script_progress?: JsonWithAggregatesFilter<"Call">
     analysis_error?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    transcription_error?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    source_filename?: StringNullableWithAggregatesFilter<"Call"> | string | null
     agent_snapshot?: JsonNullableWithAggregatesFilter<"Call">
     practice_snapshot?: JsonNullableWithAggregatesFilter<"Call">
     created_at?: DateTimeWithAggregatesFilter<"Call"> | Date | string
@@ -24720,6 +24762,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -24766,6 +24810,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -24804,6 +24850,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -24850,6 +24898,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -24892,6 +24942,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -24926,6 +24978,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -24964,6 +25018,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -26716,6 +26772,8 @@ export namespace Prisma {
     user_notes?: SortOrder
     script_progress?: SortOrder
     analysis_error?: SortOrder
+    transcription_error?: SortOrder
+    source_filename?: SortOrder
     agent_snapshot?: SortOrder
     practice_snapshot?: SortOrder
     created_at?: SortOrder
@@ -26758,6 +26816,8 @@ export namespace Prisma {
     recording_size?: SortOrder
     user_notes?: SortOrder
     analysis_error?: SortOrder
+    transcription_error?: SortOrder
+    source_filename?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
   }
@@ -26793,6 +26853,8 @@ export namespace Prisma {
     recording_size?: SortOrder
     user_notes?: SortOrder
     analysis_error?: SortOrder
+    transcription_error?: SortOrder
+    source_filename?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
   }
@@ -29587,6 +29649,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -29631,6 +29695,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -29947,6 +30013,8 @@ export namespace Prisma {
     user_notes?: StringNullableFilter<"Call"> | string | null
     script_progress?: JsonFilter<"Call">
     analysis_error?: StringNullableFilter<"Call"> | string | null
+    transcription_error?: StringNullableFilter<"Call"> | string | null
+    source_filename?: StringNullableFilter<"Call"> | string | null
     agent_snapshot?: JsonNullableFilter<"Call">
     practice_snapshot?: JsonNullableFilter<"Call">
     created_at?: DateTimeFilter<"Call"> | Date | string
@@ -30268,6 +30336,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -30312,6 +30382,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -30735,6 +30807,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -30779,6 +30853,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -31812,6 +31888,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -31857,6 +31935,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -31910,6 +31990,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -31955,6 +32037,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -31992,6 +32076,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -32037,6 +32123,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -32090,6 +32178,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32135,6 +32225,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32172,6 +32264,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -32217,6 +32311,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -32270,6 +32366,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32315,6 +32413,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32352,6 +32452,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -32397,6 +32499,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -32450,6 +32554,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32495,6 +32601,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32972,6 +33080,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -33016,6 +33126,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -33727,6 +33839,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -34047,6 +34161,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -34091,6 +34207,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -34132,6 +34250,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -34280,6 +34400,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -34358,6 +34480,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -34402,6 +34526,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -34443,6 +34569,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -34614,6 +34742,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -34648,6 +34778,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -34692,6 +34824,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -34733,6 +34867,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -35002,6 +35138,8 @@ export namespace Prisma {
     user_notes?: string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: string | null
+    transcription_error?: string | null
+    source_filename?: string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -35367,6 +35505,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -35411,6 +35551,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -35452,6 +35594,8 @@ export namespace Prisma {
     user_notes?: NullableStringFieldUpdateOperationsInput | string | null
     script_progress?: JsonNullValueInput | InputJsonValue
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
+    transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
+    source_filename?: NullableStringFieldUpdateOperationsInput | string | null
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string

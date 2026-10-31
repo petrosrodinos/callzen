@@ -7,6 +7,7 @@ import {
   Loader2,
   Mic,
   MonitorSmartphone,
+  Upload,
   XCircle,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -28,6 +29,7 @@ const TYPE_ICONS = {
   [CallTypes.ONLINE_MEETING]: MonitorSmartphone,
   [CallTypes.MICROPHONE]: Mic,
   [CallTypes.PRACTICE]: Headphones,
+  [CallTypes.UPLOAD]: Upload,
 };
 
 export function CallRow({ call }: { call: CallListItem }) {
@@ -103,7 +105,12 @@ export function CallRow({ call }: { call: CallListItem }) {
         )}
       </div>
       <div className="flex shrink-0 items-center gap-1.5">
-        {call.status === CallStatuses.ANALYZING ? (
+        {call.status === CallStatuses.QUEUED || call.status === CallStatuses.TRANSCRIBING ? (
+          <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
+            <Loader2 className="size-3.5 animate-spin" />
+            <span className="hidden sm:inline">{call.status === CallStatuses.QUEUED ? i18n.t("common:callRow.queued") : i18n.t("common:callRow.transcribing")}</span>
+          </span>
+        ) : call.status === CallStatuses.ANALYZING ? (
           <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
             <Loader2 className="size-3.5 animate-spin" />
             <span className="hidden sm:inline">{i18n.t("common:callRow.analyzing")}</span>

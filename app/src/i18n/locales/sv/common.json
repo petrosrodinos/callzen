@@ -64,7 +64,9 @@
     "objectiveMet": "Målet uppnått",
     "notMet": "Ej uppnått",
     "analyzing": "Analyserar",
-    "live": "Live"
+    "live": "Live",
+    "queued": "I kö",
+    "transcribing": "Transkriberar"
   },
   "languageSelect": {
     "label": "Språk",
@@ -237,7 +239,12 @@
       "couldNotDeleteTheTranscript": "Det gick inte att ta bort transkriptionen",
       "analysisStarted": "Analysen har startat",
       "thisUsuallyTakesUnderAMinute": "Det tar vanligtvis under en minut.",
-      "couldNotStartTheAnalysis": "Det gick inte att starta analysen"
+      "couldNotStartTheAnalysis": "Det gick inte att starta analysen",
+      "recordingUploadedForAnalysis": "Inspelningen laddades upp",
+      "weAreTranscribingIt": "Vi transkriberar den nu.",
+      "couldNotUploadTheRecording": "Det gick inte att ladda upp inspelningen",
+      "transcriptionRestarted": "Transkriberingen startades om",
+      "couldNotRetryTheTranscription": "Det gick inte att försöka transkribera igen"
     },
     "organisations": {
       "roleUpdated": "Rollen uppdaterades",
@@ -339,7 +346,9 @@
       "failedToStartTheAnalysis": "Det gick inte att starta analysen.",
       "couldNotStartTheRealtimeAudio": "Det gick inte att starta realtidsljudsessionen.",
       "theProspectDidNotRespondTry": "Prospekten svarade inte. Försök igen.",
-      "couldNotConnectToTheRealtime": "Det gick inte att ansluta till realtidsljudtjänsten."
+      "couldNotConnectToTheRealtime": "Det gick inte att ansluta till realtidsljudtjänsten.",
+      "failedToUploadTheCall": "Det gick inte att ladda upp inspelningen.",
+      "failedToRetryTheTranscription": "Det gick inte att försöka transkribera igen."
     },
     "dashboard": {
       "failedToLoadYourProgress": "Det gick inte att läsa in dina framsteg."

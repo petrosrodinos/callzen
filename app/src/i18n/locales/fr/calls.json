@@ -104,6 +104,18 @@
     },
     "footerMeeting": "Ensuite, choisissez l'onglet de votre réunion et activez « Partager l'audio de l'onglet ».",
     "footerMic": "Mettez votre téléphone sur haut-parleur près de cet appareil.",
-    "startCall": "Démarrer l'appel"
+    "startCall": "Démarrer l'appel",
+    "upload": {
+      "title": "Fichier d'enregistrement",
+      "dropzone": "Déposez un fichier audio ici ou cliquez pour parcourir",
+      "formats": "mp3, m4a, wav, webm, ogg ou aac, jusqu'à 300 Mo",
+      "remove": "Retirer le fichier",
+      "submit": "Importer et analyser",
+      "uploading": "Importation… {{percent}} %",
+      "footer": "Nous transcrivons l'enregistrement en arrière-plan et préparons votre rapport. Vous pouvez quitter cette page.",
+      "fileRequired": "Choisissez un enregistrement à importer",
+      "tooLarge": "Ce fichier dépasse 300 Mo",
+      "unsupported": "Type de fichier non pris en charge"
+    }
   }
 }

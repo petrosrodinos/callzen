@@ -63,7 +63,14 @@
       "noAnalysis": "Sem análise para esta chamada",
       "safe": "A sua gravação e transcrição estão seguras.",
       "canRetry": "Pode tentar novamente.",
-      "retry": "Repetir análise"
+      "retry": "Repetir análise",
+      "queued": "Aguardando na fila…",
+      "queuedHint": "Sua gravação será transcrita em breve. Você pode sair desta página.",
+      "transcribing": "Transcrevendo sua gravação…",
+      "transcribingHint": "Gravações longas podem levar alguns minutos. Você pode sair desta página; o relatório estará pronto na sua biblioteca.",
+      "transcriptionFailed": "A transcrição não foi concluída",
+      "noTranscript": "Sem transcrição para esta chamada",
+      "retryTranscription": "Tentar transcrição novamente"
     },
     "header": {
       "back": "Biblioteca de chamadas",

@@ -72,6 +72,7 @@ export const ApiRoutes = {
     calls: {
         prefix: "/calls",
         practice: "/calls/practice",
+        upload: "/calls/upload",
         detail: (id: string) => `/calls/${id}`,
         end: (id: string) => `/calls/${id}/end`,
         segments: (id: string) => `/calls/${id}/segments`,
@@ -84,6 +85,7 @@ export const ApiRoutes = {
         bookmark: (id: string, bookmarkId: string) => `/calls/${id}/bookmarks/${bookmarkId}`,
         recording: (id: string) => `/calls/${id}/recording`,
         analysis: (id: string) => `/calls/${id}/analysis`,
+        transcription_retry: (id: string) => `/calls/${id}/transcription/retry`,
         realtime_session: (id: string) => `/calls/${id}/realtime-session`,
         practice_turn: (id: string) => `/calls/${id}/practice-turn`,
     },

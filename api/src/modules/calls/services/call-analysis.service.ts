@@ -1,9 +1,7 @@
-import {
-  BadRequestException,
-  Injectable,
-  Logger,
-  OnApplicationBootstrap,
-} from '@nestjs/common';
+import { BadRequestException, Injectable, Logger } from '@nestjs/common';
+import { InjectQueue } from '@nestjs/bullmq';
+import { Queue } from 'bullmq';
+import { CALL_ANALYSIS_QUEUE } from '@/core/queues/queues.constants';
 import { OrgContext } from '@/shared/interfaces/org-context.interface';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
 import { z } from 'zod';
@@ -48,34 +46,28 @@ import {
 import { RerunAnalysisDto } from '../dto/call-session.dto';
 import { clamp } from '@/shared/utils/math/math.utils';
 
-interface AnalysisOptions {
+export interface AnalysisOptions {
   model?: string;
   useCurrentCriteria?: boolean;
 }
 
+export interface AnalysisJobData extends AnalysisOptions {
+  callId: string;
+}
+
+export const ANALYSIS_JOB_ATTEMPTS = 2;
+
 @Injectable()
-export class CallAnalysisService implements OnApplicationBootstrap {
+export class CallAnalysisService {
   private readonly logger = new Logger(CallAnalysisService.name);
-  private readonly running = new Set<string>();
 
   constructor(
     private readonly prisma: PrismaService,
     private readonly aiService: AiService,
     private readonly usageService: UsageService,
+    @InjectQueue(CALL_ANALYSIS_QUEUE)
+    private readonly analysisQueue: Queue<AnalysisJobData>,
   ) {}
-
-  // Resume analyses interrupted by a restart so no call stays stuck in ANALYZING.
-  async onApplicationBootstrap() {
-    try {
-      const stuck = await this.prisma.call.findMany({
-        where: { status: CallStatus.ANALYZING },
-        select: { id: true },
-      });
-      stuck.forEach((call) => this.queue(call.id));
-    } catch (error) {
-      this.logger.warn(`Could not resume pending analyses: ${error?.message}`);
-    }
-  }
 
   async rerun(ctx: OrgContext, callId: string, dto: RerunAnalysisDto) {
     const call = await findOwnedCall(
@@ -100,43 +92,44 @@ export class CallAnalysisService implements OnApplicationBootstrap {
       where: { id: callId },
       data: { status: CallStatus.ANALYZING, analysis_error: null },
     });
-    this.queue(callId, {
+    await this.queue(callId, {
       model: dto.model,
       useCurrentCriteria: dto.use_current_criteria,
     });
     return { id: callId, status: CallStatus.ANALYZING };
   }
 
-  queue(callId: string, options: AnalysisOptions = {}) {
-    if (this.running.has(callId)) return;
-    this.running.add(callId);
-
-    setImmediate(async () => {
-      try {
-        await this.analyze(callId, options);
-      } catch (error) {
-        this.logger.error(
-          `Analysis failed for call ${callId}: ${error?.message}`,
-        );
-        await this.prisma.call
-          .update({
-            where: { id: callId },
-            data: {
-              status: CallStatus.ANALYSIS_FAILED,
-              analysis_error: String(error?.message ?? 'Unknown error').slice(
-                0,
-                1000,
-              ),
-            },
-          })
-          .catch(() => undefined);
-      } finally {
-        this.running.delete(callId);
-      }
-    });
+  // The job id is the call id, so a call is never analyzed twice concurrently.
+  // Jobs are removed when they finish (success or failure) so a re-run can be queued again.
+  async queue(callId: string, options: AnalysisOptions = {}) {
+    await this.analysisQueue.add(
+      'analyze',
+      { callId, ...options },
+      {
+        jobId: callId,
+        attempts: ANALYSIS_JOB_ATTEMPTS,
+        backoff: { type: 'exponential', delay: 5000 },
+        removeOnComplete: true,
+        removeOnFail: true,
+      },
+    );
   }
 
-  private async analyze(callId: string, options: AnalysisOptions) {
+  async markFailed(callId: string, error: unknown) {
+    const message = String((error as Error)?.message ?? 'Unknown error');
+    this.logger.error(`Analysis failed for call ${callId}: ${message}`);
+    await this.prisma.call
+      .update({
+        where: { id: callId },
+        data: {
+          status: CallStatus.ANALYSIS_FAILED,
+          analysis_error: message.slice(0, 1000),
+        },
+      })
+      .catch(() => undefined);
+  }
+
+  async analyze(callId: string, options: AnalysisOptions) {
     const call = await this.prisma.call.findUnique({
       where: { id: callId },
       include: {

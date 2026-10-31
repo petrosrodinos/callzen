@@ -63,7 +63,14 @@
       "noAnalysis": "Aucune analyse pour cet appel",
       "safe": "Votre enregistrement et votre transcription sont en sécurité.",
       "canRetry": "Vous pouvez réessayer.",
-      "retry": "Relancer l'analyse"
+      "retry": "Relancer l'analyse",
+      "queued": "En attente dans la file…",
+      "queuedHint": "Votre enregistrement sera bientôt transcrit. Vous pouvez quitter cette page.",
+      "transcribing": "Transcription de votre enregistrement…",
+      "transcribingHint": "Les longs enregistrements peuvent prendre quelques minutes. Vous pouvez quitter cette page ; le rapport sera prêt dans votre bibliothèque.",
+      "transcriptionFailed": "La transcription n'a pas abouti",
+      "noTranscript": "Aucune transcription pour cet appel",
+      "retryTranscription": "Réessayer la transcription"
     },
     "header": {
       "back": "Bibliothèque d'appels",

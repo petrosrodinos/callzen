@@ -134,7 +134,10 @@
       "analyzing": "Analyse en cours",
       "analyzed": "Analysé",
       "analysisFailed": "Échec de l’analyse",
-      "ended": "Non analysé"
+      "ended": "Non analysé",
+      "queued": "En file d'attente",
+      "transcribing": "Transcription en cours",
+      "transcriptionFailed": "Échec de la transcription"
     },
     "typeFilter": {
       "all": "Tous les types d’appel"
@@ -142,11 +145,13 @@
     "type": {
       "onlineMeeting": "Réunion en ligne",
       "microphone": "Téléphone / microphone",
-      "practice": "Séance d’entraînement"
+      "practice": "Séance d’entraînement",
+      "upload": "Enregistrement importé"
     },
     "typeDescription": {
       "microphone": "Un appel sur le haut-parleur de votre téléphone ou d’un autre appareil. CallZen écoute via le microphone de cet appareil. Idéal pour la prospection téléphonique.",
-      "onlineMeeting": "Google Meet, Zoom, Teams ou toute réunion web. Vous partagez l’audio de l’onglet de la réunion afin de capter séparément les deux interlocuteurs."
+      "onlineMeeting": "Google Meet, Zoom, Teams ou toute réunion web. Vous partagez l’audio de l’onglet de la réunion afin de capter séparément les deux interlocuteurs.",
+      "upload": "Vous avez déjà un enregistrement ? Importez un fichier mp3, m4a ou wav et obtenez la même transcription et le même rapport de performance."
     },
     "speaker": {
       "user": "Vous",

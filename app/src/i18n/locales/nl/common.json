@@ -64,7 +64,9 @@
     "objectiveMet": "Doel behaald",
     "notMet": "Niet behaald",
     "analyzing": "Analyseren",
-    "live": "Live"
+    "live": "Live",
+    "queued": "In wachtrij",
+    "transcribing": "Transcriberen"
   },
   "languageSelect": {
     "label": "Taal",
@@ -237,7 +239,12 @@
       "couldNotDeleteTheTranscript": "Transcript kon niet worden verwijderd",
       "analysisStarted": "Analyse gestart",
       "thisUsuallyTakesUnderAMinute": "Dit duurt meestal minder dan een minuut.",
-      "couldNotStartTheAnalysis": "Analyse kon niet worden gestart"
+      "couldNotStartTheAnalysis": "Analyse kon niet worden gestart",
+      "recordingUploadedForAnalysis": "Opname geüpload",
+      "weAreTranscribingIt": "We transcriberen hem nu.",
+      "couldNotUploadTheRecording": "Opname kon niet worden geüpload",
+      "transcriptionRestarted": "Transcriptie opnieuw gestart",
+      "couldNotRetryTheTranscription": "Transcriptie kon niet opnieuw worden gestart"
     },
     "organisations": {
       "roleUpdated": "Rol bijgewerkt",
@@ -339,7 +346,9 @@
       "failedToStartTheAnalysis": "Analyse starten mislukt.",
       "couldNotStartTheRealtimeAudio": "De realtime audiosessie kon niet worden gestart.",
       "theProspectDidNotRespondTry": "De prospect reageerde niet. Probeer het opnieuw.",
-      "couldNotConnectToTheRealtime": "Kan geen verbinding maken met de realtime audioservice."
+      "couldNotConnectToTheRealtime": "Kan geen verbinding maken met de realtime audioservice.",
+      "failedToUploadTheCall": "Het uploaden van de opname is mislukt.",
+      "failedToRetryTheTranscription": "Het opnieuw proberen van de transcriptie is mislukt."
     },
     "dashboard": {
       "failedToLoadYourProgress": "Je voortgang laden mislukt."

@@ -104,6 +104,18 @@
     },
     "footerMeeting": "Ardından toplantı sekmenizi seçin ve “Sekme sesini paylaş” seçeneğini etkinleştirin.",
     "footerMic": "Telefonunuzu bu cihazın yanında hoparlöre alın.",
-    "startCall": "Aramayı başlat"
+    "startCall": "Aramayı başlat",
+    "upload": {
+      "title": "Kayıt dosyası",
+      "dropzone": "Bir ses dosyasını buraya bırakın veya göz atmak için tıklayın",
+      "formats": "mp3, m4a, wav, webm, ogg veya aac, en fazla 300 MB",
+      "remove": "Dosyayı kaldır",
+      "submit": "Yükle ve analiz et",
+      "uploading": "Yükleniyor… %{{percent}}",
+      "footer": "Kaydı arka planda yazıya dökeceğiz ve raporunuzu hazırlayacağız. Bu sayfadan ayrılabilirsiniz.",
+      "fileRequired": "Yüklemek için bir kayıt seçin",
+      "tooLarge": "Bu dosya 300 MB’tan büyük",
+      "unsupported": "Desteklenmeyen dosya türü"
+    }
   }
 }

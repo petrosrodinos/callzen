@@ -134,7 +134,10 @@
       "analyzing": "Analiz ediliyor",
       "analyzed": "Analiz edildi",
       "analysisFailed": "Analiz başarısız",
-      "ended": "Analiz edilmedi"
+      "ended": "Analiz edilmedi",
+      "queued": "Sırada",
+      "transcribing": "Yazıya dökülüyor",
+      "transcriptionFailed": "Yazıya dökme başarısız"
     },
     "typeFilter": {
       "all": "Tüm arama türleri"
@@ -142,11 +145,13 @@
     "type": {
       "onlineMeeting": "Çevrimiçi toplantı",
       "microphone": "Telefon / mikrofon",
-      "practice": "Pratik oturumu"
+      "practice": "Pratik oturumu",
+      "upload": "Yüklenen kayıt"
     },
     "typeDescription": {
       "microphone": "Telefonunuzun hoparlöründe veya başka bir cihazda yapılan arama. CallZen bu cihazın mikrofonu üzerinden dinler. Soğuk aramalar için en uygunudur.",
-      "onlineMeeting": "Google Meet, Zoom, Teams veya herhangi bir web toplantısı. Toplantı sekmesinin sesini paylaşırsınız; böylece iki taraf ayrı ayrı kaydedilir."
+      "onlineMeeting": "Google Meet, Zoom, Teams veya herhangi bir web toplantısı. Toplantı sekmesinin sesini paylaşırsınız; böylece iki taraf ayrı ayrı kaydedilir.",
+      "upload": "Zaten bir kaydınız mı var? Bir mp3, m4a veya wav dosyası yükleyin; aynı transkripti ve performans raporunu alın."
     },
     "speaker": {
       "user": "Siz",

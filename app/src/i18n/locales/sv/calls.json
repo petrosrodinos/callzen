@@ -104,6 +104,18 @@
     },
     "footerMeeting": "Välj sedan mötesfliken och aktivera ”Dela flikens ljud”.",
     "footerMic": "Sätt telefonen på högtalare nära den här enheten.",
-    "startCall": "Starta samtal"
+    "startCall": "Starta samtal",
+    "upload": {
+      "title": "Inspelningsfil",
+      "dropzone": "Släpp en ljudfil här eller klicka för att bläddra",
+      "formats": "mp3, m4a, wav, webm, ogg eller aac, upp till 300 MB",
+      "remove": "Ta bort fil",
+      "submit": "Ladda upp och analysera",
+      "uploading": "Laddar upp … {{percent}} %",
+      "footer": "Vi transkriberar inspelningen i bakgrunden och förbereder din rapport. Du kan lämna den här sidan.",
+      "fileRequired": "Välj en inspelning att ladda upp",
+      "tooLarge": "Filen är större än 300 MB",
+      "unsupported": "Filtypen stöds inte"
+    }
   }
 }

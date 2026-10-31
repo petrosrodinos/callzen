@@ -65,7 +65,14 @@
       "noAnalysis": "Brak analizy tej rozmowy",
       "safe": "Twoje nagranie i transkrypcja są bezpieczne.",
       "canRetry": "Możesz spróbować ponownie.",
-      "retry": "Ponów analizę"
+      "retry": "Ponów analizę",
+      "queued": "Oczekuje w kolejce…",
+      "queuedHint": "Twoje nagranie zostanie wkrótce przetworzone. Możesz opuścić tę stronę.",
+      "transcribing": "Transkrybowanie nagrania…",
+      "transcribingHint": "Długie nagrania mogą potrwać kilka minut. Możesz opuścić tę stronę; raport będzie gotowy w Twojej bibliotece.",
+      "transcriptionFailed": "Transkrypcja nie została ukończona",
+      "noTranscript": "Brak transkrypcji dla tej rozmowy",
+      "retryTranscription": "Ponów transkrypcję"
     },
     "header": {
       "back": "Biblioteka rozmów",

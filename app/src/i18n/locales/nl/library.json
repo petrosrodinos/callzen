@@ -63,7 +63,14 @@
       "noAnalysis": "Geen analyse voor dit gesprek",
       "safe": "Je opname en transcriptie zijn veilig.",
       "canRetry": "Je kunt het opnieuw proberen.",
-      "retry": "Analyse opnieuw proberen"
+      "retry": "Analyse opnieuw proberen",
+      "queued": "Wacht in de wachtrij…",
+      "queuedHint": "Je opname wordt zo getranscribeerd. Je kunt deze pagina verlaten.",
+      "transcribing": "Je opname wordt getranscribeerd…",
+      "transcribingHint": "Lange opnames kunnen enkele minuten duren. Je kunt deze pagina verlaten; het rapport staat straks in je bibliotheek.",
+      "transcriptionFailed": "De transcriptie is niet voltooid",
+      "noTranscript": "Geen transcript voor dit gesprek",
+      "retryTranscription": "Transcriptie opnieuw proberen"
     },
     "header": {
       "back": "Gesprekkenbibliotheek",

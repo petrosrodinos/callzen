@@ -64,7 +64,9 @@
     "objectiveMet": "Objetivo cumplido",
     "notMet": "No cumplido",
     "analyzing": "Analizando",
-    "live": "En vivo"
+    "live": "En vivo",
+    "queued": "En cola",
+    "transcribing": "Transcribiendo"
   },
   "languageSelect": {
     "label": "Idioma",
@@ -237,7 +239,12 @@
       "couldNotDeleteTheTranscript": "No se pudo eliminar la transcripción",
       "analysisStarted": "Análisis iniciado",
       "thisUsuallyTakesUnderAMinute": "Suele tardar menos de un minuto.",
-      "couldNotStartTheAnalysis": "No se pudo iniciar el análisis"
+      "couldNotStartTheAnalysis": "No se pudo iniciar el análisis",
+      "recordingUploadedForAnalysis": "Grabación subida",
+      "weAreTranscribingIt": "La estamos transcribiendo ahora.",
+      "couldNotUploadTheRecording": "No se pudo subir la grabación",
+      "transcriptionRestarted": "Transcripción reiniciada",
+      "couldNotRetryTheTranscription": "No se pudo reintentar la transcripción"
     },
     "organisations": {
       "roleUpdated": "Rol actualizado",
@@ -339,7 +346,9 @@
       "failedToStartTheAnalysis": "No se pudo iniciar el análisis.",
       "couldNotStartTheRealtimeAudio": "No se pudo iniciar la sesión de audio en tiempo real.",
       "theProspectDidNotRespondTry": "El cliente potencial no respondió. Inténtalo de nuevo.",
-      "couldNotConnectToTheRealtime": "No se pudo conectar con el servicio de audio en tiempo real."
+      "couldNotConnectToTheRealtime": "No se pudo conectar con el servicio de audio en tiempo real.",
+      "failedToUploadTheCall": "No se pudo subir la grabación.",
+      "failedToRetryTheTranscription": "No se pudo reintentar la transcripción."
     },
     "dashboard": {
       "failedToLoadYourProgress": "No se pudo cargar tu progreso."

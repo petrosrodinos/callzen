@@ -44,7 +44,13 @@ export class RecordingStorageService {
       ? 'm4a'
       : mime.includes('ogg')
         ? 'ogg'
-        : 'webm';
+        : mime.includes('mpeg') || mime.includes('mp3')
+          ? 'mp3'
+          : mime.includes('wav')
+            ? 'wav'
+            : mime.includes('aac')
+              ? 'aac'
+              : 'webm';
     const relativePath = `${RECORDINGS_FOLDER}/${userId}/${callId}.${extension}`;
 
     if (this.useGcs()) {

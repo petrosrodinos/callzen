@@ -64,7 +64,9 @@
     "objectiveMet": "Objectif atteint",
     "notMet": "Non atteint",
     "analyzing": "Analyse en cours",
-    "live": "En direct"
+    "live": "En direct",
+    "queued": "En file d'attente",
+    "transcribing": "Transcription"
   },
   "languageSelect": {
     "label": "Langue",
@@ -237,7 +239,12 @@
       "couldNotDeleteTheTranscript": "Impossible de supprimer la transcription",
       "analysisStarted": "Analyse démarrée",
       "thisUsuallyTakesUnderAMinute": "Cela prend généralement moins d'une minute.",
-      "couldNotStartTheAnalysis": "Impossible de démarrer l'analyse"
+      "couldNotStartTheAnalysis": "Impossible de démarrer l'analyse",
+      "recordingUploadedForAnalysis": "Enregistrement importé",
+      "weAreTranscribingIt": "Nous la transcrivons maintenant.",
+      "couldNotUploadTheRecording": "Impossible d'importer l'enregistrement",
+      "transcriptionRestarted": "Transcription relancée",
+      "couldNotRetryTheTranscription": "Impossible de relancer la transcription"
     },
     "organisations": {
       "roleUpdated": "Rôle mis à jour",
@@ -339,7 +346,9 @@
       "failedToStartTheAnalysis": "Échec du démarrage de l'analyse.",
       "couldNotStartTheRealtimeAudio": "Impossible de démarrer la session audio en temps réel.",
       "theProspectDidNotRespondTry": "Le prospect n'a pas répondu. Réessayez.",
-      "couldNotConnectToTheRealtime": "Impossible de se connecter au service audio en temps réel."
+      "couldNotConnectToTheRealtime": "Impossible de se connecter au service audio en temps réel.",
+      "failedToUploadTheCall": "Échec de l'importation de l'enregistrement.",
+      "failedToRetryTheTranscription": "Échec de la relance de la transcription."
     },
     "dashboard": {
       "failedToLoadYourProgress": "Échec du chargement de votre progression."

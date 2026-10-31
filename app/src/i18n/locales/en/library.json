@@ -63,7 +63,14 @@
       "noAnalysis": "No analysis for this call",
       "safe": "Your recording and transcript are safe.",
       "canRetry": "You can try again.",
-      "retry": "Retry analysis"
+      "retry": "Retry analysis",
+      "queued": "Waiting in the queue…",
+      "queuedHint": "Your recording will be transcribed shortly. You can leave this page.",
+      "transcribing": "Transcribing your recording…",
+      "transcribingHint": "Long recordings can take a few minutes. You can leave this page; the report will be ready in your library.",
+      "transcriptionFailed": "The transcription didn't complete",
+      "noTranscript": "No transcript for this call",
+      "retryTranscription": "Retry transcription"
     },
     "header": {
       "back": "Call library",

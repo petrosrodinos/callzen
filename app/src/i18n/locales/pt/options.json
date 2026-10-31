@@ -134,7 +134,10 @@
       "analyzing": "Analisando",
       "analyzed": "Analisada",
       "analysisFailed": "Falha na análise",
-      "ended": "Não analisada"
+      "ended": "Não analisada",
+      "queued": "Na fila",
+      "transcribing": "Transcrevendo",
+      "transcriptionFailed": "Falha na transcrição"
     },
     "typeFilter": {
       "all": "Todos os tipos de chamada"
@@ -142,11 +145,13 @@
     "type": {
       "onlineMeeting": "Reunião online",
       "microphone": "Telefone / microfone",
-      "practice": "Sessão de prática"
+      "practice": "Sessão de prática",
+      "upload": "Gravação enviada"
     },
     "typeDescription": {
       "microphone": "Uma chamada no viva-voz do seu telefone ou de outro dispositivo. O CallZen ouve pelo microfone deste dispositivo. Ideal para cold calls.",
-      "onlineMeeting": "Google Meet, Zoom, Teams ou qualquer reunião na web. Você compartilha o áudio da guia da reunião para que os dois lados sejam captados separadamente."
+      "onlineMeeting": "Google Meet, Zoom, Teams ou qualquer reunião na web. Você compartilha o áudio da guia da reunião para que os dois lados sejam captados separadamente.",
+      "upload": "Já tem uma gravação? Envie um arquivo mp3, m4a ou wav e receba a mesma transcrição e o mesmo relatório de desempenho."
     },
     "speaker": {
       "user": "Você",

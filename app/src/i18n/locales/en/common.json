@@ -64,7 +64,9 @@
     "objectiveMet": "Objective met",
     "notMet": "Not met",
     "analyzing": "Analyzing",
-    "live": "Live"
+    "live": "Live",
+    "queued": "Queued",
+    "transcribing": "Transcribing"
   },
   "languageSelect": {
     "label": "Language",
@@ -237,7 +239,12 @@
       "couldNotDeleteTheTranscript": "Could not delete the transcript",
       "analysisStarted": "Analysis started",
       "thisUsuallyTakesUnderAMinute": "This usually takes under a minute.",
-      "couldNotStartTheAnalysis": "Could not start the analysis"
+      "couldNotStartTheAnalysis": "Could not start the analysis",
+      "recordingUploadedForAnalysis": "Recording uploaded",
+      "weAreTranscribingIt": "We're transcribing it now.",
+      "couldNotUploadTheRecording": "Could not upload the recording",
+      "transcriptionRestarted": "Transcription restarted",
+      "couldNotRetryTheTranscription": "Could not retry the transcription"
     },
     "organisations": {
       "roleUpdated": "Role updated",
@@ -339,7 +346,9 @@
       "failedToStartTheAnalysis": "Failed to start the analysis.",
       "couldNotStartTheRealtimeAudio": "Could not start the realtime audio session.",
       "theProspectDidNotRespondTry": "The prospect did not respond. Try again.",
-      "couldNotConnectToTheRealtime": "Could not connect to the realtime audio service."
+      "couldNotConnectToTheRealtime": "Could not connect to the realtime audio service.",
+      "failedToUploadTheCall": "Failed to upload the recording.",
+      "failedToRetryTheTranscription": "Failed to retry the transcription."
     },
     "dashboard": {
       "failedToLoadYourProgress": "Failed to load your progress."

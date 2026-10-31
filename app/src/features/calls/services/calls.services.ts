@@ -19,6 +19,7 @@ import type {
     RealtimeSession,
     RerunAnalysisDto,
     Speaker,
+    UploadCallDto,
     Suggestion,
     SuggestionFeedback,
     SuggestionResult,
@@ -52,6 +53,35 @@ export const startLiveCall = async (dto: CreateCallDto): Promise<Call> => {
         return response.data;
     } catch (error) {
         throw new ApiError(error, i18n.t("common:errors.calls.failedToStartTheCall"));
+    }
+};
+
+export const uploadCall = async ({ file, dto, onProgress }: { file: File; dto: UploadCallDto; onProgress?: (percent: number) => void }): Promise<Call> => {
+    try {
+        const form = new FormData();
+        form.append("file", file, file.name);
+        Object.entries(dto).forEach(([key, value]) => {
+            if (value !== undefined && value !== null && value !== "") form.append(key, String(value));
+        });
+        const response = await axiosInstance.post(ApiRoutes.calls.upload, form, {
+            headers: { "Content-Type": "multipart/form-data" },
+            timeout: 30 * 60 * 1000,
+            onUploadProgress: (event) => {
+                if (event.total) onProgress?.(Math.round((event.loaded / event.total) * 100));
+            },
+        });
+        return response.data;
+    } catch (error) {
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToUploadTheCall"));
+    }
+};
+
+export const retryTranscription = async (id: string): Promise<{ id: string; status: string }> => {
+    try {
+        const response = await axiosInstance.post(ApiRoutes.calls.transcription_retry(id));
+        return response.data;
+    } catch (error) {
+        throw new ApiError(error, i18n.t("common:errors.calls.failedToRetryTheTranscription"));
     }
 };
 

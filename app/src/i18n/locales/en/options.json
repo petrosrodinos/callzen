@@ -134,7 +134,10 @@
       "analyzing": "Analyzing",
       "analyzed": "Analyzed",
       "analysisFailed": "Analysis failed",
-      "ended": "Not analyzed"
+      "ended": "Not analyzed",
+      "queued": "Queued",
+      "transcribing": "Transcribing",
+      "transcriptionFailed": "Transcription failed"
     },
     "typeFilter": {
       "all": "All call types"
@@ -142,11 +145,13 @@
     "type": {
       "onlineMeeting": "Online meeting",
       "microphone": "Phone / microphone",
-      "practice": "Practice session"
+      "practice": "Practice session",
+      "upload": "Uploaded recording"
     },
     "typeDescription": {
       "microphone": "A call on your phone's speaker or another device. CallZen listens through this device's microphone. Best for cold calls.",
-      "onlineMeeting": "Google Meet, Zoom, Teams or any web meeting. You share the meeting tab's audio so both sides are captured separately."
+      "onlineMeeting": "Google Meet, Zoom, Teams or any web meeting. You share the meeting tab's audio so both sides are captured separately.",
+      "upload": "Already have a recording? Upload an mp3, m4a or wav file and get the same transcript and performance report."
     },
     "speaker": {
       "user": "You",

@@ -3,7 +3,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Bot, CheckCircle2, Mic, MonitorSmartphone, Phone, ShieldAlert } from "lucide-react";
+import { Bot, CheckCircle2, Mic, MonitorSmartphone, Phone, ShieldAlert, Upload } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,7 +21,7 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { useAssistantAgents } from "@/features/assistant-agents/hooks/use-assistant-agents";
 import { useCatalog } from "@/features/catalog/hooks/use-catalog";
 import { useMe, useUpdateMe } from "@/features/user/hooks/use-user";
-import { useCalls, useStartLiveCall } from "@/features/calls/hooks/use-calls";
+import { useCalls, useStartLiveCall, useUploadCall } from "@/features/calls/hooks/use-calls";
 import { AUTO_LANGUAGE, CallKinds, CallTypes } from "@/features/calls/interfaces/calls.interfaces";
 import { LiveCallTypeDescriptionOptions } from "@/config/constants/dropdowns/calls/call-type-form.options";
 import { getMicrophoneStream, getTabAudioStream, isTabAudioCaptureSupported, stopStream } from "@/lib/audio/media-capture";
@@ -32,8 +32,11 @@ import { toast } from "@/hooks/use-toast";
 import { usePageMetadata } from "@/hooks/use-page-metadata";
 import { Routes } from "@/routes/routes";
 import { newCallSchema, type NewCallFormValues } from "../../validation-schemas/new-call.schema";
+import { AudioDropzone } from "./components/audio-dropzone";
 
-const TYPE_ICONS = { [CallTypes.MICROPHONE]: Mic, [CallTypes.ONLINE_MEETING]: MonitorSmartphone } as const;
+const TYPE_ICONS = { [CallTypes.MICROPHONE]: Mic, [CallTypes.ONLINE_MEETING]: MonitorSmartphone, [CallTypes.UPLOAD]: Upload } as const;
+const MAX_UPLOAD_BYTES = 300 * 1024 * 1024;
+const UPLOAD_EXTENSIONS = /\.(mp3|m4a|mp4|wav|webm|ogg|oga|aac|flac|opus|mpeg|mpga)$/i;
 
 const NewCallPage: FC = () => {
   const { t } = useTranslation("calls");
@@ -45,8 +48,12 @@ const NewCallPage: FC = () => {
   const { data: me } = useMe();
   const { data: recentCalls } = useCalls({ kind: CallKinds.LIVE, limit: 30 });
   const startCall = useStartLiveCall();
+  const uploadCall = useUploadCall();
   const updateMe = useUpdateMe();
   const [capturing, setCapturing] = useState(false);
+  const [file, setFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState<string>();
+  const [progress, setProgress] = useState<number | null>(null);
   const meetingSupported = isTabAudioCaptureSupported();
 
   const form = useForm<NewCallFormValues>({
@@ -66,6 +73,7 @@ const NewCallPage: FC = () => {
     },
   });
 
+  const isUpload = form.watch("call_type") === CallTypes.UPLOAD;
   const agentId = form.watch("assistant_agent_id");
   const selectedAgent = agents?.find((agent) => agent.id === agentId);
   const consentNeeded = !me?.consent_acknowledged_at;
@@ -91,6 +99,36 @@ const NewCallPage: FC = () => {
   const onSubmit = async (values: NewCallFormValues) => {
     if (consentNeeded && !values.consent_acknowledged) {
       form.setError("consent_acknowledged", { message: t("new.validation.confirmBeforeStarting") });
+      return;
+    }
+
+    if (values.call_type === CallTypes.UPLOAD) {
+      const problem = !file ? t("new.upload.fileRequired") : file.size > MAX_UPLOAD_BYTES ? t("new.upload.tooLarge") : !UPLOAD_EXTENSIONS.test(file.name) ? t("new.upload.unsupported") : undefined;
+      setFileError(problem);
+      if (problem || !file) return;
+      if (consentNeeded) updateMe.mutate({ consent_acknowledged: true });
+      setProgress(0);
+      uploadCall.mutate(
+        {
+          file,
+          dto: {
+            assistant_agent_id: values.assistant_agent_id,
+            prospect_name: values.prospect_name || undefined,
+            prospect_company: values.prospect_company || undefined,
+            prospect_role: values.prospect_role || undefined,
+            goal: values.goal || undefined,
+            context_notes: values.context_notes || undefined,
+            prior_call_id: values.prior_call_id || undefined,
+            keep_recording: values.keep_recording,
+            language: values.language,
+          },
+          onProgress: setProgress,
+        },
+        {
+          onSuccess: (call) => navigate(Routes.library.detail(call.id)),
+          onSettled: () => setProgress(null),
+        },
+      );
       return;
     }
 
@@ -158,7 +196,7 @@ const NewCallPage: FC = () => {
     );
   }
 
-  const busy = capturing || startCall.isPending;
+  const busy = capturing || startCall.isPending || uploadCall.isPending;
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -170,7 +208,7 @@ const NewCallPage: FC = () => {
             name="call_type"
             render={({ field }) => (
               <FormItem>
-                <div role="radiogroup" aria-label={t("new.callType")} className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <div role="radiogroup" aria-label={t("new.callType")} className="grid grid-cols-1 gap-3 sm:grid-cols-3">
                   {LiveCallTypeDescriptionOptions.map((option) => {
                     const Icon = TYPE_ICONS[option.id as keyof typeof TYPE_ICONS];
                     const disabled = option.id === CallTypes.ONLINE_MEETING && !meetingSupported;
@@ -286,7 +324,8 @@ const NewCallPage: FC = () => {
             </div>
           </FormSection>
 
-          <FormSection title={t("new.recording.title")}>
+          <FormSection title={isUpload ? t("new.upload.title") : t("new.recording.title")}>
+            {isUpload && <AudioDropzone file={file} onChange={(next) => { setFile(next); setFileError(undefined); }} disabled={busy} error={fileError} />}
             <FormField
               control={form.control}
               name="keep_recording"
@@ -302,7 +341,7 @@ const NewCallPage: FC = () => {
                 </FormItem>
               )}
             />
-            <MicCheck />
+            {!isUpload && <MicCheck />}
           </FormSection>
 
           {consentNeeded && (
@@ -332,9 +371,9 @@ const NewCallPage: FC = () => {
 
           <div className="sticky bottom-0 z-20 -mx-4 border-t bg-background/95 backdrop-blur sm:-mx-6">
             <div className="pb-safe flex items-center gap-3 px-4 pt-3 sm:px-6">
-              <p className="hidden text-xs text-muted-foreground sm:block">{form.watch("call_type") === CallTypes.ONLINE_MEETING ? t("new.footerMeeting") : t("new.footerMic")}</p>
+              <p className="hidden text-xs text-muted-foreground sm:block">{isUpload ? t("new.upload.footer") : form.watch("call_type") === CallTypes.ONLINE_MEETING ? t("new.footerMeeting") : t("new.footerMic")}</p>
               <Button type="submit" size="lg" className="ml-auto w-full sm:w-auto" disabled={busy} loading={busy}>
-                {!busy && <Phone />} {t("new.startCall")}
+                {!busy && (isUpload ? <Upload /> : <Phone />)} {isUpload ? (progress != null ? t("new.upload.uploading", { percent: progress }) : t("new.upload.submit")) : t("new.startCall")}
               </Button>
             </div>
           </div>

@@ -16,17 +16,25 @@ export const CallTypes = {
     ONLINE_MEETING: "ONLINE_MEETING",
     MICROPHONE: "MICROPHONE",
     PRACTICE: "PRACTICE",
+    UPLOAD: "UPLOAD",
 } as const;
 export type CallType = (typeof CallTypes)[keyof typeof CallTypes];
 
 export const CallStatuses = {
     IN_PROGRESS: "IN_PROGRESS",
+    QUEUED: "QUEUED",
+    TRANSCRIBING: "TRANSCRIBING",
+    TRANSCRIPTION_FAILED: "TRANSCRIPTION_FAILED",
     ANALYZING: "ANALYZING",
     ANALYZED: "ANALYZED",
     ANALYSIS_FAILED: "ANALYSIS_FAILED",
     ENDED: "ENDED",
 } as const;
 export type CallStatus = (typeof CallStatuses)[keyof typeof CallStatuses];
+
+// Statuses where a background job is still working on the call.
+export const PROCESSING_CALL_STATUSES: CallStatus[] = [CallStatuses.QUEUED, CallStatuses.TRANSCRIBING, CallStatuses.ANALYZING];
+export const isCallProcessing = (status: CallStatus | undefined): boolean => !!status && PROCESSING_CALL_STATUSES.includes(status);
 
 export const CallOutcomes = {
     MEETING_BOOKED: "MEETING_BOOKED",
@@ -310,6 +318,8 @@ export interface Call {
     user_notes: string | null;
     script_progress: string[];
     analysis_error: string | null;
+    transcription_error: string | null;
+    source_filename: string | null;
     agent_snapshot: AgentSnapshot | null;
     practice: PracticeSnapshot | null;
     segments: TranscriptSegment[];
@@ -374,6 +384,18 @@ export interface CallQuery {
 
 export interface CreateCallDto {
     call_type: CallType;
+    assistant_agent_id?: string;
+    prospect_name?: string;
+    prospect_company?: string;
+    prospect_role?: string;
+    context_notes?: string;
+    goal?: string;
+    prior_call_id?: string;
+    keep_recording?: boolean;
+    language?: string;
+}
+
+export interface UploadCallDto {
     assistant_agent_id?: string;
     prospect_name?: string;
     prospect_company?: string;

@@ -104,6 +104,18 @@
     },
     "footerMeeting": "Apoi alege fila întâlnirii și activează „Partajează sunetul filei”.",
     "footerMic": "Pune telefonul pe difuzor lângă acest dispozitiv.",
-    "startCall": "Începe apelul"
+    "startCall": "Începe apelul",
+    "upload": {
+      "title": "Fișierul înregistrării",
+      "dropzone": "Trage aici un fișier audio sau dă clic pentru a căuta",
+      "formats": "mp3, m4a, wav, webm, ogg sau aac, până la 300 MB",
+      "remove": "Elimină fișierul",
+      "submit": "Încarcă și analizează",
+      "uploading": "Se încarcă… {{percent}}%",
+      "footer": "Vom transcrie înregistrarea în fundal și vom pregăti raportul tău. Poți părăsi această pagină.",
+      "fileRequired": "Alege o înregistrare de încărcat",
+      "tooLarge": "Acest fișier depășește 300 MB",
+      "unsupported": "Tip de fișier neacceptat"
+    }
   }
 }

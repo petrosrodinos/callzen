@@ -63,7 +63,14 @@
       "noAnalysis": "Nessuna analisi per questa chiamata",
       "safe": "La registrazione e la trascrizione sono al sicuro.",
       "canRetry": "Puoi riprovare.",
-      "retry": "Riprova l'analisi"
+      "retry": "Riprova l'analisi",
+      "queued": "In attesa in coda…",
+      "queuedHint": "La tua registrazione verrà trascritta a breve. Puoi lasciare questa pagina.",
+      "transcribing": "Trascrizione della registrazione in corso…",
+      "transcribingHint": "Le registrazioni lunghe possono richiedere alcuni minuti. Puoi lasciare questa pagina; il report sarà pronto nella tua libreria.",
+      "transcriptionFailed": "La trascrizione non è stata completata",
+      "noTranscript": "Nessuna trascrizione per questa chiamata",
+      "retryTranscription": "Riprova la trascrizione"
     },
     "header": {
       "back": "Libreria chiamate",

@@ -134,7 +134,10 @@
       "analyzing": "Analyseras",
       "analyzed": "Analyserad",
       "analysisFailed": "Analysen misslyckades",
-      "ended": "Inte analyserad"
+      "ended": "Inte analyserad",
+      "queued": "I kö",
+      "transcribing": "Transkriberas",
+      "transcriptionFailed": "Transkriberingen misslyckades"
     },
     "typeFilter": {
       "all": "Alla samtalstyper"
@@ -142,11 +145,13 @@
     "type": {
       "onlineMeeting": "Onlinemöte",
       "microphone": "Telefon / mikrofon",
-      "practice": "Övningspass"
+      "practice": "Övningspass",
+      "upload": "Uppladdad inspelning"
     },
     "typeDescription": {
       "microphone": "Ett samtal på telefonens högtalare eller en annan enhet. CallZen lyssnar via den här enhetens mikrofon. Bäst för kallsamtal.",
-      "onlineMeeting": "Google Meet, Zoom, Teams eller något annat webbmöte. Du delar mötesflikens ljud så att båda sidor fångas upp separat."
+      "onlineMeeting": "Google Meet, Zoom, Teams eller något annat webbmöte. Du delar mötesflikens ljud så att båda sidor fångas upp separat.",
+      "upload": "Har du redan en inspelning? Ladda upp en mp3-, m4a- eller wav-fil och få samma transkription och prestationsrapport."
     },
     "speaker": {
       "user": "Du",

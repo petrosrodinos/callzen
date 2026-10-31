@@ -104,6 +104,18 @@
     },
     "footerMeeting": "Następnie wybierz kartę ze spotkaniem i włącz „Udostępnij dźwięk karty”.",
     "footerMic": "Włącz w telefonie głośnik i połóż go blisko tego urządzenia.",
-    "startCall": "Rozpocznij rozmowę"
+    "startCall": "Rozpocznij rozmowę",
+    "upload": {
+      "title": "Plik nagrania",
+      "dropzone": "Upuść plik audio tutaj lub kliknij, aby wybrać",
+      "formats": "mp3, m4a, wav, webm, ogg lub aac, do 300 MB",
+      "remove": "Usuń plik",
+      "submit": "Prześlij i analizuj",
+      "uploading": "Przesyłanie… {{percent}}%",
+      "footer": "Przetworzymy nagranie w tle i przygotujemy raport. Możesz opuścić tę stronę.",
+      "fileRequired": "Wybierz nagranie do przesłania",
+      "tooLarge": "Ten plik jest większy niż 300 MB",
+      "unsupported": "Nieobsługiwany typ pliku"
+    }
   }
 }

@@ -72,10 +72,14 @@ enum CallType {
   ONLINE_MEETING
   MICROPHONE
   PRACTICE
+  UPLOAD
 }
 
 enum CallStatus {
   IN_PROGRESS
+  QUEUED
+  TRANSCRIBING
+  TRANSCRIPTION_FAILED
   ANALYZING
   ANALYZED
   ANALYSIS_FAILED
@@ -296,41 +300,43 @@ model PracticeAgent {
 }
 
 model Call {
-  id                 String         @id @default(uuid())
-  organisation_id    String
-  user_id            String
-  kind               CallKind
-  call_type          CallType
-  status             CallStatus     @default(IN_PROGRESS)
-  assistant_agent_id String?
-  practice_agent_id  String?
-  copilot_enabled    Boolean        @default(true)
-  title              String?
-  prospect_name      String?
-  prospect_company   String?
-  prospect_role      String?
-  context_notes      String?
-  goal               String?
-  prior_call_id      String?
-  language           String         @default("en")
-  started_at         DateTime       @default(now())
-  ended_at           DateTime?
-  duration_seconds   Int            @default(0)
-  ended_reason       CallEndReason?
-  outcome            CallOutcome?
-  custom_outcome     String?
-  objective_achieved Boolean?
-  keep_recording     Boolean        @default(true)
-  recording_path     String?
-  recording_mime     String?
-  recording_size     Int?
-  user_notes         String?
-  script_progress    Json           @default("[]")
-  analysis_error     String?
-  agent_snapshot     Json?
-  practice_snapshot  Json?
-  created_at         DateTime       @default(now())
-  updated_at         DateTime       @updatedAt
+  id                  String         @id @default(uuid())
+  organisation_id     String
+  user_id             String
+  kind                CallKind
+  call_type           CallType
+  status              CallStatus     @default(IN_PROGRESS)
+  assistant_agent_id  String?
+  practice_agent_id   String?
+  copilot_enabled     Boolean        @default(true)
+  title               String?
+  prospect_name       String?
+  prospect_company    String?
+  prospect_role       String?
+  context_notes       String?
+  goal                String?
+  prior_call_id       String?
+  language            String         @default("en")
+  started_at          DateTime       @default(now())
+  ended_at            DateTime?
+  duration_seconds    Int            @default(0)
+  ended_reason        CallEndReason?
+  outcome             CallOutcome?
+  custom_outcome      String?
+  objective_achieved  Boolean?
+  keep_recording      Boolean        @default(true)
+  recording_path      String?
+  recording_mime      String?
+  recording_size      Int?
+  user_notes          String?
+  script_progress     Json           @default("[]")
+  analysis_error      String?
+  transcription_error String?
+  source_filename     String?
+  agent_snapshot      Json?
+  practice_snapshot   Json?
+  created_at          DateTime       @default(now())
+  updated_at          DateTime       @updatedAt
 
   organisation    Organisation        @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
   user            User                @relation(fields: [user_id], references: [id], onDelete: Cascade)

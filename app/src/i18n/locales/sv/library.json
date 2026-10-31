@@ -63,7 +63,14 @@
       "noAnalysis": "Ingen analys för det här samtalet",
       "safe": "Din inspelning och transkription är säkra.",
       "canRetry": "Du kan försöka igen.",
-      "retry": "Försök analysera igen"
+      "retry": "Försök analysera igen",
+      "queued": "Väntar i kön …",
+      "queuedHint": "Din inspelning transkriberas inom kort. Du kan lämna den här sidan.",
+      "transcribing": "Din inspelning transkriberas …",
+      "transcribingHint": "Långa inspelningar kan ta några minuter. Du kan lämna den här sidan; rapporten finns sedan i ditt bibliotek.",
+      "transcriptionFailed": "Transkriberingen slutfördes inte",
+      "noTranscript": "Ingen transkription för det här samtalet",
+      "retryTranscription": "Försök transkribera igen"
     },
     "header": {
       "back": "Samtalsbibliotek",

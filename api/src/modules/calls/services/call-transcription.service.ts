@@ -1,0 +1,434 @@
+import { BadRequestException, Injectable, Logger } from '@nestjs/common';
+import { InjectQueue } from '@nestjs/bullmq';
+import { Queue } from 'bullmq';
+import { createWriteStream, promises as fs } from 'fs';
+import { pipeline } from 'stream/promises';
+import * as os from 'os';
+import * as path from 'path';
+import * as ffmpeg from 'fluent-ffmpeg';
+import * as ffmpegStatic from 'ffmpeg-static';
+import { z } from 'zod';
+import {
+  CallEndReason,
+  CallStatus,
+  Speaker,
+  UsageKind,
+} from 'generated/prisma';
+import { CALL_TRANSCRIPTION_QUEUE } from '@/core/queues/queues.constants';
+import { PrismaService } from '@/core/databases/prisma/prisma.service';
+import { AiService } from '@/integrations/ai/services/ai.service';
+import { RecordingStorageService } from '@/integrations/storage/recordings/recording-storage.service';
+import { UsageService } from '@/modules/usage/usage.service';
+import { OrgContext } from '@/shared/interfaces/org-context.interface';
+import { UTILITY_MODEL } from '@/shared/config/ai-models/ai-models.config';
+import { AUTO_LANGUAGE } from '@/shared/config/languages/languages.config';
+import { TRANSCRIPTION_COST_PER_MINUTE_USD } from '@/shared/config/voices/voice-providers.config';
+import { AgentSnapshot } from '../interfaces/call-snapshots.interface';
+import { buildCallContext, findOwnedCall } from '../utils/snapshot.utils';
+import { CallAnalysisService } from './call-analysis.service';
+
+export const UPLOAD_TRANSCRIPTION_MODEL = 'gpt-4o-transcribe-diarize';
+export const TRANSCRIPTION_JOB_ATTEMPTS = 2;
+
+const CHUNK_SECONDS = 600;
+const CHUNK_CONCURRENCY = 2;
+const MERGE_GAP_MS = 1500;
+const OPENAI_TRANSCRIPTIONS_URL =
+  'https://api.openai.com/v1/audio/transcriptions';
+
+export interface TranscriptionJobData {
+  callId: string;
+}
+
+interface DiarizedSegment {
+  speaker: string;
+  text: string;
+  start_ms: number;
+  end_ms: number;
+}
+
+interface ChunkResult {
+  index: number;
+  segments: DiarizedSegment[];
+}
+
+interface TranscriptLineRow {
+  speaker: Speaker;
+  text: string;
+  start_ms: number;
+  end_ms: number;
+}
+
+// ffmpeg-static is a CommonJS module that exports the binary path itself.
+const ffmpegPath = ffmpegStatic as unknown as string | null;
+if (ffmpegPath) ffmpeg.setFfmpegPath(ffmpegPath);
+
+@Injectable()
+export class CallTranscriptionService {
+  private readonly logger = new Logger(CallTranscriptionService.name);
+
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly recordingStorage: RecordingStorageService,
+    private readonly aiService: AiService,
+    private readonly usageService: UsageService,
+    private readonly analysisService: CallAnalysisService,
+    @InjectQueue(CALL_TRANSCRIPTION_QUEUE)
+    private readonly transcriptionQueue: Queue<TranscriptionJobData>,
+  ) {}
+
+  async enqueue(callId: string) {
+    await this.transcriptionQueue.add(
+      'transcribe',
+      { callId },
+      {
+        jobId: callId,
+        attempts: TRANSCRIPTION_JOB_ATTEMPTS,
+        backoff: { type: 'exponential', delay: 10000 },
+        removeOnComplete: true,
+        removeOnFail: true,
+      },
+    );
+  }
+
+  async retry(ctx: OrgContext, callId: string) {
+    const call = await findOwnedCall(
+      this.prisma,
+      ctx,
+      callId,
+      undefined,
+      'manage',
+    );
+    if (call.status !== CallStatus.TRANSCRIPTION_FAILED)
+      throw new BadRequestException('This call has no failed transcription');
+    if (!call.recording_path)
+      throw new BadRequestException(
+        'The uploaded audio is no longer available',
+      );
+
+    await this.prisma.call.update({
+      where: { id: callId },
+      data: { status: CallStatus.QUEUED, transcription_error: null },
+    });
+    await this.enqueue(callId);
+    return { id: callId, status: CallStatus.QUEUED };
+  }
+
+  async markFailed(callId: string, error: unknown) {
+    const message = String((error as Error)?.message ?? 'Unknown error');
+    this.logger.error(`Transcription failed for call ${callId}: ${message}`);
+    await this.prisma.call
+      .update({
+        where: { id: callId },
+        data: {
+          status: CallStatus.TRANSCRIPTION_FAILED,
+          transcription_error: message.slice(0, 1000),
+        },
+      })
+      .catch(() => undefined);
+  }
+
+  async transcribe(callId: string) {
+    const call = await this.prisma.call.findUnique({
+      where: { id: callId },
+      include: { assistant_agent: true },
+    });
+    if (!call || !call.recording_path) return;
+    if (!this.aiService.isConfigured())
+      throw new Error('AI is not configured. Set OPENAI_API_KEY on the server.');
+
+    await this.prisma.call.update({
+      where: { id: callId },
+      data: { status: CallStatus.TRANSCRIBING, transcription_error: null },
+    });
+
+    const workDir = await fs.mkdtemp(
+      path.join(os.tmpdir(), `callzen-${callId}-`),
+    );
+    try {
+      const source = path.join(workDir, 'source');
+      await pipeline(
+        await this.recordingStorage.open(call.recording_path),
+        createWriteStream(source),
+      );
+
+      const { chunks, totalSeconds } = await this.splitAudio(source, workDir);
+      const language =
+        call.language && call.language !== AUTO_LANGUAGE
+          ? call.language
+          : undefined;
+      const results = await this.mapWithConcurrency(
+        chunks,
+        CHUNK_CONCURRENCY,
+        (file, index) => this.transcribeChunk(file, index, language),
+      );
+
+      const agent = call.agent_snapshot as unknown as AgentSnapshot | null;
+      const lines: TranscriptLineRow[] = [];
+      for (const chunk of results) {
+        const roles = await this.guessRoles(
+          call,
+          agent,
+          chunk.segments,
+          call.user_id,
+          call.organisation_id,
+        );
+        const offsetMs = chunk.index * CHUNK_SECONDS * 1000;
+        for (const segment of chunk.segments) {
+          lines.push({
+            speaker: roles.get(segment.speaker) ?? Speaker.UNKNOWN,
+            text: segment.text,
+            start_ms: segment.start_ms + offsetMs,
+            end_ms: segment.end_ms + offsetMs,
+          });
+        }
+      }
+      const merged = this.mergeLines(lines);
+
+      const lastEndMs = merged.length ? merged[merged.length - 1].end_ms : 0;
+      const durationSeconds = Math.max(
+        Math.round(totalSeconds),
+        Math.round(lastEndMs / 1000),
+      );
+      const keepAudio = call.keep_recording;
+
+      if (durationSeconds > 0)
+        this.usageService.record({
+          organisationId: call.organisation_id,
+          userId: call.user_id,
+          callId,
+          kind: UsageKind.TRANSCRIPTION,
+          model: UPLOAD_TRANSCRIPTION_MODEL,
+          audioSeconds: durationSeconds,
+          costUsd: (durationSeconds / 60) * TRANSCRIPTION_COST_PER_MINUTE_USD,
+        });
+
+      const callEnd = {
+        ended_at: new Date(),
+        ended_reason: CallEndReason.USER,
+        duration_seconds: durationSeconds,
+        ...(!keepAudio && {
+          recording_path: null,
+          recording_mime: null,
+          recording_size: null,
+        }),
+      };
+
+      if (!merged.length) {
+        await this.prisma.call.update({
+          where: { id: callId },
+          data: {
+            ...callEnd,
+            status: CallStatus.ENDED,
+            transcription_error:
+              'No speech was detected in this recording, so it cannot be analyzed.',
+          },
+        });
+      } else {
+        await this.prisma.$transaction([
+          this.prisma.transcriptSegment.deleteMany({
+            where: { call_id: callId },
+          }),
+          this.prisma.transcriptSegment.createMany({
+            data: merged.map((line, index) => ({
+              call_id: callId,
+              client_id: `upload-${index}`,
+              ...line,
+            })),
+          }),
+          this.prisma.call.update({
+            where: { id: callId },
+            data: { ...callEnd, status: CallStatus.ANALYZING },
+          }),
+        ]);
+        await this.analysisService.queue(callId);
+      }
+
+      if (!keepAudio)
+        await this.recordingStorage
+          .remove(call.recording_path)
+          .catch(() => undefined);
+    } finally {
+      await fs.rm(workDir, { recursive: true, force: true }).catch(() => {
+        // Temp cleanup is best-effort.
+      });
+    }
+  }
+
+  // Re-encode to small mono mp3 and cut it into fixed-length pieces: keeps every request well
+  // under the API's size and duration limits, whatever the source format or bitrate.
+  private splitAudio(
+    source: string,
+    workDir: string,
+  ): Promise<{ chunks: string[]; totalSeconds: number }> {
+    return new Promise((resolve, reject) => {
+      let totalSeconds = 0;
+      ffmpeg(source)
+        .noVideo()
+        .audioChannels(1)
+        .audioFrequency(16000)
+        .audioBitrate('32k')
+        .format('segment')
+        .outputOptions([
+          `-segment_time ${CHUNK_SECONDS}`,
+          '-reset_timestamps 1',
+          '-segment_format mp3',
+        ])
+        .output(path.join(workDir, 'chunk_%04d.mp3'))
+        .on('codecData', (data) => {
+          const [h, m, s] = String(data.duration ?? '0:0:0')
+            .split(':')
+            .map(Number);
+          totalSeconds = (h || 0) * 3600 + (m || 0) * 60 + (s || 0);
+        })
+        .on('error', (error) =>
+          reject(new Error(`Could not read this audio file: ${error.message}`)),
+        )
+        .on('end', async () => {
+          const files = (await fs.readdir(workDir))
+            .filter((name) => name.startsWith('chunk_'))
+            .sort()
+            .map((name) => path.join(workDir, name));
+          if (!files.length)
+            return reject(new Error('The audio file contains no audio'));
+          resolve({ chunks: files, totalSeconds });
+        })
+        .run();
+    });
+  }
+
+  private async transcribeChunk(
+    file: string,
+    index: number,
+    language?: string,
+  ): Promise<ChunkResult> {
+    const form = new FormData();
+    form.append(
+      'file',
+      new Blob([await fs.readFile(file)], { type: 'audio/mpeg' }),
+      path.basename(file),
+    );
+    form.append('model', UPLOAD_TRANSCRIPTION_MODEL);
+    form.append('response_format', 'diarized_json');
+    form.append('chunking_strategy', 'auto');
+    if (language) form.append('language', language);
+
+    const response = await fetch(OPENAI_TRANSCRIPTIONS_URL, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${this.aiService.getApiKey()}` },
+      body: form,
+      signal: AbortSignal.timeout(10 * 60 * 1000),
+    });
+    if (!response.ok) {
+      const body = await response.text().catch(() => '');
+      throw new Error(
+        `Transcription request failed (${response.status}): ${body.slice(0, 300)}`,
+      );
+    }
+
+    const data = (await response.json()) as {
+      segments?: {
+        speaker?: string;
+        text?: string;
+        start: number;
+        end: number;
+      }[];
+    };
+    const segments = (data.segments ?? [])
+      .filter((segment) => segment.text?.trim())
+      .map((segment) => ({
+        speaker: String(segment.speaker ?? 'A'),
+        text: String(segment.text).trim(),
+        start_ms: Math.round(segment.start * 1000),
+        end_ms: Math.round(segment.end * 1000),
+      }));
+    return { index, segments };
+  }
+
+  // Diarization only gives anonymous labels ("A", "B"); ask a small model which one is the
+  // salesperson. Anything it cannot place stays UNKNOWN.
+  private async guessRoles(
+    call: Parameters<typeof buildCallContext>[0],
+    agent: AgentSnapshot | null,
+    segments: DiarizedSegment[],
+    userId: string,
+    organisationId: string,
+  ): Promise<Map<string, Speaker>> {
+    const labels = [...new Set(segments.map((s) => s.speaker))];
+    const roles = new Map<string, Speaker>();
+    if (!labels.length) return roles;
+
+    try {
+      const transcript = segments
+        .map((s) => `Speaker ${s.speaker}: ${s.text}`)
+        .join('\n')
+        .slice(0, 12000);
+      const result = await this.aiService.generateStructured({
+        model: UTILITY_MODEL,
+        schema: z.object({ salesperson: z.string().nullable() }),
+        schemaName: 'salesperson_speaker',
+        system:
+          'You label speakers in a diarized sales call transcript. Decide which speaker is the salesperson (the seller who runs the call, asks discovery questions, presents the product and proposes next steps). The other speakers are prospects. Answer with the speaker label exactly as written (for example "A"), or null if you cannot tell.',
+        prompt: `${agent ? `Seller context: ${agent.name}${agent.description ? ` - ${agent.description}` : ''}\n` : ''}${buildCallContext(call)}\nSpeaker labels: ${labels.join(', ')}\n\nTranscript:\n${transcript}`,
+        temperature: 0,
+        maxTokens: 30,
+        timeoutMs: 30000,
+      });
+      this.usageService.record({
+        organisationId,
+        userId,
+        kind: UsageKind.ANALYSIS,
+        model: result.model,
+        inputTokens: result.usage.inputTokens,
+        outputTokens: result.usage.outputTokens,
+        costUsd: result.usage.costUsd,
+      });
+
+      const seller = labels.find((l) => l === result.output.salesperson);
+      if (seller)
+        labels.forEach((label) =>
+          roles.set(label, label === seller ? Speaker.USER : Speaker.PROSPECT),
+        );
+    } catch (error) {
+      this.logger.warn(`Speaker role guess failed: ${error?.message}`);
+    }
+    return roles;
+  }
+
+  // Join consecutive lines of the same speaker so the transcript reads like a conversation.
+  private mergeLines(lines: TranscriptLineRow[]): TranscriptLineRow[] {
+    const merged: TranscriptLineRow[] = [];
+    for (const line of [...lines].sort((a, b) => a.start_ms - b.start_ms)) {
+      const previous = merged[merged.length - 1];
+      if (
+        previous &&
+        previous.speaker === line.speaker &&
+        line.start_ms - previous.end_ms <= MERGE_GAP_MS &&
+        previous.text.length + line.text.length < 1200
+      ) {
+        previous.text = `${previous.text} ${line.text}`;
+        previous.end_ms = Math.max(previous.end_ms, line.end_ms);
+      } else merged.push({ ...line });
+    }
+    return merged;
+  }
+
+  private async mapWithConcurrency<T, R>(
+    items: T[],
+    limit: number,
+    run: (item: T, index: number) => Promise<R>,
+  ): Promise<R[]> {
+    const results: R[] = new Array(items.length);
+    let next = 0;
+    const worker = async () => {
+      while (next < items.length) {
+        const index = next++;
+        results[index] = await run(items[index], index);
+      }
+    };
+    await Promise.all(
+      Array.from({ length: Math.min(limit, items.length) }, worker),
+    );
+    return results;
+  }
+}

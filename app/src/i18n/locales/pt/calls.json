@@ -104,6 +104,18 @@
     },
     "footerMeeting": "De seguida, escolha o separador da reunião e ative «Partilhar áudio do separador».",
     "footerMic": "Coloque o telemóvel em alta-voz perto deste dispositivo.",
-    "startCall": "Iniciar chamada"
+    "startCall": "Iniciar chamada",
+    "upload": {
+      "title": "Arquivo da gravação",
+      "dropzone": "Solte um arquivo de áudio aqui ou clique para procurar",
+      "formats": "mp3, m4a, wav, webm, ogg ou aac, até 300 MB",
+      "remove": "Remover arquivo",
+      "submit": "Enviar e analisar",
+      "uploading": "Enviando… {{percent}}%",
+      "footer": "Vamos transcrever a gravação em segundo plano e preparar o seu relatório. Você pode sair desta página.",
+      "fileRequired": "Escolha uma gravação para enviar",
+      "tooLarge": "Este arquivo tem mais de 300 MB",
+      "unsupported": "Tipo de arquivo não compatível"
+    }
   }
 }

@@ -265,6 +265,8 @@ exports.Prisma.CallScalarFieldEnum = {
   user_notes: 'user_notes',
   script_progress: 'script_progress',
   analysis_error: 'analysis_error',
+  transcription_error: 'transcription_error',
+  source_filename: 'source_filename',
   agent_snapshot: 'agent_snapshot',
   practice_snapshot: 'practice_snapshot',
   created_at: 'created_at',
@@ -465,11 +467,15 @@ exports.CallKind = exports.$Enums.CallKind = {
 exports.CallType = exports.$Enums.CallType = {
   ONLINE_MEETING: 'ONLINE_MEETING',
   MICROPHONE: 'MICROPHONE',
-  PRACTICE: 'PRACTICE'
+  PRACTICE: 'PRACTICE',
+  UPLOAD: 'UPLOAD'
 };
 
 exports.CallStatus = exports.$Enums.CallStatus = {
   IN_PROGRESS: 'IN_PROGRESS',
+  QUEUED: 'QUEUED',
+  TRANSCRIBING: 'TRANSCRIBING',
+  TRANSCRIPTION_FAILED: 'TRANSCRIPTION_FAILED',
   ANALYZING: 'ANALYZING',
   ANALYZED: 'ANALYZED',
   ANALYSIS_FAILED: 'ANALYSIS_FAILED',

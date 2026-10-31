@@ -72,10 +72,14 @@ enum CallType {
   ONLINE_MEETING
   MICROPHONE
   PRACTICE
+  UPLOAD
 }
 
 enum CallStatus {
   IN_PROGRESS
+  QUEUED
+  TRANSCRIBING
+  TRANSCRIPTION_FAILED
   ANALYZING
   ANALYZED
   ANALYSIS_FAILED
@@ -327,6 +331,8 @@ model Call {
   user_notes          String?
   script_progress     Json           @default("[]")
   analysis_error      String?
+  transcription_error String?
+  source_filename     String?
   agent_snapshot      Json?
   practice_snapshot   Json?
   created_at          DateTime       @default(now())

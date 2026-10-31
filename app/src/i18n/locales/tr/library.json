@@ -63,7 +63,14 @@
       "noAnalysis": "Bu çağrı için analiz yok",
       "safe": "Kaydınız ve transkriptiniz güvende.",
       "canRetry": "Tekrar deneyebilirsiniz.",
-      "retry": "Analizi yeniden dene"
+      "retry": "Analizi yeniden dene",
+      "queued": "Sırada bekliyor…",
+      "queuedHint": "Kaydınız kısa süre içinde yazıya dökülecek. Bu sayfadan ayrılabilirsiniz.",
+      "transcribing": "Kaydınız yazıya dökülüyor…",
+      "transcribingHint": "Uzun kayıtlar birkaç dakika sürebilir. Bu sayfadan ayrılabilirsiniz; rapor kitaplığınızda hazır olacak.",
+      "transcriptionFailed": "Yazıya dökme tamamlanamadı",
+      "noTranscript": "Bu görüşme için transkript yok",
+      "retryTranscription": "Yazıya dökmeyi yeniden dene"
     },
     "header": {
       "back": "Çağrı kütüphanesi",

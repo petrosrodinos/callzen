@@ -63,7 +63,14 @@
       "noAnalysis": "No hay análisis para esta llamada",
       "safe": "Tu grabación y transcripción están a salvo.",
       "canRetry": "Puedes intentarlo de nuevo.",
-      "retry": "Reintentar análisis"
+      "retry": "Reintentar análisis",
+      "queued": "Esperando en la cola…",
+      "queuedHint": "Tu grabación se transcribirá en breve. Puedes salir de esta página.",
+      "transcribing": "Transcribiendo tu grabación…",
+      "transcribingHint": "Las grabaciones largas pueden tardar unos minutos. Puedes salir de esta página; el informe estará listo en tu biblioteca.",
+      "transcriptionFailed": "La transcripción no se completó",
+      "noTranscript": "No hay transcripción de esta llamada",
+      "retryTranscription": "Reintentar transcripción"
     },
     "header": {
       "back": "Biblioteca de llamadas",

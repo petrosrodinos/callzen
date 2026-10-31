@@ -64,7 +64,9 @@
     "objectiveMet": "Ο στόχος επιτεύχθηκε",
     "notMet": "Δεν επιτεύχθηκε",
     "analyzing": "Ανάλυση",
-    "live": "Ζωντανά"
+    "live": "Ζωντανά",
+    "queued": "Σε αναμονή",
+    "transcribing": "Μεταγραφή"
   },
   "languageSelect": {
     "label": "Γλώσσα",
@@ -237,7 +239,12 @@
       "couldNotDeleteTheTranscript": "Δεν ήταν δυνατή η διαγραφή της απομαγνητοφώνησης",
       "analysisStarted": "Η ανάλυση ξεκίνησε",
       "thisUsuallyTakesUnderAMinute": "Συνήθως διαρκεί λιγότερο από ένα λεπτό.",
-      "couldNotStartTheAnalysis": "Δεν ήταν δυνατή η έναρξη της ανάλυσης"
+      "couldNotStartTheAnalysis": "Δεν ήταν δυνατή η έναρξη της ανάλυσης",
+      "recordingUploadedForAnalysis": "Η ηχογράφηση ανέβηκε",
+      "weAreTranscribingIt": "Τη μεταγράφουμε τώρα.",
+      "couldNotUploadTheRecording": "Δεν ήταν δυνατό το ανέβασμα της ηχογράφησης",
+      "transcriptionRestarted": "Η μεταγραφή ξεκίνησε ξανά",
+      "couldNotRetryTheTranscription": "Δεν ήταν δυνατή η επανάληψη της μεταγραφής"
     },
     "organisations": {
       "roleUpdated": "Ο ρόλος ενημερώθηκε",
@@ -339,7 +346,9 @@
       "failedToStartTheAnalysis": "Αποτυχία έναρξης της ανάλυσης.",
       "couldNotStartTheRealtimeAudio": "Δεν ήταν δυνατή η έναρξη της συνεδρίας ήχου πραγματικού χρόνου.",
       "theProspectDidNotRespondTry": "Ο υποψήφιος πελάτης δεν απάντησε. Δοκιμάστε ξανά.",
-      "couldNotConnectToTheRealtime": "Δεν ήταν δυνατή η σύνδεση με την υπηρεσία ήχου πραγματικού χρόνου."
+      "couldNotConnectToTheRealtime": "Δεν ήταν δυνατή η σύνδεση με την υπηρεσία ήχου πραγματικού χρόνου.",
+      "failedToUploadTheCall": "Αποτυχία ανεβάσματος της ηχογράφησης.",
+      "failedToRetryTheTranscription": "Αποτυχία επανάληψης της μεταγραφής."
     },
     "dashboard": {
       "failedToLoadYourProgress": "Αποτυχία φόρτωσης της προόδου σας."

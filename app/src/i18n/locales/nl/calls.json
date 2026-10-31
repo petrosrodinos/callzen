@@ -104,6 +104,18 @@
     },
     "footerMeeting": "Kies hierna het tabblad van je vergadering en schakel “Tabbladaudio delen” in.",
     "footerMic": "Zet je telefoon op de luidspreker vlak bij dit apparaat.",
-    "startCall": "Gesprek starten"
+    "startCall": "Gesprek starten",
+    "upload": {
+      "title": "Opnamebestand",
+      "dropzone": "Sleep een audiobestand hierheen of klik om te bladeren",
+      "formats": "mp3, m4a, wav, webm, ogg of aac, tot 300 MB",
+      "remove": "Bestand verwijderen",
+      "submit": "Uploaden en analyseren",
+      "uploading": "Uploaden… {{percent}}%",
+      "footer": "We transcriberen de opname op de achtergrond en maken je rapport klaar. Je kunt deze pagina verlaten.",
+      "fileRequired": "Kies een opname om te uploaden",
+      "tooLarge": "Dit bestand is groter dan 300 MB",
+      "unsupported": "Niet-ondersteund bestandstype"
+    }
   }
 }

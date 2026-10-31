@@ -27,6 +27,7 @@ import type { RedisOptions } from 'ioredis';
                     username: url.username || undefined,
                     maxRetriesPerRequest: null,
                     reconnectOnError: () => false,
+                    ...(url.protocol === 'rediss:' && { tls: {} }),
                 };
             },
             inject: [ConfigService],

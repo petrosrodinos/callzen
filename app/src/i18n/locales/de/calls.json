@@ -104,6 +104,18 @@
     },
     "footerMeeting": "Wählen Sie als Nächstes Ihren Meeting-Tab und aktivieren Sie „Tab-Audio teilen“.",
     "footerMic": "Stellen Sie Ihr Telefon in der Nähe dieses Geräts auf Lautsprecher.",
-    "startCall": "Anruf starten"
+    "startCall": "Anruf starten",
+    "upload": {
+      "title": "Aufnahmedatei",
+      "dropzone": "Audiodatei hierher ziehen oder zum Durchsuchen klicken",
+      "formats": "mp3, m4a, wav, webm, ogg oder aac, bis zu 300 MB",
+      "remove": "Datei entfernen",
+      "submit": "Hochladen & analysieren",
+      "uploading": "Wird hochgeladen … {{percent}} %",
+      "footer": "Wir transkribieren die Aufnahme im Hintergrund und erstellen Ihren Bericht. Sie können diese Seite verlassen.",
+      "fileRequired": "Wählen Sie eine Aufnahme zum Hochladen aus",
+      "tooLarge": "Diese Datei ist größer als 300 MB",
+      "unsupported": "Nicht unterstützter Dateityp"
+    }
   }
 }

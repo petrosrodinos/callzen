@@ -36,6 +36,8 @@ import {
 } from '../utils/snapshot.utils';
 import { CopilotService } from './copilot.service';
 import { CallAnalysisService } from './call-analysis.service';
+import { CallTranscriptionService } from './call-transcription.service';
+import { UploadCallDto } from '../dto/upload-call.dto';
 import { ErrorCodes } from '@/shared/config/error-codes';
 import {
   AUTO_LANGUAGE,
@@ -76,6 +78,7 @@ export class CallsService {
     private readonly usageService: UsageService,
     private readonly copilotService: CopilotService,
     private readonly analysisService: CallAnalysisService,
+    private readonly transcriptionService: CallTranscriptionService,
   ) {}
 
   async startLive(ctx: OrgContext, dto: CreateCallDto) {
@@ -127,6 +130,86 @@ export class CallsService {
       agent.consent_line ?? user.consent_line,
       agent.suggest_consent_line,
     );
+
+    return this.findOne(ctx, call.id);
+  }
+
+  // Import an existing recording: the file is stored, then a background job transcribes and
+  // analyzes it (QUEUED -> TRANSCRIBING -> ANALYZING -> ANALYZED).
+  async startUpload(
+    ctx: OrgContext,
+    dto: UploadCallDto,
+    file: Express.Multer.File,
+  ) {
+    if (!file?.buffer?.length)
+      throw new BadRequestException('Recording file is empty');
+
+    const [user, agent] = await Promise.all([
+      this.prisma.user.findUnique({ where: { id: ctx.userId } }),
+      this.resolveAssistantAgent(ctx, dto.assistant_agent_id),
+    ]);
+    if (!agent)
+      throw new BadRequestException(
+        'Create an assistant agent before analyzing a call',
+      );
+    if (dto.prior_call_id)
+      await findOwnedCall(
+        this.prisma,
+        ctx,
+        dto.prior_call_id,
+        undefined,
+        'read',
+      );
+
+    const filename = (file.originalname || 'recording').slice(0, 200);
+    const call = await this.prisma.call.create({
+      data: {
+        organisation_id: ctx.organisationId,
+        user_id: ctx.userId,
+        kind: CallKind.LIVE,
+        call_type: CallType.UPLOAD,
+        status: CallStatus.QUEUED,
+        assistant_agent_id: agent.id,
+        copilot_enabled: false,
+        prospect_name: dto.prospect_name,
+        prospect_company: dto.prospect_company,
+        prospect_role: dto.prospect_role,
+        context_notes: dto.context_notes,
+        goal: dto.goal ?? agent.call_goal,
+        prior_call_id: dto.prior_call_id,
+        language: this.resolveCallLanguage(dto.language, agent),
+        keep_recording: dto.keep_recording ?? user.keep_recordings,
+        source_filename: filename,
+        title:
+          dto.prospect_name || dto.prospect_company
+            ? `Call with ${[dto.prospect_name, dto.prospect_company].filter(Boolean).join(' · ')}`
+            : filename.replace(/\.[^.]+$/, ''),
+        agent_snapshot: asJson(toAgentSnapshot(agent)),
+      },
+    });
+
+    try {
+      const mime = (file.mimetype || 'audio/mpeg').split(';')[0];
+      const stored = await this.recordingStorage.save(
+        ctx.userId,
+        call.id,
+        file.buffer,
+        mime,
+      );
+      await this.prisma.call.update({
+        where: { id: call.id },
+        data: {
+          recording_path: stored.path,
+          recording_mime: stored.mime,
+          recording_size: stored.size,
+        },
+      });
+      await this.transcriptionService.enqueue(call.id);
+    } catch (error) {
+      this.logger.error(`Upload failed for call ${call.id}: ${error?.message}`);
+      await this.remove(ctx, call.id).catch(() => undefined);
+      throw error;
+    }
 
     return this.findOne(ctx, call.id);
   }
@@ -417,7 +500,7 @@ export class CallsService {
       dto.audio_seconds ?? dto.duration_seconds,
       call.call_type,
     );
-    if (hasSegments) this.analysisService.queue(id);
+    if (hasSegments) await this.analysisService.queue(id);
 
     return this.findOne(ctx, id);
   }

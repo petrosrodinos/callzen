@@ -64,7 +64,9 @@
     "objectiveMet": "Ziel erreicht",
     "notMet": "Nicht erreicht",
     "analyzing": "Wird analysiert",
-    "live": "Live"
+    "live": "Live",
+    "queued": "In Warteschlange",
+    "transcribing": "Transkription"
   },
   "languageSelect": {
     "label": "Sprache",
@@ -237,7 +239,12 @@
       "couldNotDeleteTheTranscript": "Transkript konnte nicht gelöscht werden",
       "analysisStarted": "Analyse gestartet",
       "thisUsuallyTakesUnderAMinute": "Das dauert normalerweise weniger als eine Minute.",
-      "couldNotStartTheAnalysis": "Analyse konnte nicht gestartet werden"
+      "couldNotStartTheAnalysis": "Analyse konnte nicht gestartet werden",
+      "recordingUploadedForAnalysis": "Aufnahme hochgeladen",
+      "weAreTranscribingIt": "Wir transkribieren sie jetzt.",
+      "couldNotUploadTheRecording": "Aufnahme konnte nicht hochgeladen werden",
+      "transcriptionRestarted": "Transkription neu gestartet",
+      "couldNotRetryTheTranscription": "Transkription konnte nicht wiederholt werden"
     },
     "organisations": {
       "roleUpdated": "Rolle aktualisiert",
@@ -339,7 +346,9 @@
       "failedToStartTheAnalysis": "Die Analyse konnte nicht gestartet werden.",
       "couldNotStartTheRealtimeAudio": "Die Echtzeit-Audiositzung konnte nicht gestartet werden.",
       "theProspectDidNotRespondTry": "Der Interessent hat nicht geantwortet. Versuchen Sie es erneut.",
-      "couldNotConnectToTheRealtime": "Verbindung zum Echtzeit-Audiodienst nicht möglich."
+      "couldNotConnectToTheRealtime": "Verbindung zum Echtzeit-Audiodienst nicht möglich.",
+      "failedToUploadTheCall": "Die Aufnahme konnte nicht hochgeladen werden.",
+      "failedToRetryTheTranscription": "Die Transkription konnte nicht wiederholt werden."
     },
     "dashboard": {
       "failedToLoadYourProgress": "Ihr Fortschritt konnte nicht geladen werden."

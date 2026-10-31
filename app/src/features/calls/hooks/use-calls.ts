@@ -1,7 +1,7 @@
 import i18n from "@/i18n";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "@/hooks/use-toast";
-import { CallStatuses, type CallQuery } from "../interfaces/calls.interfaces";
+import { CallStatuses, isCallProcessing, type CallQuery } from "../interfaces/calls.interfaces";
 import {
     addBookmark,
     addSegments,
@@ -18,7 +18,9 @@ import {
     getRecording,
     practiceTurn,
     rerunAnalysis,
+    retryTranscription,
     startLiveCall,
+    uploadCall,
     startPracticeCall,
     updateCall,
     updateSegmentSpeaker,
@@ -41,7 +43,7 @@ export const useCall = (id: string | undefined) => {
         queryKey: [QUERY_KEY, "detail", id],
         queryFn: () => getCall(id as string),
         enabled: !!id,
-        refetchInterval: (query) => (query.state.data?.status === CallStatuses.ANALYZING ? 3000 : false),
+        refetchInterval: (query) => (isCallProcessing(query.state.data?.status) ? 3000 : false),
     });
 };
 
@@ -65,6 +67,34 @@ export const useStartLiveCall = () => {
         },
         onError: (error) => {
             toast({ title: i18n.t("common:toasts.calls.couldNotStartTheCall"), description: error.message, variant: "error" });
+        },
+    });
+};
+
+export const useUploadCall = () => {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: uploadCall,
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
+            toast({ title: i18n.t("common:toasts.calls.recordingUploadedForAnalysis"), description: i18n.t("common:toasts.calls.weAreTranscribingIt"), duration: 2500 });
+        },
+        onError: (error) => {
+            toast({ title: i18n.t("common:toasts.calls.couldNotUploadTheRecording"), description: error.message, variant: "error" });
+        },
+    });
+};
+
+export const useRetryTranscription = () => {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: retryTranscription,
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
+            toast({ title: i18n.t("common:toasts.calls.transcriptionRestarted"), duration: 1500 });
+        },
+        onError: (error) => {
+            toast({ title: i18n.t("common:toasts.calls.couldNotRetryTheTranscription"), description: error.message, variant: "error" });
         },
     });
 };

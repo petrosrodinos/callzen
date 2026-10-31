@@ -64,7 +64,9 @@
     "objectiveMet": "Hedef karşılandı",
     "notMet": "Karşılanmadı",
     "analyzing": "Analiz ediliyor",
-    "live": "Canlı"
+    "live": "Canlı",
+    "queued": "Sırada",
+    "transcribing": "Yazıya dökülüyor"
   },
   "languageSelect": {
     "label": "Dil",
@@ -237,7 +239,12 @@
       "couldNotDeleteTheTranscript": "Döküm silinemedi",
       "analysisStarted": "Analiz başladı",
       "thisUsuallyTakesUnderAMinute": "Bu genellikle bir dakikadan kısa sürer.",
-      "couldNotStartTheAnalysis": "Analiz başlatılamadı"
+      "couldNotStartTheAnalysis": "Analiz başlatılamadı",
+      "recordingUploadedForAnalysis": "Kayıt yüklendi",
+      "weAreTranscribingIt": "Şimdi yazıya döküyoruz.",
+      "couldNotUploadTheRecording": "Kayıt yüklenemedi",
+      "transcriptionRestarted": "Yazıya dökme yeniden başlatıldı",
+      "couldNotRetryTheTranscription": "Yazıya dökme yeniden denenemedi"
     },
     "organisations": {
       "roleUpdated": "Rol güncellendi",
@@ -339,7 +346,9 @@
       "failedToStartTheAnalysis": "Analiz başlatılamadı.",
       "couldNotStartTheRealtimeAudio": "Gerçek zamanlı ses oturumu başlatılamadı.",
       "theProspectDidNotRespondTry": "Müşteri adayı yanıt vermedi. Tekrar deneyin.",
-      "couldNotConnectToTheRealtime": "Gerçek zamanlı ses hizmetine bağlanılamadı."
+      "couldNotConnectToTheRealtime": "Gerçek zamanlı ses hizmetine bağlanılamadı.",
+      "failedToUploadTheCall": "Kayıt yüklenemedi.",
+      "failedToRetryTheTranscription": "Yazıya dökme yeniden denenemedi."
     },
     "dashboard": {
       "failedToLoadYourProgress": "İlerlemeniz yüklenemedi."

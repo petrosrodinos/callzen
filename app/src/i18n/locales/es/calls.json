@@ -104,6 +104,18 @@
     },
     "footerMeeting": "A continuación, elige la pestaña de tu reunión y activa «Compartir audio de la pestaña».",
     "footerMic": "Pon el teléfono en altavoz cerca de este dispositivo.",
-    "startCall": "Iniciar llamada"
+    "startCall": "Iniciar llamada",
+    "upload": {
+      "title": "Archivo de grabación",
+      "dropzone": "Suelta un archivo de audio aquí o haz clic para buscarlo",
+      "formats": "mp3, m4a, wav, webm, ogg o aac, hasta 300 MB",
+      "remove": "Quitar archivo",
+      "submit": "Subir y analizar",
+      "uploading": "Subiendo… {{percent}} %",
+      "footer": "Transcribiremos la grabación en segundo plano y prepararemos tu informe. Puedes salir de esta página.",
+      "fileRequired": "Elige una grabación para subir",
+      "tooLarge": "Este archivo supera los 300 MB",
+      "unsupported": "Tipo de archivo no compatible"
+    }
   }
 }

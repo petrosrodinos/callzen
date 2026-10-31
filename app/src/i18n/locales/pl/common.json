@@ -64,7 +64,9 @@
     "objectiveMet": "Cel osiągnięty",
     "notMet": "Cel nieosiągnięty",
     "analyzing": "Analizowanie",
-    "live": "Na żywo"
+    "live": "Na żywo",
+    "queued": "W kolejce",
+    "transcribing": "Transkrypcja"
   },
   "languageSelect": {
     "label": "Język",
@@ -241,7 +243,12 @@
       "couldNotDeleteTheTranscript": "Nie udało się usunąć transkrypcji",
       "analysisStarted": "Rozpoczęto analizę",
       "thisUsuallyTakesUnderAMinute": "Zwykle trwa to mniej niż minutę.",
-      "couldNotStartTheAnalysis": "Nie udało się rozpocząć analizy"
+      "couldNotStartTheAnalysis": "Nie udało się rozpocząć analizy",
+      "recordingUploadedForAnalysis": "Nagranie przesłane",
+      "weAreTranscribingIt": "Właśnie ją przetwarzamy.",
+      "couldNotUploadTheRecording": "Nie udało się przesłać nagrania",
+      "transcriptionRestarted": "Transkrypcja uruchomiona ponownie",
+      "couldNotRetryTheTranscription": "Nie udało się ponowić transkrypcji"
     },
     "organisations": {
       "roleUpdated": "Zaktualizowano rolę",
@@ -343,7 +350,9 @@
       "failedToStartTheAnalysis": "Nie udało się rozpocząć analizy.",
       "couldNotStartTheRealtimeAudio": "Nie udało się rozpocząć sesji audio w czasie rzeczywistym.",
       "theProspectDidNotRespondTry": "Rozmówca nie odpowiedział. Spróbuj ponownie.",
-      "couldNotConnectToTheRealtime": "Nie udało się połączyć z usługą audio w czasie rzeczywistym."
+      "couldNotConnectToTheRealtime": "Nie udało się połączyć z usługą audio w czasie rzeczywistym.",
+      "failedToUploadTheCall": "Nie udało się przesłać nagrania.",
+      "failedToRetryTheTranscription": "Nie udało się ponowić transkrypcji."
     },
     "dashboard": {
       "failedToLoadYourProgress": "Nie udało się załadować postępów."

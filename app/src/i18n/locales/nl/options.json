@@ -134,7 +134,10 @@
       "analyzing": "Wordt geanalyseerd",
       "analyzed": "Geanalyseerd",
       "analysisFailed": "Analyse mislukt",
-      "ended": "Niet geanalyseerd"
+      "ended": "Niet geanalyseerd",
+      "queued": "In wachtrij",
+      "transcribing": "Wordt getranscribeerd",
+      "transcriptionFailed": "Transcriptie mislukt"
     },
     "typeFilter": {
       "all": "Alle gesprekstypen"
@@ -142,11 +145,13 @@
     "type": {
       "onlineMeeting": "Online vergadering",
       "microphone": "Telefoon / microfoon",
-      "practice": "Oefensessie"
+      "practice": "Oefensessie",
+      "upload": "Geüploade opname"
     },
     "typeDescription": {
       "microphone": "Een gesprek via de speaker van je telefoon of een ander apparaat. CallZen luistert mee via de microfoon van dit apparaat. Het beste voor koude acquisitie.",
-      "onlineMeeting": "Google Meet, Zoom, Teams of een andere webvergadering. Je deelt het geluid van het vergadertabblad, zodat beide kanten apart worden opgenomen."
+      "onlineMeeting": "Google Meet, Zoom, Teams of een andere webvergadering. Je deelt het geluid van het vergadertabblad, zodat beide kanten apart worden opgenomen.",
+      "upload": "Heb je al een opname? Upload een mp3-, m4a- of wav-bestand en ontvang hetzelfde transcript en prestatierapport."
     },
     "speaker": {
       "user": "Jij",

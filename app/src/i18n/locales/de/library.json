@@ -63,7 +63,14 @@
       "noAnalysis": "Keine Analyse für diesen Anruf",
       "safe": "Ihre Aufzeichnung und Ihr Transkript sind sicher.",
       "canRetry": "Sie können es erneut versuchen.",
-      "retry": "Analyse wiederholen"
+      "retry": "Analyse wiederholen",
+      "queued": "Wartet in der Warteschlange …",
+      "queuedHint": "Ihre Aufnahme wird in Kürze transkribiert. Sie können diese Seite verlassen.",
+      "transcribing": "Ihre Aufnahme wird transkribiert …",
+      "transcribingHint": "Lange Aufnahmen können einige Minuten dauern. Sie können diese Seite verlassen; der Bericht liegt danach in Ihrer Bibliothek.",
+      "transcriptionFailed": "Die Transkription wurde nicht abgeschlossen",
+      "noTranscript": "Kein Transkript für diesen Anruf",
+      "retryTranscription": "Transkription wiederholen"
     },
     "header": {
       "back": "Anrufbibliothek",
