@@ -16,6 +16,7 @@ import { AudioLevelMeter } from "@/components/ui/live-assist/audio-level-meter";
 import { useCall, useUpdateCall } from "@/features/calls/hooks/use-calls";
 import { useAssistantAgents } from "@/features/assistant-agents/hooks/use-assistant-agents";
 import { CallEndReasons, CallStatuses, type CallOutcome } from "@/features/calls/interfaces/calls.interfaces";
+import { cn } from "@/lib/utils";
 import { useCopilotSession } from "@/hooks/use-copilot-session";
 import { useFinishCall } from "@/hooks/use-finish-call";
 import { useCallClock } from "@/hooks/use-call-clock";
@@ -134,10 +135,12 @@ const LiveCallPage: FC = () => {
         </Card>
       )}
 
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,24rem)]">
-        <Card className="p-4">
-          <LiveAssistPanel session={copilot} script={call.agent_snapshot?.script ?? []} agentName={call.agent_snapshot?.name} />
-        </Card>
+      <div className={cn("grid grid-cols-1 gap-4", call.copilot_enabled && "lg:grid-cols-[minmax(0,1fr)_minmax(0,24rem)]")}>
+        {call.copilot_enabled && (
+          <Card className="p-4">
+            <LiveAssistPanel session={copilot} script={call.agent_snapshot?.script ?? []} agentName={call.agent_snapshot?.name} />
+          </Card>
+        )}
 
         <Card className="flex flex-col p-4 lg:sticky lg:top-20 lg:h-[calc(100dvh-7rem)]">
           <Collapsible open={transcriptOpen} onOpenChange={setTranscriptOpen} className="flex min-h-0 flex-1 flex-col">

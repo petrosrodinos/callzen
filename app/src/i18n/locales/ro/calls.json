@@ -69,7 +69,9 @@
       "title": "Copilot",
       "agentLabel": "Agent asistent",
       "defaultSuffix": "{{name}} (implicit)",
-      "goal": "Obiectiv: {{goal}}"
+      "goal": "Obiectiv: {{goal}}",
+      "none": "Fără co-pilot",
+      "noneHint": "Fără sugestii live în timpul apelului. Apelul este totuși transcris și analizat cu criteriile implicite."
     },
     "context": {
       "title": "Contextul apelului",
@@ -90,7 +92,8 @@
       "callFallback": "Apel",
       "language": "Limba conversației",
       "autoDetect": "Detectare automată ({{languages}})",
-      "autoDetectHint": "Detectarea automată urmează oricare dintre limbile copilotului pe care o vorbește prospectul."
+      "autoDetectHint": "Detectarea automată urmează oricare dintre limbile copilotului pe care o vorbește prospectul.",
+      "autoDetectAny": "Detectare automată"
     },
     "recording": {
       "title": "Înregistrare",

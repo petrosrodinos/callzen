@@ -69,7 +69,9 @@
       "title": "Yardımcı pilot",
       "agentLabel": "Asistan ajan",
       "defaultSuffix": "{{name}} (varsayılan)",
-      "goal": "Hedef: {{goal}}"
+      "goal": "Hedef: {{goal}}",
+      "none": "Yardımcı pilot yok",
+      "noneHint": "Görüşme sırasında canlı öneri yok. Görüşme yine de yazıya dökülür ve varsayılan ölçütlerle analiz edilir."
     },
     "context": {
       "title": "Arama bağlamı",
@@ -90,7 +92,8 @@
       "callFallback": "Arama",
       "language": "Konuşma dili",
       "autoDetect": "Otomatik algıla ({{languages}})",
-      "autoDetectHint": "Otomatik algılama, yardımcı pilotun dillerinden adayın konuştuğunu takip eder."
+      "autoDetectHint": "Otomatik algılama, yardımcı pilotun dillerinden adayın konuştuğunu takip eder.",
+      "autoDetectAny": "Otomatik algıla"
     },
     "recording": {
       "title": "Kayıt",

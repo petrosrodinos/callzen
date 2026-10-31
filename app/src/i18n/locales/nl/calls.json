@@ -69,7 +69,9 @@
       "title": "Copiloot",
       "agentLabel": "Assistentagent",
       "defaultSuffix": "{{name}} (standaard)",
-      "goal": "Doel: {{goal}}"
+      "goal": "Doel: {{goal}}",
+      "none": "Geen co-pilot",
+      "noneHint": "Geen live suggesties tijdens het gesprek. Het gesprek wordt nog steeds getranscribeerd en geanalyseerd met de standaardcriteria."
     },
     "context": {
       "title": "Gesprekscontext",
@@ -90,7 +92,8 @@
       "callFallback": "Gesprek",
       "language": "Gesprekstaal",
       "autoDetect": "Automatisch detecteren ({{languages}})",
-      "autoDetectHint": "Automatisch detecteren volgt welke van de talen van de copiloot de prospect spreekt."
+      "autoDetectHint": "Automatisch detecteren volgt welke van de talen van de copiloot de prospect spreekt.",
+      "autoDetectAny": "Automatisch detecteren"
     },
     "recording": {
       "title": "Opname",

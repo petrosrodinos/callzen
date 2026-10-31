@@ -69,7 +69,9 @@
       "title": "Asystent",
       "agentLabel": "Agent asystent",
       "defaultSuffix": "{{name}} (domyślny)",
-      "goal": "Cel: {{goal}}"
+      "goal": "Cel: {{goal}}",
+      "none": "Bez co-pilota",
+      "noneHint": "Brak podpowiedzi na żywo podczas rozmowy. Rozmowa jest nadal transkrybowana i analizowana według domyślnych kryteriów."
     },
     "context": {
       "title": "Kontekst rozmowy",
@@ -90,7 +92,8 @@
       "callFallback": "Rozmowa",
       "language": "Język rozmowy",
       "autoDetect": "Wykrywaj automatycznie ({{languages}})",
-      "autoDetectHint": "Automatyczne wykrywanie podąża za tym z języków asystenta, którym mówi klient."
+      "autoDetectHint": "Automatyczne wykrywanie podąża za tym z języków asystenta, którym mówi klient.",
+      "autoDetectAny": "Wykrywaj automatycznie"
     },
     "recording": {
       "title": "Nagrywanie",

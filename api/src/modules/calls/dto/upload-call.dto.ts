@@ -94,4 +94,20 @@ export class UploadCallDto {
   )
   @IsBoolean()
   keep_recording?: boolean;
+
+  @ApiProperty({
+    required: false,
+    description:
+      'false = no assistant agent: the call is analyzed with the default criteria',
+  })
+  @IsOptional()
+  @Transform(({ value }) =>
+    value === 'true' || value === true
+      ? true
+      : value === 'false' || value === false
+        ? false
+        : undefined,
+  )
+  @IsBoolean()
+  copilot_enabled?: boolean;
 }

@@ -78,6 +78,14 @@ export class CreateCallDto {
   @IsString()
   @MaxLength(10)
   language?: string;
+
+  @ApiProperty({
+    required: false,
+    description: 'false = no co-pilot: no live suggestions, no agent required',
+  })
+  @IsOptional()
+  @IsBoolean()
+  copilot_enabled?: boolean;
 }
 
 export class CreatePracticeCallDto {

@@ -31,7 +31,7 @@ import { cn } from "@/lib/utils";
 import { toast } from "@/hooks/use-toast";
 import { usePageMetadata } from "@/hooks/use-page-metadata";
 import { Routes } from "@/routes/routes";
-import { newCallSchema, type NewCallFormValues } from "../../validation-schemas/new-call.schema";
+import { NO_COPILOT, newCallSchema, type NewCallFormValues } from "../../validation-schemas/new-call.schema";
 import { AudioDropzone } from "./components/audio-dropzone";
 
 const TYPE_ICONS = { [CallTypes.MICROPHONE]: Mic, [CallTypes.ONLINE_MEETING]: MonitorSmartphone, [CallTypes.UPLOAD]: Upload } as const;
@@ -75,6 +75,7 @@ const NewCallPage: FC = () => {
 
   const isUpload = form.watch("call_type") === CallTypes.UPLOAD;
   const agentId = form.watch("assistant_agent_id");
+  const noCopilot = agentId === NO_COPILOT;
   const selectedAgent = agents?.find((agent) => agent.id === agentId);
   const consentNeeded = !me?.consent_acknowledged_at;
   const agentLanguageCodes = selectedAgent ? (selectedAgent.languages?.length ? selectedAgent.languages : [selectedAgent.language]) : [];
@@ -87,14 +88,20 @@ const NewCallPage: FC = () => {
   }, [agents, form, searchParams]);
 
   useEffect(() => {
+    if (noCopilot) {
+      form.setValue("language", AUTO_LANGUAGE);
+      return;
+    }
     if (!selectedAgent) return;
     const agentLanguages = selectedAgent.languages?.length ? selectedAgent.languages : [selectedAgent.language];
     form.setValue("language", agentLanguages.length > 1 ? AUTO_LANGUAGE : agentLanguages[0]);
-  }, [form, selectedAgent]);
+  }, [form, selectedAgent, noCopilot]);
 
   useEffect(() => {
     if (me) form.setValue("keep_recording", me.keep_recordings);
   }, [form, me]);
+
+  const copilotDto = (id: string) => (id === NO_COPILOT ? { copilot_enabled: false } : { assistant_agent_id: id });
 
   const onSubmit = async (values: NewCallFormValues) => {
     if (consentNeeded && !values.consent_acknowledged) {
@@ -112,7 +119,7 @@ const NewCallPage: FC = () => {
         {
           file,
           dto: {
-            assistant_agent_id: values.assistant_agent_id,
+            ...copilotDto(values.assistant_agent_id),
             prospect_name: values.prospect_name || undefined,
             prospect_company: values.prospect_company || undefined,
             prospect_role: values.prospect_role || undefined,
@@ -152,7 +159,7 @@ const NewCallPage: FC = () => {
     startCall.mutate(
       {
         call_type: values.call_type,
-        assistant_agent_id: values.assistant_agent_id,
+        ...copilotDto(values.assistant_agent_id),
         prospect_name: values.prospect_name || undefined,
         prospect_company: values.prospect_company || undefined,
         prospect_role: values.prospect_role || undefined,
@@ -241,7 +248,8 @@ const NewCallPage: FC = () => {
           />
 
           <FormSection title={t("new.copilot.title")}>
-            <FormSelectField control={form.control} name="assistant_agent_id" label={t("new.copilot.agentLabel")} options={agents.map((agent) => ({ id: agent.id, label: agent.is_default ? t("new.copilot.defaultSuffix", { name: agent.name }) : agent.name }))} />
+            <FormSelectField control={form.control} name="assistant_agent_id" label={t("new.copilot.agentLabel")} options={[{ id: NO_COPILOT, label: t("new.copilot.none") }, ...agents.map((agent) => ({ id: agent.id, label: agent.is_default ? t("new.copilot.defaultSuffix", { name: agent.name }) : agent.name }))]} />
+            {noCopilot && <p className="-mt-2 text-xs text-muted-foreground">{t("new.copilot.noneHint")}</p>}
             {selectedAgent?.call_goal && <p className="-mt-2 text-xs text-muted-foreground">{t("new.copilot.goal", { goal: selectedAgent.call_goal })}</p>}
           </FormSection>
 
@@ -313,8 +321,8 @@ const NewCallPage: FC = () => {
                       value={field.value}
                       onValueChange={field.onChange}
                       ariaLabel={t("new.context.language")}
-                      codes={agentLanguageCodes}
-                      leadingOptions={agentLanguageCodes.length > 1 ? [{ id: AUTO_LANGUAGE, label: t("new.context.autoDetect", { languages: agentLanguageCodes.map(languageLabel).join(", ") }) }] : []}
+                      codes={selectedAgent ? agentLanguageCodes : undefined}
+                      leadingOptions={noCopilot ? [{ id: AUTO_LANGUAGE, label: t("new.context.autoDetectAny") }] : agentLanguageCodes.length > 1 ? [{ id: AUTO_LANGUAGE, label: t("new.context.autoDetect", { languages: agentLanguageCodes.map(languageLabel).join(", ") }) }] : []}
                     />
                     {agentLanguageCodes.length > 1 && <FormDescription>{t("new.context.autoDetectHint")}</FormDescription>}
                     <FormMessage />

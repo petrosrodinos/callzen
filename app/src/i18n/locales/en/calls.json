@@ -69,7 +69,9 @@
       "title": "Co-pilot",
       "agentLabel": "Assistant agent",
       "defaultSuffix": "{{name}} (default)",
-      "goal": "Goal: {{goal}}"
+      "goal": "Goal: {{goal}}",
+      "none": "No co-pilot",
+      "noneHint": "No live suggestions during the call. The call is still transcribed and analyzed with the default criteria."
     },
     "context": {
       "title": "Call context",
@@ -90,7 +92,8 @@
       "callFallback": "Call",
       "language": "Conversation language",
       "autoDetect": "Auto-detect ({{languages}})",
-      "autoDetectHint": "Auto-detect follows whichever of the co-pilot's languages the prospect speaks."
+      "autoDetectHint": "Auto-detect follows whichever of the co-pilot's languages the prospect speaks.",
+      "autoDetectAny": "Auto-detect"
     },
     "recording": {
       "title": "Recording",

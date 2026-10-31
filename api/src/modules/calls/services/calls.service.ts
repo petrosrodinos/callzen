@@ -82,11 +82,12 @@ export class CallsService {
   ) {}
 
   async startLive(ctx: OrgContext, dto: CreateCallDto) {
+    const copilotEnabled = dto.copilot_enabled ?? true;
     const [user, agent] = await Promise.all([
       this.prisma.user.findUnique({ where: { id: ctx.userId } }),
-      this.resolveAssistantAgent(ctx, dto.assistant_agent_id),
+      copilotEnabled ? this.resolveAssistantAgent(ctx, dto.assistant_agent_id) : null,
     ]);
-    if (!agent)
+    if (copilotEnabled && !agent)
       throw new BadRequestException(
         'Create an assistant agent before starting a call',
       );
@@ -106,13 +107,13 @@ export class CallsService {
         user_id: ctx.userId,
         kind: CallKind.LIVE,
         call_type: dto.call_type,
-        assistant_agent_id: agent.id,
-        copilot_enabled: true,
+        assistant_agent_id: agent?.id,
+        copilot_enabled: copilotEnabled,
         prospect_name: dto.prospect_name,
         prospect_company: dto.prospect_company,
         prospect_role: dto.prospect_role,
         context_notes: dto.context_notes,
-        goal: dto.goal ?? agent.call_goal,
+        goal: dto.goal ?? agent?.call_goal,
         prior_call_id: dto.prior_call_id,
         language: this.resolveCallLanguage(dto.language, agent),
         keep_recording: dto.keep_recording ?? user.keep_recordings,
@@ -120,16 +121,17 @@ export class CallsService {
           dto.prospect_name || dto.prospect_company
             ? `Call with ${[dto.prospect_name, dto.prospect_company].filter(Boolean).join(' · ')}`
             : null,
-        agent_snapshot: asJson(toAgentSnapshot(agent)),
+        agent_snapshot: agent ? asJson(toAgentSnapshot(agent)) : undefined,
       },
     });
 
-    await this.copilotService.createInitialSuggestions(
-      call,
-      toAgentSnapshot(agent),
-      agent.consent_line ?? user.consent_line,
-      agent.suggest_consent_line,
-    );
+    if (agent)
+      await this.copilotService.createInitialSuggestions(
+        call,
+        toAgentSnapshot(agent),
+        agent.consent_line ?? user.consent_line,
+        agent.suggest_consent_line,
+      );
 
     return this.findOne(ctx, call.id);
   }
@@ -144,11 +146,12 @@ export class CallsService {
     if (!file?.buffer?.length)
       throw new BadRequestException('Recording file is empty');
 
+    const useAgent = dto.copilot_enabled ?? true;
     const [user, agent] = await Promise.all([
       this.prisma.user.findUnique({ where: { id: ctx.userId } }),
-      this.resolveAssistantAgent(ctx, dto.assistant_agent_id),
+      useAgent ? this.resolveAssistantAgent(ctx, dto.assistant_agent_id) : null,
     ]);
-    if (!agent)
+    if (useAgent && !agent)
       throw new BadRequestException(
         'Create an assistant agent before analyzing a call',
       );
@@ -169,13 +172,13 @@ export class CallsService {
         kind: CallKind.LIVE,
         call_type: CallType.UPLOAD,
         status: CallStatus.QUEUED,
-        assistant_agent_id: agent.id,
+        assistant_agent_id: agent?.id,
         copilot_enabled: false,
         prospect_name: dto.prospect_name,
         prospect_company: dto.prospect_company,
         prospect_role: dto.prospect_role,
         context_notes: dto.context_notes,
-        goal: dto.goal ?? agent.call_goal,
+        goal: dto.goal ?? agent?.call_goal,
         prior_call_id: dto.prior_call_id,
         language: this.resolveCallLanguage(dto.language, agent),
         keep_recording: dto.keep_recording ?? user.keep_recordings,
@@ -184,7 +187,7 @@ export class CallsService {
           dto.prospect_name || dto.prospect_company
             ? `Call with ${[dto.prospect_name, dto.prospect_company].filter(Boolean).join(' · ')}`
             : filename.replace(/\.[^.]+$/, ''),
-        agent_snapshot: asJson(toAgentSnapshot(agent)),
+        agent_snapshot: agent ? asJson(toAgentSnapshot(agent)) : undefined,
       },
     });
 
@@ -625,8 +628,13 @@ export class CallsService {
   // Multi-language co-pilots default to auto-detection; an explicit choice must be a supported language.
   private resolveCallLanguage(
     requested: string | undefined,
-    agent: { language: string; languages: string[] },
+    agent: { language: string; languages: string[] } | null,
   ): string {
+    // Without an agent there is no language list to constrain the choice.
+    if (!agent)
+      return requested && SUPPORTED_LANGUAGE_CODES.includes(requested)
+        ? requested
+        : AUTO_LANGUAGE;
     const languages = agent.languages?.length
       ? agent.languages
       : [agent.language];

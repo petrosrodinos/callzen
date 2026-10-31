@@ -69,7 +69,9 @@
       "title": "Co-Pilot",
       "agentLabel": "Assistenzagent",
       "defaultSuffix": "{{name}} (Standard)",
-      "goal": "Ziel: {{goal}}"
+      "goal": "Ziel: {{goal}}",
+      "none": "Kein Co-Pilot",
+      "noneHint": "Keine Live-Vorschläge während des Gesprächs. Das Gespräch wird trotzdem transkribiert und mit den Standardkriterien analysiert."
     },
     "context": {
       "title": "Anrufkontext",
@@ -90,7 +92,8 @@
       "callFallback": "Anruf",
       "language": "Gesprächssprache",
       "autoDetect": "Automatisch erkennen ({{languages}})",
-      "autoDetectHint": "Die automatische Erkennung folgt der Sprache des Co-Piloten, die der Interessent spricht."
+      "autoDetectHint": "Die automatische Erkennung folgt der Sprache des Co-Piloten, die der Interessent spricht.",
+      "autoDetectAny": "Automatisch erkennen"
     },
     "recording": {
       "title": "Aufzeichnung",

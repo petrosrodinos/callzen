@@ -69,7 +69,9 @@
       "title": "Copiloto",
       "agentLabel": "Agente assistente",
       "defaultSuffix": "{{name}} (predefinido)",
-      "goal": "Objetivo: {{goal}}"
+      "goal": "Objetivo: {{goal}}",
+      "none": "Sem copiloto",
+      "noneHint": "Sem sugestões ao vivo durante a chamada. A chamada continua a ser transcrita e analisada com os critérios predefinidos."
     },
     "context": {
       "title": "Contexto da chamada",
@@ -90,7 +92,8 @@
       "callFallback": "Chamada",
       "language": "Idioma da conversa",
       "autoDetect": "Deteção automática ({{languages}})",
-      "autoDetectHint": "A deteção automática segue o idioma, dos do copiloto, que o potencial cliente falar."
+      "autoDetectHint": "A deteção automática segue o idioma, dos do copiloto, que o potencial cliente falar.",
+      "autoDetectAny": "Deteção automática"
     },
     "recording": {
       "title": "Gravação",

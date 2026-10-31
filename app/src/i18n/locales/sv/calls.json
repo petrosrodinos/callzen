@@ -69,7 +69,9 @@
       "title": "Copilot",
       "agentLabel": "Assistentagent",
       "defaultSuffix": "{{name}} (standard)",
-      "goal": "Mål: {{goal}}"
+      "goal": "Mål: {{goal}}",
+      "none": "Ingen co-pilot",
+      "noneHint": "Inga liveförslag under samtalet. Samtalet transkriberas och analyseras ändå med standardkriterierna."
     },
     "context": {
       "title": "Samtalskontext",
@@ -90,7 +92,8 @@
       "callFallback": "Samtal",
       "language": "Samtalsspråk",
       "autoDetect": "Identifiera automatiskt ({{languages}})",
-      "autoDetectHint": "Automatisk identifiering följer vilket av copilotens språk prospekten talar."
+      "autoDetectHint": "Automatisk identifiering följer vilket av copilotens språk prospekten talar.",
+      "autoDetectAny": "Identifiera automatiskt"
     },
     "recording": {
       "title": "Inspelning",

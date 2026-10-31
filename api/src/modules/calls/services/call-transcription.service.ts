@@ -52,6 +52,14 @@ interface ChunkResult {
   segments: DiarizedSegment[];
 }
 
+interface ContextPatch {
+  prospect_name?: string;
+  prospect_company?: string;
+  prospect_role?: string;
+  context_notes?: string;
+  title?: string;
+}
+
 interface TranscriptLineRow {
   speaker: Speaker;
   text: string;
@@ -225,6 +233,7 @@ export class CallTranscriptionService {
           },
         });
       } else {
+        const contextPatch = await this.extractCallContext(call, merged);
         await this.prisma.$transaction([
           this.prisma.transcriptSegment.deleteMany({
             where: { call_id: callId },
@@ -238,7 +247,11 @@ export class CallTranscriptionService {
           }),
           this.prisma.call.update({
             where: { id: callId },
-            data: { ...callEnd, status: CallStatus.ANALYZING },
+            data: {
+              ...callEnd,
+              ...contextPatch,
+              status: CallStatus.ANALYZING,
+            },
           }),
         ]);
         await this.analysisService.queue(callId);
@@ -393,6 +406,105 @@ export class CallTranscriptionService {
       this.logger.warn(`Speaker role guess failed: ${error?.message}`);
     }
     return roles;
+  }
+
+  // The user may skip the "Call context" form when uploading. Fill only the fields they left
+  // empty from what is said in the call; never overwrite anything they typed.
+  private async extractCallContext(
+    call: {
+      id: string;
+      user_id: string;
+      organisation_id: string;
+      title: string | null;
+      source_filename: string | null;
+      prospect_name: string | null;
+      prospect_company: string | null;
+      prospect_role: string | null;
+      context_notes: string | null;
+    },
+    lines: TranscriptLineRow[],
+  ): Promise<ContextPatch> {
+    const blank = (value: string | null) => !value?.trim();
+    const missing = {
+      prospect_name: blank(call.prospect_name),
+      prospect_company: blank(call.prospect_company),
+      prospect_role: blank(call.prospect_role),
+      context_notes: blank(call.context_notes),
+    };
+    if (!Object.values(missing).some(Boolean)) return {};
+
+    try {
+      const label = (speaker: Speaker) =>
+        speaker === Speaker.USER
+          ? 'Seller'
+          : speaker === Speaker.PROSPECT
+            ? 'Prospect'
+            : 'Speaker';
+      const full = lines.map((l) => `${label(l.speaker)}: ${l.text}`).join('\n');
+      const transcript =
+        full.length > 16000
+          ? `${full.slice(0, 12000)}\n[...]\n${full.slice(-4000)}`
+          : full;
+
+      const text = z.string().nullable();
+      const result = await this.aiService.generateStructured({
+        model: UTILITY_MODEL,
+        schema: z.object({
+          prospect_name: text,
+          prospect_company: text,
+          prospect_role: text,
+          context_notes: text,
+        }),
+        schemaName: 'call_context',
+        system:
+          'You extract background context from a sales call transcript so the call can be analyzed. Use only facts explicitly stated in the transcript; never guess or invent. Return null for anything not clearly stated. prospect_name: the prospect\'s own name (not the seller\'s). prospect_company: the prospect\'s company. prospect_role: the prospect\'s job title. context_notes: 1-3 short sentences about the prospect\'s situation, needs, pains, timeline or constraints that matter for judging the call. Write the values in the language of the transcript.',
+        prompt: `Transcript:\n${transcript}`,
+        temperature: 0,
+        maxTokens: 400,
+        timeoutMs: 45000,
+      });
+      this.usageService.record({
+        organisationId: call.organisation_id,
+        userId: call.user_id,
+        callId: call.id,
+        kind: UsageKind.ANALYSIS,
+        model: result.model,
+        inputTokens: result.usage.inputTokens,
+        outputTokens: result.usage.outputTokens,
+        costUsd: result.usage.costUsd,
+      });
+
+      const clean = (value: string | null | undefined, max: number) =>
+        value?.trim() ? value.trim().slice(0, max) : undefined;
+      const found = {
+        prospect_name: clean(result.output.prospect_name, 120),
+        prospect_company: clean(result.output.prospect_company, 160),
+        prospect_role: clean(result.output.prospect_role, 160),
+        context_notes: clean(result.output.context_notes, 1000),
+      };
+
+      const patch: ContextPatch = {};
+      for (const key of Object.keys(found) as (keyof typeof found)[])
+        if (missing[key] && found[key]) patch[key] = found[key];
+
+      // The title falls back to the filename when no prospect was given; improve it if we
+      // learned who the call was with and the user has not renamed it.
+      const filenameTitle = call.source_filename?.replace(/\.[^.]+$/, '');
+      const name = patch.prospect_name ?? call.prospect_name;
+      const company = patch.prospect_company ?? call.prospect_company;
+      if (
+        (patch.prospect_name || patch.prospect_company) &&
+        (name || company) &&
+        call.title === filenameTitle
+      )
+        patch.title = `Call with ${[name, company].filter(Boolean).join(' · ')}`;
+      return patch;
+    } catch (error) {
+      this.logger.warn(
+        `Call context extraction failed for ${call.id}: ${error?.message}`,
+      );
+      return {};
+    }
   }
 
   // Join consecutive lines of the same speaker so the transcript reads like a conversation.
