@@ -200,7 +200,10 @@
       "couldNotSetDefault": "Impossibile impostare come predefinito",
       "couldNotUpdateTheCoPilot": "Impossibile aggiornare il co-pilot",
       "couldNotDeleteTheCoPilot": "Impossibile eliminare il co-pilot",
-      "readyToUse": "{{name}} è pronto all'uso."
+      "readyToUse": "{{name}} è pronto all'uso.",
+      "coPilotGenerated": "Copilota preparato",
+      "reviewAndAdjust": "Rivedi e modifica i dettagli, poi crealo.",
+      "couldNotGenerateTheCoPilot": "Impossibile generare il copilota"
     },
     "calls": {
       "callStarted": "Chiamata avviata",
@@ -390,7 +393,8 @@
       "failedToDuplicateTheAssistantAgent": "Impossibile duplicare l'agente assistente.",
       "failedToSetTheDefaultAgent": "Impossibile impostare l'agente predefinito.",
       "failedToUpdateTheAgent": "Impossibile aggiornare l'agente.",
-      "failedToDeleteTheAssistantAgent": "Impossibile eliminare l'agente assistente."
+      "failedToDeleteTheAssistantAgent": "Impossibile eliminare l'agente assistente.",
+      "failedToGenerateTheAssistantAgent": "Impossibile generare il copilota. Riprova."
     },
     "auth": {
       "failedToSignInPleaseTry": "Accesso non riuscito. Riprova.",

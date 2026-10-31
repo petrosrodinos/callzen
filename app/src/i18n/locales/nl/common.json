@@ -200,7 +200,10 @@
       "couldNotSetDefault": "Standaard instellen mislukt",
       "couldNotUpdateTheCoPilot": "Co-pilot kon niet worden bijgewerkt",
       "couldNotDeleteTheCoPilot": "Co-pilot kon niet worden verwijderd",
-      "readyToUse": "{{name}} is klaar voor gebruik."
+      "readyToUse": "{{name}} is klaar voor gebruik.",
+      "coPilotGenerated": "Copiloot opgesteld",
+      "reviewAndAdjust": "Controleer en pas de details aan en maak hem daarna aan.",
+      "couldNotGenerateTheCoPilot": "Kon de copiloot niet genereren"
     },
     "calls": {
       "callStarted": "Gesprek gestart",
@@ -390,7 +393,8 @@
       "failedToDuplicateTheAssistantAgent": "Assistent-agent dupliceren mislukt.",
       "failedToSetTheDefaultAgent": "Standaardagent instellen mislukt.",
       "failedToUpdateTheAgent": "Agent bijwerken mislukt.",
-      "failedToDeleteTheAssistantAgent": "Assistent-agent verwijderen mislukt."
+      "failedToDeleteTheAssistantAgent": "Assistent-agent verwijderen mislukt.",
+      "failedToGenerateTheAssistantAgent": "Het genereren van de copiloot is mislukt. Probeer het opnieuw."
     },
     "auth": {
       "failedToSignInPleaseTry": "Inloggen mislukt. Probeer het opnieuw.",

@@ -193,6 +193,21 @@ Chip color maps (`Record<Enum, ChipColor>`) may stay in the chip component — o
 
 ---
 
+### Translations — always add every locale
+
+The app ships 12 UI languages: `en` (source), `el`, `de`, `es`, `fr`, `it`, `nl`, `pl`, `pt`, `ro`, `sv`, `tr` (`src/i18n/locales/<lang>/<namespace>.json`).
+
+**Whenever you add or change a user-visible string, add the key to ALL 12 locale files in the same change.** Never ship English-only keys relying on the per-key fallback to `en`.
+
+- Add the key under the same path in every language's namespace file (page strings in `<section>.json`, toasts/errors in `common.json`).
+- Write real translations, not copies of the English text. Reuse each language's existing terminology (e.g. how that locale already words "co-pilot").
+- Keep `{{interpolation}}` variables and plural suffixes (`_one` / `_other`) identical across languages.
+- Preserve each file's formatting (2-space indent, CRLF line endings). For bulk edits, use a script that parses and rewrites the JSON, and verify the file round-trips unchanged before writing.
+- Static enum labels in `config/constants/dropdowns/` must use `i18n.t(...)` keys, which also need all 12 locales.
+- Before finishing any UI task, confirm no new key exists in `en` that is missing from another locale.
+
+---
+
 ## 3. Naming Conventions
 
 ### Files

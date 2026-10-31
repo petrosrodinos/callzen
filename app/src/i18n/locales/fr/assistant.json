@@ -157,7 +157,9 @@
     "objections_one": "{{count}} objection",
     "objections_other": "{{count}} objections",
     "scratch": "Partir de zéro",
-    "scratchHint": "Rédigez votre propre script et vos règles"
+    "scratchHint": "Rédigez votre propre script et vos règles",
+    "generate": "Décrivez-le, l'IA le crée",
+    "generateHint": "Dites-nous ce que vous vendez et qui vous appelez. Nous rédigeons le script, les objections et les règles à relire."
   },
   "validation": {
     "name": "Donnez un nom à votre copilote",
@@ -168,6 +170,19 @@
     "languagesMin": "Choisissez au moins une langue",
     "languagesMax": "{{max}} langues maximum",
     "categoryName": "Nommez la catégorie",
-    "categoryMin": "Conservez au moins une catégorie de notation"
+    "categoryMin": "Conservez au moins une catégorie de notation",
+    "describeCoPilot": "Décrivez votre copilote en une ou deux phrases"
+  },
+  "generateDialog": {
+    "title": "Décrivez votre copilote",
+    "description": "Ce que vous vendez, qui vous appelez et ce que l'appel doit accomplir. CallZen rédige le script, la bibliothèque d'objections, les règles et les notes produit. Vous vérifiez tout avant d'enregistrer.",
+    "descriptionAria": "Description du copilote",
+    "generating": "Génération…",
+    "generate": "Générer",
+    "examples": {
+      "one": "Appels à froid à des cabinets dentaires pour réserver une démo de notre logiciel de rappel de rendez-vous. Ton amical, les propriétaires sont occupés et sceptiques.",
+      "two": "Appels sortants à des utilisateurs d'essai SaaS devenus inactifs, pour les relancer et planifier une session d'onboarding.",
+      "three": "Qualifier les leads entrants d'une entreprise d'installation de panneaux solaires et réserver une visite gratuite à domicile."
+    }
   }
 }

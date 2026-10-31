@@ -202,7 +202,10 @@
       "couldNotSetDefault": "Nu s-a putut seta ca implicit",
       "couldNotUpdateTheCoPilot": "Nu s-a putut actualiza co-pilotul",
       "couldNotDeleteTheCoPilot": "Nu s-a putut șterge co-pilotul",
-      "readyToUse": "{{name}} este gata de utilizare."
+      "readyToUse": "{{name}} este gata de utilizare.",
+      "coPilotGenerated": "Copilot redactat",
+      "reviewAndAdjust": "Verifică și ajustează detaliile, apoi creează-l.",
+      "couldNotGenerateTheCoPilot": "Nu s-a putut genera copilotul"
     },
     "calls": {
       "callStarted": "Apel început",
@@ -392,7 +395,8 @@
       "failedToDuplicateTheAssistantAgent": "Nu s-a putut duplica agentul asistent.",
       "failedToSetTheDefaultAgent": "Nu s-a putut seta agentul implicit.",
       "failedToUpdateTheAgent": "Nu s-a putut actualiza agentul.",
-      "failedToDeleteTheAssistantAgent": "Nu s-a putut șterge agentul asistent."
+      "failedToDeleteTheAssistantAgent": "Nu s-a putut șterge agentul asistent.",
+      "failedToGenerateTheAssistantAgent": "Generarea copilotului a eșuat. Încearcă din nou."
     },
     "auth": {
       "failedToSignInPleaseTry": "Autentificarea a eșuat. Încearcă din nou.",

@@ -157,7 +157,9 @@
     "objections_one": "{{count}} itiraz",
     "objections_other": "{{count}} itiraz",
     "scratch": "Sıfırdan başla",
-    "scratchHint": "Kendi senaryonuzu ve kurallarınızı yazın"
+    "scratchHint": "Kendi senaryonuzu ve kurallarınızı yazın",
+    "generate": "Tarif edin, yapay zeka oluştursun",
+    "generateHint": "Ne sattığınızı ve kimi aradığınızı söyleyin. Senaryoyu, itirazları ve kuralları sizin incelemeniz için taslak olarak hazırlarız."
   },
   "validation": {
     "name": "Yardımcı pilotunuza bir ad verin",
@@ -168,6 +170,19 @@
     "languagesMin": "En az bir dil seçin",
     "languagesMax": "En fazla {{max}} dil",
     "categoryName": "Kategoriyi adlandırın",
-    "categoryMin": "En az bir puanlama kategorisi bırakın"
+    "categoryMin": "En az bir puanlama kategorisi bırakın",
+    "describeCoPilot": "Yardımcı pilotunuzu bir veya iki cümleyle tarif edin"
+  },
+  "generateDialog": {
+    "title": "Yardımcı pilotunuzu tarif edin",
+    "description": "Ne sattığınız, kimi aradığınız ve görüşmenin neyi başarması gerektiği. CallZen senaryo, itiraz kütüphanesi, kurallar ve ürün notlarını taslak olarak hazırlar. Kaydetmeden önce her şeyi incelersiniz.",
+    "descriptionAria": "Yardımcı pilot açıklaması",
+    "generating": "Oluşturuluyor…",
+    "generate": "Oluştur",
+    "examples": {
+      "one": "Randevu hatırlatma yazılımımızın demosunu ayarlamak için diş kliniklerine soğuk aramalar. Samimi bir ton; sahipleri meşgul ve şüpheci.",
+      "two": "Pasif hale gelen SaaS deneme kullanıcılarını yeniden kazanmak ve bir onboarding oturumu ayarlamak için giden aramalar.",
+      "three": "Bir güneş paneli kurulum şirketi için gelen potansiyel müşterileri değerlendirmek ve ücretsiz evde keşif ayarlamak."
+    }
   }
 }

@@ -51,6 +51,7 @@ export const ApiRoutes = {
     },
     assistant_agents: {
         prefix: "/assistant-agents",
+        generate: "/assistant-agents/generate",
         detail: (id: string) => `/assistant-agents/${id}`,
         duplicate: (id: string) => `/assistant-agents/${id}/duplicate`,
         set_default: (id: string) => `/assistant-agents/${id}/default`,

@@ -1,5 +1,6 @@
 import type {
   AssistantAgent,
+  AssistantAgentDraft,
   CreateAssistantAgentDto,
 } from "@/features/assistant-agents/interfaces/assistant-agents.interfaces";
 import type {
@@ -37,6 +38,30 @@ export const toFormValues = (
     consent_line: agent?.consent_line ?? "",
     suggest_consent_line: agent?.suggest_consent_line ?? false,
     is_default: agent?.is_default ?? false,
+  };
+};
+
+export const toDraftFormValues = (
+  draft: AssistantAgentDraft,
+  catalog: Catalog,
+): AssistantAgentFormValues => {
+  const base = toFormValues(null, catalog);
+  return {
+    ...base,
+    name: draft.name ?? base.name,
+    description: draft.description ?? base.description,
+    call_goal: draft.call_goal ?? base.call_goal,
+    script: draft.script ?? base.script,
+    instructions: draft.instructions ?? base.instructions,
+    knowledge: draft.knowledge ?? base.knowledge,
+    objection_library: draft.objection_library ?? base.objection_library,
+    methodology: draft.methodology ?? base.methodology,
+    languages: draft.languages?.length ? draft.languages : base.languages,
+    tone: draft.tone ?? base.tone,
+    suggestion_frequency: draft.suggestion_frequency ?? base.suggestion_frequency,
+    analysis_criteria: draft.analysis_criteria?.length
+      ? draft.analysis_criteria
+      : base.analysis_criteria,
   };
 };
 

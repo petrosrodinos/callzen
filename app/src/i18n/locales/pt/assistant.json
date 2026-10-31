@@ -157,7 +157,9 @@
     "objections_one": "{{count}} objeção",
     "objections_other": "{{count}} objeções",
     "scratch": "Começar do zero",
-    "scratchHint": "Escreva o seu próprio guião e regras"
+    "scratchHint": "Escreva o seu próprio guião e regras",
+    "generate": "Descreva e a IA cria",
+    "generateHint": "Conte-nos o que vende e a quem liga. Redigimos o guião, as objeções e as regras para rever."
   },
   "validation": {
     "name": "Dê um nome ao seu copiloto",
@@ -168,6 +170,19 @@
     "languagesMin": "Escolha pelo menos um idioma",
     "languagesMax": "Até {{max}} idiomas",
     "categoryName": "Dê um nome à categoria",
-    "categoryMin": "Mantenha pelo menos uma categoria de pontuação"
+    "categoryMin": "Mantenha pelo menos uma categoria de pontuação",
+    "describeCoPilot": "Descreva o seu copiloto numa ou duas frases"
+  },
+  "generateDialog": {
+    "title": "Descreva o seu copiloto",
+    "description": "O que vende, a quem liga e o que a chamada deve alcançar. O CallZen redige o guião, a biblioteca de objeções, as regras e as notas do produto. Revê tudo antes de guardar.",
+    "descriptionAria": "Descrição do copiloto",
+    "generating": "A gerar…",
+    "generate": "Gerar",
+    "examples": {
+      "one": "Chamadas a frio para clínicas dentárias para marcar uma demo do nosso software de lembretes de consultas. Tom amigável, os proprietários estão ocupados e céticos.",
+      "two": "Chamadas de saída para utilizadores de teste SaaS que ficaram inativos, para os reativar e marcar uma sessão de onboarding.",
+      "three": "Qualificar leads de entrada de uma empresa de instalação de painéis solares e marcar uma visita gratuita ao domicílio."
+    }
   }
 }

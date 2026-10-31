@@ -204,7 +204,10 @@
       "couldNotSetDefault": "Nie udało się ustawić jako domyślnego",
       "couldNotUpdateTheCoPilot": "Nie udało się zaktualizować co-pilota",
       "couldNotDeleteTheCoPilot": "Nie udało się usunąć co-pilota",
-      "readyToUse": "{{name}} jest gotowy do użycia."
+      "readyToUse": "{{name}} jest gotowy do użycia.",
+      "coPilotGenerated": "Współpilot przygotowany",
+      "reviewAndAdjust": "Sprawdź i dopasuj szczegóły, a następnie go utwórz.",
+      "couldNotGenerateTheCoPilot": "Nie udało się wygenerować współpilota"
     },
     "calls": {
       "callStarted": "Rozpoczęto rozmowę",
@@ -394,7 +397,8 @@
       "failedToDuplicateTheAssistantAgent": "Nie udało się zduplikować agenta asystenta.",
       "failedToSetTheDefaultAgent": "Nie udało się ustawić agenta domyślnego.",
       "failedToUpdateTheAgent": "Nie udało się zaktualizować agenta.",
-      "failedToDeleteTheAssistantAgent": "Nie udało się usunąć agenta asystenta."
+      "failedToDeleteTheAssistantAgent": "Nie udało się usunąć agenta asystenta.",
+      "failedToGenerateTheAssistantAgent": "Nie udało się wygenerować współpilota. Spróbuj ponownie."
     },
     "auth": {
       "failedToSignInPleaseTry": "Nie udało się zalogować. Spróbuj ponownie.",

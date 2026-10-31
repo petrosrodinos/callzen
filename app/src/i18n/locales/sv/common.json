@@ -200,7 +200,10 @@
       "couldNotSetDefault": "Det gick inte att ange som standard",
       "couldNotUpdateTheCoPilot": "Det gick inte att uppdatera co-piloten",
       "couldNotDeleteTheCoPilot": "Det gick inte att ta bort co-piloten",
-      "readyToUse": "{{name}} är redo att användas."
+      "readyToUse": "{{name}} är redo att användas.",
+      "coPilotGenerated": "Copilot utkastad",
+      "reviewAndAdjust": "Granska och justera detaljerna och skapa den sedan.",
+      "couldNotGenerateTheCoPilot": "Det gick inte att generera copiloten"
     },
     "calls": {
       "callStarted": "Samtalet har startat",
@@ -390,7 +393,8 @@
       "failedToDuplicateTheAssistantAgent": "Det gick inte att duplicera assistentagenten.",
       "failedToSetTheDefaultAgent": "Det gick inte att ange standardagenten.",
       "failedToUpdateTheAgent": "Det gick inte att uppdatera agenten.",
-      "failedToDeleteTheAssistantAgent": "Det gick inte att ta bort assistentagenten."
+      "failedToDeleteTheAssistantAgent": "Det gick inte att ta bort assistentagenten.",
+      "failedToGenerateTheAssistantAgent": "Det gick inte att generera copiloten. Försök igen."
     },
     "auth": {
       "failedToSignInPleaseTry": "Det gick inte att logga in. Försök igen.",

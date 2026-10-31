@@ -200,7 +200,10 @@
       "couldNotSetDefault": "Standard konnte nicht festgelegt werden",
       "couldNotUpdateTheCoPilot": "Co-Pilot konnte nicht aktualisiert werden",
       "couldNotDeleteTheCoPilot": "Co-Pilot konnte nicht gelöscht werden",
-      "readyToUse": "{{name}} ist einsatzbereit."
+      "readyToUse": "{{name}} ist einsatzbereit.",
+      "coPilotGenerated": "Co-Pilot entworfen",
+      "reviewAndAdjust": "Prüfen und passen Sie die Details an und erstellen Sie ihn dann.",
+      "couldNotGenerateTheCoPilot": "Co-Pilot konnte nicht generiert werden"
     },
     "calls": {
       "callStarted": "Anruf gestartet",
@@ -390,7 +393,8 @@
       "failedToDuplicateTheAssistantAgent": "Der Assistent konnte nicht dupliziert werden.",
       "failedToSetTheDefaultAgent": "Der Standardassistent konnte nicht festgelegt werden.",
       "failedToUpdateTheAgent": "Der Assistent konnte nicht aktualisiert werden.",
-      "failedToDeleteTheAssistantAgent": "Der Assistent konnte nicht gelöscht werden."
+      "failedToDeleteTheAssistantAgent": "Der Assistent konnte nicht gelöscht werden.",
+      "failedToGenerateTheAssistantAgent": "Der Co-Pilot konnte nicht generiert werden. Bitte versuchen Sie es erneut."
     },
     "auth": {
       "failedToSignInPleaseTry": "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.",

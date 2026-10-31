@@ -200,7 +200,10 @@
       "couldNotSetDefault": "Varsayılan olarak ayarlanamadı",
       "couldNotUpdateTheCoPilot": "Co-pilot güncellenemedi",
       "couldNotDeleteTheCoPilot": "Co-pilot silinemedi",
-      "readyToUse": "{{name}} kullanıma hazır."
+      "readyToUse": "{{name}} kullanıma hazır.",
+      "coPilotGenerated": "Yardımcı pilot taslağı hazır",
+      "reviewAndAdjust": "Ayrıntıları inceleyip düzenleyin, ardından oluşturun.",
+      "couldNotGenerateTheCoPilot": "Yardımcı pilot oluşturulamadı"
     },
     "calls": {
       "callStarted": "Görüşme başladı",
@@ -390,7 +393,8 @@
       "failedToDuplicateTheAssistantAgent": "Asistan ajan çoğaltılamadı.",
       "failedToSetTheDefaultAgent": "Varsayılan ajan ayarlanamadı.",
       "failedToUpdateTheAgent": "Ajan güncellenemedi.",
-      "failedToDeleteTheAssistantAgent": "Asistan ajan silinemedi."
+      "failedToDeleteTheAssistantAgent": "Asistan ajan silinemedi.",
+      "failedToGenerateTheAssistantAgent": "Yardımcı pilot oluşturulamadı. Lütfen tekrar deneyin."
     },
     "auth": {
       "failedToSignInPleaseTry": "Giriş yapılamadı. Lütfen tekrar deneyin.",

@@ -26,6 +26,7 @@ import { ZodValidationPipe } from '@/shared/pipes/zod.validation.pipe';
 import { AssistantAgentsService } from './assistant-agents.service';
 import { CreateAssistantAgentDto } from './dto/create-assistant-agent.dto';
 import { UpdateAssistantAgentDto } from './dto/update-assistant-agent.dto';
+import { GenerateAssistantAgentDto } from './dto/generate-assistant-agent.dto';
 import {
   AssistantAgentQuerySchema,
   type AssistantAgentQueryType,
@@ -48,6 +49,17 @@ export class AssistantAgentsController {
   @ApiResponse({ status: 201, description: 'Agent created' })
   create(@Org() ctx: OrgContext, @Body() dto: CreateAssistantAgentDto) {
     return this.assistantAgentsService.create(ctx, dto);
+  }
+
+  @RequirePermissions(Permissions.AGENTS_MANAGE)
+  @Post('generate')
+  @ApiOperation({
+    summary:
+      'Generate a co-pilot draft (script, objections, rules) from a plain-language description. Nothing is saved.',
+  })
+  @ApiResponse({ status: 201, description: 'Generated co-pilot draft' })
+  generate(@Org() ctx: OrgContext, @Body() dto: GenerateAssistantAgentDto) {
+    return this.assistantAgentsService.generate(ctx, dto);
   }
 
   @RequirePermissions(Permissions.AGENTS_VIEW)

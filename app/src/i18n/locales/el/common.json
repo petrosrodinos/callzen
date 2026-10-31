@@ -200,7 +200,10 @@
       "couldNotSetDefault": "Δεν ήταν δυνατός ο ορισμός ως προεπιλογής",
       "couldNotUpdateTheCoPilot": "Δεν ήταν δυνατή η ενημέρωση του co-pilot",
       "couldNotDeleteTheCoPilot": "Δεν ήταν δυνατή η διαγραφή του co-pilot",
-      "readyToUse": "Το {{name}} είναι έτοιμο για χρήση."
+      "readyToUse": "Το {{name}} είναι έτοιμο για χρήση.",
+      "coPilotGenerated": "Το co-pilot συντάχθηκε",
+      "reviewAndAdjust": "Ελέγξτε και προσαρμόστε τις λεπτομέρειες και μετά δημιουργήστε το.",
+      "couldNotGenerateTheCoPilot": "Δεν ήταν δυνατή η δημιουργία του co-pilot"
     },
     "calls": {
       "callStarted": "Η κλήση ξεκίνησε",
@@ -390,7 +393,8 @@
       "failedToDuplicateTheAssistantAgent": "Αποτυχία αντιγραφής του πράκτορα βοηθού.",
       "failedToSetTheDefaultAgent": "Αποτυχία ορισμού του προεπιλεγμένου πράκτορα.",
       "failedToUpdateTheAgent": "Αποτυχία ενημέρωσης του πράκτορα.",
-      "failedToDeleteTheAssistantAgent": "Αποτυχία διαγραφής του πράκτορα βοηθού."
+      "failedToDeleteTheAssistantAgent": "Αποτυχία διαγραφής του πράκτορα βοηθού.",
+      "failedToGenerateTheAssistantAgent": "Αποτυχία δημιουργίας του co-pilot. Δοκιμάστε ξανά."
     },
     "auth": {
       "failedToSignInPleaseTry": "Αποτυχία σύνδεσης. Δοκιμάστε ξανά.",

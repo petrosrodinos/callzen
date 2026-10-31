@@ -163,7 +163,9 @@
     "objections_many": "{{count}} zastrzeżeń",
     "objections_other": "{{count}} zastrzeżenia",
     "scratch": "Zacznij od zera",
-    "scratchHint": "Napisz własny skrypt i zasady"
+    "scratchHint": "Napisz własny skrypt i zasady",
+    "generate": "Opisz go, a AI go zbuduje",
+    "generateHint": "Powiedz, co sprzedajesz i do kogo dzwonisz. Przygotujemy skrypt, obiekcje i zasady do sprawdzenia."
   },
   "validation": {
     "name": "Nadaj współpilotowi nazwę",
@@ -174,6 +176,19 @@
     "languagesMin": "Wybierz co najmniej jeden język",
     "languagesMax": "Maksymalnie {{max}} języków",
     "categoryName": "Nazwij kategorię",
-    "categoryMin": "Zachowaj co najmniej jedną kategorię punktacji"
+    "categoryMin": "Zachowaj co najmniej jedną kategorię punktacji",
+    "describeCoPilot": "Opisz swojego współpilota w jednym lub dwóch zdaniach"
+  },
+  "generateDialog": {
+    "title": "Opisz swojego współpilota",
+    "description": "Co sprzedajesz, do kogo dzwonisz i co ma osiągnąć rozmowa. CallZen przygotuje skrypt, bibliotekę obiekcji, zasady i notatki o produkcie. Wszystko sprawdzasz przed zapisaniem.",
+    "descriptionAria": "Opis współpilota",
+    "generating": "Generowanie…",
+    "generate": "Generuj",
+    "examples": {
+      "one": "Zimne telefony do gabinetów dentystycznych w celu umówienia demo naszego oprogramowania do przypominania o wizytach. Przyjazny ton, właściciele są zajęci i sceptyczni.",
+      "two": "Rozmowy wychodzące do nieaktywnych użytkowników wersji próbnej SaaS, aby ich reaktywować i umówić sesję wdrożeniową.",
+      "three": "Kwalifikowanie przychodzących leadów firmy montującej panele słoneczne i umawianie bezpłatnej wizyty w domu."
+    }
   }
 }

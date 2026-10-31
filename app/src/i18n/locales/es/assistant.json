@@ -157,7 +157,9 @@
     "objections_one": "{{count}} objeción",
     "objections_other": "{{count}} objeciones",
     "scratch": "Empezar desde cero",
-    "scratchHint": "Escribe tu propio guion y tus reglas"
+    "scratchHint": "Escribe tu propio guion y tus reglas",
+    "generate": "Descríbelo y la IA lo crea",
+    "generateHint": "Cuéntanos qué vendes y a quién llamas. Redactamos el guion, las objeciones y las reglas para que los revises."
   },
   "validation": {
     "name": "Ponle un nombre a tu copiloto",
@@ -168,6 +170,19 @@
     "languagesMin": "Elige al menos un idioma",
     "languagesMax": "Hasta {{max}} idiomas",
     "categoryName": "Ponle nombre a la categoría",
-    "categoryMin": "Mantén al menos una categoría de puntuación"
+    "categoryMin": "Mantén al menos una categoría de puntuación",
+    "describeCoPilot": "Describe tu copiloto en una o dos frases"
+  },
+  "generateDialog": {
+    "title": "Describe tu copiloto",
+    "description": "Qué vendes, a quién llamas y qué debe lograr la llamada. CallZen redacta el guion, la biblioteca de objeciones, las reglas y las notas del producto. Lo revisas todo antes de guardar.",
+    "descriptionAria": "Descripción del copiloto",
+    "generating": "Generando…",
+    "generate": "Generar",
+    "examples": {
+      "one": "Llamadas en frío a clínicas dentales para reservar una demo de nuestro software de recordatorio de citas. Tono amable, los dueños están ocupados y son escépticos.",
+      "two": "Llamadas salientes a usuarios de prueba de SaaS que dejaron de usarlo, para reactivarlos y reservar una sesión de onboarding.",
+      "three": "Calificar leads entrantes de una empresa de instalación de paneles solares y reservar una visita gratuita a domicilio."
+    }
   }
 }

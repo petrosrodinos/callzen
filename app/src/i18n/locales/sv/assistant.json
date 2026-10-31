@@ -157,7 +157,9 @@
     "objections_one": "{{count}} invändning",
     "objections_other": "{{count}} invändningar",
     "scratch": "Börja från grunden",
-    "scratchHint": "Skriv ditt eget manus och dina egna regler"
+    "scratchHint": "Skriv ditt eget manus och dina egna regler",
+    "generate": "Beskriv den, AI bygger den",
+    "generateHint": "Berätta vad du säljer och vem du ringer. Vi skriver utkast till manus, invändningar och regler som du granskar."
   },
   "validation": {
     "name": "Ge din copilot ett namn",
@@ -168,6 +170,19 @@
     "languagesMin": "Välj minst ett språk",
     "languagesMax": "Upp till {{max}} språk",
     "categoryName": "Namnge kategorin",
-    "categoryMin": "Behåll minst en poängkategori"
+    "categoryMin": "Behåll minst en poängkategori",
+    "describeCoPilot": "Beskriv din copilot i en eller två meningar"
+  },
+  "generateDialog": {
+    "title": "Beskriv din copilot",
+    "description": "Vad du säljer, vem du ringer och vad samtalet ska uppnå. CallZen skriver utkast till manus, invändningsbibliotek, regler och produktanteckningar. Du granskar allt innan du sparar.",
+    "descriptionAria": "Beskrivning av copiloten",
+    "generating": "Genererar…",
+    "generate": "Generera",
+    "examples": {
+      "one": "Kallringning till tandläkarkliniker för att boka en demo av vår programvara för bokningspåminnelser. Vänlig ton, ägarna är upptagna och skeptiska.",
+      "two": "Utgående samtal till SaaS-provanvändare som blivit inaktiva, för att återaktivera dem och boka en onboarding-session.",
+      "three": "Kvalificera inkommande leads för ett företag som installerar solpaneler och boka ett gratis hembesök."
+    }
   }
 }

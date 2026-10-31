@@ -4,8 +4,10 @@ import { ApiRoutes } from "@/config/api/routes";
 import { ApiError } from "@/lib/api-error";
 import type {
     AssistantAgent,
+    AssistantAgentDraft,
     AssistantAgentQuery,
     CreateAssistantAgentDto,
+    GenerateAssistantAgentDto,
     UpdateAssistantAgentDto,
 } from "../interfaces/assistant-agents.interfaces";
 
@@ -33,6 +35,15 @@ export const createAssistantAgent = async (dto: CreateAssistantAgentDto): Promis
         return response.data;
     } catch (error) {
         throw new ApiError(error, i18n.t("common:errors.assistantAgents.failedToCreateTheAssistantAgent"));
+    }
+};
+
+export const generateAssistantAgent = async (dto: GenerateAssistantAgentDto): Promise<AssistantAgentDraft> => {
+    try {
+        const response = await axiosInstance.post(ApiRoutes.assistant_agents.generate, dto, { timeout: 120000 });
+        return response.data;
+    } catch (error) {
+        throw new ApiError(error, i18n.t("common:errors.assistantAgents.failedToGenerateTheAssistantAgent"));
     }
 };
 

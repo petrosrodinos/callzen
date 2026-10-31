@@ -157,7 +157,9 @@
     "objections_one": "{{count}} bezwaar",
     "objections_other": "{{count}} bezwaren",
     "scratch": "Helemaal opnieuw beginnen",
-    "scratchHint": "Schrijf je eigen script en regels"
+    "scratchHint": "Schrijf je eigen script en regels",
+    "generate": "Beschrijf het, AI bouwt het",
+    "generateHint": "Vertel ons wat je verkoopt en wie je belt. Wij schrijven het script, de bezwaren en de regels voor je op, zodat je ze kunt controleren."
   },
   "validation": {
     "name": "Geef je copiloot een naam",
@@ -168,6 +170,19 @@
     "languagesMin": "Kies minstens één taal",
     "languagesMax": "Maximaal {{max}} talen",
     "categoryName": "Geef de categorie een naam",
-    "categoryMin": "Houd minstens één scorecategorie"
+    "categoryMin": "Houd minstens één scorecategorie",
+    "describeCoPilot": "Beschrijf je copiloot in een of twee zinnen"
+  },
+  "generateDialog": {
+    "title": "Beschrijf je copiloot",
+    "description": "Wat je verkoopt, wie je belt en wat het gesprek moet opleveren. CallZen schrijft het script, de bezwarenbibliotheek, regels en productnotities. Je controleert alles voordat je opslaat.",
+    "descriptionAria": "Beschrijving van de copiloot",
+    "generating": "Genereren…",
+    "generate": "Genereren",
+    "examples": {
+      "one": "Koude calls naar tandartspraktijken om een demo van onze afspraakherinneringssoftware te boeken. Vriendelijke toon, eigenaren zijn druk en sceptisch.",
+      "two": "Uitgaande gesprekken met inactief geworden SaaS-proefgebruikers om ze te heractiveren en een onboardingsessie te boeken.",
+      "three": "Inkomende leads kwalificeren voor een zonnepaneleninstallateur en een gratis huisbezoek inplannen."
+    }
   }
 }

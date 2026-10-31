@@ -157,10 +157,25 @@
     "objections_one": "{{count}} objection",
     "objections_other": "{{count}} objections",
     "scratch": "Start from scratch",
-    "scratchHint": "Write your own script and rules"
+    "scratchHint": "Write your own script and rules",
+    "generate": "Describe it, AI builds it",
+    "generateHint": "Tell us what you sell and who you call. We draft the script, objections and rules for you to review."
+  },
+  "generateDialog": {
+    "title": "Describe your co-pilot",
+    "description": "What you sell, who you call and what the call should achieve. CallZen drafts the script, objection library, rules and product notes. You review everything before saving.",
+    "descriptionAria": "Co-pilot description",
+    "generating": "Generating…",
+    "generate": "Generate",
+    "examples": {
+      "one": "Cold calls to dental clinics to book a demo of our appointment-reminder software. Friendly tone, owners are busy and skeptical.",
+      "two": "Outbound calls to SaaS trial users who went inactive, to re-engage them and book an onboarding session.",
+      "three": "Qualifying inbound leads for a solar panel installation company and booking a free home survey."
+    }
   },
   "validation": {
     "name": "Give your co-pilot a name",
+    "describeCoPilot": "Describe your co-pilot in a sentence or two",
     "stageContent": "Write what to say in this stage",
     "knowledgeMax": "Knowledge is limited to {{max}} characters",
     "objection": "Describe the objection",

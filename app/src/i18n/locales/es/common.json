@@ -200,7 +200,10 @@
       "couldNotSetDefault": "No se pudo establecer como predeterminado",
       "couldNotUpdateTheCoPilot": "No se pudo actualizar el copiloto",
       "couldNotDeleteTheCoPilot": "No se pudo eliminar el copiloto",
-      "readyToUse": "{{name}} está listo para usar."
+      "readyToUse": "{{name}} está listo para usar.",
+      "coPilotGenerated": "Copiloto redactado",
+      "reviewAndAdjust": "Revisa y ajusta los detalles y luego créalo.",
+      "couldNotGenerateTheCoPilot": "No se pudo generar el copiloto"
     },
     "calls": {
       "callStarted": "Llamada iniciada",
@@ -390,7 +393,8 @@
       "failedToDuplicateTheAssistantAgent": "No se pudo duplicar el agente asistente.",
       "failedToSetTheDefaultAgent": "No se pudo establecer el agente predeterminado.",
       "failedToUpdateTheAgent": "No se pudo actualizar el agente.",
-      "failedToDeleteTheAssistantAgent": "No se pudo eliminar el agente asistente."
+      "failedToDeleteTheAssistantAgent": "No se pudo eliminar el agente asistente.",
+      "failedToGenerateTheAssistantAgent": "No se pudo generar el copiloto. Inténtalo de nuevo."
     },
     "auth": {
       "failedToSignInPleaseTry": "No se pudo iniciar sesión. Inténtalo de nuevo.",

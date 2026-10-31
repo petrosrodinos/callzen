@@ -69,3 +69,15 @@ export const assistantAgentSchema = z.object({
 });
 
 export type AssistantAgentFormValues = z.infer<typeof assistantAgentSchema>;
+
+export const generateAssistantAgentSchema = z.object({
+  description: z
+    .string()
+    .trim()
+    .min(10, i18n.t("assistant:validation.describeCoPilot"))
+    .max(3000),
+});
+
+export type GenerateAssistantAgentFormValues = z.infer<
+  typeof generateAssistantAgentSchema
+>;

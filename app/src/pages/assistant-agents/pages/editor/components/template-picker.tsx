@@ -1,4 +1,4 @@
-import { FilePlus2, LayoutTemplate } from "lucide-react";
+import { FilePlus2, LayoutTemplate, WandSparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -8,12 +8,32 @@ import { getMethodologyLabel } from "@/config/constants/dropdowns/agents/methodo
 interface TemplatePickerProps {
   templates: AssistantAgentTemplate[];
   onPick: (template: AssistantAgentTemplate | "blank") => void;
+  onGenerate: () => void;
 }
 
-export function TemplatePicker({ templates, onPick }: TemplatePickerProps) {
+export function TemplatePicker({
+  templates,
+  onPick,
+  onGenerate,
+}: TemplatePickerProps) {
   const { t } = useTranslation("assistant");
   return (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      <button
+        type="button"
+        onClick={onGenerate}
+        className="text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-xl sm:col-span-2"
+      >
+        <Card className="flex h-full items-center gap-3 border-primary/40 bg-primary/5 p-4 transition-colors hover:border-primary">
+          <WandSparkles className="size-5 shrink-0 text-primary" />
+          <div>
+            <span className="font-medium">{t("templates.generate")}</span>
+            <p className="text-sm text-muted-foreground">
+              {t("templates.generateHint")}
+            </p>
+          </div>
+        </Card>
+      </button>
       {templates.map((template) => (
         <button
           key={template.key}

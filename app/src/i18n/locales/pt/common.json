@@ -200,7 +200,10 @@
       "couldNotSetDefault": "Não foi possível definir como padrão",
       "couldNotUpdateTheCoPilot": "Não foi possível atualizar o co-pilot",
       "couldNotDeleteTheCoPilot": "Não foi possível excluir o co-pilot",
-      "readyToUse": "{{name}} está pronto para uso."
+      "readyToUse": "{{name}} está pronto para uso.",
+      "coPilotGenerated": "Copiloto redigido",
+      "reviewAndAdjust": "Reveja e ajuste os detalhes e depois crie-o.",
+      "couldNotGenerateTheCoPilot": "Não foi possível gerar o copiloto"
     },
     "calls": {
       "callStarted": "Chamada iniciada",
@@ -390,7 +393,8 @@
       "failedToDuplicateTheAssistantAgent": "Falha ao duplicar o agente assistente.",
       "failedToSetTheDefaultAgent": "Falha ao definir o agente padrão.",
       "failedToUpdateTheAgent": "Falha ao atualizar o agente.",
-      "failedToDeleteTheAssistantAgent": "Falha ao excluir o agente assistente."
+      "failedToDeleteTheAssistantAgent": "Falha ao excluir o agente assistente.",
+      "failedToGenerateTheAssistantAgent": "Falha ao gerar o copiloto. Tente novamente."
     },
     "auth": {
       "failedToSignInPleaseTry": "Falha ao entrar. Tente novamente.",

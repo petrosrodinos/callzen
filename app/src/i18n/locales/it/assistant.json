@@ -157,7 +157,9 @@
     "objections_one": "{{count}} obiezione",
     "objections_other": "{{count}} obiezioni",
     "scratch": "Parti da zero",
-    "scratchHint": "Scrivi il tuo script e le tue regole"
+    "scratchHint": "Scrivi il tuo script e le tue regole",
+    "generate": "Descrivilo e l'IA lo crea",
+    "generateHint": "Dicci cosa vendi e chi chiami. Prepariamo copione, obiezioni e regole da rivedere."
   },
   "validation": {
     "name": "Dai un nome al tuo copilota",
@@ -168,6 +170,19 @@
     "languagesMin": "Scegli almeno una lingua",
     "languagesMax": "Fino a {{max}} lingue",
     "categoryName": "Dai un nome alla categoria",
-    "categoryMin": "Mantieni almeno una categoria di punteggio"
+    "categoryMin": "Mantieni almeno una categoria di punteggio",
+    "describeCoPilot": "Descrivi il tuo copilota in una o due frasi"
+  },
+  "generateDialog": {
+    "title": "Descrivi il tuo copilota",
+    "description": "Cosa vendi, chi chiami e cosa deve ottenere la chiamata. CallZen prepara copione, libreria di obiezioni, regole e note sul prodotto. Controlli tutto prima di salvare.",
+    "descriptionAria": "Descrizione del copilota",
+    "generating": "Generazione…",
+    "generate": "Genera",
+    "examples": {
+      "one": "Chiamate a freddo a studi dentistici per fissare una demo del nostro software di promemoria appuntamenti. Tono cordiale, i titolari sono impegnati e scettici.",
+      "two": "Chiamate in uscita a utenti di prova SaaS diventati inattivi, per riattivarli e fissare una sessione di onboarding.",
+      "three": "Qualificare lead in entrata per un'azienda di installazione di pannelli solari e fissare un sopralluogo gratuito a domicilio."
+    }
   }
 }

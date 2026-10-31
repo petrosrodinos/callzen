@@ -16,7 +16,13 @@ import { usePageMetadata } from "@/hooks/use-page-metadata";
 import { Routes } from "@/routes/routes";
 import { TemplatePicker } from "./components/template-picker";
 import { AssistantAgentForm } from "./components/assistant-agent-form";
-import { toFormValues, toPayload } from "./utils/assistant-agent-form.utils";
+import { GenerateCopilotDialog } from "./components/generate-copilot-dialog";
+import {
+  toDraftFormValues,
+  toFormValues,
+  toPayload,
+} from "./utils/assistant-agent-form.utils";
+import type { AssistantAgentDraft } from "@/features/assistant-agents/interfaces/assistant-agents.interfaces";
 import type { AssistantAgentFormValues } from "../../validation-schemas/assistant-agent.schema";
 
 const AssistantAgentEditorPage: FC = () => {
@@ -29,6 +35,8 @@ const AssistantAgentEditorPage: FC = () => {
   const [template, setTemplate] = useState<
     AssistantAgentTemplate | "blank" | null
   >(null);
+  const [draft, setDraft] = useState<AssistantAgentDraft | null>(null);
+  const [generateOpen, setGenerateOpen] = useState(false);
   const create = useCreateAssistantAgent();
   const update = useUpdateAssistantAgent();
 
@@ -39,9 +47,10 @@ const AssistantAgentEditorPage: FC = () => {
   const defaults = useMemo(() => {
     if (!catalog) return null;
     if (!isNew) return agent ? toFormValues(agent, catalog) : null;
+    if (draft) return toDraftFormValues(draft, catalog);
     if (!template) return null;
     return toFormValues(template === "blank" ? null : template, catalog);
-  }, [agent, catalog, isNew, template]);
+  }, [agent, catalog, draft, isNew, template]);
 
   const onSubmit = (values: AssistantAgentFormValues) => {
     const payload = toPayload(values);
@@ -84,22 +93,41 @@ const AssistantAgentEditorPage: FC = () => {
 
       {loading ? (
         <FormSkeleton fields={8} />
-      ) : isNew && !template ? (
+      ) : isNew && !template && !draft ? (
         <TemplatePicker
           templates={catalog?.assistant_templates ?? []}
           onPick={setTemplate}
+          onGenerate={() => setGenerateOpen(true)}
         />
       ) : defaults && catalog ? (
         <AssistantAgentForm
-          key={agent?.id ?? (template === "blank" ? "blank" : template?.key)}
+          key={
+            agent?.id ??
+            (draft ? "generated" : template === "blank" ? "blank" : template?.key)
+          }
           defaultValues={defaults}
           catalog={catalog}
           onSubmit={onSubmit}
           isSaving={create.isPending || update.isPending}
           submitLabel={isNew ? t("editor.create") : t("editor.save")}
-          onBack={isNew ? () => setTemplate(null) : undefined}
+          onBack={
+            isNew
+              ? () => {
+                  setTemplate(null);
+                  setDraft(null);
+                }
+              : undefined
+          }
         />
       ) : null}
+
+      {isNew && (
+        <GenerateCopilotDialog
+          open={generateOpen}
+          onOpenChange={setGenerateOpen}
+          onGenerated={setDraft}
+        />
+      )}
     </div>
   );
 };

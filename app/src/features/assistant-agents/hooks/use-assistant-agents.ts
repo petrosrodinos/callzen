@@ -7,6 +7,7 @@ import {
     createAssistantAgent,
     deleteAssistantAgent,
     duplicateAssistantAgent,
+    generateAssistantAgent,
     getAssistantAgent,
     getAssistantAgents,
     setDefaultAssistantAgent,
@@ -40,6 +41,22 @@ export const useCreateAssistantAgent = () => {
         },
         onError: (error) => {
             toast({ title: i18n.t("common:toasts.assistantAgents.couldNotCreateTheCoPilot"), description: error.message, variant: "error" });
+        },
+    });
+};
+
+export const useGenerateAssistantAgent = () => {
+    return useMutation({
+        mutationFn: generateAssistantAgent,
+        onSuccess: () => {
+            toast({
+                title: i18n.t("common:toasts.assistantAgents.coPilotGenerated"),
+                description: i18n.t("common:toasts.assistantAgents.reviewAndAdjust"),
+                duration: 2500,
+            });
+        },
+        onError: (error) => {
+            toast({ title: i18n.t("common:toasts.assistantAgents.couldNotGenerateTheCoPilot"), description: error.message, variant: "error" });
         },
     });
 };

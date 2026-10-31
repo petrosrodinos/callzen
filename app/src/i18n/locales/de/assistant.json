@@ -157,7 +157,9 @@
     "objections_one": "{{count}} Einwand",
     "objections_other": "{{count}} Einwände",
     "scratch": "Von Grund auf beginnen",
-    "scratchHint": "Schreiben Sie Ihr eigenes Skript und Ihre eigenen Regeln"
+    "scratchHint": "Schreiben Sie Ihr eigenes Skript und Ihre eigenen Regeln",
+    "generate": "Beschreiben, KI baut es",
+    "generateHint": "Sagen Sie uns, was Sie verkaufen und wen Sie anrufen. Wir entwerfen Skript, Einwände und Regeln zur Prüfung."
   },
   "validation": {
     "name": "Geben Sie Ihrem Co-Piloten einen Namen",
@@ -168,6 +170,19 @@
     "languagesMin": "Wählen Sie mindestens eine Sprache",
     "languagesMax": "Bis zu {{max}} Sprachen",
     "categoryName": "Benennen Sie die Kategorie",
-    "categoryMin": "Behalten Sie mindestens eine Bewertungskategorie"
+    "categoryMin": "Behalten Sie mindestens eine Bewertungskategorie",
+    "describeCoPilot": "Beschreiben Sie Ihren Co-Piloten in ein bis zwei Sätzen"
+  },
+  "generateDialog": {
+    "title": "Beschreiben Sie Ihren Co-Piloten",
+    "description": "Was Sie verkaufen, wen Sie anrufen und was der Anruf erreichen soll. CallZen entwirft Skript, Einwandbibliothek, Regeln und Produktnotizen. Sie prüfen alles vor dem Speichern.",
+    "descriptionAria": "Beschreibung des Co-Piloten",
+    "generating": "Wird erstellt…",
+    "generate": "Erstellen",
+    "examples": {
+      "one": "Kaltakquise bei Zahnarztpraxen, um eine Demo unserer Software für Terminerinnerungen zu vereinbaren. Freundlicher Ton, die Inhaber sind beschäftigt und skeptisch.",
+      "two": "Ausgehende Anrufe bei inaktiven SaaS-Testnutzern, um sie zu reaktivieren und einen Onboarding-Termin zu buchen.",
+      "three": "Qualifizierung eingehender Leads für ein Solaranlagen-Unternehmen und Buchung einer kostenlosen Hausbegutachtung."
+    }
   }
 }

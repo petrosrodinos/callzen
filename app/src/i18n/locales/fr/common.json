@@ -200,7 +200,10 @@
       "couldNotSetDefault": "Impossible de définir par défaut",
       "couldNotUpdateTheCoPilot": "Impossible de mettre à jour le copilote",
       "couldNotDeleteTheCoPilot": "Impossible de supprimer le copilote",
-      "readyToUse": "{{name}} est prêt à l'emploi."
+      "readyToUse": "{{name}} est prêt à l'emploi.",
+      "coPilotGenerated": "Copilote rédigé",
+      "reviewAndAdjust": "Vérifiez et ajustez les détails, puis créez-le.",
+      "couldNotGenerateTheCoPilot": "Impossible de générer le copilote"
     },
     "calls": {
       "callStarted": "Appel démarré",
@@ -390,7 +393,8 @@
       "failedToDuplicateTheAssistantAgent": "Échec de la duplication de l'agent assistant.",
       "failedToSetTheDefaultAgent": "Échec de la définition de l'agent par défaut.",
       "failedToUpdateTheAgent": "Échec de la mise à jour de l'agent.",
-      "failedToDeleteTheAssistantAgent": "Échec de la suppression de l'agent assistant."
+      "failedToDeleteTheAssistantAgent": "Échec de la suppression de l'agent assistant.",
+      "failedToGenerateTheAssistantAgent": "Échec de la génération du copilote. Veuillez réessayer."
     },
     "auth": {
       "failedToSignInPleaseTry": "Échec de la connexion. Veuillez réessayer.",

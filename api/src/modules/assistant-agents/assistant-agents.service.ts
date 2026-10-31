@@ -5,14 +5,22 @@ import {
 } from '@nestjs/common';
 import { OrgContext } from '@/shared/interfaces/org-context.interface';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
-import { Prisma } from 'generated/prisma';
+import { Prisma, UsageKind } from 'generated/prisma';
+import { AiService } from '@/integrations/ai/services/ai.service';
+import { UsageService } from '@/modules/usage/usage.service';
 import { CreateAssistantAgentDto } from './dto/create-assistant-agent.dto';
 import { UpdateAssistantAgentDto } from './dto/update-assistant-agent.dto';
+import { GenerateAssistantAgentDto } from './dto/generate-assistant-agent.dto';
 import { AssistantAgentQueryType } from './dto/assistant-agent-query.schema';
+import {
+  ASSISTANT_AGENT_GENERATION_SYSTEM,
+  GeneratedAssistantAgentSchema,
+} from './utils/assistant-agent-generation.utils';
 import {
   isKnownAiModel,
   RECOMMENDED_ANALYSIS_MODEL,
   RECOMMENDED_REALTIME_MODEL,
+  UTILITY_MODEL,
 } from '@/shared/config/ai-models/ai-models.config';
 import { DEFAULT_ANALYSIS_CRITERIA } from '@/shared/config/templates/analysis-criteria.config';
 import { findAssistantAgentTemplate } from '@/shared/config/templates/assistant-agent-templates.config';
@@ -26,7 +34,11 @@ import { normalizeLanguages } from '@/shared/config/languages/languages.config';
 
 @Injectable()
 export class AssistantAgentsService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly aiService: AiService,
+    private readonly usageService: UsageService,
+  ) {}
 
   async create(ctx: OrgContext, dto: CreateAssistantAgentDto) {
     this.assertModels(dto);
@@ -80,6 +92,52 @@ export class AssistantAgentsService {
         },
       });
     });
+  }
+
+  async generate(ctx: OrgContext, dto: GenerateAssistantAgentDto) {
+    const result = await this.aiService.generateStructured({
+      model: RECOMMENDED_ANALYSIS_MODEL,
+      fallbackModel: UTILITY_MODEL,
+      system: ASSISTANT_AGENT_GENERATION_SYSTEM,
+      prompt: `Create a co-pilot from this description:\n"""\n${dto.description}\n"""`,
+      schema: GeneratedAssistantAgentSchema,
+      schemaName: 'assistant_agent',
+      temperature: 0.6,
+      timeoutMs: 90000,
+    });
+
+    this.usageService.record({
+      organisationId: ctx.organisationId,
+      userId: ctx.userId,
+      kind: UsageKind.GENERATION,
+      model: result.model,
+      inputTokens: result.usage.inputTokens,
+      outputTokens: result.usage.outputTokens,
+      costUsd: result.usage.costUsd,
+    });
+
+    const generated = result.output;
+    const draft: CreateAssistantAgentDto = {
+      name: generated.name,
+      description: generated.description,
+      call_goal: generated.call_goal,
+      methodology: generated.methodology,
+      tone: generated.tone,
+      suggestion_frequency: generated.suggestion_frequency,
+      instructions: generated.instructions,
+      knowledge: generated.knowledge,
+      script: generated.script.map((item, index) => ({
+        id: `s${index + 1}`,
+        ...item,
+      })),
+      objection_library: generated.objection_library.map((item, index) => ({
+        id: `o${index + 1}`,
+        ...item,
+      })),
+      analysis_criteria: DEFAULT_ANALYSIS_CRITERIA,
+      ...normalizeLanguages(generated.language, [generated.language]),
+    };
+    return draft;
   }
 
   async findAll(

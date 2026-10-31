@@ -108,3 +108,10 @@ export type CreateAssistantAgentDto = Partial<
 > & { name: string };
 
 export type UpdateAssistantAgentDto = Partial<CreateAssistantAgentDto>;
+
+export interface GenerateAssistantAgentDto {
+    description: string;
+}
+
+/** AI-generated, unsaved co-pilot configuration the user reviews in the editor. */
+export type AssistantAgentDraft = CreateAssistantAgentDto;

@@ -160,7 +160,9 @@
     "objections_few": "{{count}} obiecții",
     "objections_other": "{{count}} de obiecții",
     "scratch": "Începe de la zero",
-    "scratchHint": "Scrie-ți propriul script și propriile reguli"
+    "scratchHint": "Scrie-ți propriul script și propriile reguli",
+    "generate": "Descrie-l, AI-ul îl creează",
+    "generateHint": "Spune-ne ce vinzi și pe cine suni. Redactăm scriptul, obiecțiile și regulile pentru a le verifica."
   },
   "validation": {
     "name": "Dă un nume copilotului tău",
@@ -171,6 +173,19 @@
     "languagesMin": "Alege cel puțin o limbă",
     "languagesMax": "Cel mult {{max}} limbi",
     "categoryName": "Dă un nume categoriei",
-    "categoryMin": "Păstrează cel puțin o categorie de scor"
+    "categoryMin": "Păstrează cel puțin o categorie de scor",
+    "describeCoPilot": "Descrie copilotul tău în una sau două propoziții"
+  },
+  "generateDialog": {
+    "title": "Descrie copilotul tău",
+    "description": "Ce vinzi, pe cine suni și ce trebuie să obțină apelul. CallZen redactează scriptul, biblioteca de obiecții, regulile și notele despre produs. Verifici totul înainte de salvare.",
+    "descriptionAria": "Descrierea copilotului",
+    "generating": "Se generează…",
+    "generate": "Generează",
+    "examples": {
+      "one": "Apeluri la rece către cabinete stomatologice pentru a programa o demonstrație a software-ului nostru de reamintire a programărilor. Ton prietenos, proprietarii sunt ocupați și sceptici.",
+      "two": "Apeluri efectuate către utilizatori de probă SaaS deveniți inactivi, pentru a-i reactiva și a programa o sesiune de onboarding.",
+      "three": "Calificarea lead-urilor primite pentru o firmă de instalare de panouri solare și programarea unei vizite gratuite la domiciliu."
+    }
   }
 }
