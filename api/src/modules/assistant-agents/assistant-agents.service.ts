@@ -13,7 +13,7 @@ import { UpdateAssistantAgentDto } from './dto/update-assistant-agent.dto';
 import { GenerateAssistantAgentDto } from './dto/generate-assistant-agent.dto';
 import { AssistantAgentQueryType } from './dto/assistant-agent-query.schema';
 import {
-  ASSISTANT_AGENT_GENERATION_SYSTEM,
+  buildAssistantAgentGenerationSystem,
   GeneratedAssistantAgentSchema,
 } from './utils/assistant-agent-generation.utils';
 import {
@@ -23,6 +23,8 @@ import {
   UTILITY_MODEL,
 } from '@/shared/config/ai-models/ai-models.config';
 import { DEFAULT_ANALYSIS_CRITERIA } from '@/shared/config/templates/analysis-criteria.config';
+import { getTemplateTranslation } from '@/shared/config/templates/i18n';
+import { localizeCriteria } from '@/shared/config/templates/i18n/template-translation';
 import { findAssistantAgentTemplate } from '@/shared/config/templates/assistant-agent-templates.config';
 import { ErrorCodes } from '@/shared/config/error-codes';
 import {
@@ -95,10 +97,15 @@ export class AssistantAgentsService {
   }
 
   async generate(ctx: OrgContext, dto: GenerateAssistantAgentDto) {
+    const user = await this.prisma.user.findUnique({
+      where: { id: ctx.userId },
+      select: { preferred_language: true },
+    });
+    const accountLanguage = user?.preferred_language ?? 'en';
     const result = await this.aiService.generateStructured({
       model: RECOMMENDED_ANALYSIS_MODEL,
       fallbackModel: UTILITY_MODEL,
-      system: ASSISTANT_AGENT_GENERATION_SYSTEM,
+      system: buildAssistantAgentGenerationSystem(accountLanguage),
       prompt: `Create a co-pilot from this description:\n"""\n${dto.description}\n"""`,
       schema: GeneratedAssistantAgentSchema,
       schemaName: 'assistant_agent',
@@ -134,7 +141,10 @@ export class AssistantAgentsService {
         id: `o${index + 1}`,
         ...item,
       })),
-      analysis_criteria: DEFAULT_ANALYSIS_CRITERIA,
+      analysis_criteria: localizeCriteria(
+        DEFAULT_ANALYSIS_CRITERIA,
+        getTemplateTranslation(accountLanguage),
+      ),
       ...normalizeLanguages(generated.language, [generated.language]),
     };
     return draft;

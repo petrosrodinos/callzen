@@ -1,6 +1,9 @@
 import { z } from 'zod';
 import { SuggestionFrequency } from 'generated/prisma';
-import { SUPPORTED_LANGUAGE_CODES } from '@/shared/config/languages/languages.config';
+import {
+  languageName,
+  SUPPORTED_LANGUAGE_CODES,
+} from '@/shared/config/languages/languages.config';
 
 export const GENERATED_SCRIPT_STAGES = [
   'OPENER',
@@ -40,7 +43,7 @@ export const GeneratedAssistantAgentSchema = z.object({
   language: z
     .enum(SUPPORTED_LANGUAGE_CODES as [string, ...string[]])
     .describe(
-      'Language the salesperson speaks on the call (ISO 639-1). Use the language of the description unless it says otherwise',
+      'Language the salesperson speaks on the call (ISO 639-1). Defaults to the account language unless the description asks otherwise',
     ),
   methodology: z.enum(GENERATED_METHODOLOGIES),
   tone: z.enum(GENERATED_TONES),
@@ -84,10 +87,15 @@ export type GeneratedAssistantAgent = z.infer<
   typeof GeneratedAssistantAgentSchema
 >;
 
-export const ASSISTANT_AGENT_GENERATION_SYSTEM = `You design AI sales co-pilots: a real-time assistant that whispers suggestions to a salesperson during a live call.
+export const buildAssistantAgentGenerationSystem = (
+  languageCode: string,
+): string =>
+  `${ASSISTANT_AGENT_GENERATION_SYSTEM}
+- LANGUAGE OVERRIDE: write ALL generated text (name, description, call_goal, script, objections, instructions, knowledge) in ${languageName(languageCode)}, even if the description is written in another language. Set "language" to "${languageCode}" unless the description explicitly asks for a different call language.`;
+
+const ASSISTANT_AGENT_GENERATION_SYSTEM = `You design AI sales co-pilots: a real-time assistant that whispers suggestions to a salesperson during a live call.
 From a short description, create a ready-to-use configuration: a call script, an objection library, suggestion rules and product knowledge.
 Rules:
-- Write script, objections, instructions and knowledge in the language of the description (set "language" to match).
 - Script content is spoken dialogue: short sentences, no markdown, use placeholders like {name}, {company}, {me} where the salesperson fills in details.
 - Order stages as a real call flows: OPENER, PITCH, DISCOVERY (with real questions), OBJECTION_HANDLING, CLOSE.
 - Objections must be the ones this specific audience actually raises; responses are 1-3 sentences and end with a question or next step when natural.
