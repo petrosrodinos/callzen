@@ -29,7 +29,10 @@
     "yourLanguage": "Ditt språk",
     "templates": "Mallar och exempel på",
     "templatesAria": "Språk för mallar och exempel",
-    "output": "Förslag och analys på"
+    "output": "Förslag och analys på",
+    "yourLanguageHint": "Språket du läser på. Används för förslag och analys när \"Förslag och analys på\" är inställt på ditt språk.",
+    "templatesHint": "Språket för de inbyggda mallarna, exempelmanusen och standardraden för samtycke som du utgår från.",
+    "outputHint": "Välj om förslag och analys följer samtalets språk eller \"Ditt språk\"."
   },
   "recording": {
     "title": "Inspelning",

@@ -29,7 +29,10 @@
     "yourLanguage": "O seu idioma",
     "templates": "Modelos e exemplos em",
     "templatesAria": "Idioma dos modelos e exemplos",
-    "output": "Sugestões e análise em"
+    "output": "Sugestões e análise em",
+    "yourLanguageHint": "O idioma em que lê. Usado nas sugestões e na análise quando «Sugestões e análise em» está definido para o seu idioma.",
+    "templatesHint": "O idioma dos modelos integrados, dos guiões de exemplo e da frase de consentimento predefinida a partir dos quais começa.",
+    "outputHint": "Escolha se as sugestões e a análise seguem o idioma da chamada ou «O seu idioma»."
   },
   "recording": {
     "title": "Gravação",

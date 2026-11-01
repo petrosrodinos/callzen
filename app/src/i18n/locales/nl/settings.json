@@ -29,7 +29,10 @@
     "yourLanguage": "Jouw taal",
     "templates": "Sjablonen & voorbeelden in",
     "templatesAria": "Taal van sjablonen en voorbeelden",
-    "output": "Suggesties & analyse in"
+    "output": "Suggesties & analyse in",
+    "yourLanguageHint": "De taal waarin je leest. Wordt gebruikt voor suggesties en de analyse wanneer \"Suggesties & analyse in\" op jouw taal staat.",
+    "templatesHint": "De taal van de ingebouwde sjablonen, voorbeeldscripts en de standaard toestemmingszin waarmee je begint.",
+    "outputHint": "Kies of suggesties en analyse de taal van het gesprek volgen of \"Jouw taal\"."
   },
   "recording": {
     "title": "Opname",

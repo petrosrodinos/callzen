@@ -29,7 +29,10 @@
     "yourLanguage": "Your language",
     "templates": "Templates & examples in",
     "templatesAria": "Templates and examples language",
-    "output": "Suggestions & analysis in"
+    "output": "Suggestions & analysis in",
+    "yourLanguageHint": "The language you read in. Used for suggestions and the analysis when \"Suggestions & analysis in\" is set to your language.",
+    "templatesHint": "The language of the built-in templates, example scripts and the default consent line you start from.",
+    "outputHint": "Choose whether suggestions and the analysis follow the language of the call or \"Your language\"."
   },
   "recording": {
     "title": "Recording",

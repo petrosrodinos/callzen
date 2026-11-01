@@ -125,6 +125,7 @@ const SettingsPage: FC = () => {
                     <FormItem>
                       <FormLabel>{t("languages.yourLanguage")}</FormLabel>
                       <LanguageSelect value={field.value} onValueChange={field.onChange} ariaLabel={t("languages.yourLanguage")} />
+                      <FormDescription>{t("languages.yourLanguageHint")}</FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -136,6 +137,7 @@ const SettingsPage: FC = () => {
                     <FormItem>
                       <FormLabel>{t("languages.templates")}</FormLabel>
                       <LanguageSelect value={field.value} onValueChange={field.onChange} ariaLabel={t("languages.templatesAria")} />
+                      <FormDescription>{t("languages.templatesHint")}</FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -144,6 +146,7 @@ const SettingsPage: FC = () => {
                   control={form.control}
                   name="output_language_mode"
                   label={t("languages.output")}
+                  description={t("languages.outputHint")}
                   options={OutputLanguageModeFormOptions}
                 />
               </div>

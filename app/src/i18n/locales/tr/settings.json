@@ -29,7 +29,10 @@
     "yourLanguage": "Diliniz",
     "templates": "Şablonlar ve örnekler şu dilde",
     "templatesAria": "Şablon ve örnek dili",
-    "output": "Öneriler ve analiz şu dilde"
+    "output": "Öneriler ve analiz şu dilde",
+    "yourLanguageHint": "Okuduğunuz dil. \"Öneriler ve analiz şu dilde\" sizin dilinize ayarlıyken öneriler ve analiz için kullanılır.",
+    "templatesHint": "Başlangıç olarak kullandığınız yerleşik şablonların, örnek senaryoların ve varsayılan onay cümlesinin dili.",
+    "outputHint": "Önerilerin ve analizin görüşmenin diliyle mi yoksa \"Diliniz\" ile mi olacağını seçin."
   },
   "recording": {
     "title": "Kayıt",

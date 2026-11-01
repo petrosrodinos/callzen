@@ -29,7 +29,10 @@
     "yourLanguage": "Twój język",
     "templates": "Szablony i przykłady w języku",
     "templatesAria": "Język szablonów i przykładów",
-    "output": "Podpowiedzi i analiza w języku"
+    "output": "Podpowiedzi i analiza w języku",
+    "yourLanguageHint": "Język, w którym czytasz. Używany do podpowiedzi i analizy, gdy „Podpowiedzi i analiza w języku\" jest ustawione na Twój język.",
+    "templatesHint": "Język wbudowanych szablonów, przykładowych skryptów i domyślnej formuły zgody, od których zaczynasz.",
+    "outputHint": "Wybierz, czy podpowiedzi i analiza mają używać języka rozmowy, czy „Twój język\"."
   },
   "recording": {
     "title": "Nagrywanie",

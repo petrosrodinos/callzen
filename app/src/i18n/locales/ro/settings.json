@@ -29,7 +29,10 @@
     "yourLanguage": "Limba ta",
     "templates": "Șabloane și exemple în",
     "templatesAria": "Limba șabloanelor și a exemplelor",
-    "output": "Sugestii și analiză în"
+    "output": "Sugestii și analiză în",
+    "yourLanguageHint": "Limba în care citești. Folosită pentru sugestii și analiză când „Sugestii și analiză în\" este setat pe limba ta.",
+    "templatesHint": "Limba șabloanelor integrate, a scripturilor de exemplu și a frazei implicite de consimțământ de la care pornești.",
+    "outputHint": "Alege dacă sugestiile și analiza urmează limba apelului sau „Limba ta\"."
   },
   "recording": {
     "title": "Înregistrare",

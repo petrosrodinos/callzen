@@ -29,7 +29,10 @@
     "yourLanguage": "Ihre Sprache",
     "templates": "Vorlagen & Beispiele auf",
     "templatesAria": "Sprache für Vorlagen und Beispiele",
-    "output": "Vorschläge & Analyse auf"
+    "output": "Vorschläge & Analyse auf",
+    "yourLanguageHint": "Die Sprache, in der Sie lesen. Wird für Vorschläge und die Analyse verwendet, wenn „Vorschläge & Analyse auf\" auf Ihre Sprache eingestellt ist.",
+    "templatesHint": "Die Sprache der integrierten Vorlagen, Beispielskripte und der Standard-Einwilligungszeile, mit denen Sie starten.",
+    "outputHint": "Legen Sie fest, ob Vorschläge und Analyse der Sprache des Gesprächs oder „Ihre Sprache\" folgen."
   },
   "recording": {
     "title": "Aufzeichnung",

@@ -29,7 +29,10 @@
     "yourLanguage": "Tu idioma",
     "templates": "Plantillas y ejemplos en",
     "templatesAria": "Idioma de plantillas y ejemplos",
-    "output": "Sugerencias y análisis en"
+    "output": "Sugerencias y análisis en",
+    "yourLanguageHint": "El idioma en el que lees. Se usa para las sugerencias y el análisis cuando «Sugerencias y análisis en» está configurado en tu idioma.",
+    "templatesHint": "El idioma de las plantillas integradas, los guiones de ejemplo y la frase de consentimiento predeterminada de la que partes.",
+    "outputHint": "Elige si las sugerencias y el análisis siguen el idioma de la llamada o «Tu idioma»."
   },
   "recording": {
     "title": "Grabación",
