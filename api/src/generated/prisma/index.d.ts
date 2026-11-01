@@ -9410,6 +9410,7 @@ export namespace Prisma {
     analysis_error: string | null
     transcription_error: string | null
     source_filename: string | null
+    clean_transcript: boolean | null
     created_at: Date | null
     updated_at: Date | null
   }
@@ -9447,6 +9448,7 @@ export namespace Prisma {
     analysis_error: string | null
     transcription_error: string | null
     source_filename: string | null
+    clean_transcript: boolean | null
     created_at: Date | null
     updated_at: Date | null
   }
@@ -9485,6 +9487,7 @@ export namespace Prisma {
     analysis_error: number
     transcription_error: number
     source_filename: number
+    clean_transcript: number
     agent_snapshot: number
     practice_snapshot: number
     created_at: number
@@ -9536,6 +9539,7 @@ export namespace Prisma {
     analysis_error?: true
     transcription_error?: true
     source_filename?: true
+    clean_transcript?: true
     created_at?: true
     updated_at?: true
   }
@@ -9573,6 +9577,7 @@ export namespace Prisma {
     analysis_error?: true
     transcription_error?: true
     source_filename?: true
+    clean_transcript?: true
     created_at?: true
     updated_at?: true
   }
@@ -9611,6 +9616,7 @@ export namespace Prisma {
     analysis_error?: true
     transcription_error?: true
     source_filename?: true
+    clean_transcript?: true
     agent_snapshot?: true
     practice_snapshot?: true
     created_at?: true
@@ -9738,6 +9744,7 @@ export namespace Prisma {
     analysis_error: string | null
     transcription_error: string | null
     source_filename: string | null
+    clean_transcript: boolean
     agent_snapshot: JsonValue | null
     practice_snapshot: JsonValue | null
     created_at: Date
@@ -9797,6 +9804,7 @@ export namespace Prisma {
     analysis_error?: boolean
     transcription_error?: boolean
     source_filename?: boolean
+    clean_transcript?: boolean
     agent_snapshot?: boolean
     practice_snapshot?: boolean
     created_at?: boolean
@@ -9846,6 +9854,7 @@ export namespace Prisma {
     analysis_error?: boolean
     transcription_error?: boolean
     source_filename?: boolean
+    clean_transcript?: boolean
     agent_snapshot?: boolean
     practice_snapshot?: boolean
     created_at?: boolean
@@ -9890,6 +9899,7 @@ export namespace Prisma {
     analysis_error?: boolean
     transcription_error?: boolean
     source_filename?: boolean
+    clean_transcript?: boolean
     agent_snapshot?: boolean
     practice_snapshot?: boolean
     created_at?: boolean
@@ -9934,13 +9944,14 @@ export namespace Prisma {
     analysis_error?: boolean
     transcription_error?: boolean
     source_filename?: boolean
+    clean_transcript?: boolean
     agent_snapshot?: boolean
     practice_snapshot?: boolean
     created_at?: boolean
     updated_at?: boolean
   }
 
-  export type CallOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "organisation_id" | "user_id" | "kind" | "call_type" | "status" | "assistant_agent_id" | "practice_agent_id" | "copilot_enabled" | "title" | "prospect_name" | "prospect_company" | "prospect_role" | "context_notes" | "goal" | "prior_call_id" | "language" | "started_at" | "ended_at" | "duration_seconds" | "ended_reason" | "outcome" | "custom_outcome" | "objective_achieved" | "keep_recording" | "recording_path" | "recording_mime" | "recording_size" | "user_notes" | "script_progress" | "analysis_error" | "transcription_error" | "source_filename" | "agent_snapshot" | "practice_snapshot" | "created_at" | "updated_at", ExtArgs["result"]["call"]>
+  export type CallOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "organisation_id" | "user_id" | "kind" | "call_type" | "status" | "assistant_agent_id" | "practice_agent_id" | "copilot_enabled" | "title" | "prospect_name" | "prospect_company" | "prospect_role" | "context_notes" | "goal" | "prior_call_id" | "language" | "started_at" | "ended_at" | "duration_seconds" | "ended_reason" | "outcome" | "custom_outcome" | "objective_achieved" | "keep_recording" | "recording_path" | "recording_mime" | "recording_size" | "user_notes" | "script_progress" | "analysis_error" | "transcription_error" | "source_filename" | "clean_transcript" | "agent_snapshot" | "practice_snapshot" | "created_at" | "updated_at", ExtArgs["result"]["call"]>
   export type CallInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -10011,6 +10022,7 @@ export namespace Prisma {
       analysis_error: string | null
       transcription_error: string | null
       source_filename: string | null
+      clean_transcript: boolean
       agent_snapshot: Prisma.JsonValue | null
       practice_snapshot: Prisma.JsonValue | null
       created_at: Date
@@ -10479,6 +10491,7 @@ export namespace Prisma {
     readonly analysis_error: FieldRef<"Call", 'String'>
     readonly transcription_error: FieldRef<"Call", 'String'>
     readonly source_filename: FieldRef<"Call", 'String'>
+    readonly clean_transcript: FieldRef<"Call", 'Boolean'>
     readonly agent_snapshot: FieldRef<"Call", 'Json'>
     readonly practice_snapshot: FieldRef<"Call", 'Json'>
     readonly created_at: FieldRef<"Call", 'DateTime'>
@@ -21702,6 +21715,7 @@ export namespace Prisma {
     analysis_error: 'analysis_error',
     transcription_error: 'transcription_error',
     source_filename: 'source_filename',
+    clean_transcript: 'clean_transcript',
     agent_snapshot: 'agent_snapshot',
     practice_snapshot: 'practice_snapshot',
     created_at: 'created_at',
@@ -22966,6 +22980,7 @@ export namespace Prisma {
     analysis_error?: StringNullableFilter<"Call"> | string | null
     transcription_error?: StringNullableFilter<"Call"> | string | null
     source_filename?: StringNullableFilter<"Call"> | string | null
+    clean_transcript?: BoolFilter<"Call"> | boolean
     agent_snapshot?: JsonNullableFilter<"Call">
     practice_snapshot?: JsonNullableFilter<"Call">
     created_at?: DateTimeFilter<"Call"> | Date | string
@@ -23014,6 +23029,7 @@ export namespace Prisma {
     analysis_error?: SortOrderInput | SortOrder
     transcription_error?: SortOrderInput | SortOrder
     source_filename?: SortOrderInput | SortOrder
+    clean_transcript?: SortOrder
     agent_snapshot?: SortOrderInput | SortOrder
     practice_snapshot?: SortOrderInput | SortOrder
     created_at?: SortOrder
@@ -23065,6 +23081,7 @@ export namespace Prisma {
     analysis_error?: StringNullableFilter<"Call"> | string | null
     transcription_error?: StringNullableFilter<"Call"> | string | null
     source_filename?: StringNullableFilter<"Call"> | string | null
+    clean_transcript?: BoolFilter<"Call"> | boolean
     agent_snapshot?: JsonNullableFilter<"Call">
     practice_snapshot?: JsonNullableFilter<"Call">
     created_at?: DateTimeFilter<"Call"> | Date | string
@@ -23113,6 +23130,7 @@ export namespace Prisma {
     analysis_error?: SortOrderInput | SortOrder
     transcription_error?: SortOrderInput | SortOrder
     source_filename?: SortOrderInput | SortOrder
+    clean_transcript?: SortOrder
     agent_snapshot?: SortOrderInput | SortOrder
     practice_snapshot?: SortOrderInput | SortOrder
     created_at?: SortOrder
@@ -23161,6 +23179,7 @@ export namespace Prisma {
     analysis_error?: StringNullableWithAggregatesFilter<"Call"> | string | null
     transcription_error?: StringNullableWithAggregatesFilter<"Call"> | string | null
     source_filename?: StringNullableWithAggregatesFilter<"Call"> | string | null
+    clean_transcript?: BoolWithAggregatesFilter<"Call"> | boolean
     agent_snapshot?: JsonNullableWithAggregatesFilter<"Call">
     practice_snapshot?: JsonNullableWithAggregatesFilter<"Call">
     created_at?: DateTimeWithAggregatesFilter<"Call"> | Date | string
@@ -24764,6 +24783,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -24812,6 +24832,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -24852,6 +24873,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -24900,6 +24922,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -24944,6 +24967,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -24980,6 +25004,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -25020,6 +25045,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -26774,6 +26800,7 @@ export namespace Prisma {
     analysis_error?: SortOrder
     transcription_error?: SortOrder
     source_filename?: SortOrder
+    clean_transcript?: SortOrder
     agent_snapshot?: SortOrder
     practice_snapshot?: SortOrder
     created_at?: SortOrder
@@ -26818,6 +26845,7 @@ export namespace Prisma {
     analysis_error?: SortOrder
     transcription_error?: SortOrder
     source_filename?: SortOrder
+    clean_transcript?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
   }
@@ -26855,6 +26883,7 @@ export namespace Prisma {
     analysis_error?: SortOrder
     transcription_error?: SortOrder
     source_filename?: SortOrder
+    clean_transcript?: SortOrder
     created_at?: SortOrder
     updated_at?: SortOrder
   }
@@ -29651,6 +29680,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -29697,6 +29727,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -30015,6 +30046,7 @@ export namespace Prisma {
     analysis_error?: StringNullableFilter<"Call"> | string | null
     transcription_error?: StringNullableFilter<"Call"> | string | null
     source_filename?: StringNullableFilter<"Call"> | string | null
+    clean_transcript?: BoolFilter<"Call"> | boolean
     agent_snapshot?: JsonNullableFilter<"Call">
     practice_snapshot?: JsonNullableFilter<"Call">
     created_at?: DateTimeFilter<"Call"> | Date | string
@@ -30338,6 +30370,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -30384,6 +30417,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -30809,6 +30843,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -30855,6 +30890,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -31890,6 +31926,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -31937,6 +31974,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -31992,6 +32030,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32039,6 +32078,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32078,6 +32118,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -32125,6 +32166,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -32180,6 +32222,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32227,6 +32270,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32266,6 +32310,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -32313,6 +32358,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -32368,6 +32414,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32415,6 +32462,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32454,6 +32502,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -32501,6 +32550,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -32556,6 +32606,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -32603,6 +32654,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -33082,6 +33134,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -33128,6 +33181,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -33841,6 +33895,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -34163,6 +34218,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -34209,6 +34265,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -34252,6 +34309,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -34402,6 +34460,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -34482,6 +34541,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -34528,6 +34588,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -34571,6 +34632,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -34744,6 +34806,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -34780,6 +34843,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -34826,6 +34890,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -34869,6 +34934,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -35140,6 +35206,7 @@ export namespace Prisma {
     analysis_error?: string | null
     transcription_error?: string | null
     source_filename?: string | null
+    clean_transcript?: boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: Date | string
@@ -35507,6 +35574,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -35553,6 +35621,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -35596,6 +35665,7 @@ export namespace Prisma {
     analysis_error?: NullableStringFieldUpdateOperationsInput | string | null
     transcription_error?: NullableStringFieldUpdateOperationsInput | string | null
     source_filename?: NullableStringFieldUpdateOperationsInput | string | null
+    clean_transcript?: BoolFieldUpdateOperationsInput | boolean
     agent_snapshot?: NullableJsonNullValueInput | InputJsonValue
     practice_snapshot?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string

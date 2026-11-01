@@ -118,7 +118,10 @@
       "footer": "Nous transcrivons l'enregistrement en arrière-plan et préparons votre rapport. Vous pouvez quitter cette page.",
       "fileRequired": "Choisissez un enregistrement à importer",
       "tooLarge": "Ce fichier dépasse 300 Mo",
-      "unsupported": "Type de fichier non pris en charge"
+      "unsupported": "Type de fichier non pris en charge",
+      "cleanup": "Nettoyer la transcription avec l'IA",
+      "cleanupHint": "Recommandé pour un audio bruité ou de mauvaise qualité. L'IA relit la transcription avant le début de l'analyse.",
+      "cleanupDisclaimer": "L'IA peut mal interpréter certaines phrases et supprime les paroles qu'elle ne comprend pas avec certitude. La transcription nettoyée peut ne pas être exacte à 100 % et une partie du contexte d'origine peut être perdue. L'analyse sera basée sur la version nettoyée."
     }
   }
 }

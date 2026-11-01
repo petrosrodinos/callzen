@@ -118,7 +118,10 @@
       "footer": "Vi transkriberar inspelningen i bakgrunden och förbereder din rapport. Du kan lämna den här sidan.",
       "fileRequired": "Välj en inspelning att ladda upp",
       "tooLarge": "Filen är större än 300 MB",
-      "unsupported": "Filtypen stöds inte"
+      "unsupported": "Filtypen stöds inte",
+      "cleanup": "Rensa transkriptionen med AI",
+      "cleanupHint": "Rekommenderas vid brusigt eller dåligt ljud. AI granskar transkriptionen innan analysen börjar.",
+      "cleanupDisclaimer": "AI kan tolka vissa fraser fel och tar bort tal som den inte säkert förstår. Den rensade transkriptionen är kanske inte 100 % korrekt och en del av det ursprungliga sammanhanget kan gå förlorat. Analysen baseras på den rensade versionen."
     }
   }
 }

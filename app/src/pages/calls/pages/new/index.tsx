@@ -3,7 +3,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Bot, CheckCircle2, Mic, MonitorSmartphone, Phone, ShieldAlert, Upload } from "lucide-react";
+import { Bot, CheckCircle2, Info, Mic, MonitorSmartphone, Phone, ShieldAlert, Upload } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -69,6 +69,7 @@ const NewCallPage: FC = () => {
       prior_call_id: "",
       language: "en",
       keep_recording: true,
+      clean_transcript: false,
       consent_acknowledged: false,
     },
   });
@@ -127,6 +128,7 @@ const NewCallPage: FC = () => {
             context_notes: values.context_notes || undefined,
             prior_call_id: values.prior_call_id || undefined,
             keep_recording: values.keep_recording,
+            clean_transcript: values.clean_transcript,
             language: values.language,
           },
           onProgress: setProgress,
@@ -349,6 +351,29 @@ const NewCallPage: FC = () => {
                 </FormItem>
               )}
             />
+            {isUpload && (
+              <FormField
+                control={form.control}
+                name="clean_transcript"
+                render={({ field }) => (
+                  <FormItem className="space-y-2">
+                    <div className="flex items-center justify-between gap-4">
+                      <div>
+                        <FormLabel>{t("new.upload.cleanup")}</FormLabel>
+                        <FormDescription>{t("new.upload.cleanupHint")}</FormDescription>
+                      </div>
+                      <FormControl>
+                        <Switch checked={field.value} onCheckedChange={field.onChange} disabled={busy} />
+                      </FormControl>
+                    </div>
+                    <div role="note" className="flex items-start gap-2 rounded-lg bg-muted/60 p-3 text-xs text-muted-foreground">
+                      <Info className="mt-0.5 size-3.5 shrink-0" />
+                      <p>{t("new.upload.cleanupDisclaimer")}</p>
+                    </div>
+                  </FormItem>
+                )}
+              />
+            )}
             {!isUpload && <MicCheck />}
           </FormSection>
 

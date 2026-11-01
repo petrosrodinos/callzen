@@ -20,7 +20,10 @@ import { AiService } from '@/integrations/ai/services/ai.service';
 import { RecordingStorageService } from '@/integrations/storage/recordings/recording-storage.service';
 import { UsageService } from '@/modules/usage/usage.service';
 import { OrgContext } from '@/shared/interfaces/org-context.interface';
-import { UTILITY_MODEL } from '@/shared/config/ai-models/ai-models.config';
+import {
+  RECOMMENDED_ANALYSIS_MODEL,
+  UTILITY_MODEL,
+} from '@/shared/config/ai-models/ai-models.config';
 import { AUTO_LANGUAGE } from '@/shared/config/languages/languages.config';
 import { TRANSCRIPTION_COST_PER_MINUTE_USD } from '@/shared/config/voices/voice-providers.config';
 import { AgentSnapshot } from '../interfaces/call-snapshots.interface';
@@ -191,7 +194,11 @@ export class CallTranscriptionService {
           });
         }
       }
-      const merged = this.mergeLines(lines);
+      const mergedRaw = this.mergeLines(lines);
+      // Optional, user-enabled pass for poor audio; never blocks the upload if it fails.
+      const merged = call.clean_transcript
+        ? await this.cleanTranscript(call, mergedRaw)
+        : mergedRaw;
 
       const lastEndMs = merged.length ? merged[merged.length - 1].end_ms : 0;
       const durationSeconds = Math.max(
@@ -406,6 +413,105 @@ export class CallTranscriptionService {
       this.logger.warn(`Speaker role guess failed: ${error?.message}`);
     }
     return roles;
+  }
+
+  // Poor audio makes speech-to-text produce gibberish or hallucinated lines. Let a model fix
+  // clear misrecognitions and drop lines that are not intelligible speech. It only returns the
+  // lines it changes, so the rest of the transcript is untouched.
+  private async cleanTranscript(
+    call: {
+      id: string;
+      user_id: string;
+      organisation_id: string;
+      language: string | null;
+    },
+    lines: TranscriptLineRow[],
+  ): Promise<TranscriptLineRow[]> {
+    if (!lines.length) return lines;
+    const BATCH_LINES = 120;
+    const BATCH_CHARS = 10000;
+    const batches: { start: number; end: number }[] = [];
+    let start = 0;
+    let chars = 0;
+    for (let i = 0; i < lines.length; i++) {
+      chars += lines[i].text.length;
+      if (i + 1 - start >= BATCH_LINES || chars >= BATCH_CHARS) {
+        batches.push({ start, end: i + 1 });
+        start = i + 1;
+        chars = 0;
+      }
+    }
+    if (start < lines.length) batches.push({ start, end: lines.length });
+
+    const replacements = new Map<number, string | null>();
+    try {
+      for (const batch of batches) {
+        const label = (speaker: Speaker) =>
+          speaker === Speaker.USER
+            ? 'Seller'
+            : speaker === Speaker.PROSPECT
+              ? 'Prospect'
+              : 'Speaker';
+        const numbered = lines
+          .slice(batch.start, batch.end)
+          .map((l, i) => `${batch.start + i} | ${label(l.speaker)}: ${l.text}`)
+          .join('
+');
+        const result = await this.aiService.generateStructured({
+          model: RECOMMENDED_ANALYSIS_MODEL,
+          schema: z.object({
+            edits: z.array(
+              z.object({
+                index: z.number().int(),
+                text: z.string().nullable(),
+              }),
+            ),
+          }),
+          schemaName: 'transcript_cleanup',
+          system:
+            'You clean up an automatic transcript of a sales call recorded with poor audio. Be conservative: the original meaning must be preserved. For each line decide: (1) keep it unchanged, (2) fix it, only when it is clearly a misrecognized word or phrase and the surrounding conversation makes the intended wording obvious, or (3) remove it, only when it is incoherent, unintelligible noise, a repeated hallucinated phrase, or clearly unrelated to the conversation and you cannot confidently tell what was said. Never paraphrase, summarize, translate, add information, or change who said something. Keep the transcript language. Return ONLY the lines you change: {index, text} with the corrected text, or text null to remove the line. Return an empty list if nothing needs changing.',
+          prompt: `Language: ${call.language && call.language !== AUTO_LANGUAGE ? call.language : 'auto-detected'}
+
+Transcript lines ("index | speaker: text"):
+${numbered}`,
+          temperature: 0,
+          maxTokens: 6000,
+          timeoutMs: 120000,
+        });
+        this.usageService.record({
+          organisationId: call.organisation_id,
+          userId: call.user_id,
+          callId: call.id,
+          kind: UsageKind.ANALYSIS,
+          model: result.model,
+          inputTokens: result.usage.inputTokens,
+          outputTokens: result.usage.outputTokens,
+          costUsd: result.usage.costUsd,
+        });
+        for (const edit of result.output.edits) {
+          if (edit.index < batch.start || edit.index >= batch.end) continue;
+          const text = edit.text?.trim();
+          replacements.set(edit.index, text ? text : null);
+        }
+      }
+    } catch (error) {
+      this.logger.warn(
+        `Transcript cleanup failed for ${call.id}, keeping the original: ${error?.message}`,
+      );
+      return lines;
+    }
+
+    const cleaned = lines.flatMap((line, index) => {
+      if (!replacements.has(index)) return [line];
+      const text = replacements.get(index);
+      return text ? [{ ...line, text }] : [];
+    });
+    // If the model wiped out everything, it is more likely wrong than the audio being empty.
+    if (!cleaned.length) return lines;
+    this.logger.log(
+      `Transcript cleanup for ${call.id}: ${replacements.size} of ${lines.length} lines changed`,
+    );
+    return this.mergeLines(cleaned);
   }
 
   // The user may skip the "Call context" form when uploading. Fill only the fields they left

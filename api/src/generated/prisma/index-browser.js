@@ -267,6 +267,7 @@ exports.Prisma.CallScalarFieldEnum = {
   analysis_error: 'analysis_error',
   transcription_error: 'transcription_error',
   source_filename: 'source_filename',
+  clean_transcript: 'clean_transcript',
   agent_snapshot: 'agent_snapshot',
   practice_snapshot: 'practice_snapshot',
   created_at: 'created_at',

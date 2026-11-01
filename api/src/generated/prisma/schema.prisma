@@ -333,6 +333,7 @@ model Call {
   analysis_error      String?
   transcription_error String?
   source_filename     String?
+  clean_transcript    Boolean        @default(false)
   agent_snapshot      Json?
   practice_snapshot   Json?
   created_at          DateTime       @default(now())

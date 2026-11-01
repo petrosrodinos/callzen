@@ -118,7 +118,10 @@
       "footer": "We transcriberen de opname op de achtergrond en maken je rapport klaar. Je kunt deze pagina verlaten.",
       "fileRequired": "Kies een opname om te uploaden",
       "tooLarge": "Dit bestand is groter dan 300 MB",
-      "unsupported": "Niet-ondersteund bestandstype"
+      "unsupported": "Niet-ondersteund bestandstype",
+      "cleanup": "Transcript opschonen met AI",
+      "cleanupHint": "Aanbevolen bij rumoerige of slechte audio. AI controleert het transcript voordat de analyse begint.",
+      "cleanupDisclaimer": "AI kan sommige zinnen verkeerd interpreteren en verwijdert spraak die het niet zeker begrijpt. Het opgeschoonde transcript is mogelijk niet 100% nauwkeurig en een deel van de oorspronkelijke context kan verloren gaan. De analyse is gebaseerd op de opgeschoonde versie."
     }
   }
 }

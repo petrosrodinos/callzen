@@ -118,7 +118,10 @@
       "footer": "Kaydı arka planda yazıya dökeceğiz ve raporunuzu hazırlayacağız. Bu sayfadan ayrılabilirsiniz.",
       "fileRequired": "Yüklemek için bir kayıt seçin",
       "tooLarge": "Bu dosya 300 MB’tan büyük",
-      "unsupported": "Desteklenmeyen dosya türü"
+      "unsupported": "Desteklenmeyen dosya türü",
+      "cleanup": "Transkripti yapay zekâ ile temizle",
+      "cleanupHint": "Gürültülü veya düşük kaliteli ses için önerilir. Analiz başlamadan önce yapay zekâ transkripti gözden geçirir.",
+      "cleanupDisclaimer": "Yapay zekâ bazı ifadeleri yanlış yorumlayabilir ve emin olarak anlayamadığı konuşmaları kaldırır. Temizlenen transkript %100 doğru olmayabilir ve özgün bağlamın bir kısmı kaybolabilir. Analiz, temizlenmiş sürüme dayanacaktır."
     }
   }
 }

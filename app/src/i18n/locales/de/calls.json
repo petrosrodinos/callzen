@@ -118,7 +118,10 @@
       "footer": "Wir transkribieren die Aufnahme im Hintergrund und erstellen Ihren Bericht. Sie können diese Seite verlassen.",
       "fileRequired": "Wählen Sie eine Aufnahme zum Hochladen aus",
       "tooLarge": "Diese Datei ist größer als 300 MB",
-      "unsupported": "Nicht unterstützter Dateityp"
+      "unsupported": "Nicht unterstützter Dateityp",
+      "cleanup": "Transkript mit KI bereinigen",
+      "cleanupHint": "Empfohlen bei verrauschtem oder schlechtem Audio. Die KI prüft das Transkript, bevor die Analyse beginnt.",
+      "cleanupDisclaimer": "Die KI kann manche Formulierungen falsch deuten und entfernt Gesprochenes, das sie nicht sicher versteht. Das bereinigte Transkript ist möglicherweise nicht zu 100 % korrekt, und ein Teil des ursprünglichen Kontexts kann verloren gehen. Die Analyse basiert auf der bereinigten Fassung."
     }
   }
 }

@@ -118,7 +118,10 @@
       "footer": "Przetworzymy nagranie w tle i przygotujemy raport. Możesz opuścić tę stronę.",
       "fileRequired": "Wybierz nagranie do przesłania",
       "tooLarge": "Ten plik jest większy niż 300 MB",
-      "unsupported": "Nieobsługiwany typ pliku"
+      "unsupported": "Nieobsługiwany typ pliku",
+      "cleanup": "Oczyść transkrypcję za pomocą AI",
+      "cleanupHint": "Zalecane przy hałaśliwym lub słabej jakości dźwięku. AI przegląda transkrypcję przed rozpoczęciem analizy.",
+      "cleanupDisclaimer": "AI może błędnie zinterpretować niektóre wypowiedzi i usuwa mowę, której nie rozumie z pewnością. Oczyszczona transkrypcja może nie być w 100% dokładna, a część pierwotnego kontekstu może zostać utracona. Analiza będzie oparta na oczyszczonej wersji."
     }
   }
 }

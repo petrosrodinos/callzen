@@ -118,7 +118,10 @@
       "footer": "Transcribiremos la grabación en segundo plano y prepararemos tu informe. Puedes salir de esta página.",
       "fileRequired": "Elige una grabación para subir",
       "tooLarge": "Este archivo supera los 300 MB",
-      "unsupported": "Tipo de archivo no compatible"
+      "unsupported": "Tipo de archivo no compatible",
+      "cleanup": "Limpiar la transcripción con IA",
+      "cleanupHint": "Recomendado para audio con ruido o de baja calidad. La IA revisa la transcripción antes de que empiece el análisis.",
+      "cleanupDisclaimer": "La IA puede malinterpretar algunas frases y elimina el habla que no entiende con seguridad. La transcripción limpiada puede no ser 100 % precisa y podría perderse parte del contexto original. El análisis se basará en la versión limpiada."
     }
   }
 }

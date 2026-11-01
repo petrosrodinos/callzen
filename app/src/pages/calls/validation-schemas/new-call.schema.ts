@@ -16,6 +16,7 @@ export const newCallSchema = z.object({
     prior_call_id: z.string(),
     language: z.string().min(2),
     keep_recording: z.boolean(),
+    clean_transcript: z.boolean(),
     consent_acknowledged: z.boolean(),
 });
 

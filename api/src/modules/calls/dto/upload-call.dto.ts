@@ -110,4 +110,20 @@ export class UploadCallDto {
   )
   @IsBoolean()
   copilot_enabled?: boolean;
+
+  @ApiProperty({
+    required: false,
+    description:
+      'true = an AI pass cleans up unclear or misrecognized speech before the analysis',
+  })
+  @IsOptional()
+  @Transform(({ value }) =>
+    value === 'true' || value === true
+      ? true
+      : value === 'false' || value === false
+        ? false
+        : undefined,
+  )
+  @IsBoolean()
+  clean_transcript?: boolean;
 }

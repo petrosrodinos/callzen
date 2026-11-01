@@ -118,7 +118,10 @@
       "footer": "We'll transcribe the recording in the background and prepare your report. You can leave this page.",
       "fileRequired": "Choose a recording to upload",
       "tooLarge": "This file is larger than 300 MB",
-      "unsupported": "Unsupported file type"
+      "unsupported": "Unsupported file type",
+      "cleanup": "Clean up transcript with AI",
+      "cleanupHint": "Recommended for noisy or low-quality audio. AI reviews the transcript before the analysis starts.",
+      "cleanupDisclaimer": "AI may misinterpret some phrases, and it removes speech it cannot confidently understand. The cleaned transcript may not be 100% accurate and some of the original context could be lost. The analysis will be based on the cleaned version."
     }
   }
 }

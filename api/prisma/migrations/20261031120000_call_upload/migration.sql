@@ -8,4 +8,5 @@ ALTER TYPE "CallType" ADD VALUE 'UPLOAD';
 
 -- AlterTable
 ALTER TABLE "calls" ADD COLUMN "transcription_error" TEXT,
-ADD COLUMN "source_filename" TEXT;
+ADD COLUMN "source_filename" TEXT,
+ADD COLUMN "clean_transcript" BOOLEAN NOT NULL DEFAULT false;

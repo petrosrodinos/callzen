@@ -118,7 +118,10 @@
       "footer": "Vom transcrie înregistrarea în fundal și vom pregăti raportul tău. Poți părăsi această pagină.",
       "fileRequired": "Alege o înregistrare de încărcat",
       "tooLarge": "Acest fișier depășește 300 MB",
-      "unsupported": "Tip de fișier neacceptat"
+      "unsupported": "Tip de fișier neacceptat",
+      "cleanup": "Curăță transcrierea cu AI",
+      "cleanupHint": "Recomandat pentru audio zgomotos sau de calitate slabă. AI revizuiește transcrierea înainte de începerea analizei.",
+      "cleanupDisclaimer": "AI poate interpreta greșit unele fraze și elimină vorbirea pe care nu o înțelege cu certitudine. Transcrierea curățată poate să nu fie 100% exactă și o parte din contextul original se poate pierde. Analiza se va baza pe versiunea curățată."
     }
   }
 }

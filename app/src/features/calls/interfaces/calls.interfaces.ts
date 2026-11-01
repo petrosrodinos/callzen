@@ -399,6 +399,7 @@ export interface CreateCallDto {
 export interface UploadCallDto {
     assistant_agent_id?: string;
     copilot_enabled?: boolean;
+    clean_transcript?: boolean;
     prospect_name?: string;
     prospect_company?: string;
     prospect_role?: string;

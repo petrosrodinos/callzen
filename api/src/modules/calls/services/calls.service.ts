@@ -183,6 +183,7 @@ export class CallsService {
         language: this.resolveCallLanguage(dto.language, agent),
         keep_recording: dto.keep_recording ?? user.keep_recordings,
         source_filename: filename,
+        clean_transcript: dto.clean_transcript ?? false,
         title:
           dto.prospect_name || dto.prospect_company
             ? `Call with ${[dto.prospect_name, dto.prospect_company].filter(Boolean).join(' · ')}`
