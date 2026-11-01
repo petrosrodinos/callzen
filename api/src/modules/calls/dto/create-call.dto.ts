@@ -23,6 +23,15 @@ export class CreateCallDto {
   @IsUUID()
   assistant_agent_id?: string;
 
+  @ApiProperty({
+    required: false,
+    description: 'Optional title; generated from the transcript when empty',
+  })
+  @IsOptional()
+  @IsString()
+  @MaxLength(200)
+  title?: string;
+
   @ApiProperty({ required: false })
   @IsOptional()
   @IsString()

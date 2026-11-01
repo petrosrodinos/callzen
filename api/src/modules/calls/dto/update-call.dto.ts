@@ -5,6 +5,7 @@ import {
   IsString,
   IsUUID,
   MaxLength,
+  MinLength,
 } from 'class-validator';
 import { CallOutcome } from 'generated/prisma';
 
@@ -12,6 +13,7 @@ export class UpdateCallDto {
   @ApiProperty({ required: false })
   @IsOptional()
   @IsString()
+  @MinLength(1)
   @MaxLength(200)
   title?: string;
 

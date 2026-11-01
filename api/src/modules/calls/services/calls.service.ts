@@ -117,10 +117,8 @@ export class CallsService {
         prior_call_id: dto.prior_call_id,
         language: this.resolveCallLanguage(dto.language, agent),
         keep_recording: dto.keep_recording ?? user.keep_recordings,
-        title:
-          dto.prospect_name || dto.prospect_company
-            ? `Call with ${[dto.prospect_name, dto.prospect_company].filter(Boolean).join(' · ')}`
-            : null,
+        // Left empty when not given: a title is generated from the transcript later.
+        title: dto.title?.trim() || null,
         agent_snapshot: agent ? asJson(toAgentSnapshot(agent)) : undefined,
       },
     });
@@ -184,10 +182,7 @@ export class CallsService {
         keep_recording: dto.keep_recording ?? user.keep_recordings,
         source_filename: filename,
         clean_transcript: dto.clean_transcript ?? false,
-        title:
-          dto.prospect_name || dto.prospect_company
-            ? `Call with ${[dto.prospect_name, dto.prospect_company].filter(Boolean).join(' · ')}`
-            : filename.replace(/\.[^.]+$/, ''),
+        title: dto.title?.trim() || null,
         agent_snapshot: agent ? asJson(toAgentSnapshot(agent)) : undefined,
       },
     });
@@ -457,6 +452,11 @@ export class CallsService {
     );
     const { assistant_agent_id, ...rest } = dto;
     const data: Prisma.CallUncheckedUpdateInput = { ...rest };
+    if (rest.title !== undefined) {
+      const title = rest.title.trim();
+      if (!title) throw new BadRequestException('The title cannot be empty');
+      data.title = title;
+    }
 
     if (assistant_agent_id && assistant_agent_id !== call.assistant_agent_id) {
       if (call.status !== CallStatus.IN_PROGRESS)

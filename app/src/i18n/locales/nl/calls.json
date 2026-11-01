@@ -76,6 +76,9 @@
     "context": {
       "title": "Gesprekscontext",
       "description": "Helpt de copiloot suggesties en de analyse te personaliseren.",
+      "callTitle": "Titel van het gesprek (optioneel)",
+      "callTitlePlaceholder": "Prijsbespreking Q4",
+      "callTitleHint": "Laat leeg en we geven het gesprek een naam op basis van de inhoud.",
       "prospectName": "Naam prospect",
       "prospectNamePlaceholder": "Dr. Papadopoulos",
       "company": "Bedrijf",

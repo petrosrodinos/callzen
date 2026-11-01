@@ -76,6 +76,9 @@
     "context": {
       "title": "Kontekst rozmowy",
       "description": "Pomaga asystentowi spersonalizować podpowiedzi i analizę.",
+      "callTitle": "Tytuł rozmowy (opcjonalnie)",
+      "callTitlePlaceholder": "Omówienie cen Q4",
+      "callTitleHint": "Zostaw puste, a nadamy tytuł na podstawie rozmowy.",
       "prospectName": "Imię i nazwisko klienta",
       "prospectNamePlaceholder": "Dr Papadopoulos",
       "company": "Firma",

@@ -7,6 +7,9 @@ import {
   FileX2,
   Headphones,
   MoreVertical,
+  Check,
+  Pencil,
+  X,
   RefreshCw,
   RotateCcw,
   Trash2,
@@ -15,6 +18,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
 import ConfirmationDialog from "@/components/ui/confirmation-dialog";
 import {
   DropdownMenu,
@@ -67,6 +71,8 @@ export function CallDetailHeader({
   const { t } = useTranslation("library");
   const navigate = useNavigate();
   const [confirm, setConfirm] = useState<ConfirmKind>(null);
+  const [editing, setEditing] = useState(false);
+  const [draft, setDraft] = useState("");
   const updateCall = useUpdateCall();
   const deleteCall = useDeleteCall();
   const deleteRecording = useDeleteRecording();
@@ -106,6 +112,23 @@ export function CallDetailHeader({
     },
   };
   const active = confirm ? confirmConfig[confirm] : null;
+  const displayTitle =
+    call.title ??
+    call.prospect_name ??
+    (isPractice ? t("detail.header.practiceSession") : t("detail.header.call"));
+
+  const startRename = () => {
+    setDraft(call.title ?? "");
+    setEditing(true);
+  };
+  const saveRename = () => {
+    const title = draft.trim();
+    if (!title || title === call.title) return setEditing(false);
+    updateCall.mutate(
+      { id: call.id, dto: { title } },
+      { onSuccess: () => setEditing(false) },
+    );
+  };
 
   return (
     <div className="space-y-3">
@@ -139,13 +162,61 @@ export function CallDetailHeader({
               </Badge>
             )}
           </div>
-          <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-            {call.title ??
-              call.prospect_name ??
-              (isPractice
-                ? t("detail.header.practiceSession")
-                : t("detail.header.call"))}
-          </h1>
+          {editing ? (
+            <form
+              className="flex items-center gap-2"
+              onSubmit={(event) => {
+                event.preventDefault();
+                saveRename();
+              }}
+            >
+              <Input
+                autoFocus
+                value={draft}
+                maxLength={200}
+                onChange={(event) => setDraft(event.target.value)}
+                onKeyDown={(event) => event.key === "Escape" && setEditing(false)}
+                aria-label={t("detail.header.rename")}
+                className="h-11 text-xl font-semibold sm:text-2xl"
+              />
+              <Button
+                type="submit"
+                size="icon"
+                disabled={!draft.trim() || updateCall.isPending}
+                aria-label={t("detail.header.renameSave")}
+              >
+                <Check />
+              </Button>
+              <Button
+                type="button"
+                size="icon"
+                variant="ghost"
+                onClick={() => setEditing(false)}
+                aria-label={t("detail.header.renameCancel")}
+              >
+                <X />
+              </Button>
+            </form>
+          ) : (
+            <div className="group flex items-center gap-2">
+              <h1 className="min-w-0 text-2xl font-semibold tracking-tight sm:text-3xl">
+                {displayTitle}
+              </h1>
+              {canManage && (
+                <Button
+                  type="button"
+                  size="icon"
+                  variant="ghost"
+                  className="size-8 shrink-0 text-muted-foreground"
+                  onClick={startRename}
+                  aria-label={t("detail.header.rename")}
+                  title={t("detail.header.rename")}
+                >
+                  <Pencil className="size-4" />
+                </Button>
+              )}
+            </div>
+          )}
           <p className="text-sm text-muted-foreground">
             {formatDateTime(call.started_at)} ·{" "}
             {formatDuration(call.duration_seconds)}

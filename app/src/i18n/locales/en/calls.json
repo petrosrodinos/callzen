@@ -76,6 +76,9 @@
     "context": {
       "title": "Call context",
       "description": "Helps the co-pilot personalise suggestions and the analysis.",
+      "callTitle": "Call title (optional)",
+      "callTitlePlaceholder": "Q4 pricing review",
+      "callTitleHint": "Leave empty and we'll name the call from the conversation.",
       "prospectName": "Prospect name",
       "prospectNamePlaceholder": "Dr. Papadopoulos",
       "company": "Company",

@@ -25,6 +25,16 @@ export class UploadCallDto {
   @IsUUID()
   assistant_agent_id?: string;
 
+  @ApiProperty({
+    required: false,
+    description: 'Optional title; generated from the transcript when empty',
+  })
+  @IsOptional()
+  @Transform(emptyToUndefined)
+  @IsString()
+  @MaxLength(200)
+  title?: string;
+
   @ApiProperty({ required: false })
   @IsOptional()
   @Transform(emptyToUndefined)

@@ -154,6 +154,10 @@ export class CallAnalysisService {
       return;
     }
 
+    // Runs only when the user gave no title; never overwrites one.
+    if (!call.title?.trim())
+      await this.generateTitle(call, call.segments, call.user_id);
+
     const snapshot = call.agent_snapshot as unknown as AgentSnapshot | null;
     const agent =
       options.useCurrentCriteria && call.assistant_agent
@@ -352,6 +356,58 @@ export class CallAnalysisService {
         },
       }),
     ]);
+  }
+
+  // A short, specific title (like a chat name) from the opening of the conversation.
+  private async generateTitle(
+    call: Parameters<typeof buildCallContext>[0] & {
+      id: string;
+      organisation_id: string;
+    },
+    segments: TranscriptSegment[],
+    userId: string,
+  ): Promise<void> {
+    try {
+      const transcript = formatTranscript(segments, { maxChars: 6000 });
+      const result = await this.aiService.generateStructured({
+        model: UTILITY_MODEL,
+        schema: z.object({ title: z.string() }),
+        schemaName: 'call_title',
+        system:
+          'You name a recorded sales call so it is easy to find in a list. Write a concise, specific title of 3 to 7 words that captures who the call was with or what it was about (for example "Pricing review with Smile Dental"). Use only facts stated in the transcript or call context. No quotes, no trailing punctuation, no generic words like "Call" or "Conversation" on their own. Write the title in the language of the transcript.',
+        prompt: `${buildCallContext(call)}
+
+Transcript:
+${transcript}`,
+        temperature: 0.3,
+        maxTokens: 40,
+        timeoutMs: 20000,
+      });
+      this.usageService.record({
+        organisationId: call.organisation_id,
+        userId,
+        callId: call.id,
+        kind: UsageKind.ANALYSIS,
+        model: result.model,
+        inputTokens: result.usage.inputTokens,
+        outputTokens: result.usage.outputTokens,
+        costUsd: result.usage.costUsd,
+      });
+      const title = result.output.title
+        .replace(/^["'“”]+|["'“”.]+$/g, '')
+        .trim()
+        .slice(0, 120);
+      if (!title) return;
+      // Only fill an empty title, so a rename made meanwhile is kept.
+      await this.prisma.call.updateMany({
+        where: { id: call.id, title: null },
+        data: { title },
+      });
+    } catch (error) {
+      this.logger.warn(
+        `Title generation failed for call ${call.id}: ${error?.message}`,
+      );
+    }
   }
 
   // For auto-detect calls, find which of the configured languages was actually spoken and store it,

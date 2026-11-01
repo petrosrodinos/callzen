@@ -76,6 +76,9 @@
     "context": {
       "title": "Contextul apelului",
       "description": "Ajută copilotul să personalizeze sugestiile și analiza.",
+      "callTitle": "Titlul apelului (opțional)",
+      "callTitlePlaceholder": "Revizuire prețuri T4",
+      "callTitleHint": "Lasă gol și vom denumi apelul pe baza conversației.",
       "prospectName": "Numele prospectului",
       "prospectNamePlaceholder": "Dr. Papadopoulos",
       "company": "Companie",

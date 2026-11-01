@@ -76,6 +76,9 @@
     "context": {
       "title": "Anrufkontext",
       "description": "Hilft dem Co-Piloten, Vorschläge und die Analyse zu personalisieren.",
+      "callTitle": "Anruftitel (optional)",
+      "callTitlePlaceholder": "Preisgespräch Q4",
+      "callTitleHint": "Leer lassen – wir benennen den Anruf anhand des Gesprächs.",
       "prospectName": "Name des Interessenten",
       "prospectNamePlaceholder": "Dr. Papadopoulos",
       "company": "Unternehmen",

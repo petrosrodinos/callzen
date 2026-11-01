@@ -8,6 +8,7 @@ export const NO_COPILOT = "none";
 export const newCallSchema = z.object({
     call_type: z.enum([CallTypes.MICROPHONE, CallTypes.ONLINE_MEETING, CallTypes.UPLOAD]),
     assistant_agent_id: z.string().min(1, i18n.t("calls:new.validation.chooseCopilot")),
+    title: z.string().max(200),
     prospect_name: z.string().max(120),
     prospect_company: z.string().max(120),
     prospect_role: z.string().max(120),

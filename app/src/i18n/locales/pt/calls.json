@@ -76,6 +76,9 @@
     "context": {
       "title": "Contexto da chamada",
       "description": "Ajuda o copiloto a personalizar as sugestões e a análise.",
+      "callTitle": "Título da chamada (opcional)",
+      "callTitlePlaceholder": "Revisão de preços T4",
+      "callTitleHint": "Deixe vazio e daremos um nome à chamada com base na conversa.",
       "prospectName": "Nome do potencial cliente",
       "prospectNamePlaceholder": "Dr. Papadopoulos",
       "company": "Empresa",

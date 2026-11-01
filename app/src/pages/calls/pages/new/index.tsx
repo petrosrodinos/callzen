@@ -61,7 +61,8 @@ const NewCallPage: FC = () => {
     resolver: zodResolver(newCallSchema),
     defaultValues: {
       call_type: CallTypes.MICROPHONE,
-      assistant_agent_id: "",
+      assistant_agent_id: NO_COPILOT,
+      title: "",
       prospect_name: "",
       prospect_company: "",
       prospect_role: "",
@@ -83,10 +84,10 @@ const NewCallPage: FC = () => {
   const agentLanguageCodes = selectedAgent ? (selectedAgent.languages?.length ? selectedAgent.languages : [selectedAgent.language]) : [];
   const languageLabel = (code: string) => catalog?.languages.find((language) => language.code === code)?.name ?? code;
 
+  // No co-pilot by default; a co-pilot is only preselected when the link names one (?agent=).
   useEffect(() => {
-    if (!agents?.length || form.getValues("assistant_agent_id")) return;
-    const preferred = searchParams.get("agent") ?? agents.find((a) => a.is_default)?.id ?? agents[0].id;
-    form.setValue("assistant_agent_id", preferred);
+    const requested = searchParams.get("agent");
+    if (requested && agents?.some((agent) => agent.id === requested)) form.setValue("assistant_agent_id", requested);
   }, [agents, form, searchParams]);
 
   useEffect(() => {
@@ -156,6 +157,8 @@ const NewCallPage: FC = () => {
           files: toUpload.map(({ id, file }) => ({ id, file })),
           dto: {
             ...copilotDto(values.assistant_agent_id),
+            // One title can't name several recordings; those get generated titles.
+            title: toUpload.length === 1 ? values.title.trim() || undefined : undefined,
             prospect_name: values.prospect_name || undefined,
             prospect_company: values.prospect_company || undefined,
             prospect_role: values.prospect_role || undefined,
@@ -205,6 +208,7 @@ const NewCallPage: FC = () => {
       {
         call_type: values.call_type,
         ...copilotDto(values.assistant_agent_id),
+        title: values.title.trim() || undefined,
         prospect_name: values.prospect_name || undefined,
         prospect_company: values.prospect_company || undefined,
         prospect_role: values.prospect_role || undefined,
@@ -306,6 +310,22 @@ const NewCallPage: FC = () => {
           </FormSection>
 
           <FormSection title={t("new.context.title")} description={t("new.context.description")}>
+            {!(isUpload && items.length > 1) && (
+              <FormField
+                control={form.control}
+                name="title"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{t("new.context.callTitle")}</FormLabel>
+                    <FormControl>
+                      <Input maxLength={200} placeholder={t("new.context.callTitlePlaceholder")} {...field} />
+                    </FormControl>
+                    <FormDescription>{t("new.context.callTitleHint")}</FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               {(
                 [

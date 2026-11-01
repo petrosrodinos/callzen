@@ -76,6 +76,9 @@
     "context": {
       "title": "Arama bağlamı",
       "description": "Yardımcı pilotun önerileri ve analizi kişiselleştirmesine yardımcı olur.",
+      "callTitle": "Görüşme başlığı (isteğe bağlı)",
+      "callTitlePlaceholder": "4. çeyrek fiyat görüşmesi",
+      "callTitleHint": "Boş bırakın, görüşmeyi konuşmadan yola çıkarak adlandıralım.",
       "prospectName": "Aday adı",
       "prospectNamePlaceholder": "Dr. Papadopoulos",
       "company": "Şirket",

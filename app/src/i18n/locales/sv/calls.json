@@ -76,6 +76,9 @@
     "context": {
       "title": "Samtalskontext",
       "description": "Hjälper copiloten att anpassa förslag och analys.",
+      "callTitle": "Samtalets titel (valfritt)",
+      "callTitlePlaceholder": "Prisgenomgång Q4",
+      "callTitleHint": "Lämna tomt så namnger vi samtalet utifrån konversationen.",
       "prospectName": "Prospektens namn",
       "prospectNamePlaceholder": "Dr. Papadopoulos",
       "company": "Företag",

@@ -393,6 +393,7 @@ export interface CreateCallDto {
     call_type: CallType;
     assistant_agent_id?: string;
     copilot_enabled?: boolean;
+    title?: string;
     prospect_name?: string;
     prospect_company?: string;
     prospect_role?: string;
@@ -407,6 +408,7 @@ export interface UploadCallDto {
     assistant_agent_id?: string;
     copilot_enabled?: boolean;
     clean_transcript?: boolean;
+    title?: string;
     prospect_name?: string;
     prospect_company?: string;
     prospect_role?: string;

@@ -76,6 +76,9 @@
     "context": {
       "title": "Contexte de l'appel",
       "description": "Aide le copilote à personnaliser les suggestions et l'analyse.",
+      "callTitle": "Titre de l'appel (facultatif)",
+      "callTitlePlaceholder": "Revue tarifaire T4",
+      "callTitleHint": "Laissez vide et nous nommerons l'appel d'après la conversation.",
       "prospectName": "Nom du prospect",
       "prospectNamePlaceholder": "Dr Papadopoulos",
       "company": "Entreprise",

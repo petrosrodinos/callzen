@@ -60,7 +60,6 @@ interface ContextPatch {
   prospect_company?: string;
   prospect_role?: string;
   context_notes?: string;
-  title?: string;
 }
 
 interface TranscriptLineRow {
@@ -520,8 +519,6 @@ ${numbered}`,
       id: string;
       user_id: string;
       organisation_id: string;
-      title: string | null;
-      source_filename: string | null;
       prospect_name: string | null;
       prospect_company: string | null;
       prospect_role: string | null;
@@ -592,17 +589,6 @@ ${numbered}`,
       for (const key of Object.keys(found) as (keyof typeof found)[])
         if (missing[key] && found[key]) patch[key] = found[key];
 
-      // The title falls back to the filename when no prospect was given; improve it if we
-      // learned who the call was with and the user has not renamed it.
-      const filenameTitle = call.source_filename?.replace(/\.[^.]+$/, '');
-      const name = patch.prospect_name ?? call.prospect_name;
-      const company = patch.prospect_company ?? call.prospect_company;
-      if (
-        (patch.prospect_name || patch.prospect_company) &&
-        (name || company) &&
-        call.title === filenameTitle
-      )
-        patch.title = `Call with ${[name, company].filter(Boolean).join(' · ')}`;
       return patch;
     } catch (error) {
       this.logger.warn(
