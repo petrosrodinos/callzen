@@ -116,6 +116,7 @@
     "transcript": {
       "empty": "Für diesen Anruf ist kein Transkript gespeichert.",
       "playFrom": "Ab {{time}} abspielen",
+      "pause": "Pausieren",
       "switchSpeaker": "Sprecher wechseln",
       "wrongSpeaker": "Falscher Sprecher? Jetzt wechseln"
     },

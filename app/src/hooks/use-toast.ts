@@ -3,7 +3,8 @@ import * as React from 'react'
 import type { ToastActionElement, ToastProps } from '@/components/ui/toast'
 
 const TOAST_LIMIT = 3
-const TOAST_REMOVE_DELAY = 1000000
+const TOAST_REMOVE_DELAY = 1000
+const DEFAULT_TOAST_DURATION = 4000
 
 type ToasterToast = ToastProps & {
   id: string
@@ -158,6 +159,12 @@ function toast({ ...props }: Toast) {
       },
     },
   })
+
+  // Dismiss on our own timer so it never depends on Radix pausing (window blur, hover, focus)
+  const duration = props.duration ?? DEFAULT_TOAST_DURATION
+  if (Number.isFinite(duration)) {
+    setTimeout(dismiss, duration)
+  }
 
   return {
     id: id,

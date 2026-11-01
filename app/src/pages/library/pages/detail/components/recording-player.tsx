@@ -10,6 +10,7 @@ interface RecordingPlayerProps {
   hasRecording: boolean;
   audioRef: RefObject<HTMLAudioElement | null>;
   onTimeUpdate: (ms: number) => void;
+  onPlayingChange?: (playing: boolean) => void;
   fileName: string;
   uploading?: boolean;
 }
@@ -19,6 +20,7 @@ export function RecordingPlayer({
   hasRecording,
   audioRef,
   onTimeUpdate,
+  onPlayingChange,
   fileName,
   uploading = false,
 }: RecordingPlayerProps) {
@@ -68,6 +70,9 @@ export function RecordingPlayer({
         controls
         preload="metadata"
         className="h-11 w-full min-w-0"
+        onPlay={() => onPlayingChange?.(true)}
+        onPause={() => onPlayingChange?.(false)}
+        onEnded={() => onPlayingChange?.(false)}
         onTimeUpdate={(event) =>
           onTimeUpdate(event.currentTarget.currentTime * 1000)
         }

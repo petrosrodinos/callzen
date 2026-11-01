@@ -53,6 +53,7 @@ const CallDetailPage: FC = () => {
   const updateSpeaker = useUpdateSegmentSpeaker();
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [currentMs, setCurrentMs] = useState(0);
+  const [playing, setPlaying] = useState(false);
   const [focusMs, setFocusMs] = useState<number | null>(null);
   const [rerunOpen, setRerunOpen] = useState(false);
 
@@ -64,7 +65,35 @@ const CallDetailPage: FC = () => {
   );
   const durationMs = useMemo(() => (call ? callDurationMs(call) : 1), [call]);
 
+  // When set, playback pauses once it reaches `end` (single-segment playback).
+  const segmentRangeRef = useRef<{ start: number; end: number } | null>(null);
+
+  const handleTimeUpdate = useCallback((ms: number) => {
+    const range = segmentRangeRef.current;
+    if (range) {
+      if (ms >= range.end && ms < range.end + 1500) {
+        segmentRangeRef.current = null;
+        audioRef.current?.pause();
+      } else if (ms < range.start - 300 || ms >= range.end + 1500) {
+        segmentRangeRef.current = null; // user scrubbed elsewhere
+      }
+    }
+    setCurrentMs(ms);
+  }, []);
+
+  const playSegment = useCallback((segment: TranscriptSegment) => {
+    segmentRangeRef.current = { start: segment.start_ms, end: segment.end_ms };
+    const audio = audioRef.current;
+    if (audio) {
+      audio.currentTime = segment.start_ms / 1000;
+      void audio.play().catch(() => undefined);
+    }
+    setCurrentMs(segment.start_ms);
+    setFocusMs(segment.start_ms);
+  }, []);
+
   const seek = useCallback((ms: number) => {
+    segmentRangeRef.current = null;
     const audio = audioRef.current;
     if (audio) {
       audio.currentTime = ms / 1000;
@@ -73,6 +102,12 @@ const CallDetailPage: FC = () => {
     setCurrentMs(ms);
     setFocusMs(ms);
   }, []);
+
+  const pause = useCallback(() => audioRef.current?.pause(), []);
+  const resume = useCallback(
+    () => void audioRef.current?.play().catch(() => undefined),
+    [],
+  );
 
   if (isPending) return <DetailSkeleton />;
   if (isError || !call) {
@@ -112,7 +147,8 @@ const CallDetailPage: FC = () => {
             callId={call.id}
             hasRecording={call.has_recording}
             audioRef={audioRef}
-            onTimeUpdate={setCurrentMs}
+            onTimeUpdate={handleTimeUpdate}
+            onPlayingChange={setPlaying}
             uploading={
               uploadingRecording ||
               (justEnded && call.keep_recording && !call.has_recording)
@@ -133,7 +169,12 @@ const CallDetailPage: FC = () => {
             currentMs={currentMs}
             focusMs={focusMs}
             prospectLabel={call.prospect_name ?? undefined}
+            playing={playing}
+            canPlay={call.has_recording}
             onSeek={seek}
+            onPlaySegment={playSegment}
+            onPause={pause}
+            onResume={resume}
             onFlipSpeaker={flipSpeaker}
           />
         </Card>

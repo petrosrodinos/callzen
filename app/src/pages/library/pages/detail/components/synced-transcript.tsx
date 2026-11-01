@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { ArrowLeftRight } from "lucide-react";
+import { ArrowLeftRight, Pause, Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { formatClock } from "@/lib/date";
 import {
@@ -16,7 +16,12 @@ interface SyncedTranscriptProps {
   currentMs: number;
   focusMs: number | null;
   prospectLabel?: string;
+  playing?: boolean;
+  canPlay?: boolean;
   onSeek: (ms: number) => void;
+  onPlaySegment?: (segment: TranscriptSegment) => void;
+  onPause?: () => void;
+  onResume?: () => void;
   onFlipSpeaker?: (segment: TranscriptSegment) => void;
 }
 
@@ -26,7 +31,12 @@ export function SyncedTranscript({
   currentMs,
   focusMs,
   prospectLabel,
+  playing = false,
+  canPlay = true,
   onSeek,
+  onPlaySegment,
+  onPause,
+  onResume,
   onFlipSpeaker,
 }: SyncedTranscriptProps) {
   const { t } = useTranslation("library");
@@ -101,16 +111,40 @@ export function SyncedTranscript({
               activeId === segment.id ? "bg-primary/10" : "hover:bg-muted/60",
             )}
           >
-            <button
-              type="button"
-              onClick={() => onSeek(segment.start_ms)}
-              className="w-12 shrink-0 pt-0.5 text-left font-mono text-xs tabular-nums text-muted-foreground hover:text-primary"
-              aria-label={t("detail.transcript.playFrom", {
-                time: formatClock(segment.start_ms),
-              })}
-            >
-              {formatClock(segment.start_ms)}
-            </button>
+            {(() => {
+              const isActive = activeId === segment.id;
+              const isPlaying = playing && isActive;
+              const Icon = isPlaying ? Pause : Play;
+              return (
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (isPlaying) onPause?.();
+                    else if (isActive && currentMs > 0) onResume?.();
+                    else if (onPlaySegment) onPlaySegment(segment);
+                    else onSeek(segment.start_ms);
+                  }}
+                  className="flex w-16 shrink-0 items-start gap-1.5 pt-0.5 text-left font-mono text-xs tabular-nums text-muted-foreground hover:text-primary"
+                  aria-label={
+                    isPlaying
+                      ? t("detail.transcript.pause")
+                      : t("detail.transcript.playFrom", {
+                          time: formatClock(segment.start_ms),
+                        })
+                  }
+                >
+                  {canPlay && (
+                    <Icon
+                      className={cn(
+                        "mt-px size-3 shrink-0",
+                        isPlaying && "text-primary",
+                      )}
+                    />
+                  )}
+                  {formatClock(segment.start_ms)}
+                </button>
+              );
+            })()}
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-2">
                 <span

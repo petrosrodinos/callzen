@@ -116,6 +116,7 @@
     "transcript": {
       "empty": "Er is geen transcriptie opgeslagen voor dit gesprek.",
       "playFrom": "Afspelen vanaf {{time}}",
+      "pause": "Pauzeren",
       "switchSpeaker": "Spreker wisselen",
       "wrongSpeaker": "Verkeerde spreker? Wissel hem"
     },

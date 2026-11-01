@@ -116,6 +116,7 @@
     "transcript": {
       "empty": "No transcript is stored for this call.",
       "playFrom": "Play from {{time}}",
+      "pause": "Pause",
       "switchSpeaker": "Switch speaker",
       "wrongSpeaker": "Wrong speaker? Switch it"
     },

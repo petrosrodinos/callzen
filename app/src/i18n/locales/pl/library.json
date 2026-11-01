@@ -118,6 +118,7 @@
     "transcript": {
       "empty": "Brak zapisanej transkrypcji tej rozmowy.",
       "playFrom": "Odtwarzaj od {{time}}",
+      "pause": "Wstrzymaj",
       "switchSpeaker": "Zmień mówcę",
       "wrongSpeaker": "Zły mówca? Zmień go"
     },

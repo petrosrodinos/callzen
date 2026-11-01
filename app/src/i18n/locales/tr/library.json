@@ -116,6 +116,7 @@
     "transcript": {
       "empty": "Bu çağrı için kayıtlı transkript yok.",
       "playFrom": "{{time}} konumundan oynat",
+      "pause": "Duraklat",
       "switchSpeaker": "Konuşmacıyı değiştir",
       "wrongSpeaker": "Yanlış konuşmacı mı? Değiştirin"
     },

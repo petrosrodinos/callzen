@@ -117,6 +117,7 @@
     "transcript": {
       "empty": "Nu există transcriere stocată pentru acest apel.",
       "playFrom": "Redă de la {{time}}",
+      "pause": "Pauză",
       "switchSpeaker": "Schimbă vorbitorul",
       "wrongSpeaker": "Vorbitor greșit? Schimbă-l"
     },

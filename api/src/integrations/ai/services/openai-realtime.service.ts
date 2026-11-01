@@ -79,7 +79,9 @@ export class OpenAiRealtimeService {
       instructions: 'You are a silent transcriber. Never respond.',
       audio: {
         input: {
-          noise_reduction: { type: 'near_field' },
+          // Calls are often heard through a speaker or a far-away mic; near_field treated the quiet
+          // side of the conversation as noise and dropped it.
+          noise_reduction: { type: 'far_field' },
           transcription: {
             model: options.transcriptionModel,
             ...(options.language ? { language: options.language } : {}),
@@ -87,9 +89,9 @@ export class OpenAiRealtimeService {
           },
           turn_detection: {
             type: 'server_vad',
-            threshold: 0.5,
-            prefix_padding_ms: 300,
-            silence_duration_ms: 450,
+            threshold: 0.3,
+            prefix_padding_ms: 400,
+            silence_duration_ms: 500,
             create_response: false,
             interrupt_response: false,
           },

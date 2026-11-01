@@ -116,6 +116,7 @@
     "transcript": {
       "empty": "Ingen transkription är sparad för det här samtalet.",
       "playFrom": "Spela från {{time}}",
+      "pause": "Pausa",
       "switchSpeaker": "Byt talare",
       "wrongSpeaker": "Fel talare? Byt den"
     },

@@ -116,6 +116,7 @@
     "transcript": {
       "empty": "Nenhuma transcrição armazenada para esta chamada.",
       "playFrom": "Reproduzir a partir de {{time}}",
+      "pause": "Pausar",
       "switchSpeaker": "Trocar de interlocutor",
       "wrongSpeaker": "Interlocutor errado? Troque-o"
     },
