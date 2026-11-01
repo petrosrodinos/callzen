@@ -109,19 +109,24 @@
     "footerMic": "Coloque o telemóvel em alta-voz perto deste dispositivo.",
     "startCall": "Iniciar chamada",
     "upload": {
-      "title": "Arquivo da gravação",
-      "dropzone": "Solte um arquivo de áudio aqui ou clique para procurar",
-      "formats": "mp3, m4a, wav, webm, ogg ou aac, até 300 MB",
+      "title": "Arquivos de gravação",
+      "dropzone": "Solte arquivos de áudio aqui ou clique para procurar",
+      "formats": "mp3, m4a, wav, webm, ogg ou aac, até 300 MB cada · até {{max}} arquivos",
       "remove": "Remover arquivo",
       "submit": "Enviar e analisar",
       "uploading": "Enviando… {{percent}}%",
-      "footer": "Vamos transcrever a gravação em segundo plano e preparar o seu relatório. Você pode sair desta página.",
+      "footer": "Vamos transcrever suas gravações em segundo plano e preparar um relatório para cada uma. Você pode sair desta página.",
       "fileRequired": "Escolha uma gravação para enviar",
       "tooLarge": "Este arquivo tem mais de 300 MB",
       "unsupported": "Tipo de arquivo não compatível",
       "cleanup": "Limpar a transcrição com IA",
       "cleanupHint": "Recomendado para áudio com ruído ou de baixa qualidade. A IA revê a transcrição antes de a análise começar.",
-      "cleanupDisclaimer": "A IA pode interpretar mal algumas frases e remove a fala que não consegue compreender com segurança. A transcrição limpa pode não ser 100% precisa e parte do contexto original pode perder-se. A análise será feita com base na versão limpa."
+      "cleanupDisclaimer": "A IA pode interpretar mal algumas frases e remove a fala que não consegue compreender com segurança. A transcrição limpa pode não ser 100% precisa e parte do contexto original pode perder-se. A análise será feita com base na versão limpa.",
+      "tooMany": "Você pode enviar até {{max}} gravações de uma vez",
+      "batchProgress": "Enviando {{current}} de {{total}}… {{percent}}%",
+      "batchHint": "Esses dados da chamada se aplicam a cada arquivo. Deixe os campos do prospect vazios para detectá-los em cada gravação.",
+      "uploaded": "Enviado",
+      "addMore": "Adicionar mais arquivos"
     }
   }
 }

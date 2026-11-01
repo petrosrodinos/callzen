@@ -109,19 +109,24 @@
     "footerMic": "Stellen Sie Ihr Telefon in der Nähe dieses Geräts auf Lautsprecher.",
     "startCall": "Anruf starten",
     "upload": {
-      "title": "Aufnahmedatei",
-      "dropzone": "Audiodatei hierher ziehen oder zum Durchsuchen klicken",
-      "formats": "mp3, m4a, wav, webm, ogg oder aac, bis zu 300 MB",
+      "title": "Aufnahmedateien",
+      "dropzone": "Audiodateien hierher ziehen oder zum Durchsuchen klicken",
+      "formats": "mp3, m4a, wav, webm, ogg oder aac, je bis zu 300 MB · bis zu {{max}} Dateien",
       "remove": "Datei entfernen",
       "submit": "Hochladen & analysieren",
       "uploading": "Wird hochgeladen … {{percent}} %",
-      "footer": "Wir transkribieren die Aufnahme im Hintergrund und erstellen Ihren Bericht. Sie können diese Seite verlassen.",
+      "footer": "Wir transkribieren Ihre Aufnahmen im Hintergrund und erstellen für jede einen Bericht. Sie können diese Seite verlassen.",
       "fileRequired": "Wählen Sie eine Aufnahme zum Hochladen aus",
       "tooLarge": "Diese Datei ist größer als 300 MB",
       "unsupported": "Nicht unterstützter Dateityp",
       "cleanup": "Transkript mit KI bereinigen",
       "cleanupHint": "Empfohlen bei verrauschtem oder schlechtem Audio. Die KI prüft das Transkript, bevor die Analyse beginnt.",
-      "cleanupDisclaimer": "Die KI kann manche Formulierungen falsch deuten und entfernt Gesprochenes, das sie nicht sicher versteht. Das bereinigte Transkript ist möglicherweise nicht zu 100 % korrekt, und ein Teil des ursprünglichen Kontexts kann verloren gehen. Die Analyse basiert auf der bereinigten Fassung."
+      "cleanupDisclaimer": "Die KI kann manche Formulierungen falsch deuten und entfernt Gesprochenes, das sie nicht sicher versteht. Das bereinigte Transkript ist möglicherweise nicht zu 100 % korrekt, und ein Teil des ursprünglichen Kontexts kann verloren gehen. Die Analyse basiert auf der bereinigten Fassung.",
+      "tooMany": "Sie können bis zu {{max}} Aufnahmen gleichzeitig hochladen",
+      "batchProgress": "Lade {{current}} von {{total}} hoch… {{percent}}%",
+      "batchHint": "Diese Anrufdetails gelten für jede Datei. Lassen Sie die Interessentenfelder leer, damit sie aus jeder Aufnahme erkannt werden.",
+      "uploaded": "Hochgeladen",
+      "addMore": "Weitere Dateien hinzufügen"
     }
   }
 }

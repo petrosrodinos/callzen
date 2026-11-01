@@ -1,7 +1,7 @@
 import i18n from "@/i18n";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "@/hooks/use-toast";
-import { CallStatuses, isCallProcessing, type CallQuery } from "../interfaces/calls.interfaces";
+import { CallStatuses, isCallProcessing, type Call, type CallQuery, type UploadCallDto } from "../interfaces/calls.interfaces";
 import {
     addBookmark,
     addSegments,
@@ -71,16 +71,54 @@ export const useStartLiveCall = () => {
     });
 };
 
-export const useUploadCall = () => {
+export interface UploadBatchItemPatch {
+    status?: "pending" | "uploading" | "done" | "error";
+    percent?: number;
+    error?: string;
+}
+
+export interface UploadBatchResult {
+    id: string;
+    call?: Call;
+    error?: string;
+}
+
+// Each recording becomes its own call. Files go up one at a time (the API buffers a whole file in
+// memory) and a failed file never stops the rest.
+export const useUploadCalls = () => {
     const queryClient = useQueryClient();
     return useMutation({
-        mutationFn: uploadCall,
-        onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
-            toast({ title: i18n.t("common:toasts.calls.recordingUploadedForAnalysis"), description: i18n.t("common:toasts.calls.weAreTranscribingIt"), duration: 2500 });
+        mutationFn: async ({ files, dto, onItem }: { files: { id: string; file: File }[]; dto: UploadCallDto; onItem?: (id: string, patch: UploadBatchItemPatch) => void }): Promise<UploadBatchResult[]> => {
+            const results: UploadBatchResult[] = [];
+            for (const { id, file } of files) {
+                onItem?.(id, { status: "uploading", percent: 0, error: undefined });
+                try {
+                    const call = await uploadCall({ file, dto, onProgress: (percent) => onItem?.(id, { percent }) });
+                    results.push({ id, call });
+                    onItem?.(id, { status: "done", percent: 100 });
+                } catch (error) {
+                    const message = (error as Error).message;
+                    results.push({ id, error: message });
+                    onItem?.(id, { status: "error", error: message });
+                }
+            }
+            return results;
         },
-        onError: (error) => {
-            toast({ title: i18n.t("common:toasts.calls.couldNotUploadTheRecording"), description: error.message, variant: "error" });
+        onSuccess: (results) => {
+            queryClient.invalidateQueries({ queryKey: [QUERY_KEY] });
+            const uploaded = results.filter((result) => result.call).length;
+            const failed = results.length - uploaded;
+            if (failed === 0) {
+                toast(
+                    uploaded === 1
+                        ? { title: i18n.t("common:toasts.calls.recordingUploadedForAnalysis"), description: i18n.t("common:toasts.calls.weAreTranscribingIt"), duration: 2500 }
+                        : { title: i18n.t("common:toasts.calls.recordingsUploadedForAnalysis"), description: i18n.t("common:toasts.calls.weAreTranscribingThem", { count: uploaded }), duration: 2500 },
+                );
+            } else if (uploaded === 0) {
+                toast({ title: i18n.t("common:toasts.calls.couldNotUploadTheRecording"), description: results[0]?.error, variant: "error" });
+            } else {
+                toast({ title: i18n.t("common:toasts.calls.someRecordingsFailed"), description: i18n.t("common:toasts.calls.someRecordingsFailedHint", { count: failed }), variant: "error" });
+            }
         },
     });
 };

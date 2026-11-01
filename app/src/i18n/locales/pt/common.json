@@ -244,7 +244,11 @@
       "weAreTranscribingIt": "Estamos transcrevendo agora.",
       "couldNotUploadTheRecording": "Não foi possível enviar a gravação",
       "transcriptionRestarted": "Transcrição reiniciada",
-      "couldNotRetryTheTranscription": "Não foi possível tentar a transcrição novamente"
+      "couldNotRetryTheTranscription": "Não foi possível tentar a transcrição novamente",
+      "recordingsUploadedForAnalysis": "Gravações enviadas para análise",
+      "weAreTranscribingThem": "{{count}} arquivos enviados. Estamos transcrevendo agora.",
+      "someRecordingsFailed": "Algumas gravações não puderam ser enviadas",
+      "someRecordingsFailedHint": "{{count}} falharam. Continuam na lista para você tentar de novo."
     },
     "organisations": {
       "roleUpdated": "Papel atualizado",

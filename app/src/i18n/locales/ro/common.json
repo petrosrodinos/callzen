@@ -246,7 +246,11 @@
       "weAreTranscribingIt": "O transcriem acum.",
       "couldNotUploadTheRecording": "Nu s-a putut încărca înregistrarea",
       "transcriptionRestarted": "Transcrierea a repornit",
-      "couldNotRetryTheTranscription": "Nu s-a putut reîncerca transcrierea"
+      "couldNotRetryTheTranscription": "Nu s-a putut reîncerca transcrierea",
+      "recordingsUploadedForAnalysis": "Înregistrări încărcate pentru analiză",
+      "weAreTranscribingThem": "{{count}} fișiere încărcate. Le transcriem acum.",
+      "someRecordingsFailed": "Unele înregistrări nu au putut fi încărcate",
+      "someRecordingsFailedHint": "{{count}} au eșuat. Rămân în listă ca să poți încerca din nou."
     },
     "organisations": {
       "roleUpdated": "Rol actualizat",

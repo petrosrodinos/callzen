@@ -109,19 +109,24 @@
     "footerMic": "Mettez votre téléphone sur haut-parleur près de cet appareil.",
     "startCall": "Démarrer l'appel",
     "upload": {
-      "title": "Fichier d'enregistrement",
-      "dropzone": "Déposez un fichier audio ici ou cliquez pour parcourir",
-      "formats": "mp3, m4a, wav, webm, ogg ou aac, jusqu'à 300 Mo",
+      "title": "Fichiers d'enregistrement",
+      "dropzone": "Déposez des fichiers audio ici ou cliquez pour parcourir",
+      "formats": "mp3, m4a, wav, webm, ogg ou aac, jusqu'à 300 Mo chacun · jusqu'à {{max}} fichiers",
       "remove": "Retirer le fichier",
       "submit": "Importer et analyser",
       "uploading": "Importation… {{percent}} %",
-      "footer": "Nous transcrivons l'enregistrement en arrière-plan et préparons votre rapport. Vous pouvez quitter cette page.",
+      "footer": "Nous transcrirons vos enregistrements en arrière-plan et préparerons un rapport pour chacun. Vous pouvez quitter cette page.",
       "fileRequired": "Choisissez un enregistrement à importer",
       "tooLarge": "Ce fichier dépasse 300 Mo",
       "unsupported": "Type de fichier non pris en charge",
       "cleanup": "Nettoyer la transcription avec l'IA",
       "cleanupHint": "Recommandé pour un audio bruité ou de mauvaise qualité. L'IA relit la transcription avant le début de l'analyse.",
-      "cleanupDisclaimer": "L'IA peut mal interpréter certaines phrases et supprime les paroles qu'elle ne comprend pas avec certitude. La transcription nettoyée peut ne pas être exacte à 100 % et une partie du contexte d'origine peut être perdue. L'analyse sera basée sur la version nettoyée."
+      "cleanupDisclaimer": "L'IA peut mal interpréter certaines phrases et supprime les paroles qu'elle ne comprend pas avec certitude. La transcription nettoyée peut ne pas être exacte à 100 % et une partie du contexte d'origine peut être perdue. L'analyse sera basée sur la version nettoyée.",
+      "tooMany": "Vous pouvez importer jusqu'à {{max}} enregistrements à la fois",
+      "batchProgress": "Importation de {{current}} sur {{total}}… {{percent}}%",
+      "batchHint": "Ces informations d'appel s'appliquent à chaque fichier. Laissez les champs du prospect vides pour les détecter à partir de chaque enregistrement.",
+      "uploaded": "Importé",
+      "addMore": "Ajouter des fichiers"
     }
   }
 }

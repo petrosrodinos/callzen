@@ -248,7 +248,11 @@
       "weAreTranscribingIt": "Właśnie ją przetwarzamy.",
       "couldNotUploadTheRecording": "Nie udało się przesłać nagrania",
       "transcriptionRestarted": "Transkrypcja uruchomiona ponownie",
-      "couldNotRetryTheTranscription": "Nie udało się ponowić transkrypcji"
+      "couldNotRetryTheTranscription": "Nie udało się ponowić transkrypcji",
+      "recordingsUploadedForAnalysis": "Nagrania przesłane do analizy",
+      "weAreTranscribingThem": "Przesłano {{count}} plików. Transkrybujemy je teraz.",
+      "someRecordingsFailed": "Nie udało się przesłać niektórych nagrań",
+      "someRecordingsFailedHint": "Nie powiodło się: {{count}}. Pozostają na liście, aby można było spróbować ponownie."
     },
     "organisations": {
       "roleUpdated": "Zaktualizowano rolę",

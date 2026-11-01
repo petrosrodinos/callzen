@@ -244,7 +244,11 @@
       "weAreTranscribingIt": "Τη μεταγράφουμε τώρα.",
       "couldNotUploadTheRecording": "Δεν ήταν δυνατό το ανέβασμα της ηχογράφησης",
       "transcriptionRestarted": "Η μεταγραφή ξεκίνησε ξανά",
-      "couldNotRetryTheTranscription": "Δεν ήταν δυνατή η επανάληψη της μεταγραφής"
+      "couldNotRetryTheTranscription": "Δεν ήταν δυνατή η επανάληψη της μεταγραφής",
+      "recordingsUploadedForAnalysis": "Οι ηχογραφήσεις ανέβηκαν για ανάλυση",
+      "weAreTranscribingThem": "Ανέβηκαν {{count}} αρχεία. Τα μεταγράφουμε τώρα.",
+      "someRecordingsFailed": "Ορισμένες ηχογραφήσεις δεν μπόρεσαν να ανέβουν",
+      "someRecordingsFailedHint": "Απέτυχαν {{count}}. Παραμένουν στη λίστα ώστε να δοκιμάσετε ξανά."
     },
     "organisations": {
       "roleUpdated": "Ο ρόλος ενημερώθηκε",

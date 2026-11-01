@@ -109,19 +109,24 @@
     "footerMic": "Metti il telefono in vivavoce vicino a questo dispositivo.",
     "startCall": "Avvia chiamata",
     "upload": {
-      "title": "File della registrazione",
-      "dropzone": "Trascina qui un file audio o fai clic per sfogliare",
-      "formats": "mp3, m4a, wav, webm, ogg o aac, fino a 300 MB",
+      "title": "File delle registrazioni",
+      "dropzone": "Trascina qui i file audio o fai clic per sfogliare",
+      "formats": "mp3, m4a, wav, webm, ogg o aac, fino a 300 MB ciascuno · fino a {{max}} file",
       "remove": "Rimuovi file",
       "submit": "Carica e analizza",
       "uploading": "Caricamento… {{percent}}%",
-      "footer": "Trascriveremo la registrazione in background e prepareremo il tuo report. Puoi lasciare questa pagina.",
+      "footer": "Trascriveremo le registrazioni in background e prepareremo un report per ciascuna. Puoi lasciare questa pagina.",
       "fileRequired": "Scegli una registrazione da caricare",
       "tooLarge": "Questo file supera i 300 MB",
       "unsupported": "Tipo di file non supportato",
       "cleanup": "Pulisci la trascrizione con l'IA",
       "cleanupHint": "Consigliato per audio rumoroso o di bassa qualità. L'IA rivede la trascrizione prima dell'inizio dell'analisi.",
-      "cleanupDisclaimer": "L'IA può interpretare male alcune frasi e rimuove il parlato che non comprende con sicurezza. La trascrizione ripulita potrebbe non essere accurata al 100% e parte del contesto originale potrebbe andare persa. L'analisi si baserà sulla versione ripulita."
+      "cleanupDisclaimer": "L'IA può interpretare male alcune frasi e rimuove il parlato che non comprende con sicurezza. La trascrizione ripulita potrebbe non essere accurata al 100% e parte del contesto originale potrebbe andare persa. L'analisi si baserà sulla versione ripulita.",
+      "tooMany": "Puoi caricare fino a {{max}} registrazioni alla volta",
+      "batchProgress": "Caricamento {{current}} di {{total}}… {{percent}}%",
+      "batchHint": "Questi dettagli della chiamata valgono per ogni file. Lascia vuoti i campi del potenziale cliente per rilevarli da ogni registrazione.",
+      "uploaded": "Caricato",
+      "addMore": "Aggiungi altri file"
     }
   }
 }

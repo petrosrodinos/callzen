@@ -244,7 +244,11 @@
       "weAreTranscribingIt": "Wir transkribieren sie jetzt.",
       "couldNotUploadTheRecording": "Aufnahme konnte nicht hochgeladen werden",
       "transcriptionRestarted": "Transkription neu gestartet",
-      "couldNotRetryTheTranscription": "Transkription konnte nicht wiederholt werden"
+      "couldNotRetryTheTranscription": "Transkription konnte nicht wiederholt werden",
+      "recordingsUploadedForAnalysis": "Aufnahmen zur Analyse hochgeladen",
+      "weAreTranscribingThem": "{{count}} Dateien hochgeladen. Wir transkribieren sie jetzt.",
+      "someRecordingsFailed": "Einige Aufnahmen konnten nicht hochgeladen werden",
+      "someRecordingsFailedHint": "{{count}} fehlgeschlagen. Sie bleiben in der Liste, damit Sie es erneut versuchen können."
     },
     "organisations": {
       "roleUpdated": "Rolle aktualisiert",

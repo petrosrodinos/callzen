@@ -109,19 +109,24 @@
     "footerMic": "Telefonunuzu bu cihazın yanında hoparlöre alın.",
     "startCall": "Aramayı başlat",
     "upload": {
-      "title": "Kayıt dosyası",
-      "dropzone": "Bir ses dosyasını buraya bırakın veya göz atmak için tıklayın",
-      "formats": "mp3, m4a, wav, webm, ogg veya aac, en fazla 300 MB",
+      "title": "Kayıt dosyaları",
+      "dropzone": "Ses dosyalarını buraya bırakın veya göz atmak için tıklayın",
+      "formats": "mp3, m4a, wav, webm, ogg veya aac, her biri en fazla 300 MB · en fazla {{max}} dosya",
       "remove": "Dosyayı kaldır",
       "submit": "Yükle ve analiz et",
       "uploading": "Yükleniyor… %{{percent}}",
-      "footer": "Kaydı arka planda yazıya dökeceğiz ve raporunuzu hazırlayacağız. Bu sayfadan ayrılabilirsiniz.",
+      "footer": "Kayıtlarınızı arka planda yazıya dökeceğiz ve her biri için bir rapor hazırlayacağız. Bu sayfadan ayrılabilirsiniz.",
       "fileRequired": "Yüklemek için bir kayıt seçin",
       "tooLarge": "Bu dosya 300 MB’tan büyük",
       "unsupported": "Desteklenmeyen dosya türü",
       "cleanup": "Transkripti yapay zekâ ile temizle",
       "cleanupHint": "Gürültülü veya düşük kaliteli ses için önerilir. Analiz başlamadan önce yapay zekâ transkripti gözden geçirir.",
-      "cleanupDisclaimer": "Yapay zekâ bazı ifadeleri yanlış yorumlayabilir ve emin olarak anlayamadığı konuşmaları kaldırır. Temizlenen transkript %100 doğru olmayabilir ve özgün bağlamın bir kısmı kaybolabilir. Analiz, temizlenmiş sürüme dayanacaktır."
+      "cleanupDisclaimer": "Yapay zekâ bazı ifadeleri yanlış yorumlayabilir ve emin olarak anlayamadığı konuşmaları kaldırır. Temizlenen transkript %100 doğru olmayabilir ve özgün bağlamın bir kısmı kaybolabilir. Analiz, temizlenmiş sürüme dayanacaktır.",
+      "tooMany": "Aynı anda en fazla {{max}} kayıt yükleyebilirsiniz",
+      "batchProgress": "{{current}} / {{total}} yükleniyor… %{{percent}}",
+      "batchHint": "Bu görüşme bilgileri her dosya için geçerlidir. Her kayıttan algılanması için potansiyel müşteri alanlarını boş bırakın.",
+      "uploaded": "Yüklendi",
+      "addMore": "Daha fazla dosya ekle"
     }
   }
 }

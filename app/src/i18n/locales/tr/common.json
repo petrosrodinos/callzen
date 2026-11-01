@@ -244,7 +244,11 @@
       "weAreTranscribingIt": "Şimdi yazıya döküyoruz.",
       "couldNotUploadTheRecording": "Kayıt yüklenemedi",
       "transcriptionRestarted": "Yazıya dökme yeniden başlatıldı",
-      "couldNotRetryTheTranscription": "Yazıya dökme yeniden denenemedi"
+      "couldNotRetryTheTranscription": "Yazıya dökme yeniden denenemedi",
+      "recordingsUploadedForAnalysis": "Kayıtlar analiz için yüklendi",
+      "weAreTranscribingThem": "{{count}} dosya yüklendi. Şimdi yazıya döküyoruz.",
+      "someRecordingsFailed": "Bazı kayıtlar yüklenemedi",
+      "someRecordingsFailedHint": "{{count}} başarısız oldu. Yeniden denemeniz için listede kalıyorlar."
     },
     "organisations": {
       "roleUpdated": "Rol güncellendi",

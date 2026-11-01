@@ -244,7 +244,11 @@
       "weAreTranscribingIt": "We transcriberen hem nu.",
       "couldNotUploadTheRecording": "Opname kon niet worden geüpload",
       "transcriptionRestarted": "Transcriptie opnieuw gestart",
-      "couldNotRetryTheTranscription": "Transcriptie kon niet opnieuw worden gestart"
+      "couldNotRetryTheTranscription": "Transcriptie kon niet opnieuw worden gestart",
+      "recordingsUploadedForAnalysis": "Opnames geüpload voor analyse",
+      "weAreTranscribingThem": "{{count}} bestanden geüpload. We transcriberen ze nu.",
+      "someRecordingsFailed": "Sommige opnames konden niet worden geüpload",
+      "someRecordingsFailedHint": "{{count}} mislukt. Ze blijven in de lijst zodat je het opnieuw kunt proberen."
     },
     "organisations": {
       "roleUpdated": "Rol bijgewerkt",

@@ -109,19 +109,24 @@
     "footerMic": "Pon el teléfono en altavoz cerca de este dispositivo.",
     "startCall": "Iniciar llamada",
     "upload": {
-      "title": "Archivo de grabación",
-      "dropzone": "Suelta un archivo de audio aquí o haz clic para buscarlo",
-      "formats": "mp3, m4a, wav, webm, ogg o aac, hasta 300 MB",
+      "title": "Archivos de grabación",
+      "dropzone": "Suelta archivos de audio aquí o haz clic para buscarlos",
+      "formats": "mp3, m4a, wav, webm, ogg o aac, hasta 300 MB cada uno · hasta {{max}} archivos",
       "remove": "Quitar archivo",
       "submit": "Subir y analizar",
       "uploading": "Subiendo… {{percent}} %",
-      "footer": "Transcribiremos la grabación en segundo plano y prepararemos tu informe. Puedes salir de esta página.",
+      "footer": "Transcribiremos tus grabaciones en segundo plano y prepararemos un informe para cada una. Puedes salir de esta página.",
       "fileRequired": "Elige una grabación para subir",
       "tooLarge": "Este archivo supera los 300 MB",
       "unsupported": "Tipo de archivo no compatible",
       "cleanup": "Limpiar la transcripción con IA",
       "cleanupHint": "Recomendado para audio con ruido o de baja calidad. La IA revisa la transcripción antes de que empiece el análisis.",
-      "cleanupDisclaimer": "La IA puede malinterpretar algunas frases y elimina el habla que no entiende con seguridad. La transcripción limpiada puede no ser 100 % precisa y podría perderse parte del contexto original. El análisis se basará en la versión limpiada."
+      "cleanupDisclaimer": "La IA puede malinterpretar algunas frases y elimina el habla que no entiende con seguridad. La transcripción limpiada puede no ser 100 % precisa y podría perderse parte del contexto original. El análisis se basará en la versión limpiada.",
+      "tooMany": "Puedes subir hasta {{max}} grabaciones a la vez",
+      "batchProgress": "Subiendo {{current}} de {{total}}… {{percent}}%",
+      "batchHint": "Estos datos de la llamada se aplican a cada archivo. Deja vacíos los campos del cliente potencial para detectarlos en cada grabación.",
+      "uploaded": "Subido",
+      "addMore": "Añadir más archivos"
     }
   }
 }

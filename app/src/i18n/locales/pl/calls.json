@@ -109,19 +109,24 @@
     "footerMic": "Włącz w telefonie głośnik i połóż go blisko tego urządzenia.",
     "startCall": "Rozpocznij rozmowę",
     "upload": {
-      "title": "Plik nagrania",
-      "dropzone": "Upuść plik audio tutaj lub kliknij, aby wybrać",
-      "formats": "mp3, m4a, wav, webm, ogg lub aac, do 300 MB",
+      "title": "Pliki nagrań",
+      "dropzone": "Upuść pliki audio tutaj lub kliknij, aby wybrać",
+      "formats": "mp3, m4a, wav, webm, ogg lub aac, do 300 MB każdy · do {{max}} plików",
       "remove": "Usuń plik",
       "submit": "Prześlij i analizuj",
       "uploading": "Przesyłanie… {{percent}}%",
-      "footer": "Przetworzymy nagranie w tle i przygotujemy raport. Możesz opuścić tę stronę.",
+      "footer": "Przetranskrybujemy nagrania w tle i przygotujemy raport dla każdego z nich. Możesz opuścić tę stronę.",
       "fileRequired": "Wybierz nagranie do przesłania",
       "tooLarge": "Ten plik jest większy niż 300 MB",
       "unsupported": "Nieobsługiwany typ pliku",
       "cleanup": "Oczyść transkrypcję za pomocą AI",
       "cleanupHint": "Zalecane przy hałaśliwym lub słabej jakości dźwięku. AI przegląda transkrypcję przed rozpoczęciem analizy.",
-      "cleanupDisclaimer": "AI może błędnie zinterpretować niektóre wypowiedzi i usuwa mowę, której nie rozumie z pewnością. Oczyszczona transkrypcja może nie być w 100% dokładna, a część pierwotnego kontekstu może zostać utracona. Analiza będzie oparta na oczyszczonej wersji."
+      "cleanupDisclaimer": "AI może błędnie zinterpretować niektóre wypowiedzi i usuwa mowę, której nie rozumie z pewnością. Oczyszczona transkrypcja może nie być w 100% dokładna, a część pierwotnego kontekstu może zostać utracona. Analiza będzie oparta na oczyszczonej wersji.",
+      "tooMany": "Możesz przesłać naraz do {{max}} nagrań",
+      "batchProgress": "Przesyłanie {{current}} z {{total}}… {{percent}}%",
+      "batchHint": "Te dane rozmowy dotyczą każdego pliku. Zostaw pola potencjalnego klienta puste, aby wykryć je z każdego nagrania.",
+      "uploaded": "Przesłano",
+      "addMore": "Dodaj więcej plików"
     }
   }
 }

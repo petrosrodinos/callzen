@@ -244,7 +244,11 @@
       "weAreTranscribingIt": "Vi transkriberar den nu.",
       "couldNotUploadTheRecording": "Det gick inte att ladda upp inspelningen",
       "transcriptionRestarted": "Transkriberingen startades om",
-      "couldNotRetryTheTranscription": "Det gick inte att försöka transkribera igen"
+      "couldNotRetryTheTranscription": "Det gick inte att försöka transkribera igen",
+      "recordingsUploadedForAnalysis": "Inspelningar uppladdade för analys",
+      "weAreTranscribingThem": "{{count}} filer uppladdade. Vi transkriberar dem nu.",
+      "someRecordingsFailed": "Vissa inspelningar kunde inte laddas upp",
+      "someRecordingsFailedHint": "{{count}} misslyckades. De ligger kvar i listan så att du kan försöka igen."
     },
     "organisations": {
       "roleUpdated": "Rollen uppdaterades",

@@ -21,7 +21,7 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { useAssistantAgents } from "@/features/assistant-agents/hooks/use-assistant-agents";
 import { useCatalog } from "@/features/catalog/hooks/use-catalog";
 import { useMe, useUpdateMe } from "@/features/user/hooks/use-user";
-import { useCalls, useStartLiveCall, useUploadCall } from "@/features/calls/hooks/use-calls";
+import { useCalls, useStartLiveCall, useUploadCalls, type UploadBatchItemPatch } from "@/features/calls/hooks/use-calls";
 import { AUTO_LANGUAGE, CallKinds, CallTypes } from "@/features/calls/interfaces/calls.interfaces";
 import { LiveCallTypeDescriptionOptions } from "@/config/constants/dropdowns/calls/call-type-form.options";
 import { getMicrophoneStream, getTabAudioStream, isTabAudioCaptureSupported, stopStream } from "@/lib/audio/media-capture";
@@ -32,10 +32,12 @@ import { toast } from "@/hooks/use-toast";
 import { usePageMetadata } from "@/hooks/use-page-metadata";
 import { Routes } from "@/routes/routes";
 import { NO_COPILOT, newCallSchema, type NewCallFormValues } from "../../validation-schemas/new-call.schema";
-import { AudioDropzone } from "./components/audio-dropzone";
+import { AudioDropzone, type UploadItem } from "./components/audio-dropzone";
 
 const TYPE_ICONS = { [CallTypes.MICROPHONE]: Mic, [CallTypes.ONLINE_MEETING]: MonitorSmartphone, [CallTypes.UPLOAD]: Upload } as const;
 const MAX_UPLOAD_BYTES = 300 * 1024 * 1024;
+const MAX_UPLOAD_FILES = 10;
+const fileId = (file: File) => `${file.name}-${file.size}-${file.lastModified}`;
 const UPLOAD_EXTENSIONS = /\.(mp3|m4a|mp4|wav|webm|ogg|oga|aac|flac|opus|mpeg|mpga)$/i;
 
 const NewCallPage: FC = () => {
@@ -48,12 +50,11 @@ const NewCallPage: FC = () => {
   const { data: me } = useMe();
   const { data: recentCalls } = useCalls({ kind: CallKinds.LIVE, limit: 30 });
   const startCall = useStartLiveCall();
-  const uploadCall = useUploadCall();
+  const uploadCalls = useUploadCalls();
   const updateMe = useUpdateMe();
   const [capturing, setCapturing] = useState(false);
-  const [file, setFile] = useState<File | null>(null);
+  const [items, setItems] = useState<UploadItem[]>([]);
   const [fileError, setFileError] = useState<string>();
-  const [progress, setProgress] = useState<number | null>(null);
   const meetingSupported = isTabAudioCaptureSupported();
 
   const form = useForm<NewCallFormValues>({
@@ -104,6 +105,37 @@ const NewCallPage: FC = () => {
 
   const copilotDto = (id: string) => (id === NO_COPILOT ? { copilot_enabled: false } : { assistant_agent_id: id });
 
+  const patchItem = (id: string, patch: UploadBatchItemPatch) => setItems((previous) => previous.map((item) => (item.id === id ? { ...item, ...patch } : item)));
+
+  const removeItem = (id: string) => {
+    setItems((previous) => previous.filter((item) => item.id !== id));
+    setFileError(undefined);
+  };
+
+  const addFiles = (incoming: File[]) => {
+    const problems: string[] = [];
+    const next = [...items];
+    for (const file of incoming) {
+      const id = fileId(file);
+      if (next.some((item) => item.id === id)) continue;
+      if (!UPLOAD_EXTENSIONS.test(file.name)) {
+        problems.push(`${file.name}: ${t("new.upload.unsupported")}`);
+        continue;
+      }
+      if (file.size > MAX_UPLOAD_BYTES) {
+        problems.push(`${file.name}: ${t("new.upload.tooLarge")}`);
+        continue;
+      }
+      if (next.length >= MAX_UPLOAD_FILES) {
+        problems.push(t("new.upload.tooMany", { max: MAX_UPLOAD_FILES }));
+        break;
+      }
+      next.push({ id, file, status: "pending", percent: 0 });
+    }
+    setItems(next);
+    setFileError(problems.length ? problems.join(" · ") : undefined);
+  };
+
   const onSubmit = async (values: NewCallFormValues) => {
     if (consentNeeded && !values.consent_acknowledged) {
       form.setError("consent_acknowledged", { message: t("new.validation.confirmBeforeStarting") });
@@ -111,14 +143,17 @@ const NewCallPage: FC = () => {
     }
 
     if (values.call_type === CallTypes.UPLOAD) {
-      const problem = !file ? t("new.upload.fileRequired") : file.size > MAX_UPLOAD_BYTES ? t("new.upload.tooLarge") : !UPLOAD_EXTENSIONS.test(file.name) ? t("new.upload.unsupported") : undefined;
-      setFileError(problem);
-      if (problem || !file) return;
+      const toUpload = items.filter((item) => item.status !== "done");
+      if (!toUpload.length) {
+        setFileError(t("new.upload.fileRequired"));
+        return;
+      }
+      setFileError(undefined);
       if (consentNeeded) updateMe.mutate({ consent_acknowledged: true });
-      setProgress(0);
-      uploadCall.mutate(
+      setItems((previous) => previous.map((item) => (item.status === "done" ? item : { ...item, status: "pending", percent: 0, error: undefined })));
+      uploadCalls.mutate(
         {
-          file,
+          files: toUpload.map(({ id, file }) => ({ id, file })),
           dto: {
             ...copilotDto(values.assistant_agent_id),
             prospect_name: values.prospect_name || undefined,
@@ -131,11 +166,19 @@ const NewCallPage: FC = () => {
             clean_transcript: values.clean_transcript,
             language: values.language,
           },
-          onProgress: setProgress,
+          onItem: patchItem,
         },
         {
-          onSuccess: (call) => navigate(Routes.library.detail(call.id)),
-          onSettled: () => setProgress(null),
+          onSuccess: (results) => {
+            const uploaded = results.filter((result) => result.call);
+            if (uploaded.length === results.length) {
+              const [first] = uploaded;
+              navigate(uploaded.length === 1 && first.call ? Routes.library.detail(first.call.id) : Routes.library.root);
+              return;
+            }
+            // Keep only the files that failed so they can be retried.
+            setItems((previous) => previous.filter((item) => !uploaded.some((result) => result.id === item.id)));
+          },
         },
       );
       return;
@@ -205,7 +248,14 @@ const NewCallPage: FC = () => {
     );
   }
 
-  const busy = capturing || startCall.isPending || uploadCall.isPending;
+  const busy = capturing || startCall.isPending || uploadCalls.isPending;
+  const uploadingItem = items.find((item) => item.status === "uploading");
+  const finishedItems = items.filter((item) => item.status === "done" || item.status === "error").length;
+  const uploadLabel = uploadCalls.isPending
+    ? items.length > 1
+      ? t("new.upload.batchProgress", { current: Math.min(finishedItems + 1, items.length), total: items.length, percent: uploadingItem?.percent ?? 0 })
+      : t("new.upload.uploading", { percent: uploadingItem?.percent ?? 0 })
+    : t("new.upload.submit");
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -335,7 +385,12 @@ const NewCallPage: FC = () => {
           </FormSection>
 
           <FormSection title={isUpload ? t("new.upload.title") : t("new.recording.title")}>
-            {isUpload && <AudioDropzone file={file} onChange={(next) => { setFile(next); setFileError(undefined); }} disabled={busy} error={fileError} />}
+            {isUpload && (
+              <>
+                <AudioDropzone items={items} onAdd={addFiles} onRemove={removeItem} max={MAX_UPLOAD_FILES} disabled={busy} error={fileError} />
+                {items.length > 1 && <p className="text-xs text-muted-foreground">{t("new.upload.batchHint")}</p>}
+              </>
+            )}
             <FormField
               control={form.control}
               name="keep_recording"
@@ -406,7 +461,7 @@ const NewCallPage: FC = () => {
             <div className="pb-safe flex items-center gap-3 px-4 pt-3 sm:px-6">
               <p className="hidden text-xs text-muted-foreground sm:block">{isUpload ? t("new.upload.footer") : form.watch("call_type") === CallTypes.ONLINE_MEETING ? t("new.footerMeeting") : t("new.footerMic")}</p>
               <Button type="submit" size="lg" className="ml-auto w-full sm:w-auto" disabled={busy} loading={busy}>
-                {!busy && (isUpload ? <Upload /> : <Phone />)} {isUpload ? (progress != null ? t("new.upload.uploading", { percent: progress }) : t("new.upload.submit")) : t("new.startCall")}
+                {!busy && (isUpload ? <Upload /> : <Phone />)} {isUpload ? uploadLabel : t("new.startCall")}
               </Button>
             </div>
           </div>

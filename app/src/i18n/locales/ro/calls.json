@@ -109,19 +109,24 @@
     "footerMic": "Pune telefonul pe difuzor lângă acest dispozitiv.",
     "startCall": "Începe apelul",
     "upload": {
-      "title": "Fișierul înregistrării",
-      "dropzone": "Trage aici un fișier audio sau dă clic pentru a căuta",
-      "formats": "mp3, m4a, wav, webm, ogg sau aac, până la 300 MB",
+      "title": "Fișierele înregistrărilor",
+      "dropzone": "Trage aici fișiere audio sau dă clic pentru a căuta",
+      "formats": "mp3, m4a, wav, webm, ogg sau aac, până la 300 MB fiecare · până la {{max}} fișiere",
       "remove": "Elimină fișierul",
       "submit": "Încarcă și analizează",
       "uploading": "Se încarcă… {{percent}}%",
-      "footer": "Vom transcrie înregistrarea în fundal și vom pregăti raportul tău. Poți părăsi această pagină.",
+      "footer": "Vom transcrie înregistrările în fundal și vom pregăti un raport pentru fiecare. Poți părăsi această pagină.",
       "fileRequired": "Alege o înregistrare de încărcat",
       "tooLarge": "Acest fișier depășește 300 MB",
       "unsupported": "Tip de fișier neacceptat",
       "cleanup": "Curăță transcrierea cu AI",
       "cleanupHint": "Recomandat pentru audio zgomotos sau de calitate slabă. AI revizuiește transcrierea înainte de începerea analizei.",
-      "cleanupDisclaimer": "AI poate interpreta greșit unele fraze și elimină vorbirea pe care nu o înțelege cu certitudine. Transcrierea curățată poate să nu fie 100% exactă și o parte din contextul original se poate pierde. Analiza se va baza pe versiunea curățată."
+      "cleanupDisclaimer": "AI poate interpreta greșit unele fraze și elimină vorbirea pe care nu o înțelege cu certitudine. Transcrierea curățată poate să nu fie 100% exactă și o parte din contextul original se poate pierde. Analiza se va baza pe versiunea curățată.",
+      "tooMany": "Poți încărca până la {{max}} înregistrări simultan",
+      "batchProgress": "Se încarcă {{current}} din {{total}}… {{percent}}%",
+      "batchHint": "Aceste detalii ale apelului se aplică fiecărui fișier. Lasă câmpurile prospectului goale pentru a fi detectate din fiecare înregistrare.",
+      "uploaded": "Încărcat",
+      "addMore": "Adaugă mai multe fișiere"
     }
   }
 }

@@ -109,19 +109,24 @@
     "footerMic": "Put your phone on speaker near this device.",
     "startCall": "Start call",
     "upload": {
-      "title": "Recording file",
-      "dropzone": "Drop an audio file here or click to browse",
-      "formats": "mp3, m4a, wav, webm, ogg or aac, up to 300 MB",
+      "title": "Recording files",
+      "dropzone": "Drop audio files here or click to browse",
+      "formats": "mp3, m4a, wav, webm, ogg or aac, up to 300 MB each · up to {{max}} files",
       "remove": "Remove file",
       "submit": "Upload & analyze",
       "uploading": "Uploading… {{percent}}%",
-      "footer": "We'll transcribe the recording in the background and prepare your report. You can leave this page.",
+      "footer": "We'll transcribe your recordings in the background and prepare a report for each. You can leave this page.",
       "fileRequired": "Choose a recording to upload",
       "tooLarge": "This file is larger than 300 MB",
       "unsupported": "Unsupported file type",
       "cleanup": "Clean up transcript with AI",
       "cleanupHint": "Recommended for noisy or low-quality audio. AI reviews the transcript before the analysis starts.",
-      "cleanupDisclaimer": "AI may misinterpret some phrases, and it removes speech it cannot confidently understand. The cleaned transcript may not be 100% accurate and some of the original context could be lost. The analysis will be based on the cleaned version."
+      "cleanupDisclaimer": "AI may misinterpret some phrases, and it removes speech it cannot confidently understand. The cleaned transcript may not be 100% accurate and some of the original context could be lost. The analysis will be based on the cleaned version.",
+      "tooMany": "You can upload up to {{max}} recordings at once",
+      "batchProgress": "Uploading {{current}} of {{total}}… {{percent}}%",
+      "batchHint": "These call details apply to every file. Leave the prospect fields empty to detect them from each recording.",
+      "uploaded": "Uploaded",
+      "addMore": "Add more files"
     }
   }
 }

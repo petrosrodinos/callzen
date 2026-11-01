@@ -244,7 +244,11 @@
       "weAreTranscribingIt": "La stiamo trascrivendo ora.",
       "couldNotUploadTheRecording": "Impossibile caricare la registrazione",
       "transcriptionRestarted": "Trascrizione riavviata",
-      "couldNotRetryTheTranscription": "Impossibile riprovare la trascrizione"
+      "couldNotRetryTheTranscription": "Impossibile riprovare la trascrizione",
+      "recordingsUploadedForAnalysis": "Registrazioni caricate per l'analisi",
+      "weAreTranscribingThem": "{{count}} file caricati. Li stiamo trascrivendo ora.",
+      "someRecordingsFailed": "Alcune registrazioni non sono state caricate",
+      "someRecordingsFailedHint": "{{count}} non riusciti. Restano nell'elenco così puoi riprovare."
     },
     "organisations": {
       "roleUpdated": "Ruolo aggiornato",

@@ -455,8 +455,7 @@ export class CallTranscriptionService {
         const numbered = lines
           .slice(batch.start, batch.end)
           .map((l, i) => `${batch.start + i} | ${label(l.speaker)}: ${l.text}`)
-          .join('
-');
+          .join('\n');
         const result = await this.aiService.generateStructured({
           model: RECOMMENDED_ANALYSIS_MODEL,
           schema: z.object({

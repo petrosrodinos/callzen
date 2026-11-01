@@ -109,19 +109,24 @@
     "footerMic": "Sätt telefonen på högtalare nära den här enheten.",
     "startCall": "Starta samtal",
     "upload": {
-      "title": "Inspelningsfil",
-      "dropzone": "Släpp en ljudfil här eller klicka för att bläddra",
-      "formats": "mp3, m4a, wav, webm, ogg eller aac, upp till 300 MB",
+      "title": "Inspelningsfiler",
+      "dropzone": "Släpp ljudfiler här eller klicka för att bläddra",
+      "formats": "mp3, m4a, wav, webm, ogg eller aac, upp till 300 MB per fil · upp till {{max}} filer",
       "remove": "Ta bort fil",
       "submit": "Ladda upp och analysera",
       "uploading": "Laddar upp … {{percent}} %",
-      "footer": "Vi transkriberar inspelningen i bakgrunden och förbereder din rapport. Du kan lämna den här sidan.",
+      "footer": "Vi transkriberar dina inspelningar i bakgrunden och förbereder en rapport för varje. Du kan lämna sidan.",
       "fileRequired": "Välj en inspelning att ladda upp",
       "tooLarge": "Filen är större än 300 MB",
       "unsupported": "Filtypen stöds inte",
       "cleanup": "Rensa transkriptionen med AI",
       "cleanupHint": "Rekommenderas vid brusigt eller dåligt ljud. AI granskar transkriptionen innan analysen börjar.",
-      "cleanupDisclaimer": "AI kan tolka vissa fraser fel och tar bort tal som den inte säkert förstår. Den rensade transkriptionen är kanske inte 100 % korrekt och en del av det ursprungliga sammanhanget kan gå förlorat. Analysen baseras på den rensade versionen."
+      "cleanupDisclaimer": "AI kan tolka vissa fraser fel och tar bort tal som den inte säkert förstår. Den rensade transkriptionen är kanske inte 100 % korrekt och en del av det ursprungliga sammanhanget kan gå förlorat. Analysen baseras på den rensade versionen.",
+      "tooMany": "Du kan ladda upp upp till {{max}} inspelningar åt gången",
+      "batchProgress": "Laddar upp {{current}} av {{total}}… {{percent}}%",
+      "batchHint": "Dessa samtalsuppgifter gäller för varje fil. Lämna prospektfälten tomma så identifieras de från varje inspelning.",
+      "uploaded": "Uppladdad",
+      "addMore": "Lägg till fler filer"
     }
   }
 }

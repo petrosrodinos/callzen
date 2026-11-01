@@ -244,7 +244,11 @@
       "weAreTranscribingIt": "Nous la transcrivons maintenant.",
       "couldNotUploadTheRecording": "Impossible d'importer l'enregistrement",
       "transcriptionRestarted": "Transcription relancée",
-      "couldNotRetryTheTranscription": "Impossible de relancer la transcription"
+      "couldNotRetryTheTranscription": "Impossible de relancer la transcription",
+      "recordingsUploadedForAnalysis": "Enregistrements importés pour analyse",
+      "weAreTranscribingThem": "{{count}} fichiers importés. Nous les transcrivons maintenant.",
+      "someRecordingsFailed": "Certains enregistrements n'ont pas pu être importés",
+      "someRecordingsFailedHint": "{{count}} ont échoué. Ils restent dans la liste pour que vous puissiez réessayer."
     },
     "organisations": {
       "roleUpdated": "Rôle mis à jour",

@@ -244,7 +244,11 @@
       "weAreTranscribingIt": "We're transcribing it now.",
       "couldNotUploadTheRecording": "Could not upload the recording",
       "transcriptionRestarted": "Transcription restarted",
-      "couldNotRetryTheTranscription": "Could not retry the transcription"
+      "couldNotRetryTheTranscription": "Could not retry the transcription",
+      "recordingsUploadedForAnalysis": "Recordings uploaded for analysis",
+      "weAreTranscribingThem": "{{count}} files uploaded. We're transcribing them now.",
+      "someRecordingsFailed": "Some recordings could not be uploaded",
+      "someRecordingsFailedHint": "{{count}} failed. They are still in the list so you can try again."
     },
     "organisations": {
       "roleUpdated": "Role updated",
