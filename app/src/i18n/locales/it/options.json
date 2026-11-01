@@ -127,6 +127,13 @@
       "lost": "Non interessato / perso",
       "noDecision": "Nessuna decisione / richiamata",
       "gatekeeper": "Gatekeeper / persona sbagliata",
+      "noAnswer": "Nessuna risposta",
+      "voicemail": "Messaggio in segreteria lasciato",
+      "proposalSent": "Proposta / preventivo inviato",
+      "qualified": "Lead qualificato",
+      "disqualified": "Non adatto / squalificato",
+      "referred": "Indirizzato al decisore",
+      "wrongNumber": "Numero sbagliato / contatto non valido",
       "custom": "Esito personalizzato"
     },
     "status": {

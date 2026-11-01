@@ -127,6 +127,13 @@
       "lost": "İlgilenmiyor / kaybedildi",
       "noDecision": "Karar yok / geri arama",
       "gatekeeper": "Engel / yanlış kişi",
+      "noAnswer": "Cevap yok",
+      "voicemail": "Sesli mesaj bırakıldı",
+      "proposalSent": "Teklif gönderildi",
+      "qualified": "Nitelikli potansiyel müşteri",
+      "disqualified": "Uygun değil / elendi",
+      "referred": "Karar vericiye yönlendirildi",
+      "wrongNumber": "Yanlış numara / geçersiz kişi",
       "custom": "Özel sonuç"
     },
     "status": {

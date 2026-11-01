@@ -127,6 +127,13 @@
       "lost": "Sem interesse / perdido",
       "noDecision": "Sem decisão / retornar ligação",
       "gatekeeper": "Barreira / pessoa errada",
+      "noAnswer": "Sem resposta",
+      "voicemail": "Mensagem de voz deixada",
+      "proposalSent": "Proposta / orçamento enviado",
+      "qualified": "Lead qualificado",
+      "disqualified": "Sem perfil / desqualificado",
+      "referred": "Encaminhado ao decisor",
+      "wrongNumber": "Número errado / contacto inválido",
       "custom": "Resultado personalizado"
     },
     "status": {

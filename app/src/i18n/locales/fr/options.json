@@ -127,6 +127,13 @@
       "lost": "Pas intéressé / perdu",
       "noDecision": "Pas de décision / rappel",
       "gatekeeper": "Barrage / mauvaise personne",
+      "noAnswer": "Pas de réponse",
+      "voicemail": "Message vocal laissé",
+      "proposalSent": "Proposition / devis envoyé",
+      "qualified": "Prospect qualifié",
+      "disqualified": "Non adapté / disqualifié",
+      "referred": "Redirigé vers le décideur",
+      "wrongNumber": "Mauvais numéro / contact invalide",
       "custom": "Résultat personnalisé"
     },
     "status": {

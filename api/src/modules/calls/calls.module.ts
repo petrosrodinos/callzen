@@ -14,6 +14,7 @@ import { CopilotService } from './services/copilot.service';
 import { CallAnalysisService } from './services/call-analysis.service';
 import { PracticeSessionService } from './services/practice-session.service';
 import { CallTranscriptionService } from './services/call-transcription.service';
+import { CallJobsReconcilerService } from './services/call-jobs-reconciler.service';
 import { CallAnalysisProcessor } from './processors/call-analysis.processor';
 import { CallTranscriptionProcessor } from './processors/call-transcription.processor';
 
@@ -34,6 +35,7 @@ import { CallTranscriptionProcessor } from './processors/call-transcription.proc
     CopilotService,
     CallAnalysisService,
     CallTranscriptionService,
+    CallJobsReconcilerService,
     CallAnalysisProcessor,
     CallTranscriptionProcessor,
     PracticeSessionService,

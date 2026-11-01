@@ -127,6 +127,13 @@
       "lost": "Geen interesse / verloren",
       "noDecision": "Geen besluit / terugbellen",
       "gatekeeper": "Poortwachter / verkeerde persoon",
+      "noAnswer": "Geen antwoord",
+      "voicemail": "Voicemail ingesproken",
+      "proposalSent": "Voorstel / offerte verstuurd",
+      "qualified": "Gekwalificeerde lead",
+      "disqualified": "Geen match / afgewezen",
+      "referred": "Doorverwezen naar beslisser",
+      "wrongNumber": "Verkeerd nummer / ongeldig contact",
       "custom": "Aangepaste uitkomst"
     },
     "status": {

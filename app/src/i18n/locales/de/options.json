@@ -127,6 +127,13 @@
       "lost": "Kein Interesse / verloren",
       "noDecision": "Keine Entscheidung / Rückruf",
       "gatekeeper": "Gatekeeper / falsche Person",
+      "noAnswer": "Keine Antwort",
+      "voicemail": "Mailbox-Nachricht hinterlassen",
+      "proposalSent": "Angebot gesendet",
+      "qualified": "Qualifizierter Lead",
+      "disqualified": "Kein Fit / disqualifiziert",
+      "referred": "An Entscheider verwiesen",
+      "wrongNumber": "Falsche Nummer / ungültiger Kontakt",
       "custom": "Benutzerdefiniertes Ergebnis"
     },
     "status": {

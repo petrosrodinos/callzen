@@ -127,6 +127,13 @@
       "lost": "Neinteresat / pierdut",
       "noDecision": "Fără decizie / apel înapoi",
       "gatekeeper": "Gatekeeper / persoană greșită",
+      "noAnswer": "Fără răspuns",
+      "voicemail": "Mesaj vocal lăsat",
+      "proposalSent": "Propunere / ofertă trimisă",
+      "qualified": "Lead calificat",
+      "disqualified": "Nepotrivit / descalificat",
+      "referred": "Redirecționat către decident",
+      "wrongNumber": "Număr greșit / contact invalid",
       "custom": "Rezultat personalizat"
     },
     "status": {

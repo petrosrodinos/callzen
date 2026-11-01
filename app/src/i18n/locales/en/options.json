@@ -127,6 +127,13 @@
       "lost": "Not interested / lost",
       "noDecision": "No decision / callback",
       "gatekeeper": "Gatekeeper / wrong person",
+      "noAnswer": "No answer",
+      "voicemail": "Left voicemail",
+      "proposalSent": "Proposal / quote sent",
+      "qualified": "Qualified lead",
+      "disqualified": "Not a fit / disqualified",
+      "referred": "Referred to decision maker",
+      "wrongNumber": "Wrong number / bad contact",
       "custom": "Custom outcome"
     },
     "status": {

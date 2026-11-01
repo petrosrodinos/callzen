@@ -127,6 +127,13 @@
       "lost": "Brak zainteresowania / przegrana",
       "noDecision": "Brak decyzji / oddzwonienie",
       "gatekeeper": "Recepcjonista / niewłaściwa osoba",
+      "noAnswer": "Brak odpowiedzi",
+      "voicemail": "Zostawiono wiadomość głosową",
+      "proposalSent": "Wysłano propozycję / ofertę",
+      "qualified": "Zakwalifikowany lead",
+      "disqualified": "Brak dopasowania / zdyskwalifikowany",
+      "referred": "Skierowano do decydenta",
+      "wrongNumber": "Zły numer / nieprawidłowy kontakt",
       "custom": "Własny wynik"
     },
     "status": {

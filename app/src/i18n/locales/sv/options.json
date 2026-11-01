@@ -127,6 +127,13 @@
       "lost": "Inte intresserad / förlorad",
       "noDecision": "Inget beslut / återkoppling",
       "gatekeeper": "Grindvakt / fel person",
+      "noAnswer": "Inget svar",
+      "voicemail": "Röstmeddelande lämnat",
+      "proposalSent": "Offert / förslag skickat",
+      "qualified": "Kvalificerad lead",
+      "disqualified": "Passar inte / diskvalificerad",
+      "referred": "Hänvisad till beslutsfattare",
+      "wrongNumber": "Fel nummer / ogiltig kontakt",
       "custom": "Anpassat utfall"
     },
     "status": {

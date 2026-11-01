@@ -43,6 +43,13 @@ export const CallOutcomes = {
     LOST: "LOST",
     NO_DECISION: "NO_DECISION",
     GATEKEEPER: "GATEKEEPER",
+    NO_ANSWER: "NO_ANSWER",
+    VOICEMAIL: "VOICEMAIL",
+    PROPOSAL_SENT: "PROPOSAL_SENT",
+    QUALIFIED: "QUALIFIED",
+    DISQUALIFIED: "DISQUALIFIED",
+    REFERRED: "REFERRED",
+    WRONG_NUMBER: "WRONG_NUMBER",
     CUSTOM: "CUSTOM",
 } as const;
 export type CallOutcome = (typeof CallOutcomes)[keyof typeof CallOutcomes];

@@ -30,6 +30,13 @@ export const CallQuerySchema = z.object({
       'LOST',
       'NO_DECISION',
       'GATEKEEPER',
+      'NO_ANSWER',
+      'VOICEMAIL',
+      'PROPOSAL_SENT',
+      'QUALIFIED',
+      'DISQUALIFIED',
+      'REFERRED',
+      'WRONG_NUMBER',
       'CUSTOM',
       'NONE',
     ])
