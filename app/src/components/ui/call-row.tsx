@@ -17,6 +17,7 @@ import { formatDateTime, formatDuration } from "@/lib/date";
 import {
   CallKinds,
   CallStatuses,
+  CallPurposes,
   CallTypes,
   type CallListItem,
 } from "@/features/calls/interfaces/calls.interfaces";
@@ -64,6 +65,11 @@ export function CallRow({ call }: { call: CallListItem }) {
               call.prospect_name ??
               (isPractice ? i18n.t("common:callRow.practiceSession") : i18n.t("common:callRow.untitled"))}
           </p>
+          {call.purpose === CallPurposes.COLD_CALL && (
+            <Badge variant="outline" className="hidden shrink-0 sm:inline-flex">
+              {i18n.t("common:callRow.coldCall")}
+            </Badge>
+          )}
           {isPractice && (
             <Badge
               variant="outline"

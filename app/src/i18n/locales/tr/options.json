@@ -149,6 +149,13 @@
     "typeFilter": {
       "all": "Tüm arama türleri"
     },
+    "purpose": {
+      "sales": "Satış araması",
+      "coldCall": "Soğuk arama"
+    },
+    "purposeFilter": {
+      "all": "Tüm amaçlar"
+    },
     "type": {
       "onlineMeeting": "Çevrimiçi toplantı",
       "microphone": "Telefon / mikrofon",

@@ -149,6 +149,13 @@
     "typeFilter": {
       "all": "All call types"
     },
+    "purpose": {
+      "sales": "Sales call",
+      "coldCall": "Cold call"
+    },
+    "purposeFilter": {
+      "all": "All purposes"
+    },
     "type": {
       "onlineMeeting": "Online meeting",
       "microphone": "Phone / microphone",

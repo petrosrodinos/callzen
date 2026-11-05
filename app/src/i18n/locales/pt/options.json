@@ -149,6 +149,13 @@
     "typeFilter": {
       "all": "Todos os tipos de chamada"
     },
+    "purpose": {
+      "sales": "Chamada de vendas",
+      "coldCall": "Chamada fria"
+    },
+    "purposeFilter": {
+      "all": "Todas as finalidades"
+    },
     "type": {
       "onlineMeeting": "Reunião online",
       "microphone": "Telefone / microfone",

@@ -64,6 +64,12 @@
       "cta": "Skapa copilot"
     },
     "callType": "Samtalstyp",
+    "purpose": {
+      "label": "Samtalets syfte",
+      "sales": "Säljsamtal",
+      "coldCall": "Kallsamtal",
+      "coldCallHint": "Kallsamtal analyseras utifrån öppningen, att ta sig förbi grindvakten, att nå ägaren och att boka ett nästa steg."
+    },
     "meetingUnsupported": "Kräver en webbläsare för dator, som Chrome eller Edge.",
     "copilot": {
       "title": "Copilot",

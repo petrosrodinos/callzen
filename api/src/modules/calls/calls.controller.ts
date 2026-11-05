@@ -128,6 +128,7 @@ export class CallsController {
     required: false,
     enum: ['ONLINE_MEETING', 'MICROPHONE', 'PRACTICE'],
   })
+  @ApiQuery({ name: 'purpose', required: false, enum: ['SALES', 'COLD_CALL'] })
   @ApiQuery({ name: 'assistant_agent_id', required: false })
   @ApiQuery({ name: 'practice_agent_id', required: false })
   @ApiQuery({ name: 'outcome', required: false })

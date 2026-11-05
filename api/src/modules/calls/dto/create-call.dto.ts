@@ -8,12 +8,22 @@ import {
   IsUUID,
   MaxLength,
 } from 'class-validator';
-import { CallType, VoiceProvider } from 'generated/prisma';
+import { CallPurpose, CallType, VoiceProvider } from 'generated/prisma';
 
 export class CreateCallDto {
   @ApiProperty({ enum: [CallType.ONLINE_MEETING, CallType.MICROPHONE] })
   @IsIn([CallType.ONLINE_MEETING, CallType.MICROPHONE])
   call_type: CallType;
+
+  @ApiProperty({
+    required: false,
+    enum: CallPurpose,
+    description:
+      'COLD_CALL analyses the call with cold-call criteria. Defaults to SALES',
+  })
+  @IsOptional()
+  @IsEnum(CallPurpose)
+  purpose?: CallPurpose;
 
   @ApiProperty({
     required: false,

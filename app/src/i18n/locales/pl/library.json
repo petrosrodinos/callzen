@@ -13,6 +13,7 @@
       "mine": "Tylko moje",
       "kind": "Na żywo czy trening",
       "type": "Typ rozmowy",
+      "purpose": "Cel rozmowy",
       "copilot": "Kopilot",
       "allCopilots": "Wszystkie kopiloty",
       "outcome": "Wynik",

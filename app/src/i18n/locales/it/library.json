@@ -13,6 +13,7 @@
       "mine": "Solo le mie",
       "kind": "Dal vivo o pratica",
       "type": "Tipo di chiamata",
+      "purpose": "Scopo della chiamata",
       "copilot": "Copilota",
       "allCopilots": "Tutti i copiloti",
       "outcome": "Esito",

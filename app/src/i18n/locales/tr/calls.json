@@ -64,6 +64,12 @@
       "cta": "Yardımcı pilot oluştur"
     },
     "callType": "Arama türü",
+    "purpose": {
+      "label": "Arama amacı",
+      "sales": "Satış araması",
+      "coldCall": "Soğuk arama",
+      "coldCallHint": "Soğuk aramalar; açılış, kapı bekçisini aşma, sahibine ulaşma ve bir sonraki adımı planlama üzerinden analiz edilir."
+    },
     "meetingUnsupported": "Chrome veya Edge gibi bir masaüstü tarayıcı gerekir.",
     "copilot": {
       "title": "Yardımcı pilot",

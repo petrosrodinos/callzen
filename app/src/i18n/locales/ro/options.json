@@ -149,6 +149,13 @@
     "typeFilter": {
       "all": "Toate tipurile de apeluri"
     },
+    "purpose": {
+      "sales": "Apel de vânzări",
+      "coldCall": "Apel la rece"
+    },
+    "purposeFilter": {
+      "all": "Toate scopurile"
+    },
     "type": {
       "onlineMeeting": "Întâlnire online",
       "microphone": "Telefon / microfon",

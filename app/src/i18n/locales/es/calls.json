@@ -64,6 +64,12 @@
       "cta": "Crear copiloto"
     },
     "callType": "Tipo de llamada",
+    "purpose": {
+      "label": "Propósito de la llamada",
+      "sales": "Llamada de ventas",
+      "coldCall": "Llamada en frío",
+      "coldCallHint": "Las llamadas en frío se analizan según la apertura, superar al filtro, llegar al responsable y concretar un siguiente paso."
+    },
     "meetingUnsupported": "Requiere un navegador de escritorio como Chrome o Edge.",
     "copilot": {
       "title": "Copiloto",

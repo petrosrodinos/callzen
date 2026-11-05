@@ -107,6 +107,7 @@ export class CallsService {
         user_id: ctx.userId,
         kind: CallKind.LIVE,
         call_type: dto.call_type,
+        purpose: dto.purpose,
         assistant_agent_id: agent?.id,
         copilot_enabled: copilotEnabled,
         prospect_name: dto.prospect_name,
@@ -169,6 +170,7 @@ export class CallsService {
         user_id: ctx.userId,
         kind: CallKind.LIVE,
         call_type: CallType.UPLOAD,
+        purpose: dto.purpose,
         status: CallStatus.QUEUED,
         assistant_agent_id: agent?.id,
         copilot_enabled: false,
@@ -303,6 +305,7 @@ export class CallsService {
         : { user_id: ctx.userId }),
       ...(query.kind && { kind: query.kind }),
       ...(query.call_type && { call_type: query.call_type }),
+      ...(query.purpose && { purpose: query.purpose }),
       ...(query.assistant_agent_id && {
         assistant_agent_id: query.assistant_agent_id,
       }),
@@ -362,6 +365,7 @@ export class CallsService {
       id: call.id,
       kind: call.kind,
       call_type: call.call_type,
+      purpose: call.purpose,
       status: call.status,
       title: call.title,
       prospect_name: call.prospect_name,
@@ -514,6 +518,11 @@ export class CallsService {
     if (call.recording_path)
       await this.recordingStorage.remove(call.recording_path);
     await this.prisma.call.delete({ where: { id } });
+    // Pending jobs would otherwise run against a call that no longer exists.
+    await Promise.all([
+      this.analysisService.cancel(id),
+      this.transcriptionService.cancel(id),
+    ]).catch(() => undefined);
     return { id, deleted: true };
   }
 

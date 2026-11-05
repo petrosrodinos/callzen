@@ -466,7 +466,12 @@ const ro: TemplateTranslation = {
     "confidence": "Încredere și ton",
     "control": "Controlul conversației",
     "closing": "Închidere / stabilirea următorilor pași",
-    "script": "Respectarea scriptului"
+    "script": "Respectarea scriptului",
+    "opener": "Introducere",
+    "gatekeeper": "Trecerea de filtru",
+    "reaching_owner": "Ajungerea la proprietar / decident",
+    "hook": "Motiv și relevanță",
+    "next_step": "Stabilirea unui pas următor"
   },
   "consent_line": "Înainte să începem, vreau să vă anunț că folosesc un asistent de apel care înregistrează și transcrie conversația noastră, ca să pot reveni cu informații corecte. Este în regulă pentru dumneavoastră?"
 };

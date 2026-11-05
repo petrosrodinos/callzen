@@ -149,6 +149,13 @@
     "typeFilter": {
       "all": "Όλοι οι τύποι κλήσεων"
     },
+    "purpose": {
+      "sales": "Κλήση πώλησης",
+      "coldCall": "Ψυχρή κλήση"
+    },
+    "purposeFilter": {
+      "all": "Όλοι οι σκοποί"
+    },
     "type": {
       "onlineMeeting": "Διαδικτυακή σύσκεψη",
       "microphone": "Τηλέφωνο / μικρόφωνο",

@@ -64,6 +64,12 @@
       "cta": "Criar copiloto"
     },
     "callType": "Tipo de chamada",
+    "purpose": {
+      "label": "Finalidade da chamada",
+      "sales": "Chamada de vendas",
+      "coldCall": "Chamada fria",
+      "coldCallHint": "As chamadas frias são analisadas pela abertura, passagem pelo filtro, contacto com o responsável e marcação de um próximo passo."
+    },
     "meetingUnsupported": "Requer um navegador de computador como o Chrome ou o Edge.",
     "copilot": {
       "title": "Copiloto",

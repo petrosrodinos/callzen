@@ -149,6 +149,13 @@
     "typeFilter": {
       "all": "Wszystkie typy rozmów"
     },
+    "purpose": {
+      "sales": "Rozmowa sprzedażowa",
+      "coldCall": "Zimny telefon"
+    },
+    "purposeFilter": {
+      "all": "Wszystkie cele"
+    },
     "type": {
       "onlineMeeting": "Spotkanie online",
       "microphone": "Telefon / mikrofon",

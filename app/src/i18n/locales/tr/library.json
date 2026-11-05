@@ -13,6 +13,7 @@
       "mine": "Yalnızca benimkiler",
       "kind": "Canlı veya alıştırma",
       "type": "Çağrı türü",
+      "purpose": "Arama amacı",
       "copilot": "Yardımcı pilot",
       "allCopilots": "Tüm yardımcı pilotlar",
       "outcome": "Sonuç",

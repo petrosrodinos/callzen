@@ -149,6 +149,13 @@
     "typeFilter": {
       "all": "Alle gesprekstypen"
     },
+    "purpose": {
+      "sales": "Verkoopgesprek",
+      "coldCall": "Koude acquisitie"
+    },
+    "purposeFilter": {
+      "all": "Alle doelen"
+    },
     "type": {
       "onlineMeeting": "Online vergadering",
       "microphone": "Telefoon / microfoon",

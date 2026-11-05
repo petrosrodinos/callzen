@@ -7,6 +7,7 @@ import {
   PracticeAgentTemplate,
 } from '../practice-agent-templates.config';
 import {
+  COLD_CALL_ANALYSIS_CRITERIA,
   DEFAULT_ANALYSIS_CRITERIA,
   DEFAULT_CONSENT_LINE,
 } from '../analysis-criteria.config';
@@ -100,7 +101,10 @@ export const extractSourceTexts = (): TemplateTranslation => ({
     ]),
   ),
   criteria: Object.fromEntries(
-    DEFAULT_ANALYSIS_CRITERIA.map((c) => [c.key, c.label]),
+    [...DEFAULT_ANALYSIS_CRITERIA, ...COLD_CALL_ANALYSIS_CRITERIA].map((c) => [
+      c.key,
+      c.label,
+    ]),
   ),
   consent_line: DEFAULT_CONSENT_LINE,
 });

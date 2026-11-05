@@ -466,7 +466,12 @@ const de: TemplateTranslation = {
     "confidence": "Selbstbewusstsein und Tonfall",
     "control": "Gesprächsführung",
     "closing": "Abschluss / nächste Schritte sichern",
-    "script": "Skript-Treue"
+    "script": "Skript-Treue",
+    "opener": "Einstieg",
+    "gatekeeper": "Am Gatekeeper vorbeikommen",
+    "reaching_owner": "Inhaber / Entscheider erreichen",
+    "hook": "Aufhänger und Relevanz",
+    "next_step": "Nächsten Schritt vereinbaren"
   },
   "consent_line": "Bevor wir starten, wollte ich Sie kurz informieren: Ich nutze einen Gesprächsassistenten, der unser Gespräch aufzeichnet und transkribiert, damit ich im Anschluss alles korrekt nachvollziehen kann. Ist das für Sie in Ordnung?"
 };

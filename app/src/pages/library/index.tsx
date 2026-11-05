@@ -35,9 +35,11 @@ import type {
   CallKind,
   CallOutcome,
   CallQuery,
+  CallPurpose,
   CallType,
 } from "@/features/calls/interfaces/calls.interfaces";
 import { CallKindFilterOptions } from "@/config/constants/dropdowns/calls/call-kind-filter.options";
+import { CallPurposeFilterOptions } from "@/config/constants/dropdowns/calls/call-purpose.options";
 import { CallTypeFilterOptions } from "@/config/constants/dropdowns/calls/call-type-filter.options";
 import { CallOutcomeFilterOptions } from "@/config/constants/dropdowns/calls/call-outcome-filter.options";
 import {
@@ -123,6 +125,7 @@ const LibraryPage: FC = () => {
       search: params.get("search") || undefined,
       kind: get("kind") === "all" ? undefined : (get("kind") as CallKind),
       call_type: get("type") === "all" ? undefined : (get("type") as CallType),
+      purpose: get("purpose") === "all" ? undefined : (get("purpose") as CallPurpose),
       assistant_agent_id: get("agent") === "all" ? undefined : get("agent"),
       practice_agent_id: params.get("practice_agent_id") ?? undefined,
       mine: params.get("whose") === "mine" ? "true" : undefined,
@@ -143,6 +146,7 @@ const LibraryPage: FC = () => {
   const activeFilters = [
     "kind",
     "type",
+    "purpose",
     "agent",
     "outcome",
     "score",
@@ -175,6 +179,12 @@ const LibraryPage: FC = () => {
         value={get("type")}
         onChange={(v) => update("type", v)}
         options={CallTypeFilterOptions}
+      />
+      <FilterSelect
+        label={t("index.filters.purpose")}
+        value={get("purpose")}
+        onChange={(v) => update("purpose", v)}
+        options={CallPurposeFilterOptions}
       />
       <FilterSelect
         label={t("index.filters.copilot")}

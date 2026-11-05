@@ -13,6 +13,7 @@
       "mine": "Nur meine",
       "kind": "Live oder Übung",
       "type": "Anruftyp",
+      "purpose": "Anrufzweck",
       "copilot": "Copilot",
       "allCopilots": "Alle Copiloten",
       "outcome": "Ergebnis",

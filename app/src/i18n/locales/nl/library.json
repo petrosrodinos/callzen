@@ -13,6 +13,7 @@
       "mine": "Alleen mijn gesprekken",
       "kind": "Live of oefening",
       "type": "Gesprekstype",
+      "purpose": "Doel van het gesprek",
       "copilot": "Copiloot",
       "allCopilots": "Alle copiloten",
       "outcome": "Uitkomst",

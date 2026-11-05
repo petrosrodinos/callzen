@@ -466,7 +466,12 @@ const it: TemplateTranslation = {
     "confidence": "Sicurezza e tono",
     "control": "Gestione della conversazione",
     "closing": "Chiusura / definizione dei prossimi passi",
-    "script": "Aderenza allo script"
+    "script": "Aderenza allo script",
+    "opener": "Apertura",
+    "gatekeeper": "Superare il filtro",
+    "reaching_owner": "Raggiungere il titolare / decisore",
+    "hook": "Aggancio e rilevanza",
+    "next_step": "Fissare un passo successivo"
   },
   "consent_line": "Prima di cominciare, volevo avvisarti che utilizzo un assistente per le chiamate che registra e trascrive la nostra conversazione, così posso ricontattarti con precisione. Per te va bene?"
 };

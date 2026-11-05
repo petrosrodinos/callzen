@@ -64,6 +64,12 @@
       "cta": "Créer un copilote"
     },
     "callType": "Type d'appel",
+    "purpose": {
+      "label": "Objet de l'appel",
+      "sales": "Appel de vente",
+      "coldCall": "Appel à froid",
+      "coldCallHint": "Les appels à froid sont analysés sur l'accroche, le passage du filtre, l'accès au décideur et la prise d'une prochaine étape."
+    },
     "meetingUnsupported": "Nécessite un navigateur de bureau comme Chrome ou Edge.",
     "copilot": {
       "title": "Copilote",

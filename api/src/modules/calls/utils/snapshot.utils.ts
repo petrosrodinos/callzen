@@ -120,9 +120,11 @@ export const buildCallContext = (call: {
   goal: string | null;
   context_notes: string | null;
   call_type: string;
+  purpose?: string;
   kind: string;
 }): string =>
   [
+    call.purpose === 'COLD_CALL' && 'Call purpose: cold call (the prospect was not expecting it)',
     `Call type: ${call.kind === 'PRACTICE' ? 'practice session (AI prospect)' : call.call_type === 'MICROPHONE' ? 'phone call captured by microphone' : call.call_type === 'UPLOAD' ? 'uploaded recording of a sales call (speakers were labelled automatically)' : 'online meeting'}`,
     `Prospect: ${call.prospect_name || 'unknown'}${call.prospect_role ? `, ${call.prospect_role}` : ''}${call.prospect_company ? ` at ${call.prospect_company}` : ''}`,
     call.goal && `Goal of this call: ${call.goal}`,

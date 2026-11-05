@@ -68,6 +68,11 @@ enum CallKind {
   PRACTICE
 }
 
+enum CallPurpose {
+  SALES
+  COLD_CALL
+}
+
 enum CallType {
   ONLINE_MEETING
   MICROPHONE
@@ -312,6 +317,7 @@ model Call {
   user_id             String
   kind                CallKind
   call_type           CallType
+  purpose             CallPurpose    @default(SALES)
   status              CallStatus     @default(IN_PROGRESS)
   assistant_agent_id  String?
   practice_agent_id   String?

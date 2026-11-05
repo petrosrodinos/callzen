@@ -466,7 +466,12 @@ const tr: TemplateTranslation = {
     "confidence": "Özgüven ve tonlama",
     "control": "Görüşmeyi yönlendirme",
     "closing": "Kapatış / sonraki adımları belirleme",
-    "script": "Senaryoya bağlılık"
+    "script": "Senaryoya bağlılık",
+    "opener": "Açılış",
+    "gatekeeper": "Kapı bekçisini aşma",
+    "reaching_owner": "Sahibine / karar vericiye ulaşma",
+    "hook": "Çengel ve uygunluk",
+    "next_step": "Bir sonraki adımı planlama"
   },
   "consent_line": "Başlamadan önce, bilginiz olsun; görüşmemizi kaydeden ve yazıya döken bir arama asistanı kullanıyorum, böylece size daha doğru dönüş yapabilirim. Sizin için de uygunsa başlayabilir miyiz?"
 };

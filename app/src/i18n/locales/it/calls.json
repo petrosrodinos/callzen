@@ -64,6 +64,12 @@
       "cta": "Crea copilota"
     },
     "callType": "Tipo di chiamata",
+    "purpose": {
+      "label": "Scopo della chiamata",
+      "sales": "Chiamata di vendita",
+      "coldCall": "Chiamata a freddo",
+      "coldCallHint": "Le chiamate a freddo vengono analizzate in base all'apertura, al superamento del filtro, al contatto con il titolare e alla fissazione di un passo successivo."
+    },
     "meetingUnsupported": "Richiede un browser desktop come Chrome o Edge.",
     "copilot": {
       "title": "Copilota",

@@ -10,6 +10,7 @@ import { AUTO_LANGUAGE } from '@/shared/config/languages/languages.config';
 import { UsageService } from '@/modules/usage/usage.service';
 import {
   CallKind,
+  CallPurpose,
   CallStatus,
   SuggestionType,
   TranscriptSegment,
@@ -41,8 +42,11 @@ import {
 } from '@/shared/config/ai-models/ai-models.config';
 import {
   AnalysisCriterion,
+  COLD_CALL_ANALYSIS_CRITERIA,
   DEFAULT_ANALYSIS_CRITERIA,
 } from '@/shared/config/templates/analysis-criteria.config';
+import { getTemplateTranslation } from '@/shared/config/templates/i18n';
+import { localizeCriteria } from '@/shared/config/templates/i18n/template-translation';
 import { RerunAnalysisDto } from '../dto/call-session.dto';
 import { clamp } from '@/shared/utils/math/math.utils';
 
@@ -115,6 +119,18 @@ export class CallAnalysisService {
     );
   }
 
+  // Drops the pending job (waiting, delayed or awaiting a retry). A job a worker is running right
+  // now cannot be removed; it finds the call gone and exits, so that case is safe to ignore.
+  async cancel(callId: string) {
+    const job = await this.analysisQueue.getJob(callId);
+    if (!job) return;
+    await job.remove().catch((error: Error) => {
+      this.logger.warn(
+        `Could not cancel analysis for call ${callId}: ${error.message}`,
+      );
+    });
+  }
+
   async markFailed(callId: string, error: unknown) {
     const message = String((error as Error)?.message ?? 'Unknown error');
     this.logger.error(`Analysis failed for call ${callId}: ${message}`);
@@ -167,9 +183,16 @@ export class CallAnalysisService {
       call.kind === CallKind.PRACTICE
         ? (call.practice_snapshot as unknown as PracticeSnapshot)
         : null;
-    const criteria: AnalysisCriterion[] = agent?.analysis_criteria?.length
-      ? agent.analysis_criteria
-      : DEFAULT_ANALYSIS_CRITERIA;
+    // Cold calls are judged on cold-call criteria, not the agent's sales criteria.
+    const isColdCall = call.purpose === CallPurpose.COLD_CALL;
+    const criteria: AnalysisCriterion[] = isColdCall
+      ? localizeCriteria(
+          COLD_CALL_ANALYSIS_CRITERIA,
+          getTemplateTranslation(call.user.interface_language),
+        )
+      : agent?.analysis_criteria?.length
+        ? agent.analysis_criteria
+        : DEFAULT_ANALYSIS_CRITERIA;
     const model =
       options.model ?? agent?.analysis_model ?? RECOMMENDED_ANALYSIS_MODEL;
     const coachingSuggestions = call.suggestions.filter(
@@ -194,6 +217,7 @@ export class CallAnalysisService {
     });
     const promptInput = {
       kind: call.kind,
+      purpose: call.purpose,
       agent,
       persona,
       criteria,

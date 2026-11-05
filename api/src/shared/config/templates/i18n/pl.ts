@@ -466,7 +466,12 @@ const pl: TemplateTranslation = {
     "confidence": "Pewność siebie i ton głosu",
     "control": "Kontrola nad rozmową",
     "closing": "Zamknięcie / ustalenie kolejnych kroków",
-    "script": "Trzymanie się scenariusza"
+    "script": "Trzymanie się scenariusza",
+    "opener": "Otwarcie rozmowy",
+    "gatekeeper": "Przejście przez recepcję",
+    "reaching_owner": "Dotarcie do właściciela / decydenta",
+    "hook": "Haczyk i trafność",
+    "next_step": "Umówienie kolejnego kroku"
   },
   "consent_line": "Zanim zaczniemy, chciałbym poinformować, że korzystam z asystenta rozmów, który nagrywa i transkrybuje naszą rozmowę, żebym mógł później dokładnie wrócić do szczegółów. Czy to dla Pana/Pani w porządku?"
 };

@@ -184,6 +184,14 @@ export const CallKind: {
 export type CallKind = (typeof CallKind)[keyof typeof CallKind]
 
 
+export const CallPurpose: {
+  SALES: 'SALES',
+  COLD_CALL: 'COLD_CALL'
+};
+
+export type CallPurpose = (typeof CallPurpose)[keyof typeof CallPurpose]
+
+
 export const CallType: {
   ONLINE_MEETING: 'ONLINE_MEETING',
   MICROPHONE: 'MICROPHONE',
@@ -333,6 +341,10 @@ export const InvitationStatus: typeof $Enums.InvitationStatus
 export type CallKind = $Enums.CallKind
 
 export const CallKind: typeof $Enums.CallKind
+
+export type CallPurpose = $Enums.CallPurpose
+
+export const CallPurpose: typeof $Enums.CallPurpose
 
 export type CallType = $Enums.CallType
 
@@ -9390,6 +9402,7 @@ export namespace Prisma {
     user_id: string | null
     kind: $Enums.CallKind | null
     call_type: $Enums.CallType | null
+    purpose: $Enums.CallPurpose | null
     status: $Enums.CallStatus | null
     assistant_agent_id: string | null
     practice_agent_id: string | null
@@ -9428,6 +9441,7 @@ export namespace Prisma {
     user_id: string | null
     kind: $Enums.CallKind | null
     call_type: $Enums.CallType | null
+    purpose: $Enums.CallPurpose | null
     status: $Enums.CallStatus | null
     assistant_agent_id: string | null
     practice_agent_id: string | null
@@ -9466,6 +9480,7 @@ export namespace Prisma {
     user_id: number
     kind: number
     call_type: number
+    purpose: number
     status: number
     assistant_agent_id: number
     practice_agent_id: number
@@ -9519,6 +9534,7 @@ export namespace Prisma {
     user_id?: true
     kind?: true
     call_type?: true
+    purpose?: true
     status?: true
     assistant_agent_id?: true
     practice_agent_id?: true
@@ -9557,6 +9573,7 @@ export namespace Prisma {
     user_id?: true
     kind?: true
     call_type?: true
+    purpose?: true
     status?: true
     assistant_agent_id?: true
     practice_agent_id?: true
@@ -9595,6 +9612,7 @@ export namespace Prisma {
     user_id?: true
     kind?: true
     call_type?: true
+    purpose?: true
     status?: true
     assistant_agent_id?: true
     practice_agent_id?: true
@@ -9723,6 +9741,7 @@ export namespace Prisma {
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose: $Enums.CallPurpose
     status: $Enums.CallStatus
     assistant_agent_id: string | null
     practice_agent_id: string | null
@@ -9783,6 +9802,7 @@ export namespace Prisma {
     user_id?: boolean
     kind?: boolean
     call_type?: boolean
+    purpose?: boolean
     status?: boolean
     assistant_agent_id?: boolean
     practice_agent_id?: boolean
@@ -9833,6 +9853,7 @@ export namespace Prisma {
     user_id?: boolean
     kind?: boolean
     call_type?: boolean
+    purpose?: boolean
     status?: boolean
     assistant_agent_id?: boolean
     practice_agent_id?: boolean
@@ -9878,6 +9899,7 @@ export namespace Prisma {
     user_id?: boolean
     kind?: boolean
     call_type?: boolean
+    purpose?: boolean
     status?: boolean
     assistant_agent_id?: boolean
     practice_agent_id?: boolean
@@ -9923,6 +9945,7 @@ export namespace Prisma {
     user_id?: boolean
     kind?: boolean
     call_type?: boolean
+    purpose?: boolean
     status?: boolean
     assistant_agent_id?: boolean
     practice_agent_id?: boolean
@@ -9958,7 +9981,7 @@ export namespace Prisma {
     updated_at?: boolean
   }
 
-  export type CallOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "organisation_id" | "user_id" | "kind" | "call_type" | "status" | "assistant_agent_id" | "practice_agent_id" | "copilot_enabled" | "title" | "prospect_name" | "prospect_company" | "prospect_role" | "context_notes" | "goal" | "prior_call_id" | "language" | "started_at" | "ended_at" | "duration_seconds" | "ended_reason" | "outcome" | "custom_outcome" | "objective_achieved" | "keep_recording" | "recording_path" | "recording_mime" | "recording_size" | "user_notes" | "script_progress" | "analysis_error" | "transcription_error" | "source_filename" | "clean_transcript" | "agent_snapshot" | "practice_snapshot" | "created_at" | "updated_at", ExtArgs["result"]["call"]>
+  export type CallOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "organisation_id" | "user_id" | "kind" | "call_type" | "purpose" | "status" | "assistant_agent_id" | "practice_agent_id" | "copilot_enabled" | "title" | "prospect_name" | "prospect_company" | "prospect_role" | "context_notes" | "goal" | "prior_call_id" | "language" | "started_at" | "ended_at" | "duration_seconds" | "ended_reason" | "outcome" | "custom_outcome" | "objective_achieved" | "keep_recording" | "recording_path" | "recording_mime" | "recording_size" | "user_notes" | "script_progress" | "analysis_error" | "transcription_error" | "source_filename" | "clean_transcript" | "agent_snapshot" | "practice_snapshot" | "created_at" | "updated_at", ExtArgs["result"]["call"]>
   export type CallInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     organisation?: boolean | OrganisationDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -10001,6 +10024,7 @@ export namespace Prisma {
       user_id: string
       kind: $Enums.CallKind
       call_type: $Enums.CallType
+      purpose: $Enums.CallPurpose
       status: $Enums.CallStatus
       assistant_agent_id: string | null
       practice_agent_id: string | null
@@ -10470,6 +10494,7 @@ export namespace Prisma {
     readonly user_id: FieldRef<"Call", 'String'>
     readonly kind: FieldRef<"Call", 'CallKind'>
     readonly call_type: FieldRef<"Call", 'CallType'>
+    readonly purpose: FieldRef<"Call", 'CallPurpose'>
     readonly status: FieldRef<"Call", 'CallStatus'>
     readonly assistant_agent_id: FieldRef<"Call", 'String'>
     readonly practice_agent_id: FieldRef<"Call", 'String'>
@@ -21694,6 +21719,7 @@ export namespace Prisma {
     user_id: 'user_id',
     kind: 'kind',
     call_type: 'call_type',
+    purpose: 'purpose',
     status: 'status',
     assistant_agent_id: 'assistant_agent_id',
     practice_agent_id: 'practice_agent_id',
@@ -22111,6 +22137,20 @@ export namespace Prisma {
    * Reference to a field of type 'CallType[]'
    */
   export type ListEnumCallTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CallType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'CallPurpose'
+   */
+  export type EnumCallPurposeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CallPurpose'>
+    
+
+
+  /**
+   * Reference to a field of type 'CallPurpose[]'
+   */
+  export type ListEnumCallPurposeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CallPurpose[]'>
     
 
 
@@ -22959,6 +22999,7 @@ export namespace Prisma {
     user_id?: StringFilter<"Call"> | string
     kind?: EnumCallKindFilter<"Call"> | $Enums.CallKind
     call_type?: EnumCallTypeFilter<"Call"> | $Enums.CallType
+    purpose?: EnumCallPurposeFilter<"Call"> | $Enums.CallPurpose
     status?: EnumCallStatusFilter<"Call"> | $Enums.CallStatus
     assistant_agent_id?: StringNullableFilter<"Call"> | string | null
     practice_agent_id?: StringNullableFilter<"Call"> | string | null
@@ -23008,6 +23049,7 @@ export namespace Prisma {
     user_id?: SortOrder
     kind?: SortOrder
     call_type?: SortOrder
+    purpose?: SortOrder
     status?: SortOrder
     assistant_agent_id?: SortOrderInput | SortOrder
     practice_agent_id?: SortOrderInput | SortOrder
@@ -23060,6 +23102,7 @@ export namespace Prisma {
     user_id?: StringFilter<"Call"> | string
     kind?: EnumCallKindFilter<"Call"> | $Enums.CallKind
     call_type?: EnumCallTypeFilter<"Call"> | $Enums.CallType
+    purpose?: EnumCallPurposeFilter<"Call"> | $Enums.CallPurpose
     status?: EnumCallStatusFilter<"Call"> | $Enums.CallStatus
     assistant_agent_id?: StringNullableFilter<"Call"> | string | null
     practice_agent_id?: StringNullableFilter<"Call"> | string | null
@@ -23109,6 +23152,7 @@ export namespace Prisma {
     user_id?: SortOrder
     kind?: SortOrder
     call_type?: SortOrder
+    purpose?: SortOrder
     status?: SortOrder
     assistant_agent_id?: SortOrderInput | SortOrder
     practice_agent_id?: SortOrderInput | SortOrder
@@ -23158,6 +23202,7 @@ export namespace Prisma {
     user_id?: StringWithAggregatesFilter<"Call"> | string
     kind?: EnumCallKindWithAggregatesFilter<"Call"> | $Enums.CallKind
     call_type?: EnumCallTypeWithAggregatesFilter<"Call"> | $Enums.CallType
+    purpose?: EnumCallPurposeWithAggregatesFilter<"Call"> | $Enums.CallPurpose
     status?: EnumCallStatusWithAggregatesFilter<"Call"> | $Enums.CallStatus
     assistant_agent_id?: StringNullableWithAggregatesFilter<"Call"> | string | null
     practice_agent_id?: StringNullableWithAggregatesFilter<"Call"> | string | null
@@ -24764,6 +24809,7 @@ export namespace Prisma {
     id?: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     copilot_enabled?: boolean
     title?: string | null
@@ -24811,6 +24857,7 @@ export namespace Prisma {
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     assistant_agent_id?: string | null
     practice_agent_id?: string | null
@@ -24854,6 +24901,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -24901,6 +24949,7 @@ export namespace Prisma {
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
     practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -24946,6 +24995,7 @@ export namespace Prisma {
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     assistant_agent_id?: string | null
     practice_agent_id?: string | null
@@ -24985,6 +25035,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -25024,6 +25075,7 @@ export namespace Prisma {
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
     practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -26684,6 +26736,13 @@ export namespace Prisma {
     not?: NestedEnumCallTypeFilter<$PrismaModel> | $Enums.CallType
   }
 
+  export type EnumCallPurposeFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallPurpose | EnumCallPurposeFieldRefInput<$PrismaModel>
+    in?: $Enums.CallPurpose[] | ListEnumCallPurposeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CallPurpose[] | ListEnumCallPurposeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCallPurposeFilter<$PrismaModel> | $Enums.CallPurpose
+  }
+
   export type EnumCallStatusFilter<$PrismaModel = never> = {
     equals?: $Enums.CallStatus | EnumCallStatusFieldRefInput<$PrismaModel>
     in?: $Enums.CallStatus[] | ListEnumCallStatusFieldRefInput<$PrismaModel>
@@ -26779,6 +26838,7 @@ export namespace Prisma {
     user_id?: SortOrder
     kind?: SortOrder
     call_type?: SortOrder
+    purpose?: SortOrder
     status?: SortOrder
     assistant_agent_id?: SortOrder
     practice_agent_id?: SortOrder
@@ -26825,6 +26885,7 @@ export namespace Prisma {
     user_id?: SortOrder
     kind?: SortOrder
     call_type?: SortOrder
+    purpose?: SortOrder
     status?: SortOrder
     assistant_agent_id?: SortOrder
     practice_agent_id?: SortOrder
@@ -26863,6 +26924,7 @@ export namespace Prisma {
     user_id?: SortOrder
     kind?: SortOrder
     call_type?: SortOrder
+    purpose?: SortOrder
     status?: SortOrder
     assistant_agent_id?: SortOrder
     practice_agent_id?: SortOrder
@@ -26918,6 +26980,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumCallTypeFilter<$PrismaModel>
     _max?: NestedEnumCallTypeFilter<$PrismaModel>
+  }
+
+  export type EnumCallPurposeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallPurpose | EnumCallPurposeFieldRefInput<$PrismaModel>
+    in?: $Enums.CallPurpose[] | ListEnumCallPurposeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CallPurpose[] | ListEnumCallPurposeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCallPurposeWithAggregatesFilter<$PrismaModel> | $Enums.CallPurpose
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCallPurposeFilter<$PrismaModel>
+    _max?: NestedEnumCallPurposeFilter<$PrismaModel>
   }
 
   export type EnumCallStatusWithAggregatesFilter<$PrismaModel = never> = {
@@ -28209,6 +28281,10 @@ export namespace Prisma {
     set?: $Enums.CallType
   }
 
+  export type EnumCallPurposeFieldUpdateOperationsInput = {
+    set?: $Enums.CallPurpose
+  }
+
   export type EnumCallStatusFieldUpdateOperationsInput = {
     set?: $Enums.CallStatus
   }
@@ -29217,6 +29293,13 @@ export namespace Prisma {
     not?: NestedEnumCallTypeFilter<$PrismaModel> | $Enums.CallType
   }
 
+  export type NestedEnumCallPurposeFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallPurpose | EnumCallPurposeFieldRefInput<$PrismaModel>
+    in?: $Enums.CallPurpose[] | ListEnumCallPurposeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CallPurpose[] | ListEnumCallPurposeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCallPurposeFilter<$PrismaModel> | $Enums.CallPurpose
+  }
+
   export type NestedEnumCallStatusFilter<$PrismaModel = never> = {
     equals?: $Enums.CallStatus | EnumCallStatusFieldRefInput<$PrismaModel>
     in?: $Enums.CallStatus[] | ListEnumCallStatusFieldRefInput<$PrismaModel>
@@ -29261,6 +29344,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumCallTypeFilter<$PrismaModel>
     _max?: NestedEnumCallTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumCallPurposeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CallPurpose | EnumCallPurposeFieldRefInput<$PrismaModel>
+    in?: $Enums.CallPurpose[] | ListEnumCallPurposeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CallPurpose[] | ListEnumCallPurposeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCallPurposeWithAggregatesFilter<$PrismaModel> | $Enums.CallPurpose
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCallPurposeFilter<$PrismaModel>
+    _max?: NestedEnumCallPurposeFilter<$PrismaModel>
   }
 
   export type NestedEnumCallStatusWithAggregatesFilter<$PrismaModel = never> = {
@@ -29661,6 +29754,7 @@ export namespace Prisma {
     id?: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     copilot_enabled?: boolean
     title?: string | null
@@ -29706,6 +29800,7 @@ export namespace Prisma {
     organisation_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     assistant_agent_id?: string | null
     practice_agent_id?: string | null
@@ -30025,6 +30120,7 @@ export namespace Prisma {
     user_id?: StringFilter<"Call"> | string
     kind?: EnumCallKindFilter<"Call"> | $Enums.CallKind
     call_type?: EnumCallTypeFilter<"Call"> | $Enums.CallType
+    purpose?: EnumCallPurposeFilter<"Call"> | $Enums.CallPurpose
     status?: EnumCallStatusFilter<"Call"> | $Enums.CallStatus
     assistant_agent_id?: StringNullableFilter<"Call"> | string | null
     practice_agent_id?: StringNullableFilter<"Call"> | string | null
@@ -30351,6 +30447,7 @@ export namespace Prisma {
     id?: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     copilot_enabled?: boolean
     title?: string | null
@@ -30397,6 +30494,7 @@ export namespace Prisma {
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     practice_agent_id?: string | null
     copilot_enabled?: boolean
@@ -30824,6 +30922,7 @@ export namespace Prisma {
     id?: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     copilot_enabled?: boolean
     title?: string | null
@@ -30870,6 +30969,7 @@ export namespace Prisma {
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     assistant_agent_id?: string | null
     copilot_enabled?: boolean
@@ -31907,6 +32007,7 @@ export namespace Prisma {
     id?: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     copilot_enabled?: boolean
     title?: string | null
@@ -31953,6 +32054,7 @@ export namespace Prisma {
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     assistant_agent_id?: string | null
     practice_agent_id?: string | null
@@ -32011,6 +32113,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32057,6 +32160,7 @@ export namespace Prisma {
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
     practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32099,6 +32203,7 @@ export namespace Prisma {
     id?: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     copilot_enabled?: boolean
     title?: string | null
@@ -32145,6 +32250,7 @@ export namespace Prisma {
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     assistant_agent_id?: string | null
     practice_agent_id?: string | null
@@ -32203,6 +32309,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32249,6 +32356,7 @@ export namespace Prisma {
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
     practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32291,6 +32399,7 @@ export namespace Prisma {
     id?: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     copilot_enabled?: boolean
     title?: string | null
@@ -32337,6 +32446,7 @@ export namespace Prisma {
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     assistant_agent_id?: string | null
     practice_agent_id?: string | null
@@ -32395,6 +32505,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32441,6 +32552,7 @@ export namespace Prisma {
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
     practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32483,6 +32595,7 @@ export namespace Prisma {
     id?: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     copilot_enabled?: boolean
     title?: string | null
@@ -32529,6 +32642,7 @@ export namespace Prisma {
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     assistant_agent_id?: string | null
     practice_agent_id?: string | null
@@ -32587,6 +32701,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32633,6 +32748,7 @@ export namespace Prisma {
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
     practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -33115,6 +33231,7 @@ export namespace Prisma {
     id?: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     copilot_enabled?: boolean
     title?: string | null
@@ -33160,6 +33277,7 @@ export namespace Prisma {
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     assistant_agent_id?: string | null
     practice_agent_id?: string | null
@@ -33874,6 +33992,7 @@ export namespace Prisma {
     organisation_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     assistant_agent_id?: string | null
     practice_agent_id?: string | null
@@ -34199,6 +34318,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -34244,6 +34364,7 @@ export namespace Prisma {
     organisation_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
     practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -34288,6 +34409,7 @@ export namespace Prisma {
     organisation_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
     practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -34440,6 +34562,7 @@ export namespace Prisma {
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     practice_agent_id?: string | null
     copilot_enabled?: boolean
@@ -34522,6 +34645,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -34568,6 +34692,7 @@ export namespace Prisma {
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
     copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
@@ -34612,6 +34737,7 @@ export namespace Prisma {
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
     copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
@@ -34786,6 +34912,7 @@ export namespace Prisma {
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     assistant_agent_id?: string | null
     copilot_enabled?: boolean
@@ -34824,6 +34951,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -34870,6 +34998,7 @@ export namespace Prisma {
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
     copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
@@ -34914,6 +35043,7 @@ export namespace Prisma {
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
     copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
@@ -35185,6 +35315,7 @@ export namespace Prisma {
     user_id: string
     kind: $Enums.CallKind
     call_type: $Enums.CallType
+    purpose?: $Enums.CallPurpose
     status?: $Enums.CallStatus
     assistant_agent_id?: string | null
     practice_agent_id?: string | null
@@ -35555,6 +35686,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     copilot_enabled?: BoolFieldUpdateOperationsInput | boolean
     title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -35600,6 +35732,7 @@ export namespace Prisma {
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
     practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -35644,6 +35777,7 @@ export namespace Prisma {
     user_id?: StringFieldUpdateOperationsInput | string
     kind?: EnumCallKindFieldUpdateOperationsInput | $Enums.CallKind
     call_type?: EnumCallTypeFieldUpdateOperationsInput | $Enums.CallType
+    purpose?: EnumCallPurposeFieldUpdateOperationsInput | $Enums.CallPurpose
     status?: EnumCallStatusFieldUpdateOperationsInput | $Enums.CallStatus
     assistant_agent_id?: NullableStringFieldUpdateOperationsInput | string | null
     practice_agent_id?: NullableStringFieldUpdateOperationsInput | string | null

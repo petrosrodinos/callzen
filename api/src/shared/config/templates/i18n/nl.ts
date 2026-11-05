@@ -466,7 +466,12 @@ const nl: TemplateTranslation = {
     "confidence": "Zelfverzekerdheid en toon",
     "control": "Gesprek sturen",
     "closing": "Afsluiten / volgende stappen vastleggen",
-    "script": "Script volgen"
+    "script": "Script volgen",
+    "opener": "Opening",
+    "gatekeeper": "Voorbij de poortwachter komen",
+    "reaching_owner": "De eigenaar / beslisser bereiken",
+    "hook": "Haakje en relevantie",
+    "next_step": "Een vervolgstap plannen"
   },
   "consent_line": "Voor we beginnen, wil ik je even laten weten dat ik een belassistent gebruik die ons gesprek opneemt en uittypt. Zo kan ik alles goed opvolgen. Vind je dat oké?"
 };

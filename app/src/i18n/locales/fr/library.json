@@ -13,6 +13,7 @@
       "mine": "Uniquement les miens",
       "kind": "En direct ou entraînement",
       "type": "Type d'appel",
+      "purpose": "Objet de l'appel",
       "copilot": "Copilote",
       "allCopilots": "Tous les copilotes",
       "outcome": "Résultat",

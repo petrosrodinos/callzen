@@ -38,6 +38,7 @@ export interface CallListItem {
   id: string;
   kind: string;
   call_type: string;
+  purpose: string;
   status: string;
   title: string | null;
   prospect_name: string | null;

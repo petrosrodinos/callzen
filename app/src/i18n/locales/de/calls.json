@@ -64,6 +64,12 @@
       "cta": "Co-Piloten erstellen"
     },
     "callType": "Anrufart",
+    "purpose": {
+      "label": "Anrufzweck",
+      "sales": "Verkaufsgespräch",
+      "coldCall": "Kaltakquise",
+      "coldCallHint": "Kaltakquise-Anrufe werden nach Einstieg, Vorbeikommen am Gatekeeper, Erreichen des Inhabers und Vereinbaren eines nächsten Schritts analysiert."
+    },
     "meetingUnsupported": "Erfordert einen Desktop-Browser wie Chrome oder Edge.",
     "copilot": {
       "title": "Co-Pilot",

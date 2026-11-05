@@ -20,6 +20,12 @@ export const CallTypes = {
 } as const;
 export type CallType = (typeof CallTypes)[keyof typeof CallTypes];
 
+export const CallPurposes = {
+    SALES: "SALES",
+    COLD_CALL: "COLD_CALL",
+} as const;
+export type CallPurpose = (typeof CallPurposes)[keyof typeof CallPurposes];
+
 export const CallStatuses = {
     IN_PROGRESS: "IN_PROGRESS",
     QUEUED: "QUEUED",
@@ -299,6 +305,7 @@ export interface Call {
     user_id: string;
     kind: CallKind;
     call_type: CallType;
+    purpose: CallPurpose;
     status: CallStatus;
     assistant_agent_id: string | null;
     practice_agent_id: string | null;
@@ -349,6 +356,7 @@ export interface CallListItem {
     id: string;
     kind: CallKind;
     call_type: CallType;
+    purpose: CallPurpose;
     status: CallStatus;
     title: string | null;
     prospect_name: string | null;
@@ -377,6 +385,7 @@ export interface CallQuery {
     mine?: "true";
     kind?: CallKind;
     call_type?: CallType;
+    purpose?: CallPurpose;
     assistant_agent_id?: string;
     practice_agent_id?: string;
     outcome?: CallOutcome | "NONE";
@@ -391,6 +400,7 @@ export interface CallQuery {
 
 export interface CreateCallDto {
     call_type: CallType;
+    purpose?: CallPurpose;
     assistant_agent_id?: string;
     copilot_enabled?: boolean;
     title?: string;
@@ -405,6 +415,7 @@ export interface CreateCallDto {
 }
 
 export interface UploadCallDto {
+    purpose?: CallPurpose;
     assistant_agent_id?: string;
     copilot_enabled?: boolean;
     clean_transcript?: boolean;

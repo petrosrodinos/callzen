@@ -149,6 +149,13 @@
     "typeFilter": {
       "all": "Alla samtalstyper"
     },
+    "purpose": {
+      "sales": "Säljsamtal",
+      "coldCall": "Kallsamtal"
+    },
+    "purposeFilter": {
+      "all": "Alla syften"
+    },
     "type": {
       "onlineMeeting": "Onlinemöte",
       "microphone": "Telefon / mikrofon",

@@ -13,6 +13,7 @@
       "mine": "Doar ale mele",
       "kind": "Live sau exersare",
       "type": "Tip de apel",
+      "purpose": "Scopul apelului",
       "copilot": "Copilot",
       "allCopilots": "Toți copilotii",
       "outcome": "Rezultat",

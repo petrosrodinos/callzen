@@ -64,6 +64,12 @@
       "cta": "Copiloot maken"
     },
     "callType": "Type gesprek",
+    "purpose": {
+      "label": "Doel van het gesprek",
+      "sales": "Verkoopgesprek",
+      "coldCall": "Koude acquisitie",
+      "coldCallHint": "Koude gesprekken worden geanalyseerd op de opening, voorbij de poortwachter komen, de eigenaar bereiken en een vervolgstap plannen."
+    },
     "meetingUnsupported": "Vereist een desktopbrowser zoals Chrome of Edge.",
     "copilot": {
       "title": "Copiloot",

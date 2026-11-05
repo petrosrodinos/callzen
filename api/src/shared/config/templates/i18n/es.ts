@@ -466,7 +466,12 @@ const es: TemplateTranslation = {
     "confidence": "Confianza y tono",
     "control": "Control de la conversación",
     "closing": "Cierre / asegurar próximos pasos",
-    "script": "Seguimiento del guion"
+    "script": "Seguimiento del guion",
+    "opener": "Apertura",
+    "gatekeeper": "Superar al filtro",
+    "reaching_owner": "Llegar al responsable / decisor",
+    "hook": "Gancho y relevancia",
+    "next_step": "Concretar un siguiente paso"
   },
   "consent_line": "Antes de comenzar, quería comentarte que uso un asistente de llamadas que graba y transcribe nuestra conversación para poder hacer un seguimiento preciso. ¿Te parece bien?"
 };

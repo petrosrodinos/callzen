@@ -13,6 +13,7 @@
       "mine": "Solo las mías",
       "kind": "En vivo o práctica",
       "type": "Tipo de llamada",
+      "purpose": "Propósito de la llamada",
       "copilot": "Copiloto",
       "allCopilots": "Todos los copilotos",
       "outcome": "Resultado",

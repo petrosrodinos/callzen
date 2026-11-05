@@ -13,6 +13,7 @@
       "mine": "Bara mina",
       "kind": "Live eller övning",
       "type": "Samtalstyp",
+      "purpose": "Samtalets syfte",
       "copilot": "Copilot",
       "allCopilots": "Alla copiloter",
       "outcome": "Utfall",

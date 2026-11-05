@@ -466,7 +466,12 @@ const sv: TemplateTranslation = {
     "confidence": "Självsäkerhet och tonläge",
     "control": "Samtalsstyrning",
     "closing": "Avslut / säkra nästa steg",
-    "script": "Följsamhet till manus"
+    "script": "Följsamhet till manus",
+    "opener": "Öppning",
+    "gatekeeper": "Ta sig förbi grindvakten",
+    "reaching_owner": "Nå ägaren / beslutsfattaren",
+    "hook": "Krok och relevans",
+    "next_step": "Boka ett nästa steg"
   },
   "consent_line": "Innan vi sätter igång vill jag bara berätta att jag använder en samtalsassistent som spelar in och transkriberar vårt samtal, så jag kan följa upp på rätt sätt. Är det okej för dig?"
 };

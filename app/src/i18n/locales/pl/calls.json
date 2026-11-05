@@ -64,6 +64,12 @@
       "cta": "Utwórz asystenta"
     },
     "callType": "Typ rozmowy",
+    "purpose": {
+      "label": "Cel rozmowy",
+      "sales": "Rozmowa sprzedażowa",
+      "coldCall": "Zimny telefon",
+      "coldCallHint": "Zimne telefony są analizowane pod kątem otwarcia, przejścia przez recepcję, dotarcia do właściciela i umówienia kolejnego kroku."
+    },
     "meetingUnsupported": "Wymaga przeglądarki na komputer, np. Chrome lub Edge.",
     "copilot": {
       "title": "Asystent",

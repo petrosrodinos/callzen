@@ -101,6 +101,13 @@ export class CallTranscriptionService {
     );
   }
 
+  // Drops the pending job; a job already running finds the call gone and exits.
+  async cancel(callId: string) {
+    const job = await this.transcriptionQueue.getJob(callId);
+    if (!job) return;
+    await job.remove().catch(() => undefined);
+  }
+
   async retry(ctx: OrgContext, callId: string) {
     const call = await findOwnedCall(
       this.prisma,

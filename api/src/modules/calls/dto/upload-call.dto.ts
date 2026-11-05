@@ -1,7 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
+import { CallPurpose } from 'generated/prisma';
 import {
   IsBoolean,
+  IsEnum,
   IsOptional,
   IsString,
   IsUUID,
@@ -24,6 +26,17 @@ export class UploadCallDto {
   @Transform(emptyToUndefined)
   @IsUUID()
   assistant_agent_id?: string;
+
+  @ApiProperty({
+    required: false,
+    enum: CallPurpose,
+    description:
+      'COLD_CALL analyses the call with cold-call criteria. Defaults to SALES',
+  })
+  @IsOptional()
+  @Transform(emptyToUndefined)
+  @IsEnum(CallPurpose)
+  purpose?: CallPurpose;
 
   @ApiProperty({
     required: false,

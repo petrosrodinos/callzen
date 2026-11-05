@@ -64,6 +64,12 @@
       "cta": "Create co-pilot"
     },
     "callType": "Call type",
+    "purpose": {
+      "label": "Call purpose",
+      "sales": "Sales call",
+      "coldCall": "Cold call",
+      "coldCallHint": "Cold calls are analysed on the opener, getting past the gatekeeper, reaching the owner and booking a next step."
+    },
     "meetingUnsupported": "Needs a desktop browser like Chrome or Edge.",
     "copilot": {
       "title": "Co-pilot",

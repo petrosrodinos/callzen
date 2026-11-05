@@ -22,7 +22,7 @@ import { useAssistantAgents } from "@/features/assistant-agents/hooks/use-assist
 import { useCatalog } from "@/features/catalog/hooks/use-catalog";
 import { useMe, useUpdateMe } from "@/features/user/hooks/use-user";
 import { useCalls, useStartLiveCall, useUploadCalls, type UploadBatchItemPatch } from "@/features/calls/hooks/use-calls";
-import { AUTO_LANGUAGE, CallKinds, CallTypes } from "@/features/calls/interfaces/calls.interfaces";
+import { AUTO_LANGUAGE, CallKinds, CallPurposes, CallTypes } from "@/features/calls/interfaces/calls.interfaces";
 import { LiveCallTypeDescriptionOptions } from "@/config/constants/dropdowns/calls/call-type-form.options";
 import { getMicrophoneStream, getTabAudioStream, isTabAudioCaptureSupported, stopStream } from "@/lib/audio/media-capture";
 import { setPendingCapture } from "@/lib/audio/pending-capture";
@@ -61,6 +61,7 @@ const NewCallPage: FC = () => {
     resolver: zodResolver(newCallSchema),
     defaultValues: {
       call_type: CallTypes.MICROPHONE,
+      purpose: CallPurposes.SALES,
       assistant_agent_id: NO_COPILOT,
       title: "",
       prospect_name: "",
@@ -157,6 +158,7 @@ const NewCallPage: FC = () => {
           files: toUpload.map(({ id, file }) => ({ id, file })),
           dto: {
             ...copilotDto(values.assistant_agent_id),
+            purpose: values.purpose,
             // One title can't name several recordings; those get generated titles.
             title: toUpload.length === 1 ? values.title.trim() || undefined : undefined,
             prospect_name: values.prospect_name || undefined,
@@ -207,6 +209,7 @@ const NewCallPage: FC = () => {
     startCall.mutate(
       {
         call_type: values.call_type,
+        purpose: values.purpose,
         ...copilotDto(values.assistant_agent_id),
         title: values.title.trim() || undefined,
         prospect_name: values.prospect_name || undefined,
@@ -302,6 +305,11 @@ const NewCallPage: FC = () => {
               </FormItem>
             )}
           />
+
+          <FormSection title={t("new.purpose.label")}>
+            <FormSelectField control={form.control} name="purpose" label={t("new.purpose.label")} options={[{ id: CallPurposes.SALES, label: t("new.purpose.sales") }, { id: CallPurposes.COLD_CALL, label: t("new.purpose.coldCall") }]} />
+            {form.watch("purpose") === CallPurposes.COLD_CALL && <p className="-mt-2 text-xs text-muted-foreground">{t("new.purpose.coldCallHint")}</p>}
+          </FormSection>
 
           <FormSection title={t("new.copilot.title")}>
             <FormSelectField control={form.control} name="assistant_agent_id" label={t("new.copilot.agentLabel")} options={[{ id: NO_COPILOT, label: t("new.copilot.none") }, ...agents.map((agent) => ({ id: agent.id, label: agent.is_default ? t("new.copilot.defaultSuffix", { name: agent.name }) : agent.name }))]} />

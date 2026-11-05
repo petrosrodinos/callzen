@@ -149,6 +149,13 @@
     "typeFilter": {
       "all": "Alle Anruftypen"
     },
+    "purpose": {
+      "sales": "Verkaufsgespräch",
+      "coldCall": "Kaltakquise"
+    },
+    "purposeFilter": {
+      "all": "Alle Anrufzwecke"
+    },
     "type": {
       "onlineMeeting": "Online-Meeting",
       "microphone": "Telefon / Mikrofon",

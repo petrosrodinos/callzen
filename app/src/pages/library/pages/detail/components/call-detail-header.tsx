@@ -53,6 +53,8 @@ import {
   useHarderPracticeAgent,
 } from "@/features/practice-agents/hooks/use-practice-agents";
 import { CallOutcomeFormOptions } from "@/config/constants/dropdowns/calls/call-outcome-form.options";
+import i18n from "@/i18n";
+import { CallPurposes } from "@/features/calls/interfaces/calls.interfaces";
 import { getCallTypeLabel } from "@/config/constants/dropdowns/calls/call-type-form.options";
 import { getCallEndReasonLabel } from "@/config/constants/dropdowns/calls/call-end-reason.options";
 import { usePermissions } from "@/features/organisations/hooks/use-organisations";
@@ -148,6 +150,9 @@ export function CallDetailHeader({
               <Badge variant="secondary">
                 {getCallTypeLabel(call.call_type)}
               </Badge>
+            )}
+            {call.purpose === CallPurposes.COLD_CALL && (
+              <Badge variant="outline">{i18n.t("options:calls.purpose.coldCall")}</Badge>
             )}
             {call.copilot_enabled && call.agent_snapshot && (
               <Badge variant="outline">

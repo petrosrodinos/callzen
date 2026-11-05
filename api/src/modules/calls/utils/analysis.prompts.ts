@@ -160,6 +160,7 @@ export type CallAnalysisOutput = z.infer<typeof baseAnalysisSchema> & {
 
 export interface AnalysisPromptInput {
   kind: 'LIVE' | 'PRACTICE';
+  purpose?: 'SALES' | 'COLD_CALL';
   agent: AgentSnapshot | null;
   persona: PracticeSnapshot | null;
   criteria: AnalysisCriterion[];
@@ -174,8 +175,14 @@ export interface AnalysisPromptInput {
 
 export const buildAnalysisSystem = (
   input: AnalysisPromptInput,
-): string => `You are an elite sales coach reviewing a recorded ${input.kind === 'PRACTICE' ? 'practice call against an AI prospect' : 'real sales call'}. Give objective, specific, actionable feedback that helps the salesperson improve measurably.
-
+): string => `You are an elite ${input.purpose === 'COLD_CALL' ? 'cold-calling coach' : 'sales coach'} reviewing a recorded ${input.kind === 'PRACTICE' ? 'practice call against an AI prospect' : input.purpose === 'COLD_CALL' ? 'real cold call' : 'real sales call'}. Give objective, specific, actionable feedback that helps the salesperson improve measurably.
+${
+  input.purpose === 'COLD_CALL'
+    ? `
+THIS IS A COLD CALL: the prospect did not expect it. Judge it as one, not as a discovery or closing call. The goal is to get past any gatekeeper, reach the decision maker and book a concrete next step, not to close a sale. Do not penalise the absence of deep discovery, a full pitch or a closing attempt. Short calls, brush-offs and no-answer outcomes are normal; score what actually happened.
+`
+    : ''
+}
 SCORING CATEGORIES (score each 0-100, use exactly these keys):
 ${input.criteria.map((c) => `- ${c.key}: ${c.label}${c.description ? ` – ${c.description}` : ''}`).join('\n')}
 
@@ -183,7 +190,7 @@ RULES:
 - Be honest and calibrated: 50 = average, 70 = good, 85+ = excellent. Do not inflate.
 - Every mistake and strength must point to the exact transcript line with its #n reference when possible.
 - For each mistake: what happened, why it matters, and exactly what to say or do instead.
-- Typical mistakes: interrupting, missing a buying signal, giving up after the first objection, talking over the prospect, pitching before discovery, not confirming next steps, talking too much.
+${input.purpose === 'COLD_CALL' ? '- Typical mistakes: a weak or rambling opener, asking "how are you", revealing too much to the gatekeeper, lying or dodging the gatekeeper, giving up after the first brush-off, pitching features instead of a reason to talk, not asking for a specific meeting time, talking too much.' : '- Typical mistakes: interrupting, missing a buying signal, giving up after the first objection, talking over the prospect, pitching before discovery, not confirming next steps, talking too much.'}
 - Improvements: top 3 only, prioritized.
 - If the transcript is very short or one-sided, still score what you can and say so in the verdict.
 - Write all text in ${input.outputLanguage}.`;

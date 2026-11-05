@@ -64,6 +64,12 @@
       "cta": "Creează copilot"
     },
     "callType": "Tipul apelului",
+    "purpose": {
+      "label": "Scopul apelului",
+      "sales": "Apel de vânzări",
+      "coldCall": "Apel la rece",
+      "coldCallHint": "Apelurile la rece sunt analizate după introducere, trecerea de filtru, ajungerea la proprietar și stabilirea unui pas următor."
+    },
     "meetingUnsupported": "Necesită un browser de desktop, precum Chrome sau Edge.",
     "copilot": {
       "title": "Copilot",

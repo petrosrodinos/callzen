@@ -239,6 +239,7 @@ exports.Prisma.CallScalarFieldEnum = {
   user_id: 'user_id',
   kind: 'kind',
   call_type: 'call_type',
+  purpose: 'purpose',
   status: 'status',
   assistant_agent_id: 'assistant_agent_id',
   practice_agent_id: 'practice_agent_id',
@@ -470,6 +471,11 @@ exports.CallType = exports.$Enums.CallType = {
   MICROPHONE: 'MICROPHONE',
   PRACTICE: 'PRACTICE',
   UPLOAD: 'UPLOAD'
+};
+
+exports.CallPurpose = exports.$Enums.CallPurpose = {
+  SALES: 'SALES',
+  COLD_CALL: 'COLD_CALL'
 };
 
 exports.CallStatus = exports.$Enums.CallStatus = {

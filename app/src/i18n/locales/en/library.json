@@ -13,6 +13,7 @@
       "mine": "Only mine",
       "kind": "Live or practice",
       "type": "Call type",
+      "purpose": "Call purpose",
       "copilot": "Co-pilot",
       "allCopilots": "All co-pilots",
       "outcome": "Outcome",

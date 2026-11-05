@@ -20,6 +20,7 @@ export const CallQuerySchema = z.object({
   mine: z.enum(['true']).optional(),
   kind: z.enum(['LIVE', 'PRACTICE']).optional(),
   call_type: z.enum(['ONLINE_MEETING', 'MICROPHONE', 'PRACTICE', 'UPLOAD']).optional(),
+  purpose: z.enum(['SALES', 'COLD_CALL']).optional(),
   assistant_agent_id: z.string().uuid().optional(),
   practice_agent_id: z.string().uuid().optional(),
   outcome: z
