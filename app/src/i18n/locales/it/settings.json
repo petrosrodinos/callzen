@@ -3,9 +3,10 @@
   "save": "Salva impostazioni",
   "nav": {
     "profile": "Profilo e preferenze",
-    "usage": "Utilizzo e costi",
+    "usage": "Utilizzo",
     "privacy": "Privacy e dati",
-    "sections": "Sezioni delle impostazioni"
+    "sections": "Sezioni delle impostazioni",
+    "billing": "Fatturazione"
   },
   "validation": {
     "enterName": "Inserisci il tuo nome",
@@ -94,6 +95,35 @@
       "input": "Input / 1M token",
       "output": "Output / 1M token",
       "perMinute": "~{{price}} al minuto"
+    },
+    "calls": "Sessioni",
+    "averageSession": "In media {{minutes}} min per sessione",
+    "empty": "Nessun utilizzo in questo periodo.",
+    "sessions": {
+      "title": "Minuti per sessione",
+      "average": "In media {{minutes}} min",
+      "session": "Sessione",
+      "member": "Membro",
+      "kind": "Tipo",
+      "date": "Data",
+      "minutes": "Minuti",
+      "untitled": "Sessione senza titolo",
+      "you": "Tu"
+    },
+    "members": {
+      "title": "Minuti per membro in questo periodo",
+      "member": "Membro",
+      "live": "Min dal vivo",
+      "practice": "Min di pratica",
+      "owner": "Proprietario"
+    },
+    "admin": {
+      "title": "Admin della piattaforma: costi IA",
+      "totalCost": "Costo IA (addebitato)",
+      "baseCost": "Costo base {{cost}}",
+      "averageCost": "costo medio {{cost}} per sessione",
+      "cost": "Costo",
+      "chargedVsBase": "Gli importi sono il costo addebitato, ricarico incluso; il costo base del provider è tra parentesi."
     }
   }
 }

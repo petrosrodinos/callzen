@@ -6,7 +6,8 @@
     "practice": "Allenamento",
     "reviews": "Analisi delle chiamate",
     "teams": "Team",
-    "createAccount": "Crea account"
+    "createAccount": "Crea account",
+    "pricing": "Prezzi"
   },
   "actions": {
     "openDashboard": "Apri la dashboard",
@@ -177,5 +178,75 @@
   "closing": {
     "title": "Fai la tua prossima chiamata con un copilota.",
     "copy": "Configura il tuo primo copilota, avvia una chiamata e guarda arrivare i suggerimenti mentre il potenziale cliente sta ancora parlando."
+  },
+  "salesDemo": {
+    "aria": "Chiamata di vendita simulata con il co-pilot di CallZen",
+    "intro": "Ascolta una chiamata di vendita simulata e guarda il co-pilot guidare il venditore in tempo reale.",
+    "play": "Riproduci la demo con l'audio",
+    "playSilent": "Riproduci senza audio",
+    "soundOn": "Attiva l'audio",
+    "soundOff": "Disattiva l'audio",
+    "skip": "Vai all'analisi",
+    "replay": "Riproduci di nuovo",
+    "ended": "Chiamata terminata",
+    "analysing": "Analisi della chiamata…",
+    "reviewTitle": "Poi l'analisi, in pochi secondi",
+    "reviewLead": "La stessa analisi che ricevi dopo ogni chiamata reale: un punteggio, gli errori e i punti di forza, e i numeri che li supportano."
+  },
+  "pricing": {
+    "title": "Piani semplici per venditori e coach",
+    "copy": "Ogni piano include il co-pilot dal vivo, i prospect di pratica con l'IA e l'analisi delle chiamate in tutte le lingue supportate. Paga mensilmente, oppure annualmente e ottieni due mesi gratis.",
+    "trial": "Inizia con una prova gratuita di 14 giorni. Nessuna carta richiesta.",
+    "cta": "Inizia la prova gratuita",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "tagline": "Per singoli venditori che iniziano.",
+        "points": {
+          "live": "2 ore di chiamate dal vivo al mese",
+          "practice": "30 minuti di pratica con l'IA",
+          "copilots": "1 co-pilot",
+          "basicAnalysis": "Punteggio, punteggi per categoria e passi successivi dopo ogni chiamata"
+        }
+      },
+      "pro": {
+        "name": "Pro",
+        "tagline": "Per professionisti che chiamano e fanno pratica molto.",
+        "points": {
+          "live": "10 ore di chiamate dal vivo al mese",
+          "practice": "5 ore di pratica con l'IA",
+          "copilots": "5 co-pilot e 25 prospect di pratica",
+          "fullAnalysis": "L'analisi completa: momenti chiave, metriche, insight e bozze di follow-up",
+          "knowledge": "Importazione di documenti di conoscenza"
+        }
+      },
+      "coach": {
+        "name": "Coach",
+        "tagline": "Per i coach e i loro studenti.",
+        "points": {
+          "seats": "Tu più 10 studenti, con posti aggiuntivi disponibili",
+          "pool": "Minuti condivisi con una riserva per te e limiti per studente",
+          "tools": "Dashboard del gruppo, compiti, commenti e report settimanali",
+          "access": "Scegli quali studenti possono usare ciascun co-pilot e prospect"
+        }
+      }
+    },
+    "live": {
+      "students_one": "Tu più {{count}} studente.",
+      "students_other": "Tu più {{count}} studenti.",
+      "moreSeats": "Posti aggiuntivi disponibili.",
+      "liveMinutes_one": "{{count}} minuto di chiamate dal vivo al mese",
+      "liveMinutes_other": "{{count}} minuti di chiamate dal vivo al mese",
+      "liveUnlimited": "Chiamate dal vivo illimitate",
+      "practiceMinutes_one": "{{count}} minuto di pratica con l'IA al mese",
+      "practiceMinutes_other": "{{count}} minuti di pratica con l'IA al mese",
+      "practiceUnlimited": "Pratica con l'IA illimitata",
+      "agentsUnlimited": "Co-pilot e prospect di pratica illimitati",
+      "perMonth": "{{price}} / mese",
+      "trial_one": "Inizia con una prova gratuita di {{count}} giorno. Nessuna carta richiesta.",
+      "trial_other": "Inizia con una prova gratuita di {{count}} giorni. Nessuna carta richiesta.",
+      "agents_one": "{{count}} co-pilot e {{prospects}} prospect di pratica",
+      "agents_other": "{{count}} co-pilot e {{prospects}} prospect di pratica"
+    }
   }
 }

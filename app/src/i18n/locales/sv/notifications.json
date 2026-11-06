@@ -1,0 +1,45 @@
+{
+  "title": "Aviseringar",
+  "description": "Uppgifter, kommentarer, rapporter och faktureringsaviseringar för den här organisationen.",
+  "markAllRead": "Markera alla som lästa",
+  "empty": "Du är helt ikapp",
+  "emptyHint": "Nya uppgifter, kommentarer och rapporter visas här.",
+  "seeAll": "Visa alla aviseringar",
+  "otherOrganisations_one": "Du har {{count}} oläst avisering i en annan organisation.",
+  "otherOrganisations_other": "Du har {{count}} olästa aviseringar i andra organisationer.",
+  "bell": {
+    "aria_one": "Aviseringar, {{count}} oläst",
+    "aria_other": "Aviseringar, {{count}} olästa"
+  },
+  "filters": {
+    "all": "Alla",
+    "unread": "Olästa"
+  },
+  "errors": {
+    "load": "Det gick inte att läsa in aviseringarna. Försök igen.",
+    "markRead": "Det gick inte att uppdatera aviseringarna. Försök igen."
+  },
+  "toasts": {
+    "allRead": "Alla aviseringar markerades som lästa",
+    "couldNotMarkRead": "Det gick inte att uppdatera aviseringarna"
+  },
+  "items": {
+    "untitledAssignment": "en uppgift",
+    "someone": "Någon",
+    "assignmentNew": "Ny övningsuppgift: {{title}}",
+    "assignmentDueSoon": "”{{title}}” ska vara klar senast {{date}}",
+    "assignmentCompleted_one": "{{count}} elev slutförde ”{{title}}”",
+    "assignmentCompleted_other": "{{count}} elever slutförde ”{{title}}”",
+    "commentNew": "{{name}} kommenterade ditt samtal",
+    "commentReply": "{{name}} svarade på din kommentar",
+    "coachReport": "Din coachningsrapport för veckan från {{date}} är klar",
+    "prospectShared": "Ett övningsprospekt har delats med dig",
+    "copilotShared": "En co-pilot har delats med dig",
+    "billingPaymentFailed": "En betalning misslyckades. Uppdatera din betalningsmetod för att behålla ditt abonnemang.",
+    "billingTrialEnding": "Din provperiod slutar snart. Välj ett abonnemang för att fortsätta.",
+    "billingActionRequired": "En betalning behöver din bekräftelse.",
+    "billingPlanCanceled": "Ditt abonnemang har upphört. Dina data finns kvar; teckna ett abonnemang för att fortsätta.",
+    "billingGeneric": "Det finns en uppdatering om ditt abonnemang.",
+    "generic": "Du har en ny avisering"
+  }
+}

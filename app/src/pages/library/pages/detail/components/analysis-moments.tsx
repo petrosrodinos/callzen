@@ -49,14 +49,14 @@ export function AnalysisMoments({
       <section className="space-y-3">
         <h3 className="flex items-center gap-2 font-semibold">
           <CircleAlert className="size-4 text-red-500" />{" "}
-          {t("detail.moments.mistakes", { count: analysis.mistakes.length })}
+          {t("detail.moments.mistakes", { count: (analysis.mistakes ?? []).length })}
         </h3>
-        {!analysis.mistakes.length && (
+        {!(analysis.mistakes ?? []).length && (
           <p className="text-sm text-muted-foreground">
             {t("detail.moments.noMistakes")}
           </p>
         )}
-        {analysis.mistakes.map((mistake, index) => (
+        {(analysis.mistakes ?? []).map((mistake, index) => (
           <Card key={index} className="space-y-3 p-4">
             <div className="flex items-start gap-2">
               <div className="min-w-0 flex-1">
@@ -100,14 +100,14 @@ export function AnalysisMoments({
       <section className="space-y-3">
         <h3 className="flex items-center gap-2 font-semibold">
           <CheckCircle2 className="size-4 text-emerald-500" />{" "}
-          {t("detail.moments.strengths", { count: analysis.strengths.length })}
+          {t("detail.moments.strengths", { count: (analysis.strengths ?? []).length })}
         </h3>
-        {!analysis.strengths.length && (
+        {!(analysis.strengths ?? []).length && (
           <p className="text-sm text-muted-foreground">
             {t("detail.moments.noStrengths")}
           </p>
         )}
-        {analysis.strengths.map((strength, index) => (
+        {(analysis.strengths ?? []).map((strength, index) => (
           <Card key={index} className="flex items-start gap-2 p-4">
             <div className="min-w-0 flex-1">
               <p className="font-medium">{strength.title}</p>

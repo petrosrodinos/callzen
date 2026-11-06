@@ -13,17 +13,31 @@ export interface VoiceProviderCatalogEntry {
   recommended: boolean;
   realism: 1 | 2 | 3 | 4 | 5;
   latency: string;
-  cost_per_minute_usd: number;
   languages: string;
   supports_interruptions: boolean;
   description: string;
   voices: VoiceOption[];
 }
 
-export const REALTIME_VOICE_MODEL = 'gpt-realtime';
-export const REALTIME_TRANSCRIPTION_MODEL = 'gpt-4o-transcribe';
-// Approximate blended prices used for usage estimates only.
-export const TRANSCRIPTION_COST_PER_MINUTE_USD = 0.006;
+// Fallbacks only. The effective models come from the "ai.default_models" AppConfig key; audio costs are
+// computed by ModelPricingService.estimateAudioCost from models.dev prices.
+export const REALTIME_VOICE_MODEL = 'gpt-realtime-2.1';
+export const REALTIME_TRANSCRIPTION_MODEL = 'gpt-live-transcribe';
+export const UPLOAD_TRANSCRIPTION_MODEL = 'gpt-4o-transcribe-diarize';
+
+export const OPENAI_VOICE_IDS = [
+  'marin',
+  'cedar',
+  'alloy',
+  'ash',
+  'ballad',
+  'coral',
+  'echo',
+  'sage',
+  'shimmer',
+  'verse',
+];
+export const DEFAULT_OPENAI_VOICE = 'marin';
 
 export const VOICE_PROVIDER_CATALOG: VoiceProviderCatalogEntry[] = [
   {
@@ -32,7 +46,6 @@ export const VOICE_PROVIDER_CATALOG: VoiceProviderCatalogEntry[] = [
     recommended: true,
     realism: 5,
     latency: 'Very low (≈0.5s)',
-    cost_per_minute_usd: 0.15,
     languages: '50+ languages, natural accents',
     supports_interruptions: true,
     description:
@@ -101,7 +114,6 @@ export const VOICE_PROVIDER_CATALOG: VoiceProviderCatalogEntry[] = [
     recommended: false,
     realism: 2,
     latency: 'Moderate (≈1.5–3s)',
-    cost_per_minute_usd: 0.01,
     languages: 'Depends on your browser and OS voices',
     supports_interruptions: false,
     description:

@@ -16,16 +16,18 @@
       "copilots": "Copilotos",
       "organisation": "Organización",
       "settings": "Ajustes",
-      "usage": "Uso y costes",
+      "usage": "Uso",
       "privacy": "Privacidad y datos",
       "health": "Estado",
       "users": "Usuarios",
-      "alerts": "Alertas"
+      "alerts": "Alertas",
+      "config": "Configuración",
+      "subscriptions": "Suscripciones"
     }
   },
   "userMenu": {
     "settings": "Ajustes",
-    "usage": "Uso y costes",
+    "usage": "Uso",
     "privacy": "Privacidad y datos",
     "logout": "Cerrar sesión"
   },

@@ -6,7 +6,8 @@
     "practice": "Ćwiczenia",
     "reviews": "Analizy rozmów",
     "teams": "Zespoły",
-    "createAccount": "Utwórz konto"
+    "createAccount": "Utwórz konto",
+    "pricing": "Cennik"
   },
   "actions": {
     "openDashboard": "Otwórz panel",
@@ -177,5 +178,85 @@
   "closing": {
     "title": "Poprowadź następną rozmowę ze współpilotem.",
     "copy": "Skonfiguruj pierwszego współpilota, rozpocznij rozmowę i zobacz, jak podpowiedzi pojawiają się, gdy klient jeszcze mówi."
+  },
+  "salesDemo": {
+    "aria": "Symulowana rozmowa sprzedażowa ze współpilotem CallZen",
+    "intro": "Posłuchaj symulowanej rozmowy sprzedażowej i zobacz, jak współpilot na bieżąco podpowiada sprzedawcy.",
+    "play": "Odtwórz demo z dźwiękiem",
+    "playSilent": "Odtwórz bez dźwięku",
+    "soundOn": "Włącz dźwięk",
+    "soundOff": "Wyłącz dźwięk",
+    "skip": "Przejdź do podsumowania",
+    "replay": "Odtwórz ponownie",
+    "ended": "Rozmowa zakończona",
+    "analysing": "Analizowanie rozmowy…",
+    "reviewTitle": "A potem analiza, w kilka sekund",
+    "reviewLead": "Ta sama analiza, którą otrzymujesz po każdej prawdziwej rozmowie: wynik, błędy i mocne strony oraz liczby, które za nimi stoją."
+  },
+  "pricing": {
+    "title": "Proste plany dla handlowców i trenerów",
+    "copy": "Każdy plan obejmuje współpilota na żywo, potencjalnych klientów AI do ćwiczeń i analizę rozmów we wszystkich obsługiwanych językach. Płać miesięcznie albo rocznie i zyskaj dwa miesiące gratis.",
+    "trial": "Zacznij od bezpłatnego 14-dniowego okresu próbnego. Karta nie jest potrzebna.",
+    "cta": "Rozpocznij bezpłatny okres próbny",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "tagline": "Dla handlowców, którzy dopiero zaczynają.",
+        "points": {
+          "live": "2 godziny rozmów na żywo miesięcznie",
+          "practice": "30 minut ćwiczeń z AI",
+          "copilots": "1 współpilot",
+          "basicAnalysis": "Wynik, oceny w kategoriach i kolejne kroki po każdej rozmowie"
+        }
+      },
+      "pro": {
+        "name": "Pro",
+        "tagline": "Dla ambitnych osób, które dużo dzwonią i ćwiczą.",
+        "points": {
+          "live": "10 godzin rozmów na żywo miesięcznie",
+          "practice": "5 godzin ćwiczeń z AI",
+          "copilots": "5 współpilotów i 25 potencjalnych klientów do ćwiczeń",
+          "fullAnalysis": "Pełna analiza: kluczowe momenty, wskaźniki, wnioski i szkice wiadomości follow-up",
+          "knowledge": "Import dokumentów z wiedzą"
+        }
+      },
+      "coach": {
+        "name": "Coach",
+        "tagline": "Dla trenerów i ich kursantów.",
+        "points": {
+          "seats": "Ty plus 10 kursantów, możliwość dokupienia miejsc",
+          "pool": "Wspólne minuty z rezerwą dla Ciebie i limitami na kursanta",
+          "tools": "Pulpit grupy, zadania, komentarze i raporty tygodniowe",
+          "access": "Wybieraj, którzy kursanci mogą korzystać z poszczególnych współpilotów i potencjalnych klientów"
+        }
+      }
+    },
+    "live": {
+      "students_one": "Ty i {{count}} kursant.",
+      "students_few": "Ty i {{count}} kursantów.",
+      "students_many": "Ty i {{count}} kursantów.",
+      "students_other": "Ty i {{count}} kursanta.",
+      "moreSeats": "Dodatkowe miejsca dostępne.",
+      "liveMinutes_one": "{{count}} minuta rozmów na żywo miesięcznie",
+      "liveMinutes_few": "{{count}} minuty rozmów na żywo miesięcznie",
+      "liveMinutes_many": "{{count}} minut rozmów na żywo miesięcznie",
+      "liveMinutes_other": "{{count}} minuty rozmów na żywo miesięcznie",
+      "liveUnlimited": "Nielimitowane rozmowy na żywo",
+      "practiceMinutes_one": "{{count}} minuta ćwiczeń z AI miesięcznie",
+      "practiceMinutes_few": "{{count}} minuty ćwiczeń z AI miesięcznie",
+      "practiceMinutes_many": "{{count}} minut ćwiczeń z AI miesięcznie",
+      "practiceMinutes_other": "{{count}} minuty ćwiczeń z AI miesięcznie",
+      "practiceUnlimited": "Nielimitowane ćwiczenia z AI",
+      "agentsUnlimited": "Nielimitowani współpiloci i potencjalni klienci do ćwiczeń",
+      "perMonth": "{{price}} / miesiąc",
+      "trial_one": "Zacznij od bezpłatnego okresu próbnego ({{count}} dzień). Bez karty.",
+      "trial_few": "Zacznij od bezpłatnego okresu próbnego ({{count}} dni). Bez karty.",
+      "trial_many": "Zacznij od bezpłatnego okresu próbnego ({{count}} dni). Bez karty.",
+      "trial_other": "Zacznij od bezpłatnego okresu próbnego ({{count}} dni). Bez karty.",
+      "agents_one": "{{count}} współpilot i potencjalni klienci do ćwiczeń: {{prospects}}",
+      "agents_few": "{{count}} współpilotów i potencjalni klienci do ćwiczeń: {{prospects}}",
+      "agents_many": "{{count}} współpilotów i potencjalni klienci do ćwiczeń: {{prospects}}",
+      "agents_other": "{{count}} współpilota i potencjalni klienci do ćwiczeń: {{prospects}}"
+    }
   }
 }

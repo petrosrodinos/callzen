@@ -1,0 +1,45 @@
+{
+  "title": "Meldingen",
+  "description": "Opdrachten, opmerkingen, rapporten en factureringsmeldingen voor deze organisatie.",
+  "markAllRead": "Alles als gelezen markeren",
+  "empty": "Je bent helemaal bij",
+  "emptyHint": "Nieuwe opdrachten, opmerkingen en rapporten verschijnen hier.",
+  "seeAll": "Alle meldingen bekijken",
+  "otherOrganisations_one": "Je hebt {{count}} ongelezen melding in een andere organisatie.",
+  "otherOrganisations_other": "Je hebt {{count}} ongelezen meldingen in andere organisaties.",
+  "bell": {
+    "aria_one": "Meldingen, {{count}} ongelezen",
+    "aria_other": "Meldingen, {{count}} ongelezen"
+  },
+  "filters": {
+    "all": "Alle",
+    "unread": "Ongelezen"
+  },
+  "errors": {
+    "load": "Meldingen konden niet worden geladen. Probeer het opnieuw.",
+    "markRead": "Meldingen konden niet worden bijgewerkt. Probeer het opnieuw."
+  },
+  "toasts": {
+    "allRead": "Alle meldingen als gelezen gemarkeerd",
+    "couldNotMarkRead": "Meldingen konden niet worden bijgewerkt"
+  },
+  "items": {
+    "untitledAssignment": "een opdracht",
+    "someone": "Iemand",
+    "assignmentNew": "Nieuwe oefenopdracht: {{title}}",
+    "assignmentDueSoon": "De deadline van \"{{title}}\" is {{date}}",
+    "assignmentCompleted_one": "{{count}} cursist heeft \"{{title}}\" voltooid",
+    "assignmentCompleted_other": "{{count}} cursisten hebben \"{{title}}\" voltooid",
+    "commentNew": "{{name}} heeft gereageerd op je gesprek",
+    "commentReply": "{{name}} heeft op je opmerking gereageerd",
+    "coachReport": "Je wekelijkse coachingrapport voor de week van {{date}} staat klaar",
+    "prospectShared": "Er is een oefenprospect met je gedeeld",
+    "copilotShared": "Er is een copiloot met je gedeeld",
+    "billingPaymentFailed": "Een betaling is mislukt. Werk je betaalmethode bij om je abonnement te behouden.",
+    "billingTrialEnding": "Je proefperiode eindigt binnenkort. Kies een abonnement om door te gaan.",
+    "billingActionRequired": "Een betaling moet door jou worden bevestigd.",
+    "billingPlanCanceled": "Je abonnement is beëindigd. Je gegevens blijven bewaard; neem een abonnement om verder te gaan.",
+    "billingGeneric": "Er is een update over je abonnement.",
+    "generic": "Je hebt een nieuwe melding"
+  }
+}

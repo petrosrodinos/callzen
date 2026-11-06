@@ -6,7 +6,8 @@
     "practice": "Alıştırma",
     "reviews": "Görüşme analizleri",
     "teams": "Ekipler",
-    "createAccount": "Hesap oluştur"
+    "createAccount": "Hesap oluştur",
+    "pricing": "Fiyatlandırma"
   },
   "actions": {
     "openDashboard": "Panoyu aç",
@@ -177,5 +178,75 @@
   "closing": {
     "title": "Bir sonraki görüşmeni bir yardımcı pilotla yap.",
     "copy": "İlk yardımcı pilotunu kur, bir görüşme başlat ve müşteri adayı hâlâ konuşurken önerilerin gelişini izle."
+  },
+  "salesDemo": {
+    "aria": "CallZen yardımcı pilotuyla simüle edilmiş satış görüşmesi",
+    "intro": "Simüle edilmiş bir satış görüşmesini dinleyin ve yardımcı pilotun satıcıya anında nasıl koçluk yaptığını izleyin.",
+    "play": "Demoyu sesli oynat",
+    "playSilent": "Sessiz oynat",
+    "soundOn": "Sesi aç",
+    "soundOff": "Sesi kapat",
+    "skip": "Değerlendirmeye geç",
+    "replay": "Tekrar oynat",
+    "ended": "Görüşme sona erdi",
+    "analysing": "Görüşme analiz ediliyor…",
+    "reviewTitle": "Ardından saniyeler içinde değerlendirme",
+    "reviewLead": "Her gerçek görüşmeden sonra aldığınız analizin aynısı: bir puan, hatalar ve güçlü yönler ve bunların arkasındaki rakamlar."
+  },
+  "pricing": {
+    "title": "Satış temsilcileri ve koçlar için basit planlar",
+    "copy": "Her plan; canlı yardımcı pilotu, yapay zekâ alıştırma müşterilerini ve desteklenen tüm dillerde arama analizini içerir. Aylık ödeyin ya da yıllık ödeyip iki ay ücretsiz kazanın.",
+    "trial": "14 günlük ücretsiz denemeyle başlayın. Kart gerekmez.",
+    "cta": "Ücretsiz denemeyi başlat",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "tagline": "Yeni başlayan bireysel satış temsilcileri için.",
+        "points": {
+          "live": "Ayda 2 saat canlı arama",
+          "practice": "30 dakika yapay zekâ ile alıştırma",
+          "copilots": "1 yardımcı pilot",
+          "basicAnalysis": "Her aramadan sonra puan, kategori puanları ve sonraki adımlar"
+        }
+      },
+      "pro": {
+        "name": "Pro",
+        "tagline": "Çok arama yapan ve çok alıştırma yapan iddialı bireyler için.",
+        "points": {
+          "live": "Ayda 10 saat canlı arama",
+          "practice": "5 saat yapay zekâ ile alıştırma",
+          "copilots": "5 yardımcı pilot ve 25 alıştırma müşterisi",
+          "fullAnalysis": "Tam analiz: önemli anlar, metrikler, içgörüler ve takip mesajı taslakları",
+          "knowledge": "Bilgi belgelerini içe aktarma"
+        }
+      },
+      "coach": {
+        "name": "Coach",
+        "tagline": "Koçlar ve öğrencileri için.",
+        "points": {
+          "seats": "Siz ve 10 öğrenci, ek koltuk alınabilir",
+          "pool": "Sizin için rezerv ve öğrenci başına sınırlarla ortak dakikalar",
+          "tools": "Öğrenci grubu panosu, ödevler, yorumlar ve haftalık raporlar",
+          "access": "Her yardımcı pilotu ve potansiyel müşteriyi hangi öğrencilerin kullanabileceğini seçin"
+        }
+      }
+    },
+    "live": {
+      "students_one": "Siz ve {{count}} öğrenci.",
+      "students_other": "Siz ve {{count}} öğrenci.",
+      "moreSeats": "Ek koltuk alınabilir.",
+      "liveMinutes_one": "Ayda {{count}} dakika canlı görüşme",
+      "liveMinutes_other": "Ayda {{count}} dakika canlı görüşme",
+      "liveUnlimited": "Sınırsız canlı görüşme",
+      "practiceMinutes_one": "Ayda {{count}} dakika yapay zekâ alıştırması",
+      "practiceMinutes_other": "Ayda {{count}} dakika yapay zekâ alıştırması",
+      "practiceUnlimited": "Sınırsız yapay zekâ alıştırması",
+      "agentsUnlimited": "Sınırsız yardımcı pilot ve alıştırma müşterisi",
+      "perMonth": "{{price}} / ay",
+      "trial_one": "{{count}} günlük ücretsiz denemeyle başlayın. Kart gerekmez.",
+      "trial_other": "{{count}} günlük ücretsiz denemeyle başlayın. Kart gerekmez.",
+      "agents_one": "{{count}} yardımcı pilot ve {{prospects}} alıştırma müşterisi",
+      "agents_other": "{{count}} yardımcı pilot ve {{prospects}} alıştırma müşterisi"
+    }
   }
 }

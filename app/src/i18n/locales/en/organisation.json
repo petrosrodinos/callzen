@@ -30,7 +30,9 @@
     "deleteDialogTitle": "Delete {{name}}?",
     "deleteDialogDescription": "Type <strong>{{name}}</strong> to confirm. Everything in this organisation is deleted for all members.",
     "confirmAria": "Type the organisation name to confirm",
-    "deletePermanently": "Delete permanently"
+    "deletePermanently": "Delete permanently",
+    "boughtMinutesWarning_one": "{{count}} member still has minutes they bought for themselves. They will be lost when the organisation is deleted.",
+    "boughtMinutesWarning_other": "{{count}} members still have minutes they bought for themselves. They will be lost when the organisation is deleted."
   },
   "invitations": {
     "copyFailed": "Copy failed",

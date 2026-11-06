@@ -16,6 +16,8 @@ import { useAssistantAgents } from "@/features/assistant-agents/hooks/use-assist
 import { usePageMetadata } from "@/hooks/use-page-metadata";
 import { Routes } from "@/routes/routes";
 import { PracticeAgentForm } from "./components/practice-agent-form";
+import { AgentAccessCard } from "@/components/agent-access/agent-access-card";
+import { AgentKinds } from "@/features/agent-access/interfaces/agent-access.interfaces";
 import {
   toPracticeFormValues,
   toPracticePayload,
@@ -101,15 +103,24 @@ const PracticeAgentEditorPage: FC = () => {
       {catalogPending || (!isNew && agentPending) || !defaults || !catalog ? (
         <FormSkeleton fields={10} />
       ) : (
-        <PracticeAgentForm
-          key={agent?.id ?? "new"}
-          defaultValues={defaults}
-          catalog={catalog}
-          assistantAgents={assistantAgents ?? []}
-          isSaving={create.isPending || update.isPending}
-          isNew={isNew}
-          onSubmit={onSubmit}
-        />
+        <>
+          {agent && (
+            <AgentAccessCard
+              key={`access-${agent.id}-${agent.visibility}-${agent.access_user_ids?.join() ?? ""}`}
+              kind={AgentKinds.PROSPECT}
+              agent={agent}
+            />
+          )}
+          <PracticeAgentForm
+            key={agent?.id ?? "new"}
+            defaultValues={defaults}
+            catalog={catalog}
+            assistantAgents={assistantAgents ?? []}
+            isSaving={create.isPending || update.isPending}
+            isNew={isNew}
+            onSubmit={onSubmit}
+          />
+        </>
       )}
     </div>
   );

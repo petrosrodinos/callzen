@@ -109,7 +109,8 @@
           "title": "Delete the transcript?",
           "description": "The transcript is permanently deleted. The analysis is kept, but you can't re-run it."
         }
-      }
+      },
+      "sessionCost": "Session cost {{charged}} (base {{base}})"
     },
     "recording": {
       "saving": "Saving the recording…",

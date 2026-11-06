@@ -326,5 +326,279 @@
       "conversation": "Same language as the conversation",
       "interface": "My interface language"
     }
+  },
+  "billing": {
+    "plan": {
+      "all": "All plans",
+      "trial": "Trial",
+      "starter": "Starter",
+      "pro": "Pro",
+      "coach": "Coach"
+    },
+    "planDescription": {
+      "trial": "Try everything with a small allowance.",
+      "starter": "For individual reps getting started.",
+      "pro": "For serious individuals who practise and call a lot.",
+      "coach": "For coaches and their students, with pooled minutes and coaching tools."
+    },
+    "status": {
+      "all": "All statuses",
+      "trialing": "Trial",
+      "active": "Active",
+      "pastDue": "Past due",
+      "canceled": "Canceled",
+      "incomplete": "Incomplete",
+      "none": "No plan",
+      "cancelling": "Cancelling"
+    },
+    "invoiceKind": {
+      "subscription": "Subscription",
+      "seats": "Extra seats",
+      "topupTeam": "Minutes for the team",
+      "topupPersonal": "Personal minutes",
+      "other": "Other"
+    },
+    "invoiceStatus": {
+      "draft": "Draft",
+      "open": "Open",
+      "paid": "Paid",
+      "void": "Void",
+      "uncollectible": "Uncollectible",
+      "failed": "Failed",
+      "refunded": "Refunded"
+    },
+    "pack": {
+      "live_100": "100 live call minutes",
+      "practice_60": "60 practice minutes",
+      "mixed": "{{live}} live + {{practice}} practice minutes",
+      "liveFallback": "{{count}} live call minutes",
+      "practiceFallback": "{{count}} practice minutes"
+    },
+    "cancelReason": {
+      "tooExpensive": "Too expensive",
+      "notUsing": "I'm not using it enough",
+      "missingFeatures": "Missing features I need",
+      "switching": "Switching to another tool",
+      "temporary": "Only needed it for a while",
+      "other": "Something else"
+    },
+    "feature": {
+      "knowledgeDocumentImport": "Knowledge document import",
+      "orgRolesPermissions": "Custom roles and permissions",
+      "orgInvitations": "Team invitations",
+      "viewAllMemberCalls": "Viewing every member's calls",
+      "cohortDashboard": "Cohort dashboard",
+      "topupPurchases": "Buying extra minutes",
+      "studentPages": "Student pages",
+      "practiceAssignments": "Practice assignments",
+      "callComments": "Coach comments on calls",
+      "coachReports": "Weekly coach reports",
+      "studentExport": "CSV export",
+      "agentAccessControl": "Per-student access to co-pilots and prospects"
+    },
+    "limit": {
+      "seatsIncluded": "Seats included",
+      "extraSeatsAllowed": "Extra seats can be bought",
+      "liveMinutes": "Live minutes per period",
+      "practiceMinutes": "Practice minutes per period",
+      "practiceSharesLivePool": "Practice uses the live minutes",
+      "liveOwnerReserve": "Live minutes reserved for owners",
+      "practiceOwnerReserve": "Practice minutes reserved for owners",
+      "liveMinutesPerMember": "Live minutes per member",
+      "practiceMinutesPerMember": "Practice minutes per member",
+      "copilotsMax": "Co-pilots",
+      "practiceProspectsMax": "Practice prospects",
+      "practiceProspectsPerMemberMax": "Practice prospects per member",
+      "uploadsPerPeriod": "Uploads per period",
+      "trialDays": "Trial length (days)"
+    },
+    "pricingSource": {
+      "modelsDev": "models.dev",
+      "alias": "models.dev (alias)",
+      "override": "Manual",
+      "unpriced": "Unpriced"
+    },
+    "analysis": {
+      "overview": "Overview and score",
+      "categoryScores": "Skill scores",
+      "moments": "Mistakes and strengths",
+      "improvements": "Improvements",
+      "metrics": "Talk metrics",
+      "prospectInsights": "Prospect insights",
+      "nextSteps": "Next steps",
+      "followUpDraft": "Follow-up draft",
+      "practiceReveal": "Practice reveal",
+      "copilotUsage": "Co-pilot usage",
+      "suggestedPractice": "Suggested practice"
+    },
+    "analysisHint": {
+      "overview": "Overall score, verdict and summary",
+      "categoryScores": "Score per skill and the skills trend",
+      "moments": "Timeline-linked mistakes and strengths, recurring mistakes",
+      "improvements": "What to do better next time",
+      "metrics": "Talk ratio, pace, fillers, interruptions, objections",
+      "prospectInsights": "What the prospect cares about",
+      "nextSteps": "Agreed next steps",
+      "followUpDraft": "Ready-to-send follow-up message",
+      "practiceReveal": "The hidden persona details after a practice session",
+      "copilotUsage": "How the co-pilot's suggestions were used",
+      "suggestedPractice": "Recommended practice scenarios"
+    },
+    "interval": {
+      "month": "Monthly",
+      "year": "Yearly"
+    },
+    "invoiceDescription": {
+      "seats_one": "Extra seats × {{count}}",
+      "seats_other": "Extra seats × {{count}}",
+      "topup": "Minutes: {{pack}}"
+    },
+    "eventType": {
+      "STARTED": "Plan started",
+      "PLAN_CHANGED": "Plan changed",
+      "CHANGE_SCHEDULED": "Change scheduled",
+      "CHANGE_CANCELED": "Scheduled change undone",
+      "SEATS_CHANGED": "Seats changed",
+      "CANCEL_SCHEDULED": "Cancellation scheduled",
+      "CANCEL_REVOKED": "Cancellation undone",
+      "CANCELED": "Plan canceled",
+      "REACTIVATED": "Plan reactivated",
+      "TRIAL_STARTED": "Trial started",
+      "TRIAL_ENDED": "Trial ended",
+      "TRIAL_EXTENDED": "Trial extended",
+      "PAYMENT_SUCCEEDED": "Payment succeeded",
+      "PAYMENT_FAILED": "Payment failed",
+      "REFUNDED": "Refunded",
+      "CREDITS_GRANTED": "Minutes added",
+      "MANUAL_ASSIGNED": "Plan set up by our team",
+      "DISCOUNT_APPLIED": "Discount applied",
+      "SYNCED": "Synced with Stripe"
+    },
+    "source": {
+      "stripe": "Stripe",
+      "manual": "Manual"
+    },
+    "paymentFilter": {
+      "all": "All payments",
+      "failed": "Failed",
+      "open": "Open",
+      "refunded": "Refunded",
+      "paid": "Paid"
+    },
+    "cancelMode": {
+      "atPeriodEnd": "At the end of the period",
+      "immediate": "Immediately"
+    },
+    "actor": {
+      "user": "Customer",
+      "admin": "CallZen team",
+      "stripe": "Stripe",
+      "system": "Automatic"
+    }
+  },
+  "access": {
+    "visibility": {
+      "organisation": "Everyone in the organisation",
+      "selected": "Selected students"
+    },
+    "visibilityDescription": {
+      "organisation": "Every member can see and use it.",
+      "selected": "Only the students you choose, plus coaches."
+    }
+  },
+  "permissions": {
+    "agentsView": {
+      "label": "View co-pilots",
+      "description": "See and use the organisation's co-pilots on calls and in practice."
+    },
+    "agentsManage": {
+      "label": "Manage co-pilots",
+      "description": "Create, edit, duplicate, archive and delete co-pilots, and choose who can use them."
+    },
+    "prospectsManage": {
+      "label": "Manage your practice prospects",
+      "description": "Create, generate, edit and delete the AI practice prospects you created."
+    },
+    "prospectsManageAll": {
+      "label": "Manage everyone's practice prospects",
+      "description": "Edit, delete and change who can use any member's practice prospects."
+    },
+    "callsCreate": {
+      "label": "Start calls & practice",
+      "description": "Start live calls and practice sessions."
+    },
+    "callsViewAll": {
+      "label": "View everyone's calls",
+      "description": "See calls, recordings, analyses and team performance of all members. Without it, members only see their own."
+    },
+    "callsManageAll": {
+      "label": "Manage everyone's calls",
+      "description": "Delete recordings and calls, and re-run analyses, for any member."
+    },
+    "usageView": {
+      "label": "View organisation usage",
+      "description": "See usage minutes for the whole organisation."
+    },
+    "membersView": {
+      "label": "View members",
+      "description": "See the member list and their roles."
+    },
+    "membersInvite": {
+      "label": "Invite members",
+      "description": "Invite people, resend and revoke invitations."
+    },
+    "membersManage": {
+      "label": "Manage members",
+      "description": "Change roles of, and remove, members with a lower role."
+    },
+    "rolesManage": {
+      "label": "Edit role permissions",
+      "description": "Change what each role is allowed to do."
+    },
+    "orgUpdate": {
+      "label": "Edit organisation",
+      "description": "Rename the organisation."
+    },
+    "orgDelete": {
+      "label": "Delete organisation",
+      "description": "Permanently delete the organisation and all its data."
+    },
+    "billingView": {
+      "label": "View billing",
+      "description": "See the plan, invoices and payments of the organisation."
+    },
+    "billingManage": {
+      "label": "Manage billing",
+      "description": "Change or cancel the plan, manage seats and payment details, and buy minutes for the team."
+    },
+    "coachingView": {
+      "label": "View coaching",
+      "description": "See the cohort dashboard, student pages and weekly reports. Includes viewing everyone's calls."
+    },
+    "coachingManage": {
+      "label": "Coach students",
+      "description": "Create practice assignments and comment on other members' calls."
+    },
+    "coachingExport": {
+      "label": "Export coaching data",
+      "description": "Download student and call lists as CSV."
+    }
+  },
+  "permissionGroups": {
+    "agents": "Co-pilots & practice",
+    "calls": "Calls",
+    "team": "Team",
+    "coaching": "Coaching",
+    "organisation": "Organisation",
+    "billing": "Billing"
+  },
+  "coaching": {
+    "assignmentStatus": {
+      "all": "All statuses",
+      "open": "Open",
+      "overdue": "Overdue",
+      "completed": "Completed",
+      "archived": "Archived"
+    }
   }
 }

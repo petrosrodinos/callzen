@@ -6,7 +6,8 @@
     "practice": "Practice",
     "reviews": "Call reviews",
     "teams": "Teams",
-    "createAccount": "Create account"
+    "createAccount": "Create account",
+    "pricing": "Pricing"
   },
   "actions": {
     "openDashboard": "Open dashboard",
@@ -191,5 +192,61 @@
     "analysing": "Analysing the call…",
     "reviewTitle": "Then the review, in seconds",
     "reviewLead": "The same analysis you get after every real call: a score, the mistakes and strengths, and the numbers behind them."
+  },
+  "pricing": {
+    "title": "Simple plans for reps and coaches",
+    "copy": "Every plan includes the live co-pilot, AI practice prospects and call analysis in all supported languages. Pay monthly, or yearly and get two months free.",
+    "trial": "Start with a free 14-day trial. No card needed.",
+    "cta": "Start free trial",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "tagline": "For individual reps getting started.",
+        "points": {
+          "live": "2 hours of live calls a month",
+          "practice": "30 minutes of AI practice",
+          "copilots": "1 co-pilot",
+          "basicAnalysis": "Score, category scores and next steps after every call"
+        }
+      },
+      "pro": {
+        "name": "Pro",
+        "tagline": "For serious individuals who call and practise a lot.",
+        "points": {
+          "live": "10 hours of live calls a month",
+          "practice": "5 hours of AI practice",
+          "copilots": "5 co-pilots and 25 practice prospects",
+          "fullAnalysis": "The full analysis: moments, metrics, insights and follow-up drafts",
+          "knowledge": "Import knowledge documents"
+        }
+      },
+      "coach": {
+        "name": "Coach",
+        "tagline": "For coaches and their students.",
+        "points": {
+          "seats": "You plus 10 students, more seats available",
+          "pool": "Shared minutes with a reserve for you and caps per student",
+          "tools": "Cohort dashboard, assignments, comments and weekly reports",
+          "access": "Choose which students can use each co-pilot and prospect"
+        }
+      }
+    },
+    "live": {
+      "students_one": "You plus {{count}} student.",
+      "students_other": "You plus {{count}} students.",
+      "moreSeats": "More seats available.",
+      "liveMinutes_one": "{{count}} minute of live calls a month",
+      "liveMinutes_other": "{{count}} minutes of live calls a month",
+      "liveUnlimited": "Unlimited live calls",
+      "practiceMinutes_one": "{{count}} minute of AI practice a month",
+      "practiceMinutes_other": "{{count}} minutes of AI practice a month",
+      "practiceUnlimited": "Unlimited AI practice",
+      "agentsUnlimited": "Unlimited co-pilots and practice prospects",
+      "perMonth": "{{price}} / month",
+      "trial_one": "Start with a free {{count}}-day trial. No card needed.",
+      "trial_other": "Start with a free {{count}}-day trial. No card needed.",
+      "agents_one": "{{count}} co-pilot and {{prospects}} practice prospects",
+      "agents_other": "{{count}} co-pilots and {{prospects}} practice prospects"
+    }
   }
 }

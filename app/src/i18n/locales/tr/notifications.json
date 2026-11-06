@@ -1,0 +1,45 @@
+{
+  "title": "Bildirimler",
+  "description": "Bu kuruluşa ait ödevler, yorumlar, raporlar ve faturalandırma uyarıları.",
+  "markAllRead": "Tümünü okundu olarak işaretle",
+  "empty": "Her şeyi gördünüz",
+  "emptyHint": "Yeni ödevler, yorumlar ve raporlar burada görünecek.",
+  "seeAll": "Tüm bildirimleri görün",
+  "otherOrganisations_one": "Başka bir kuruluşta {{count}} okunmamış bildiriminiz var.",
+  "otherOrganisations_other": "Diğer kuruluşlarda {{count}} okunmamış bildiriminiz var.",
+  "bell": {
+    "aria_one": "Bildirimler, {{count}} okunmamış",
+    "aria_other": "Bildirimler, {{count}} okunmamış"
+  },
+  "filters": {
+    "all": "Tümü",
+    "unread": "Okunmamış"
+  },
+  "errors": {
+    "load": "Bildirimler yüklenemedi. Lütfen tekrar deneyin.",
+    "markRead": "Bildirimler güncellenemedi. Lütfen tekrar deneyin."
+  },
+  "toasts": {
+    "allRead": "Tüm bildirimler okundu olarak işaretlendi",
+    "couldNotMarkRead": "Bildirimler güncellenemedi"
+  },
+  "items": {
+    "untitledAssignment": "bir ödev",
+    "someone": "Biri",
+    "assignmentNew": "Yeni alıştırma ödevi: {{title}}",
+    "assignmentDueSoon": "\"{{title}}\" için son tarih {{date}}",
+    "assignmentCompleted_one": "{{count}} öğrenci \"{{title}}\" ödevini tamamladı",
+    "assignmentCompleted_other": "{{count}} öğrenci \"{{title}}\" ödevini tamamladı",
+    "commentNew": "{{name}} aramanıza yorum yaptı",
+    "commentReply": "{{name}} yorumunuza yanıt verdi",
+    "coachReport": "{{date}} haftasına ait haftalık koçluk raporunuz hazır",
+    "prospectShared": "Sizinle bir alıştırma müşterisi paylaşıldı",
+    "copilotShared": "Sizinle bir yardımcı pilot paylaşıldı",
+    "billingPaymentFailed": "Bir ödeme başarısız oldu. Planınızı korumak için ödeme yönteminizi güncelleyin.",
+    "billingTrialEnding": "Deneme süreniz yakında bitiyor. Devam etmek için bir plan seçin.",
+    "billingActionRequired": "Bir ödemenin onayınıza ihtiyacı var.",
+    "billingPlanCanceled": "Planınız sona erdi. Verileriniz saklanıyor; devam etmek için abone olun.",
+    "billingGeneric": "Planınızla ilgili bir güncelleme var.",
+    "generic": "Yeni bir bildiriminiz var"
+  }
+}

@@ -3,9 +3,10 @@
   "save": "Save settings",
   "nav": {
     "profile": "Profile & preferences",
-    "usage": "Usage & costs",
+    "usage": "Usage",
     "privacy": "Privacy & data",
-    "sections": "Settings sections"
+    "sections": "Settings sections",
+    "billing": "Billing"
   },
   "validation": {
     "enterName": "Enter your name",
@@ -94,6 +95,35 @@
       "input": "Input / 1M tokens",
       "output": "Output / 1M tokens",
       "perMinute": "~{{price}} per minute"
+    },
+    "calls": "Sessions",
+    "averageSession": "Average {{minutes}} min per session",
+    "empty": "No usage in this period.",
+    "sessions": {
+      "title": "Minutes per session",
+      "average": "Average {{minutes}} min",
+      "session": "Session",
+      "member": "Member",
+      "kind": "Type",
+      "date": "Date",
+      "minutes": "Minutes",
+      "untitled": "Untitled session",
+      "you": "You"
+    },
+    "members": {
+      "title": "Minutes per member this period",
+      "member": "Member",
+      "live": "Live min",
+      "practice": "Practice min",
+      "owner": "Owner"
+    },
+    "admin": {
+      "title": "Platform admin: AI costs",
+      "totalCost": "AI cost (charged)",
+      "baseCost": "Base cost {{cost}}",
+      "averageCost": "average cost {{cost}} per session",
+      "cost": "Cost",
+      "chargedVsBase": "Amounts are the charged cost including markup; the base provider cost is in brackets."
     }
   }
 }

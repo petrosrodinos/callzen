@@ -28,5 +28,88 @@
       "postgres": "Databaseverbinding via Prisma.",
       "redis": "Verbinding met cache en wachtrij."
     }
+  },
+  "config": {
+    "title": "Configuratie",
+    "subtitle": "Prijzen, abonnementslimieten, zichtbaarheid van analyses en AI-modellen. Wijzigingen gelden binnen enkele seconden, zonder deploy.",
+    "tabs": {
+      "pricing": "Prijzen",
+      "plans": "Abonnementen",
+      "analysis": "Zichtbaarheid van analyses",
+      "ai": "AI-modellen",
+      "coaching": "Coaching",
+      "billing": "Facturering"
+    },
+    "updated": "Versie {{version}} · {{date}} door {{name}}",
+    "usingDefault": "Ingebouwde standaardwaarde in gebruik",
+    "system": "Systeem",
+    "public": "Zichtbaar voor gebruikers",
+    "history": "Geschiedenis",
+    "historyTitle": "Wijzigingsgeschiedenis",
+    "noHistory": "Nog geen wijzigingen.",
+    "before": "Voor",
+    "after": "Na",
+    "invalid": "De opgeslagen waarde komt niet meer overeen met het formaat van deze instelling, dus de ingebouwde standaardwaarde wordt gebruikt. Sla een geldige waarde op om dit te verhelpen.",
+    "invalidJson": "Ongeldige JSON: {{error}}",
+    "save": "Opslaan",
+    "discard": "Wijzigingen verwerpen",
+    "cancel": "Annuleren",
+    "reset": "Terugzetten naar standaard",
+    "resetTitle": "Terugzetten naar standaard?",
+    "resetDescription": "{{key}} gaat terug naar de ingebouwde standaardwaarde. De huidige waarde blijft in de geschiedenis staan.",
+    "plans": {
+      "title": "Abonnementslimieten en functies",
+      "hint": "Laat een getal leeg voor onbeperkt. Wijzigingen worden binnen enkele seconden gehandhaafd; wat al is aangemaakt wordt niet verwijderd.",
+      "limit": "Limiet",
+      "unlimited": "Onbeperkt",
+      "features": "Functies",
+      "none": "Geen"
+    },
+    "analysis": {
+      "title": "Zichtbaarheid van analyses per abonnement",
+      "section": "Analyseonderdeel"
+    },
+    "ai": {
+      "title": "Standaardmodellen",
+      "realtime": "Livesuggesties",
+      "analysis": "Gespreksanalyse",
+      "utility": "Hulptaken",
+      "voice": "Oefenstem",
+      "transcription": "Livetranscriptie",
+      "upload_transcription": "Transcriptie van uploads",
+      "shutdown": "stopt op {{date}}"
+    },
+    "pricing": {
+      "markupTitle": "Opslag",
+      "markupHint": "Wordt alleen bij nieuw gebruik bovenop de providerkosten gerekend. Eerder gebruik behoudt de opslag waarmee het is vastgelegd.",
+      "pricesTitle": "Modelprijzen",
+      "pricesDescription": "Gesynchroniseerd vanaf models.dev, in USD per 1M tokens (per minuut voor modellen met prijs per tijdsduur).",
+      "lastSynced": "Laatst gesynchroniseerd {{when}}",
+      "neverSynced": "Nog niet gesynchroniseerd",
+      "lastError": "laatste poging mislukt: {{error}}",
+      "syncNow": "Nu synchroniseren",
+      "snapshotOld": "De prijzen zijn al meer dan 48 uur niet gesynchroniseerd. Kosten gebruiken de laatst bekende prijzen.",
+      "model": "Model",
+      "source": "Bron",
+      "fetched": "Opgehaald",
+      "stale": "Verouderd",
+      "override": "Handmatig",
+      "addOverride": "Handmatige prijs toevoegen",
+      "overrideTitle": "Handmatige prijs voor {{model}}",
+      "overrideHint": "Wordt gebruikt als models.dev geen directe prijs heeft. Tokenprijzen zijn in USD per 1M tokens; per minuut is USD per audiominuut.",
+      "overridesTitle": "Handmatige prijzen",
+      "unpricedTitle": "Modellen zonder prijs",
+      "unpricedDescription": "Deze modellen worden vastgelegd tegen kosten van 0. Voeg een handmatige prijs toe zodat hun gebruik wordt berekend.",
+      "unpricedEvents_one": "{{count}} gebeurtenis in de afgelopen 30 dagen",
+      "unpricedEvents_other": "{{count}} gebeurtenissen in de afgelopen 30 dagen",
+      "fields": {
+        "input": "Invoer",
+        "output": "Uitvoer",
+        "cache_read": "Gecachte invoer",
+        "input_audio": "Audio-invoer",
+        "output_audio": "Audio-uitvoer",
+        "per_minute": "Per minuut"
+      }
+    }
   }
 }

@@ -28,5 +28,88 @@
       "postgres": "Database connectivity via Prisma.",
       "redis": "Cache and queue connectivity."
     }
+  },
+  "config": {
+    "title": "Configuration",
+    "subtitle": "Prices, plan limits, analysis visibility and AI models. Changes apply within seconds, with no deploy.",
+    "tabs": {
+      "pricing": "Pricing",
+      "plans": "Plans",
+      "analysis": "Analysis visibility",
+      "ai": "AI models",
+      "coaching": "Coaching",
+      "billing": "Billing"
+    },
+    "updated": "Version {{version}} · {{date}} by {{name}}",
+    "usingDefault": "Using the built-in default",
+    "system": "System",
+    "public": "Visible to users",
+    "history": "History",
+    "historyTitle": "Change history",
+    "noHistory": "No changes yet.",
+    "before": "Before",
+    "after": "After",
+    "invalid": "The stored value no longer matches this setting's format, so the built-in default is being used. Save a valid value to fix it.",
+    "invalidJson": "Invalid JSON: {{error}}",
+    "save": "Save",
+    "discard": "Discard changes",
+    "cancel": "Cancel",
+    "reset": "Reset to default",
+    "resetTitle": "Reset to default?",
+    "resetDescription": "{{key}} goes back to its built-in default. The current value stays in the history.",
+    "plans": {
+      "title": "Plan limits and features",
+      "hint": "Leave a number empty for unlimited. Changes apply to enforcement within seconds; nothing already created is removed.",
+      "limit": "Limit",
+      "unlimited": "Unlimited",
+      "features": "Features",
+      "none": "None"
+    },
+    "analysis": {
+      "title": "Analysis visibility by plan",
+      "section": "Analysis section"
+    },
+    "ai": {
+      "title": "Default models",
+      "realtime": "Live suggestions",
+      "analysis": "Call analysis",
+      "utility": "Utility tasks",
+      "voice": "Practice voice",
+      "transcription": "Live transcription",
+      "upload_transcription": "Upload transcription",
+      "shutdown": "shuts down {{date}}"
+    },
+    "pricing": {
+      "markupTitle": "Markup",
+      "markupHint": "Applied on top of the provider cost for new usage only. Past usage keeps the markup it was recorded with.",
+      "pricesTitle": "Model prices",
+      "pricesDescription": "Synced from models.dev, in USD per 1M tokens (per minute for duration-priced models).",
+      "lastSynced": "Last synced {{when}}",
+      "neverSynced": "Not synced yet",
+      "lastError": "last attempt failed: {{error}}",
+      "syncNow": "Sync now",
+      "snapshotOld": "Prices haven't been synced for more than 48 hours. Costs use the last known prices.",
+      "model": "Model",
+      "source": "Source",
+      "fetched": "Fetched",
+      "stale": "Stale",
+      "override": "Override",
+      "addOverride": "Add override",
+      "overrideTitle": "Manual price for {{model}}",
+      "overrideHint": "Used when models.dev has no direct price. Token prices are USD per 1M tokens; per minute is USD per audio minute.",
+      "overridesTitle": "Manual price overrides",
+      "unpricedTitle": "Unpriced models",
+      "unpricedDescription": "These models are recorded at a cost of 0. Add a manual price so their usage is costed.",
+      "unpricedEvents_one": "{{count}} event in the last 30 days",
+      "unpricedEvents_other": "{{count}} events in the last 30 days",
+      "fields": {
+        "input": "Input",
+        "output": "Output",
+        "cache_read": "Cached input",
+        "input_audio": "Audio in",
+        "output_audio": "Audio out",
+        "per_minute": "Per minute"
+      }
+    }
   }
 }

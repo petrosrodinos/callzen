@@ -28,5 +28,88 @@
       "postgres": "Conectividade da base de dados através do Prisma.",
       "redis": "Conectividade da cache e da fila."
     }
+  },
+  "config": {
+    "title": "Configuração",
+    "subtitle": "Preços, limites dos planos, visibilidade da análise e modelos de IA. As alterações aplicam-se em segundos, sem nova implementação.",
+    "tabs": {
+      "pricing": "Preços",
+      "plans": "Planos",
+      "analysis": "Visibilidade da análise",
+      "ai": "Modelos de IA",
+      "coaching": "Coaching",
+      "billing": "Faturação"
+    },
+    "updated": "Versão {{version}} · {{date}} por {{name}}",
+    "usingDefault": "A usar o valor predefinido integrado",
+    "system": "Sistema",
+    "public": "Visível para os utilizadores",
+    "history": "Histórico",
+    "historyTitle": "Histórico de alterações",
+    "noHistory": "Ainda não há alterações.",
+    "before": "Antes",
+    "after": "Depois",
+    "invalid": "O valor guardado já não corresponde ao formato desta definição, por isso está a ser usado o valor predefinido integrado. Guarde um valor válido para corrigir.",
+    "invalidJson": "JSON inválido: {{error}}",
+    "save": "Guardar",
+    "discard": "Descartar alterações",
+    "cancel": "Cancelar",
+    "reset": "Repor predefinição",
+    "resetTitle": "Repor a predefinição?",
+    "resetDescription": "{{key}} volta ao valor predefinido integrado. O valor atual fica no histórico.",
+    "plans": {
+      "title": "Limites e funcionalidades dos planos",
+      "hint": "Deixe um número vazio para ilimitado. As alterações aplicam-se em segundos; nada do que já foi criado é removido.",
+      "limit": "Limite",
+      "unlimited": "Ilimitado",
+      "features": "Funcionalidades",
+      "none": "Nenhuma"
+    },
+    "analysis": {
+      "title": "Visibilidade da análise por plano",
+      "section": "Secção da análise"
+    },
+    "ai": {
+      "title": "Modelos predefinidos",
+      "realtime": "Sugestões ao vivo",
+      "analysis": "Análise de chamadas",
+      "utility": "Tarefas auxiliares",
+      "voice": "Voz de treino",
+      "transcription": "Transcrição ao vivo",
+      "upload_transcription": "Transcrição de carregamentos",
+      "shutdown": "descontinuado a {{date}}"
+    },
+    "pricing": {
+      "markupTitle": "Margem",
+      "markupHint": "Aplicada sobre o custo do fornecedor apenas na nova utilização. A utilização anterior mantém a margem com que foi registada.",
+      "pricesTitle": "Preços dos modelos",
+      "pricesDescription": "Sincronizados a partir de models.dev, em USD por 1M de tokens (por minuto nos modelos com preço por duração).",
+      "lastSynced": "Última sincronização {{when}}",
+      "neverSynced": "Ainda não sincronizado",
+      "lastError": "a última tentativa falhou: {{error}}",
+      "syncNow": "Sincronizar agora",
+      "snapshotOld": "Os preços não são sincronizados há mais de 48 horas. Os custos usam os últimos preços conhecidos.",
+      "model": "Modelo",
+      "source": "Origem",
+      "fetched": "Obtido",
+      "stale": "Desatualizado",
+      "override": "Preço manual",
+      "addOverride": "Adicionar preço manual",
+      "overrideTitle": "Preço manual para {{model}}",
+      "overrideHint": "Usado quando o models.dev não tem um preço direto. Os preços por token são em USD por 1M de tokens; por minuto é USD por minuto de áudio.",
+      "overridesTitle": "Preços manuais",
+      "unpricedTitle": "Modelos sem preço",
+      "unpricedDescription": "Estes modelos são registados com custo 0. Adicione um preço manual para que a sua utilização tenha custo.",
+      "unpricedEvents_one": "{{count}} evento nos últimos 30 dias",
+      "unpricedEvents_other": "{{count}} eventos nos últimos 30 dias",
+      "fields": {
+        "input": "Entrada",
+        "output": "Saída",
+        "cache_read": "Entrada em cache",
+        "input_audio": "Áudio de entrada",
+        "output_audio": "Áudio de saída",
+        "per_minute": "Por minuto"
+      }
+    }
   }
 }

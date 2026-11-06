@@ -1,0 +1,45 @@
+{
+  "title": "Notificações",
+  "description": "Tarefas, comentários, relatórios e alertas de faturação desta organização.",
+  "markAllRead": "Marcar todas como lidas",
+  "empty": "Está tudo em dia",
+  "emptyHint": "As novas tarefas, comentários e relatórios aparecem aqui.",
+  "seeAll": "Ver todas as notificações",
+  "otherOrganisations_one": "Tem {{count}} notificação por ler noutra organização.",
+  "otherOrganisations_other": "Tem {{count}} notificações por ler noutras organizações.",
+  "bell": {
+    "aria_one": "Notificações, {{count}} por ler",
+    "aria_other": "Notificações, {{count}} por ler"
+  },
+  "filters": {
+    "all": "Todas",
+    "unread": "Por ler"
+  },
+  "errors": {
+    "load": "Não foi possível carregar as notificações. Tente novamente.",
+    "markRead": "Não foi possível atualizar as notificações. Tente novamente."
+  },
+  "toasts": {
+    "allRead": "Todas as notificações foram marcadas como lidas",
+    "couldNotMarkRead": "Não foi possível atualizar as notificações"
+  },
+  "items": {
+    "untitledAssignment": "uma tarefa",
+    "someone": "Alguém",
+    "assignmentNew": "Nova tarefa de treino: {{title}}",
+    "assignmentDueSoon": "«{{title}}» termina a {{date}}",
+    "assignmentCompleted_one": "{{count}} aluno concluiu «{{title}}»",
+    "assignmentCompleted_other": "{{count}} alunos concluíram «{{title}}»",
+    "commentNew": "{{name}} comentou a sua chamada",
+    "commentReply": "{{name}} respondeu ao seu comentário",
+    "coachReport": "O seu relatório semanal de coaching da semana de {{date}} está pronto",
+    "prospectShared": "Foi partilhado consigo um prospect de treino",
+    "copilotShared": "Foi partilhado consigo um copiloto",
+    "billingPaymentFailed": "Um pagamento falhou. Atualize o seu método de pagamento para manter o plano.",
+    "billingTrialEnding": "O seu período experimental termina em breve. Escolha um plano para continuar.",
+    "billingActionRequired": "Um pagamento precisa da sua confirmação.",
+    "billingPlanCanceled": "O seu plano terminou. Os seus dados são mantidos; subscreva para continuar.",
+    "billingGeneric": "Há uma novidade sobre o seu plano.",
+    "generic": "Tem uma nova notificação"
+  }
+}

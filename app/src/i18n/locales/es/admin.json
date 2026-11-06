@@ -28,5 +28,88 @@
       "postgres": "Conectividad de la base de datos mediante Prisma.",
       "redis": "Conectividad de la caché y de la cola."
     }
+  },
+  "config": {
+    "title": "Configuración",
+    "subtitle": "Precios, límites de los planes, visibilidad del análisis y modelos de IA. Los cambios se aplican en segundos, sin despliegue.",
+    "tabs": {
+      "pricing": "Precios",
+      "plans": "Planes",
+      "analysis": "Visibilidad del análisis",
+      "ai": "Modelos de IA",
+      "coaching": "Coaching",
+      "billing": "Facturación"
+    },
+    "updated": "Versión {{version}} · {{date}} por {{name}}",
+    "usingDefault": "Usando el valor predeterminado integrado",
+    "system": "Sistema",
+    "public": "Visible para los usuarios",
+    "history": "Historial",
+    "historyTitle": "Historial de cambios",
+    "noHistory": "Aún no hay cambios.",
+    "before": "Antes",
+    "after": "Después",
+    "invalid": "El valor guardado ya no coincide con el formato de este ajuste, así que se está usando el valor predeterminado integrado. Guarda un valor válido para corregirlo.",
+    "invalidJson": "JSON no válido: {{error}}",
+    "save": "Guardar",
+    "discard": "Descartar cambios",
+    "cancel": "Cancelar",
+    "reset": "Restablecer valor predeterminado",
+    "resetTitle": "¿Restablecer el valor predeterminado?",
+    "resetDescription": "{{key}} vuelve a su valor predeterminado integrado. El valor actual se conserva en el historial.",
+    "plans": {
+      "title": "Límites y funciones de los planes",
+      "hint": "Deja un número vacío para que sea ilimitado. Los cambios se aplican en segundos; no se elimina nada de lo ya creado.",
+      "limit": "Límite",
+      "unlimited": "Ilimitado",
+      "features": "Funciones",
+      "none": "Ninguna"
+    },
+    "analysis": {
+      "title": "Visibilidad del análisis por plan",
+      "section": "Sección del análisis"
+    },
+    "ai": {
+      "title": "Modelos predeterminados",
+      "realtime": "Sugerencias en vivo",
+      "analysis": "Análisis de llamadas",
+      "utility": "Tareas auxiliares",
+      "voice": "Voz de práctica",
+      "transcription": "Transcripción en vivo",
+      "upload_transcription": "Transcripción de archivos subidos",
+      "shutdown": "se retira el {{date}}"
+    },
+    "pricing": {
+      "markupTitle": "Margen",
+      "markupHint": "Se aplica sobre el coste del proveedor solo al nuevo uso. El uso anterior mantiene el margen con el que se registró.",
+      "pricesTitle": "Precios de los modelos",
+      "pricesDescription": "Sincronizados desde models.dev, en USD por 1M de tokens (por minuto en los modelos con precio por duración).",
+      "lastSynced": "Última sincronización {{when}}",
+      "neverSynced": "Aún no sincronizado",
+      "lastError": "el último intento falló: {{error}}",
+      "syncNow": "Sincronizar ahora",
+      "snapshotOld": "Los precios no se sincronizan desde hace más de 48 horas. Los costes usan los últimos precios conocidos.",
+      "model": "Modelo",
+      "source": "Origen",
+      "fetched": "Obtenido",
+      "stale": "Desactualizado",
+      "override": "Precio manual",
+      "addOverride": "Añadir precio manual",
+      "overrideTitle": "Precio manual para {{model}}",
+      "overrideHint": "Se usa cuando models.dev no tiene un precio directo. Los precios por token son USD por 1M de tokens; por minuto es USD por minuto de audio.",
+      "overridesTitle": "Precios manuales",
+      "unpricedTitle": "Modelos sin precio",
+      "unpricedDescription": "Estos modelos se registran con un coste de 0. Añade un precio manual para que su uso tenga coste.",
+      "unpricedEvents_one": "{{count}} evento en los últimos 30 días",
+      "unpricedEvents_other": "{{count}} eventos en los últimos 30 días",
+      "fields": {
+        "input": "Entrada",
+        "output": "Salida",
+        "cache_read": "Entrada en caché",
+        "input_audio": "Audio de entrada",
+        "output_audio": "Audio de salida",
+        "per_minute": "Por minuto"
+      }
+    }
   }
 }

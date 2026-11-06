@@ -1,0 +1,86 @@
+{
+  "badge": {
+    "everyone": "Toată lumea",
+    "sharedWith_one": "Partajat cu {{count}}",
+    "sharedWith_few": "Partajat cu {{count}}",
+    "sharedWith_other": "Partajat cu {{count}}",
+    "private": "Privat",
+    "privateHint": "Doar tu și coach-ul tău",
+    "sharedWithYou": "Partajat cu tine"
+  },
+  "editor": {
+    "title": "Cine poate folosi asta",
+    "description": {
+      "copilot": "Alege dacă toată lumea din organizație poate folosi acest copilot sau doar cursanții pe care îi selectezi.",
+      "prospect": "Alege dacă toată lumea din organizație poate exersa cu acest prospect sau doar cursanții pe care îi selectezi."
+    },
+    "students": "Cursanți",
+    "noneSelected": "Niciun cursant selectat: doar tu și ceilalți coachi îl puteți folosi.",
+    "save": "Salvează accesul",
+    "onlyYouAndCoach": "Doar tu și coach-ul tău puteți vedea acest prospect.",
+    "restrictedReadOnly_one": "Restricționat la {{count}} cursant. Planul tău nu mai include controlul accesului, așa că această setare nu poate fi schimbată.",
+    "restrictedReadOnly_few": "Restricționat la {{count}} cursanți. Planul tău nu mai include controlul accesului, așa că această setare nu poate fi schimbată.",
+    "restrictedReadOnly_other": "Restricționat la {{count}} de cursanți. Planul tău nu mai include controlul accesului, așa că această setare nu poate fi schimbată."
+  },
+  "picker": {
+    "placeholder": "Alege cursanți",
+    "selected_one": "{{count}} cursant selectat",
+    "selected_few": "{{count}} cursanți selectați",
+    "selected_other": "{{count}} de cursanți selectați",
+    "search": "Caută membri",
+    "noMembers": "Niciun membru găsit.",
+    "remove": "Elimină pe {{name}}",
+    "formerMember": "Fost membru"
+  },
+  "bulk": {
+    "select": "Selectează pentru partajare",
+    "selected_one": "{{count}} selectat",
+    "selected_few": "{{count}} selectate",
+    "selected_other": "{{count}} de selectate",
+    "share": "Partajează cu…",
+    "cancel": "Anulează selecția",
+    "selectItem": "Selectează {{name}}"
+  },
+  "share": {
+    "title_one": "Partajează {{count}} element",
+    "title_few": "Partajează {{count}} elemente",
+    "title_other": "Partajează {{count}} de elemente",
+    "description": "Cursanții selectați le pot folosi imediat. Elementele deja partajate cu toată lumea rămân neschimbate.",
+    "cancel": "Anulează",
+    "confirm": "Partajează"
+  },
+  "student": {
+    "title": "Acces",
+    "description": "Activează copiloții și prospecții pe care îi poate folosi acest cursant. Elementele partajate cu toată lumea sunt mereu disponibile.",
+    "descriptionReadOnly": "Copiloții și prospecții pe care îi poate folosi acest cursant.",
+    "copilots": "Copiloți",
+    "prospects": "Prospecți de exersare",
+    "none": "Încă nu există nimic aici.",
+    "privateToStudent": "Creat de acest cursant",
+    "archived": "Arhivat",
+    "toggleAria": "Acces la {{name}}"
+  },
+  "empty": {
+    "noSharedCopilot": "Coach-ul tău nu a partajat încă un copilot",
+    "noSharedCopilotDescription": "Copiloții pe care coach-ul tău îi partajează cu tine vor apărea aici.",
+    "noSharedCopilotCall": "Încă nu a fost partajat niciun copilot cu tine. Roagă-ți coach-ul să partajeze unul; între timp poți exersa în continuare.",
+    "goPractice": "Mergi la exersare"
+  },
+  "toasts": {
+    "accessSaved": "Acces actualizat",
+    "couldNotSaveAccess": "Accesul nu a putut fi actualizat",
+    "shared_one": "{{count}} element partajat",
+    "shared_few": "{{count}} elemente partajate",
+    "shared_other": "{{count}} de elemente partajate",
+    "sharedPeople_one": "{{count}} persoană a primit acces.",
+    "sharedPeople_few": "{{count}} persoane au primit acces.",
+    "sharedPeople_other": "{{count}} de persoane au primit acces.",
+    "alreadyShared": "Toate persoanele alese aveau deja acces.",
+    "couldNotShare": "Partajarea a eșuat"
+  },
+  "errors": {
+    "updateAccess": "Accesul nu a putut fi actualizat. Încearcă din nou.",
+    "loadStudentAccess": "Accesul acestui cursant nu a putut fi încărcat. Încearcă din nou.",
+    "share": "Partajarea a eșuat. Încearcă din nou."
+  }
+}

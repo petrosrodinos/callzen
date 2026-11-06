@@ -34,7 +34,7 @@ export function ModelsSection({
               <ModelPicker
                 name={t("models.realtimeModel")}
                 purpose="realtime"
-                models={catalog.ai_models}
+                models={catalog.ai_models ?? []}
                 recommended={catalog.recommended_realtime_model}
                 value={field.value}
                 onChange={field.onChange}
@@ -55,7 +55,7 @@ export function ModelsSection({
               <ModelPicker
                 name={t("models.analysisModel")}
                 purpose="analysis"
-                models={catalog.ai_models}
+                models={catalog.ai_models ?? []}
                 recommended={catalog.recommended_analysis_model}
                 value={field.value}
                 onChange={field.onChange}

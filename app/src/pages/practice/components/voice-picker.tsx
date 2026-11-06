@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Check, Star, Timer, Wallet, Waves } from "lucide-react";
+import { Check, Star, Timer, Waves } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -20,7 +20,6 @@ import {
   listBrowserVoices,
   isSpeechRecognitionSupported,
 } from "@/lib/audio/browser-speech";
-import { formatCurrency } from "@/lib/format";
 
 interface VoicePickerProps {
   providers: VoiceProviderInfo[];
@@ -67,71 +66,69 @@ export function VoicePicker({
 
   return (
     <div className="space-y-4">
-      <div
-        role="radiogroup"
-        aria-label={t("voicePicker.providerAria")}
-        className="grid grid-cols-1 gap-2 sm:grid-cols-2"
-      >
-        {providers.map((p) => {
-          const isSelected = p.id === provider;
-          const unsupported =
-            p.id === VoiceProviders.BROWSER && !isSpeechRecognitionSupported();
-          return (
-            <button
-              key={p.id}
-              type="button"
-              role="radio"
-              aria-checked={isSelected}
-              disabled={unsupported}
-              onClick={() => {
-                onProviderChange(p.id);
-                onVoiceChange(
-                  p.id === VoiceProviders.BROWSER
-                    ? ""
-                    : (p.voices[0]?.id ?? ""),
-                );
-              }}
-              className={cn(
-                "flex flex-col gap-2 rounded-xl border p-3 text-left transition-colors hover:border-primary/50 disabled:cursor-not-allowed disabled:opacity-50",
-                isSelected && "border-primary bg-primary/5 ring-1 ring-primary",
-              )}
-            >
-              <span className="flex items-center gap-2 font-medium">
-                {p.label}
-                {p.recommended && (
-                  <Badge className="gap-1 bg-primary/10 text-primary shadow-none hover:bg-primary/10">
-                    <Star className="size-3" /> {t("voicePicker.recommended")}
-                  </Badge>
+      {/* Users only get OpenAI Realtime voices; the provider choice is shown to platform admins only (§6.4). */}
+      {providers.length > 1 && (
+        <div
+          role="radiogroup"
+          aria-label={t("voicePicker.providerAria")}
+          className="grid grid-cols-1 gap-2 sm:grid-cols-2"
+        >
+          {providers.map((p) => {
+            const isSelected = p.id === provider;
+            const unsupported =
+              p.id === VoiceProviders.BROWSER &&
+              !isSpeechRecognitionSupported();
+            return (
+              <button
+                key={p.id}
+                type="button"
+                role="radio"
+                aria-checked={isSelected}
+                disabled={unsupported}
+                onClick={() => {
+                  onProviderChange(p.id);
+                  onVoiceChange(
+                    p.id === VoiceProviders.BROWSER
+                      ? ""
+                      : (p.voices[0]?.id ?? ""),
+                  );
+                }}
+                className={cn(
+                  "flex flex-col gap-2 rounded-xl border p-3 text-left transition-colors hover:border-primary/50 disabled:cursor-not-allowed disabled:opacity-50",
+                  isSelected &&
+                    "border-primary bg-primary/5 ring-1 ring-primary",
                 )}
-                {isSelected && (
-                  <Check className="ml-auto size-4 text-primary" />
-                )}
-              </span>
-              <span className="text-xs text-muted-foreground">
-                {unsupported
-                  ? t("voicePicker.unsupported")
-                  : p.description}
-              </span>
-              <span className="flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-muted-foreground">
-                <span className="inline-flex items-center gap-1">
-                  <Waves className="size-3" />{" "}
-                  {t("voicePicker.realism", {
-                    stars: "★".repeat(p.realism),
-                  })}
+              >
+                <span className="flex items-center gap-2 font-medium">
+                  {p.label}
+                  {p.recommended && (
+                    <Badge className="gap-1 bg-primary/10 text-primary shadow-none hover:bg-primary/10">
+                      <Star className="size-3" /> {t("voicePicker.recommended")}
+                    </Badge>
+                  )}
+                  {isSelected && (
+                    <Check className="ml-auto size-4 text-primary" />
+                  )}
                 </span>
-                <span className="inline-flex items-center gap-1">
-                  <Timer className="size-3" /> {p.latency}
+                <span className="text-xs text-muted-foreground">
+                  {unsupported ? t("voicePicker.unsupported") : p.description}
                 </span>
-                <span className="inline-flex items-center gap-1">
-                  <Wallet className="size-3" /> ~
-                  {formatCurrency(p.cost_per_minute_usd)}
-                  {t("voicePicker.perMinute")}
+                <span className="flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-muted-foreground">
+                  <span className="inline-flex items-center gap-1">
+                    <Waves className="size-3" />{" "}
+                    {t("voicePicker.realism", {
+                      stars: "★".repeat(p.realism),
+                    })}
+                  </span>
+                  <span className="inline-flex items-center gap-1">
+                    <Timer className="size-3" /> {p.latency}
+                  </span>
                 </span>
-              </span>
-            </button>
-          );
-        })}
-      </div>
+              </button>
+            );
+          })}
+        </div>
+      )}
 
       <div className="space-y-1.5">
         <Label>{t("voicePicker.voice")}</Label>

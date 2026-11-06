@@ -1,9 +1,19 @@
+import { AppConfigService } from '@/modules/app-config/app-config.service';
 import {
   BadRequestException,
+  ForbiddenException,
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { can, OrgContext } from '@/shared/interfaces/org-context.interface';
+import {
+  can,
+  isPlatformAdmin,
+  OrgContext,
+} from '@/shared/interfaces/org-context.interface';
+import {
+  DEFAULT_OPENAI_VOICE,
+  OPENAI_VOICE_IDS,
+} from '@/shared/config/voices/voice-providers.config';
 import { Permissions } from '@/shared/config/permissions/permissions.config';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
 import {
@@ -14,6 +24,8 @@ import {
   VoiceProvider,
 } from 'generated/prisma';
 import { AiService } from '@/integrations/ai/services/ai.service';
+import { PlanLimitService } from '@/modules/billing/services/plan-limit.service';
+import { AgentAccessService } from '@/modules/agent-access/agent-access.service';
 import { UsageService } from '@/modules/usage/usage.service';
 import { CreatePracticeAgentDto } from './dto/create-practice-agent.dto';
 import { UpdatePracticeAgentDto } from './dto/update-practice-agent.dto';
@@ -23,7 +35,6 @@ import {
 } from './dto/generate-practice-agent.dto';
 import { PracticeAgentQueryType } from './dto/practice-agent-query.schema';
 import { findPracticeAgentTemplate } from '@/shared/config/templates/practice-agent-templates.config';
-import { UTILITY_MODEL } from '@/shared/config/ai-models/ai-models.config';
 import { ErrorCodes } from '@/shared/config/error-codes';
 import {
   buildProductContext,
@@ -58,12 +69,22 @@ const RANDOM_INDUSTRIES = [
 @Injectable()
 export class PracticeAgentsService {
   constructor(
+    private readonly appConfig: AppConfigService,
     private readonly prisma: PrismaService,
     private readonly aiService: AiService,
     private readonly usageService: UsageService,
+    private readonly planLimits: PlanLimitService,
+    private readonly agentAccess: AgentAccessService,
   ) {}
 
+  // Runtime model defaults (admin-configurable); a co-pilot's own model wins when set.
+  private get models() {
+    return this.appConfig.get('ai.default_models');
+  }
+
   async create(ctx: OrgContext, dto: CreatePracticeAgentDto) {
+    await this.planLimits.assertCanCreatePracticeProspect(ctx);
+    dto = this.withUserVoice(ctx, dto);
     if (dto.linked_assistant_agent_id)
       await this.assertAssistantAgent(ctx, dto.linked_assistant_agent_id);
     const template = dto.template_key
@@ -77,10 +98,14 @@ export class PracticeAgentsService {
 
     const merged = { ...templateFields, ...dto };
     return this.prisma.practiceAgent.create({
-      data: this.toData(
-        { ...merged, ...normalizeLanguages(merged.language, merged.languages) },
-        ctx,
-      ) as Prisma.PracticeAgentUncheckedCreateInput,
+      data: {
+        ...(this.toData(
+          { ...merged, ...normalizeLanguages(merged.language, merged.languages) },
+          ctx,
+        ) as Prisma.PracticeAgentUncheckedCreateInput),
+        // Students' own prospects start private to them and their coach (§10.1h rule 6).
+        visibility: await this.agentAccess.defaultPracticeVisibility(ctx),
+      },
     });
   }
 
@@ -91,6 +116,8 @@ export class PracticeAgentsService {
     const agents = await this.prisma.practiceAgent.findMany({
       where: {
         organisation_id: ctx.organisationId,
+        // Members only see what is shared with them (§10.1h); filtered in the DB.
+        ...this.agentAccess.practiceAgentVisibleWhere(ctx),
         ...(query.status === 'active' && { archived_at: null }),
         ...(query.status === 'archived' && { archived_at: { not: null } }),
         ...(query.search && {
@@ -104,24 +131,40 @@ export class PracticeAgentsService {
       orderBy: { updated_at: 'desc' },
     });
 
-    const stats = await this.statsFor(
-      ctx,
-      agents.map((agent) => agent.id),
-    );
+    const ids = agents.map((agent) => agent.id);
+    const [stats, accessLists] = await Promise.all([
+      this.statsFor(ctx, ids),
+      this.accessListsFor(ctx, ids),
+    ]);
     return agents.map((agent) => ({
       ...agent,
+      ...(accessLists && { access_user_ids: accessLists.get(agent.id) ?? [] }),
       stats: stats.get(agent.id) ?? this.emptyStats(),
     }));
   }
 
   async findOne(ctx: OrgContext, id: string): Promise<PracticeAgentWithStats> {
     const agent = await this.getOwned(ctx, id);
-    const stats = await this.statsFor(ctx, [id]);
-    return { ...agent, stats: stats.get(id) ?? this.emptyStats() };
+    const [stats, accessLists] = await Promise.all([
+      this.statsFor(ctx, [id]),
+      this.accessListsFor(ctx, [id]),
+    ]);
+    return {
+      ...agent,
+      ...(accessLists && { access_user_ids: accessLists.get(id) ?? [] }),
+      stats: stats.get(id) ?? this.emptyStats(),
+    };
+  }
+
+  // Access lists are only returned to people who can change any prospect's access (prospects.manage_all).
+  private async accessListsFor(ctx: OrgContext, ids: string[]) {
+    if (!can(ctx, Permissions.PROSPECTS_MANAGE_ALL)) return null;
+    return this.agentAccess.accessListsFor('prospect', ids);
   }
 
   async update(ctx: OrgContext, id: string, dto: UpdatePracticeAgentDto) {
-    const existing = await this.getOwned(ctx, id);
+    const existing = await this.getManageable(ctx, id);
+    dto = this.withUserVoice(ctx, dto);
     if (dto.linked_assistant_agent_id)
       await this.assertAssistantAgent(ctx, dto.linked_assistant_agent_id);
 
@@ -141,6 +184,7 @@ export class PracticeAgentsService {
 
   async duplicate(ctx: OrgContext, id: string) {
     const agent = await this.getOwned(ctx, id);
+    await this.planLimits.assertCanCreatePracticeProspect(ctx);
     const { id: _id, created_at, updated_at, archived_at, ...rest } = agent;
 
     return this.prisma.practiceAgent.create({
@@ -148,6 +192,8 @@ export class PracticeAgentsService {
         ...rest,
         user_id: ctx.userId,
         name: `${agent.name} (copy)`,
+        // The copy belongs to whoever made it: a student's copy is private to them and their coach.
+        visibility: await this.agentAccess.defaultPracticeVisibility(ctx),
         pain_points: agent.pain_points as Prisma.InputJsonValue,
         objections: agent.objections as Prisma.InputJsonValue,
         hidden_information: agent.hidden_information as Prisma.InputJsonValue,
@@ -176,7 +222,9 @@ export class PracticeAgentsService {
   }
 
   async setArchived(ctx: OrgContext, id: string, archived: boolean) {
-    await this.getOwned(ctx, id);
+    const agent = await this.getManageable(ctx, id);
+    if (!archived && agent.archived_at)
+      await this.planLimits.assertCanCreatePracticeProspect(ctx);
     return this.prisma.practiceAgent.update({
       where: { id },
       data: { archived_at: archived ? new Date() : null },
@@ -184,12 +232,15 @@ export class PracticeAgentsService {
   }
 
   async remove(ctx: OrgContext, id: string) {
-    await this.getOwned(ctx, id);
+    await this.getManageable(ctx, id);
     await this.prisma.practiceAgent.delete({ where: { id } });
     return { id, deleted: true };
   }
 
   async generate(ctx: OrgContext, dto: GeneratePracticeAgentDto) {
+    // Saving goes through create(); an unsaved draft still costs AI, so read-only orgs cannot generate.
+    if (dto.save) await this.planLimits.assertCanCreatePracticeProspect(ctx);
+    else await this.planLimits.assertWritable(ctx);
     const assistant = dto.assistant_agent_id
       ? await this.assertAssistantAgent(ctx, dto.assistant_agent_id)
       : null;
@@ -216,6 +267,8 @@ export class PracticeAgentsService {
   }
 
   async randomize(ctx: OrgContext, dto: RandomizePracticeAgentDto) {
+    if (dto.save) await this.planLimits.assertCanCreatePracticeProspect(ctx);
+    else await this.planLimits.assertWritable(ctx);
     const assistant = dto.assistant_agent_id
       ? await this.assertAssistantAgent(ctx, dto.assistant_agent_id)
       : null;
@@ -244,6 +297,7 @@ ${buildProductContext({ product: assistant?.description ?? assistant?.call_goal,
   }
 
   async fromCall(ctx: OrgContext, callId: string) {
+    await this.planLimits.assertCanCreatePracticeProspect(ctx);
     const call = await this.prisma.call.findFirst({
       where: {
         id: callId,
@@ -304,16 +358,21 @@ ${formatTranscript(call.segments, { maxChars: 14000 })}`,
     });
   }
 
-  async getOwned(ctx: OrgContext, id: string) {
-    const agent = await this.prisma.practiceAgent.findFirst({
-      where: { id, organisation_id: ctx.organisationId },
-    });
-    if (!agent)
-      throw new NotFoundException({
-        message: 'Practice agent not found',
-        code: ErrorCodes.PracticeAgents.NOT_FOUND,
+  // Editing, archiving and deleting: your own prospects with prospects.manage, anyone's with
+  // prospects.manage_all (§10.1h rule 5). Students can never change the coach's prospects.
+  async getManageable(ctx: OrgContext, id: string) {
+    const agent = await this.getOwned(ctx, id);
+    if (agent.user_id !== ctx.userId && !can(ctx, Permissions.PROSPECTS_MANAGE_ALL))
+      throw new ForbiddenException({
+        message: 'You can only change practice prospects you created',
+        code: 'NOT_PROSPECT_AUTHOR',
       });
     return agent;
+  }
+
+  // Items the viewer cannot see return 404, so their existence is not leaked (§10.1h).
+  async getOwned(ctx: OrgContext, id: string) {
+    return this.agentAccess.findVisiblePracticeAgent(ctx, id);
   }
 
   private async runGeneration(
@@ -322,7 +381,7 @@ ${formatTranscript(call.segments, { maxChars: 14000 })}`,
     temperature = 0.8,
   ): Promise<GeneratedPracticeAgent> {
     const result = await this.aiService.generateStructured({
-      model: UTILITY_MODEL,
+      model: this.models.utility,
       system: PRACTICE_AGENT_GENERATION_SYSTEM,
       prompt,
       schema: GeneratedPracticeAgentSchema,
@@ -336,9 +395,7 @@ ${formatTranscript(call.segments, { maxChars: 14000 })}`,
       userId: ctx.userId,
       kind: UsageKind.GENERATION,
       model: result.model,
-      inputTokens: result.usage.inputTokens,
-      outputTokens: result.usage.outputTokens,
-      costUsd: result.usage.costUsd,
+      tokens: result.usage,
     });
 
     return result.output;
@@ -369,6 +426,24 @@ ${formatTranscript(call.segments, { maxChars: 14000 })}`,
     return this.create(ctx, draft);
   }
 
+  // Browser voice stays available to platform admins only (§6.4); everyone else gets OpenAI Realtime with a
+  // valid OpenAI voice.
+  private withUserVoice<T extends UpdatePracticeAgentDto>(
+    ctx: OrgContext,
+    dto: T,
+  ): T {
+    if (isPlatformAdmin(ctx)) return dto;
+    const touchesVoice = dto.voice_provider !== undefined || dto.voice !== undefined;
+    if (!touchesVoice) return dto;
+    return {
+      ...dto,
+      voice_provider: VoiceProvider.OPENAI_REALTIME,
+      ...(dto.voice !== undefined && {
+        voice: OPENAI_VOICE_IDS.includes(dto.voice) ? dto.voice : DEFAULT_OPENAI_VOICE,
+      }),
+    };
+  }
+
   private toData(dto: Partial<CreatePracticeAgentDto>, ctx?: OrgContext) {
     const { template_key, ...rest } = dto;
     return {
@@ -386,16 +461,9 @@ ${formatTranscript(call.segments, { maxChars: 14000 })}`,
     };
   }
 
+  // Linking or generating from a co-pilot requires being able to see it.
   private async assertAssistantAgent(ctx: OrgContext, id: string) {
-    const agent = await this.prisma.assistantAgent.findFirst({
-      where: { id, organisation_id: ctx.organisationId },
-    });
-    if (!agent)
-      throw new NotFoundException({
-        message: 'Assistant agent not found',
-        code: ErrorCodes.AssistantAgents.NOT_FOUND,
-      });
-    return agent;
+    return this.agentAccess.findVisibleAssistantAgent(ctx, id);
   }
 
   private emptyStats(): PracticeAgentStats {

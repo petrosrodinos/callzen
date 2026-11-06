@@ -28,5 +28,88 @@
       "postgres": "Connettività del database tramite Prisma.",
       "redis": "Connettività di cache e code."
     }
+  },
+  "config": {
+    "title": "Configurazione",
+    "subtitle": "Prezzi, limiti dei piani, visibilità delle analisi e modelli di IA. Le modifiche si applicano in pochi secondi, senza deploy.",
+    "tabs": {
+      "pricing": "Prezzi",
+      "plans": "Piani",
+      "analysis": "Visibilità delle analisi",
+      "ai": "Modelli di IA",
+      "coaching": "Coaching",
+      "billing": "Fatturazione"
+    },
+    "updated": "Versione {{version}} · {{date}} da {{name}}",
+    "usingDefault": "Viene usato il valore predefinito integrato",
+    "system": "Sistema",
+    "public": "Visibile agli utenti",
+    "history": "Cronologia",
+    "historyTitle": "Cronologia delle modifiche",
+    "noHistory": "Ancora nessuna modifica.",
+    "before": "Prima",
+    "after": "Dopo",
+    "invalid": "Il valore salvato non corrisponde più al formato di questa impostazione, quindi viene usato il valore predefinito integrato. Salva un valore valido per risolvere.",
+    "invalidJson": "JSON non valido: {{error}}",
+    "save": "Salva",
+    "discard": "Annulla modifiche",
+    "cancel": "Annulla",
+    "reset": "Ripristina predefinito",
+    "resetTitle": "Ripristinare il valore predefinito?",
+    "resetDescription": "{{key}} torna al suo valore predefinito integrato. Il valore attuale resta nella cronologia.",
+    "plans": {
+      "title": "Limiti e funzionalità dei piani",
+      "hint": "Lascia un numero vuoto per illimitato. Le modifiche vengono applicate in pochi secondi; nulla di quanto già creato viene rimosso.",
+      "limit": "Limite",
+      "unlimited": "Illimitato",
+      "features": "Funzionalità",
+      "none": "Nessuna"
+    },
+    "analysis": {
+      "title": "Visibilità delle analisi per piano",
+      "section": "Sezione dell'analisi"
+    },
+    "ai": {
+      "title": "Modelli predefiniti",
+      "realtime": "Suggerimenti in tempo reale",
+      "analysis": "Analisi delle chiamate",
+      "utility": "Attività di supporto",
+      "voice": "Voce per la pratica",
+      "transcription": "Trascrizione in tempo reale",
+      "upload_transcription": "Trascrizione dei caricamenti",
+      "shutdown": "dismesso il {{date}}"
+    },
+    "pricing": {
+      "markupTitle": "Ricarico",
+      "markupHint": "Applicato in aggiunta al costo del provider, solo per il nuovo utilizzo. L'utilizzo passato mantiene il ricarico con cui è stato registrato.",
+      "pricesTitle": "Prezzi dei modelli",
+      "pricesDescription": "Sincronizzati da models.dev, in USD per 1M di token (al minuto per i modelli con prezzo a durata).",
+      "lastSynced": "Ultima sincronizzazione {{when}}",
+      "neverSynced": "Non ancora sincronizzato",
+      "lastError": "ultimo tentativo non riuscito: {{error}}",
+      "syncNow": "Sincronizza ora",
+      "snapshotOld": "I prezzi non vengono sincronizzati da più di 48 ore. I costi usano gli ultimi prezzi noti.",
+      "model": "Modello",
+      "source": "Fonte",
+      "fetched": "Recuperato",
+      "stale": "Obsoleto",
+      "override": "Prezzo manuale",
+      "addOverride": "Aggiungi prezzo manuale",
+      "overrideTitle": "Prezzo manuale per {{model}}",
+      "overrideHint": "Usato quando models.dev non ha un prezzo diretto. I prezzi dei token sono in USD per 1M di token; il prezzo al minuto è in USD per minuto di audio.",
+      "overridesTitle": "Prezzi manuali",
+      "unpricedTitle": "Modelli senza prezzo",
+      "unpricedDescription": "Questi modelli vengono registrati con costo 0. Aggiungi un prezzo manuale perché il loro utilizzo venga conteggiato.",
+      "unpricedEvents_one": "{{count}} evento negli ultimi 30 giorni",
+      "unpricedEvents_other": "{{count}} eventi negli ultimi 30 giorni",
+      "fields": {
+        "input": "Input",
+        "output": "Output",
+        "cache_read": "Input in cache",
+        "input_audio": "Audio in input",
+        "output_audio": "Audio in output",
+        "per_minute": "Al minuto"
+      }
+    }
   }
 }

@@ -1,3 +1,4 @@
+import type { AgentVisibility } from "@/features/agent-access/interfaces/agent-access.interfaces";
 export const SuggestionFrequencies = {
     OBJECTIONS_ONLY: "OBJECTIONS_ONLY",
     BALANCED: "BALANCED",
@@ -92,6 +93,9 @@ export interface AssistantAgent {
     suggest_consent_line: boolean;
     template_key: string | null;
     is_default: boolean;
+    // Who can use it (§10.1h). access_user_ids is only returned to people with agents.manage.
+    visibility: AgentVisibility;
+    access_user_ids?: string[];
     archived_at: string | null;
     created_at: string;
     updated_at: string;
@@ -104,7 +108,7 @@ export interface AssistantAgentQuery {
 }
 
 export type CreateAssistantAgentDto = Partial<
-    Omit<AssistantAgent, "id" | "user_id" | "created_at" | "updated_at" | "archived_at" | "stats">
+    Omit<AssistantAgent, "id" | "user_id" | "created_at" | "updated_at" | "archived_at" | "stats" | "visibility" | "access_user_ids">
 > & { name: string };
 
 export type UpdateAssistantAgentDto = Partial<CreateAssistantAgentDto>;

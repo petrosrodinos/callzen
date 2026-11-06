@@ -31,6 +31,8 @@ import { cn } from "@/lib/utils";
 import { toast } from "@/hooks/use-toast";
 import { usePageMetadata } from "@/hooks/use-page-metadata";
 import { Routes } from "@/routes/routes";
+import { usePermissions } from "@/features/organisations/hooks/use-organisations";
+import { Permissions } from "@/features/organisations/interfaces/organisations.interfaces";
 import { NO_COPILOT, newCallSchema, type NewCallFormValues } from "../../validation-schemas/new-call.schema";
 import { AudioDropzone, type UploadItem } from "./components/audio-dropzone";
 
@@ -42,6 +44,7 @@ const UPLOAD_EXTENSIONS = /\.(mp3|m4a|mp4|wav|webm|ogg|oga|aac|flac|opus|mpeg|mp
 
 const NewCallPage: FC = () => {
   const { t } = useTranslation("calls");
+  const canManageCopilots = usePermissions().can(Permissions.AGENTS_MANAGE);
   usePageMetadata({ title: t("new.title") });
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -238,19 +241,33 @@ const NewCallPage: FC = () => {
   if (agentsPending) return <FormSkeleton />;
 
   if (!agents?.length) {
+    // Members who can't create co-pilots only see what their coach shared with them (§10.1h, §14).
     return (
       <>
         <PageHeader title={t("new.title")} />
-        <EmptyState
-          icon={Bot}
-          title={t("new.noCopilot.title")}
-          description={t("new.noCopilot.description")}
-          action={
-            <Button asChild>
-              <Link to={Routes.assistant_agents.new}>{t("new.noCopilot.cta")}</Link>
-            </Button>
-          }
-        />
+        {canManageCopilots ? (
+          <EmptyState
+            icon={Bot}
+            title={t("new.noCopilot.title")}
+            description={t("new.noCopilot.description")}
+            action={
+              <Button asChild>
+                <Link to={Routes.assistant_agents.new}>{t("new.noCopilot.cta")}</Link>
+              </Button>
+            }
+          />
+        ) : (
+          <EmptyState
+            icon={Bot}
+            title={t("access:empty.noSharedCopilot")}
+            description={t("access:empty.noSharedCopilotCall")}
+            action={
+              <Button asChild variant="outline">
+                <Link to={Routes.practice.root}>{t("access:empty.goPractice")}</Link>
+              </Button>
+            }
+          />
+        )}
       </>
     );
   }

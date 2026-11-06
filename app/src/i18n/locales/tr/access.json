@@ -1,0 +1,79 @@
+{
+  "badge": {
+    "everyone": "Herkes",
+    "sharedWith_one": "{{count}} kişiyle paylaşıldı",
+    "sharedWith_other": "{{count}} kişiyle paylaşıldı",
+    "private": "Özel",
+    "privateHint": "Yalnızca siz ve koçunuz",
+    "sharedWithYou": "Sizinle paylaşıldı"
+  },
+  "editor": {
+    "title": "Bunu kimler kullanabilir",
+    "description": {
+      "copilot": "Bu yardımcı pilotu kuruluştaki herkesin mi yoksa yalnızca seçtiğiniz öğrencilerin mi kullanabileceğini belirleyin.",
+      "prospect": "Bu potansiyel müşteriyle kuruluştaki herkesin mi yoksa yalnızca seçtiğiniz öğrencilerin mi alıştırma yapabileceğini belirleyin."
+    },
+    "students": "Öğrenciler",
+    "noneSelected": "Hiç öğrenci seçilmedi: yalnızca siz ve diğer koçlar kullanabilir.",
+    "save": "Erişimi kaydet",
+    "onlyYouAndCoach": "Bu potansiyel müşteriyi yalnızca siz ve koçunuz görebilir.",
+    "restrictedReadOnly_one": "{{count}} öğrenciyle sınırlı. Planınız artık erişim denetimini içermediği için bu ayar değiştirilemez.",
+    "restrictedReadOnly_other": "{{count}} öğrenciyle sınırlı. Planınız artık erişim denetimini içermediği için bu ayar değiştirilemez."
+  },
+  "picker": {
+    "placeholder": "Öğrenci seçin",
+    "selected_one": "{{count}} öğrenci seçildi",
+    "selected_other": "{{count}} öğrenci seçildi",
+    "search": "Üye ara",
+    "noMembers": "Üye bulunamadı.",
+    "remove": "{{name}} kişisini kaldır",
+    "formerMember": "Eski üye"
+  },
+  "bulk": {
+    "select": "Paylaşmak için seçin",
+    "selected_one": "{{count}} seçildi",
+    "selected_other": "{{count}} seçildi",
+    "share": "Paylaş…",
+    "cancel": "Seçimi iptal et",
+    "selectItem": "{{name}} öğesini seç"
+  },
+  "share": {
+    "title_one": "{{count}} öğeyi paylaş",
+    "title_other": "{{count}} öğeyi paylaş",
+    "description": "Seçilen öğrenciler bunları hemen kullanabilir. Zaten herkesle paylaşılmış öğeler olduğu gibi kalır.",
+    "cancel": "İptal",
+    "confirm": "Paylaş"
+  },
+  "student": {
+    "title": "Erişim",
+    "description": "Bu öğrencinin kullanabileceği yardımcı pilotları ve potansiyel müşterileri açın. Herkesle paylaşılan öğeler her zaman kullanılabilir.",
+    "descriptionReadOnly": "Bu öğrencinin kullanabileceği yardımcı pilotlar ve potansiyel müşteriler.",
+    "copilots": "Yardımcı pilotlar",
+    "prospects": "Alıştırma müşterileri",
+    "none": "Burada henüz bir şey yok.",
+    "privateToStudent": "Bu öğrenci tarafından oluşturuldu",
+    "archived": "Arşivlendi",
+    "toggleAria": "{{name}} erişimi"
+  },
+  "empty": {
+    "noSharedCopilot": "Koçunuz henüz bir yardımcı pilot paylaşmadı",
+    "noSharedCopilotDescription": "Koçunuzun sizinle paylaştığı yardımcı pilotlar burada görünür.",
+    "noSharedCopilotCall": "Sizinle henüz bir yardımcı pilot paylaşılmadı. Koçunuzdan bir tane paylaşmasını isteyin; bu arada alıştırma yapmaya devam edebilirsiniz.",
+    "goPractice": "Alıştırmaya git"
+  },
+  "toasts": {
+    "accessSaved": "Erişim güncellendi",
+    "couldNotSaveAccess": "Erişim güncellenemedi",
+    "shared_one": "{{count}} öğe paylaşıldı",
+    "shared_other": "{{count}} öğe paylaşıldı",
+    "sharedPeople_one": "{{count}} kişiye erişim verildi.",
+    "sharedPeople_other": "{{count}} kişiye erişim verildi.",
+    "alreadyShared": "Seçtiğiniz herkesin zaten erişimi vardı.",
+    "couldNotShare": "Paylaşılamadı"
+  },
+  "errors": {
+    "updateAccess": "Erişim güncellenemedi. Lütfen tekrar deneyin.",
+    "loadStudentAccess": "Bu öğrencinin erişimi yüklenemedi. Lütfen tekrar deneyin.",
+    "share": "Paylaşılamadı. Lütfen tekrar deneyin."
+  }
+}

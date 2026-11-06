@@ -18,6 +18,12 @@ import { PracticeAgentsModule } from './modules/practice-agents/practice-agents.
 import { CallsModule } from './modules/calls/calls.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { OrganisationsModule } from './modules/organisations/organisations.module';
+import { AppConfigModule } from './modules/app-config/app-config.module';
+import { PricingModule } from './modules/pricing/pricing.module';
+import { BillingModule } from './modules/billing/billing.module';
+import { NotificationsModule } from './modules/notifications/notifications.module';
+import { AgentAccessModule } from './modules/agent-access/agent-access.module';
+import { CoachingModule } from './modules/coaching/coaching.module';
 
 @Module({
   imports: [
@@ -28,6 +34,11 @@ import { OrganisationsModule } from './modules/organisations/organisations.modul
     RedisModule,
     QueuesModule,
     RedisCacheModule,
+    AppConfigModule,
+    PricingModule,
+    BillingModule,
+    NotificationsModule,
+    AgentAccessModule,
     // GraphQLModule,
     AuthModule,
     HealthModule,
@@ -39,6 +50,7 @@ import { OrganisationsModule } from './modules/organisations/organisations.modul
     PracticeAgentsModule,
     CallsModule,
     DashboardModule,
+    CoachingModule,
   ],
   controllers: [AppController],
   providers: [AppService],

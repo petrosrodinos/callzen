@@ -109,7 +109,8 @@
           "title": "Eliminar a transcrição?",
           "description": "A transcrição é eliminada permanentemente. A análise é mantida, mas não poderá voltar a executá-la."
         }
-      }
+      },
+      "sessionCost": "Custo da sessão {{charged}} (base {{base}})"
     },
     "recording": {
       "saving": "A guardar a gravação…",

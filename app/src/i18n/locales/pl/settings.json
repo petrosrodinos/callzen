@@ -3,9 +3,10 @@
   "save": "Zapisz ustawienia",
   "nav": {
     "profile": "Profil i preferencje",
-    "usage": "Użycie i koszty",
+    "usage": "Wykorzystanie",
     "privacy": "Prywatność i dane",
-    "sections": "Sekcje ustawień"
+    "sections": "Sekcje ustawień",
+    "billing": "Rozliczenia"
   },
   "validation": {
     "enterName": "Wpisz swoje imię i nazwisko",
@@ -96,6 +97,35 @@
       "input": "Wejście / 1 mln tokenów",
       "output": "Wyjście / 1 mln tokenów",
       "perMinute": "~{{price}} za minutę"
+    },
+    "calls": "Sesje",
+    "averageSession": "Średnio {{minutes}} min na sesję",
+    "empty": "Brak użycia w tym okresie.",
+    "sessions": {
+      "title": "Minuty na sesję",
+      "average": "Średnio {{minutes}} min",
+      "session": "Sesja",
+      "member": "Członek",
+      "kind": "Typ",
+      "date": "Data",
+      "minutes": "Minuty",
+      "untitled": "Sesja bez tytułu",
+      "you": "Ty"
+    },
+    "members": {
+      "title": "Minuty na członka w tym okresie",
+      "member": "Członek",
+      "live": "Min na żywo",
+      "practice": "Min ćwiczeń",
+      "owner": "Właściciel"
+    },
+    "admin": {
+      "title": "Administrator platformy: koszty AI",
+      "totalCost": "Koszt AI (naliczony)",
+      "baseCost": "Koszt bazowy {{cost}}",
+      "averageCost": "średni koszt {{cost}} na sesję",
+      "cost": "Koszt",
+      "chargedVsBase": "Kwoty to naliczony koszt wraz z marżą; bazowy koszt dostawcy podano w nawiasach."
     }
   }
 }

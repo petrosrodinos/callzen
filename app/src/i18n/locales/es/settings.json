@@ -3,9 +3,10 @@
   "save": "Guardar ajustes",
   "nav": {
     "profile": "Perfil y preferencias",
-    "usage": "Uso y costes",
+    "usage": "Uso",
     "privacy": "Privacidad y datos",
-    "sections": "Secciones de ajustes"
+    "sections": "Secciones de ajustes",
+    "billing": "Facturación"
   },
   "validation": {
     "enterName": "Introduce tu nombre",
@@ -94,6 +95,35 @@
       "input": "Entrada / 1M tokens",
       "output": "Salida / 1M tokens",
       "perMinute": "~{{price}} por minuto"
+    },
+    "calls": "Sesiones",
+    "averageSession": "Media de {{minutes}} min por sesión",
+    "empty": "No hay uso en este periodo.",
+    "sessions": {
+      "title": "Minutos por sesión",
+      "average": "Media de {{minutes}} min",
+      "session": "Sesión",
+      "member": "Miembro",
+      "kind": "Tipo",
+      "date": "Fecha",
+      "minutes": "Minutos",
+      "untitled": "Sesión sin título",
+      "you": "Tú"
+    },
+    "members": {
+      "title": "Minutos por miembro en este periodo",
+      "member": "Miembro",
+      "live": "Min en vivo",
+      "practice": "Min de práctica",
+      "owner": "Propietario"
+    },
+    "admin": {
+      "title": "Administración de la plataforma: costes de IA",
+      "totalCost": "Coste de IA (cobrado)",
+      "baseCost": "Coste base {{cost}}",
+      "averageCost": "coste medio de {{cost}} por sesión",
+      "cost": "Coste",
+      "chargedVsBase": "Los importes son el coste cobrado con el margen incluido; el coste base del proveedor aparece entre paréntesis."
     }
   }
 }

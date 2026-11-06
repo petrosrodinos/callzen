@@ -5,7 +5,15 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { Readable } from 'stream';
-import { can, OrgContext } from '@/shared/interfaces/org-context.interface';
+import {
+  can,
+  isPlatformAdmin,
+  OrgContext,
+} from '@/shared/interfaces/org-context.interface';
+import {
+  DEFAULT_OPENAI_VOICE,
+  OPENAI_VOICE_IDS,
+} from '@/shared/config/voices/voice-providers.config';
 import { Permissions } from '@/shared/config/permissions/permissions.config';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
 import { RecordingStorageService } from '@/integrations/storage/recordings/recording-storage.service';
@@ -43,10 +51,15 @@ import {
   AUTO_LANGUAGE,
   SUPPORTED_LANGUAGE_CODES,
 } from '@/shared/config/languages/languages.config';
+import { AppConfigService } from '@/modules/app-config/app-config.service';
+import { PlanLimitService } from '@/modules/billing/services/plan-limit.service';
+import { CreditsService } from '@/modules/billing/services/credits.service';
+import { AnalysisVisibilityService } from '@/modules/billing/services/analysis-visibility.service';
+import { AssignmentsService } from '@/modules/coaching/services/assignments.service';
 import {
-  findVoiceProvider,
-  TRANSCRIPTION_COST_PER_MINUTE_USD,
-} from '@/shared/config/voices/voice-providers.config';
+  AgentAccessErrorCodes,
+  AgentAccessService,
+} from '@/modules/agent-access/agent-access.service';
 
 const BRIEFING_FIELDS: (keyof PracticeSnapshot)[] = [
   'id',
@@ -73,24 +86,33 @@ export class CallsService {
   private readonly logger = new Logger(CallsService.name);
 
   constructor(
+    private readonly appConfig: AppConfigService,
     private readonly prisma: PrismaService,
     private readonly recordingStorage: RecordingStorageService,
     private readonly usageService: UsageService,
     private readonly copilotService: CopilotService,
     private readonly analysisService: CallAnalysisService,
     private readonly transcriptionService: CallTranscriptionService,
+    private readonly planLimits: PlanLimitService,
+    private readonly credits: CreditsService,
+    private readonly analysisVisibility: AnalysisVisibilityService,
+    private readonly agentAccess: AgentAccessService,
+    private readonly assignments: AssignmentsService,
   ) {}
 
   async startLive(ctx: OrgContext, dto: CreateCallDto) {
+    const allowance = await this.planLimits.assertCanStartCall(ctx, CallKind.LIVE);
     const copilotEnabled = dto.copilot_enabled ?? true;
     const [user, agent] = await Promise.all([
       this.prisma.user.findUnique({ where: { id: ctx.userId } }),
       copilotEnabled ? this.resolveAssistantAgent(ctx, dto.assistant_agent_id) : null,
     ]);
     if (copilotEnabled && !agent)
-      throw new BadRequestException(
-        'Create an assistant agent before starting a call',
-      );
+      throw new BadRequestException({
+        message:
+          'There is no co-pilot you can use yet. Create one, or ask your coach to share one.',
+        code: AgentAccessErrorCodes.NO_SHARED_COPILOT,
+      });
 
     if (dto.prior_call_id)
       await findOwnedCall(
@@ -121,6 +143,7 @@ export class CallsService {
         // Left empty when not given: a title is generated from the transcript later.
         title: dto.title?.trim() || null,
         agent_snapshot: agent ? asJson(toAgentSnapshot(agent)) : undefined,
+        max_duration_seconds: allowance.max_duration_seconds,
       },
     });
 
@@ -144,6 +167,8 @@ export class CallsService {
   ) {
     if (!file?.buffer?.length)
       throw new BadRequestException('Recording file is empty');
+    // The duration is checked against the remaining minutes after the probe, before transcription (§14).
+    await this.planLimits.assertCanUpload(ctx);
 
     const useAgent = dto.copilot_enabled ?? true;
     const [user, agent] = await Promise.all([
@@ -151,9 +176,11 @@ export class CallsService {
       useAgent ? this.resolveAssistantAgent(ctx, dto.assistant_agent_id) : null,
     ]);
     if (useAgent && !agent)
-      throw new BadRequestException(
-        'Create an assistant agent before analyzing a call',
-      );
+      throw new BadRequestException({
+        message:
+          'There is no co-pilot you can use yet. Create one, or ask your coach to share one.',
+        code: AgentAccessErrorCodes.NO_SHARED_COPILOT,
+      });
     if (dto.prior_call_id)
       await findOwnedCall(
         this.prisma,
@@ -216,8 +243,13 @@ export class CallsService {
   }
 
   async startPractice(ctx: OrgContext, dto: CreatePracticeCallDto) {
+    // Only prospects the caller can access (§10.1h); others are 404.
     const practiceAgent = await this.prisma.practiceAgent.findFirst({
-      where: { id: dto.practice_agent_id, organisation_id: ctx.organisationId },
+      where: {
+        id: dto.practice_agent_id,
+        organisation_id: ctx.organisationId,
+        ...this.agentAccess.practiceAgentVisibleWhere(ctx),
+      },
       include: { linked_assistant_agent: true },
     });
     if (!practiceAgent)
@@ -225,6 +257,15 @@ export class CallsService {
         message: 'Practice agent not found',
         code: ErrorCodes.PracticeAgents.NOT_FOUND,
       });
+    // Started from a coach's assignment: the caller must be one of its students (§10.1c).
+    const assignment = dto.assignment_id
+      ? await this.assignments.assertStartable(ctx, dto.assignment_id, practiceAgent.id)
+      : null;
+    const allowance = await this.planLimits.assertCanStartCall(
+      ctx,
+      CallKind.PRACTICE,
+      practiceAgent.time_limit_minutes,
+    );
 
     const copilotEnabled = dto.copilot_enabled ?? false;
     const assistant = copilotEnabled
@@ -233,6 +274,7 @@ export class CallsService {
           dto.assistant_agent_id ??
             practiceAgent.linked_assistant_agent_id ??
             undefined,
+          practiceAgent,
         )
       : null;
     if (copilotEnabled && !assistant)
@@ -247,8 +289,15 @@ export class CallsService {
       practiceAgent,
       practiceAgent.linked_assistant_agent?.knowledge?.slice(0, 2000) ?? null,
     );
-    if (dto.voice_provider) snapshot.voice_provider = dto.voice_provider;
-    if (dto.voice) snapshot.voice = dto.voice;
+    if (isPlatformAdmin(ctx)) {
+      if (dto.voice_provider) snapshot.voice_provider = dto.voice_provider;
+      if (dto.voice) snapshot.voice = dto.voice;
+    } else {
+      // Browser voice is admin-only; legacy prospects are upgraded on the fly.
+      snapshot.voice_provider = VoiceProvider.OPENAI_REALTIME;
+      const voice = dto.voice ?? snapshot.voice;
+      snapshot.voice = OPENAI_VOICE_IDS.includes(voice) ? voice : DEFAULT_OPENAI_VOICE;
+    }
 
     const call = await this.prisma.call.create({
       data: {
@@ -270,6 +319,8 @@ export class CallsService {
           ? asJson(toAgentSnapshot(assistant))
           : undefined,
         practice_snapshot: asJson(snapshot),
+        max_duration_seconds: allowance.max_duration_seconds,
+        assignment_id: assignment?.id ?? null,
       },
     });
 
@@ -434,8 +485,26 @@ export class CallsService {
         : persona
       : null;
 
+    const admin = isPlatformAdmin(ctx);
+    // Analysis visibility follows the plan of the organisation that owns the call (§9.3).
+    const visible = rest.analysis
+      ? await this.analysisVisibility.visibleFeaturesFor(call.organisation_id)
+      : null;
     return {
       ...rest,
+      // Model names are internal; only platform admins see them (§6.3).
+      suggestions: admin
+        ? rest.suggestions
+        : rest.suggestions.map(({ model: _model, ...suggestion }) => suggestion),
+      analysis: rest.analysis
+        ? this.analysisVisibility.filter(
+            admin
+              ? rest.analysis
+              : (({ model: _model, ...analysis }) => analysis)(rest.analysis),
+            visible,
+            { bypass: admin },
+          )
+        : null,
       has_recording: !!recording_path,
       practice,
       owner: {
@@ -443,6 +512,8 @@ export class CallsService {
         name: user.full_name || user.email,
         is_you: user.id === ctx.userId,
       },
+      // AI cost of this session (charged and base): platform admins only (§6.2).
+      ...(admin && { session_cost: await this.usageService.sessionCost(id) }),
     };
   }
 
@@ -467,7 +538,16 @@ export class CallsService {
         throw new BadRequestException(
           'The co-pilot can only be switched during a call',
         );
-      const agent = await this.resolveAssistantAgent(ctx, assistant_agent_id);
+      const agent = await this.resolveAssistantAgent(
+        ctx,
+        assistant_agent_id,
+        call.practice_agent_id
+          ? await this.prisma.practiceAgent.findUnique({
+              where: { id: call.practice_agent_id },
+              select: { linked_assistant_agent_id: true },
+            })
+          : null,
+      );
       data.assistant_agent_id = agent.id;
       data.agent_snapshot = asJson(toAgentSnapshot(agent));
       data.script_progress = asJson([]);
@@ -500,14 +580,22 @@ export class CallsService {
       },
     });
 
-    this.recordAudioUsage(
+    void this.recordAudioUsage(
       ctx,
       call.id,
       call.kind,
       call.practice_snapshot as unknown as PracticeSnapshot | null,
       dto.audio_seconds ?? dto.duration_seconds,
       call.call_type,
+    ).catch((error) =>
+      this.logger.warn(`Audio usage for ${call.id} failed: ${error?.message}`),
     );
+    // Minutes are settled now so the next call start sees them (§3.5). Never blocks ending the call.
+    await this.credits
+      .settleCall(id)
+      .catch((error) =>
+        this.logger.error(`Settling minutes for call ${id} failed: ${error?.message}`),
+      );
     if (hasSegments) await this.analysisService.queue(id);
 
     return this.findOne(ctx, id);
@@ -655,25 +743,21 @@ export class CallsService {
     return languages.length > 1 ? AUTO_LANGUAGE : languages[0];
   }
 
-  private async resolveAssistantAgent(ctx: OrgContext, id?: string) {
-    if (id) {
-      const agent = await this.prisma.assistantAgent.findFirst({
-        where: { id, organisation_id: ctx.organisationId, archived_at: null },
-      });
-      if (!agent)
-        throw new NotFoundException({
-          message: 'Assistant agent not found',
-          code: ErrorCodes.AssistantAgents.NOT_FOUND,
-        });
-      return agent;
-    }
-    return this.prisma.assistantAgent.findFirst({
-      where: { organisation_id: ctx.organisationId, archived_at: null },
-      orderBy: [{ is_default: 'desc' }, { updated_at: 'desc' }],
-    });
+  // Only co-pilots the caller can use (§10.1h). Inside a practice session the prospect's linked co-pilot
+  // is allowed even without direct access (rule 7). Without an id: the default if visible, else the newest
+  // visible one.
+  private async resolveAssistantAgent(
+    ctx: OrgContext,
+    id?: string,
+    practice?: { linked_assistant_agent_id: string | null } | null,
+  ) {
+    if (id) return this.agentAccess.findUsableAssistantAgent(ctx, id, practice);
+    return this.agentAccess.defaultUsableAssistantAgent(ctx);
   }
 
-  private recordAudioUsage(
+  // Audio is billed from durations (the browser talks to OpenAI directly over WebRTC, so the server never
+  // sees audio token counts). Prices come from models.dev via UsageService.
+  private async recordAudioUsage(
     ctx: OrgContext,
     callId: string,
     kind: CallKind,
@@ -682,33 +766,63 @@ export class CallsService {
     callType: CallType,
   ) {
     if (!seconds) return;
-    const minutes = seconds / 60;
+    const models = this.appConfig.get('ai.default_models');
+    const base = {
+      organisationId: ctx.organisationId,
+      userId: ctx.userId,
+      callId,
+    };
 
     if (kind === CallKind.PRACTICE && persona) {
-      const provider = findVoiceProvider(
-        persona.voice_provider as VoiceProvider,
+      // Browser voice costs are the PRACTICE_TURN text events recorded during the session.
+      if (persona.voice_provider !== VoiceProvider.OPENAI_REALTIME) return;
+      const { userSeconds, prospectSeconds } = await this.speechSplit(
+        callId,
+        seconds,
       );
       this.usageService.record({
-        organisationId: ctx.organisationId,
-        userId: ctx.userId,
-        callId,
+        ...base,
         kind: UsageKind.PRACTICE_VOICE,
-        model: persona.voice_provider,
-        audioSeconds: seconds,
-        costUsd: minutes * (provider?.cost_per_minute_usd ?? 0),
+        model: models.voice,
+        audio: { inputSeconds: userSeconds, outputSeconds: prospectSeconds },
+      });
+      // The voice session also transcribes what the salesperson says.
+      this.usageService.record({
+        ...base,
+        kind: UsageKind.TRANSCRIPTION,
+        model: models.transcription,
+        audio: { inputSeconds: userSeconds },
       });
       return;
     }
 
     const channels = callType === CallType.ONLINE_MEETING ? 2 : 1;
     this.usageService.record({
-      organisationId: ctx.organisationId,
-      userId: ctx.userId,
-      callId,
+      ...base,
       kind: UsageKind.TRANSCRIPTION,
-      model: 'gpt-4o-transcribe',
-      audioSeconds: seconds * channels,
-      costUsd: minutes * channels * TRANSCRIPTION_COST_PER_MINUTE_USD,
+      model: models.transcription,
+      audio: { inputSeconds: seconds * channels },
     });
+  }
+
+  // How long each side spoke, from the transcript timings. Falls back to an even split of the call.
+  private async speechSplit(callId: string, seconds: number) {
+    const segments = await this.prisma.transcriptSegment.findMany({
+      where: { call_id: callId },
+      select: { speaker: true, start_ms: true, end_ms: true },
+    });
+    let userMs = 0;
+    let prospectMs = 0;
+    for (const segment of segments) {
+      const ms = Math.max(0, segment.end_ms - segment.start_ms);
+      if (segment.speaker === 'USER') userMs += ms;
+      else if (segment.speaker === 'PROSPECT') prospectMs += ms;
+    }
+    if (!userMs && !prospectMs)
+      return { userSeconds: seconds / 2, prospectSeconds: seconds / 2 };
+    return {
+      userSeconds: Math.min(seconds, userMs / 1000),
+      prospectSeconds: Math.min(seconds, prospectMs / 1000),
+    };
   }
 }

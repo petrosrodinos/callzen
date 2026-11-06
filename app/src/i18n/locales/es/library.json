@@ -109,7 +109,8 @@
           "title": "¿Eliminar la transcripción?",
           "description": "La transcripción se elimina permanentemente. El análisis se conserva, pero no podrás volver a ejecutarlo."
         }
-      }
+      },
+      "sessionCost": "Coste de la sesión {{charged}} (base {{base}})"
     },
     "recording": {
       "saving": "Guardando la grabación…",

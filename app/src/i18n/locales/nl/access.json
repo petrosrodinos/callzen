@@ -1,0 +1,79 @@
+{
+  "badge": {
+    "everyone": "Iedereen",
+    "sharedWith_one": "Gedeeld met {{count}}",
+    "sharedWith_other": "Gedeeld met {{count}}",
+    "private": "Privé",
+    "privateHint": "Alleen jij en je coach",
+    "sharedWithYou": "Met jou gedeeld"
+  },
+  "editor": {
+    "title": "Wie dit mag gebruiken",
+    "description": {
+      "copilot": "Kies of iedereen in de organisatie deze copiloot mag gebruiken, of alleen de cursisten die je selecteert.",
+      "prospect": "Kies of iedereen in de organisatie met deze prospect mag oefenen, of alleen de cursisten die je selecteert."
+    },
+    "students": "Cursisten",
+    "noneSelected": "Geen cursisten geselecteerd: alleen jij en andere coaches kunnen het gebruiken.",
+    "save": "Toegang opslaan",
+    "onlyYouAndCoach": "Alleen jij en je coach kunnen deze prospect zien.",
+    "restrictedReadOnly_one": "Beperkt tot {{count}} cursist. Je abonnement bevat geen toegangsbeheer meer, dus deze instelling kan niet worden gewijzigd.",
+    "restrictedReadOnly_other": "Beperkt tot {{count}} cursisten. Je abonnement bevat geen toegangsbeheer meer, dus deze instelling kan niet worden gewijzigd."
+  },
+  "picker": {
+    "placeholder": "Kies cursisten",
+    "selected_one": "{{count}} cursist geselecteerd",
+    "selected_other": "{{count}} cursisten geselecteerd",
+    "search": "Leden zoeken",
+    "noMembers": "Geen leden gevonden.",
+    "remove": "{{name}} verwijderen",
+    "formerMember": "Voormalig lid"
+  },
+  "bulk": {
+    "select": "Selecteren om te delen",
+    "selected_one": "{{count}} geselecteerd",
+    "selected_other": "{{count}} geselecteerd",
+    "share": "Delen met…",
+    "cancel": "Selectie annuleren",
+    "selectItem": "{{name}} selecteren"
+  },
+  "share": {
+    "title_one": "{{count}} item delen",
+    "title_other": "{{count}} items delen",
+    "description": "De geselecteerde cursisten kunnen deze meteen gebruiken. Items die al met iedereen gedeeld zijn, blijven zoals ze zijn.",
+    "cancel": "Annuleren",
+    "confirm": "Delen"
+  },
+  "student": {
+    "title": "Toegang",
+    "description": "Zet de copiloten en prospects aan die deze cursist mag gebruiken. Items die met iedereen gedeeld zijn, zijn altijd beschikbaar.",
+    "descriptionReadOnly": "De copiloten en prospects die deze cursist mag gebruiken.",
+    "copilots": "Copiloten",
+    "prospects": "Oefenprospects",
+    "none": "Hier staat nog niets.",
+    "privateToStudent": "Gemaakt door deze cursist",
+    "archived": "Gearchiveerd",
+    "toggleAria": "Toegang tot {{name}}"
+  },
+  "empty": {
+    "noSharedCopilot": "Je coach heeft nog geen copiloot gedeeld",
+    "noSharedCopilotDescription": "Copiloten die je coach met je deelt, verschijnen hier.",
+    "noSharedCopilotCall": "Er is nog geen copiloot met je gedeeld. Vraag je coach er een te delen; ondertussen kun je wel oefenen.",
+    "goPractice": "Naar oefenen"
+  },
+  "toasts": {
+    "accessSaved": "Toegang bijgewerkt",
+    "couldNotSaveAccess": "Toegang kon niet worden bijgewerkt",
+    "shared_one": "{{count}} item gedeeld",
+    "shared_other": "{{count}} items gedeeld",
+    "sharedPeople_one": "{{count}} persoon heeft toegang gekregen.",
+    "sharedPeople_other": "{{count}} personen hebben toegang gekregen.",
+    "alreadyShared": "Iedereen die je koos had al toegang.",
+    "couldNotShare": "Delen mislukt"
+  },
+  "errors": {
+    "updateAccess": "Toegang kon niet worden bijgewerkt. Probeer het opnieuw.",
+    "loadStudentAccess": "De toegang van deze cursist kon niet worden geladen. Probeer het opnieuw.",
+    "share": "Delen mislukt. Probeer het opnieuw."
+  }
+}

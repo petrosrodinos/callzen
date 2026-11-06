@@ -326,6 +326,38 @@
       "accountDeleted": "Account verwijderd",
       "allYourDataWasPermanentlyRemoved": "Al je gegevens zijn definitief verwijderd.",
       "couldNotDeleteYourAccount": "Je account kon niet worden verwijderd"
+    },
+    "billing": {
+      "planChanged": "Abonnement bijgewerkt",
+      "changeScheduled": "Wijziging ingepland voor het einde van de periode",
+      "couldNotChangePlan": "Abonnement kon niet worden gewijzigd",
+      "cancelScheduled": "Je abonnement eindigt aan het einde van de periode",
+      "couldNotCancel": "Abonnement kon niet worden opgezegd",
+      "resumed": "Je abonnement loopt door",
+      "couldNotResume": "Abonnement kon niet worden hervat",
+      "redirecting": "Beveiligde betaalpagina wordt geopend…",
+      "couldNotOpenPortal": "Betaalinstellingen konden niet worden geopend",
+      "couldNotStartCheckout": "Afrekenen kon niet worden gestart"
+    },
+    "appConfig": {
+      "saved": "Instelling opgeslagen",
+      "reset": "Instelling teruggezet naar standaard",
+      "couldNotSave": "Instelling kon niet worden opgeslagen",
+      "conflict": "Iemand anders heeft deze instelling gewijzigd. De nieuwste waarde is geladen.",
+      "synced": "Prijzen gesynchroniseerd vanaf models.dev",
+      "syncFailed": "Prijssynchronisatie mislukt"
+    },
+    "adminSubscriptions": {
+      "exported": "CSV gedownload",
+      "actionFailed": "Actie mislukt",
+      "planAssigned": "Abonnement toegewezen",
+      "minutesGranted": "Minuten toegekend",
+      "trialExtended": "Proefperiode verlengd",
+      "discountApplied": "Korting toegepast",
+      "canceled": "Abonnement opgezegd",
+      "resumed": "Abonnement hervat",
+      "synced": "Gesynchroniseerd met Stripe",
+      "refunded": "Terugbetaling uitgevoerd"
     }
   },
   "errors": {
@@ -443,6 +475,44 @@
     "websocket": {
       "notConnected": "WebSocket niet verbonden",
       "timeout": "WebSocket-emit time-out"
+    },
+    "billing": {
+      "loadPlans": "Abonnementen konden niet worden geladen. Probeer het opnieuw.",
+      "loadPlanUsage": "Het gebruik van je abonnement kon niet worden geladen. Probeer het opnieuw.",
+      "loadBilling": "Factureringsgegevens konden niet worden geladen. Probeer het opnieuw.",
+      "loadInvoices": "Facturen konden niet worden geladen. Probeer het opnieuw.",
+      "loadHistory": "De abonnementsgeschiedenis kon niet worden geladen. Probeer het opnieuw.",
+      "previewChange": "Er kon geen voorbeeld van deze wijziging worden getoond. Probeer het opnieuw.",
+      "changePlan": "Het abonnement kon niet worden gewijzigd. Probeer het opnieuw.",
+      "cancelPlan": "Het abonnement kon niet worden opgezegd. Probeer het opnieuw.",
+      "resumePlan": "Het abonnement kon niet worden hervat. Probeer het opnieuw.",
+      "openPortal": "Betaalinstellingen konden niet worden geopend. Probeer het opnieuw.",
+      "checkout": "Afrekenen kon niet worden gestart. Probeer het opnieuw.",
+      "topup": "De aankoop kon niet worden gestart. Probeer het opnieuw.",
+      "loadPurchases": "Je aankopen konden niet worden geladen. Probeer het opnieuw."
+    },
+    "appConfig": {
+      "load": "De configuratie kon niet worden geladen. Probeer het opnieuw.",
+      "save": "Deze instelling kon niet worden opgeslagen. Probeer het opnieuw.",
+      "reset": "Deze instelling kon niet worden teruggezet. Probeer het opnieuw.",
+      "history": "De wijzigingsgeschiedenis kon niet worden geladen.",
+      "pricing": "Modelprijzen konden niet worden geladen.",
+      "sync": "Prijzen konden niet worden gesynchroniseerd vanaf models.dev."
+    },
+    "adminSubscriptions": {
+      "loadList": "Abonnementen konden niet worden geladen. Probeer het opnieuw.",
+      "export": "De CSV kon niet worden geëxporteerd. Probeer het opnieuw.",
+      "loadDetail": "Dit abonnement kon niet worden geladen. Probeer het opnieuw.",
+      "loadPayments": "Betalingen konden niet worden geladen. Probeer het opnieuw.",
+      "assignPlan": "Het abonnement kon niet worden toegewezen.",
+      "grantMinutes": "De minuten konden niet worden toegekend.",
+      "extendTrial": "De proefperiode kon niet worden verlengd.",
+      "discount": "De korting kon niet worden toegepast.",
+      "cancel": "Het abonnement kon niet worden opgezegd.",
+      "resume": "Het abonnement kon niet worden hervat.",
+      "sync": "Synchroniseren met Stripe mislukt.",
+      "refund": "De factuur kon niet worden terugbetaald."
     }
-  }
+  },
+  "timeLeft": "nog {{time}}"
 }

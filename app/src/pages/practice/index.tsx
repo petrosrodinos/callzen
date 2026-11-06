@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Dices, Headphones, Plus, Search, WandSparkles } from "lucide-react";
 import { PageHeader } from "@/components/ui/page-header";
+import { AssignedToMeCard } from "@/components/coaching/assigned-to-me-card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { EmptyState } from "@/components/ui/empty-state";
@@ -29,6 +30,10 @@ import { Routes } from "@/routes/routes";
 import { usePermissions } from "@/features/organisations/hooks/use-organisations";
 import { Permissions } from "@/features/organisations/interfaces/organisations.interfaces";
 import { PracticeAgentCard } from "./components/practice-agent-card";
+import { BulkShareBar } from "@/components/agent-access/bulk-share-bar";
+import { ShareAgentsDialog } from "@/components/agent-access/share-agents-dialog";
+import { useAccessCapabilities } from "@/components/agent-access/use-access-capabilities";
+import { AgentKinds } from "@/features/agent-access/interfaces/agent-access.interfaces";
 import { TemplateCard } from "./components/template-card";
 import { GenerateProspectDialog } from "./components/generate-prospect-dialog";
 import { RandomProspectDialog } from "./components/random-prospect-dialog";
@@ -56,6 +61,14 @@ const PracticePage: FC = () => {
     difficulty: difficulty === "all" ? undefined : Number(difficulty),
   });
   const createAgent = useCreatePracticeAgent();
+  const access = useAccessCapabilities(AgentKinds.PROSPECT);
+  const [selecting, setSelecting] = useState(false);
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [shareOpen, setShareOpen] = useState(false);
+  const stopSelecting = () => {
+    setSelecting(false);
+    setSelectedIds([]);
+  };
 
   const startLink = (agentId: string) =>
     `${Routes.practice.start(agentId)}${copilotId ? `?copilot=${copilotId}` : ""}`;
@@ -99,6 +112,10 @@ const PracticePage: FC = () => {
         }
       />
 
+      <div className="mb-6 empty:hidden">
+        <AssignedToMeCard />
+      </div>
+
       {canManage && (
         <section className="mb-8">
           <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
@@ -136,6 +153,15 @@ const PracticePage: FC = () => {
               aria-label={t("list.searchAria")}
             />
           </div>
+          {access.canManageAccess && !!agents?.length && (
+            <BulkShareBar
+              selecting={selecting}
+              selectedCount={selectedIds.length}
+              onStart={() => setSelecting(true)}
+              onCancel={stopSelecting}
+              onShare={() => setShareOpen(true)}
+            />
+          )}
           <div className="grid grid-cols-2 gap-2 sm:flex">
             <Select
               value={temperature}
@@ -143,7 +169,10 @@ const PracticePage: FC = () => {
                 setTemperature(value as LeadTemperature | "all")
               }
             >
-              <SelectTrigger className="sm:w-40" aria-label={t("list.leadTemperatureAria")}>
+              <SelectTrigger
+                className="sm:w-40"
+                aria-label={t("list.leadTemperatureAria")}
+              >
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -155,7 +184,10 @@ const PracticePage: FC = () => {
               </SelectContent>
             </Select>
             <Select value={difficulty} onValueChange={setDifficulty}>
-              <SelectTrigger className="sm:w-40" aria-label={t("list.difficultyAria")}>
+              <SelectTrigger
+                className="sm:w-40"
+                aria-label={t("list.difficultyAria")}
+              >
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -175,9 +207,7 @@ const PracticePage: FC = () => {
           <EmptyState
             icon={Headphones}
             title={
-              filtersActive
-                ? t("list.emptyFiltered")
-                : t("list.emptyNone")
+              filtersActive ? t("list.emptyFiltered") : t("list.emptyNone")
             }
             description={t("list.emptyDescription")}
             action={
@@ -195,12 +225,27 @@ const PracticePage: FC = () => {
                 key={agent.id}
                 agent={agent}
                 startLink={startLink(agent.id)}
+                selectable={selecting}
+                selected={selectedIds.includes(agent.id)}
+                onSelectedChange={(value) =>
+                  setSelectedIds((current) =>
+                    value
+                      ? [...current, agent.id]
+                      : current.filter((id) => id !== agent.id),
+                  )
+                }
               />
             ))}
           </div>
         )}
       </section>
 
+      <ShareAgentsDialog
+        open={shareOpen}
+        onOpenChange={setShareOpen}
+        practiceAgentIds={selectedIds}
+        onShared={stopSelecting}
+      />
       <GenerateProspectDialog
         open={dialog === "generate"}
         onOpenChange={(open) => setDialog(open ? "generate" : null)}

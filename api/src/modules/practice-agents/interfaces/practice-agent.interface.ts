@@ -10,4 +10,6 @@ export interface PracticeAgentStats {
 
 export interface PracticeAgentWithStats extends PracticeAgent {
   stats: PracticeAgentStats;
+  // Members on the access list; only returned to people with prospects.manage_all (§10.1h).
+  access_user_ids?: string[];
 }

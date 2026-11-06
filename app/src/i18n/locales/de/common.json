@@ -326,6 +326,38 @@
       "accountDeleted": "Konto gelöscht",
       "allYourDataWasPermanentlyRemoved": "Alle Ihre Daten wurden endgültig entfernt.",
       "couldNotDeleteYourAccount": "Konto konnte nicht gelöscht werden"
+    },
+    "billing": {
+      "planChanged": "Tarif aktualisiert",
+      "changeScheduled": "Änderung zum Ende des Zeitraums geplant",
+      "couldNotChangePlan": "Tarif konnte nicht geändert werden",
+      "cancelScheduled": "Ihr Tarif endet zum Ende des Zeitraums",
+      "couldNotCancel": "Tarif konnte nicht gekündigt werden",
+      "resumed": "Ihr Tarif läuft weiter",
+      "couldNotResume": "Tarif konnte nicht fortgesetzt werden",
+      "redirecting": "Sichere Zahlungsseite wird geöffnet…",
+      "couldNotOpenPortal": "Zahlungseinstellungen konnten nicht geöffnet werden",
+      "couldNotStartCheckout": "Bezahlvorgang konnte nicht gestartet werden"
+    },
+    "appConfig": {
+      "saved": "Einstellung gespeichert",
+      "reset": "Einstellung auf Standard zurückgesetzt",
+      "couldNotSave": "Einstellung konnte nicht gespeichert werden",
+      "conflict": "Jemand anderes hat diese Einstellung geändert. Der neueste Wert wurde geladen.",
+      "synced": "Preise von models.dev synchronisiert",
+      "syncFailed": "Preissynchronisierung fehlgeschlagen"
+    },
+    "adminSubscriptions": {
+      "exported": "CSV heruntergeladen",
+      "actionFailed": "Aktion fehlgeschlagen",
+      "planAssigned": "Tarif zugewiesen",
+      "minutesGranted": "Minuten gutgeschrieben",
+      "trialExtended": "Testphase verlängert",
+      "discountApplied": "Rabatt angewendet",
+      "canceled": "Abonnement gekündigt",
+      "resumed": "Abonnement fortgesetzt",
+      "synced": "Mit Stripe synchronisiert",
+      "refunded": "Erstattung veranlasst"
     }
   },
   "errors": {
@@ -443,6 +475,44 @@
     "websocket": {
       "notConnected": "WebSocket nicht verbunden",
       "timeout": "WebSocket-Sendezeitüberschreitung"
+    },
+    "billing": {
+      "loadPlans": "Tarife konnten nicht geladen werden. Bitte versuchen Sie es erneut.",
+      "loadPlanUsage": "Ihre Tarifnutzung konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+      "loadBilling": "Abrechnungsdaten konnten nicht geladen werden. Bitte versuchen Sie es erneut.",
+      "loadInvoices": "Rechnungen konnten nicht geladen werden. Bitte versuchen Sie es erneut.",
+      "loadHistory": "Der Tarifverlauf konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+      "previewChange": "Für diese Änderung konnte keine Vorschau erstellt werden. Bitte versuchen Sie es erneut.",
+      "changePlan": "Der Tarif konnte nicht geändert werden. Bitte versuchen Sie es erneut.",
+      "cancelPlan": "Der Tarif konnte nicht gekündigt werden. Bitte versuchen Sie es erneut.",
+      "resumePlan": "Der Tarif konnte nicht fortgesetzt werden. Bitte versuchen Sie es erneut.",
+      "openPortal": "Zahlungseinstellungen konnten nicht geöffnet werden. Bitte versuchen Sie es erneut.",
+      "checkout": "Bezahlvorgang konnte nicht gestartet werden. Bitte versuchen Sie es erneut.",
+      "topup": "Der Kauf konnte nicht gestartet werden. Bitte versuchen Sie es erneut.",
+      "loadPurchases": "Ihre Käufe konnten nicht geladen werden. Bitte versuchen Sie es erneut."
+    },
+    "appConfig": {
+      "load": "Die Konfiguration konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+      "save": "Diese Einstellung konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.",
+      "reset": "Diese Einstellung konnte nicht zurückgesetzt werden. Bitte versuchen Sie es erneut.",
+      "history": "Der Änderungsverlauf konnte nicht geladen werden.",
+      "pricing": "Modellpreise konnten nicht geladen werden.",
+      "sync": "Preise konnten nicht von models.dev synchronisiert werden."
+    },
+    "adminSubscriptions": {
+      "loadList": "Abonnements konnten nicht geladen werden. Bitte versuchen Sie es erneut.",
+      "export": "Die CSV konnte nicht exportiert werden. Bitte versuchen Sie es erneut.",
+      "loadDetail": "Dieses Abonnement konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+      "loadPayments": "Zahlungen konnten nicht geladen werden. Bitte versuchen Sie es erneut.",
+      "assignPlan": "Der Tarif konnte nicht zugewiesen werden.",
+      "grantMinutes": "Die Minuten konnten nicht gutgeschrieben werden.",
+      "extendTrial": "Die Testphase konnte nicht verlängert werden.",
+      "discount": "Der Rabatt konnte nicht angewendet werden.",
+      "cancel": "Das Abonnement konnte nicht gekündigt werden.",
+      "resume": "Das Abonnement konnte nicht fortgesetzt werden.",
+      "sync": "Synchronisierung mit Stripe fehlgeschlagen.",
+      "refund": "Die Rechnung konnte nicht erstattet werden."
     }
-  }
+  },
+  "timeLeft": "noch {{time}}"
 }

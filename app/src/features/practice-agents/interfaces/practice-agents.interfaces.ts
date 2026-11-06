@@ -1,4 +1,5 @@
 import type { VoiceProvider } from "@/features/catalog/interfaces/catalog.interfaces";
+import type { AgentVisibility } from "@/features/agent-access/interfaces/agent-access.interfaces";
 
 export const LeadTemperatures = {
     COLD: "COLD",
@@ -117,6 +118,9 @@ export interface PracticeAgent extends PracticeAgentFields {
     time_limit_minutes: number | null;
     source_call_id: string | null;
     template_key: string | null;
+    // Who can use it (§10.1h). access_user_ids is only returned to people with prospects.manage_all.
+    visibility: AgentVisibility;
+    access_user_ids?: string[];
     archived_at: string | null;
     created_at: string;
     updated_at: string;
@@ -131,7 +135,7 @@ export interface PracticeAgentQuery {
 }
 
 export type CreatePracticeAgentDto = Partial<
-    Omit<PracticeAgent, "id" | "user_id" | "created_at" | "updated_at" | "archived_at" | "stats" | "source_call_id">
+    Omit<PracticeAgent, "id" | "user_id" | "created_at" | "updated_at" | "archived_at" | "stats" | "source_call_id" | "visibility" | "access_user_ids">
 > & { name: string; role_prompt: string };
 
 export type UpdatePracticeAgentDto = Partial<CreatePracticeAgentDto>;

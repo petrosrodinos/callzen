@@ -16,16 +16,18 @@
       "copilots": "Co-pilot'lar",
       "organisation": "Kuruluş",
       "settings": "Ayarlar",
-      "usage": "Kullanım ve maliyetler",
+      "usage": "Kullanım",
       "privacy": "Gizlilik ve veriler",
       "health": "Sistem durumu",
       "users": "Kullanıcılar",
-      "alerts": "Uyarılar"
+      "alerts": "Uyarılar",
+      "config": "Yapılandırma",
+      "subscriptions": "Abonelikler"
     }
   },
   "userMenu": {
     "settings": "Ayarlar",
-    "usage": "Kullanım ve maliyetler",
+    "usage": "Kullanım",
     "privacy": "Gizlilik ve veriler",
     "logout": "Çıkış yap"
   },

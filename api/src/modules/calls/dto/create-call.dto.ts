@@ -137,4 +137,12 @@ export class CreatePracticeCallDto {
   @IsOptional()
   @IsBoolean()
   keep_recording?: boolean;
+
+  @ApiProperty({
+    required: false,
+    description: 'Start this practice session from a coach’s assignment',
+  })
+  @IsOptional()
+  @IsUUID()
+  assignment_id?: string;
 }

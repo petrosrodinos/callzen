@@ -28,5 +28,88 @@
       "postgres": "Databasanslutning via Prisma.",
       "redis": "Anslutning till cache och kö."
     }
+  },
+  "config": {
+    "title": "Konfiguration",
+    "subtitle": "Priser, abonnemangsgränser, synlighet för analyser och AI-modeller. Ändringar gäller inom några sekunder, utan driftsättning.",
+    "tabs": {
+      "pricing": "Prissättning",
+      "plans": "Abonnemang",
+      "analysis": "Synlighet för analyser",
+      "ai": "AI-modeller",
+      "coaching": "Coachning",
+      "billing": "Fakturering"
+    },
+    "updated": "Version {{version}} · {{date}} av {{name}}",
+    "usingDefault": "Använder den inbyggda standarden",
+    "system": "System",
+    "public": "Synlig för användare",
+    "history": "Historik",
+    "historyTitle": "Ändringshistorik",
+    "noHistory": "Inga ändringar ännu.",
+    "before": "Före",
+    "after": "Efter",
+    "invalid": "Det sparade värdet matchar inte längre formatet för den här inställningen, så den inbyggda standarden används. Spara ett giltigt värde för att åtgärda det.",
+    "invalidJson": "Ogiltig JSON: {{error}}",
+    "save": "Spara",
+    "discard": "Ignorera ändringar",
+    "cancel": "Avbryt",
+    "reset": "Återställ till standard",
+    "resetTitle": "Återställa till standard?",
+    "resetDescription": "{{key}} återgår till sin inbyggda standard. Det nuvarande värdet finns kvar i historiken.",
+    "plans": {
+      "title": "Abonnemangsgränser och funktioner",
+      "hint": "Lämna ett tal tomt för obegränsat. Ändringar börjar tillämpas inom några sekunder; inget som redan skapats tas bort.",
+      "limit": "Gräns",
+      "unlimited": "Obegränsat",
+      "features": "Funktioner",
+      "none": "Ingen"
+    },
+    "analysis": {
+      "title": "Synlighet för analyser per abonnemang",
+      "section": "Analysavsnitt"
+    },
+    "ai": {
+      "title": "Standardmodeller",
+      "realtime": "Liveförslag",
+      "analysis": "Samtalsanalys",
+      "utility": "Hjälpuppgifter",
+      "voice": "Övningsröst",
+      "transcription": "Livetranskribering",
+      "upload_transcription": "Transkribering av uppladdningar",
+      "shutdown": "stängs ned {{date}}"
+    },
+    "pricing": {
+      "markupTitle": "Påslag",
+      "markupHint": "Läggs på leverantörens kostnad, endast för ny användning. Tidigare användning behåller det påslag den registrerades med.",
+      "pricesTitle": "Modellpriser",
+      "pricesDescription": "Synkas från models.dev, i USD per 1M tokens (per minut för modeller som prissätts per tid).",
+      "lastSynced": "Senast synkad {{when}}",
+      "neverSynced": "Inte synkad ännu",
+      "lastError": "senaste försöket misslyckades: {{error}}",
+      "syncNow": "Synka nu",
+      "snapshotOld": "Priserna har inte synkats på mer än 48 timmar. Kostnaderna baseras på de senast kända priserna.",
+      "model": "Modell",
+      "source": "Källa",
+      "fetched": "Hämtad",
+      "stale": "Inaktuell",
+      "override": "Åsidosättning",
+      "addOverride": "Lägg till åsidosättning",
+      "overrideTitle": "Manuellt pris för {{model}}",
+      "overrideHint": "Används när models.dev saknar ett direkt pris. Tokenpriser anges i USD per 1M tokens; per minut anges i USD per ljudminut.",
+      "overridesTitle": "Manuella prisåsidosättningar",
+      "unpricedTitle": "Modeller utan pris",
+      "unpricedDescription": "Dessa modeller registreras med kostnaden 0. Lägg till ett manuellt pris så att deras användning kostnadsberäknas.",
+      "unpricedEvents_one": "{{count}} händelse de senaste 30 dagarna",
+      "unpricedEvents_other": "{{count}} händelser de senaste 30 dagarna",
+      "fields": {
+        "input": "Indata",
+        "output": "Utdata",
+        "cache_read": "Cachad indata",
+        "input_audio": "Ljud in",
+        "output_audio": "Ljud ut",
+        "per_minute": "Per minut"
+      }
+    }
   }
 }

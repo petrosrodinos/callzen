@@ -16,6 +16,8 @@ import { usePageMetadata } from "@/hooks/use-page-metadata";
 import { Routes } from "@/routes/routes";
 import { TemplatePicker } from "./components/template-picker";
 import { AssistantAgentForm } from "./components/assistant-agent-form";
+import { AgentAccessCard } from "@/components/agent-access/agent-access-card";
+import { AgentKinds } from "@/features/agent-access/interfaces/agent-access.interfaces";
 import { GenerateCopilotDialog } from "./components/generate-copilot-dialog";
 import {
   toDraftFormValues,
@@ -41,7 +43,9 @@ const AssistantAgentEditorPage: FC = () => {
   const update = useUpdateAssistantAgent();
 
   usePageMetadata({
-    title: isNew ? t("editor.newTitle") : (agent?.name ?? t("editor.fallbackTitle")),
+    title: isNew
+      ? t("editor.newTitle")
+      : (agent?.name ?? t("editor.fallbackTitle")),
   });
 
   const defaults = useMemo(() => {
@@ -83,11 +87,13 @@ const AssistantAgentEditorPage: FC = () => {
         </Link>
       </Button>
       <PageHeader
-        title={isNew ? t("editor.newTitle") : (agent?.name ?? t("editor.fallbackTitle"))}
-        description={
+        title={
           isNew
-            ? t("editor.newDescription")
-            : t("editor.editDescription")
+            ? t("editor.newTitle")
+            : (agent?.name ?? t("editor.fallbackTitle"))
+        }
+        description={
+          isNew ? t("editor.newDescription") : t("editor.editDescription")
         }
       />
 
@@ -100,25 +106,38 @@ const AssistantAgentEditorPage: FC = () => {
           onGenerate={() => setGenerateOpen(true)}
         />
       ) : defaults && catalog ? (
-        <AssistantAgentForm
-          key={
-            agent?.id ??
-            (draft ? "generated" : template === "blank" ? "blank" : template?.key)
-          }
-          defaultValues={defaults}
-          catalog={catalog}
-          onSubmit={onSubmit}
-          isSaving={create.isPending || update.isPending}
-          submitLabel={isNew ? t("editor.create") : t("editor.save")}
-          onBack={
-            isNew
-              ? () => {
-                  setTemplate(null);
-                  setDraft(null);
-                }
-              : undefined
-          }
-        />
+        <>
+          {agent && (
+            <AgentAccessCard
+              key={`access-${agent.id}-${agent.visibility}-${agent.access_user_ids?.join() ?? ""}`}
+              kind={AgentKinds.COPILOT}
+              agent={agent}
+            />
+          )}
+          <AssistantAgentForm
+            key={
+              agent?.id ??
+              (draft
+                ? "generated"
+                : template === "blank"
+                  ? "blank"
+                  : template?.key)
+            }
+            defaultValues={defaults}
+            catalog={catalog}
+            onSubmit={onSubmit}
+            isSaving={create.isPending || update.isPending}
+            submitLabel={isNew ? t("editor.create") : t("editor.save")}
+            onBack={
+              isNew
+                ? () => {
+                    setTemplate(null);
+                    setDraft(null);
+                  }
+                : undefined
+            }
+          />
+        </>
       ) : null}
 
       {isNew && (

@@ -101,4 +101,6 @@ export const DEMO_ANALYSIS: CallAnalysis = {
   suggestion_usage: null,
   error: null,
   created_at: new Date(0).toISOString(),
+    locked_features: [],
+    teasers: {},
 };

@@ -22,6 +22,10 @@ import { Permissions } from "@/features/organisations/interfaces/organisations.i
 import { useDebouncedValue } from "@/hooks/use-debounced-value";
 import { Routes } from "@/routes/routes";
 import { AssistantAgentCard } from "./components/assistant-agent-card";
+import { BulkShareBar } from "@/components/agent-access/bulk-share-bar";
+import { ShareAgentsDialog } from "@/components/agent-access/share-agents-dialog";
+import { useAccessCapabilities } from "@/components/agent-access/use-access-capabilities";
+import { AgentKinds } from "@/features/agent-access/interfaces/agent-access.interfaces";
 
 const AssistantAgentsPage: FC = () => {
   const { t } = useTranslation("assistant");
@@ -35,6 +39,14 @@ const AssistantAgentsPage: FC = () => {
     search: debouncedSearch || undefined,
     status,
   });
+  const access = useAccessCapabilities(AgentKinds.COPILOT);
+  const [selecting, setSelecting] = useState(false);
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [shareOpen, setShareOpen] = useState(false);
+  const stopSelecting = () => {
+    setSelecting(false);
+    setSelectedIds([]);
+  };
 
   return (
     <>
@@ -43,11 +55,24 @@ const AssistantAgentsPage: FC = () => {
         description={t("list.description")}
         actions={
           canManage && (
-            <Button asChild>
-              <Link to={Routes.assistant_agents.new}>
-                <Plus /> {t("list.new")}
-              </Link>
-            </Button>
+            <>
+              {access.canManageAccess && !!agents?.length && (
+                <BulkShareBar
+                  selecting={selecting}
+                  selectedCount={selectedIds.length}
+                  onStart={() => setSelecting(true)}
+                  onCancel={stopSelecting}
+                  onShare={() => setShareOpen(true)}
+                />
+              )}
+              {!selecting && (
+                <Button asChild>
+                  <Link to={Routes.assistant_agents.new}>
+                    <Plus /> {t("list.new")}
+                  </Link>
+                </Button>
+              )}
+            </>
           )
         }
       />
@@ -67,7 +92,10 @@ const AssistantAgentsPage: FC = () => {
           value={status}
           onValueChange={(value) => setStatus(value as typeof status)}
         >
-          <SelectTrigger className="sm:w-40" aria-label={t("list.filterByStatus")}>
+          <SelectTrigger
+            className="sm:w-40"
+            aria-label={t("list.filterByStatus")}
+          >
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -90,12 +118,16 @@ const AssistantAgentsPage: FC = () => {
               ? t("list.empty.noMatch")
               : canManage
                 ? t("list.empty.createFirst")
-                : t("list.empty.none")
+                : access.hasFeature
+                  ? t("access:empty.noSharedCopilot")
+                  : t("list.empty.none")
           }
           description={
             canManage
               ? t("list.empty.descriptionManage")
-              : t("list.empty.descriptionMember")
+              : access.hasFeature
+                ? t("access:empty.noSharedCopilotDescription")
+                : t("list.empty.descriptionMember")
           }
           action={
             canManage && (
@@ -110,10 +142,29 @@ const AssistantAgentsPage: FC = () => {
       ) : (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {agents.map((agent) => (
-            <AssistantAgentCard key={agent.id} agent={agent} />
+            <AssistantAgentCard
+              key={agent.id}
+              agent={agent}
+              selectable={selecting}
+              selected={selectedIds.includes(agent.id)}
+              onSelectedChange={(value) =>
+                setSelectedIds((current) =>
+                  value
+                    ? [...current, agent.id]
+                    : current.filter((id) => id !== agent.id),
+                )
+              }
+            />
           ))}
         </div>
       )}
+
+      <ShareAgentsDialog
+        open={shareOpen}
+        onOpenChange={setShareOpen}
+        assistantAgentIds={selectedIds}
+        onShared={stopSelecting}
+      />
     </>
   );
 };

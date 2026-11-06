@@ -16,16 +16,18 @@
       "copilots": "Co-pilots",
       "organisation": "Organisatie",
       "settings": "Instellingen",
-      "usage": "Gebruik & kosten",
+      "usage": "Gebruik",
       "privacy": "Privacy & gegevens",
       "health": "Status",
       "users": "Gebruikers",
-      "alerts": "Meldingen"
+      "alerts": "Meldingen",
+      "config": "Configuratie",
+      "subscriptions": "Abonnementen"
     }
   },
   "userMenu": {
     "settings": "Instellingen",
-    "usage": "Gebruik & kosten",
+    "usage": "Gebruik",
     "privacy": "Privacy & gegevens",
     "logout": "Uitloggen"
   },

@@ -326,5 +326,280 @@
       "conversation": "Aceeași limbă ca a conversației",
       "interface": "Limba interfeței mele"
     }
+  },
+  "billing": {
+    "plan": {
+      "all": "Toate planurile",
+      "trial": "Probă",
+      "starter": "Starter",
+      "pro": "Pro",
+      "coach": "Coach"
+    },
+    "planDescription": {
+      "trial": "Încearcă totul cu o alocare mică.",
+      "starter": "Pentru agenții de vânzări care abia încep.",
+      "pro": "Pentru profesioniștii care exersează și sună mult.",
+      "coach": "Pentru coachi și cursanții lor, cu minute comune și instrumente de coaching."
+    },
+    "status": {
+      "all": "Toate stările",
+      "trialing": "Probă",
+      "active": "Activ",
+      "pastDue": "Restant",
+      "canceled": "Anulat",
+      "incomplete": "Incomplet",
+      "none": "Fără plan",
+      "cancelling": "În curs de anulare"
+    },
+    "invoiceKind": {
+      "subscription": "Abonament",
+      "seats": "Locuri suplimentare",
+      "topupTeam": "Minute pentru echipă",
+      "topupPersonal": "Minute personale",
+      "other": "Altele"
+    },
+    "invoiceStatus": {
+      "draft": "Ciornă",
+      "open": "Deschisă",
+      "paid": "Plătită",
+      "void": "Anulată",
+      "uncollectible": "Neîncasabilă",
+      "failed": "Eșuată",
+      "refunded": "Rambursată"
+    },
+    "pack": {
+      "live_100": "100 de minute de apeluri live",
+      "practice_60": "60 de minute de exersare",
+      "mixed": "{{live}} minute live + {{practice}} minute de exersare",
+      "liveFallback": "{{count}} minute de apeluri live",
+      "practiceFallback": "{{count}} minute de exersare"
+    },
+    "cancelReason": {
+      "tooExpensive": "Prea scump",
+      "notUsing": "Nu îl folosesc suficient",
+      "missingFeatures": "Lipsesc funcții de care am nevoie",
+      "switching": "Trec la alt instrument",
+      "temporary": "Am avut nevoie de el doar o perioadă",
+      "other": "Altceva"
+    },
+    "feature": {
+      "knowledgeDocumentImport": "Import de documente de cunoștințe",
+      "orgRolesPermissions": "Roluri și permisiuni personalizate",
+      "orgInvitations": "Invitații în echipă",
+      "viewAllMemberCalls": "Vizualizarea apelurilor tuturor membrilor",
+      "cohortDashboard": "Tabloul de bord al cohortei",
+      "topupPurchases": "Cumpărarea de minute suplimentare",
+      "studentPages": "Paginile cursanților",
+      "practiceAssignments": "Teme de exersare",
+      "callComments": "Comentariile coach-ului la apeluri",
+      "coachReports": "Rapoarte săptămânale pentru coach",
+      "studentExport": "Export CSV",
+      "agentAccessControl": "Acces per cursant la copiloți și prospecți"
+    },
+    "limit": {
+      "seatsIncluded": "Locuri incluse",
+      "extraSeatsAllowed": "Se pot cumpăra locuri suplimentare",
+      "liveMinutes": "Minute live pe perioadă",
+      "practiceMinutes": "Minute de exersare pe perioadă",
+      "practiceSharesLivePool": "Exersarea folosește minutele live",
+      "liveOwnerReserve": "Minute live rezervate proprietarilor",
+      "practiceOwnerReserve": "Minute de exersare rezervate proprietarilor",
+      "liveMinutesPerMember": "Minute live per membru",
+      "practiceMinutesPerMember": "Minute de exersare per membru",
+      "copilotsMax": "Copiloți",
+      "practiceProspectsMax": "Prospecți de exersare",
+      "practiceProspectsPerMemberMax": "Prospecți de exersare per membru",
+      "uploadsPerPeriod": "Încărcări pe perioadă",
+      "trialDays": "Durata perioadei de probă (zile)"
+    },
+    "pricingSource": {
+      "modelsDev": "models.dev",
+      "alias": "models.dev (alias)",
+      "override": "Manual",
+      "unpriced": "Fără preț"
+    },
+    "analysis": {
+      "overview": "Prezentare generală și scor",
+      "categoryScores": "Scoruri pe abilități",
+      "moments": "Greșeli și puncte forte",
+      "improvements": "Îmbunătățiri",
+      "metrics": "Metrici de conversație",
+      "prospectInsights": "Observații despre prospect",
+      "nextSteps": "Pași următori",
+      "followUpDraft": "Ciornă de follow-up",
+      "practiceReveal": "Dezvăluirea exersării",
+      "copilotUsage": "Utilizarea copilotului",
+      "suggestedPractice": "Exersare sugerată"
+    },
+    "analysisHint": {
+      "overview": "Scor general, verdict și rezumat",
+      "categoryScores": "Scor pe fiecare abilitate și evoluția abilităților",
+      "moments": "Greșeli și puncte forte legate de cronologie, greșeli recurente",
+      "improvements": "Ce să faci mai bine data viitoare",
+      "metrics": "Raportul de vorbire, ritm, cuvinte de umplutură, întreruperi, obiecții",
+      "prospectInsights": "Ce contează pentru prospect",
+      "nextSteps": "Pașii următori conveniți",
+      "followUpDraft": "Mesaj de follow-up gata de trimis",
+      "practiceReveal": "Detaliile ascunse ale personajului după o sesiune de exersare",
+      "copilotUsage": "Cum au fost folosite sugestiile copilotului",
+      "suggestedPractice": "Scenarii de exersare recomandate"
+    },
+    "interval": {
+      "month": "Lunar",
+      "year": "Anual"
+    },
+    "invoiceDescription": {
+      "seats_one": "Locuri suplimentare × {{count}}",
+      "seats_few": "Locuri suplimentare × {{count}}",
+      "seats_other": "Locuri suplimentare × {{count}}",
+      "topup": "Minute: {{pack}}"
+    },
+    "eventType": {
+      "STARTED": "Plan început",
+      "PLAN_CHANGED": "Plan schimbat",
+      "CHANGE_SCHEDULED": "Schimbare programată",
+      "CHANGE_CANCELED": "Schimbare programată anulată",
+      "SEATS_CHANGED": "Locuri modificate",
+      "CANCEL_SCHEDULED": "Anulare programată",
+      "CANCEL_REVOKED": "Anulare revocată",
+      "CANCELED": "Plan anulat",
+      "REACTIVATED": "Plan reactivat",
+      "TRIAL_STARTED": "Perioadă de probă începută",
+      "TRIAL_ENDED": "Perioadă de probă încheiată",
+      "TRIAL_EXTENDED": "Perioadă de probă prelungită",
+      "PAYMENT_SUCCEEDED": "Plată reușită",
+      "PAYMENT_FAILED": "Plată eșuată",
+      "REFUNDED": "Rambursat",
+      "CREDITS_GRANTED": "Minute adăugate",
+      "MANUAL_ASSIGNED": "Plan configurat de echipa noastră",
+      "DISCOUNT_APPLIED": "Reducere aplicată",
+      "SYNCED": "Sincronizat cu Stripe"
+    },
+    "source": {
+      "stripe": "Stripe",
+      "manual": "Manual"
+    },
+    "paymentFilter": {
+      "all": "Toate plățile",
+      "failed": "Eșuate",
+      "open": "Deschise",
+      "refunded": "Rambursate",
+      "paid": "Plătite"
+    },
+    "cancelMode": {
+      "atPeriodEnd": "La sfârșitul perioadei",
+      "immediate": "Imediat"
+    },
+    "actor": {
+      "user": "Client",
+      "admin": "Echipa CallZen",
+      "stripe": "Stripe",
+      "system": "Automat"
+    }
+  },
+  "access": {
+    "visibility": {
+      "organisation": "Toată lumea din organizație",
+      "selected": "Cursanți selectați"
+    },
+    "visibilityDescription": {
+      "organisation": "Fiecare membru îl poate vedea și folosi.",
+      "selected": "Doar cursanții pe care îi alegi, plus coachii."
+    }
+  },
+  "permissions": {
+    "agentsView": {
+      "label": "Vizualizează copiloții",
+      "description": "Vezi și folosește copiloții organizației în apeluri și la exersare."
+    },
+    "agentsManage": {
+      "label": "Gestionează copiloții",
+      "description": "Creează, editează, duplică, arhivează și șterge copiloți și alege cine îi poate folosi."
+    },
+    "prospectsManage": {
+      "label": "Gestionează-ți prospecții de exersare",
+      "description": "Creează, generează, editează și șterge prospecții AI de exersare creați de tine."
+    },
+    "prospectsManageAll": {
+      "label": "Gestionează prospecții de exersare ai tuturor",
+      "description": "Editează, șterge și schimbă cine poate folosi prospecții de exersare ai oricărui membru."
+    },
+    "callsCreate": {
+      "label": "Începe apeluri și exersări",
+      "description": "Începe apeluri live și sesiuni de exersare."
+    },
+    "callsViewAll": {
+      "label": "Vizualizează apelurile tuturor",
+      "description": "Vezi apelurile, înregistrările, analizele și performanța echipei pentru toți membrii. Fără această permisiune, membrii își văd doar propriile apeluri."
+    },
+    "callsManageAll": {
+      "label": "Gestionează apelurile tuturor",
+      "description": "Șterge înregistrări și apeluri și rulează din nou analize pentru orice membru."
+    },
+    "usageView": {
+      "label": "Vizualizează utilizarea organizației",
+      "description": "Vezi minutele utilizate pentru întreaga organizație."
+    },
+    "membersView": {
+      "label": "Vizualizează membrii",
+      "description": "Vezi lista de membri și rolurile lor."
+    },
+    "membersInvite": {
+      "label": "Invită membri",
+      "description": "Invită persoane, retrimite și revocă invitații."
+    },
+    "membersManage": {
+      "label": "Gestionează membrii",
+      "description": "Schimbă rolurile membrilor cu un rol inferior și elimină-i."
+    },
+    "rolesManage": {
+      "label": "Editează permisiunile rolurilor",
+      "description": "Schimbă ce are voie să facă fiecare rol."
+    },
+    "orgUpdate": {
+      "label": "Editează organizația",
+      "description": "Redenumește organizația."
+    },
+    "orgDelete": {
+      "label": "Șterge organizația",
+      "description": "Șterge definitiv organizația și toate datele ei."
+    },
+    "billingView": {
+      "label": "Vizualizează facturarea",
+      "description": "Vezi planul, facturile și plățile organizației."
+    },
+    "billingManage": {
+      "label": "Gestionează facturarea",
+      "description": "Schimbă sau anulează planul, gestionează locurile și detaliile de plată și cumpără minute pentru echipă."
+    },
+    "coachingView": {
+      "label": "Vizualizează coachingul",
+      "description": "Vezi tabloul de bord al cohortei, paginile cursanților și rapoartele săptămânale. Include vizualizarea apelurilor tuturor."
+    },
+    "coachingManage": {
+      "label": "Fă coaching cursanților",
+      "description": "Creează teme de exersare și comentează apelurile altor membri."
+    },
+    "coachingExport": {
+      "label": "Exportă datele de coaching",
+      "description": "Descarcă listele de cursanți și apeluri în format CSV."
+    }
+  },
+  "permissionGroups": {
+    "agents": "Copiloți și exersare",
+    "calls": "Apeluri",
+    "team": "Echipă",
+    "coaching": "Coaching",
+    "organisation": "Organizație",
+    "billing": "Facturare"
+  },
+  "coaching": {
+    "assignmentStatus": {
+      "all": "Toate stările",
+      "open": "Deschise",
+      "overdue": "Întârziate",
+      "completed": "Finalizate",
+      "archived": "Arhivate"
+    }
   }
 }

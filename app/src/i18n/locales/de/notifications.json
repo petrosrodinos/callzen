@@ -1,0 +1,45 @@
+{
+  "title": "Benachrichtigungen",
+  "description": "Aufgaben, Kommentare, Berichte und Abrechnungshinweise für diese Organisation.",
+  "markAllRead": "Alle als gelesen markieren",
+  "empty": "Sie sind auf dem neuesten Stand",
+  "emptyHint": "Neue Aufgaben, Kommentare und Berichte erscheinen hier.",
+  "seeAll": "Alle Benachrichtigungen ansehen",
+  "otherOrganisations_one": "Sie haben {{count}} ungelesene Benachrichtigung in einer anderen Organisation.",
+  "otherOrganisations_other": "Sie haben {{count}} ungelesene Benachrichtigungen in anderen Organisationen.",
+  "bell": {
+    "aria_one": "Benachrichtigungen, {{count}} ungelesen",
+    "aria_other": "Benachrichtigungen, {{count}} ungelesen"
+  },
+  "filters": {
+    "all": "Alle",
+    "unread": "Ungelesen"
+  },
+  "errors": {
+    "load": "Benachrichtigungen konnten nicht geladen werden. Bitte versuchen Sie es erneut.",
+    "markRead": "Benachrichtigungen konnten nicht aktualisiert werden. Bitte versuchen Sie es erneut."
+  },
+  "toasts": {
+    "allRead": "Alle Benachrichtigungen als gelesen markiert",
+    "couldNotMarkRead": "Benachrichtigungen konnten nicht aktualisiert werden"
+  },
+  "items": {
+    "untitledAssignment": "eine Aufgabe",
+    "someone": "Jemand",
+    "assignmentNew": "Neue Übungsaufgabe: {{title}}",
+    "assignmentDueSoon": "„{{title}}“ ist am {{date}} fällig",
+    "assignmentCompleted_one": "{{count}} Teilnehmer hat „{{title}}“ abgeschlossen",
+    "assignmentCompleted_other": "{{count}} Teilnehmer haben „{{title}}“ abgeschlossen",
+    "commentNew": "{{name}} hat Ihren Anruf kommentiert",
+    "commentReply": "{{name}} hat auf Ihren Kommentar geantwortet",
+    "coachReport": "Ihr wöchentlicher Coaching-Bericht für die Woche vom {{date}} ist fertig",
+    "prospectShared": "Ein Übungs-Interessent wurde mit Ihnen geteilt",
+    "copilotShared": "Ein Co-Pilot wurde mit Ihnen geteilt",
+    "billingPaymentFailed": "Eine Zahlung ist fehlgeschlagen. Aktualisieren Sie Ihre Zahlungsmethode, um Ihren Tarif zu behalten.",
+    "billingTrialEnding": "Ihre Testphase endet bald. Wählen Sie einen Tarif, um weiterzumachen.",
+    "billingActionRequired": "Eine Zahlung muss von Ihnen bestätigt werden.",
+    "billingPlanCanceled": "Ihr Tarif ist abgelaufen. Ihre Daten bleiben erhalten; schließen Sie ein Abonnement ab, um fortzufahren.",
+    "billingGeneric": "Es gibt Neuigkeiten zu Ihrem Tarif.",
+    "generic": "Sie haben eine neue Benachrichtigung"
+  }
+}

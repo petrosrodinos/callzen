@@ -32,7 +32,11 @@
     "deleteDialogTitle": "Usunąć {{name}}?",
     "deleteDialogDescription": "Wpisz <strong>{{name}}</strong>, aby potwierdzić. Wszystko w tej organizacji zostanie usunięte dla wszystkich członków.",
     "confirmAria": "Wpisz nazwę organizacji, aby potwierdzić",
-    "deletePermanently": "Usuń trwale"
+    "deletePermanently": "Usuń trwale",
+    "boughtMinutesWarning_one": "{{count}} członek nadal ma minuty kupione dla siebie. Przepadną one po usunięciu organizacji.",
+    "boughtMinutesWarning_few": "{{count}} członków nadal ma minuty kupione dla siebie. Przepadną one po usunięciu organizacji.",
+    "boughtMinutesWarning_many": "{{count}} członków nadal ma minuty kupione dla siebie. Przepadną one po usunięciu organizacji.",
+    "boughtMinutesWarning_other": "{{count}} członka nadal ma minuty kupione dla siebie. Przepadną one po usunięciu organizacji."
   },
   "invitations": {
     "copyFailed": "Nie udało się skopiować",

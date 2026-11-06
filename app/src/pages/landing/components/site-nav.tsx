@@ -11,6 +11,7 @@ const LINKS = [
   { href: "#practice", key: "practice" },
   { href: "#review", key: "reviews" },
   { href: "#teams", key: "teams" },
+  { href: "#pricing", key: "pricing" },
 ] as const;
 
 export function SiteNav() {

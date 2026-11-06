@@ -1,6 +1,6 @@
 # CallZen – Monetization Implementation Plan
 
-Status: **Draft for review**. No code has been changed yet.
+Status: **Implemented** (2026-11-06). See §17 for implementation notes and what still needs per-environment setup.
 Date: 2026-11-01
 
 This plan turns the earlier go-to-market and pricing proposal into a buildable blueprint. It adds the requirements from the review: models.dev pricing, the `AppConfig` table, configurable plan limits, a simpler cost UI, no automatic data retention, plan-based analysis visibility, and Extras left out of scope.
@@ -1647,3 +1647,49 @@ Each sub-phase includes i18n for all 12 locales: page text, notification types, 
 - **External**: models.dev `api.json` (no key, MIT), the Stripe account and products, and the OpenAI docs for audio token rates.
 - **Internal, existing**: BullMQ and Redis (sync job, caches), the Stripe integration scaffold, Resend (payment-failed emails), `RolesGuard` and the `/admin` layout, the org permissions system.
 - **No new npm packages** are expected.
+
+---
+
+## 17. Implementation notes (2026-11-06)
+
+Where the build differs from, or adds to, the draft above:
+
+- **Migrations** are generated with `prisma migrate diff` and live in `api/prisma/migrations/20261106100000_*` … `20261106100800_*` (app config, model prices, usage-event pricing, subscriptions, the two data migrations, coaching, agent access, billing). The data migrations (§3.9 steps 5–6) are SQL in their own migrations so they run with `migrate deploy`; owners of existing organisations are marked as having used their trial. The coaching migration also adds the `coaching.*` permissions to existing ADMIN roles.
+- **Minute accounting** is settled once per call into `Call.counted_seconds` / `personal_credit_seconds` / `usage_settled_at` (`CreditsService.settleCall`), so pool and cap aggregates are a single `groupBy`. Historical calls are backfilled. Credit draw-down uses conditional decrements instead of `SELECT … FOR UPDATE`.
+- **TRIAL** uses a new limit flag `practice_shares_live_pool` for "20 minutes shared by live and practice".
+- **Costs** are computed in `UsageService.record` from raw token/audio usage (callers no longer pass a cost); practice voice is billed as user audio in / prospect audio out, split from the transcript timings.
+- **Audio models**: `ai.default_models` seeds `gpt-realtime-2.1` (voice) and `gpt-live-transcribe` (live transcription). Uploads stay on `gpt-4o-transcribe-diarize` because diarization support of `gpt-transcribe` is still unconfirmed; switching is a config change, and models without diarization get speakers attributed by the utility model. The `gpt-live-transcribe` / `gpt-transcribe` per-minute overrides are third-party quotes — confirm them on OpenAI's pricing page.
+- **Extra settings**: `billing.past_due_grace_days` (default 7) and `pricing.sync.alias_providers` (default `["vercel"]`).
+- **Feature-gated permissions**: `calls.view_all` / `calls.manage_all` only take effect on plans with `view_all_member_calls` (applied in `OrgAccessService.effectivePermissions`, stored role permissions are untouched).
+- **Knowledge document import** is client-side, so its plan gate is UI-only (typing knowledge is always allowed).
+- **Coach-access notice**: accepting an invitation to a coach organisation records `Membership.coach_access_acknowledged_at`.
+
+- **Public pricing**: `GET /plans/public` serves the same public catalog without a session (no Stripe ids, no costs); the landing page builds its plan points, prices and trial length from it, with static copy only as a fallback.
+
+**Verification (2026-11-06)**, on a throwaway local Postgres 18 + Redis 7:
+- All migrations apply from scratch (`migrate deploy`), the seed creates the 12 AppConfig keys, and `prisma migrate diff` shows no drift between the database and the schema.
+- A live models.dev sync priced all 14 tracked models (direct, alias and admin-override sources as designed).
+- An end-to-end HTTP smoke test (41 checks) covers: trial on sign-up and trial-once, plan limits (co-pilots, invitations), `max_duration_seconds`, minute settlement, money hidden from users, admin config (versioning, 409 conflicts, validation, history), manual Coach plan, team credit grants, admin subscriptions, coaching endpoints, analysis visibility on Starter and the public plan catalog.
+- Signed Stripe webhook tests (7 checks): bad signatures rejected, personal top-up credited to the buyer, replayed events and repeated payments never grant twice, refunds zero the remaining credit.
+- Browser checks of the landing pricing, usage, configuration and billing pages (no console errors). This found and fixed one bug (plan history dropped every event without a `scope`).
+- 100 API unit tests, API and app production builds, lint clean on all changed files; every key present in all 12 locales.
+
+**§10.2 margin check (2026-11-06, synced models.dev prices)** — reproducible worst-case estimates:
+
+| Unit | Cost | Assumptions |
+|---|---|---|
+| Live minute (online meeting) | $0.042 | 2 × `gpt-live-transcribe` ($0.017/min) + ~4 suggestions/min on `gpt-4.1-mini` (3.5k in, half cached / 200 out) + analysis spread over a 15-min call |
+| Practice minute | $0.166 | `gpt-realtime-2.1`, both sides speaking the whole minute (600/1,200 audio tokens) + 50% text/context overhead + user transcription |
+| Upload minute | $0.009 | `gpt-4o-transcribe-diarize` $0.006/min + analysis |
+| Analysis per call | $0.054 | `gpt-4.1`, ~15k in / 3k out |
+
+| Plan (indicative price) | Worst case at full usage | Share of price |
+|---|---|---|
+| Starter ($29) | $10.08 | 35% ✓ |
+| Pro ($59 / $79) | $75.35 | 128% / 95% ✗ |
+| Coach ($149 base, 11 seats) | $229.97 | 154% ✗ (before extra-seat revenue) |
+
+Within 40% at a 2:1 live:practice split: Pro $79 ≈ 250 live + 125 practice minutes; Coach $149 ≈ 475 live + 235 practice minutes. Practice voice dominates the cost. Decision (2026-11-06): lower the allowances. The seeds are now Pro 250 live + 125 practice minutes; Coach 475 live + 235 practice minutes pooled, owner reserve 95 live minutes, per-student caps 65 live / 35 practice minutes. Starter is unchanged (35%). Environments already seeded keep their stored values; change them on the admin Configuration page. Found during the check: models.dev prices `gpt-4o-transcribe(-diarize)` only through a gateway alias that works out ~4× too low, so both now have seeded per-minute overrides ($0.006/min).
+
+**Per-environment setup still required** (Phase 8): create the Stripe products/prices and fill `plans.stripe_prices` and `plans.topup_packs[].stripe_price_id` in the admin Configuration page; set `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET` and `STRIPE_PORTAL_CONFIGURATION_ID` (a portal configuration limited to payment methods and billing details); subscribe the webhook endpoint `/billing/webhook` to the events handled in `stripe-webhooks.service.ts`; run `migrate deploy` and `npm run seed:<env>`; then do the §10.2 margin check with synced prices and end-to-end Stripe tests (`stripe listen`) on staging.
+

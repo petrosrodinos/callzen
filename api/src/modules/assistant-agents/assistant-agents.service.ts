@@ -1,12 +1,17 @@
+import { AppConfigService } from '@/modules/app-config/app-config.service';
 import {
   BadRequestException,
   Injectable,
-  NotFoundException,
 } from '@nestjs/common';
-import { OrgContext } from '@/shared/interfaces/org-context.interface';
+import {
+  isPlatformAdmin,
+  OrgContext,
+} from '@/shared/interfaces/org-context.interface';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
 import { Prisma, UsageKind } from 'generated/prisma';
 import { AiService } from '@/integrations/ai/services/ai.service';
+import { PlanLimitService } from '@/modules/billing/services/plan-limit.service';
+import { AgentAccessService } from '@/modules/agent-access/agent-access.service';
 import { UsageService } from '@/modules/usage/usage.service';
 import { CreateAssistantAgentDto } from './dto/create-assistant-agent.dto';
 import { UpdateAssistantAgentDto } from './dto/update-assistant-agent.dto';
@@ -18,15 +23,11 @@ import {
 } from './utils/assistant-agent-generation.utils';
 import {
   isKnownAiModel,
-  RECOMMENDED_ANALYSIS_MODEL,
-  RECOMMENDED_REALTIME_MODEL,
-  UTILITY_MODEL,
 } from '@/shared/config/ai-models/ai-models.config';
 import { DEFAULT_ANALYSIS_CRITERIA } from '@/shared/config/templates/analysis-criteria.config';
 import { getTemplateTranslation } from '@/shared/config/templates/i18n';
 import { localizeCriteria } from '@/shared/config/templates/i18n/template-translation';
 import { findAssistantAgentTemplate } from '@/shared/config/templates/assistant-agent-templates.config';
-import { ErrorCodes } from '@/shared/config/error-codes';
 import {
   AssistantAgentStats,
   AssistantAgentWithStats,
@@ -37,12 +38,22 @@ import { normalizeLanguages } from '@/shared/config/languages/languages.config';
 @Injectable()
 export class AssistantAgentsService {
   constructor(
+    private readonly appConfig: AppConfigService,
     private readonly prisma: PrismaService,
     private readonly aiService: AiService,
     private readonly usageService: UsageService,
+    private readonly planLimits: PlanLimitService,
+    private readonly agentAccess: AgentAccessService,
   ) {}
 
+  // Runtime model defaults (admin-configurable); a co-pilot's own model wins when set.
+  private get models() {
+    return this.appConfig.get('ai.default_models');
+  }
+
   async create(ctx: OrgContext, dto: CreateAssistantAgentDto) {
+    await this.planLimits.assertCanCreateCopilot(ctx);
+    dto = this.withoutUserModelChoice(ctx, dto);
     this.assertModels(dto);
     const template = dto.template_key
       ? findAssistantAgentTemplate(dto.template_key)
@@ -82,8 +93,8 @@ export class AssistantAgentsService {
             dto.suggestion_frequency ?? template?.suggestion_frequency,
           suggestion_length: dto.suggestion_length,
           alternatives_count: dto.alternatives_count ?? 1,
-          realtime_model: dto.realtime_model ?? RECOMMENDED_REALTIME_MODEL,
-          analysis_model: dto.analysis_model ?? RECOMMENDED_ANALYSIS_MODEL,
+          realtime_model: dto.realtime_model ?? this.models.realtime,
+          analysis_model: dto.analysis_model ?? this.models.analysis,
           analysis_criteria: (dto.analysis_criteria ??
             template?.analysis_criteria ??
             DEFAULT_ANALYSIS_CRITERIA) as unknown as Prisma.InputJsonValue,
@@ -97,14 +108,15 @@ export class AssistantAgentsService {
   }
 
   async generate(ctx: OrgContext, dto: GenerateAssistantAgentDto) {
+    await this.planLimits.assertWritable(ctx);
     const user = await this.prisma.user.findUnique({
       where: { id: ctx.userId },
       select: { preferred_language: true },
     });
     const accountLanguage = user?.preferred_language ?? 'en';
     const result = await this.aiService.generateStructured({
-      model: RECOMMENDED_ANALYSIS_MODEL,
-      fallbackModel: UTILITY_MODEL,
+      model: this.models.analysis,
+      fallbackModel: this.models.utility,
       system: buildAssistantAgentGenerationSystem(accountLanguage),
       prompt: `Create a co-pilot from this description:\n"""\n${dto.description}\n"""`,
       schema: GeneratedAssistantAgentSchema,
@@ -118,9 +130,7 @@ export class AssistantAgentsService {
       userId: ctx.userId,
       kind: UsageKind.GENERATION,
       model: result.model,
-      inputTokens: result.usage.inputTokens,
-      outputTokens: result.usage.outputTokens,
-      costUsd: result.usage.costUsd,
+      tokens: result.usage,
     });
 
     const generated = result.output;
@@ -156,6 +166,8 @@ export class AssistantAgentsService {
   ): Promise<AssistantAgentWithStats[]> {
     const where: Prisma.AssistantAgentWhereInput = {
       organisation_id: ctx.organisationId,
+      // Members only see what is shared with them (§10.1h); filtered in the DB.
+      ...this.agentAccess.assistantAgentVisibleWhere(ctx),
       ...(query.status === 'active' && { archived_at: null }),
       ...(query.status === 'archived' && { archived_at: { not: null } }),
       ...(query.search && {
@@ -168,24 +180,40 @@ export class AssistantAgentsService {
       orderBy: [{ is_default: 'desc' }, { updated_at: 'desc' }],
     });
 
-    const stats = await this.statsFor(
-      ctx,
-      agents.map((agent) => agent.id),
-    );
+    const ids = agents.map((agent) => agent.id);
+    const [stats, accessLists] = await Promise.all([
+      this.statsFor(ctx, ids),
+      this.accessListsFor(ctx, ids),
+    ]);
     return agents.map((agent) => ({
       ...agent,
+      ...(accessLists && { access_user_ids: accessLists.get(agent.id) ?? [] }),
       stats: stats.get(agent.id) ?? this.emptyStats(),
     }));
   }
 
   async findOne(ctx: OrgContext, id: string): Promise<AssistantAgentWithStats> {
     const agent = await this.getOwned(ctx, id);
-    const stats = await this.statsFor(ctx, [id]);
-    return { ...agent, stats: stats.get(id) ?? this.emptyStats() };
+    const [stats, accessLists] = await Promise.all([
+      this.statsFor(ctx, [id]),
+      this.accessListsFor(ctx, [id]),
+    ]);
+    return {
+      ...agent,
+      ...(accessLists && { access_user_ids: accessLists.get(id) ?? [] }),
+      stats: stats.get(id) ?? this.emptyStats(),
+    };
+  }
+
+  // Access lists are only returned to people who can manage co-pilot access.
+  private async accessListsFor(ctx: OrgContext, ids: string[]) {
+    if (!this.agentAccess.canManageCopilotAccess(ctx)) return null;
+    return this.agentAccess.accessListsFor('copilot', ids);
   }
 
   async update(ctx: OrgContext, id: string, dto: UpdateAssistantAgentDto) {
     const existing = await this.getOwned(ctx, id);
+    dto = this.withoutUserModelChoice(ctx, dto);
     this.assertModels(dto);
     const languageUpdate =
       dto.languages || dto.language
@@ -220,6 +248,7 @@ export class AssistantAgentsService {
 
   async duplicate(ctx: OrgContext, id: string) {
     const agent = await this.getOwned(ctx, id);
+    await this.planLimits.assertCanCreateCopilot(ctx);
     const {
       id: _id,
       created_at,
@@ -261,7 +290,10 @@ export class AssistantAgentsService {
   }
 
   async setArchived(ctx: OrgContext, id: string, archived: boolean) {
-    await this.getOwned(ctx, id);
+    const agent = await this.getOwned(ctx, id);
+    // Archived co-pilots do not count toward the maximum, so restoring one is like creating it (§8.2).
+    if (!archived && agent.archived_at)
+      await this.planLimits.assertCanCreateCopilot(ctx);
     return this.prisma.assistantAgent.update({
       where: { id },
       data: {
@@ -277,23 +309,25 @@ export class AssistantAgentsService {
     return { id, deleted: true };
   }
 
+  // Items the viewer cannot see return 404, so their existence is not leaked (§10.1h).
   async getOwned(ctx: OrgContext, id: string) {
-    const agent = await this.prisma.assistantAgent.findFirst({
-      where: { id, organisation_id: ctx.organisationId },
-    });
-    if (!agent)
-      throw new NotFoundException({
-        message: 'Assistant agent not found',
-        code: ErrorCodes.AssistantAgents.NOT_FOUND,
-      });
-    return agent;
+    return this.agentAccess.findVisibleAssistantAgent(ctx, id);
   }
 
+  // The default co-pilot if the viewer can see it, otherwise the newest one they can see (§14).
   async getDefault(ctx: OrgContext) {
-    return this.prisma.assistantAgent.findFirst({
-      where: { organisation_id: ctx.organisationId, archived_at: null },
-      orderBy: [{ is_default: 'desc' }, { updated_at: 'desc' }],
-    });
+    return this.agentAccess.defaultUsableAssistantAgent(ctx);
+  }
+
+  // Model selection is kept as an internal capability for platform admins only (§6.3). Everyone else gets
+  // the admin-configured defaults; existing co-pilots keep their stored model.
+  private withoutUserModelChoice<T extends UpdateAssistantAgentDto>(
+    ctx: OrgContext,
+    dto: T,
+  ): T {
+    if (isPlatformAdmin(ctx)) return dto;
+    const { realtime_model: _realtime, analysis_model: _analysis, ...rest } = dto;
+    return rest as T;
   }
 
   private assertModels(dto: UpdateAssistantAgentDto) {

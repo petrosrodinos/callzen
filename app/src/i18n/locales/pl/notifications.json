@@ -1,0 +1,51 @@
+{
+  "title": "Powiadomienia",
+  "description": "Zadania, komentarze, raporty i alerty rozliczeniowe dla tej organizacji.",
+  "markAllRead": "Oznacz wszystkie jako przeczytane",
+  "empty": "Wszystko przeczytane",
+  "emptyHint": "Tutaj pojawią się nowe zadania, komentarze i raporty.",
+  "seeAll": "Zobacz wszystkie powiadomienia",
+  "otherOrganisations_one": "Masz {{count}} nieprzeczytane powiadomienie w innej organizacji.",
+  "otherOrganisations_few": "Masz {{count}} nieprzeczytane powiadomienia w innych organizacjach.",
+  "otherOrganisations_many": "Masz {{count}} nieprzeczytanych powiadomień w innych organizacjach.",
+  "otherOrganisations_other": "Masz {{count}} nieprzeczytanego powiadomienia w innych organizacjach.",
+  "bell": {
+    "aria_one": "Powiadomienia, {{count}} nieprzeczytane",
+    "aria_few": "Powiadomienia, {{count}} nieprzeczytane",
+    "aria_many": "Powiadomienia, {{count}} nieprzeczytanych",
+    "aria_other": "Powiadomienia, {{count}} nieprzeczytanego"
+  },
+  "filters": {
+    "all": "Wszystkie",
+    "unread": "Nieprzeczytane"
+  },
+  "errors": {
+    "load": "Nie udało się załadować powiadomień. Spróbuj ponownie.",
+    "markRead": "Nie udało się zaktualizować powiadomień. Spróbuj ponownie."
+  },
+  "toasts": {
+    "allRead": "Oznaczono wszystkie powiadomienia jako przeczytane",
+    "couldNotMarkRead": "Nie udało się zaktualizować powiadomień"
+  },
+  "items": {
+    "untitledAssignment": "zadanie",
+    "someone": "Ktoś",
+    "assignmentNew": "Nowe zadanie ćwiczeniowe: {{title}}",
+    "assignmentDueSoon": "Termin zadania „{{title}}” mija {{date}}",
+    "assignmentCompleted_one": "{{count}} kursant ukończył zadanie „{{title}}”",
+    "assignmentCompleted_few": "{{count}} kursantów ukończyło zadanie „{{title}}”",
+    "assignmentCompleted_many": "{{count}} kursantów ukończyło zadanie „{{title}}”",
+    "assignmentCompleted_other": "{{count}} kursanta ukończyło zadanie „{{title}}”",
+    "commentNew": "{{name}} skomentował(a) Twoją rozmowę",
+    "commentReply": "{{name}} odpowiedział(a) na Twój komentarz",
+    "coachReport": "Twój tygodniowy raport z coachingu za tydzień od {{date}} jest gotowy",
+    "prospectShared": "Udostępniono Ci potencjalnego klienta do ćwiczeń",
+    "copilotShared": "Udostępniono Ci współpilota",
+    "billingPaymentFailed": "Płatność nie powiodła się. Zaktualizuj metodę płatności, aby zachować plan.",
+    "billingTrialEnding": "Okres próbny wkrótce się kończy. Wybierz plan, aby kontynuować.",
+    "billingActionRequired": "Płatność wymaga Twojego potwierdzenia.",
+    "billingPlanCanceled": "Twój plan się zakończył. Twoje dane zostały zachowane; wykup subskrypcję, aby kontynuować.",
+    "billingGeneric": "Jest nowa informacja dotycząca Twojego planu.",
+    "generic": "Masz nowe powiadomienie"
+  }
+}

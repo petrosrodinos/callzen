@@ -328,6 +328,38 @@
       "accountDeleted": "Cont șters",
       "allYourDataWasPermanentlyRemoved": "Toate datele tale au fost șterse definitiv.",
       "couldNotDeleteYourAccount": "Nu s-a putut șterge contul"
+    },
+    "billing": {
+      "planChanged": "Plan actualizat",
+      "changeScheduled": "Schimbare programată pentru sfârșitul perioadei",
+      "couldNotChangePlan": "Planul nu a putut fi schimbat",
+      "cancelScheduled": "Planul tău se va încheia la sfârșitul perioadei",
+      "couldNotCancel": "Planul nu a putut fi anulat",
+      "resumed": "Planul tău va continua",
+      "couldNotResume": "Planul nu a putut fi reluat",
+      "redirecting": "Se deschide pagina de plată securizată…",
+      "couldNotOpenPortal": "Setările de plată nu au putut fi deschise",
+      "couldNotStartCheckout": "Plata nu a putut fi inițiată"
+    },
+    "appConfig": {
+      "saved": "Setare salvată",
+      "reset": "Setarea a fost resetată la valoarea implicită",
+      "couldNotSave": "Setarea nu a putut fi salvată",
+      "conflict": "Altcineva a modificat această setare. A fost încărcată cea mai recentă valoare.",
+      "synced": "Prețuri sincronizate de pe models.dev",
+      "syncFailed": "Sincronizarea prețurilor a eșuat"
+    },
+    "adminSubscriptions": {
+      "exported": "CSV descărcat",
+      "actionFailed": "Acțiunea a eșuat",
+      "planAssigned": "Plan atribuit",
+      "minutesGranted": "Minute acordate",
+      "trialExtended": "Perioadă de probă prelungită",
+      "discountApplied": "Reducere aplicată",
+      "canceled": "Abonament anulat",
+      "resumed": "Abonament reluat",
+      "synced": "Sincronizat cu Stripe",
+      "refunded": "Rambursare emisă"
     }
   },
   "errors": {
@@ -445,6 +477,44 @@
     "websocket": {
       "notConnected": "WebSocket nu este conectat",
       "timeout": "Timeout la emiterea WebSocket"
+    },
+    "billing": {
+      "loadPlans": "Planurile nu au putut fi încărcate. Încearcă din nou.",
+      "loadPlanUsage": "Utilizarea planului tău nu a putut fi încărcată. Încearcă din nou.",
+      "loadBilling": "Detaliile de facturare nu au putut fi încărcate. Încearcă din nou.",
+      "loadInvoices": "Facturile nu au putut fi încărcate. Încearcă din nou.",
+      "loadHistory": "Istoricul planului nu a putut fi încărcat. Încearcă din nou.",
+      "previewChange": "Previzualizarea acestei schimbări a eșuat. Încearcă din nou.",
+      "changePlan": "Planul nu a putut fi schimbat. Încearcă din nou.",
+      "cancelPlan": "Planul nu a putut fi anulat. Încearcă din nou.",
+      "resumePlan": "Planul nu a putut fi reluat. Încearcă din nou.",
+      "openPortal": "Setările de plată nu au putut fi deschise. Încearcă din nou.",
+      "checkout": "Plata nu a putut fi inițiată. Încearcă din nou.",
+      "topup": "Achiziția nu a putut fi inițiată. Încearcă din nou.",
+      "loadPurchases": "Achizițiile tale nu au putut fi încărcate. Încearcă din nou."
+    },
+    "appConfig": {
+      "load": "Configurația nu a putut fi încărcată. Încearcă din nou.",
+      "save": "Această setare nu a putut fi salvată. Încearcă din nou.",
+      "reset": "Această setare nu a putut fi resetată. Încearcă din nou.",
+      "history": "Istoricul modificărilor nu a putut fi încărcat.",
+      "pricing": "Prețurile modelelor nu au putut fi încărcate.",
+      "sync": "Prețurile nu au putut fi sincronizate de pe models.dev."
+    },
+    "adminSubscriptions": {
+      "loadList": "Abonamentele nu au putut fi încărcate. Încearcă din nou.",
+      "export": "CSV-ul nu a putut fi exportat. Încearcă din nou.",
+      "loadDetail": "Acest abonament nu a putut fi încărcat. Încearcă din nou.",
+      "loadPayments": "Plățile nu au putut fi încărcate. Încearcă din nou.",
+      "assignPlan": "Planul nu a putut fi atribuit.",
+      "grantMinutes": "Minutele nu au putut fi acordate.",
+      "extendTrial": "Perioada de probă nu a putut fi prelungită.",
+      "discount": "Reducerea nu a putut fi aplicată.",
+      "cancel": "Abonamentul nu a putut fi anulat.",
+      "resume": "Abonamentul nu a putut fi reluat.",
+      "sync": "Sincronizarea cu Stripe a eșuat.",
+      "refund": "Factura nu a putut fi rambursată."
     }
-  }
+  },
+  "timeLeft": "{{time}} rămas"
 }

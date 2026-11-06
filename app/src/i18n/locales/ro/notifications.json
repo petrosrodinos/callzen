@@ -1,0 +1,48 @@
+{
+  "title": "Notificări",
+  "description": "Teme, comentarii, rapoarte și alerte de facturare pentru această organizație.",
+  "markAllRead": "Marchează toate ca citite",
+  "empty": "Ești la zi",
+  "emptyHint": "Temele, comentariile și rapoartele noi vor apărea aici.",
+  "seeAll": "Vezi toate notificările",
+  "otherOrganisations_one": "Ai {{count}} notificare necitită în altă organizație.",
+  "otherOrganisations_few": "Ai {{count}} notificări necitite în alte organizații.",
+  "otherOrganisations_other": "Ai {{count}} de notificări necitite în alte organizații.",
+  "bell": {
+    "aria_one": "Notificări, {{count}} necitită",
+    "aria_few": "Notificări, {{count}} necitite",
+    "aria_other": "Notificări, {{count}} de necitite"
+  },
+  "filters": {
+    "all": "Toate",
+    "unread": "Necitite"
+  },
+  "errors": {
+    "load": "Notificările nu au putut fi încărcate. Încearcă din nou.",
+    "markRead": "Notificările nu au putut fi actualizate. Încearcă din nou."
+  },
+  "toasts": {
+    "allRead": "Toate notificările au fost marcate ca citite",
+    "couldNotMarkRead": "Notificările nu au putut fi actualizate"
+  },
+  "items": {
+    "untitledAssignment": "o temă",
+    "someone": "Cineva",
+    "assignmentNew": "Temă de exersare nouă: {{title}}",
+    "assignmentDueSoon": "„{{title}}” are termen pe {{date}}",
+    "assignmentCompleted_one": "{{count}} cursant a finalizat „{{title}}”",
+    "assignmentCompleted_few": "{{count}} cursanți au finalizat „{{title}}”",
+    "assignmentCompleted_other": "{{count}} de cursanți au finalizat „{{title}}”",
+    "commentNew": "{{name}} a comentat la apelul tău",
+    "commentReply": "{{name}} a răspuns la comentariul tău",
+    "coachReport": "Raportul tău săptămânal de coaching pentru săptămâna din {{date}} este gata",
+    "prospectShared": "Un prospect de exersare a fost partajat cu tine",
+    "copilotShared": "Un copilot a fost partajat cu tine",
+    "billingPaymentFailed": "O plată a eșuat. Actualizează metoda de plată pentru a-ți păstra planul.",
+    "billingTrialEnding": "Perioada ta de probă se încheie curând. Alege un plan pentru a continua.",
+    "billingActionRequired": "O plată necesită confirmarea ta.",
+    "billingPlanCanceled": "Planul tău s-a încheiat. Datele tale sunt păstrate; abonează-te pentru a continua.",
+    "billingGeneric": "Există o actualizare despre planul tău.",
+    "generic": "Ai o notificare nouă"
+  }
+}

@@ -30,7 +30,9 @@
     "deleteDialogTitle": "{{name}} silinsin mi?",
     "deleteDialogDescription": "Onaylamak için <strong>{{name}}</strong> yazın. Bu kuruluştaki her şey tüm üyeler için silinir.",
     "confirmAria": "Onaylamak için kuruluş adını yazın",
-    "deletePermanently": "Kalıcı olarak sil"
+    "deletePermanently": "Kalıcı olarak sil",
+    "boughtMinutesWarning_one": "{{count}} üyenin kendisi için satın aldığı dakikaları hâlâ var. Kuruluş silindiğinde bu dakikalar kaybolur.",
+    "boughtMinutesWarning_other": "{{count}} üyenin kendileri için satın aldığı dakikaları hâlâ var. Kuruluş silindiğinde bu dakikalar kaybolur."
   },
   "invitations": {
     "copyFailed": "Kopyalama başarısız",

@@ -1,4 +1,6 @@
 import type { FC } from "react";
+import { LockedFeatureCard, PlanGate } from "@/components/providers/plan-gate";
+import { PlanFeatures } from "@/features/billing/interfaces/billing.interfaces";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 import { Building2, Mail, Settings2, ShieldCheck, Users } from "lucide-react";
@@ -68,11 +70,18 @@ const OrganisationPage: FC = () => {
           )}
           {can(Permissions.MEMBERS_INVITE) && (
             <TabsContent value="invitations">
+              {/* Existing invitations stay visible; inviting needs the plan feature (the API enforces it). */}
+              <PlanGate feature={PlanFeatures.ORG_INVITATIONS} fallback={<LockedFeatureCard feature={PlanFeatures.ORG_INVITATIONS} className="mb-4" />}>
+                {null}
+              </PlanGate>
               <InvitationsTab organisation={organisation} />
             </TabsContent>
           )}
           {can(Permissions.MEMBERS_VIEW) && (
             <TabsContent value="roles">
+              <PlanGate feature={PlanFeatures.ORG_ROLES_PERMISSIONS} fallback={<LockedFeatureCard feature={PlanFeatures.ORG_ROLES_PERMISSIONS} className="mb-4" />}>
+                {null}
+              </PlanGate>
               <RolesTab organisation={organisation} />
             </TabsContent>
           )}

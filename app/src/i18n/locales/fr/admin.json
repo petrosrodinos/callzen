@@ -28,5 +28,88 @@
       "postgres": "Connectivité de la base de données via Prisma.",
       "redis": "Connectivité du cache et de la file d’attente."
     }
+  },
+  "config": {
+    "title": "Configuration",
+    "subtitle": "Prix, limites des forfaits, visibilité des analyses et modèles d'IA. Les modifications s'appliquent en quelques secondes, sans déploiement.",
+    "tabs": {
+      "pricing": "Tarification",
+      "plans": "Forfaits",
+      "analysis": "Visibilité des analyses",
+      "ai": "Modèles d'IA",
+      "coaching": "Coaching",
+      "billing": "Facturation"
+    },
+    "updated": "Version {{version}} · {{date}} par {{name}}",
+    "usingDefault": "Valeur par défaut intégrée utilisée",
+    "system": "Système",
+    "public": "Visible par les utilisateurs",
+    "history": "Historique",
+    "historyTitle": "Historique des modifications",
+    "noHistory": "Aucune modification pour l'instant.",
+    "before": "Avant",
+    "after": "Après",
+    "invalid": "La valeur enregistrée ne correspond plus au format de ce paramètre ; la valeur par défaut intégrée est donc utilisée. Enregistrez une valeur valide pour corriger le problème.",
+    "invalidJson": "JSON non valide : {{error}}",
+    "save": "Enregistrer",
+    "discard": "Annuler les modifications",
+    "cancel": "Annuler",
+    "reset": "Rétablir la valeur par défaut",
+    "resetTitle": "Rétablir la valeur par défaut ?",
+    "resetDescription": "{{key}} reprend sa valeur par défaut intégrée. La valeur actuelle reste dans l'historique.",
+    "plans": {
+      "title": "Limites et fonctionnalités des forfaits",
+      "hint": "Laissez un nombre vide pour illimité. Les modifications s'appliquent en quelques secondes ; rien de ce qui a déjà été créé n'est supprimé.",
+      "limit": "Limite",
+      "unlimited": "Illimité",
+      "features": "Fonctionnalités",
+      "none": "Aucune"
+    },
+    "analysis": {
+      "title": "Visibilité des analyses par forfait",
+      "section": "Section de l'analyse"
+    },
+    "ai": {
+      "title": "Modèles par défaut",
+      "realtime": "Suggestions en direct",
+      "analysis": "Analyse des appels",
+      "utility": "Tâches utilitaires",
+      "voice": "Voix d'entraînement",
+      "transcription": "Transcription en direct",
+      "upload_transcription": "Transcription des fichiers importés",
+      "shutdown": "arrêt le {{date}}"
+    },
+    "pricing": {
+      "markupTitle": "Marge",
+      "markupHint": "Appliquée en plus du coût du fournisseur, uniquement pour la nouvelle utilisation. L'utilisation passée conserve la marge avec laquelle elle a été enregistrée.",
+      "pricesTitle": "Prix des modèles",
+      "pricesDescription": "Synchronisés depuis models.dev, en USD par million de tokens (par minute pour les modèles facturés à la durée).",
+      "lastSynced": "Dernière synchronisation {{when}}",
+      "neverSynced": "Pas encore synchronisé",
+      "lastError": "la dernière tentative a échoué : {{error}}",
+      "syncNow": "Synchroniser maintenant",
+      "snapshotOld": "Les prix n'ont pas été synchronisés depuis plus de 48 heures. Les coûts utilisent les derniers prix connus.",
+      "model": "Modèle",
+      "source": "Source",
+      "fetched": "Récupéré",
+      "stale": "Obsolète",
+      "override": "Prix manuel",
+      "addOverride": "Ajouter un prix manuel",
+      "overrideTitle": "Prix manuel pour {{model}}",
+      "overrideHint": "Utilisé lorsque models.dev n'a pas de prix direct. Les prix des tokens sont en USD par million de tokens ; le prix à la minute est en USD par minute audio.",
+      "overridesTitle": "Prix manuels",
+      "unpricedTitle": "Modèles sans prix",
+      "unpricedDescription": "Ces modèles sont enregistrés avec un coût de 0. Ajoutez un prix manuel pour que leur utilisation soit chiffrée.",
+      "unpricedEvents_one": "{{count}} événement au cours des 30 derniers jours",
+      "unpricedEvents_other": "{{count}} événements au cours des 30 derniers jours",
+      "fields": {
+        "input": "Entrée",
+        "output": "Sortie",
+        "cache_read": "Entrée en cache",
+        "input_audio": "Audio en entrée",
+        "output_audio": "Audio en sortie",
+        "per_minute": "Par minute"
+      }
+    }
   }
 }

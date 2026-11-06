@@ -1,3 +1,4 @@
+import type { AnalysisFeatureKey } from "@/config/constants/dropdowns/billing/analysis-feature.options";
 import type { Pagination } from "@/interfaces/pagination/pagination.interface";
 import type { AnalysisCriterion, SuggestionFrequency } from "@/features/assistant-agents/interfaces/assistant-agents.interfaces";
 import type { PracticeAgentFields } from "@/features/practice-agents/interfaces/practice-agents.interfaces";
@@ -257,26 +258,38 @@ export interface SuggestionUsage {
     copilot_improvements: string[];
 }
 
+// Parts the organisation's plan does not include are absent and listed in locked_features, with counts in
+// teasers (§9.3). The model name is only sent to platform admins.
 export interface CallAnalysis {
     id: string;
     call_id: string;
-    model: string;
+    model?: string;
     overall_score: number;
     verdict: string;
-    category_scores: CategoryScore[];
-    mistakes: AnalysisMistake[];
-    strengths: AnalysisStrength[];
-    improvements: { title: string; tip: string }[];
-    metrics: ConversationMetrics;
-    prospect_insights: ProspectInsights;
+    category_scores?: CategoryScore[];
+    mistakes?: AnalysisMistake[];
+    strengths?: AnalysisStrength[];
+    improvements?: { title: string; tip: string }[];
+    metrics?: ConversationMetrics;
+    prospect_insights?: ProspectInsights;
     summary: string;
-    next_steps: string[];
-    follow_up_draft: string | null;
-    suggested_practice: SuggestedPractice[];
-    practice_result: PracticeResult | null;
-    suggestion_usage: SuggestionUsage | null;
+    next_steps?: string[];
+    follow_up_draft?: string | null;
+    suggested_practice?: SuggestedPractice[];
+    practice_result?: PracticeResult | null;
+    suggestion_usage?: SuggestionUsage | null;
     error: string | null;
     created_at: string;
+    locked_features: AnalysisFeatureKey[];
+    teasers: AnalysisTeasers;
+}
+
+export interface AnalysisTeasers {
+    moments?: { mistakes: number; strengths: number };
+    improvements?: number;
+    next_steps?: number;
+    suggested_practice?: number;
+    category_scores?: number;
 }
 
 export interface AgentSnapshot {
@@ -321,6 +334,10 @@ export interface Call {
     started_at: string;
     ended_at: string | null;
     duration_seconds: number;
+    // Plan minutes available for this call, fixed when it started (§8.3); null = no limit.
+    max_duration_seconds?: number | null;
+    // Platform admins only: AI cost of this session.
+    session_cost?: { charged_usd: number; base_usd: number };
     ended_reason: CallEndReason | null;
     outcome: CallOutcome | null;
     custom_outcome: string | null;
@@ -437,6 +454,8 @@ export interface CreatePracticeCallDto {
     voice_provider?: VoiceProvider;
     voice?: string;
     keep_recording?: boolean;
+    // Practice started from a coach's assignment (§10.1c).
+    assignment_id?: string;
 }
 
 export interface UpdateCallDto {

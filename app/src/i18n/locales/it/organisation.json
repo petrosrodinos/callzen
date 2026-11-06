@@ -30,7 +30,9 @@
     "deleteDialogTitle": "Eliminare {{name}}?",
     "deleteDialogDescription": "Digita <strong>{{name}}</strong> per confermare. Tutto in questa organizzazione viene eliminato per tutti i membri.",
     "confirmAria": "Digita il nome dell'organizzazione per confermare",
-    "deletePermanently": "Elimina definitivamente"
+    "deletePermanently": "Elimina definitivamente",
+    "boughtMinutesWarning_one": "{{count}} membro ha ancora minuti acquistati per sé. Andranno persi quando l'organizzazione verrà eliminata.",
+    "boughtMinutesWarning_other": "{{count}} membri hanno ancora minuti acquistati per sé. Andranno persi quando l'organizzazione verrà eliminata."
   },
   "invitations": {
     "copyFailed": "Copia non riuscita",

@@ -3,9 +3,10 @@
   "save": "Enregistrer les paramètres",
   "nav": {
     "profile": "Profil et préférences",
-    "usage": "Utilisation et coûts",
+    "usage": "Utilisation",
     "privacy": "Confidentialité et données",
-    "sections": "Sections des paramètres"
+    "sections": "Sections des paramètres",
+    "billing": "Facturation"
   },
   "validation": {
     "enterName": "Saisissez votre nom",
@@ -94,6 +95,35 @@
       "input": "Entrée / 1M tokens",
       "output": "Sortie / 1M tokens",
       "perMinute": "~{{price}} par minute"
+    },
+    "calls": "Sessions",
+    "averageSession": "{{minutes}} min en moyenne par session",
+    "empty": "Aucune utilisation sur cette période.",
+    "sessions": {
+      "title": "Minutes par session",
+      "average": "{{minutes}} min en moyenne",
+      "session": "Session",
+      "member": "Membre",
+      "kind": "Type",
+      "date": "Date",
+      "minutes": "Minutes",
+      "untitled": "Session sans titre",
+      "you": "Vous"
+    },
+    "members": {
+      "title": "Minutes par membre sur cette période",
+      "member": "Membre",
+      "live": "Min en direct",
+      "practice": "Min d'entraînement",
+      "owner": "Propriétaire"
+    },
+    "admin": {
+      "title": "Administration de la plateforme : coûts IA",
+      "totalCost": "Coût IA (facturé)",
+      "baseCost": "Coût de base {{cost}}",
+      "averageCost": "coût moyen {{cost}} par session",
+      "cost": "Coût",
+      "chargedVsBase": "Les montants correspondent au coût facturé, marge comprise ; le coût de base du fournisseur figure entre parenthèses."
     }
   }
 }

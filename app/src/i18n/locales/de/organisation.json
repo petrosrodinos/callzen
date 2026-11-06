@@ -30,7 +30,9 @@
     "deleteDialogTitle": "{{name}} löschen?",
     "deleteDialogDescription": "Geben Sie zur Bestätigung <strong>{{name}}</strong> ein. Alles in dieser Organisation wird für alle Mitglieder gelöscht.",
     "confirmAria": "Geben Sie zur Bestätigung den Namen der Organisation ein",
-    "deletePermanently": "Dauerhaft löschen"
+    "deletePermanently": "Dauerhaft löschen",
+    "boughtMinutesWarning_one": "{{count}} Mitglied hat noch selbst gekaufte Minuten. Diese gehen verloren, wenn die Organisation gelöscht wird.",
+    "boughtMinutesWarning_other": "{{count}} Mitglieder haben noch selbst gekaufte Minuten. Diese gehen verloren, wenn die Organisation gelöscht wird."
   },
   "invitations": {
     "copyFailed": "Kopieren fehlgeschlagen",

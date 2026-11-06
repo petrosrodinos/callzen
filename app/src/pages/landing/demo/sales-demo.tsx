@@ -123,7 +123,7 @@ export function SalesDemo() {
                 <AnalysisMoments analysis={DEMO_ANALYSIS} onJump={noop} />
               </TabsContent>
               <TabsContent value="metrics">
-                <AnalysisMetrics metrics={DEMO_ANALYSIS.metrics} onJump={noop} />
+                {DEMO_ANALYSIS.metrics && <AnalysisMetrics metrics={DEMO_ANALYSIS.metrics} onJump={noop} />}
               </TabsContent>
             </div>
           </Tabs>

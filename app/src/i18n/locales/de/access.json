@@ -1,0 +1,79 @@
+{
+  "badge": {
+    "everyone": "Alle",
+    "sharedWith_one": "Mit {{count}} geteilt",
+    "sharedWith_other": "Mit {{count}} geteilt",
+    "private": "Privat",
+    "privateHint": "Nur Sie und Ihr Coach",
+    "sharedWithYou": "Mit Ihnen geteilt"
+  },
+  "editor": {
+    "title": "Wer dies nutzen darf",
+    "description": {
+      "copilot": "Legen Sie fest, ob alle in der Organisation diesen Co-Piloten nutzen dürfen oder nur die von Ihnen ausgewählten Teilnehmer.",
+      "prospect": "Legen Sie fest, ob alle in der Organisation mit diesem Interessenten üben dürfen oder nur die von Ihnen ausgewählten Teilnehmer."
+    },
+    "students": "Teilnehmer",
+    "noneSelected": "Keine Teilnehmer ausgewählt: Nur Sie und andere Coaches können es nutzen.",
+    "save": "Zugriff speichern",
+    "onlyYouAndCoach": "Nur Sie und Ihr Coach können diesen Interessenten sehen.",
+    "restrictedReadOnly_one": "Auf {{count}} Teilnehmer beschränkt. Ihr Tarif enthält keine Zugriffssteuerung mehr, daher kann diese Einstellung nicht geändert werden.",
+    "restrictedReadOnly_other": "Auf {{count}} Teilnehmer beschränkt. Ihr Tarif enthält keine Zugriffssteuerung mehr, daher kann diese Einstellung nicht geändert werden."
+  },
+  "picker": {
+    "placeholder": "Teilnehmer auswählen",
+    "selected_one": "{{count}} Teilnehmer ausgewählt",
+    "selected_other": "{{count}} Teilnehmer ausgewählt",
+    "search": "Mitglieder suchen",
+    "noMembers": "Keine Mitglieder gefunden.",
+    "remove": "{{name}} entfernen",
+    "formerMember": "Ehemaliges Mitglied"
+  },
+  "bulk": {
+    "select": "Zum Teilen auswählen",
+    "selected_one": "{{count}} ausgewählt",
+    "selected_other": "{{count}} ausgewählt",
+    "share": "Teilen mit…",
+    "cancel": "Auswahl aufheben",
+    "selectItem": "{{name}} auswählen"
+  },
+  "share": {
+    "title_one": "{{count}} Element teilen",
+    "title_other": "{{count}} Elemente teilen",
+    "description": "Die ausgewählten Teilnehmer können diese sofort nutzen. Bereits mit allen geteilte Elemente bleiben unverändert.",
+    "cancel": "Abbrechen",
+    "confirm": "Teilen"
+  },
+  "student": {
+    "title": "Zugriff",
+    "description": "Schalten Sie die Co-Piloten und Interessenten frei, die dieser Teilnehmer nutzen darf. Mit allen geteilte Elemente sind immer verfügbar.",
+    "descriptionReadOnly": "Die Co-Piloten und Interessenten, die dieser Teilnehmer nutzen darf.",
+    "copilots": "Co-Piloten",
+    "prospects": "Übungs-Interessenten",
+    "none": "Hier ist noch nichts.",
+    "privateToStudent": "Von diesem Teilnehmer erstellt",
+    "archived": "Archiviert",
+    "toggleAria": "Zugriff auf {{name}}"
+  },
+  "empty": {
+    "noSharedCopilot": "Ihr Coach hat noch keinen Co-Piloten geteilt",
+    "noSharedCopilotDescription": "Co-Piloten, die Ihr Coach mit Ihnen teilt, erscheinen hier.",
+    "noSharedCopilotCall": "Es wurde noch kein Co-Pilot mit Ihnen geteilt. Bitten Sie Ihren Coach, einen zu teilen; üben können Sie in der Zwischenzeit trotzdem.",
+    "goPractice": "Zum Üben"
+  },
+  "toasts": {
+    "accessSaved": "Zugriff aktualisiert",
+    "couldNotSaveAccess": "Zugriff konnte nicht aktualisiert werden",
+    "shared_one": "{{count}} Element geteilt",
+    "shared_other": "{{count}} Elemente geteilt",
+    "sharedPeople_one": "{{count}} Person hat Zugriff erhalten.",
+    "sharedPeople_other": "{{count}} Personen haben Zugriff erhalten.",
+    "alreadyShared": "Alle ausgewählten Personen hatten bereits Zugriff.",
+    "couldNotShare": "Teilen fehlgeschlagen"
+  },
+  "errors": {
+    "updateAccess": "Zugriff konnte nicht aktualisiert werden. Bitte versuchen Sie es erneut.",
+    "loadStudentAccess": "Der Zugriff dieses Teilnehmers konnte nicht geladen werden. Bitte versuchen Sie es erneut.",
+    "share": "Teilen fehlgeschlagen. Bitte versuchen Sie es erneut."
+  }
+}

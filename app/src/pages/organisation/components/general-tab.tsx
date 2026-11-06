@@ -76,6 +76,11 @@ export function GeneralTab({ organisation }: { organisation: Organisation }) {
               <Trans t={t} i18nKey="general.deleteDialogDescription" values={{ name: organisation.name }} components={{ strong: <span className="font-semibold text-foreground" /> }} />
             </DialogDescription>
           </DialogHeader>
+          {!!organisation.members_with_bought_minutes && (
+            <p className="rounded-lg border border-destructive/30 bg-destructive/5 p-3 text-sm">
+              {t("general.boughtMinutesWarning", { count: organisation.members_with_bought_minutes })}
+            </p>
+          )}
           <Input value={confirmName} onChange={(event) => setConfirmName(event.target.value)} placeholder={organisation.name} aria-label={t("general.confirmAria")} autoComplete="off" />
           <DialogFooter>
             <Button variant="destructive" disabled={confirmName !== organisation.name || remove.isPending} loading={remove.isPending} onClick={() => remove.mutate({ orgId: organisation.id, confirmName })}>

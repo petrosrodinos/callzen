@@ -781,3 +781,47 @@ html:has(.lz) {
     transition: none !important;
   }
 }
+
+/* Pricing */
+
+.lz-pricing {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .lz-pricing {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.lz-plan {
+  border: 1px solid var(--lz-line);
+  border-radius: 1rem;
+  background: var(--lz-surface);
+  padding: 1.5rem;
+}
+
+.lz-plan--featured {
+  border-color: var(--lz-indigo);
+  box-shadow: 0 0 0 1px var(--lz-indigo);
+}
+
+.lz-plan__name {
+  font-family: var(--lz-serif);
+  font-size: 1.5rem;
+}
+
+.lz-plan__tagline {
+  color: var(--lz-ink-soft);
+  margin-top: 0.25rem;
+}
+
+.lz-plan__points {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-left: 1.1rem;
+  list-style: disc;
+}

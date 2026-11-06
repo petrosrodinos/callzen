@@ -16,6 +16,7 @@ import {
 } from "@/features/organisations/interfaces/organisations.interfaces";
 
 const AdminHealthPage = lazy(() => import("@/pages/admin/pages/health"));
+const AdminConfigPage = lazy(() => import("@/pages/admin/pages/config"));
 const DashboardPage = lazy(() => import("@/pages/dashboard"));
 const NewCallPage = lazy(() => import("@/pages/calls/pages/new"));
 const LiveCallPage = lazy(() => import("@/pages/calls/pages/live"));
@@ -35,11 +36,21 @@ const PracticeSessionPage = lazy(
 );
 const SettingsPage = lazy(() => import("@/pages/settings"));
 const UsagePage = lazy(() => import("@/pages/settings/pages/usage"));
+const BillingPage = lazy(() => import("@/pages/settings/pages/billing"));
+const PricingPage = lazy(() => import("@/pages/pricing"));
+const AdminSubscriptionsPage = lazy(() => import("@/pages/admin/pages/subscriptions"));
+const AdminSubscriptionDetailPage = lazy(() => import("@/pages/admin/pages/subscriptions/pages/detail"));
 const PrivacyPage = lazy(() => import("@/pages/settings/pages/privacy"));
 const NotFoundPage = lazy(() => import("@/pages/not-found"));
 const OrganisationPage = lazy(() => import("@/pages/organisation"));
 const InvitePage = lazy(() => import("@/pages/invite"));
 const LandingPage = lazy(() => import("@/pages/landing"));
+const NotificationsPage = lazy(() => import("@/pages/notifications"));
+const CohortPage = lazy(() => import("@/pages/coaching/cohort"));
+const CoachReportsPage = lazy(() => import("@/pages/coaching/reports"));
+const AssignmentsPage = lazy(() => import("@/pages/assignments"));
+const AssignmentDetailPage = lazy(() => import("@/pages/assignments/pages/detail"));
+const StudentPage = lazy(() => import("@/pages/students"));
 
 const guarded = (permission: Permission, element: React.ReactNode) =>
   page(
@@ -144,9 +155,35 @@ export default function AppRoutes() {
           element={page(<SettingsPage />)}
         />
         <Route path={RoutePaths.settings.usage} element={page(<UsagePage />)} />
+        <Route path={RoutePaths.settings.billing} element={page(<BillingPage />)} />
+        <Route path={RoutePaths.pricing} element={page(<PricingPage />)} />
         <Route
           path={RoutePaths.settings.privacy}
           element={page(<PrivacyPage />)}
+        />
+        <Route
+          path={RoutePaths.notifications}
+          element={page(<NotificationsPage />)}
+        />
+        <Route
+          path={RoutePaths.coaching.cohort}
+          element={guarded(Permissions.COACHING_VIEW, <CohortPage />)}
+        />
+        <Route
+          path={RoutePaths.coaching.reports}
+          element={guarded(Permissions.COACHING_VIEW, <CoachReportsPage />)}
+        />
+        <Route
+          path={RoutePaths.coaching.assignments}
+          element={guarded(Permissions.COACHING_VIEW, <AssignmentsPage />)}
+        />
+        <Route
+          path={RoutePaths.coaching.assignment_pattern}
+          element={guarded(Permissions.COACHING_VIEW, <AssignmentDetailPage />)}
+        />
+        <Route
+          path={RoutePaths.coaching.student_pattern}
+          element={guarded(Permissions.COACHING_VIEW, <StudentPage />)}
         />
       </Route>
 
@@ -162,6 +199,9 @@ export default function AppRoutes() {
         }
       >
         <Route path="health" element={page(<AdminHealthPage />)} />
+        <Route path={RoutePaths.admin.subscriptions} element={page(<AdminSubscriptionsPage />)} />
+        <Route path={RoutePaths.admin.subscription_pattern} element={page(<AdminSubscriptionDetailPage />)} />
+        <Route path="config" element={page(<AdminConfigPage />)} />
         <Route
           index
           element={<Navigate to={RoutePaths.admin.health} replace />}

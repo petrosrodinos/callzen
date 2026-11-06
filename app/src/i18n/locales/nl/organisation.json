@@ -30,7 +30,9 @@
     "deleteDialogTitle": "{{name}} verwijderen?",
     "deleteDialogDescription": "Typ <strong>{{name}}</strong> om te bevestigen. Alles in deze organisatie wordt voor alle leden verwijderd.",
     "confirmAria": "Typ de naam van de organisatie om te bevestigen",
-    "deletePermanently": "Definitief verwijderen"
+    "deletePermanently": "Definitief verwijderen",
+    "boughtMinutesWarning_one": "{{count}} lid heeft nog minuten die het voor zichzelf heeft gekocht. Die gaan verloren als de organisatie wordt verwijderd.",
+    "boughtMinutesWarning_other": "{{count}} leden hebben nog minuten die ze voor zichzelf hebben gekocht. Die gaan verloren als de organisatie wordt verwijderd."
   },
   "invitations": {
     "copyFailed": "Kopiëren mislukt",

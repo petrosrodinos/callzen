@@ -16,16 +16,18 @@
       "copilots": "Co-pilots",
       "organisation": "Organisation",
       "settings": "Settings",
-      "usage": "Usage & costs",
+      "usage": "Usage",
       "privacy": "Privacy & data",
       "health": "Health",
       "users": "Users",
-      "alerts": "Alerts"
+      "alerts": "Alerts",
+      "config": "Configuration",
+      "subscriptions": "Subscriptions"
     }
   },
   "userMenu": {
     "settings": "Settings",
-    "usage": "Usage & costs",
+    "usage": "Usage",
     "privacy": "Privacy & data",
     "logout": "Log out"
   },

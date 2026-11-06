@@ -326,6 +326,38 @@
       "accountDeleted": "Account deleted",
       "allYourDataWasPermanentlyRemoved": "All your data was permanently removed.",
       "couldNotDeleteYourAccount": "Could not delete your account"
+    },
+    "billing": {
+      "planChanged": "Plan updated",
+      "changeScheduled": "Change scheduled for the end of the period",
+      "couldNotChangePlan": "Could not change the plan",
+      "cancelScheduled": "Your plan will end at the end of the period",
+      "couldNotCancel": "Could not cancel the plan",
+      "resumed": "Your plan will continue",
+      "couldNotResume": "Could not resume the plan",
+      "redirecting": "Opening secure payment page…",
+      "couldNotOpenPortal": "Could not open payment settings",
+      "couldNotStartCheckout": "Could not start checkout"
+    },
+    "appConfig": {
+      "saved": "Setting saved",
+      "reset": "Setting reset to its default",
+      "couldNotSave": "Could not save the setting",
+      "conflict": "Someone else changed this setting. The latest value has been loaded.",
+      "synced": "Prices synced from models.dev",
+      "syncFailed": "Price sync failed"
+    },
+    "adminSubscriptions": {
+      "exported": "CSV downloaded",
+      "actionFailed": "Action failed",
+      "planAssigned": "Plan assigned",
+      "minutesGranted": "Minutes granted",
+      "trialExtended": "Trial extended",
+      "discountApplied": "Discount applied",
+      "canceled": "Subscription canceled",
+      "resumed": "Subscription resumed",
+      "synced": "Synced with Stripe",
+      "refunded": "Refund issued"
     }
   },
   "errors": {
@@ -443,6 +475,44 @@
     "websocket": {
       "notConnected": "WebSocket not connected",
       "timeout": "WebSocket emit timeout"
+    },
+    "billing": {
+      "loadPlans": "Could not load plans. Please try again.",
+      "loadPlanUsage": "Could not load your plan usage. Please try again.",
+      "loadBilling": "Could not load billing details. Please try again.",
+      "loadInvoices": "Could not load invoices. Please try again.",
+      "loadHistory": "Could not load the plan history. Please try again.",
+      "previewChange": "Could not preview this change. Please try again.",
+      "changePlan": "Could not change the plan. Please try again.",
+      "cancelPlan": "Could not cancel the plan. Please try again.",
+      "resumePlan": "Could not resume the plan. Please try again.",
+      "openPortal": "Could not open payment settings. Please try again.",
+      "checkout": "Could not start checkout. Please try again.",
+      "topup": "Could not start the purchase. Please try again.",
+      "loadPurchases": "Could not load your purchases. Please try again."
+    },
+    "appConfig": {
+      "load": "Could not load the configuration. Please try again.",
+      "save": "Could not save this setting. Please try again.",
+      "reset": "Could not reset this setting. Please try again.",
+      "history": "Could not load the change history.",
+      "pricing": "Could not load model prices.",
+      "sync": "Could not sync prices from models.dev."
+    },
+    "adminSubscriptions": {
+      "loadList": "Could not load subscriptions. Please try again.",
+      "export": "Could not export the CSV. Please try again.",
+      "loadDetail": "Could not load this subscription. Please try again.",
+      "loadPayments": "Could not load payments. Please try again.",
+      "assignPlan": "Could not assign the plan.",
+      "grantMinutes": "Could not grant the minutes.",
+      "extendTrial": "Could not extend the trial.",
+      "discount": "Could not apply the discount.",
+      "cancel": "Could not cancel the subscription.",
+      "resume": "Could not resume the subscription.",
+      "sync": "Could not sync with Stripe.",
+      "refund": "Could not refund the invoice."
     }
-  }
+  },
+  "timeLeft": "{{time}} left"
 }

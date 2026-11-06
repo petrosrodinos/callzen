@@ -16,16 +16,18 @@
       "copilots": "Co-pilots",
       "organisation": "Οργανισμός",
       "settings": "Ρυθμίσεις",
-      "usage": "Χρήση και κόστη",
+      "usage": "Χρήση",
       "privacy": "Απόρρητο και δεδομένα",
       "health": "Κατάσταση",
       "users": "Χρήστες",
-      "alerts": "Ειδοποιήσεις"
+      "alerts": "Ειδοποιήσεις",
+      "config": "Διαμόρφωση",
+      "subscriptions": "Συνδρομές"
     }
   },
   "userMenu": {
     "settings": "Ρυθμίσεις",
-    "usage": "Χρήση και κόστη",
+    "usage": "Χρήση",
     "privacy": "Απόρρητο και δεδομένα",
     "logout": "Αποσύνδεση"
   },

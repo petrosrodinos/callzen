@@ -326,5 +326,279 @@
       "conversation": "Görüşmeyle aynı dil",
       "interface": "Arayüz dilim"
     }
+  },
+  "billing": {
+    "plan": {
+      "all": "Tüm planlar",
+      "trial": "Deneme",
+      "starter": "Starter",
+      "pro": "Pro",
+      "coach": "Coach"
+    },
+    "planDescription": {
+      "trial": "Sınırlı bir kullanım hakkıyla her şeyi deneyin.",
+      "starter": "Yeni başlayan bireysel satış temsilcileri için.",
+      "pro": "Çok alıştırma ve çok arama yapan iddialı bireyler için.",
+      "coach": "Koçlar ve öğrencileri için; ortak dakikalar ve koçluk araçlarıyla."
+    },
+    "status": {
+      "all": "Tüm durumlar",
+      "trialing": "Deneme",
+      "active": "Etkin",
+      "pastDue": "Vadesi geçmiş",
+      "canceled": "İptal edildi",
+      "incomplete": "Tamamlanmadı",
+      "none": "Plan yok",
+      "cancelling": "İptal ediliyor"
+    },
+    "invoiceKind": {
+      "subscription": "Abonelik",
+      "seats": "Ek koltuklar",
+      "topupTeam": "Ekip için dakikalar",
+      "topupPersonal": "Kişisel dakikalar",
+      "other": "Diğer"
+    },
+    "invoiceStatus": {
+      "draft": "Taslak",
+      "open": "Açık",
+      "paid": "Ödendi",
+      "void": "Geçersiz",
+      "uncollectible": "Tahsil edilemez",
+      "failed": "Başarısız",
+      "refunded": "İade edildi"
+    },
+    "pack": {
+      "live_100": "100 canlı arama dakikası",
+      "practice_60": "60 alıştırma dakikası",
+      "mixed": "{{live}} canlı + {{practice}} alıştırma dakikası",
+      "liveFallback": "{{count}} canlı arama dakikası",
+      "practiceFallback": "{{count}} alıştırma dakikası"
+    },
+    "cancelReason": {
+      "tooExpensive": "Çok pahalı",
+      "notUsing": "Yeterince kullanmıyorum",
+      "missingFeatures": "İhtiyacım olan özellikler eksik",
+      "switching": "Başka bir araca geçiyorum",
+      "temporary": "Yalnızca bir süreliğine gerekiyordu",
+      "other": "Başka bir neden"
+    },
+    "feature": {
+      "knowledgeDocumentImport": "Bilgi belgesi içe aktarma",
+      "orgRolesPermissions": "Özel roller ve izinler",
+      "orgInvitations": "Ekip davetleri",
+      "viewAllMemberCalls": "Tüm üyelerin aramalarını görüntüleme",
+      "cohortDashboard": "Öğrenci grubu panosu",
+      "topupPurchases": "Ek dakika satın alma",
+      "studentPages": "Öğrenci sayfaları",
+      "practiceAssignments": "Alıştırma ödevleri",
+      "callComments": "Aramalara koç yorumları",
+      "coachReports": "Haftalık koç raporları",
+      "studentExport": "CSV dışa aktarma",
+      "agentAccessControl": "Yardımcı pilotlara ve potansiyel müşterilere öğrenci bazında erişim"
+    },
+    "limit": {
+      "seatsIncluded": "Dahil koltuklar",
+      "extraSeatsAllowed": "Ek koltuk satın alınabilir",
+      "liveMinutes": "Dönem başına canlı arama dakikası",
+      "practiceMinutes": "Dönem başına alıştırma dakikası",
+      "practiceSharesLivePool": "Alıştırma, canlı arama dakikalarını kullanır",
+      "liveOwnerReserve": "Sahiplere ayrılan canlı arama dakikaları",
+      "practiceOwnerReserve": "Sahiplere ayrılan alıştırma dakikaları",
+      "liveMinutesPerMember": "Üye başına canlı arama dakikası",
+      "practiceMinutesPerMember": "Üye başına alıştırma dakikası",
+      "copilotsMax": "Yardımcı pilotlar",
+      "practiceProspectsMax": "Alıştırma müşterileri",
+      "practiceProspectsPerMemberMax": "Üye başına alıştırma müşterisi",
+      "uploadsPerPeriod": "Dönem başına yükleme",
+      "trialDays": "Deneme süresi (gün)"
+    },
+    "pricingSource": {
+      "modelsDev": "models.dev",
+      "alias": "models.dev (takma ad)",
+      "override": "Manuel",
+      "unpriced": "Fiyatsız"
+    },
+    "analysis": {
+      "overview": "Genel bakış ve puan",
+      "categoryScores": "Beceri puanları",
+      "moments": "Hatalar ve güçlü yönler",
+      "improvements": "İyileştirmeler",
+      "metrics": "Konuşma metrikleri",
+      "prospectInsights": "Potansiyel müşteri içgörüleri",
+      "nextSteps": "Sonraki adımlar",
+      "followUpDraft": "Takip mesajı taslağı",
+      "practiceReveal": "Alıştırma açıklaması",
+      "copilotUsage": "Yardımcı pilot kullanımı",
+      "suggestedPractice": "Önerilen alıştırma"
+    },
+    "analysisHint": {
+      "overview": "Genel puan, değerlendirme ve özet",
+      "categoryScores": "Beceri başına puan ve beceri eğilimi",
+      "moments": "Zaman çizelgesine bağlı hatalar ve güçlü yönler, tekrarlayan hatalar",
+      "improvements": "Bir dahaki sefere neyi daha iyi yapmalı",
+      "metrics": "Konuşma oranı, hız, dolgu sözcükleri, söz kesmeler, itirazlar",
+      "prospectInsights": "Potansiyel müşterinin önem verdiği şeyler",
+      "nextSteps": "Üzerinde anlaşılan sonraki adımlar",
+      "followUpDraft": "Gönderilmeye hazır takip mesajı",
+      "practiceReveal": "Alıştırma oturumundan sonra açığa çıkan gizli karakter ayrıntıları",
+      "copilotUsage": "Yardımcı pilotun önerilerinin nasıl kullanıldığı",
+      "suggestedPractice": "Önerilen alıştırma senaryoları"
+    },
+    "interval": {
+      "month": "Aylık",
+      "year": "Yıllık"
+    },
+    "invoiceDescription": {
+      "seats_one": "Ek koltuk × {{count}}",
+      "seats_other": "Ek koltuk × {{count}}",
+      "topup": "Dakikalar: {{pack}}"
+    },
+    "eventType": {
+      "STARTED": "Plan başladı",
+      "PLAN_CHANGED": "Plan değişti",
+      "CHANGE_SCHEDULED": "Değişiklik planlandı",
+      "CHANGE_CANCELED": "Planlanan değişiklik geri alındı",
+      "SEATS_CHANGED": "Koltuklar değişti",
+      "CANCEL_SCHEDULED": "İptal planlandı",
+      "CANCEL_REVOKED": "İptal geri alındı",
+      "CANCELED": "Plan iptal edildi",
+      "REACTIVATED": "Plan yeniden etkinleştirildi",
+      "TRIAL_STARTED": "Deneme başladı",
+      "TRIAL_ENDED": "Deneme bitti",
+      "TRIAL_EXTENDED": "Deneme uzatıldı",
+      "PAYMENT_SUCCEEDED": "Ödeme başarılı",
+      "PAYMENT_FAILED": "Ödeme başarısız",
+      "REFUNDED": "İade edildi",
+      "CREDITS_GRANTED": "Dakika eklendi",
+      "MANUAL_ASSIGNED": "Plan ekibimiz tarafından ayarlandı",
+      "DISCOUNT_APPLIED": "İndirim uygulandı",
+      "SYNCED": "Stripe ile senkronize edildi"
+    },
+    "source": {
+      "stripe": "Stripe",
+      "manual": "Manuel"
+    },
+    "paymentFilter": {
+      "all": "Tüm ödemeler",
+      "failed": "Başarısız",
+      "open": "Açık",
+      "refunded": "İade edildi",
+      "paid": "Ödendi"
+    },
+    "cancelMode": {
+      "atPeriodEnd": "Dönem sonunda",
+      "immediate": "Hemen"
+    },
+    "actor": {
+      "user": "Müşteri",
+      "admin": "CallZen ekibi",
+      "stripe": "Stripe",
+      "system": "Otomatik"
+    }
+  },
+  "access": {
+    "visibility": {
+      "organisation": "Kuruluştaki herkes",
+      "selected": "Seçilen öğrenciler"
+    },
+    "visibilityDescription": {
+      "organisation": "Her üye görebilir ve kullanabilir.",
+      "selected": "Yalnızca seçtiğiniz öğrenciler ve koçlar."
+    }
+  },
+  "permissions": {
+    "agentsView": {
+      "label": "Yardımcı pilotları görüntüle",
+      "description": "Kuruluşun yardımcı pilotlarını aramalarda ve alıştırmalarda görün ve kullanın."
+    },
+    "agentsManage": {
+      "label": "Yardımcı pilotları yönet",
+      "description": "Yardımcı pilot oluşturun, düzenleyin, kopyalayın, arşivleyin ve silin; kimlerin kullanabileceğini seçin."
+    },
+    "prospectsManage": {
+      "label": "Kendi alıştırma müşterilerini yönet",
+      "description": "Oluşturduğunuz yapay zekâ alıştırma müşterilerini oluşturun, ürettirin, düzenleyin ve silin."
+    },
+    "prospectsManageAll": {
+      "label": "Herkesin alıştırma müşterilerini yönet",
+      "description": "Herhangi bir üyenin alıştırma müşterilerini düzenleyin, silin ve kimlerin kullanabileceğini değiştirin."
+    },
+    "callsCreate": {
+      "label": "Arama ve alıştırma başlat",
+      "description": "Canlı aramalar ve alıştırma oturumları başlatın."
+    },
+    "callsViewAll": {
+      "label": "Herkesin aramalarını görüntüle",
+      "description": "Tüm üyelerin aramalarını, kayıtlarını, analizlerini ve ekip performansını görün. Bu izin olmadan üyeler yalnızca kendilerininkini görür."
+    },
+    "callsManageAll": {
+      "label": "Herkesin aramalarını yönet",
+      "description": "Herhangi bir üyenin kayıtlarını ve aramalarını silin, analizlerini yeniden çalıştırın."
+    },
+    "usageView": {
+      "label": "Kuruluş kullanımını görüntüle",
+      "description": "Tüm kuruluşun kullanım dakikalarını görün."
+    },
+    "membersView": {
+      "label": "Üyeleri görüntüle",
+      "description": "Üye listesini ve rollerini görün."
+    },
+    "membersInvite": {
+      "label": "Üye davet et",
+      "description": "Kişileri davet edin, davetleri yeniden gönderin ve iptal edin."
+    },
+    "membersManage": {
+      "label": "Üyeleri yönet",
+      "description": "Daha düşük role sahip üyelerin rollerini değiştirin ve onları kaldırın."
+    },
+    "rolesManage": {
+      "label": "Rol izinlerini düzenle",
+      "description": "Her rolün neler yapabileceğini değiştirin."
+    },
+    "orgUpdate": {
+      "label": "Kuruluşu düzenle",
+      "description": "Kuruluşu yeniden adlandırın."
+    },
+    "orgDelete": {
+      "label": "Kuruluşu sil",
+      "description": "Kuruluşu ve tüm verilerini kalıcı olarak silin."
+    },
+    "billingView": {
+      "label": "Faturalandırmayı görüntüle",
+      "description": "Kuruluşun planını, faturalarını ve ödemelerini görün."
+    },
+    "billingManage": {
+      "label": "Faturalandırmayı yönet",
+      "description": "Planı değiştirin veya iptal edin, koltukları ve ödeme bilgilerini yönetin, ekip için dakika satın alın."
+    },
+    "coachingView": {
+      "label": "Koçluğu görüntüle",
+      "description": "Öğrenci grubu panosunu, öğrenci sayfalarını ve haftalık raporları görün. Herkesin aramalarını görüntülemeyi de içerir."
+    },
+    "coachingManage": {
+      "label": "Öğrencilere koçluk yap",
+      "description": "Alıştırma ödevleri oluşturun ve diğer üyelerin aramalarına yorum yapın."
+    },
+    "coachingExport": {
+      "label": "Koçluk verilerini dışa aktar",
+      "description": "Öğrenci ve arama listelerini CSV olarak indirin."
+    }
+  },
+  "permissionGroups": {
+    "agents": "Yardımcı pilotlar ve alıştırma",
+    "calls": "Aramalar",
+    "team": "Ekip",
+    "coaching": "Koçluk",
+    "organisation": "Kuruluş",
+    "billing": "Faturalandırma"
+  },
+  "coaching": {
+    "assignmentStatus": {
+      "all": "Tüm durumlar",
+      "open": "Açık",
+      "overdue": "Gecikmiş",
+      "completed": "Tamamlandı",
+      "archived": "Arşivlendi"
+    }
   }
 }

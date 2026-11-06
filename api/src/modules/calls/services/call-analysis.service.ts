@@ -1,8 +1,13 @@
 import { BadRequestException, Injectable, Logger } from '@nestjs/common';
+import { AppConfigService } from '@/modules/app-config/app-config.service';
+import { AssignmentsService } from '@/modules/coaching/services/assignments.service';
 import { InjectQueue } from '@nestjs/bullmq';
 import { Queue } from 'bullmq';
 import { CALL_ANALYSIS_QUEUE } from '@/core/queues/queues.constants';
-import { OrgContext } from '@/shared/interfaces/org-context.interface';
+import {
+  isPlatformAdmin,
+  OrgContext,
+} from '@/shared/interfaces/org-context.interface';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
 import { z } from 'zod';
 import { AiService } from '@/integrations/ai/services/ai.service';
@@ -37,8 +42,6 @@ import {
 import { resolveOutputLanguage } from '../utils/copilot.prompts';
 import {
   isKnownAiModel,
-  RECOMMENDED_ANALYSIS_MODEL,
-  UTILITY_MODEL,
 } from '@/shared/config/ai-models/ai-models.config';
 import {
   AnalysisCriterion,
@@ -66,12 +69,19 @@ export class CallAnalysisService {
   private readonly logger = new Logger(CallAnalysisService.name);
 
   constructor(
+    private readonly appConfig: AppConfigService,
     private readonly prisma: PrismaService,
     private readonly aiService: AiService,
     private readonly usageService: UsageService,
     @InjectQueue(CALL_ANALYSIS_QUEUE)
     private readonly analysisQueue: Queue<AnalysisJobData>,
+    private readonly assignments: AssignmentsService,
   ) {}
+
+  // Runtime model defaults (admin-configurable); a co-pilot's own model wins when set.
+  private get models() {
+    return this.appConfig.get('ai.default_models');
+  }
 
   async rerun(ctx: OrgContext, callId: string, dto: RerunAnalysisDto) {
     const call = await findOwnedCall(
@@ -83,8 +93,10 @@ export class CallAnalysisService {
     );
     if (call.status === CallStatus.IN_PROGRESS)
       throw new BadRequestException('End the call before analyzing it');
-    if (dto.model && !isKnownAiModel(dto.model))
-      throw new BadRequestException(`Unknown model: ${dto.model}`);
+    // Model choice is an internal capability: users always get the co-pilot's or the default model.
+    const model = isPlatformAdmin(ctx) ? dto.model : undefined;
+    if (model && !isKnownAiModel(model))
+      throw new BadRequestException(`Unknown model: ${model}`);
 
     const segments = await this.prisma.transcriptSegment.count({
       where: { call_id: callId },
@@ -97,7 +109,7 @@ export class CallAnalysisService {
       data: { status: CallStatus.ANALYZING, analysis_error: null },
     });
     await this.queue(callId, {
-      model: dto.model,
+      model,
       useCurrentCriteria: dto.use_current_criteria,
     });
     return { id: callId, status: CallStatus.ANALYZING };
@@ -194,7 +206,7 @@ export class CallAnalysisService {
         ? agent.analysis_criteria
         : DEFAULT_ANALYSIS_CRITERIA;
     const model =
-      options.model ?? agent?.analysis_model ?? RECOMMENDED_ANALYSIS_MODEL;
+      options.model ?? agent?.analysis_model ?? this.models.analysis;
     const coachingSuggestions = call.suggestions.filter(
       (s) => s.type !== SuggestionType.ANSWER,
     );
@@ -251,7 +263,7 @@ export class CallAnalysisService {
 
     const result = await this.aiService.generateStructured({
       model,
-      fallbackModel: RECOMMENDED_ANALYSIS_MODEL,
+      fallbackModel: this.models.analysis,
       schema: buildAnalysisSchema(!!persona, includeSuggestions),
       schemaName: 'call_analysis',
       system: buildAnalysisSystem(promptInput),
@@ -267,9 +279,7 @@ export class CallAnalysisService {
       callId,
       kind: UsageKind.ANALYSIS,
       model: result.model,
-      inputTokens: result.usage.inputTokens,
-      outputTokens: result.usage.outputTokens,
-      costUsd: result.usage.costUsd,
+      tokens: result.usage,
     });
 
     const output = result.output as CallAnalysisOutput;
@@ -380,6 +390,14 @@ export class CallAnalysisService {
         },
       }),
     ]);
+
+    // Assignment progress post-step (§10.1c); the analysis itself is unchanged and never fails because of it.
+    if (call.assignment_id)
+      await this.assignments
+        .recordAttempt(callId)
+        .catch((error) =>
+          this.logger.warn(`Assignment progress for ${callId} failed: ${error?.message}`),
+        );
   }
 
   // A short, specific title (like a chat name) from the opening of the conversation.
@@ -394,7 +412,7 @@ export class CallAnalysisService {
     try {
       const transcript = formatTranscript(segments, { maxChars: 6000 });
       const result = await this.aiService.generateStructured({
-        model: UTILITY_MODEL,
+        model: this.models.utility,
         schema: z.object({ title: z.string() }),
         schemaName: 'call_title',
         system:
@@ -413,9 +431,7 @@ ${transcript}`,
         callId: call.id,
         kind: UsageKind.ANALYSIS,
         model: result.model,
-        inputTokens: result.usage.inputTokens,
-        outputTokens: result.usage.outputTokens,
-        costUsd: result.usage.costUsd,
+        tokens: result.usage,
       });
       const title = result.output.title
         .replace(/^["'“”]+|["'“”.]+$/g, '')
@@ -450,7 +466,7 @@ ${transcript}`,
         .join('\n')
         .slice(0, 3000);
       const result = await this.aiService.generateStructured({
-        model: UTILITY_MODEL,
+        model: this.models.utility,
         schema: z.object({
           language: z.enum(candidates as [string, ...string[]]),
         }),
@@ -468,9 +484,7 @@ ${transcript}`,
         callId,
         kind: UsageKind.ANALYSIS,
         model: result.model,
-        inputTokens: result.usage.inputTokens,
-        outputTokens: result.usage.outputTokens,
-        costUsd: result.usage.costUsd,
+        tokens: result.usage,
       });
       await this.prisma.call.update({
         where: { id: callId },

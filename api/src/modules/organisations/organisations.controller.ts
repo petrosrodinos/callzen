@@ -17,6 +17,8 @@ import { JwtGuard } from '@/shared/guards/jwt.guard';
 import { OrgGuard } from '@/shared/guards/org.guard';
 import { CurrentUser } from '@/shared/decorators/current-user.decorator';
 import { Org, RequirePermissions } from '@/shared/decorators/org.decorator';
+import { RequiresFeature } from '@/shared/decorators/requires-feature.decorator';
+import { PlanFeatures } from '@/shared/config/plans/plans.config';
 import { Permissions } from '@/shared/config/permissions/permissions.config';
 import { OrgContext } from '@/shared/interfaces/org-context.interface';
 import { OrganisationsService } from './services/organisations.service';
@@ -152,6 +154,7 @@ export class OrganisationsController {
   @Put(':orgId/roles/:role')
   @UseGuards(OrgGuard)
   @RequirePermissions(Permissions.ROLES_MANAGE)
+  @RequiresFeature(PlanFeatures.ORG_ROLES_PERMISSIONS)
   @ApiOperation({ summary: 'Set the permissions of a role (owners only)' })
   updateRole(
     @Param('orgId', ParseUUIDPipe) _orgId: string,
@@ -165,6 +168,7 @@ export class OrganisationsController {
   @Post(':orgId/roles/:role/reset')
   @UseGuards(OrgGuard)
   @RequirePermissions(Permissions.ROLES_MANAGE)
+  @RequiresFeature(PlanFeatures.ORG_ROLES_PERMISSIONS)
   @ApiOperation({ summary: 'Reset a role to its preset permissions' })
   resetRole(
     @Param('orgId', ParseUUIDPipe) _orgId: string,

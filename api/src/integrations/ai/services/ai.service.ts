@@ -13,9 +13,20 @@ import {
   AiProviders,
 } from '../interfaces/ai.interface';
 import {
-  estimateTokenCost,
+  EMBEDDING_MODEL,
   findAiModel,
 } from '@/shared/config/ai-models/ai-models.config';
+import { ModelPricingService } from '@/modules/pricing/services/model-pricing.service';
+
+interface RawRunResult<T> {
+  output: T;
+  usage?: {
+    inputTokens?: number;
+    outputTokens?: number;
+    inputTokenDetails?: { cacheReadTokens?: number };
+    outputTokenDetails?: { reasoningTokens?: number };
+  };
+}
 
 const MODEL_UNAVAILABLE_PATTERN =
   /model.*(not.*(found|exist|access)|does not exist|unsupported)|no such model|model_not_found|404/i;
@@ -24,7 +35,10 @@ const MODEL_UNAVAILABLE_PATTERN =
 export class AiService {
   private readonly logger = new Logger(AiService.name);
 
-  constructor(private readonly aiConfig: AiConfig) {}
+  constructor(
+    private readonly aiConfig: AiConfig,
+    private readonly pricing: ModelPricingService,
+  ) {}
 
   isConfigured(): boolean {
     return this.aiConfig.isConfigured();
@@ -55,11 +69,7 @@ export class AiService {
         maxRetries: 1,
       });
 
-      return {
-        output: result.object as z.infer<T>,
-        inputTokens: result.usage?.inputTokens ?? 0,
-        outputTokens: result.usage?.outputTokens ?? 0,
-      };
+      return { output: result.object as z.infer<T>, usage: result.usage };
     });
   }
 
@@ -82,18 +92,14 @@ export class AiService {
         maxRetries: 1,
       });
 
-      return {
-        output: result.text,
-        inputTokens: result.usage?.inputTokens ?? 0,
-        outputTokens: result.usage?.outputTokens ?? 0,
-      };
+      return { output: result.text, usage: result.usage };
     });
   }
 
   async embedText(text: string): Promise<number[]> {
     this.assertConfigured();
     const { embedding } = await embed({
-      model: this.aiConfig.getEmbeddingModel('text-embedding-3-small'),
+      model: this.aiConfig.getEmbeddingModel(EMBEDDING_MODEL),
       value: text,
     });
     return embedding;
@@ -101,9 +107,7 @@ export class AiService {
 
   private async withModelFallback<T>(
     options: AiGenerateBaseOptions,
-    run: (
-      model: string,
-    ) => Promise<{ output: T; inputTokens: number; outputTokens: number }>,
+    run: (model: string) => Promise<RawRunResult<T>>,
   ): Promise<AiGenerateResult<T>> {
     const startedAt = Date.now();
     const requestedModel = findAiModel(options.model)
@@ -142,7 +146,7 @@ export class AiService {
   }
 
   private toResult<T>(
-    result: { output: T; inputTokens: number; outputTokens: number },
+    result: RawRunResult<T>,
     model: string,
     fallbackUsed: boolean,
     startedAt: number,
@@ -153,13 +157,11 @@ export class AiService {
       fallbackUsed,
       latencyMs: Date.now() - startedAt,
       usage: {
-        inputTokens: result.inputTokens,
-        outputTokens: result.outputTokens,
-        costUsd: estimateTokenCost(
-          model,
-          result.inputTokens,
-          result.outputTokens,
-        ),
+        inputTokens: result.usage?.inputTokens ?? 0,
+        cachedInputTokens: result.usage?.inputTokenDetails?.cacheReadTokens ?? 0,
+        outputTokens: result.usage?.outputTokens ?? 0,
+        reasoningTokens:
+          result.usage?.outputTokenDetails?.reasoningTokens ?? 0,
       },
     };
   }
@@ -169,11 +171,11 @@ export class AiService {
     temperature?: number,
   ): number | undefined {
     // Reasoning models reject custom temperatures.
-    return findAiModel(model)?.is_reasoning ? undefined : temperature;
+    return this.pricing.isReasoning(model) ? undefined : temperature;
   }
 
   private providerOptionsFor(model: string) {
-    if (findAiModel(model)?.is_reasoning) {
+    if (this.pricing.isReasoning(model)) {
       return { openai: { reasoningEffort: 'low' } };
     }
     return undefined;

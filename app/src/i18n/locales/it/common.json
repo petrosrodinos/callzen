@@ -326,6 +326,38 @@
       "accountDeleted": "Account eliminato",
       "allYourDataWasPermanentlyRemoved": "Tutti i tuoi dati sono stati rimossi definitivamente.",
       "couldNotDeleteYourAccount": "Impossibile eliminare il tuo account"
+    },
+    "billing": {
+      "planChanged": "Piano aggiornato",
+      "changeScheduled": "Modifica pianificata per la fine del periodo",
+      "couldNotChangePlan": "Impossibile cambiare il piano",
+      "cancelScheduled": "Il tuo piano terminerà alla fine del periodo",
+      "couldNotCancel": "Impossibile annullare il piano",
+      "resumed": "Il tuo piano continuerà",
+      "couldNotResume": "Impossibile riattivare il piano",
+      "redirecting": "Apertura della pagina di pagamento sicura…",
+      "couldNotOpenPortal": "Impossibile aprire le impostazioni di pagamento",
+      "couldNotStartCheckout": "Impossibile avviare il pagamento"
+    },
+    "appConfig": {
+      "saved": "Impostazione salvata",
+      "reset": "Impostazione ripristinata al valore predefinito",
+      "couldNotSave": "Impossibile salvare l'impostazione",
+      "conflict": "Qualcun altro ha modificato questa impostazione. È stato caricato il valore più recente.",
+      "synced": "Prezzi sincronizzati da models.dev",
+      "syncFailed": "Sincronizzazione dei prezzi non riuscita"
+    },
+    "adminSubscriptions": {
+      "exported": "CSV scaricato",
+      "actionFailed": "Azione non riuscita",
+      "planAssigned": "Piano assegnato",
+      "minutesGranted": "Minuti concessi",
+      "trialExtended": "Prova prolungata",
+      "discountApplied": "Sconto applicato",
+      "canceled": "Abbonamento annullato",
+      "resumed": "Abbonamento riattivato",
+      "synced": "Sincronizzato con Stripe",
+      "refunded": "Rimborso emesso"
     }
   },
   "errors": {
@@ -443,6 +475,44 @@
     "websocket": {
       "notConnected": "WebSocket non connesso",
       "timeout": "Timeout di invio WebSocket"
+    },
+    "billing": {
+      "loadPlans": "Impossibile caricare i piani. Riprova.",
+      "loadPlanUsage": "Impossibile caricare l'utilizzo del tuo piano. Riprova.",
+      "loadBilling": "Impossibile caricare i dati di fatturazione. Riprova.",
+      "loadInvoices": "Impossibile caricare le fatture. Riprova.",
+      "loadHistory": "Impossibile caricare la cronologia del piano. Riprova.",
+      "previewChange": "Impossibile visualizzare l'anteprima di questa modifica. Riprova.",
+      "changePlan": "Impossibile cambiare il piano. Riprova.",
+      "cancelPlan": "Impossibile annullare il piano. Riprova.",
+      "resumePlan": "Impossibile riattivare il piano. Riprova.",
+      "openPortal": "Impossibile aprire le impostazioni di pagamento. Riprova.",
+      "checkout": "Impossibile avviare il pagamento. Riprova.",
+      "topup": "Impossibile avviare l'acquisto. Riprova.",
+      "loadPurchases": "Impossibile caricare i tuoi acquisti. Riprova."
+    },
+    "appConfig": {
+      "load": "Impossibile caricare la configurazione. Riprova.",
+      "save": "Impossibile salvare questa impostazione. Riprova.",
+      "reset": "Impossibile ripristinare questa impostazione. Riprova.",
+      "history": "Impossibile caricare la cronologia delle modifiche.",
+      "pricing": "Impossibile caricare i prezzi dei modelli.",
+      "sync": "Impossibile sincronizzare i prezzi da models.dev."
+    },
+    "adminSubscriptions": {
+      "loadList": "Impossibile caricare gli abbonamenti. Riprova.",
+      "export": "Impossibile esportare il CSV. Riprova.",
+      "loadDetail": "Impossibile caricare questo abbonamento. Riprova.",
+      "loadPayments": "Impossibile caricare i pagamenti. Riprova.",
+      "assignPlan": "Impossibile assegnare il piano.",
+      "grantMinutes": "Impossibile concedere i minuti.",
+      "extendTrial": "Impossibile prolungare la prova.",
+      "discount": "Impossibile applicare lo sconto.",
+      "cancel": "Impossibile annullare l'abbonamento.",
+      "resume": "Impossibile riattivare l'abbonamento.",
+      "sync": "Impossibile sincronizzare con Stripe.",
+      "refund": "Impossibile rimborsare la fattura."
     }
-  }
+  },
+  "timeLeft": "{{time}} rimanenti"
 }

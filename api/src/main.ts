@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { Logger, ValidationPipe } from '@nestjs/common';
-import { json, urlencoded } from 'express';
+import { json, raw, urlencoded } from 'express';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { parseCorsUrls, resolveCorsOrigins } from './shared/config/cors';
@@ -8,6 +8,8 @@ import { parseCorsUrls, resolveCorsOrigins } from './shared/config/cors';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { bodyParser: false });
 
+  // Stripe signs the raw request body: the webhook must not go through the JSON parser.
+  app.use('/billing/webhook', raw({ type: 'application/json', limit: '1mb' }));
   app.use(json({ limit: '2mb' }));
   app.use(urlencoded({ extended: true, limit: '2mb' }));
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));

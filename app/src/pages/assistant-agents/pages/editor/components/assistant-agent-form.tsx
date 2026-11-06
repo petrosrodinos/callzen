@@ -67,6 +67,10 @@ export function AssistantAgentForm({
     defaultValues,
   });
 
+  // The model tab is an internal capability: the catalog only lists models for platform admins.
+  const showModels = !!catalog.ai_models?.length;
+  const visibleTabs = TABS.filter((item) => item.id !== "models" || showModels);
+
   const onInvalid = (errors: FieldErrors<AssistantAgentFormValues>) => {
     const invalidTab = TABS.find((item) =>
       item.fields.some((field) => field in errors),
@@ -85,7 +89,7 @@ export function AssistantAgentForm({
         <Tabs value={tab} onValueChange={setTab}>
           <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
             <TabsList className="w-max">
-              {TABS.map((item) => (
+              {visibleTabs.map((item) => (
                 <TabsTrigger key={item.id} value={item.id}>
                   {item.label}
                   {item.fields.some((field) => field in form.formState.errors) && (
@@ -118,9 +122,11 @@ export function AssistantAgentForm({
                 defaultConsentLine={catalog.default_consent_line}
               />
             </TabsContent>
-            <TabsContent value="models">
-              <ModelsSection form={form} catalog={catalog} />
-            </TabsContent>
+            {showModels && (
+              <TabsContent value="models">
+                <ModelsSection form={form} catalog={catalog} />
+              </TabsContent>
+            )}
             <TabsContent value="analysis">
               <AnalysisSection
                 form={form}

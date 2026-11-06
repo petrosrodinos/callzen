@@ -1,0 +1,45 @@
+{
+  "title": "Notifiche",
+  "description": "Compiti, commenti, report e avvisi di fatturazione per questa organizzazione.",
+  "markAllRead": "Segna tutte come lette",
+  "empty": "Sei in pari",
+  "emptyHint": "Nuovi compiti, commenti e report appariranno qui.",
+  "seeAll": "Vedi tutte le notifiche",
+  "otherOrganisations_one": "Hai {{count}} notifica non letta in un'altra organizzazione.",
+  "otherOrganisations_other": "Hai {{count}} notifiche non lette in altre organizzazioni.",
+  "bell": {
+    "aria_one": "Notifiche, {{count}} non letta",
+    "aria_other": "Notifiche, {{count}} non lette"
+  },
+  "filters": {
+    "all": "Tutte",
+    "unread": "Non lette"
+  },
+  "errors": {
+    "load": "Impossibile caricare le notifiche. Riprova.",
+    "markRead": "Impossibile aggiornare le notifiche. Riprova."
+  },
+  "toasts": {
+    "allRead": "Tutte le notifiche sono state segnate come lette",
+    "couldNotMarkRead": "Impossibile aggiornare le notifiche"
+  },
+  "items": {
+    "untitledAssignment": "un compito",
+    "someone": "Qualcuno",
+    "assignmentNew": "Nuovo compito di pratica: {{title}}",
+    "assignmentDueSoon": "«{{title}}» scade il {{date}}",
+    "assignmentCompleted_one": "{{count}} studente ha completato «{{title}}»",
+    "assignmentCompleted_other": "{{count}} studenti hanno completato «{{title}}»",
+    "commentNew": "{{name}} ha commentato la tua chiamata",
+    "commentReply": "{{name}} ha risposto al tuo commento",
+    "coachReport": "Il tuo report di coaching settimanale per la settimana del {{date}} è pronto",
+    "prospectShared": "Un prospect di pratica è stato condiviso con te",
+    "copilotShared": "Un co-pilot è stato condiviso con te",
+    "billingPaymentFailed": "Un pagamento non è andato a buon fine. Aggiorna il metodo di pagamento per mantenere il tuo piano.",
+    "billingTrialEnding": "La tua prova sta per terminare. Scegli un piano per continuare.",
+    "billingActionRequired": "Un pagamento richiede la tua conferma.",
+    "billingPlanCanceled": "Il tuo piano è terminato. I tuoi dati sono conservati; abbonati per continuare.",
+    "billingGeneric": "C'è un aggiornamento sul tuo piano.",
+    "generic": "Hai una nuova notifica"
+  }
+}

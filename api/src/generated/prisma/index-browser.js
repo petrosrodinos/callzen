@@ -134,7 +134,9 @@ exports.Prisma.UserScalarFieldEnum = {
   output_language_mode: 'output_language_mode',
   consent_line: 'consent_line',
   keep_recordings: 'keep_recordings',
-  consent_acknowledged_at: 'consent_acknowledged_at'
+  consent_acknowledged_at: 'consent_acknowledged_at',
+  stripe_customer_id: 'stripe_customer_id',
+  trial_used_at: 'trial_used_at'
 };
 
 exports.Prisma.PasswordResetTokenScalarFieldEnum = {
@@ -183,6 +185,7 @@ exports.Prisma.AssistantAgentScalarFieldEnum = {
   suggest_consent_line: 'suggest_consent_line',
   template_key: 'template_key',
   is_default: 'is_default',
+  visibility: 'visibility',
   archived_at: 'archived_at',
   created_at: 'created_at',
   updated_at: 'updated_at'
@@ -228,6 +231,7 @@ exports.Prisma.PracticeAgentScalarFieldEnum = {
   time_limit_minutes: 'time_limit_minutes',
   source_call_id: 'source_call_id',
   template_key: 'template_key',
+  visibility: 'visibility',
   archived_at: 'archived_at',
   created_at: 'created_at',
   updated_at: 'updated_at'
@@ -255,6 +259,10 @@ exports.Prisma.CallScalarFieldEnum = {
   started_at: 'started_at',
   ended_at: 'ended_at',
   duration_seconds: 'duration_seconds',
+  max_duration_seconds: 'max_duration_seconds',
+  counted_seconds: 'counted_seconds',
+  personal_credit_seconds: 'personal_credit_seconds',
+  usage_settled_at: 'usage_settled_at',
   ended_reason: 'ended_reason',
   outcome: 'outcome',
   custom_outcome: 'custom_outcome',
@@ -271,6 +279,7 @@ exports.Prisma.CallScalarFieldEnum = {
   clean_transcript: 'clean_transcript',
   agent_snapshot: 'agent_snapshot',
   practice_snapshot: 'practice_snapshot',
+  assignment_id: 'assignment_id',
   created_at: 'created_at',
   updated_at: 'updated_at'
 };
@@ -344,6 +353,12 @@ exports.Prisma.UsageEventScalarFieldEnum = {
   output_tokens: 'output_tokens',
   audio_seconds: 'audio_seconds',
   cost_usd: 'cost_usd',
+  charged_cost_usd: 'charged_cost_usd',
+  markup_percent: 'markup_percent',
+  cached_input_tokens: 'cached_input_tokens',
+  reasoning_tokens: 'reasoning_tokens',
+  pricing_source: 'pricing_source',
+  unit_prices: 'unit_prices',
   created_at: 'created_at'
 };
 
@@ -359,6 +374,7 @@ exports.Prisma.MembershipScalarFieldEnum = {
   organisation_id: 'organisation_id',
   user_id: 'user_id',
   role: 'role',
+  coach_access_acknowledged_at: 'coach_access_acknowledged_at',
   created_at: 'created_at',
   updated_at: 'updated_at'
 };
@@ -386,6 +402,219 @@ exports.Prisma.InvitationScalarFieldEnum = {
   accepted_by_id: 'accepted_by_id',
   revoked_at: 'revoked_at',
   created_at: 'created_at'
+};
+
+exports.Prisma.AppConfigScalarFieldEnum = {
+  key: 'key',
+  value: 'value',
+  version: 'version',
+  updated_by_id: 'updated_by_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.AppConfigHistoryScalarFieldEnum = {
+  id: 'id',
+  key: 'key',
+  old_value: 'old_value',
+  new_value: 'new_value',
+  changed_by_id: 'changed_by_id',
+  created_at: 'created_at'
+};
+
+exports.Prisma.ModelPriceScalarFieldEnum = {
+  model_id: 'model_id',
+  provider: 'provider',
+  source: 'source',
+  resolved_from: 'resolved_from',
+  cost: 'cost',
+  is_reasoning: 'is_reasoning',
+  modalities: 'modalities',
+  stale: 'stale',
+  fetched_at: 'fetched_at'
+};
+
+exports.Prisma.SubscriptionScalarFieldEnum = {
+  id: 'id',
+  organisation_id: 'organisation_id',
+  plan: 'plan',
+  status: 'status',
+  source: 'source',
+  billing_interval: 'billing_interval',
+  extra_seats: 'extra_seats',
+  stripe_customer_id: 'stripe_customer_id',
+  stripe_subscription_id: 'stripe_subscription_id',
+  current_period_start: 'current_period_start',
+  current_period_end: 'current_period_end',
+  trial_ends_at: 'trial_ends_at',
+  cancel_at_period_end: 'cancel_at_period_end',
+  past_due_since: 'past_due_since',
+  manual_note: 'manual_note',
+  unit_amount_cents: 'unit_amount_cents',
+  currency: 'currency',
+  pending_plan: 'pending_plan',
+  pending_interval: 'pending_interval',
+  pending_extra_seats: 'pending_extra_seats',
+  pending_change_at: 'pending_change_at',
+  stripe_schedule_id: 'stripe_schedule_id',
+  canceled_at: 'canceled_at',
+  cancel_reason: 'cancel_reason',
+  payment_method: 'payment_method',
+  last_synced_at: 'last_synced_at',
+  drift_detected_at: 'drift_detected_at',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.UsageCreditScalarFieldEnum = {
+  id: 'id',
+  organisation_id: 'organisation_id',
+  user_id: 'user_id',
+  pack_id: 'pack_id',
+  live_seconds_granted: 'live_seconds_granted',
+  practice_seconds_granted: 'practice_seconds_granted',
+  live_seconds_remaining: 'live_seconds_remaining',
+  practice_seconds_remaining: 'practice_seconds_remaining',
+  stripe_payment_id: 'stripe_payment_id',
+  granted_by_id: 'granted_by_id',
+  note: 'note',
+  created_at: 'created_at'
+};
+
+exports.Prisma.UsageCreditConsumptionScalarFieldEnum = {
+  id: 'id',
+  credit_id: 'credit_id',
+  call_id: 'call_id',
+  live_seconds: 'live_seconds',
+  practice_seconds: 'practice_seconds',
+  created_at: 'created_at'
+};
+
+exports.Prisma.PracticeAssignmentScalarFieldEnum = {
+  id: 'id',
+  organisation_id: 'organisation_id',
+  created_by_id: 'created_by_id',
+  practice_agent_id: 'practice_agent_id',
+  practice_agent_name: 'practice_agent_name',
+  title: 'title',
+  instructions: 'instructions',
+  due_at: 'due_at',
+  target_score: 'target_score',
+  required_attempts: 'required_attempts',
+  all_members: 'all_members',
+  due_soon_notified_at: 'due_soon_notified_at',
+  archived_at: 'archived_at',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.AssignmentTargetScalarFieldEnum = {
+  id: 'id',
+  assignment_id: 'assignment_id',
+  user_id: 'user_id',
+  attempts_count: 'attempts_count',
+  best_score: 'best_score',
+  last_attempt_at: 'last_attempt_at',
+  counted_call_ids: 'counted_call_ids',
+  completed_at: 'completed_at',
+  created_at: 'created_at'
+};
+
+exports.Prisma.CallCommentScalarFieldEnum = {
+  id: 'id',
+  call_id: 'call_id',
+  organisation_id: 'organisation_id',
+  author_id: 'author_id',
+  parent_id: 'parent_id',
+  at_ms: 'at_ms',
+  body: 'body',
+  edited_at: 'edited_at',
+  deleted_at: 'deleted_at',
+  created_at: 'created_at'
+};
+
+exports.Prisma.CoachDigestScalarFieldEnum = {
+  id: 'id',
+  organisation_id: 'organisation_id',
+  period_start: 'period_start',
+  period_end: 'period_end',
+  data: 'data',
+  created_at: 'created_at'
+};
+
+exports.Prisma.NotificationScalarFieldEnum = {
+  id: 'id',
+  organisation_id: 'organisation_id',
+  user_id: 'user_id',
+  type: 'type',
+  params: 'params',
+  dedupe_key: 'dedupe_key',
+  read_at: 'read_at',
+  created_at: 'created_at'
+};
+
+exports.Prisma.AssistantAgentAccessScalarFieldEnum = {
+  id: 'id',
+  assistant_agent_id: 'assistant_agent_id',
+  user_id: 'user_id',
+  granted_by_id: 'granted_by_id',
+  created_at: 'created_at'
+};
+
+exports.Prisma.PracticeAgentAccessScalarFieldEnum = {
+  id: 'id',
+  practice_agent_id: 'practice_agent_id',
+  user_id: 'user_id',
+  granted_by_id: 'granted_by_id',
+  created_at: 'created_at'
+};
+
+exports.Prisma.BillingInvoiceScalarFieldEnum = {
+  id: 'id',
+  organisation_id: 'organisation_id',
+  user_id: 'user_id',
+  stripe_customer_id: 'stripe_customer_id',
+  subscription_id: 'subscription_id',
+  kind: 'kind',
+  params: 'params',
+  number: 'number',
+  status: 'status',
+  amount_due_cents: 'amount_due_cents',
+  amount_paid_cents: 'amount_paid_cents',
+  amount_refunded_cents: 'amount_refunded_cents',
+  currency: 'currency',
+  period_start: 'period_start',
+  period_end: 'period_end',
+  hosted_invoice_url: 'hosted_invoice_url',
+  invoice_pdf_url: 'invoice_pdf_url',
+  payment_intent_id: 'payment_intent_id',
+  charge_id: 'charge_id',
+  requires_action: 'requires_action',
+  attempt_count: 'attempt_count',
+  last_error: 'last_error',
+  stripe_updated_at: 'stripe_updated_at',
+  created_at: 'created_at',
+  paid_at: 'paid_at',
+  updated_at: 'updated_at'
+};
+
+exports.Prisma.SubscriptionEventScalarFieldEnum = {
+  id: 'id',
+  organisation_id: 'organisation_id',
+  type: 'type',
+  from_plan: 'from_plan',
+  to_plan: 'to_plan',
+  actor_kind: 'actor_kind',
+  actor_id: 'actor_id',
+  note: 'note',
+  data: 'data',
+  created_at: 'created_at'
+};
+
+exports.Prisma.StripeEventScalarFieldEnum = {
+  id: 'id',
+  type: 'type',
+  processed_at: 'processed_at'
 };
 
 exports.Prisma.SortOrder = {
@@ -449,6 +678,11 @@ exports.SuggestionFrequency = exports.$Enums.SuggestionFrequency = {
 exports.SuggestionLength = exports.$Enums.SuggestionLength = {
   SHORT: 'SHORT',
   MEDIUM: 'MEDIUM'
+};
+
+exports.AgentVisibility = exports.$Enums.AgentVisibility = {
+  ORGANISATION: 'ORGANISATION',
+  SELECTED: 'SELECTED'
 };
 
 exports.LeadTemperature = exports.$Enums.LeadTemperature = {
@@ -553,6 +787,13 @@ exports.UsageKind = exports.$Enums.UsageKind = {
   GENERATION: 'GENERATION'
 };
 
+exports.PricingSource = exports.$Enums.PricingSource = {
+  MODELS_DEV: 'MODELS_DEV',
+  MODELS_DEV_ALIAS: 'MODELS_DEV_ALIAS',
+  ADMIN_OVERRIDE: 'ADMIN_OVERRIDE',
+  UNPRICED: 'UNPRICED'
+};
+
 exports.OrgRole = exports.$Enums.OrgRole = {
   OWNER: 'OWNER',
   ADMIN: 'ADMIN',
@@ -563,6 +804,67 @@ exports.InvitationStatus = exports.$Enums.InvitationStatus = {
   PENDING: 'PENDING',
   ACCEPTED: 'ACCEPTED',
   REVOKED: 'REVOKED'
+};
+
+exports.PlanKey = exports.$Enums.PlanKey = {
+  TRIAL: 'TRIAL',
+  STARTER: 'STARTER',
+  PRO: 'PRO',
+  COACH: 'COACH'
+};
+
+exports.SubscriptionStatus = exports.$Enums.SubscriptionStatus = {
+  TRIALING: 'TRIALING',
+  ACTIVE: 'ACTIVE',
+  PAST_DUE: 'PAST_DUE',
+  CANCELED: 'CANCELED',
+  INCOMPLETE: 'INCOMPLETE'
+};
+
+exports.SubscriptionSource = exports.$Enums.SubscriptionSource = {
+  STRIPE: 'STRIPE',
+  MANUAL: 'MANUAL'
+};
+
+exports.NotificationType = exports.$Enums.NotificationType = {
+  ASSIGNMENT_NEW: 'ASSIGNMENT_NEW',
+  ASSIGNMENT_DUE_SOON: 'ASSIGNMENT_DUE_SOON',
+  ASSIGNMENT_COMPLETED: 'ASSIGNMENT_COMPLETED',
+  COMMENT_NEW: 'COMMENT_NEW',
+  COMMENT_REPLY: 'COMMENT_REPLY',
+  COACH_REPORT: 'COACH_REPORT',
+  AGENT_SHARED: 'AGENT_SHARED',
+  BILLING_ALERT: 'BILLING_ALERT'
+};
+
+exports.BillingInvoiceKind = exports.$Enums.BillingInvoiceKind = {
+  SUBSCRIPTION: 'SUBSCRIPTION',
+  SEATS: 'SEATS',
+  TOPUP_TEAM: 'TOPUP_TEAM',
+  TOPUP_PERSONAL: 'TOPUP_PERSONAL',
+  OTHER: 'OTHER'
+};
+
+exports.SubscriptionEventType = exports.$Enums.SubscriptionEventType = {
+  STARTED: 'STARTED',
+  PLAN_CHANGED: 'PLAN_CHANGED',
+  CHANGE_SCHEDULED: 'CHANGE_SCHEDULED',
+  CHANGE_CANCELED: 'CHANGE_CANCELED',
+  SEATS_CHANGED: 'SEATS_CHANGED',
+  CANCEL_SCHEDULED: 'CANCEL_SCHEDULED',
+  CANCEL_REVOKED: 'CANCEL_REVOKED',
+  CANCELED: 'CANCELED',
+  REACTIVATED: 'REACTIVATED',
+  TRIAL_STARTED: 'TRIAL_STARTED',
+  TRIAL_ENDED: 'TRIAL_ENDED',
+  TRIAL_EXTENDED: 'TRIAL_EXTENDED',
+  PAYMENT_SUCCEEDED: 'PAYMENT_SUCCEEDED',
+  PAYMENT_FAILED: 'PAYMENT_FAILED',
+  REFUNDED: 'REFUNDED',
+  CREDITS_GRANTED: 'CREDITS_GRANTED',
+  MANUAL_ASSIGNED: 'MANUAL_ASSIGNED',
+  DISCOUNT_APPLIED: 'DISCOUNT_APPLIED',
+  SYNCED: 'SYNCED'
 };
 
 exports.Prisma.ModelName = {
@@ -580,7 +882,23 @@ exports.Prisma.ModelName = {
   Organisation: 'Organisation',
   Membership: 'Membership',
   RolePermission: 'RolePermission',
-  Invitation: 'Invitation'
+  Invitation: 'Invitation',
+  AppConfig: 'AppConfig',
+  AppConfigHistory: 'AppConfigHistory',
+  ModelPrice: 'ModelPrice',
+  Subscription: 'Subscription',
+  UsageCredit: 'UsageCredit',
+  UsageCreditConsumption: 'UsageCreditConsumption',
+  PracticeAssignment: 'PracticeAssignment',
+  AssignmentTarget: 'AssignmentTarget',
+  CallComment: 'CallComment',
+  CoachDigest: 'CoachDigest',
+  Notification: 'Notification',
+  AssistantAgentAccess: 'AssistantAgentAccess',
+  PracticeAgentAccess: 'PracticeAgentAccess',
+  BillingInvoice: 'BillingInvoice',
+  SubscriptionEvent: 'SubscriptionEvent',
+  StripeEvent: 'StripeEvent'
 };
 
 /**

@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useRef, useState, type FC } from "react";
+import { useCallTimeLimit } from "@/hooks/use-call-time-limit";
+import { TimeLeftBadge } from "@/components/ui/time-left-badge";
 import { useTranslation } from "react-i18next";
 import {
   Navigate,
@@ -121,19 +123,17 @@ const PracticeSessionPage: FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [call]);
 
-  const timeLimitMs = call?.practice?.time_limit_minutes
-    ? call.practice.time_limit_minutes * 60000
-    : null;
-  useEffect(() => {
-    // Ending the session tears down WebRTC/recording (external systems), triggered by the timer.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (
-      timeLimitMs &&
-      clock.elapsedMs >= timeLimitMs &&
-      voice.status === "live"
-    )
-      void endSession(CallEndReasons.TIME_LIMIT);
-  }, [clock.elapsedMs, endSession, timeLimitMs, voice.status]);
+  // The prospect's own time limit and the plan minutes fixed at start (§8.3), whichever comes first. Ending the
+  // session tears down WebRTC/recording (external systems), triggered by the timer.
+  const timeLimit = useCallTimeLimit({
+    maxDurationSeconds: call?.max_duration_seconds,
+    extraLimitMs: call?.practice?.time_limit_minutes
+      ? call.practice.time_limit_minutes * 60000
+      : null,
+    elapsedMs: clock.elapsedMs,
+    active: voice.status === "live",
+    onReached: () => void endSession(CallEndReasons.TIME_LIMIT),
+  });
 
   useEffect(() => {
     if (voice.status !== "live") return;
@@ -150,9 +150,6 @@ const PracticeSessionPage: FC = () => {
   const practice = call.practice;
   const prospectName = practice?.prospect_name || t("session.prospect");
   const live = voice.status === "live";
-  const remainingMs = timeLimitMs
-    ? Math.max(0, timeLimitMs - clock.elapsedMs)
-    : null;
 
   return (
     <div className="mx-auto max-w-6xl space-y-4">
@@ -174,11 +171,14 @@ const PracticeSessionPage: FC = () => {
         {call.copilot_enabled && <Badge variant="outline">{t("session.copilotOn")}</Badge>}
         <span className="ml-auto font-mono text-sm tabular-nums">
           {formatClock(clock.elapsedMs)}
-          {remainingMs !== null && (
-            <span className="ml-2 text-muted-foreground">
-              {t("session.timeLeft", { time: formatClock(remainingMs) })}
-            </span>
-          )}
+          {timeLimit.remainingMs !== null &&
+            (timeLimit.warning ? (
+              <TimeLeftBadge remainingMs={timeLimit.remainingMs} />
+            ) : (
+              <span className="ml-2 text-muted-foreground">
+                {t("session.timeLeft", { time: formatClock(timeLimit.remainingMs) })}
+              </span>
+            ))}
         </span>
       </div>
 

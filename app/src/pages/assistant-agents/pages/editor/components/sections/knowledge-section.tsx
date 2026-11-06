@@ -1,4 +1,6 @@
 import { useRef } from "react";
+import { PlanGate } from "@/components/providers/plan-gate";
+import { PlanFeatures } from "@/features/billing/interfaces/billing.interfaces";
 import { useTranslation } from "react-i18next";
 import type { UseFormReturn } from "react-hook-form";
 import { FileUp } from "lucide-react";
@@ -83,14 +85,17 @@ export function KnowledgeSection({
             className="hidden"
             onChange={(event) => void importFiles(event.target.files)}
           />
-          <Button
-            type="button"
-            size="sm"
-            variant="outline"
-            onClick={() => inputRef.current?.click()}
-          >
-            <FileUp /> {t("knowledge.import")}
-          </Button>
+          {/* Document import is a plan feature (knowledge_document_import); typing knowledge is always allowed. */}
+          <PlanGate feature={PlanFeatures.KNOWLEDGE_DOCUMENT_IMPORT} fallback="hide">
+            <Button
+              type="button"
+              size="sm"
+              variant="outline"
+              onClick={() => inputRef.current?.click()}
+            >
+              <FileUp /> {t("knowledge.import")}
+            </Button>
+          </PlanGate>
         </>
       }
     >

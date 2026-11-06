@@ -30,7 +30,9 @@
     "deleteDialogTitle": "Ta bort {{name}}?",
     "deleteDialogDescription": "Skriv <strong>{{name}}</strong> för att bekräfta. Allt i den här organisationen tas bort för alla medlemmar.",
     "confirmAria": "Skriv organisationens namn för att bekräfta",
-    "deletePermanently": "Ta bort permanent"
+    "deletePermanently": "Ta bort permanent",
+    "boughtMinutesWarning_one": "{{count}} medlem har fortfarande minuter som de köpt till sig själva. De går förlorade när organisationen tas bort.",
+    "boughtMinutesWarning_other": "{{count}} medlemmar har fortfarande minuter som de köpt till sig själva. De går förlorade när organisationen tas bort."
   },
   "invitations": {
     "copyFailed": "Kopieringen misslyckades",

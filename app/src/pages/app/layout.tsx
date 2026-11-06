@@ -10,12 +10,16 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { ThemeSwitch } from "@/components/ui/theme-switch";
+import { NotificationsBell } from "@/components/layout/notifications-bell";
 import { UiLanguageSwitch } from "@/components/ui/ui-language-switch";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { Routes } from "@/routes/routes";
 import { OrganisationGate } from "@/components/providers/organisation-gate";
 import { usePermissions } from "@/features/organisations/hooks/use-organisations";
 import { Permissions } from "@/features/organisations/interfaces/organisations.interfaces";
+import { PlanUpgradeDialog } from "@/components/billing/plan-upgrade-dialog";
+import { BuyMinutesDialog } from "@/components/billing/buy-minutes-dialog";
+import { BillingBanners } from "@/components/billing/billing-banners";
 
 export default function AppLayout() {
   return (
@@ -43,6 +47,7 @@ function AppShell() {
             <BrandLogo compact />
           </Link>
           <div className="ml-auto flex items-center gap-1.5">
+            <NotificationsBell />
             <ThemeSwitch />
             <UiLanguageSwitch />
             {can(Permissions.CALLS_CREATE) && (
@@ -55,9 +60,12 @@ function AppShell() {
             )}
           </div>
         </header>
+        <BillingBanners />
         <div className="mx-auto w-full max-w-7xl flex-1 px-4 py-5 sm:px-6 sm:py-6">
           <Outlet />
         </div>
+        <PlanUpgradeDialog />
+        <BuyMinutesDialog />
       </SidebarInset>
     </SidebarProvider>
   );

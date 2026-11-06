@@ -11,4 +11,6 @@ export interface AssistantAgentStats {
 
 export interface AssistantAgentWithStats extends AssistantAgent {
   stats: AssistantAgentStats;
+  // Members on the access list; only returned to people who manage access (§10.1h).
+  access_user_ids?: string[];
 }

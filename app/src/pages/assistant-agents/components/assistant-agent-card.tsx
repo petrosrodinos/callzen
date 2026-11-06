@@ -40,8 +40,25 @@ import { getSuggestionFrequencyLabel } from "@/config/constants/dropdowns/agents
 import { Routes } from "@/routes/routes";
 import { usePermissions } from "@/features/organisations/hooks/use-organisations";
 import { Permissions } from "@/features/organisations/interfaces/organisations.interfaces";
+import { Checkbox } from "@/components/ui/checkbox";
+import { AccessBadge } from "@/components/agent-access/access-badge";
+import { useAccessCapabilities } from "@/components/agent-access/use-access-capabilities";
+import { AgentKinds } from "@/features/agent-access/interfaces/agent-access.interfaces";
 
-export function AssistantAgentCard({ agent }: { agent: AssistantAgent }) {
+interface AssistantAgentCardProps {
+  agent: AssistantAgent;
+  // Bulk "Share with…" selection mode (§10.1h).
+  selectable?: boolean;
+  selected?: boolean;
+  onSelectedChange?: (selected: boolean) => void;
+}
+
+export function AssistantAgentCard({
+  agent,
+  selectable = false,
+  selected = false,
+  onSelectedChange,
+}: AssistantAgentCardProps) {
   const { t } = useTranslation("assistant");
   const navigate = useNavigate();
   const { can } = usePermissions();
@@ -54,10 +71,25 @@ export function AssistantAgentCard({ agent }: { agent: AssistantAgent }) {
   const remove = useDeleteAssistantAgent();
   const stats = agent.stats;
   const archived = !!agent.archived_at;
+  const access = useAccessCapabilities(AgentKinds.COPILOT);
 
   return (
-    <Card className={cn("flex flex-col p-5", archived && "opacity-70")}>
+    <Card
+      className={cn(
+        "flex flex-col p-5",
+        archived && "opacity-70",
+        selected && "ring-2 ring-primary",
+      )}
+    >
       <div className="flex items-start gap-3">
+        {selectable && (
+          <Checkbox
+            checked={selected}
+            onCheckedChange={(value) => onSelectedChange?.(value === true)}
+            aria-label={t("access:bulk.selectItem", { name: agent.name })}
+            className="mt-3"
+          />
+        )}
         <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-sm font-semibold text-primary">
           {agent.name.slice(0, 2).toUpperCase()}
         </span>
@@ -79,6 +111,12 @@ export function AssistantAgentCard({ agent }: { agent: AssistantAgent }) {
               </Badge>
             )}
             {archived && <Badge variant="secondary">{t("card.archived")}</Badge>}
+            <AccessBadge
+              visibility={agent.visibility}
+              accessUserIds={agent.access_user_ids}
+              isAuthor={!!access.userId && agent.user_id === access.userId}
+              showEveryone={access.canManageAccess}
+            />
             {agent.methodology && agent.methodology !== "CUSTOM" && (
               <Badge variant="outline">
                 {getMethodologyLabel(agent.methodology)}

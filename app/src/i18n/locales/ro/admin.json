@@ -28,5 +28,89 @@
       "postgres": "Conectivitatea bazei de date prin Prisma.",
       "redis": "Conectivitatea cache-ului și a cozii."
     }
+  },
+  "config": {
+    "title": "Configurație",
+    "subtitle": "Prețuri, limite ale planurilor, vizibilitatea analizei și modele AI. Modificările se aplică în câteva secunde, fără deploy.",
+    "tabs": {
+      "pricing": "Prețuri",
+      "plans": "Planuri",
+      "analysis": "Vizibilitatea analizei",
+      "ai": "Modele AI",
+      "coaching": "Coaching",
+      "billing": "Facturare"
+    },
+    "updated": "Versiunea {{version}} · {{date}} de {{name}}",
+    "usingDefault": "Se folosește valoarea implicită integrată",
+    "system": "Sistem",
+    "public": "Vizibil pentru utilizatori",
+    "history": "Istoric",
+    "historyTitle": "Istoricul modificărilor",
+    "noHistory": "Încă nu există modificări.",
+    "before": "Înainte",
+    "after": "După",
+    "invalid": "Valoarea salvată nu mai corespunde formatului acestei setări, așa că se folosește valoarea implicită integrată. Salvează o valoare validă pentru a remedia problema.",
+    "invalidJson": "JSON invalid: {{error}}",
+    "save": "Salvează",
+    "discard": "Renunță la modificări",
+    "cancel": "Anulează",
+    "reset": "Resetează la implicit",
+    "resetTitle": "Resetezi la implicit?",
+    "resetDescription": "{{key}} revine la valoarea implicită integrată. Valoarea curentă rămâne în istoric.",
+    "plans": {
+      "title": "Limitele și funcțiile planurilor",
+      "hint": "Lasă un număr gol pentru nelimitat. Modificările se aplică în câteva secunde; nimic din ce a fost deja creat nu este eliminat.",
+      "limit": "Limită",
+      "unlimited": "Nelimitat",
+      "features": "Funcții",
+      "none": "Niciuna"
+    },
+    "analysis": {
+      "title": "Vizibilitatea analizei pe plan",
+      "section": "Secțiune de analiză"
+    },
+    "ai": {
+      "title": "Modele implicite",
+      "realtime": "Sugestii live",
+      "analysis": "Analiza apelului",
+      "utility": "Sarcini utilitare",
+      "voice": "Voce pentru exersare",
+      "transcription": "Transcriere live",
+      "upload_transcription": "Transcrierea încărcărilor",
+      "shutdown": "se închide la {{date}}"
+    },
+    "pricing": {
+      "markupTitle": "Adaos",
+      "markupHint": "Se aplică peste costul furnizorului doar pentru utilizarea nouă. Utilizarea anterioară își păstrează adaosul cu care a fost înregistrată.",
+      "pricesTitle": "Prețurile modelelor",
+      "pricesDescription": "Sincronizate de pe models.dev, în USD per 1M de tokeni (pe minut pentru modelele tarifate după durată).",
+      "lastSynced": "Ultima sincronizare {{when}}",
+      "neverSynced": "Încă nesincronizat",
+      "lastError": "ultima încercare a eșuat: {{error}}",
+      "syncNow": "Sincronizează acum",
+      "snapshotOld": "Prețurile nu au mai fost sincronizate de peste 48 de ore. Costurile folosesc ultimele prețuri cunoscute.",
+      "model": "Model",
+      "source": "Sursă",
+      "fetched": "Preluat",
+      "stale": "Învechit",
+      "override": "Suprascriere",
+      "addOverride": "Adaugă suprascriere",
+      "overrideTitle": "Preț manual pentru {{model}}",
+      "overrideHint": "Se folosește când models.dev nu are un preț direct. Prețurile pe tokeni sunt în USD per 1M de tokeni; prețul pe minut este în USD per minut audio.",
+      "overridesTitle": "Prețuri manuale suprascrise",
+      "unpricedTitle": "Modele fără preț",
+      "unpricedDescription": "Aceste modele sunt înregistrate cu cost 0. Adaugă un preț manual pentru ca utilizarea lor să fie costată.",
+      "unpricedEvents_one": "{{count}} eveniment în ultimele 30 de zile",
+      "unpricedEvents_few": "{{count}} evenimente în ultimele 30 de zile",
+      "unpricedEvents_other": "{{count}} de evenimente în ultimele 30 de zile",
+      "fields": {
+        "input": "Intrare",
+        "output": "Ieșire",
+        "cache_read": "Intrare din cache",
+        "input_audio": "Audio intrare",
+        "output_audio": "Audio ieșire",
+        "per_minute": "Pe minut"
+      }
+    }
   }
 }

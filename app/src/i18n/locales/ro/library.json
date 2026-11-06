@@ -110,7 +110,8 @@
           "title": "Ștergi transcrierea?",
           "description": "Transcrierea este ștearsă definitiv. Analiza este păstrată, dar nu o vei mai putea rula din nou."
         }
-      }
+      },
+      "sessionCost": "Costul sesiunii {{charged}} (de bază {{base}})"
     },
     "recording": {
       "saving": "Se salvează înregistrarea…",

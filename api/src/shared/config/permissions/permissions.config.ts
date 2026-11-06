@@ -4,6 +4,7 @@ export const Permissions = {
   AGENTS_VIEW: 'agents.view',
   AGENTS_MANAGE: 'agents.manage',
   PROSPECTS_MANAGE: 'prospects.manage',
+  PROSPECTS_MANAGE_ALL: 'prospects.manage_all',
   CALLS_CREATE: 'calls.create',
   CALLS_VIEW_ALL: 'calls.view_all',
   CALLS_MANAGE_ALL: 'calls.manage_all',
@@ -14,6 +15,11 @@ export const Permissions = {
   ROLES_MANAGE: 'roles.manage',
   ORG_UPDATE: 'org.update',
   ORG_DELETE: 'org.delete',
+  BILLING_VIEW: 'billing.view',
+  BILLING_MANAGE: 'billing.manage',
+  COACHING_VIEW: 'coaching.view',
+  COACHING_MANAGE: 'coaching.manage',
+  COACHING_EXPORT: 'coaching.export',
 } as const;
 
 export type Permission = (typeof Permissions)[keyof typeof Permissions];
@@ -22,7 +28,13 @@ export interface PermissionDefinition {
   key: Permission;
   label: string;
   description: string;
-  group: 'Co-pilots & practice' | 'Calls' | 'Team' | 'Organisation';
+  group:
+    | 'Co-pilots & practice'
+    | 'Calls'
+    | 'Team'
+    | 'Coaching'
+    | 'Organisation'
+    | 'Billing';
   // Only owners hold these. They cannot be granted to other roles.
   owner_only: boolean;
 }
@@ -45,8 +57,17 @@ export const PERMISSION_CATALOG: PermissionDefinition[] = [
   },
   {
     key: Permissions.PROSPECTS_MANAGE,
-    label: 'Manage practice prospects',
-    description: 'Create, generate, edit and delete AI practice prospects.',
+    label: 'Manage your practice prospects',
+    description:
+      'Create, generate, edit and delete the AI practice prospects you authored.',
+    group: 'Co-pilots & practice',
+    owner_only: false,
+  },
+  {
+    key: Permissions.PROSPECTS_MANAGE_ALL,
+    label: 'Manage everyone’s practice prospects',
+    description:
+      'Edit, delete and change who can use any member’s practice prospects.',
     group: 'Co-pilots & practice',
     owner_only: false,
   },
@@ -81,6 +102,29 @@ export const PERMISSION_CATALOG: PermissionDefinition[] = [
     owner_only: false,
   },
   {
+    key: Permissions.COACHING_VIEW,
+    label: 'View coaching',
+    description:
+      'See the cohort dashboard, student pages and weekly reports. Includes viewing everyone’s calls.',
+    group: 'Coaching',
+    owner_only: false,
+  },
+  {
+    key: Permissions.COACHING_MANAGE,
+    label: 'Coach students',
+    description:
+      'Create practice assignments and comment on other members’ calls.',
+    group: 'Coaching',
+    owner_only: false,
+  },
+  {
+    key: Permissions.COACHING_EXPORT,
+    label: 'Export coaching data',
+    description: 'Download student and call lists as CSV.',
+    group: 'Coaching',
+    owner_only: false,
+  },
+  {
     key: Permissions.MEMBERS_VIEW,
     label: 'View members',
     description: 'See the member list and their roles.',
@@ -106,6 +150,21 @@ export const PERMISSION_CATALOG: PermissionDefinition[] = [
     label: 'Edit organisation',
     description: 'Rename the organisation.',
     group: 'Organisation',
+    owner_only: false,
+  },
+  {
+    key: Permissions.BILLING_VIEW,
+    label: 'View billing',
+    description: 'See the plan, invoices and payments of the organisation.',
+    group: 'Billing',
+    owner_only: false,
+  },
+  {
+    key: Permissions.BILLING_MANAGE,
+    label: 'Manage billing',
+    description:
+      'Change or cancel the plan, manage seats and payment details, and buy minutes for the team.',
+    group: 'Billing',
     owner_only: false,
   },
   {
@@ -135,9 +194,17 @@ export const GRANTABLE_PERMISSIONS: Permission[] = PERMISSION_CATALOG.filter(
 ).map((p) => p.key);
 
 // Preset permissions applied to every new organisation. Owners can change the ADMIN and MEMBER presets.
+// Billing is owner-only by default but can be granted to admins (§11).
+const BILLING_PERMISSIONS: Permission[] = [
+  Permissions.BILLING_VIEW,
+  Permissions.BILLING_MANAGE,
+];
+
 export const ROLE_PRESETS: Record<OrgRole, Permission[]> = {
   [OrgRole.OWNER]: ALL_PERMISSIONS,
-  [OrgRole.ADMIN]: GRANTABLE_PERMISSIONS,
+  [OrgRole.ADMIN]: GRANTABLE_PERMISSIONS.filter(
+    (permission) => !BILLING_PERMISSIONS.includes(permission),
+  ),
   [OrgRole.MEMBER]: [
     Permissions.AGENTS_VIEW,
     Permissions.PROSPECTS_MANAGE,
@@ -172,6 +239,18 @@ export const sanitizePermissions = (
   )
     set.add(Permissions.MEMBERS_VIEW);
   if (set.has(Permissions.CALLS_CREATE)) set.add(Permissions.AGENTS_VIEW);
+  if (set.has(Permissions.PROSPECTS_MANAGE_ALL))
+    set.add(Permissions.PROSPECTS_MANAGE);
+  if (
+    set.has(Permissions.COACHING_MANAGE) ||
+    set.has(Permissions.COACHING_EXPORT)
+  )
+    set.add(Permissions.COACHING_VIEW);
+  if (set.has(Permissions.COACHING_VIEW)) {
+    set.add(Permissions.CALLS_VIEW_ALL);
+    set.add(Permissions.MEMBERS_VIEW);
+  }
+  if (set.has(Permissions.BILLING_MANAGE)) set.add(Permissions.BILLING_VIEW);
 
   return ALL_PERMISSIONS.filter((p) => set.has(p));
 };

@@ -1,0 +1,45 @@
+{
+  "title": "Notifications",
+  "description": "Assignments, comments, reports and billing alerts for this organisation.",
+  "markAllRead": "Mark all as read",
+  "empty": "You're all caught up",
+  "emptyHint": "New assignments, comments and reports will show up here.",
+  "seeAll": "See all notifications",
+  "otherOrganisations_one": "You have {{count}} unread notification in another organisation.",
+  "otherOrganisations_other": "You have {{count}} unread notifications in other organisations.",
+  "bell": {
+    "aria_one": "Notifications, {{count}} unread",
+    "aria_other": "Notifications, {{count}} unread"
+  },
+  "filters": {
+    "all": "All",
+    "unread": "Unread"
+  },
+  "errors": {
+    "load": "Could not load notifications. Please try again.",
+    "markRead": "Could not update notifications. Please try again."
+  },
+  "toasts": {
+    "allRead": "All notifications marked as read",
+    "couldNotMarkRead": "Could not update notifications"
+  },
+  "items": {
+    "untitledAssignment": "an assignment",
+    "someone": "Someone",
+    "assignmentNew": "New practice assignment: {{title}}",
+    "assignmentDueSoon": "\"{{title}}\" is due on {{date}}",
+    "assignmentCompleted_one": "{{count}} student completed \"{{title}}\"",
+    "assignmentCompleted_other": "{{count}} students completed \"{{title}}\"",
+    "commentNew": "{{name}} commented on your call",
+    "commentReply": "{{name}} replied to your comment",
+    "coachReport": "Your weekly coaching report for the week of {{date}} is ready",
+    "prospectShared": "A practice prospect was shared with you",
+    "copilotShared": "A co-pilot was shared with you",
+    "billingPaymentFailed": "A payment failed. Update your payment method to keep your plan.",
+    "billingTrialEnding": "Your trial ends soon. Choose a plan to keep going.",
+    "billingActionRequired": "A payment needs your confirmation.",
+    "billingPlanCanceled": "Your plan has ended. Your data is kept; subscribe to continue.",
+    "billingGeneric": "There's an update about your plan.",
+    "generic": "You have a new notification"
+  }
+}

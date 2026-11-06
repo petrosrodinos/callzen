@@ -1,4 +1,5 @@
 import { BadRequestException, Injectable, Logger } from '@nestjs/common';
+import { AppConfigService } from '@/modules/app-config/app-config.service';
 import { InjectQueue } from '@nestjs/bullmq';
 import { Queue } from 'bullmq';
 import { createWriteStream, promises as fs } from 'fs';
@@ -20,17 +21,18 @@ import { AiService } from '@/integrations/ai/services/ai.service';
 import { RecordingStorageService } from '@/integrations/storage/recordings/recording-storage.service';
 import { UsageService } from '@/modules/usage/usage.service';
 import { OrgContext } from '@/shared/interfaces/org-context.interface';
-import {
-  RECOMMENDED_ANALYSIS_MODEL,
-  UTILITY_MODEL,
-} from '@/shared/config/ai-models/ai-models.config';
 import { AUTO_LANGUAGE } from '@/shared/config/languages/languages.config';
-import { TRANSCRIPTION_COST_PER_MINUTE_USD } from '@/shared/config/voices/voice-providers.config';
+import { findAudioModel } from '@/shared/config/ai-models/ai-models.config';
+import { PlanLimitService } from '@/modules/billing/services/plan-limit.service';
+import { CreditsService } from '@/modules/billing/services/credits.service';
+import { PlanErrorCodes } from '@/shared/config/plans/plans.config';
 import { AgentSnapshot } from '../interfaces/call-snapshots.interface';
 import { buildCallContext, findOwnedCall } from '../utils/snapshot.utils';
 import { CallAnalysisService } from './call-analysis.service';
 
-export const UPLOAD_TRANSCRIPTION_MODEL = 'gpt-4o-transcribe-diarize';
+// Speaker labels used when the transcription model cannot diarize and the utility model attributes speakers.
+const SELLER_LABEL = 'SELLER';
+const PROSPECT_LABEL = 'PROSPECT';
 export const TRANSCRIPTION_JOB_ATTEMPTS = 2;
 
 const CHUNK_SECONDS = 600;
@@ -78,14 +80,22 @@ export class CallTranscriptionService {
   private readonly logger = new Logger(CallTranscriptionService.name);
 
   constructor(
+    private readonly appConfig: AppConfigService,
     private readonly prisma: PrismaService,
     private readonly recordingStorage: RecordingStorageService,
     private readonly aiService: AiService,
     private readonly usageService: UsageService,
     private readonly analysisService: CallAnalysisService,
+    private readonly planLimits: PlanLimitService,
+    private readonly credits: CreditsService,
     @InjectQueue(CALL_TRANSCRIPTION_QUEUE)
     private readonly transcriptionQueue: Queue<TranscriptionJobData>,
   ) {}
+
+  // Runtime model defaults (admin-configurable); a co-pilot's own model wins when set.
+  private get models() {
+    return this.appConfig.get('ai.default_models');
+  }
 
   async enqueue(callId: string) {
     await this.transcriptionQueue.add(
@@ -170,6 +180,19 @@ export class CallTranscriptionService {
       );
 
       const { chunks, totalSeconds } = await this.splitAudio(source, workDir);
+      // Reject recordings longer than the remaining minutes before any transcription cost is incurred (§14).
+      const fit = await this.planLimits.uploadFitsRemainingMinutes(
+        call.organisation_id,
+        call.user_id,
+        Math.round(totalSeconds),
+      );
+      if (!fit.fits) {
+        await this.rejectForMinutes(call, Math.round(totalSeconds), fit.available_seconds);
+        return;
+      }
+      const transcriptionModel = this.models.upload_transcription;
+      const diarize =
+        findAudioModel(transcriptionModel)?.supports_diarization ?? false;
       const language =
         call.language && call.language !== AUTO_LANGUAGE
           ? call.language
@@ -177,19 +200,23 @@ export class CallTranscriptionService {
       const results = await this.mapWithConcurrency(
         chunks,
         CHUNK_CONCURRENCY,
-        (file, index) => this.transcribeChunk(file, index, language),
+        (file, index) =>
+          this.transcribeChunk(file, index, language, transcriptionModel, diarize),
       );
 
       const agent = call.agent_snapshot as unknown as AgentSnapshot | null;
       const lines: TranscriptLineRow[] = [];
       for (const chunk of results) {
-        const roles = await this.guessRoles(
-          call,
-          agent,
-          chunk.segments,
-          call.user_id,
-          call.organisation_id,
-        );
+        // Diarized output has anonymous labels to map; otherwise the utility model labels each line.
+        const roles = diarize
+          ? await this.guessRoles(
+              call,
+              agent,
+              chunk.segments,
+              call.user_id,
+              call.organisation_id,
+            )
+          : await this.attributeSpeakers(call, agent, chunk);
         const offsetMs = chunk.index * CHUNK_SECONDS * 1000;
         for (const segment of chunk.segments) {
           lines.push({
@@ -219,9 +246,8 @@ export class CallTranscriptionService {
           userId: call.user_id,
           callId,
           kind: UsageKind.TRANSCRIPTION,
-          model: UPLOAD_TRANSCRIPTION_MODEL,
-          audioSeconds: durationSeconds,
-          costUsd: (durationSeconds / 60) * TRANSCRIPTION_COST_PER_MINUTE_USD,
+          model: transcriptionModel,
+          audio: { inputSeconds: durationSeconds },
         });
 
       const callEnd = {
@@ -269,6 +295,11 @@ export class CallTranscriptionService {
         ]);
         await this.analysisService.queue(callId);
       }
+      await this.credits
+        .settleCall(callId)
+        .catch((error) =>
+          this.logger.error(`Settling minutes for upload ${callId} failed: ${error?.message}`),
+        );
 
       if (!keepAudio)
         await this.recordingStorage
@@ -279,6 +310,22 @@ export class CallTranscriptionService {
         // Temp cleanup is best-effort.
       });
     }
+  }
+
+  private async rejectForMinutes(
+    call: { id: string; recording_path: string | null },
+    durationSeconds: number,
+    availableSeconds: number,
+  ) {
+    await this.prisma.call.update({
+      where: { id: call.id },
+      data: {
+        status: CallStatus.TRANSCRIPTION_FAILED,
+        duration_seconds: durationSeconds,
+        ended_at: new Date(),
+        transcription_error: `${PlanErrorCodes.PLAN_LIMIT_REACHED}: this recording is ${Math.ceil(durationSeconds / 60)} min long but only ${Math.floor(availableSeconds / 60)} min are left in this period.`,
+      },
+    });
   }
 
   // Re-encode to small mono mp3 and cut it into fixed-length pieces: keeps every request well
@@ -326,7 +373,9 @@ export class CallTranscriptionService {
   private async transcribeChunk(
     file: string,
     index: number,
-    language?: string,
+    language: string | undefined,
+    model: string,
+    diarize: boolean,
   ): Promise<ChunkResult> {
     const form = new FormData();
     form.append(
@@ -334,9 +383,14 @@ export class CallTranscriptionService {
       new Blob([await fs.readFile(file)], { type: 'audio/mpeg' }),
       path.basename(file),
     );
-    form.append('model', UPLOAD_TRANSCRIPTION_MODEL);
-    form.append('response_format', 'diarized_json');
-    form.append('chunking_strategy', 'auto');
+    form.append('model', model);
+    if (diarize) {
+      form.append('response_format', 'diarized_json');
+      form.append('chunking_strategy', 'auto');
+    } else {
+      form.append('response_format', 'verbose_json');
+      form.append('timestamp_granularities[]', 'segment');
+    }
     if (language) form.append('language', language);
 
     const response = await fetch(OPENAI_TRANSCRIPTIONS_URL, {
@@ -353,6 +407,8 @@ export class CallTranscriptionService {
     }
 
     const data = (await response.json()) as {
+      text?: string;
+      duration?: number;
       segments?: {
         speaker?: string;
         text?: string;
@@ -360,7 +416,13 @@ export class CallTranscriptionService {
         end: number;
       }[];
     };
-    const segments = (data.segments ?? [])
+    // Models without segment timestamps return plain text: keep it as one line spanning the chunk.
+    const rawSegments = data.segments?.length
+      ? data.segments
+      : data.text?.trim()
+        ? [{ text: data.text, start: 0, end: data.duration ?? CHUNK_SECONDS }]
+        : [];
+    const segments = rawSegments
       .filter((segment) => segment.text?.trim())
       .map((segment) => ({
         speaker: String(segment.speaker ?? 'A'),
@@ -369,6 +431,62 @@ export class CallTranscriptionService {
         end_ms: Math.round(segment.end * 1000),
       }));
     return { index, segments };
+  }
+
+  // For transcription models without diarization: the utility model labels every line as seller or prospect.
+  // The chunk's segments are relabelled in place (SELLER / PROSPECT); lines it cannot place stay UNKNOWN.
+  private async attributeSpeakers(
+    call: Parameters<typeof buildCallContext>[0] & {
+      user_id: string;
+      organisation_id: string;
+    },
+    agent: AgentSnapshot | null,
+    chunk: ChunkResult,
+  ): Promise<Map<string, Speaker>> {
+    const roles = new Map<string, Speaker>([
+      [SELLER_LABEL, Speaker.USER],
+      [PROSPECT_LABEL, Speaker.PROSPECT],
+    ]);
+    if (!chunk.segments.length) return roles;
+    try {
+      const lines = chunk.segments
+        .map((segment, i) => `${i}: ${segment.text}`)
+        .join('\n')
+        .slice(0, 14000);
+      const result = await this.aiService.generateStructured({
+        model: this.models.utility,
+        schema: z.object({
+          lines: z.array(
+            z.object({
+              index: z.number().int(),
+              speaker: z.enum([SELLER_LABEL, PROSPECT_LABEL]),
+            }),
+          ),
+        }),
+        schemaName: 'speaker_attribution',
+        system:
+          'You attribute each numbered line of a sales call transcript to its speaker. SELLER is the salesperson who runs the call, asks discovery questions, presents the product and proposes next steps; PROSPECT is the potential customer. Return every line index you can place with confidence.',
+        prompt: `${agent ? `Seller context: ${agent.name}${agent.description ? ` - ${agent.description}` : ''}\n` : ''}${buildCallContext(call)}\n\nLines:\n${lines}`,
+        temperature: 0,
+        timeoutMs: 60000,
+      });
+      this.usageService.record({
+        organisationId: call.organisation_id,
+        userId: call.user_id,
+        kind: UsageKind.ANALYSIS,
+        model: result.model,
+        tokens: result.usage,
+      });
+      const bySegment = new Map(
+        result.output.lines.map((line) => [line.index, line.speaker]),
+      );
+      chunk.segments.forEach((segment, i) => {
+        segment.speaker = bySegment.get(i) ?? `unknown-${i}`;
+      });
+    } catch (error) {
+      this.logger.warn(`Speaker attribution failed: ${error?.message}`);
+    }
+    return roles;
   }
 
   // Diarization only gives anonymous labels ("A", "B"); ask a small model which one is the
@@ -390,7 +508,7 @@ export class CallTranscriptionService {
         .join('\n')
         .slice(0, 12000);
       const result = await this.aiService.generateStructured({
-        model: UTILITY_MODEL,
+        model: this.models.utility,
         schema: z.object({ salesperson: z.string().nullable() }),
         schemaName: 'salesperson_speaker',
         system:
@@ -405,9 +523,7 @@ export class CallTranscriptionService {
         userId,
         kind: UsageKind.ANALYSIS,
         model: result.model,
-        inputTokens: result.usage.inputTokens,
-        outputTokens: result.usage.outputTokens,
-        costUsd: result.usage.costUsd,
+        tokens: result.usage,
       });
 
       const seller = labels.find((l) => l === result.output.salesperson);
@@ -463,7 +579,7 @@ export class CallTranscriptionService {
           .map((l, i) => `${batch.start + i} | ${label(l.speaker)}: ${l.text}`)
           .join('\n');
         const result = await this.aiService.generateStructured({
-          model: RECOMMENDED_ANALYSIS_MODEL,
+          model: this.models.analysis,
           schema: z.object({
             edits: z.array(
               z.object({
@@ -489,9 +605,7 @@ ${numbered}`,
           callId: call.id,
           kind: UsageKind.ANALYSIS,
           model: result.model,
-          inputTokens: result.usage.inputTokens,
-          outputTokens: result.usage.outputTokens,
-          costUsd: result.usage.costUsd,
+          tokens: result.usage,
         });
         for (const edit of result.output.edits) {
           if (edit.index < batch.start || edit.index >= batch.end) continue;
@@ -557,7 +671,7 @@ ${numbered}`,
 
       const text = z.string().nullable();
       const result = await this.aiService.generateStructured({
-        model: UTILITY_MODEL,
+        model: this.models.utility,
         schema: z.object({
           prospect_name: text,
           prospect_company: text,
@@ -578,9 +692,7 @@ ${numbered}`,
         callId: call.id,
         kind: UsageKind.ANALYSIS,
         model: result.model,
-        inputTokens: result.usage.inputTokens,
-        outputTokens: result.usage.outputTokens,
-        costUsd: result.usage.costUsd,
+        tokens: result.usage,
       });
 
       const clean = (value: string | null | undefined, max: number) =>

@@ -5,6 +5,22 @@ export const formatCurrency = (value: number): string => {
     return new Intl.NumberFormat(i18n.resolvedLanguage, { style: "currency", currency: "USD", maximumFractionDigits: 2 }).format(value);
 };
 
+// Integer cents from Stripe (USD by default).
+export const formatMoney = (amountCents: number, currency = "usd"): string =>
+    new Intl.NumberFormat(i18n.resolvedLanguage, { style: "currency", currency: currency.toUpperCase(), maximumFractionDigits: amountCents % 100 === 0 ? 0 : 2 }).format(amountCents / 100);
+
+// Minutes with one decimal (§8.3: exact seconds are counted, minutes are shown with one decimal).
+export const formatMinutes = (minutes: number): string =>
+    new Intl.NumberFormat(i18n.resolvedLanguage, { maximumFractionDigits: 1 }).format(minutes);
+
+// Small AI costs (around 1e-5 USD) keep enough precision to compare; rounding is for display only.
+export const formatCost = (value: number): string => {
+    if (value === 0) return formatCurrency(0);
+    if (Math.abs(value) < 0.01)
+        return new Intl.NumberFormat(i18n.resolvedLanguage, { style: "currency", currency: "USD", maximumSignificantDigits: 3 }).format(value);
+    return formatCurrency(value);
+};
+
 export const formatNumber = (value: number): string => new Intl.NumberFormat(i18n.resolvedLanguage).format(value);
 
 export const scoreTone = (score: number | null | undefined): "great" | "good" | "fair" | "poor" | "none" => {

@@ -5,6 +5,7 @@ import { ScoreRing } from "@/components/ui/score-badge";
 import { cn } from "@/lib/utils";
 import { scoreTone } from "@/lib/format";
 import type { CallAnalysis } from "@/features/calls/interfaces/calls.interfaces";
+import { AnalysisSection } from "./analysis-section";
 
 const BAR_COLORS = {
   great: "bg-emerald-500",
@@ -33,75 +34,83 @@ export function AnalysisOverview({ analysis }: { analysis: CallAnalysis }) {
       </Card>
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <Card className="p-5">
-          <h3 className="mb-4 flex items-center gap-2 font-semibold">
-            <Target className="size-4 text-primary" />{" "}
-            {t("detail.overview.skillScores")}
-          </h3>
-          <ul className="space-y-3">
-            {analysis.category_scores.map((category) => {
-              const tone = scoreTone(category.score);
-              return (
-                <li key={category.key}>
-                  <div className="mb-1 flex items-center justify-between gap-2 text-sm">
-                    <span>{category.label}</span>
-                    <span className="font-semibold tabular-nums">
-                      {category.score ?? "–"}
-                    </span>
-                  </div>
-                  <div className="h-1.5 overflow-hidden rounded-full bg-muted">
-                    <div
-                      className={cn("h-full rounded-full", BAR_COLORS[tone])}
-                      style={{ width: `${category.score ?? 0}%` }}
-                    />
-                  </div>
-                  {category.comment && (
-                    <p className="mt-1 text-xs text-muted-foreground">
-                      {category.comment}
-                    </p>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </Card>
+        <AnalysisSection analysis={analysis} feature="category_scores">
+          <Card className="p-5">
+            <h3 className="mb-4 flex items-center gap-2 font-semibold">
+              <Target className="size-4 text-primary" />{" "}
+              {t("detail.overview.skillScores")}
+            </h3>
+            <ul className="space-y-3">
+              {(analysis.category_scores ?? []).map((category) => {
+                const tone = scoreTone(category.score);
+                return (
+                  <li key={category.key}>
+                    <div className="mb-1 flex items-center justify-between gap-2 text-sm">
+                      <span>{category.label}</span>
+                      <span className="font-semibold tabular-nums">
+                        {category.score ?? "–"}
+                      </span>
+                    </div>
+                    <div className="h-1.5 overflow-hidden rounded-full bg-muted">
+                      <div
+                        className={cn("h-full rounded-full", BAR_COLORS[tone])}
+                        style={{ width: `${category.score ?? 0}%` }}
+                      />
+                    </div>
+                    {category.comment && (
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        {category.comment}
+                      </p>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </Card>
+        </AnalysisSection>
 
         <div className="space-y-4">
-          <Card className="p-5">
-            <h3 className="mb-3 flex items-center gap-2 font-semibold">
-              <ListChecks className="size-4 text-primary" />{" "}
-              {t("detail.overview.focusNextTime")}
-            </h3>
-            <ol className="space-y-3">
-              {analysis.improvements.map((item, index) => (
-                <li key={item.title} className="flex gap-3">
-                  <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
-                    {index + 1}
-                  </span>
-                  <div>
-                    <p className="text-sm font-medium">{item.title}</p>
-                    <p className="text-sm text-muted-foreground">{item.tip}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </Card>
-
-          {analysis.next_steps.length > 0 && (
+          <AnalysisSection analysis={analysis} feature="improvements">
             <Card className="p-5">
-              <h3 className="mb-3 font-semibold">
-                {t("detail.overview.nextSteps")}
+              <h3 className="mb-3 flex items-center gap-2 font-semibold">
+                <ListChecks className="size-4 text-primary" />{" "}
+                {t("detail.overview.focusNextTime")}
               </h3>
-              <ul className="space-y-2">
-                {analysis.next_steps.map((step) => (
-                  <li key={step} className="flex gap-2 text-sm">
-                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-emerald-600" />
-                    {step}
+              <ol className="space-y-3">
+                {(analysis.improvements ?? []).map((item, index) => (
+                  <li key={item.title} className="flex gap-3">
+                    <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
+                      {index + 1}
+                    </span>
+                    <div>
+                      <p className="text-sm font-medium">{item.title}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {item.tip}
+                      </p>
+                    </div>
                   </li>
                 ))}
-              </ul>
+              </ol>
             </Card>
-          )}
+          </AnalysisSection>
+
+          <AnalysisSection analysis={analysis} feature="next_steps">
+            {!!analysis.next_steps?.length && (
+              <Card className="p-5">
+                <h3 className="mb-3 font-semibold">
+                  {t("detail.overview.nextSteps")}
+                </h3>
+                <ul className="space-y-2">
+                  {analysis.next_steps.map((step) => (
+                    <li key={step} className="flex gap-2 text-sm">
+                      <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-emerald-600" />
+                      {step}
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            )}
+          </AnalysisSection>
         </div>
       </div>
     </div>

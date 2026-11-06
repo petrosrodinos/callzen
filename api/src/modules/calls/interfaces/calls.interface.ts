@@ -10,6 +10,8 @@ export interface SuggestionResult {
 
 export interface AddSegmentsResponse extends SuggestionResult {
   segments: TranscriptSegment[];
+  // Set once the call ran past its minutes: no more co-pilot suggestions (§8.3).
+  time_limit_reached?: boolean;
 }
 
 export interface AskCopilotResponse {

@@ -1,4 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
+import { AppConfigService } from '@/modules/app-config/app-config.service';
 import { OrgContext } from '@/shared/interfaces/org-context.interface';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
 import { AiService } from '@/integrations/ai/services/ai.service';
@@ -29,12 +30,8 @@ import {
 } from '../utils/prospect.prompts';
 import { formatTranscript } from '../utils/transcript.utils';
 import { findOwnedCall } from '../utils/snapshot.utils';
-import { UTILITY_MODEL } from '@/shared/config/ai-models/ai-models.config';
-import {
-  REALTIME_TRANSCRIPTION_MODEL,
-  REALTIME_VOICE_MODEL,
-} from '@/shared/config/voices/voice-providers.config';
 import { ErrorCodes } from '@/shared/config/error-codes';
+import { assertWithinTimeLimit } from '../utils/call-time-limit.utils';
 import {
   AUTO_LANGUAGE,
   languageNames,
@@ -43,11 +40,17 @@ import {
 @Injectable()
 export class PracticeSessionService {
   constructor(
+    private readonly appConfig: AppConfigService,
     private readonly prisma: PrismaService,
     private readonly aiService: AiService,
     private readonly realtimeService: OpenAiRealtimeService,
     private readonly usageService: UsageService,
   ) {}
+
+  // Runtime model defaults (admin-configurable); a co-pilot's own model wins when set.
+  private get models() {
+    return this.appConfig.get('ai.default_models');
+  }
 
   async createRealtimeSession(
     ctx: OrgContext,
@@ -61,6 +64,8 @@ export class PracticeSessionService {
         code: ErrorCodes.Calls.NOT_IN_PROGRESS,
       });
     }
+    // Short-lived realtime secrets are never re-issued past the call's minutes.
+    assertWithinTimeLimit(call);
 
     if (dto.purpose === 'TRANSCRIPTION') {
       const agent = call.agent_snapshot as unknown as AgentSnapshot | null;
@@ -76,8 +81,8 @@ export class PracticeSessionService {
         .filter(Boolean)
         .join(', ');
       return this.realtimeService.createTranscriptionSession({
-        model: REALTIME_VOICE_MODEL,
-        transcriptionModel: REALTIME_TRANSCRIPTION_MODEL,
+        model: this.models.voice,
+        transcriptionModel: this.models.transcription,
         language: call.language === AUTO_LANGUAGE ? undefined : call.language,
         prompt: `Sales call. ${spoken}${vocabulary ? `Names that may appear: ${vocabulary}.` : ''}`,
       });
@@ -95,11 +100,11 @@ export class PracticeSessionService {
     }
 
     const session = await this.realtimeService.createVoiceSession({
-      model: REALTIME_VOICE_MODEL,
+      model: this.models.voice,
       voice: persona.voice,
       instructions: buildRealtimeProspectInstructions(persona),
       language: persona.languages?.length > 1 ? undefined : persona.language,
-      transcriptionModel: REALTIME_TRANSCRIPTION_MODEL,
+      transcriptionModel: this.models.transcription,
       tools: [REALTIME_END_CALL_TOOL],
     });
 
@@ -125,6 +130,7 @@ export class PracticeSessionService {
       });
     }
 
+    assertWithinTimeLimit(call);
     const persona = call.practice_snapshot as unknown as PracticeSnapshot;
     const userText = dto.user_text?.trim();
 
@@ -156,7 +162,7 @@ export class PracticeSessionService {
       throw new BadRequestException('Say something to the prospect first');
 
     const result = await this.aiService.generateStructured({
-      model: UTILITY_MODEL,
+      model: this.models.utility,
       schema: ProspectTurnSchema,
       schemaName: 'prospect_turn',
       system: `${buildProspectInstructions(persona)}\n\n# OUTPUT\nReturn your next spoken turn as "reply". Set end_call=true only if you hang up after this reply. Set objective_agreed=true only at the moment you agree to the salesperson's objective.`,
@@ -174,9 +180,7 @@ export class PracticeSessionService {
       callId,
       kind: UsageKind.PRACTICE_TURN,
       model: result.model,
-      inputTokens: result.usage.inputTokens,
-      outputTokens: result.usage.outputTokens,
-      costUsd: result.usage.costUsd,
+      tokens: result.usage,
     });
 
     const startMs = Math.max(dto.end_ms + 400, history.at(-1)?.end_ms ?? 0);

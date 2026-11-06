@@ -57,6 +57,8 @@ export interface DashboardOverview {
   outcomes: { outcome: string; count: number; rate: number }[];
   highlights: string[];
   recommended_practice: RecommendedPractice[];
+  // Cards hidden by the plan's analysis visibility: show an upgrade teaser instead (§9.3).
+  locked_cards: ('categories' | 'recurring_mistakes' | 'recommended_practice')[];
   practice_progress: {
     by_scenario: GroupStat[];
     by_difficulty: GroupStat[];

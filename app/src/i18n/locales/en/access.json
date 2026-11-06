@@ -1,0 +1,79 @@
+{
+  "badge": {
+    "everyone": "Everyone",
+    "sharedWith_one": "Shared with {{count}}",
+    "sharedWith_other": "Shared with {{count}}",
+    "private": "Private",
+    "privateHint": "Only you and your coach",
+    "sharedWithYou": "Shared with you"
+  },
+  "editor": {
+    "title": "Who can use this",
+    "description": {
+      "copilot": "Choose whether everyone in the organisation can use this co-pilot, or only the students you select.",
+      "prospect": "Choose whether everyone in the organisation can practise with this prospect, or only the students you select."
+    },
+    "students": "Students",
+    "noneSelected": "No students selected: only you and other coaches can use it.",
+    "save": "Save access",
+    "onlyYouAndCoach": "Only you and your coach can see this prospect.",
+    "restrictedReadOnly_one": "Restricted to {{count}} student. Your plan no longer includes access control, so this setting can't be changed.",
+    "restrictedReadOnly_other": "Restricted to {{count}} students. Your plan no longer includes access control, so this setting can't be changed."
+  },
+  "picker": {
+    "placeholder": "Choose students",
+    "selected_one": "{{count}} student selected",
+    "selected_other": "{{count}} students selected",
+    "search": "Search members",
+    "noMembers": "No members found.",
+    "remove": "Remove {{name}}",
+    "formerMember": "Former member"
+  },
+  "bulk": {
+    "select": "Select to share",
+    "selected_one": "{{count}} selected",
+    "selected_other": "{{count}} selected",
+    "share": "Share with…",
+    "cancel": "Cancel selection",
+    "selectItem": "Select {{name}}"
+  },
+  "share": {
+    "title_one": "Share {{count}} item",
+    "title_other": "Share {{count}} items",
+    "description": "The selected students can use these right away. Items already shared with everyone stay as they are.",
+    "cancel": "Cancel",
+    "confirm": "Share"
+  },
+  "student": {
+    "title": "Access",
+    "description": "Turn on the co-pilots and prospects this student can use. Items shared with everyone are always available.",
+    "descriptionReadOnly": "The co-pilots and prospects this student can use.",
+    "copilots": "Co-pilots",
+    "prospects": "Practice prospects",
+    "none": "Nothing here yet.",
+    "privateToStudent": "Created by this student",
+    "archived": "Archived",
+    "toggleAria": "Access to {{name}}"
+  },
+  "empty": {
+    "noSharedCopilot": "Your coach hasn't shared a co-pilot yet",
+    "noSharedCopilotDescription": "Co-pilots your coach shares with you will appear here.",
+    "noSharedCopilotCall": "No co-pilot has been shared with you yet. Ask your coach to share one; you can still practise in the meantime.",
+    "goPractice": "Go to practice"
+  },
+  "toasts": {
+    "accessSaved": "Access updated",
+    "couldNotSaveAccess": "Could not update access",
+    "shared_one": "Shared {{count}} item",
+    "shared_other": "Shared {{count}} items",
+    "sharedPeople_one": "{{count}} person was given access.",
+    "sharedPeople_other": "{{count}} people were given access.",
+    "alreadyShared": "Everyone you chose already had access.",
+    "couldNotShare": "Could not share"
+  },
+  "errors": {
+    "updateAccess": "Could not update access. Please try again.",
+    "loadStudentAccess": "Could not load this student's access. Please try again.",
+    "share": "Could not share. Please try again."
+  }
+}

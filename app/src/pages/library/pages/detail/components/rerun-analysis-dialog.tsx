@@ -36,7 +36,11 @@ export function RerunAnalysisDialog({
   const rerun = useRerunAnalysis();
   const [selectedModel, setModel] = useState(currentModel ?? "");
   const [useCurrentCriteria, setUseCurrentCriteria] = useState(false);
-  const model = selectedModel || catalog?.recommended_analysis_model || "";
+  // Only platform admins pick a model; everyone else re-runs with the co-pilot's or default model (§6.3).
+  const canChooseModel = !!catalog?.ai_models?.length;
+  const model = canChooseModel
+    ? selectedModel || catalog?.recommended_analysis_model || ""
+    : undefined;
 
   return (
     <Dialog
@@ -48,11 +52,11 @@ export function RerunAnalysisDialog({
           <DialogTitle>{t("detail.rerun.title")}</DialogTitle>
           <DialogDescription>{t("detail.rerun.description")}</DialogDescription>
         </DialogHeader>
-        {catalog && (
+        {catalog && canChooseModel && (
           <ModelPicker
             name={t("detail.rerun.modelName")}
             purpose="analysis"
-            models={catalog.ai_models}
+            models={catalog.ai_models ?? []}
             recommended={catalog.recommended_analysis_model}
             value={model}
             onChange={setModel}
@@ -86,7 +90,7 @@ export function RerunAnalysisDialog({
                 { onSuccess: () => onOpenChange(false) },
               )
             }
-            disabled={!model || rerun.isPending}
+            disabled={(canChooseModel && !model) || rerun.isPending}
             loading={rerun.isPending}
           >
             {!rerun.isPending && <RefreshCw />} {t("detail.rerun.title")}

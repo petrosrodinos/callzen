@@ -3,9 +3,10 @@
   "save": "Spara inställningar",
   "nav": {
     "profile": "Profil och preferenser",
-    "usage": "Användning och kostnader",
+    "usage": "Användning",
     "privacy": "Integritet och data",
-    "sections": "Inställningsavsnitt"
+    "sections": "Inställningsavsnitt",
+    "billing": "Fakturering"
   },
   "validation": {
     "enterName": "Ange ditt namn",
@@ -94,6 +95,35 @@
       "input": "Indata / 1 mn tokens",
       "output": "Utdata / 1 mn tokens",
       "perMinute": "~{{price}} per minut"
+    },
+    "calls": "Sessioner",
+    "averageSession": "I snitt {{minutes}} min per session",
+    "empty": "Ingen användning under den här perioden.",
+    "sessions": {
+      "title": "Minuter per session",
+      "average": "I snitt {{minutes}} min",
+      "session": "Session",
+      "member": "Medlem",
+      "kind": "Typ",
+      "date": "Datum",
+      "minutes": "Minuter",
+      "untitled": "Namnlös session",
+      "you": "Du"
+    },
+    "members": {
+      "title": "Minuter per medlem den här perioden",
+      "member": "Medlem",
+      "live": "Live min",
+      "practice": "Övning min",
+      "owner": "Ägare"
+    },
+    "admin": {
+      "title": "Plattformsadmin: AI-kostnader",
+      "totalCost": "AI-kostnad (debiterad)",
+      "baseCost": "Baskostnad {{cost}}",
+      "averageCost": "genomsnittlig kostnad {{cost}} per session",
+      "cost": "Kostnad",
+      "chargedVsBase": "Beloppen är den debiterade kostnaden inklusive påslag; leverantörens baskostnad står inom parentes."
     }
   }
 }

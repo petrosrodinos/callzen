@@ -6,10 +6,13 @@ export const AiProviders = {
 
 export type AiProvider = (typeof AiProviders)[keyof typeof AiProviders];
 
+// Raw token counts. Costs are computed when the usage is recorded (UsageService), from models.dev prices.
 export interface AiUsage {
   inputTokens: number;
+  cachedInputTokens: number;
+  // Already included in outputTokens (AI SDK 7 / OpenAI).
   outputTokens: number;
-  costUsd: number;
+  reasoningTokens: number;
 }
 
 export interface AiGenerateBaseOptions {

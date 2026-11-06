@@ -109,7 +109,8 @@
           "title": "De transcriptie verwijderen?",
           "description": "De transcriptie wordt permanent verwijderd. De analyse blijft bewaard, maar je kunt hem niet opnieuw uitvoeren."
         }
-      }
+      },
+      "sessionCost": "Sessiekosten {{charged}} (basis {{base}})"
     },
     "recording": {
       "saving": "Opname wordt opgeslagen…",

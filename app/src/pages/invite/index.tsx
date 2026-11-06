@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Trans, useTranslation } from "react-i18next";
-import { AlertTriangle, Building2, CheckCircle2, LogOut, MailCheck } from "lucide-react";
+import { AlertTriangle, Building2, CheckCircle2, Eye, LogOut, MailCheck } from "lucide-react";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { ThemeSwitch } from "@/components/ui/theme-switch";
 import { UiLanguageSwitch } from "@/components/ui/ui-language-switch";
@@ -20,6 +20,7 @@ import { Routes } from "@/routes/routes";
 
 const InvitePage: FC = () => {
   const { t } = useTranslation("invite");
+  const { t: tCoaching } = useTranslation("coaching");
   usePageMetadata({ title: t("pageTitle") });
   const { token } = useParams<{ token: string }>();
   const navigate = useNavigate();
@@ -98,6 +99,13 @@ const InvitePage: FC = () => {
                   {t("join.sentTo", { email: preview.email, date: formatDate(preview.expires_at) })}
                 </p>
               </div>
+
+              {preview.coach_org && (
+                <p className="flex items-start gap-2 rounded-lg border border-primary/30 bg-primary/5 p-3 text-left text-sm">
+                  <Eye className="mt-0.5 size-4 shrink-0 text-primary" />
+                  {tCoaching("privacyNotice")}
+                </p>
+              )}
 
               {!isLoggedIn ? (
                 <div className="space-y-3">

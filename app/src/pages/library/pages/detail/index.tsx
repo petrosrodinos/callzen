@@ -34,7 +34,9 @@ import { PracticeReveal } from "./components/practice-reveal";
 import { CopilotUsage } from "./components/copilot-usage";
 import { SuggestedPracticeCard } from "./components/suggested-practice-card";
 import { NotesCard } from "./components/notes-card";
+import { CoachNotesCard } from "./components/coach-notes-card";
 import { RerunAnalysisDialog } from "./components/rerun-analysis-dialog";
+import { AnalysisSection } from "./components/analysis-section";
 import { buildTimelineMarkers, callDurationMs } from "./utils/timeline.utils";
 
 const CallDetailPage: FC = () => {
@@ -188,11 +190,15 @@ const CallDetailPage: FC = () => {
             >
               <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
                 <TabsList className="w-max">
-                  {isPractice && analysis.practice_result && (
-                    <TabsTrigger value="reveal">
-                      {t("detail.tabs.reveal")}
-                    </TabsTrigger>
-                  )}
+                  {isPractice &&
+                    (analysis.practice_result ||
+                      analysis.locked_features?.includes(
+                        "practice_reveal",
+                      )) && (
+                      <TabsTrigger value="reveal">
+                        {t("detail.tabs.reveal")}
+                      </TabsTrigger>
+                    )}
                   <TabsTrigger value="overview">
                     {t("detail.tabs.overview")}
                   </TabsTrigger>
@@ -205,7 +211,8 @@ const CallDetailPage: FC = () => {
                   <TabsTrigger value="insights">
                     {t("detail.tabs.prospect")}
                   </TabsTrigger>
-                  {analysis.suggestion_usage && (
+                  {(analysis.suggestion_usage ||
+                    analysis.locked_features?.includes("copilot_usage")) && (
                     <TabsTrigger value="copilot">
                       {t("detail.tabs.copilot")}
                     </TabsTrigger>
@@ -223,47 +230,84 @@ const CallDetailPage: FC = () => {
                 </p>
               )}
               <div className="mt-4">
-                {analysis.practice_result && (
+                {(analysis.practice_result ||
+                  analysis.locked_features?.includes("practice_reveal")) && (
                   <TabsContent value="reveal">
-                    <PracticeReveal
-                      result={analysis.practice_result}
-                      objective={call.goal}
-                      onJump={seek}
-                    />
+                    <AnalysisSection
+                      analysis={analysis}
+                      feature="practice_reveal"
+                    >
+                      {analysis.practice_result && (
+                        <PracticeReveal
+                          result={analysis.practice_result}
+                          objective={call.goal}
+                          onJump={seek}
+                        />
+                      )}
+                    </AnalysisSection>
                   </TabsContent>
                 )}
                 <TabsContent value="overview">
                   <AnalysisOverview analysis={analysis} />
                 </TabsContent>
                 <TabsContent value="moments">
-                  <AnalysisMoments analysis={analysis} onJump={seek} />
+                  <AnalysisSection analysis={analysis} feature="moments">
+                    <AnalysisMoments analysis={analysis} onJump={seek} />
+                  </AnalysisSection>
                 </TabsContent>
                 <TabsContent value="metrics">
-                  <AnalysisMetrics metrics={analysis.metrics} onJump={seek} />
+                  <AnalysisSection analysis={analysis} feature="metrics">
+                    {analysis.metrics && (
+                      <AnalysisMetrics
+                        metrics={analysis.metrics}
+                        onJump={seek}
+                      />
+                    )}
+                  </AnalysisSection>
                 </TabsContent>
                 <TabsContent value="insights">
-                  <AnalysisInsights insights={analysis.prospect_insights} />
+                  <AnalysisSection
+                    analysis={analysis}
+                    feature="prospect_insights"
+                  >
+                    {analysis.prospect_insights && (
+                      <AnalysisInsights insights={analysis.prospect_insights} />
+                    )}
+                  </AnalysisSection>
                 </TabsContent>
-                {analysis.suggestion_usage && (
+                {(analysis.suggestion_usage ||
+                  analysis.locked_features?.includes("copilot_usage")) && (
                   <TabsContent value="copilot">
-                    <CopilotUsage
-                      usage={analysis.suggestion_usage}
-                      assistantAgentId={call.assistant_agent_id}
-                    />
+                    <AnalysisSection
+                      analysis={analysis}
+                      feature="copilot_usage"
+                    >
+                      {analysis.suggestion_usage && (
+                        <CopilotUsage
+                          usage={analysis.suggestion_usage}
+                          assistantAgentId={call.assistant_agent_id}
+                        />
+                      )}
+                    </AnalysisSection>
                   </TabsContent>
                 )}
                 {!isPractice && (
                   <TabsContent value="follow-up">
-                    <FollowUpCard
-                      draft={analysis.follow_up_draft}
-                      prospectEmailSubject={
-                        call.prospect_company
-                          ? t("detail.followUpSubjectCompany", {
-                              company: call.prospect_company,
-                            })
-                          : t("detail.followUpSubject")
-                      }
-                    />
+                    <AnalysisSection
+                      analysis={analysis}
+                      feature="follow_up_draft"
+                    >
+                      <FollowUpCard
+                        draft={analysis.follow_up_draft ?? null}
+                        prospectEmailSubject={
+                          call.prospect_company
+                            ? t("detail.followUpSubjectCompany", {
+                                company: call.prospect_company,
+                              })
+                            : t("detail.followUpSubject")
+                        }
+                      />
+                    </AnalysisSection>
                   </TabsContent>
                 )}
               </div>
@@ -271,11 +315,14 @@ const CallDetailPage: FC = () => {
           )}
 
           {analysis && (
-            <SuggestedPracticeCard
-              items={analysis.suggested_practice}
-              assistantAgentId={call.assistant_agent_id}
-            />
+            <AnalysisSection analysis={analysis} feature="suggested_practice">
+              <SuggestedPracticeCard
+                items={analysis.suggested_practice ?? []}
+                assistantAgentId={call.assistant_agent_id}
+              />
+            </AnalysisSection>
           )}
+          <CoachNotesCard callId={call.id} currentMs={currentMs} onSeek={seek} />
           <NotesCard
             key={call.user_notes ?? ""}
             callId={call.id}

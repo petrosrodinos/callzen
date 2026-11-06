@@ -1,4 +1,4 @@
-import { useEffect, useState, type FC } from "react";
+import { useCallback, useEffect, useState, type FC } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { AlertTriangle, Bookmark, Mic, MonitorSmartphone, Pause, PhoneOff, Play, RefreshCw, X } from "lucide-react";
@@ -15,11 +15,13 @@ import { RecordingIndicator } from "@/components/ui/live-assist/recording-indica
 import { AudioLevelMeter } from "@/components/ui/live-assist/audio-level-meter";
 import { useCall, useUpdateCall } from "@/features/calls/hooks/use-calls";
 import { useAssistantAgents } from "@/features/assistant-agents/hooks/use-assistant-agents";
-import { CallEndReasons, CallStatuses, type CallOutcome } from "@/features/calls/interfaces/calls.interfaces";
+import { CallEndReasons, CallStatuses, type CallEndReason, type CallOutcome } from "@/features/calls/interfaces/calls.interfaces";
 import { cn } from "@/lib/utils";
 import { useCopilotSession } from "@/hooks/use-copilot-session";
 import { useFinishCall } from "@/hooks/use-finish-call";
 import { useCallClock } from "@/hooks/use-call-clock";
+import { useCallTimeLimit } from "@/hooks/use-call-time-limit";
+import { TimeLeftBadge } from "@/components/ui/time-left-badge";
 import { usePageMetadata } from "@/hooks/use-page-metadata";
 import { formatClock } from "@/lib/date";
 import { Routes } from "@/routes/routes";
@@ -44,6 +46,28 @@ const LiveCallPage: FC = () => {
   const copilot = useCopilotSession({ call, getElapsedMs: clock.now });
   const capture = useLiveCapture({ call, copilot, clock });
   const { finish, isFinishing } = useFinishCall(copilot);
+  const endCall = useCallback(
+    async (outcome?: CallOutcome, customOutcome?: string, reason: CallEndReason = CallEndReasons.USER) => {
+      if (!call || ending) return;
+      setEnding(true);
+      const recording = await capture.stop();
+      try {
+        await finish({ callId: call.id, reason, durationSeconds: clock.now() / 1000, recording, outcome, customOutcome });
+        navigate(Routes.library.detail(call.id), { replace: true, state: { justEnded: true } });
+      } catch {
+        setEnding(false);
+      }
+    },
+    [call, ending, capture, finish, clock, navigate],
+  );
+  // Ends the call automatically when the plan minutes fixed at start run out (§8.3).
+  const endOnTimeLimit = useCallback(() => void endCall(undefined, undefined, CallEndReasons.TIME_LIMIT), [endCall]);
+  const timeLimit = useCallTimeLimit({
+    maxDurationSeconds: call?.max_duration_seconds,
+    elapsedMs: clock.elapsedMs,
+    active: capture.status === "live" || capture.status === "paused",
+    onReached: endOnTimeLimit,
+  });
 
   useEffect(() => {
     if (capture.status !== "live" && capture.status !== "paused") return;
@@ -56,16 +80,6 @@ const LiveCallPage: FC = () => {
   if (!call) return <Navigate to={Routes.library.root} replace />;
   if (call.status !== CallStatuses.IN_PROGRESS && !ending) return <Navigate to={Routes.library.detail(call.id)} replace />;
 
-  const endCall = async (outcome?: CallOutcome, customOutcome?: string) => {
-    setEnding(true);
-    const recording = await capture.stop();
-    try {
-      await finish({ callId: call.id, reason: CallEndReasons.USER, durationSeconds: clock.now() / 1000, recording, outcome, customOutcome });
-      navigate(Routes.library.detail(call.id), { replace: true, state: { justEnded: true } });
-    } catch {
-      setEnding(false);
-    }
-  };
 
   const switchAgent = (agentId: string) =>
     updateCall.mutate({ id: call.id, dto: { assistant_agent_id: agentId } }, { onSuccess: () => void refetch() });
@@ -82,6 +96,7 @@ const LiveCallPage: FC = () => {
         </Badge>
         <RecordingIndicator state={recordingState} />
         <span className="font-mono text-sm tabular-nums">{formatClock(clock.elapsedMs)}</span>
+        {timeLimit.warning && timeLimit.remainingMs !== null && <TimeLeftBadge remainingMs={timeLimit.remainingMs} />}
         <div className="hidden min-w-0 flex-1 truncate text-sm text-muted-foreground md:block">{call.title ?? call.prospect_name ?? ""}</div>
         <div className="flex w-full items-center gap-2 md:ml-auto md:w-auto">
           {capturing && (

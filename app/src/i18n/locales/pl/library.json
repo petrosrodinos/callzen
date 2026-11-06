@@ -111,7 +111,8 @@
           "title": "Usunąć transkrypcję?",
           "description": "Transkrypcja zostanie trwale usunięta. Analiza zostanie zachowana, ale nie będzie można jej ponownie uruchomić."
         }
-      }
+      },
+      "sessionCost": "Koszt sesji {{charged}} (bazowy {{base}})"
     },
     "recording": {
       "saving": "Zapisywanie nagrania…",

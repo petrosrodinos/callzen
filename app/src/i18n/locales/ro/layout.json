@@ -16,16 +16,18 @@
       "copilots": "Co-piloți",
       "organisation": "Organizație",
       "settings": "Setări",
-      "usage": "Utilizare și costuri",
+      "usage": "Utilizare",
       "privacy": "Confidențialitate și date",
       "health": "Stare sistem",
       "users": "Utilizatori",
-      "alerts": "Alerte"
+      "alerts": "Alerte",
+      "config": "Configurație",
+      "subscriptions": "Abonamente"
     }
   },
   "userMenu": {
     "settings": "Setări",
-    "usage": "Utilizare și costuri",
+    "usage": "Utilizare",
     "privacy": "Confidențialitate și date",
     "logout": "Deconectare"
   },

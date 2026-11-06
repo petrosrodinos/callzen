@@ -6,10 +6,27 @@ export const Routes = {
     },
     admin: {
         health: "/admin/health",
+        config: "/admin/config",
+        config_tab: (tab: string) => `/admin/config?tab=${tab}`,
+        subscriptions: "/admin/subscriptions",
+        subscription: (organisationId: string) => `/admin/subscriptions/${organisationId}`,
+        subscription_pattern: "/admin/subscriptions/:organisationId",
         users: "/admin/users",
         alerts: "/admin/alerts",
     },
     dashboard: "/dashboard",
+    pricing: "/pricing",
+    notifications: "/notifications",
+    coaching: {
+        cohort: "/coaching/cohort",
+        assignments: "/assignments",
+        assignment: (id: string) => `/assignments/${id}`,
+        assignment_pattern: "/assignments/:id",
+        reports: "/coaching/reports",
+        report: (id: string) => `/coaching/reports?report=${id}`,
+        student: (userId: string) => `/students/${userId}`,
+        student_pattern: "/students/:userId",
+    },
     calls: {
         new: "/calls/new",
         live: (callId: string) => `/calls/${callId}/live`,
@@ -47,6 +64,7 @@ export const Routes = {
     settings: {
         root: "/settings",
         usage: "/settings/usage",
+        billing: "/settings/billing",
         privacy: "/settings/privacy",
     },
 };

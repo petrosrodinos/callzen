@@ -5,6 +5,8 @@ import { RecordingStorageService } from '@/integrations/storage/recordings/recor
 import { OrgContext } from '@/shared/interfaces/org-context.interface';
 import { PERMISSION_CATALOG } from '@/shared/config/permissions/permissions.config';
 import { OrgAccessService } from './org-access.service';
+import { EntitlementsService } from '@/modules/billing/services/entitlements.service';
+import { StripeSyncService } from '@/modules/billing/services/stripe-sync.service';
 import {
   CreateOrganisationDto,
   DeleteOrganisationDto,
@@ -19,6 +21,8 @@ export class OrganisationsService {
     private readonly prisma: PrismaService,
     private readonly access: OrgAccessService,
     private readonly recordingStorage: RecordingStorageService,
+    private readonly entitlements: EntitlementsService,
+    private readonly stripeSync: StripeSyncService,
   ) {}
 
   permissionCatalog() {
@@ -47,15 +51,48 @@ export class OrganisationsService {
         id: membership.organisation_id,
         name: membership.organisation.name,
         role: membership.role,
-        permissions: await this.access.resolvePermissions(
+        permissions: await this.access.effectivePermissions(
           membership.organisation_id,
           membership.role,
         ),
+        plan: await this.planSummary(membership.organisation_id),
+        // Owners are warned before deleting that members' bought minutes would be lost (§14). Count only:
+        // personal balances themselves stay private.
+        ...(membership.role === OrgRole.OWNER && {
+          members_with_bought_minutes: await this.membersWithBoughtMinutes(
+            membership.organisation_id,
+          ),
+        }),
         members_count: membership.organisation._count.memberships,
         joined_at: membership.created_at,
         created_at: membership.organisation.created_at,
       })),
     );
+  }
+
+  private async membersWithBoughtMinutes(organisationId: string) {
+    const rows = await this.prisma.usageCredit.groupBy({
+      by: ['user_id'],
+      where: {
+        organisation_id: organisationId,
+        user_id: { not: null },
+        OR: [
+          { live_seconds_remaining: { gt: 0 } },
+          { practice_seconds_remaining: { gt: 0 } },
+        ],
+      },
+    });
+    return rows.length;
+  }
+
+    private async planSummary(organisationId: string) {
+    const entitlements = await this.entitlements.getEntitlements(organisationId);
+    return {
+      key: entitlements.plan,
+      status: entitlements.status,
+      read_only: entitlements.read_only,
+      trial_ends_at: entitlements.trial_ends_at,
+    };
   }
 
   async create(userId: string, dto: CreateOrganisationDto) {
@@ -95,6 +132,8 @@ export class OrganisationsService {
 
   // Deletes the organisation (cascading to calls, agents, members and invitations) and its stored recordings.
   async deleteWithData(organisationId: string) {
+    // A paid plan is cancelled in Stripe first (prorated), so nobody keeps being charged (§11).
+    await this.stripeSync.cancelForDeletion(organisationId);
     const recordings = await this.prisma.call.findMany({
       where: { organisation_id: organisationId, recording_path: { not: null } },
       select: { recording_path: true },

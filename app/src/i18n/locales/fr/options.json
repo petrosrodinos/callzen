@@ -326,5 +326,279 @@
       "conversation": "Même langue que la conversation",
       "interface": "La langue de mon interface"
     }
+  },
+  "billing": {
+    "plan": {
+      "all": "Tous les forfaits",
+      "trial": "Essai",
+      "starter": "Starter",
+      "pro": "Pro",
+      "coach": "Coach"
+    },
+    "planDescription": {
+      "trial": "Essayez tout avec un quota réduit.",
+      "starter": "Pour les commerciaux indépendants qui se lancent.",
+      "pro": "Pour les professionnels exigeants qui s'entraînent et appellent beaucoup.",
+      "coach": "Pour les coachs et leurs élèves, avec des minutes mutualisées et des outils de coaching."
+    },
+    "status": {
+      "all": "Tous les statuts",
+      "trialing": "Essai",
+      "active": "Actif",
+      "pastDue": "Impayé",
+      "canceled": "Résilié",
+      "incomplete": "Incomplet",
+      "none": "Aucun forfait",
+      "cancelling": "Résiliation en cours"
+    },
+    "invoiceKind": {
+      "subscription": "Abonnement",
+      "seats": "Sièges supplémentaires",
+      "topupTeam": "Minutes pour l'équipe",
+      "topupPersonal": "Minutes personnelles",
+      "other": "Autre"
+    },
+    "invoiceStatus": {
+      "draft": "Brouillon",
+      "open": "Ouverte",
+      "paid": "Payée",
+      "void": "Annulée",
+      "uncollectible": "Irrécouvrable",
+      "failed": "Échouée",
+      "refunded": "Remboursée"
+    },
+    "pack": {
+      "live_100": "100 minutes d'appels en direct",
+      "practice_60": "60 minutes d'entraînement",
+      "mixed": "{{live}} minutes en direct + {{practice}} minutes d'entraînement",
+      "liveFallback": "{{count}} minutes d'appels en direct",
+      "practiceFallback": "{{count}} minutes d'entraînement"
+    },
+    "cancelReason": {
+      "tooExpensive": "Trop cher",
+      "notUsing": "Je ne l'utilise pas assez",
+      "missingFeatures": "Il manque des fonctionnalités dont j'ai besoin",
+      "switching": "Je passe à un autre outil",
+      "temporary": "J'en avais besoin seulement pour un temps",
+      "other": "Autre chose"
+    },
+    "feature": {
+      "knowledgeDocumentImport": "Importation de documents de connaissances",
+      "orgRolesPermissions": "Rôles et autorisations personnalisés",
+      "orgInvitations": "Invitations d'équipe",
+      "viewAllMemberCalls": "Consultation des appels de tous les membres",
+      "cohortDashboard": "Tableau de bord de cohorte",
+      "topupPurchases": "Achat de minutes supplémentaires",
+      "studentPages": "Pages élèves",
+      "practiceAssignments": "Devoirs d'entraînement",
+      "callComments": "Commentaires du coach sur les appels",
+      "coachReports": "Rapports hebdomadaires du coach",
+      "studentExport": "Export CSV",
+      "agentAccessControl": "Accès aux copilotes et prospects par élève"
+    },
+    "limit": {
+      "seatsIncluded": "Sièges inclus",
+      "extraSeatsAllowed": "Achat de sièges supplémentaires possible",
+      "liveMinutes": "Minutes en direct par période",
+      "practiceMinutes": "Minutes d'entraînement par période",
+      "practiceSharesLivePool": "L'entraînement utilise les minutes en direct",
+      "liveOwnerReserve": "Minutes en direct réservées aux propriétaires",
+      "practiceOwnerReserve": "Minutes d'entraînement réservées aux propriétaires",
+      "liveMinutesPerMember": "Minutes en direct par membre",
+      "practiceMinutesPerMember": "Minutes d'entraînement par membre",
+      "copilotsMax": "Copilotes",
+      "practiceProspectsMax": "Prospects d'entraînement",
+      "practiceProspectsPerMemberMax": "Prospects d'entraînement par membre",
+      "uploadsPerPeriod": "Importations par période",
+      "trialDays": "Durée de l'essai (jours)"
+    },
+    "pricingSource": {
+      "modelsDev": "models.dev",
+      "alias": "models.dev (alias)",
+      "override": "Manuel",
+      "unpriced": "Sans prix"
+    },
+    "analysis": {
+      "overview": "Vue d'ensemble et score",
+      "categoryScores": "Scores par compétence",
+      "moments": "Erreurs et points forts",
+      "improvements": "Axes d'amélioration",
+      "metrics": "Indicateurs de conversation",
+      "prospectInsights": "Insights sur le prospect",
+      "nextSteps": "Prochaines étapes",
+      "followUpDraft": "Brouillon de relance",
+      "practiceReveal": "Révélation de l'entraînement",
+      "copilotUsage": "Utilisation du copilote",
+      "suggestedPractice": "Entraînement suggéré"
+    },
+    "analysisHint": {
+      "overview": "Score global, verdict et résumé",
+      "categoryScores": "Score par compétence et évolution des compétences",
+      "moments": "Erreurs et points forts liés à la chronologie, erreurs récurrentes",
+      "improvements": "Ce qu'il faut améliorer la prochaine fois",
+      "metrics": "Temps de parole, débit, mots de remplissage, interruptions, objections",
+      "prospectInsights": "Ce qui compte pour le prospect",
+      "nextSteps": "Prochaines étapes convenues",
+      "followUpDraft": "Message de relance prêt à envoyer",
+      "practiceReveal": "Les détails cachés du persona après une session d'entraînement",
+      "copilotUsage": "Comment les suggestions du copilote ont été utilisées",
+      "suggestedPractice": "Scénarios d'entraînement recommandés"
+    },
+    "interval": {
+      "month": "Mensuel",
+      "year": "Annuel"
+    },
+    "invoiceDescription": {
+      "seats_one": "Siège supplémentaire × {{count}}",
+      "seats_other": "Sièges supplémentaires × {{count}}",
+      "topup": "Minutes : {{pack}}"
+    },
+    "eventType": {
+      "STARTED": "Forfait démarré",
+      "PLAN_CHANGED": "Forfait modifié",
+      "CHANGE_SCHEDULED": "Changement programmé",
+      "CHANGE_CANCELED": "Changement programmé annulé",
+      "SEATS_CHANGED": "Sièges modifiés",
+      "CANCEL_SCHEDULED": "Résiliation programmée",
+      "CANCEL_REVOKED": "Résiliation annulée",
+      "CANCELED": "Forfait résilié",
+      "REACTIVATED": "Forfait réactivé",
+      "TRIAL_STARTED": "Essai démarré",
+      "TRIAL_ENDED": "Essai terminé",
+      "TRIAL_EXTENDED": "Essai prolongé",
+      "PAYMENT_SUCCEEDED": "Paiement réussi",
+      "PAYMENT_FAILED": "Échec du paiement",
+      "REFUNDED": "Remboursé",
+      "CREDITS_GRANTED": "Minutes ajoutées",
+      "MANUAL_ASSIGNED": "Forfait configuré par notre équipe",
+      "DISCOUNT_APPLIED": "Remise appliquée",
+      "SYNCED": "Synchronisé avec Stripe"
+    },
+    "source": {
+      "stripe": "Stripe",
+      "manual": "Manuel"
+    },
+    "paymentFilter": {
+      "all": "Tous les paiements",
+      "failed": "Échoués",
+      "open": "Ouverts",
+      "refunded": "Remboursés",
+      "paid": "Payés"
+    },
+    "cancelMode": {
+      "atPeriodEnd": "À la fin de la période",
+      "immediate": "Immédiatement"
+    },
+    "actor": {
+      "user": "Client",
+      "admin": "Équipe CallZen",
+      "stripe": "Stripe",
+      "system": "Automatique"
+    }
+  },
+  "access": {
+    "visibility": {
+      "organisation": "Tous les membres de l'organisation",
+      "selected": "Élèves sélectionnés"
+    },
+    "visibilityDescription": {
+      "organisation": "Tous les membres peuvent le voir et l'utiliser.",
+      "selected": "Seulement les élèves que vous choisissez, plus les coachs."
+    }
+  },
+  "permissions": {
+    "agentsView": {
+      "label": "Voir les copilotes",
+      "description": "Voir et utiliser les copilotes de l'organisation pendant les appels et l'entraînement."
+    },
+    "agentsManage": {
+      "label": "Gérer les copilotes",
+      "description": "Créer, modifier, dupliquer, archiver et supprimer des copilotes, et choisir qui peut les utiliser."
+    },
+    "prospectsManage": {
+      "label": "Gérer vos prospects d'entraînement",
+      "description": "Créer, générer, modifier et supprimer les prospects d'entraînement IA que vous avez créés."
+    },
+    "prospectsManageAll": {
+      "label": "Gérer les prospects d'entraînement de tous",
+      "description": "Modifier, supprimer et changer qui peut utiliser les prospects d'entraînement de n'importe quel membre."
+    },
+    "callsCreate": {
+      "label": "Démarrer des appels et s'entraîner",
+      "description": "Démarrer des appels en direct et des sessions d'entraînement."
+    },
+    "callsViewAll": {
+      "label": "Voir les appels de tous",
+      "description": "Voir les appels, enregistrements, analyses et performances d'équipe de tous les membres. Sans cette autorisation, les membres ne voient que les leurs."
+    },
+    "callsManageAll": {
+      "label": "Gérer les appels de tous",
+      "description": "Supprimer les enregistrements et les appels, et relancer les analyses, pour n'importe quel membre."
+    },
+    "usageView": {
+      "label": "Voir l'utilisation de l'organisation",
+      "description": "Voir les minutes utilisées par toute l'organisation."
+    },
+    "membersView": {
+      "label": "Voir les membres",
+      "description": "Voir la liste des membres et leurs rôles."
+    },
+    "membersInvite": {
+      "label": "Inviter des membres",
+      "description": "Inviter des personnes, renvoyer et révoquer des invitations."
+    },
+    "membersManage": {
+      "label": "Gérer les membres",
+      "description": "Changer le rôle des membres ayant un rôle inférieur et les retirer."
+    },
+    "rolesManage": {
+      "label": "Modifier les autorisations des rôles",
+      "description": "Changer ce que chaque rôle est autorisé à faire."
+    },
+    "orgUpdate": {
+      "label": "Modifier l'organisation",
+      "description": "Renommer l'organisation."
+    },
+    "orgDelete": {
+      "label": "Supprimer l'organisation",
+      "description": "Supprimer définitivement l'organisation et toutes ses données."
+    },
+    "billingView": {
+      "label": "Voir la facturation",
+      "description": "Voir le forfait, les factures et les paiements de l'organisation."
+    },
+    "billingManage": {
+      "label": "Gérer la facturation",
+      "description": "Changer ou résilier le forfait, gérer les sièges et les informations de paiement, et acheter des minutes pour l'équipe."
+    },
+    "coachingView": {
+      "label": "Voir le coaching",
+      "description": "Voir le tableau de bord de cohorte, les pages élèves et les rapports hebdomadaires. Inclut la consultation des appels de tous."
+    },
+    "coachingManage": {
+      "label": "Coacher des élèves",
+      "description": "Créer des devoirs d'entraînement et commenter les appels des autres membres."
+    },
+    "coachingExport": {
+      "label": "Exporter les données de coaching",
+      "description": "Télécharger les listes d'élèves et d'appels au format CSV."
+    }
+  },
+  "permissionGroups": {
+    "agents": "Copilotes et entraînement",
+    "calls": "Appels",
+    "team": "Équipe",
+    "coaching": "Coaching",
+    "organisation": "Organisation",
+    "billing": "Facturation"
+  },
+  "coaching": {
+    "assignmentStatus": {
+      "all": "Tous les statuts",
+      "open": "En cours",
+      "overdue": "En retard",
+      "completed": "Terminé",
+      "archived": "Archivé"
+    }
   }
 }

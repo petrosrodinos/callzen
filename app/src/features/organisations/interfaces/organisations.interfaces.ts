@@ -1,3 +1,4 @@
+import type { PlanKey, SubscriptionStatus } from "@/features/billing/interfaces/billing.interfaces";
 export const OrgRoles = {
     OWNER: "OWNER",
     ADMIN: "ADMIN",
@@ -10,6 +11,7 @@ export const Permissions = {
     AGENTS_VIEW: "agents.view",
     AGENTS_MANAGE: "agents.manage",
     PROSPECTS_MANAGE: "prospects.manage",
+    PROSPECTS_MANAGE_ALL: "prospects.manage_all",
     CALLS_CREATE: "calls.create",
     CALLS_VIEW_ALL: "calls.view_all",
     CALLS_MANAGE_ALL: "calls.manage_all",
@@ -20,6 +22,11 @@ export const Permissions = {
     ROLES_MANAGE: "roles.manage",
     ORG_UPDATE: "org.update",
     ORG_DELETE: "org.delete",
+    BILLING_VIEW: "billing.view",
+    BILLING_MANAGE: "billing.manage",
+    COACHING_VIEW: "coaching.view",
+    COACHING_MANAGE: "coaching.manage",
+    COACHING_EXPORT: "coaching.export",
 } as const;
 export type Permission = (typeof Permissions)[keyof typeof Permissions];
 
@@ -39,6 +46,17 @@ export interface Organisation {
     members_count: number;
     joined_at: string;
     created_at: string;
+    // The organisation's plan, for gating UI (the API enforces the same limits).
+    plan?: OrganisationPlanSummary;
+    // Owners only: members who still hold bought minutes, which are lost if the organisation is deleted.
+    members_with_bought_minutes?: number;
+}
+
+export interface OrganisationPlanSummary {
+    key: PlanKey;
+    status: SubscriptionStatus;
+    read_only: boolean;
+    trial_ends_at: string | null;
 }
 
 export interface PermissionDefinition {
@@ -96,6 +114,8 @@ export interface InvitationPreview {
     invited_by: string | null;
     expires_at: string;
     account_exists: boolean;
+    // The organisation is on a coaching plan: show the privacy notice before accepting (§10.1a).
+    coach_org?: boolean;
 }
 
 export interface MyInvitation {
@@ -104,6 +124,7 @@ export interface MyInvitation {
     role: OrgRole;
     invited_by: string | null;
     expires_at: string;
+    coach_org?: boolean;
 }
 
 export interface AcceptedInvitation {

@@ -125,6 +125,7 @@ function PracticeStartContent({
         voice_provider: provider,
         voice: voice || undefined,
         keep_recording: keepRecording,
+        assignment_id: searchParams.get("assignment") ?? undefined,
       },
       {
         onSuccess: (call) =>

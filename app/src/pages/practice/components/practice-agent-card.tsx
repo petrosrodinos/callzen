@@ -40,17 +40,34 @@ import { Routes } from "@/routes/routes";
 import { usePermissions } from "@/features/organisations/hooks/use-organisations";
 import { Permissions } from "@/features/organisations/interfaces/organisations.interfaces";
 import { DifficultyDots } from "./difficulty-dots";
+import { Checkbox } from "@/components/ui/checkbox";
+import { AccessBadge } from "@/components/agent-access/access-badge";
+import { useAccessCapabilities } from "@/components/agent-access/use-access-capabilities";
+import { AgentKinds } from "@/features/agent-access/interfaces/agent-access.interfaces";
 
 export function PracticeAgentCard({
   agent,
   startLink,
+  selectable = false,
+  selected = false,
+  onSelectedChange,
 }: {
   agent: PracticeAgent;
   startLink: string;
+  // Bulk "Share with…" selection mode (§10.1h).
+  selectable?: boolean;
+  selected?: boolean;
+  onSelectedChange?: (selected: boolean) => void;
 }) {
   const { t } = useTranslation("practice");
   const navigate = useNavigate();
-  const canManage = usePermissions().can(Permissions.PROSPECTS_MANAGE);
+  const { can } = usePermissions();
+  const access = useAccessCapabilities(AgentKinds.PROSPECT);
+  const isAuthor = !!access.userId && agent.user_id === access.userId;
+  // prospects.manage covers your own prospects; prospects.manage_all everyone's (§10.1h rule 5).
+  const canManage =
+    can(Permissions.PROSPECTS_MANAGE_ALL) ||
+    (can(Permissions.PROSPECTS_MANAGE) && isAuthor);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const duplicate = useDuplicatePracticeAgent();
   const harder = useHarderPracticeAgent();
@@ -60,8 +77,22 @@ export function PracticeAgentCard({
   const stats = agent.stats;
 
   return (
-    <Card className={cn("flex flex-col p-5", archived && "opacity-70")}>
+    <Card
+      className={cn(
+        "flex flex-col p-5",
+        archived && "opacity-70",
+        selected && "ring-2 ring-primary",
+      )}
+    >
       <div className="flex items-start gap-3">
+        {selectable && (
+          <Checkbox
+            checked={selected}
+            onCheckedChange={(value) => onSelectedChange?.(value === true)}
+            aria-label={t("access:bulk.selectItem", { name: agent.name })}
+            className="mt-1"
+          />
+        )}
         <div className="min-w-0 flex-1">
           {canManage ? (
             <Link
@@ -149,6 +180,12 @@ export function PracticeAgentCard({
         {agent.source_call_id && (
           <Badge variant="outline">{t("agentCard.fromRealCall")}</Badge>
         )}
+        <AccessBadge
+          visibility={agent.visibility}
+          accessUserIds={agent.access_user_ids}
+          isAuthor={isAuthor}
+          showEveryone={access.canManageAccess}
+        />
       </div>
 
       <div className="mt-4 flex items-center gap-4 text-xs text-muted-foreground">

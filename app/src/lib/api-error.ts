@@ -20,10 +20,14 @@ export const getApiErrorCode = (error: unknown): string | undefined => {
 export class ApiError extends Error {
     readonly code?: string;
     readonly status?: number;
+    // The full error body (e.g. plan limit details: limit, max, next_plan).
+    readonly details?: Record<string, unknown>;
 
     constructor(error: unknown, fallback: string) {
         super(getApiErrorMessage(error, fallback), { cause: error });
         this.code = getApiErrorCode(error);
         this.status = isAxiosError(error) ? error.response?.status : undefined;
+        const data = isAxiosError(error) ? error.response?.data : undefined;
+        this.details = data && typeof data === "object" ? (data as Record<string, unknown>) : undefined;
     }
 }

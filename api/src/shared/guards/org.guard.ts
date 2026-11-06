@@ -10,16 +10,21 @@ import { OrgAccessService } from '@/modules/organisations/services/org-access.se
 import { PERMISSIONS_KEY } from '@/shared/decorators/org.decorator';
 import { Permission } from '@/shared/config/permissions/permissions.config';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
+import { PLAN_FEATURES_KEY } from '@/shared/decorators/requires-feature.decorator';
+import { PlanFeature } from '@/shared/config/plans/plans.config';
+import { PlanLimitService } from '@/modules/billing/services/plan-limit.service';
 
 // Runs after JwtGuard. Resolves the active organisation from the :orgId route param or the
 // X-Organisation-Id header (falling back to the user's oldest membership), verifies membership,
-// loads the role's permissions and enforces @RequirePermissions().
+// loads the role's effective permissions (role permissions the plan includes) and enforces
+// @RequirePermissions() and @RequiresFeature().
 @Injectable()
 export class OrgGuard implements CanActivate {
   constructor(
     private readonly reflector: Reflector,
     private readonly access: OrgAccessService,
     private readonly prisma: PrismaService,
+    private readonly planLimits: PlanLimitService,
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -69,7 +74,15 @@ export class OrgGuard implements CanActivate {
       });
     }
 
-    request.org = ctx;
+    request.org = { ...ctx, platformRole: request.user?.role ?? null };
+
+    const requiredFeatures =
+      this.reflector.getAllAndOverride<PlanFeature[]>(PLAN_FEATURES_KEY, [
+        context.getHandler(),
+        context.getClass(),
+      ]) ?? [];
+    for (const feature of requiredFeatures)
+      await this.planLimits.assertFeature(request.org, feature);
     return true;
   }
 }

@@ -1,0 +1,79 @@
+{
+  "badge": {
+    "everyone": "Alla",
+    "sharedWith_one": "Delad med {{count}}",
+    "sharedWith_other": "Delad med {{count}}",
+    "private": "Privat",
+    "privateHint": "Bara du och din coach",
+    "sharedWithYou": "Delad med dig"
+  },
+  "editor": {
+    "title": "Vem som kan använda detta",
+    "description": {
+      "copilot": "Välj om alla i organisationen kan använda den här co-piloten, eller bara de elever du väljer.",
+      "prospect": "Välj om alla i organisationen kan öva med det här prospektet, eller bara de elever du väljer."
+    },
+    "students": "Elever",
+    "noneSelected": "Inga elever valda: bara du och andra coacher kan använda det.",
+    "save": "Spara åtkomst",
+    "onlyYouAndCoach": "Bara du och din coach kan se det här prospektet.",
+    "restrictedReadOnly_one": "Begränsad till {{count}} elev. Ditt abonnemang omfattar inte längre åtkomstkontroll, så den här inställningen kan inte ändras.",
+    "restrictedReadOnly_other": "Begränsad till {{count}} elever. Ditt abonnemang omfattar inte längre åtkomstkontroll, så den här inställningen kan inte ändras."
+  },
+  "picker": {
+    "placeholder": "Välj elever",
+    "selected_one": "{{count}} elev vald",
+    "selected_other": "{{count}} elever valda",
+    "search": "Sök medlemmar",
+    "noMembers": "Inga medlemmar hittades.",
+    "remove": "Ta bort {{name}}",
+    "formerMember": "Tidigare medlem"
+  },
+  "bulk": {
+    "select": "Välj för att dela",
+    "selected_one": "{{count}} vald",
+    "selected_other": "{{count}} valda",
+    "share": "Dela med…",
+    "cancel": "Avbryt markering",
+    "selectItem": "Välj {{name}}"
+  },
+  "share": {
+    "title_one": "Dela {{count}} objekt",
+    "title_other": "Dela {{count}} objekt",
+    "description": "De valda eleverna kan använda dessa direkt. Objekt som redan delas med alla förblir oförändrade.",
+    "cancel": "Avbryt",
+    "confirm": "Dela"
+  },
+  "student": {
+    "title": "Åtkomst",
+    "description": "Aktivera de co-piloter och prospekt som den här eleven får använda. Objekt som delas med alla är alltid tillgängliga.",
+    "descriptionReadOnly": "De co-piloter och prospekt som den här eleven kan använda.",
+    "copilots": "Co-piloter",
+    "prospects": "Övningsprospekt",
+    "none": "Inget här ännu.",
+    "privateToStudent": "Skapat av den här eleven",
+    "archived": "Arkiverat",
+    "toggleAria": "Åtkomst till {{name}}"
+  },
+  "empty": {
+    "noSharedCopilot": "Din coach har inte delat någon co-pilot ännu",
+    "noSharedCopilotDescription": "Co-piloter som din coach delar med dig visas här.",
+    "noSharedCopilotCall": "Ingen co-pilot har delats med dig ännu. Be din coach att dela en; du kan fortfarande öva under tiden.",
+    "goPractice": "Gå till övning"
+  },
+  "toasts": {
+    "accessSaved": "Åtkomsten uppdaterades",
+    "couldNotSaveAccess": "Det gick inte att uppdatera åtkomsten",
+    "shared_one": "{{count}} objekt delades",
+    "shared_other": "{{count}} objekt delades",
+    "sharedPeople_one": "{{count}} person fick åtkomst.",
+    "sharedPeople_other": "{{count}} personer fick åtkomst.",
+    "alreadyShared": "Alla du valde hade redan åtkomst.",
+    "couldNotShare": "Det gick inte att dela"
+  },
+  "errors": {
+    "updateAccess": "Det gick inte att uppdatera åtkomsten. Försök igen.",
+    "loadStudentAccess": "Det gick inte att läsa in elevens åtkomst. Försök igen.",
+    "share": "Det gick inte att dela. Försök igen."
+  }
+}

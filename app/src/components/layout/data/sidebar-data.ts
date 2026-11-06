@@ -1,5 +1,6 @@
-import { IconAlertTriangle, IconHeartbeat, IconUser } from "@tabler/icons-react";
-import { AudioLines, Bot, Building2, ChartNoAxesCombined, Gauge, Headphones, Library, PhoneCall, Settings, ShieldCheck } from "lucide-react";
+import { IconHeartbeat } from "@tabler/icons-react";
+import { SlidersHorizontal, AudioLines, Bot, CreditCard, Building2, ChartNoAxesCombined, ClipboardList, FileBarChart, Gauge, GraduationCap, Headphones, Library, PhoneCall, Settings, ShieldCheck } from "lucide-react";
+import { PlanFeatures } from "@/features/billing/interfaces/billing.interfaces";
 import { type SidebarData } from "../types";
 import { Routes } from "@/routes/routes";
 import { RoleTypes } from "@/features/user/interfaces/user.interface";
@@ -32,6 +33,14 @@ export const sidebarData: SidebarData = {
       ],
     },
     {
+      title: i18n.t("coaching:sidebar.group"),
+      items: [
+        { title: i18n.t("coaching:sidebar.cohort"), url: Routes.coaching.cohort, icon: GraduationCap, permission: Permissions.COACHING_VIEW, feature: PlanFeatures.COHORT_DASHBOARD },
+        { title: i18n.t("coaching:sidebar.assignments"), url: Routes.coaching.assignments, icon: ClipboardList, permission: Permissions.COACHING_VIEW, feature: PlanFeatures.PRACTICE_ASSIGNMENTS },
+        { title: i18n.t("coaching:sidebar.reports"), url: Routes.coaching.reports, icon: FileBarChart, permission: Permissions.COACHING_VIEW, feature: PlanFeatures.COACH_REPORTS },
+      ],
+    },
+    {
       title: i18n.t("layout:sidebar.groups.account"),
       items: [
         { title: i18n.t("layout:sidebar.items.organisation"), url: Routes.organisation.root, icon: Building2 },
@@ -45,8 +54,8 @@ export const sidebarData: SidebarData = {
       title: i18n.t("layout:sidebar.groups.admin"),
       items: [
         { title: i18n.t("layout:sidebar.items.health"), url: Routes.admin.health, icon: IconHeartbeat },
-        { title: i18n.t("layout:sidebar.items.users"), url: Routes.admin.users, icon: IconUser },
-        { title: i18n.t("layout:sidebar.items.alerts"), url: Routes.admin.alerts, icon: IconAlertTriangle },
+        { title: i18n.t("layout:sidebar.items.config"), url: Routes.admin.config, icon: SlidersHorizontal },
+        { title: i18n.t("layout:sidebar.items.subscriptions"), url: Routes.admin.subscriptions, icon: CreditCard },
       ],
     },
   ],

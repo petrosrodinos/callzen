@@ -15,6 +15,10 @@ import { OrgContext } from '@/shared/interfaces/org-context.interface';
 import { EmailConfig } from '@/shared/constants/email';
 import { canAssignRole } from '../utils/role-rules.utils';
 import { InviteMemberDto } from '../dto/organisation.dto';
+import { PlanLimitService } from '@/modules/billing/services/plan-limit.service';
+import { EntitlementsService } from '@/modules/billing/services/entitlements.service';
+import { AssignmentsService } from '@/modules/coaching/services/assignments.service';
+import { PlanFeatures } from '@/shared/config/plans/plans.config';
 import {
   escapeHtml,
   renderInvitationEmail,
@@ -32,6 +36,9 @@ export class InvitationsService {
     private readonly prisma: PrismaService,
     private readonly config: ConfigService,
     private readonly mail: ResendMailService,
+    private readonly planLimits: PlanLimitService,
+    private readonly entitlements: EntitlementsService,
+    private readonly assignments: AssignmentsService,
   ) {}
 
   // ---------- Managing invitations (organisation scoped) ----------
@@ -56,6 +63,8 @@ export class InvitationsService {
         code: 'ROLE_HIERARCHY',
       });
     }
+    // Members plus pending invitations must stay within the plan's seats (§8.2).
+    await this.planLimits.assertCanInvite(ctx);
 
     const existingMember = await this.prisma.membership.findFirst({
       where: {
@@ -107,6 +116,8 @@ export class InvitationsService {
   // Issues a fresh link (the old one stops working) and emails it again.
   async resend(ctx: OrgContext, invitationId: string) {
     const invitation = await this.getManageable(ctx, invitationId);
+    // A pending invitation already holds a seat; resending must still fit if seats were reduced since.
+    await this.planLimits.assertCanInvite(ctx, 0);
     if (invitation.status !== InvitationStatus.PENDING) {
       throw new BadRequestException({
         message: `This invitation was ${invitation.status.toLowerCase()} and cannot be resent. Send a new one.`,
@@ -181,6 +192,8 @@ export class InvitationsService {
         null,
       expires_at: invitation.expires_at,
       account_exists: accountExists,
+      // Coach organisations show a privacy notice on the accept screen (§10.1a).
+      coach_org: await this.isCoachOrganisation(invitation.organisation_id),
     };
   }
 
@@ -201,9 +214,17 @@ export class InvitationsService {
       },
     });
 
+    const coachOrgs = new Map<string, boolean>();
+    for (const invitation of invitations)
+      coachOrgs.set(
+        invitation.organisation_id,
+        await this.isCoachOrganisation(invitation.organisation_id),
+      );
+
     return invitations.map((invitation) => ({
       id: invitation.id,
       organisation_name: invitation.organisation.name,
+      coach_org: coachOrgs.get(invitation.organisation_id) ?? false,
       role: invitation.role,
       invited_by:
         invitation.invited_by?.full_name ||
@@ -254,6 +275,13 @@ export class InvitationsService {
       });
     }
 
+    // Accepting an invitation to a coach organisation follows the notice that the coach can see the member's
+    // calls, recordings, analyses and practice results (§10.1a); the acceptance time is the acknowledgement.
+    const coachAccessAcknowledgedAt = (await this.isCoachOrganisation(
+      invitation.organisation_id,
+    ))
+      ? new Date()
+      : null;
     await this.prisma.$transaction(async (tx) => {
       await tx.membership.upsert({
         where: {
@@ -266,6 +294,7 @@ export class InvitationsService {
           organisation_id: invitation.organisation_id,
           user_id: userId,
           role: invitation.role,
+          coach_access_acknowledged_at: coachAccessAcknowledgedAt,
         },
         // Already a member (e.g. joined another way): keep whichever role is higher? Keep existing, never downgrade.
         update: {},
@@ -280,11 +309,23 @@ export class InvitationsService {
       });
     });
 
+    // Members who join later get the organisation's "everyone" assignments too (§10.1c).
+    await this.assignments
+      .enrollNewMember(invitation.organisation_id, userId, invitation.role)
+      .catch((error) =>
+        this.logger.warn(`Assignment enrolment failed: ${error?.message}`),
+      );
+
     return {
       organisation_id: invitation.organisation_id,
       organisation_name: invitation.organisation.name,
       role: invitation.role,
     };
+  }
+
+  private async isCoachOrganisation(organisationId: string): Promise<boolean> {
+    const entitlements = await this.entitlements.getEntitlements(organisationId);
+    return entitlements.features[PlanFeatures.COHORT_DASHBOARD];
   }
 
   // ---------- Helpers ----------

@@ -3,9 +3,10 @@
   "save": "Instellingen opslaan",
   "nav": {
     "profile": "Profiel & voorkeuren",
-    "usage": "Gebruik & kosten",
+    "usage": "Gebruik",
     "privacy": "Privacy & gegevens",
-    "sections": "Instellingensecties"
+    "sections": "Instellingensecties",
+    "billing": "Facturering"
   },
   "validation": {
     "enterName": "Vul je naam in",
@@ -94,6 +95,35 @@
       "input": "Invoer / 1 mln tokens",
       "output": "Uitvoer / 1 mln tokens",
       "perMinute": "~{{price}} per minuut"
+    },
+    "calls": "Sessies",
+    "averageSession": "Gemiddeld {{minutes}} min per sessie",
+    "empty": "Geen gebruik in deze periode.",
+    "sessions": {
+      "title": "Minuten per sessie",
+      "average": "Gemiddeld {{minutes}} min",
+      "session": "Sessie",
+      "member": "Lid",
+      "kind": "Type",
+      "date": "Datum",
+      "minutes": "Minuten",
+      "untitled": "Sessie zonder titel",
+      "you": "Jij"
+    },
+    "members": {
+      "title": "Minuten per lid deze periode",
+      "member": "Lid",
+      "live": "Live min",
+      "practice": "Oefen min",
+      "owner": "Eigenaar"
+    },
+    "admin": {
+      "title": "Platformbeheer: AI-kosten",
+      "totalCost": "AI-kosten (doorberekend)",
+      "baseCost": "Basiskosten {{cost}}",
+      "averageCost": "gemiddelde kosten {{cost}} per sessie",
+      "cost": "Kosten",
+      "chargedVsBase": "Bedragen zijn de doorberekende kosten inclusief opslag; de basiskosten van de provider staan tussen haakjes."
     }
   }
 }

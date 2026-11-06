@@ -3,9 +3,10 @@
   "save": "Einstellungen speichern",
   "nav": {
     "profile": "Profil & Präferenzen",
-    "usage": "Nutzung & Kosten",
+    "usage": "Nutzung",
     "privacy": "Datenschutz & Daten",
-    "sections": "Einstellungsbereiche"
+    "sections": "Einstellungsbereiche",
+    "billing": "Abrechnung"
   },
   "validation": {
     "enterName": "Geben Sie Ihren Namen ein",
@@ -94,6 +95,35 @@
       "input": "Eingabe / 1 Mio. Tokens",
       "output": "Ausgabe / 1 Mio. Tokens",
       "perMinute": "~{{price}} pro Minute"
+    },
+    "calls": "Sitzungen",
+    "averageSession": "Durchschnittlich {{minutes}} Min. pro Sitzung",
+    "empty": "Keine Nutzung in diesem Zeitraum.",
+    "sessions": {
+      "title": "Minuten pro Sitzung",
+      "average": "Durchschnittlich {{minutes}} Min.",
+      "session": "Sitzung",
+      "member": "Mitglied",
+      "kind": "Typ",
+      "date": "Datum",
+      "minutes": "Minuten",
+      "untitled": "Unbenannte Sitzung",
+      "you": "Sie"
+    },
+    "members": {
+      "title": "Minuten pro Mitglied in diesem Zeitraum",
+      "member": "Mitglied",
+      "live": "Live-Min.",
+      "practice": "Übungs-Min.",
+      "owner": "Inhaber"
+    },
+    "admin": {
+      "title": "Plattform-Admin: KI-Kosten",
+      "totalCost": "KI-Kosten (berechnet)",
+      "baseCost": "Basiskosten {{cost}}",
+      "averageCost": "durchschnittliche Kosten {{cost}} pro Sitzung",
+      "cost": "Kosten",
+      "chargedVsBase": "Beträge sind die berechneten Kosten inklusive Aufschlag; die Basiskosten des Anbieters stehen in Klammern."
     }
   }
 }

@@ -326,5 +326,281 @@
       "conversation": "Ten sam język co rozmowa",
       "interface": "Język mojego interfejsu"
     }
+  },
+  "billing": {
+    "plan": {
+      "all": "Wszystkie plany",
+      "trial": "Okres próbny",
+      "starter": "Starter",
+      "pro": "Pro",
+      "coach": "Coach"
+    },
+    "planDescription": {
+      "trial": "Wypróbuj wszystko z niewielkim limitem.",
+      "starter": "Dla handlowców, którzy dopiero zaczynają.",
+      "pro": "Dla ambitnych osób, które dużo ćwiczą i dzwonią.",
+      "coach": "Dla trenerów i ich kursantów, ze wspólną pulą minut i narzędziami do coachingu."
+    },
+    "status": {
+      "all": "Wszystkie statusy",
+      "trialing": "Okres próbny",
+      "active": "Aktywna",
+      "pastDue": "Zaległa płatność",
+      "canceled": "Anulowana",
+      "incomplete": "Niedokończona",
+      "none": "Brak planu",
+      "cancelling": "W trakcie anulowania"
+    },
+    "invoiceKind": {
+      "subscription": "Subskrypcja",
+      "seats": "Dodatkowe miejsca",
+      "topupTeam": "Minuty dla zespołu",
+      "topupPersonal": "Minuty osobiste",
+      "other": "Inne"
+    },
+    "invoiceStatus": {
+      "draft": "Szkic",
+      "open": "Otwarta",
+      "paid": "Opłacona",
+      "void": "Unieważniona",
+      "uncollectible": "Nieściągalna",
+      "failed": "Nieudana",
+      "refunded": "Zwrócona"
+    },
+    "pack": {
+      "live_100": "100 minut rozmów na żywo",
+      "practice_60": "60 minut ćwiczeń",
+      "mixed": "{{live}} min rozmów na żywo + {{practice}} min ćwiczeń",
+      "liveFallback": "Minuty rozmów na żywo: {{count}}",
+      "practiceFallback": "Minuty ćwiczeń: {{count}}"
+    },
+    "cancelReason": {
+      "tooExpensive": "Za drogo",
+      "notUsing": "Za mało z tego korzystam",
+      "missingFeatures": "Brakuje potrzebnych mi funkcji",
+      "switching": "Przechodzę na inne narzędzie",
+      "temporary": "Potrzebowałem(-am) tego tylko na jakiś czas",
+      "other": "Inny powód"
+    },
+    "feature": {
+      "knowledgeDocumentImport": "Import dokumentów z wiedzą",
+      "orgRolesPermissions": "Własne role i uprawnienia",
+      "orgInvitations": "Zaproszenia do zespołu",
+      "viewAllMemberCalls": "Wgląd w rozmowy wszystkich członków",
+      "cohortDashboard": "Pulpit grupy",
+      "topupPurchases": "Kupowanie dodatkowych minut",
+      "studentPages": "Strony kursantów",
+      "practiceAssignments": "Zadania ćwiczeniowe",
+      "callComments": "Komentarze trenera do rozmów",
+      "coachReports": "Tygodniowe raporty trenera",
+      "studentExport": "Eksport CSV",
+      "agentAccessControl": "Dostęp do współpilotów i potencjalnych klientów dla poszczególnych kursantów"
+    },
+    "limit": {
+      "seatsIncluded": "Miejsca w cenie",
+      "extraSeatsAllowed": "Możliwość dokupienia miejsc",
+      "liveMinutes": "Minuty na żywo na okres",
+      "practiceMinutes": "Minuty ćwiczeń na okres",
+      "practiceSharesLivePool": "Ćwiczenia korzystają z minut na żywo",
+      "liveOwnerReserve": "Minuty na żywo zarezerwowane dla właścicieli",
+      "practiceOwnerReserve": "Minuty ćwiczeń zarezerwowane dla właścicieli",
+      "liveMinutesPerMember": "Minuty na żywo na członka",
+      "practiceMinutesPerMember": "Minuty ćwiczeń na członka",
+      "copilotsMax": "Współpiloci",
+      "practiceProspectsMax": "Potencjalni klienci do ćwiczeń",
+      "practiceProspectsPerMemberMax": "Potencjalni klienci do ćwiczeń na członka",
+      "uploadsPerPeriod": "Przesłane nagrania na okres",
+      "trialDays": "Długość okresu próbnego (dni)"
+    },
+    "pricingSource": {
+      "modelsDev": "models.dev",
+      "alias": "models.dev (alias)",
+      "override": "Ręczna",
+      "unpriced": "Bez ceny"
+    },
+    "analysis": {
+      "overview": "Przegląd i wynik",
+      "categoryScores": "Wyniki umiejętności",
+      "moments": "Błędy i mocne strony",
+      "improvements": "Obszary do poprawy",
+      "metrics": "Wskaźniki rozmowy",
+      "prospectInsights": "Wnioski o kliencie",
+      "nextSteps": "Kolejne kroki",
+      "followUpDraft": "Szkic wiadomości follow-up",
+      "practiceReveal": "Ujawnienie po ćwiczeniu",
+      "copilotUsage": "Wykorzystanie współpilota",
+      "suggestedPractice": "Sugerowane ćwiczenia"
+    },
+    "analysisHint": {
+      "overview": "Wynik ogólny, werdykt i podsumowanie",
+      "categoryScores": "Wynik dla każdej umiejętności i trend umiejętności",
+      "moments": "Błędy i mocne strony powiązane z osią czasu, powtarzające się błędy",
+      "improvements": "Co zrobić lepiej następnym razem",
+      "metrics": "Proporcja mówienia, tempo, wtrącenia, przerywanie, obiekcje",
+      "prospectInsights": "Na czym zależy potencjalnemu klientowi",
+      "nextSteps": "Uzgodnione kolejne kroki",
+      "followUpDraft": "Gotowa do wysłania wiadomość follow-up",
+      "practiceReveal": "Ukryte szczegóły persony po sesji ćwiczeń",
+      "copilotUsage": "Jak wykorzystano podpowiedzi współpilota",
+      "suggestedPractice": "Zalecane scenariusze ćwiczeń"
+    },
+    "interval": {
+      "month": "Miesięcznie",
+      "year": "Rocznie"
+    },
+    "invoiceDescription": {
+      "seats_one": "Dodatkowe miejsca × {{count}}",
+      "seats_few": "Dodatkowe miejsca × {{count}}",
+      "seats_many": "Dodatkowe miejsca × {{count}}",
+      "seats_other": "Dodatkowe miejsca × {{count}}",
+      "topup": "Minuty: {{pack}}"
+    },
+    "eventType": {
+      "STARTED": "Rozpoczęcie planu",
+      "PLAN_CHANGED": "Zmiana planu",
+      "CHANGE_SCHEDULED": "Zaplanowano zmianę",
+      "CHANGE_CANCELED": "Cofnięto zaplanowaną zmianę",
+      "SEATS_CHANGED": "Zmiana liczby miejsc",
+      "CANCEL_SCHEDULED": "Zaplanowano anulowanie",
+      "CANCEL_REVOKED": "Cofnięto anulowanie",
+      "CANCELED": "Anulowano plan",
+      "REACTIVATED": "Ponownie aktywowano plan",
+      "TRIAL_STARTED": "Rozpoczęcie okresu próbnego",
+      "TRIAL_ENDED": "Koniec okresu próbnego",
+      "TRIAL_EXTENDED": "Przedłużenie okresu próbnego",
+      "PAYMENT_SUCCEEDED": "Płatność zakończona powodzeniem",
+      "PAYMENT_FAILED": "Płatność nieudana",
+      "REFUNDED": "Zwrot środków",
+      "CREDITS_GRANTED": "Dodano minuty",
+      "MANUAL_ASSIGNED": "Plan skonfigurowany przez nasz zespół",
+      "DISCOUNT_APPLIED": "Zastosowano rabat",
+      "SYNCED": "Synchronizacja ze Stripe"
+    },
+    "source": {
+      "stripe": "Stripe",
+      "manual": "Ręcznie"
+    },
+    "paymentFilter": {
+      "all": "Wszystkie płatności",
+      "failed": "Nieudane",
+      "open": "Otwarte",
+      "refunded": "Zwrócone",
+      "paid": "Opłacone"
+    },
+    "cancelMode": {
+      "atPeriodEnd": "Z końcem okresu",
+      "immediate": "Natychmiast"
+    },
+    "actor": {
+      "user": "Klient",
+      "admin": "Zespół CallZen",
+      "stripe": "Stripe",
+      "system": "Automatycznie"
+    }
+  },
+  "access": {
+    "visibility": {
+      "organisation": "Wszyscy w organizacji",
+      "selected": "Wybrani kursanci"
+    },
+    "visibilityDescription": {
+      "organisation": "Każdy członek może to zobaczyć i z tego korzystać.",
+      "selected": "Tylko wybrani przez Ciebie kursanci oraz trenerzy."
+    }
+  },
+  "permissions": {
+    "agentsView": {
+      "label": "Wyświetlanie współpilotów",
+      "description": "Wyświetlanie współpilotów organizacji i korzystanie z nich w rozmowach i ćwiczeniach."
+    },
+    "agentsManage": {
+      "label": "Zarządzanie współpilotami",
+      "description": "Tworzenie, edytowanie, duplikowanie, archiwizowanie i usuwanie współpilotów oraz wybór, kto może z nich korzystać."
+    },
+    "prospectsManage": {
+      "label": "Zarządzanie własnymi potencjalnymi klientami do ćwiczeń",
+      "description": "Tworzenie, generowanie, edytowanie i usuwanie utworzonych przez siebie potencjalnych klientów AI do ćwiczeń."
+    },
+    "prospectsManageAll": {
+      "label": "Zarządzanie potencjalnymi klientami do ćwiczeń wszystkich osób",
+      "description": "Edytowanie i usuwanie potencjalnych klientów do ćwiczeń dowolnego członka oraz zmiana, kto może z nich korzystać."
+    },
+    "callsCreate": {
+      "label": "Rozpoczynanie rozmów i ćwiczeń",
+      "description": "Rozpoczynanie rozmów na żywo i sesji ćwiczeń."
+    },
+    "callsViewAll": {
+      "label": "Wyświetlanie rozmów wszystkich osób",
+      "description": "Wgląd w rozmowy, nagrania, analizy i wyniki zespołu wszystkich członków. Bez tego uprawnienia członkowie widzą tylko własne."
+    },
+    "callsManageAll": {
+      "label": "Zarządzanie rozmowami wszystkich osób",
+      "description": "Usuwanie nagrań i rozmów oraz ponowne uruchamianie analiz dla dowolnego członka."
+    },
+    "usageView": {
+      "label": "Wyświetlanie użycia organizacji",
+      "description": "Wgląd w minuty wykorzystane przez całą organizację."
+    },
+    "membersView": {
+      "label": "Wyświetlanie członków",
+      "description": "Wgląd w listę członków i ich role."
+    },
+    "membersInvite": {
+      "label": "Zapraszanie członków",
+      "description": "Zapraszanie osób oraz ponowne wysyłanie i unieważnianie zaproszeń."
+    },
+    "membersManage": {
+      "label": "Zarządzanie członkami",
+      "description": "Zmiana ról i usuwanie członków z niższą rolą."
+    },
+    "rolesManage": {
+      "label": "Edytowanie uprawnień ról",
+      "description": "Zmiana tego, co wolno każdej roli."
+    },
+    "orgUpdate": {
+      "label": "Edytowanie organizacji",
+      "description": "Zmiana nazwy organizacji."
+    },
+    "orgDelete": {
+      "label": "Usuwanie organizacji",
+      "description": "Trwałe usunięcie organizacji i wszystkich jej danych."
+    },
+    "billingView": {
+      "label": "Wyświetlanie rozliczeń",
+      "description": "Wgląd w plan, faktury i płatności organizacji."
+    },
+    "billingManage": {
+      "label": "Zarządzanie rozliczeniami",
+      "description": "Zmiana lub anulowanie planu, zarządzanie miejscami i danymi płatności oraz kupowanie minut dla zespołu."
+    },
+    "coachingView": {
+      "label": "Wyświetlanie coachingu",
+      "description": "Wgląd w pulpit grupy, strony kursantów i raporty tygodniowe. Obejmuje wgląd w rozmowy wszystkich osób."
+    },
+    "coachingManage": {
+      "label": "Szkolenie kursantów",
+      "description": "Tworzenie zadań ćwiczeniowych i komentowanie rozmów innych członków."
+    },
+    "coachingExport": {
+      "label": "Eksport danych coachingu",
+      "description": "Pobieranie list kursantów i rozmów w formacie CSV."
+    }
+  },
+  "permissionGroups": {
+    "agents": "Współpiloci i ćwiczenia",
+    "calls": "Rozmowy",
+    "team": "Zespół",
+    "coaching": "Coaching",
+    "organisation": "Organizacja",
+    "billing": "Rozliczenia"
+  },
+  "coaching": {
+    "assignmentStatus": {
+      "all": "Wszystkie statusy",
+      "open": "Otwarte",
+      "overdue": "Po terminie",
+      "completed": "Ukończone",
+      "archived": "Zarchiwizowane"
+    }
   }
 }

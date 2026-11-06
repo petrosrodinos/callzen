@@ -6,7 +6,8 @@
     "practice": "Üben",
     "reviews": "Gesprächsanalysen",
     "teams": "Teams",
-    "createAccount": "Konto erstellen"
+    "createAccount": "Konto erstellen",
+    "pricing": "Preise"
   },
   "actions": {
     "openDashboard": "Dashboard öffnen",
@@ -177,5 +178,75 @@
   "closing": {
     "title": "Führen Sie Ihr nächstes Gespräch mit einem Copilot.",
     "copy": "Richten Sie Ihren ersten Copilot ein, starten Sie ein Gespräch und sehen Sie die Vorschläge eintreffen, während der Interessent noch spricht."
+  },
+  "salesDemo": {
+    "aria": "Simuliertes Verkaufsgespräch mit dem CallZen Co-Piloten",
+    "intro": "Hören Sie ein simuliertes Verkaufsgespräch und sehen Sie zu, wie der Co-Pilot den Verkäufer in Echtzeit coacht.",
+    "play": "Demo mit Ton abspielen",
+    "playSilent": "Ohne Ton abspielen",
+    "soundOn": "Ton einschalten",
+    "soundOff": "Ton ausschalten",
+    "skip": "Zur Auswertung springen",
+    "replay": "Erneut abspielen",
+    "ended": "Anruf beendet",
+    "analysing": "Anruf wird analysiert…",
+    "reviewTitle": "Dann die Auswertung, in Sekunden",
+    "reviewLead": "Dieselbe Analyse, die Sie nach jedem echten Anruf erhalten: ein Score, die Fehler und Stärken und die Zahlen dahinter."
+  },
+  "pricing": {
+    "title": "Einfache Tarife für Vertriebler und Coaches",
+    "copy": "Jeder Tarif enthält den Live-Co-Piloten, KI-Übungs-Interessenten und Anrufanalyse in allen unterstützten Sprachen. Zahlen Sie monatlich oder jährlich und erhalten Sie zwei Monate gratis.",
+    "trial": "Starten Sie mit einer kostenlosen 14-tägigen Testphase. Keine Karte erforderlich.",
+    "cta": "Kostenlos testen",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "tagline": "Für einzelne Vertriebler, die gerade anfangen.",
+        "points": {
+          "live": "2 Stunden Live-Anrufe pro Monat",
+          "practice": "30 Minuten KI-Übung",
+          "copilots": "1 Co-Pilot",
+          "basicAnalysis": "Score, Kategorie-Scores und nächste Schritte nach jedem Anruf"
+        }
+      },
+      "pro": {
+        "name": "Pro",
+        "tagline": "Für ambitionierte Einzelpersonen, die viel telefonieren und üben.",
+        "points": {
+          "live": "10 Stunden Live-Anrufe pro Monat",
+          "practice": "5 Stunden KI-Übung",
+          "copilots": "5 Co-Piloten und 25 Übungs-Interessenten",
+          "fullAnalysis": "Die vollständige Analyse: Momente, Kennzahlen, Erkenntnisse und Follow-up-Entwürfe",
+          "knowledge": "Wissensdokumente importieren"
+        }
+      },
+      "coach": {
+        "name": "Coach",
+        "tagline": "Für Coaches und ihre Teilnehmer.",
+        "points": {
+          "seats": "Sie plus 10 Teilnehmer, weitere Plätze verfügbar",
+          "pool": "Gemeinsame Minuten mit einer Reserve für Sie und Limits pro Teilnehmer",
+          "tools": "Gruppen-Dashboard, Aufgaben, Kommentare und Wochenberichte",
+          "access": "Legen Sie fest, welche Teilnehmer welchen Co-Piloten und Interessenten nutzen dürfen"
+        }
+      }
+    },
+    "live": {
+      "students_one": "Sie plus {{count}} Teilnehmer.",
+      "students_other": "Sie plus {{count}} Teilnehmer.",
+      "moreSeats": "Weitere Plätze verfügbar.",
+      "liveMinutes_one": "{{count}} Minute Live-Anrufe pro Monat",
+      "liveMinutes_other": "{{count}} Minuten Live-Anrufe pro Monat",
+      "liveUnlimited": "Unbegrenzte Live-Anrufe",
+      "practiceMinutes_one": "{{count}} Minute KI-Übung pro Monat",
+      "practiceMinutes_other": "{{count}} Minuten KI-Übung pro Monat",
+      "practiceUnlimited": "Unbegrenztes KI-Üben",
+      "agentsUnlimited": "Unbegrenzte Co-Piloten und Übungs-Interessenten",
+      "perMonth": "{{price}} / Monat",
+      "trial_one": "Starten Sie mit einer kostenlosen {{count}}-tägigen Testphase. Keine Karte nötig.",
+      "trial_other": "Starten Sie mit einer kostenlosen {{count}}-tägigen Testphase. Keine Karte nötig.",
+      "agents_one": "{{count}} Co-Pilot und {{prospects}} Übungs-Interessenten",
+      "agents_other": "{{count}} Co-Piloten und {{prospects}} Übungs-Interessenten"
+    }
   }
 }

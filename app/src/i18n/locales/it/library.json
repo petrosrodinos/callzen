@@ -109,7 +109,8 @@
           "title": "Eliminare la trascrizione?",
           "description": "La trascrizione viene eliminata definitivamente. L'analisi viene mantenuta, ma non potrai rieseguirla."
         }
-      }
+      },
+      "sessionCost": "Costo della sessione {{charged}} (base {{base}})"
     },
     "recording": {
       "saving": "Salvataggio della registrazione…",

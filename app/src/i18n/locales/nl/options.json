@@ -326,5 +326,279 @@
       "conversation": "Dezelfde taal als het gesprek",
       "interface": "Mijn interfacetaal"
     }
+  },
+  "billing": {
+    "plan": {
+      "all": "Alle abonnementen",
+      "trial": "Proefperiode",
+      "starter": "Starter",
+      "pro": "Pro",
+      "coach": "Coach"
+    },
+    "planDescription": {
+      "trial": "Probeer alles uit met een klein tegoed.",
+      "starter": "Voor individuele verkopers die net beginnen.",
+      "pro": "Voor fanatieke professionals die veel oefenen en bellen.",
+      "coach": "Voor coaches en hun cursisten, met gedeelde minuten en coachingtools."
+    },
+    "status": {
+      "all": "Alle statussen",
+      "trialing": "Proefperiode",
+      "active": "Actief",
+      "pastDue": "Achterstallig",
+      "canceled": "Opgezegd",
+      "incomplete": "Onvolledig",
+      "none": "Geen abonnement",
+      "cancelling": "Wordt opgezegd"
+    },
+    "invoiceKind": {
+      "subscription": "Abonnement",
+      "seats": "Extra plaatsen",
+      "topupTeam": "Minuten voor het team",
+      "topupPersonal": "Persoonlijke minuten",
+      "other": "Overig"
+    },
+    "invoiceStatus": {
+      "draft": "Concept",
+      "open": "Open",
+      "paid": "Betaald",
+      "void": "Ongeldig",
+      "uncollectible": "Oninbaar",
+      "failed": "Mislukt",
+      "refunded": "Terugbetaald"
+    },
+    "pack": {
+      "live_100": "100 minuten voor livegesprekken",
+      "practice_60": "60 oefenminuten",
+      "mixed": "{{live}} live- + {{practice}} oefenminuten",
+      "liveFallback": "{{count}} minuten voor livegesprekken",
+      "practiceFallback": "{{count}} oefenminuten"
+    },
+    "cancelReason": {
+      "tooExpensive": "Te duur",
+      "notUsing": "Ik gebruik het niet genoeg",
+      "missingFeatures": "Er ontbreken functies die ik nodig heb",
+      "switching": "Ik stap over naar een andere tool",
+      "temporary": "Ik had het maar tijdelijk nodig",
+      "other": "Iets anders"
+    },
+    "feature": {
+      "knowledgeDocumentImport": "Kennisdocumenten importeren",
+      "orgRolesPermissions": "Aangepaste rollen en rechten",
+      "orgInvitations": "Teamuitnodigingen",
+      "viewAllMemberCalls": "Gesprekken van alle leden bekijken",
+      "cohortDashboard": "Groepsdashboard",
+      "topupPurchases": "Extra minuten kopen",
+      "studentPages": "Cursistpagina's",
+      "practiceAssignments": "Oefenopdrachten",
+      "callComments": "Coachopmerkingen bij gesprekken",
+      "coachReports": "Wekelijkse coachrapporten",
+      "studentExport": "CSV-export",
+      "agentAccessControl": "Toegang tot copiloten en prospects per cursist"
+    },
+    "limit": {
+      "seatsIncluded": "Inbegrepen plaatsen",
+      "extraSeatsAllowed": "Extra plaatsen kunnen worden gekocht",
+      "liveMinutes": "Liveminuten per periode",
+      "practiceMinutes": "Oefenminuten per periode",
+      "practiceSharesLivePool": "Oefenen gebruikt de liveminuten",
+      "liveOwnerReserve": "Liveminuten gereserveerd voor eigenaren",
+      "practiceOwnerReserve": "Oefenminuten gereserveerd voor eigenaren",
+      "liveMinutesPerMember": "Liveminuten per lid",
+      "practiceMinutesPerMember": "Oefenminuten per lid",
+      "copilotsMax": "Copiloten",
+      "practiceProspectsMax": "Oefenprospects",
+      "practiceProspectsPerMemberMax": "Oefenprospects per lid",
+      "uploadsPerPeriod": "Uploads per periode",
+      "trialDays": "Duur proefperiode (dagen)"
+    },
+    "pricingSource": {
+      "modelsDev": "models.dev",
+      "alias": "models.dev (alias)",
+      "override": "Handmatig",
+      "unpriced": "Zonder prijs"
+    },
+    "analysis": {
+      "overview": "Overzicht en score",
+      "categoryScores": "Vaardigheidsscores",
+      "moments": "Fouten en sterke punten",
+      "improvements": "Verbeterpunten",
+      "metrics": "Gespreksstatistieken",
+      "prospectInsights": "Inzichten over de prospect",
+      "nextSteps": "Vervolgstappen",
+      "followUpDraft": "Concept-follow-up",
+      "practiceReveal": "Onthulling na oefening",
+      "copilotUsage": "Gebruik van de copiloot",
+      "suggestedPractice": "Voorgestelde oefeningen"
+    },
+    "analysisHint": {
+      "overview": "Totaalscore, oordeel en samenvatting",
+      "categoryScores": "Score per vaardigheid en de trend van vaardigheden",
+      "moments": "Fouten en sterke punten gekoppeld aan de tijdlijn, terugkerende fouten",
+      "improvements": "Wat je de volgende keer beter kunt doen",
+      "metrics": "Spreekverhouding, tempo, stopwoorden, onderbrekingen, bezwaren",
+      "prospectInsights": "Wat de prospect belangrijk vindt",
+      "nextSteps": "Afgesproken vervolgstappen",
+      "followUpDraft": "Follow-upbericht dat klaar is om te versturen",
+      "practiceReveal": "De verborgen persona-details na een oefensessie",
+      "copilotUsage": "Hoe de suggesties van de copiloot zijn gebruikt",
+      "suggestedPractice": "Aanbevolen oefenscenario's"
+    },
+    "interval": {
+      "month": "Maandelijks",
+      "year": "Jaarlijks"
+    },
+    "invoiceDescription": {
+      "seats_one": "Extra plaatsen × {{count}}",
+      "seats_other": "Extra plaatsen × {{count}}",
+      "topup": "Minuten: {{pack}}"
+    },
+    "eventType": {
+      "STARTED": "Abonnement gestart",
+      "PLAN_CHANGED": "Abonnement gewijzigd",
+      "CHANGE_SCHEDULED": "Wijziging ingepland",
+      "CHANGE_CANCELED": "Ingeplande wijziging ongedaan gemaakt",
+      "SEATS_CHANGED": "Plaatsen gewijzigd",
+      "CANCEL_SCHEDULED": "Opzegging ingepland",
+      "CANCEL_REVOKED": "Opzegging ongedaan gemaakt",
+      "CANCELED": "Abonnement opgezegd",
+      "REACTIVATED": "Abonnement opnieuw geactiveerd",
+      "TRIAL_STARTED": "Proefperiode gestart",
+      "TRIAL_ENDED": "Proefperiode beëindigd",
+      "TRIAL_EXTENDED": "Proefperiode verlengd",
+      "PAYMENT_SUCCEEDED": "Betaling geslaagd",
+      "PAYMENT_FAILED": "Betaling mislukt",
+      "REFUNDED": "Terugbetaald",
+      "CREDITS_GRANTED": "Minuten toegevoegd",
+      "MANUAL_ASSIGNED": "Abonnement ingesteld door ons team",
+      "DISCOUNT_APPLIED": "Korting toegepast",
+      "SYNCED": "Gesynchroniseerd met Stripe"
+    },
+    "source": {
+      "stripe": "Stripe",
+      "manual": "Handmatig"
+    },
+    "paymentFilter": {
+      "all": "Alle betalingen",
+      "failed": "Mislukt",
+      "open": "Open",
+      "refunded": "Terugbetaald",
+      "paid": "Betaald"
+    },
+    "cancelMode": {
+      "atPeriodEnd": "Aan het einde van de periode",
+      "immediate": "Direct"
+    },
+    "actor": {
+      "user": "Klant",
+      "admin": "CallZen-team",
+      "stripe": "Stripe",
+      "system": "Automatisch"
+    }
+  },
+  "access": {
+    "visibility": {
+      "organisation": "Iedereen in de organisatie",
+      "selected": "Geselecteerde cursisten"
+    },
+    "visibilityDescription": {
+      "organisation": "Elk lid kan het zien en gebruiken.",
+      "selected": "Alleen de cursisten die je kiest, plus coaches."
+    }
+  },
+  "permissions": {
+    "agentsView": {
+      "label": "Copiloten bekijken",
+      "description": "De copiloten van de organisatie zien en gebruiken bij gesprekken en tijdens het oefenen."
+    },
+    "agentsManage": {
+      "label": "Copiloten beheren",
+      "description": "Copiloten aanmaken, bewerken, dupliceren, archiveren en verwijderen, en kiezen wie ze mag gebruiken."
+    },
+    "prospectsManage": {
+      "label": "Je eigen oefenprospects beheren",
+      "description": "De AI-oefenprospects die je zelf hebt gemaakt aanmaken, genereren, bewerken en verwijderen."
+    },
+    "prospectsManageAll": {
+      "label": "Oefenprospects van iedereen beheren",
+      "description": "Oefenprospects van alle leden bewerken, verwijderen en bepalen wie ze mag gebruiken."
+    },
+    "callsCreate": {
+      "label": "Gesprekken & oefenen starten",
+      "description": "Livegesprekken en oefensessies starten."
+    },
+    "callsViewAll": {
+      "label": "Gesprekken van iedereen bekijken",
+      "description": "Gesprekken, opnames, analyses en teamprestaties van alle leden zien. Zonder dit recht zien leden alleen hun eigen gesprekken."
+    },
+    "callsManageAll": {
+      "label": "Gesprekken van iedereen beheren",
+      "description": "Opnames en gesprekken verwijderen en analyses opnieuw uitvoeren, voor elk lid."
+    },
+    "usageView": {
+      "label": "Gebruik van de organisatie bekijken",
+      "description": "De gebruikte minuten van de hele organisatie zien."
+    },
+    "membersView": {
+      "label": "Leden bekijken",
+      "description": "De ledenlijst en hun rollen zien."
+    },
+    "membersInvite": {
+      "label": "Leden uitnodigen",
+      "description": "Mensen uitnodigen en uitnodigingen opnieuw versturen of intrekken."
+    },
+    "membersManage": {
+      "label": "Leden beheren",
+      "description": "Rollen wijzigen van leden met een lagere rol, en hen verwijderen."
+    },
+    "rolesManage": {
+      "label": "Rolrechten bewerken",
+      "description": "Wijzigen wat elke rol mag doen."
+    },
+    "orgUpdate": {
+      "label": "Organisatie bewerken",
+      "description": "De organisatie hernoemen."
+    },
+    "orgDelete": {
+      "label": "Organisatie verwijderen",
+      "description": "De organisatie en al haar gegevens definitief verwijderen."
+    },
+    "billingView": {
+      "label": "Facturering bekijken",
+      "description": "Het abonnement, de facturen en de betalingen van de organisatie zien."
+    },
+    "billingManage": {
+      "label": "Facturering beheren",
+      "description": "Het abonnement wijzigen of opzeggen, plaatsen en betaalgegevens beheren en minuten voor het team kopen."
+    },
+    "coachingView": {
+      "label": "Coaching bekijken",
+      "description": "Het groepsdashboard, de cursistpagina's en weekrapporten zien. Inclusief het bekijken van alle gesprekken."
+    },
+    "coachingManage": {
+      "label": "Cursisten coachen",
+      "description": "Oefenopdrachten aanmaken en reageren op gesprekken van andere leden."
+    },
+    "coachingExport": {
+      "label": "Coachinggegevens exporteren",
+      "description": "Cursist- en gesprekslijsten als CSV downloaden."
+    }
+  },
+  "permissionGroups": {
+    "agents": "Copiloten & oefenen",
+    "calls": "Gesprekken",
+    "team": "Team",
+    "coaching": "Coaching",
+    "organisation": "Organisatie",
+    "billing": "Facturering"
+  },
+  "coaching": {
+    "assignmentStatus": {
+      "all": "Alle statussen",
+      "open": "Open",
+      "overdue": "Te laat",
+      "completed": "Voltooid",
+      "archived": "Gearchiveerd"
+    }
   }
 }

@@ -1,5 +1,6 @@
 import type { RoleType } from "@/features/user/interfaces/user.interface";
 import type { Permission } from "@/features/organisations/interfaces/organisations.interfaces";
+import type { PlanFeature } from "@/features/billing/interfaces/billing.interfaces";
 
 interface Team {
   name: string;
@@ -11,6 +12,8 @@ interface BaseNavItem {
   title: string;
   // Hidden unless the active organisation role grants this permission.
   permission?: Permission;
+  // Hidden unless the organisation's plan includes this feature.
+  feature?: PlanFeature;
   badge?: string;
   icon?: React.ElementType;
 }

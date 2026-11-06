@@ -109,7 +109,8 @@
           "title": "Radera transkriptionen?",
           "description": "Transkriptionen raderas permanent. Analysen sparas, men du kan inte köra om den."
         }
-      }
+      },
+      "sessionCost": "Sessionskostnad {{charged}} (bas {{base}})"
     },
     "recording": {
       "saving": "Sparar inspelningen…",

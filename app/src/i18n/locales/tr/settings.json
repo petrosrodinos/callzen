@@ -3,9 +3,10 @@
   "save": "Ayarları kaydet",
   "nav": {
     "profile": "Profil ve tercihler",
-    "usage": "Kullanım ve maliyetler",
+    "usage": "Kullanım",
     "privacy": "Gizlilik ve veriler",
-    "sections": "Ayar bölümleri"
+    "sections": "Ayar bölümleri",
+    "billing": "Faturalandırma"
   },
   "validation": {
     "enterName": "Adınızı girin",
@@ -94,6 +95,35 @@
       "input": "Girdi / 1 milyon token",
       "output": "Çıktı / 1 milyon token",
       "perMinute": "dakika başına ~{{price}}"
+    },
+    "calls": "Oturumlar",
+    "averageSession": "Oturum başına ortalama {{minutes}} dk",
+    "empty": "Bu dönemde kullanım yok.",
+    "sessions": {
+      "title": "Oturum başına dakika",
+      "average": "Ortalama {{minutes}} dk",
+      "session": "Oturum",
+      "member": "Üye",
+      "kind": "Tür",
+      "date": "Tarih",
+      "minutes": "Dakika",
+      "untitled": "Adsız oturum",
+      "you": "Siz"
+    },
+    "members": {
+      "title": "Bu dönem üye başına dakika",
+      "member": "Üye",
+      "live": "Canlı dk",
+      "practice": "Alıştırma dk",
+      "owner": "Sahip"
+    },
+    "admin": {
+      "title": "Platform yöneticisi: yapay zekâ maliyetleri",
+      "totalCost": "Yapay zekâ maliyeti (yansıtılan)",
+      "baseCost": "Temel maliyet {{cost}}",
+      "averageCost": "oturum başına ortalama {{cost}} maliyet",
+      "cost": "Maliyet",
+      "chargedVsBase": "Tutarlar, kâr marjı dahil yansıtılan maliyettir; sağlayıcının temel maliyeti parantez içinde gösterilir."
     }
   }
 }

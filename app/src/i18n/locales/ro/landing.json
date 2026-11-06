@@ -6,7 +6,8 @@
     "practice": "Exersare",
     "reviews": "Analize ale apelurilor",
     "teams": "Echipe",
-    "createAccount": "Creează cont"
+    "createAccount": "Creează cont",
+    "pricing": "Prețuri"
   },
   "actions": {
     "openDashboard": "Deschide panoul",
@@ -177,5 +178,80 @@
   "closing": {
     "title": "Fă următorul apel cu un copilot.",
     "copy": "Configurează-ți primul copilot, începe un apel și vezi cum sosesc sugestiile cât timp clientul potențial încă vorbește."
+  },
+  "salesDemo": {
+    "aria": "Apel de vânzări simulat cu copilotul CallZen",
+    "intro": "Ascultă un apel de vânzări simulat și urmărește cum copilotul îl ghidează pe vânzător în timp real.",
+    "play": "Redă demo-ul cu sunet",
+    "playSilent": "Redă fără sunet",
+    "soundOn": "Pornește sunetul",
+    "soundOff": "Oprește sunetul",
+    "skip": "Sari la analiză",
+    "replay": "Redă din nou",
+    "ended": "Apel încheiat",
+    "analysing": "Se analizează apelul…",
+    "reviewTitle": "Apoi analiza, în câteva secunde",
+    "reviewLead": "Aceeași analiză pe care o primești după fiecare apel real: un scor, greșelile și punctele forte, plus cifrele din spatele lor."
+  },
+  "pricing": {
+    "title": "Planuri simple pentru agenți de vânzări și coachi",
+    "copy": "Fiecare plan include copilotul live, prospecți AI pentru exersare și analiza apelurilor în toate limbile acceptate. Plătește lunar sau anual și primești două luni gratuite.",
+    "trial": "Începe cu o perioadă de probă gratuită de 14 zile. Fără card.",
+    "cta": "Începe perioada de probă gratuită",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "tagline": "Pentru agenții de vânzări care abia încep.",
+        "points": {
+          "live": "2 ore de apeluri live pe lună",
+          "practice": "30 de minute de exersare AI",
+          "copilots": "1 copilot",
+          "basicAnalysis": "Scor, scoruri pe categorii și pașii următori după fiecare apel"
+        }
+      },
+      "pro": {
+        "name": "Pro",
+        "tagline": "Pentru profesioniștii care sună și exersează mult.",
+        "points": {
+          "live": "10 ore de apeluri live pe lună",
+          "practice": "5 ore de exersare AI",
+          "copilots": "5 copiloți și 25 de prospecți de exersare",
+          "fullAnalysis": "Analiza completă: momente, metrici, observații și ciorne de follow-up",
+          "knowledge": "Import de documente de cunoștințe"
+        }
+      },
+      "coach": {
+        "name": "Coach",
+        "tagline": "Pentru coachi și cursanții lor.",
+        "points": {
+          "seats": "Tu plus 10 cursanți, cu posibilitatea de a adăuga locuri",
+          "pool": "Minute comune, cu o rezervă pentru tine și limite per cursant",
+          "tools": "Tablou de bord al cohortei, teme, comentarii și rapoarte săptămânale",
+          "access": "Alege ce cursanți pot folosi fiecare copilot și prospect"
+        }
+      }
+    },
+    "live": {
+      "students_one": "Tu și {{count}} cursant.",
+      "students_few": "Tu și {{count}} cursanți.",
+      "students_other": "Tu și {{count}} de cursanți.",
+      "moreSeats": "Sunt disponibile locuri suplimentare.",
+      "liveMinutes_one": "{{count}} minut de apeluri live pe lună",
+      "liveMinutes_few": "{{count}} minute de apeluri live pe lună",
+      "liveMinutes_other": "{{count}} de minute de apeluri live pe lună",
+      "liveUnlimited": "Apeluri live nelimitate",
+      "practiceMinutes_one": "{{count}} minut de exersare cu AI pe lună",
+      "practiceMinutes_few": "{{count}} minute de exersare cu AI pe lună",
+      "practiceMinutes_other": "{{count}} de minute de exersare cu AI pe lună",
+      "practiceUnlimited": "Exersare cu AI nelimitată",
+      "agentsUnlimited": "Copiloți și prospecți de exersare nelimitați",
+      "perMonth": "{{price}} / lună",
+      "trial_one": "Începe cu o perioadă de probă gratuită de {{count}} zi. Fără card.",
+      "trial_few": "Începe cu o perioadă de probă gratuită de {{count}} zile. Fără card.",
+      "trial_other": "Începe cu o perioadă de probă gratuită de {{count}} de zile. Fără card.",
+      "agents_one": "{{count}} copilot și {{prospects}} prospecți de exersare",
+      "agents_few": "{{count}} copiloți și {{prospects}} prospecți de exersare",
+      "agents_other": "{{count}} de copiloți și {{prospects}} prospecți de exersare"
+    }
   }
 }

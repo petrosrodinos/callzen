@@ -1,6 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { ForbiddenException } from '@nestjs/common';
-import { can, OrgContext } from '@/shared/interfaces/org-context.interface';
+import {
+  can,
+  isPlatformAdmin,
+  OrgContext,
+} from '@/shared/interfaces/org-context.interface';
+import { AnalysisVisibilityService } from '@/modules/billing/services/analysis-visibility.service';
 import { Permissions } from '@/shared/config/permissions/permissions.config';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
 import { CallKind } from 'generated/prisma';
@@ -36,14 +41,24 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 
 @Injectable()
 export class DashboardService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly analysisVisibility: AnalysisVisibilityService,
+  ) {}
 
+  // `options.userId` scopes the overview to one member (the coach's student page, §10.1b); the caller has
+  // already checked the viewer may see that member.
   async overview(
     ctx: OrgContext,
     query: DashboardQueryType,
+    options: { userId?: string } = {},
   ): Promise<DashboardOverview> {
     // 'team' aggregates every member's calls and needs calls.view_all; otherwise it is personal progress.
-    if (query.scope === 'team' && !can(ctx, Permissions.CALLS_VIEW_ALL)) {
+    if (
+      !options.userId &&
+      query.scope === 'team' &&
+      !can(ctx, Permissions.CALLS_VIEW_ALL)
+    ) {
       throw new ForbiddenException({
         message: 'Your role does not allow viewing team performance',
         code: 'PERMISSION_DENIED',
@@ -51,7 +66,11 @@ export class DashboardService {
     }
     const scope = {
       organisation_id: ctx.organisationId,
-      ...(query.scope === 'team' ? {} : { user_id: ctx.userId }),
+      ...(options.userId
+        ? { user_id: options.userId }
+        : query.scope === 'team'
+          ? {}
+          : { user_id: ctx.userId }),
     };
     const since = new Date(Date.now() - query.days * DAY_MS);
 
@@ -150,8 +169,19 @@ export class DashboardService {
       };
     });
 
+    // Cards built on locked analysis parts are emptied and flagged (§9.3); history is never deleted.
+    const visible = isPlatformAdmin(ctx)
+      ? null
+      : await this.analysisVisibility.visibleFeaturesFor(ctx.organisationId);
+    const locked_cards = [
+      visible && !visible.category_scores && 'categories',
+      visible && !visible.moments && 'recurring_mistakes',
+      visible && !visible.suggested_practice && 'recommended_practice',
+    ].filter(Boolean) as DashboardOverview['locked_cards'];
+    const visibleCategories = locked_cards.includes('categories') ? [] : categories;
+
     const highlights = this.buildHighlights(
-      categories,
+      visibleCategories,
       recent.length,
       scoreOf(previousHalf),
       scoreOf(recentHalf),
@@ -186,14 +216,16 @@ export class DashboardService {
         kind: c.kind,
         title: c.title,
       })),
-      categories,
-      recurring_mistakes: recurringMistakes,
+      categories: visibleCategories,
+      recurring_mistakes: locked_cards.includes('recurring_mistakes')
+        ? []
+        : recurringMistakes,
       outcomes: this.groupOutcomes(live),
       highlights,
-      recommended_practice: this.recommendedPractice(
-        analyzed,
-        recurringMistakes,
-      ),
+      recommended_practice: locked_cards.includes('recommended_practice')
+        ? []
+        : this.recommendedPractice(analyzed, recurringMistakes),
+      locked_cards,
       practice_progress: {
         by_scenario: this.groupPractice(practice, (s) => s.scenario_type),
         by_difficulty: this.groupPractice(practice, (s) =>

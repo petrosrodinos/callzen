@@ -145,6 +145,79 @@ enum SuggestionFeedback {
   DOWN
 }
 
+enum PlanKey {
+  TRIAL
+  STARTER
+  PRO
+  COACH
+}
+
+enum SubscriptionStatus {
+  TRIALING
+  ACTIVE
+  PAST_DUE
+  CANCELED
+  INCOMPLETE
+}
+
+enum SubscriptionSource {
+  STRIPE
+  MANUAL
+}
+
+enum AgentVisibility {
+  ORGANISATION
+  SELECTED
+}
+
+enum NotificationType {
+  ASSIGNMENT_NEW
+  ASSIGNMENT_DUE_SOON
+  ASSIGNMENT_COMPLETED
+  COMMENT_NEW
+  COMMENT_REPLY
+  COACH_REPORT
+  AGENT_SHARED
+  BILLING_ALERT
+}
+
+enum BillingInvoiceKind {
+  SUBSCRIPTION
+  SEATS
+  TOPUP_TEAM
+  TOPUP_PERSONAL
+  OTHER
+}
+
+enum SubscriptionEventType {
+  STARTED
+  PLAN_CHANGED
+  CHANGE_SCHEDULED
+  CHANGE_CANCELED
+  SEATS_CHANGED
+  CANCEL_SCHEDULED
+  CANCEL_REVOKED
+  CANCELED
+  REACTIVATED
+  TRIAL_STARTED
+  TRIAL_ENDED
+  TRIAL_EXTENDED
+  PAYMENT_SUCCEEDED
+  PAYMENT_FAILED
+  REFUNDED
+  CREDITS_GRANTED
+  MANUAL_ASSIGNED
+  DISCOUNT_APPLIED
+  SYNCED
+}
+
+enum PricingSource {
+  MODELS_DEV
+  MODELS_DEV_ALIAS
+  ADMIN_OVERRIDE
+  UNPRICED
+}
+
 enum UsageKind {
   SUGGESTION
   ASK
@@ -156,30 +229,42 @@ enum UsageKind {
 }
 
 model User {
-  id         String   @id @default(uuid())
-  email      String   @unique
-  phone      String?  @unique
-  password   String
-  full_name  String?
+  id        String  @id @default(uuid())
+  email     String  @unique
+  phone     String? @unique
+  password  String
+  full_name String?
 
   role       AuthRole
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  interface_language     String             @default("en")
-  preferred_language     String             @default("en")
-  output_language_mode   OutputLanguageMode @default(CONVERSATION)
-  consent_line           String?
-  keep_recordings        Boolean            @default(true)
+  interface_language      String             @default("en")
+  preferred_language      String             @default("en")
+  output_language_mode    OutputLanguageMode @default(CONVERSATION)
+  consent_line            String?
+  keep_recordings         Boolean            @default(true)
   consent_acknowledged_at DateTime?
+  // The person's own Stripe customer, used for personal top-ups (separate from the organisation's).
+  stripe_customer_id      String?            @unique
+  // Each owner gets one TRIAL across every organisation they create.
+  trial_used_at           DateTime?
 
-  password_reset_tokens PasswordResetToken[]
-  assistant_agents      AssistantAgent[]
-  practice_agents       PracticeAgent[]
-  calls                 Call[]
-  usage_events          UsageEvent[]
-  memberships           Membership[]
-  invitations_sent      Invitation[]
+  password_reset_tokens  PasswordResetToken[]
+  assistant_agents       AssistantAgent[]
+  practice_agents        PracticeAgent[]
+  calls                  Call[]
+  usage_events           UsageEvent[]
+  memberships            Membership[]
+  invitations_sent       Invitation[]
+  app_config_updates     AppConfig[]
+  usage_credits          UsageCredit[]
+  assignments_created    PracticeAssignment[]
+  assignment_targets     AssignmentTarget[]
+  call_comments          CallComment[]
+  notifications          Notification[]
+  assistant_agent_access AssistantAgentAccess[]
+  practice_agent_access  PracticeAgentAccess[]
 
   @@index([email])
   @@index([phone])
@@ -243,14 +328,16 @@ model AssistantAgent {
   suggest_consent_line Boolean             @default(false)
   template_key         String?
   is_default           Boolean             @default(false)
+  visibility           AgentVisibility     @default(ORGANISATION)
   archived_at          DateTime?
   created_at           DateTime            @default(now())
   updated_at           DateTime            @updatedAt
 
-  organisation    Organisation    @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
-  user            User?           @relation(fields: [user_id], references: [id], onDelete: SetNull)
+  organisation    Organisation           @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
+  user            User?                  @relation(fields: [user_id], references: [id], onDelete: SetNull)
   calls           Call[]
   practice_agents PracticeAgent[]
+  access_list     AssistantAgentAccess[]
 
   @@index([organisation_id])
   @@index([user_id])
@@ -258,53 +345,56 @@ model AssistantAgent {
 }
 
 model PracticeAgent {
-  id                         String          @id @default(uuid())
-  organisation_id            String
-  user_id                    String?
-  name                       String
-  prospect_name              String?
-  role_prompt                String
-  scenario_context           String?
-  scenario_type              String          @default("COLD_CALL")
-  selling_product            String?
-  linked_assistant_agent_id  String?
-  user_objective             String?
-  lead_temperature           LeadTemperature @default(COLD)
-  difficulty                 Int             @default(3)
-  personality                String?
-  mood                       String?
-  communication_style        String?
-  decision_authority         String?
-  budget                     String?
-  timeline                   String?
-  current_solution           String?
-  pain_points                Json            @default("[]")
-  objections                 Json            @default("[]")
-  hidden_information         Json            @default("[]")
-  conversion_conditions      Json            @default("[]")
-  patience                   Int             @default(3)
-  language                   String          @default("en")
-  languages                  String[]        @default([])
-  accent                     String?
-  industry                   String?
-  company                    String?
-  job_title                  String?
-  age_range                  String?
-  background_story           String?
-  briefing                   String?
-  voice_provider             VoiceProvider   @default(OPENAI_REALTIME)
-  voice                      String          @default("marin")
-  time_limit_minutes         Int?
-  source_call_id             String?
-  template_key               String?
-  archived_at                DateTime?
-  created_at                 DateTime        @default(now())
-  updated_at                 DateTime        @updatedAt
+  id                        String          @id @default(uuid())
+  organisation_id           String
+  user_id                   String?
+  name                      String
+  prospect_name             String?
+  role_prompt               String
+  scenario_context          String?
+  scenario_type             String          @default("COLD_CALL")
+  selling_product           String?
+  linked_assistant_agent_id String?
+  user_objective            String?
+  lead_temperature          LeadTemperature @default(COLD)
+  difficulty                Int             @default(3)
+  personality               String?
+  mood                      String?
+  communication_style       String?
+  decision_authority        String?
+  budget                    String?
+  timeline                  String?
+  current_solution          String?
+  pain_points               Json            @default("[]")
+  objections                Json            @default("[]")
+  hidden_information        Json            @default("[]")
+  conversion_conditions     Json            @default("[]")
+  patience                  Int             @default(3)
+  language                  String          @default("en")
+  languages                 String[]        @default([])
+  accent                    String?
+  industry                  String?
+  company                   String?
+  job_title                 String?
+  age_range                 String?
+  background_story          String?
+  briefing                  String?
+  voice_provider            VoiceProvider   @default(OPENAI_REALTIME)
+  voice                     String          @default("marin")
+  time_limit_minutes        Int?
+  source_call_id            String?
+  template_key              String?
+  visibility                AgentVisibility @default(ORGANISATION)
+  archived_at               DateTime?
+  created_at                DateTime        @default(now())
+  updated_at                DateTime        @updatedAt
 
-  organisation            Organisation    @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
-  user                    User?           @relation(fields: [user_id], references: [id], onDelete: SetNull)
-  linked_assistant_agent  AssistantAgent? @relation(fields: [linked_assistant_agent_id], references: [id], onDelete: SetNull)
-  calls                   Call[]
+  organisation           Organisation          @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
+  user                   User?                 @relation(fields: [user_id], references: [id], onDelete: SetNull)
+  linked_assistant_agent AssistantAgent?       @relation(fields: [linked_assistant_agent_id], references: [id], onDelete: SetNull)
+  calls                  Call[]
+  assignments            PracticeAssignment[]
+  access_list            PracticeAgentAccess[]
 
   @@index([organisation_id])
   @@index([user_id])
@@ -312,45 +402,54 @@ model PracticeAgent {
 }
 
 model Call {
-  id                  String         @id @default(uuid())
-  organisation_id     String
-  user_id             String
-  kind                CallKind
-  call_type           CallType
-  purpose             CallPurpose    @default(SALES)
-  status              CallStatus     @default(IN_PROGRESS)
-  assistant_agent_id  String?
-  practice_agent_id   String?
-  copilot_enabled     Boolean        @default(true)
-  title               String?
-  prospect_name       String?
-  prospect_company    String?
-  prospect_role       String?
-  context_notes       String?
-  goal                String?
-  prior_call_id       String?
-  language            String         @default("en")
-  started_at          DateTime       @default(now())
-  ended_at            DateTime?
-  duration_seconds    Int            @default(0)
-  ended_reason        CallEndReason?
-  outcome             CallOutcome?
-  custom_outcome      String?
-  objective_achieved  Boolean?
-  keep_recording      Boolean        @default(true)
-  recording_path      String?
-  recording_mime      String?
-  recording_size      Int?
-  user_notes          String?
-  script_progress     Json           @default("[]")
-  analysis_error      String?
-  transcription_error String?
-  source_filename     String?
-  clean_transcript    Boolean        @default(false)
-  agent_snapshot      Json?
-  practice_snapshot   Json?
-  created_at          DateTime       @default(now())
-  updated_at          DateTime       @updatedAt
+  id                      String         @id @default(uuid())
+  organisation_id         String
+  user_id                 String
+  kind                    CallKind
+  call_type               CallType
+  purpose                 CallPurpose    @default(SALES)
+  status                  CallStatus     @default(IN_PROGRESS)
+  assistant_agent_id      String?
+  practice_agent_id       String?
+  copilot_enabled         Boolean        @default(true)
+  title                   String?
+  prospect_name           String?
+  prospect_company        String?
+  prospect_role           String?
+  context_notes           String?
+  goal                    String?
+  prior_call_id           String?
+  language                String         @default("en")
+  started_at              DateTime       @default(now())
+  ended_at                DateTime?
+  duration_seconds        Int            @default(0)
+  // Fixed when the call starts, from the caller's remaining minutes (plan pool, caps and personal credits).
+  max_duration_seconds    Int?
+  // Minute accounting, written once when the call is settled (EntitlementsService.settleCall): seconds that
+  // count toward plan minutes (0 for calls under 5 s or that failed) and the part paid from personal credits.
+  counted_seconds         Int            @default(0)
+  personal_credit_seconds Int            @default(0)
+  usage_settled_at        DateTime?
+  ended_reason            CallEndReason?
+  outcome                 CallOutcome?
+  custom_outcome          String?
+  objective_achieved      Boolean?
+  keep_recording          Boolean        @default(true)
+  recording_path          String?
+  recording_mime          String?
+  recording_size          Int?
+  user_notes              String?
+  script_progress         Json           @default("[]")
+  analysis_error          String?
+  transcription_error     String?
+  source_filename         String?
+  clean_transcript        Boolean        @default(false)
+  agent_snapshot          Json?
+  practice_snapshot       Json?
+  // Set when a practice session is started from a coach's assignment.
+  assignment_id           String?
+  created_at              DateTime       @default(now())
+  updated_at              DateTime       @updatedAt
 
   organisation    Organisation        @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
   user            User                @relation(fields: [user_id], references: [id], onDelete: Cascade)
@@ -360,23 +459,27 @@ model Call {
   suggestions     Suggestion[]
   bookmarks       Bookmark[]
   analysis        CallAnalysis?
+  assignment      PracticeAssignment? @relation(fields: [assignment_id], references: [id], onDelete: SetNull)
+  comments        CallComment[]
 
   @@index([organisation_id, started_at])
   @@index([user_id, started_at])
   @@index([assistant_agent_id])
   @@index([practice_agent_id])
+  @@index([assignment_id])
+  @@index([organisation_id, kind, started_at])
   @@map("calls")
 }
 
 model TranscriptSegment {
-  id          String   @id @default(uuid())
-  call_id     String
-  client_id   String?
-  speaker     Speaker
-  text        String
-  start_ms    Int
-  end_ms      Int
-  created_at  DateTime @default(now())
+  id         String   @id @default(uuid())
+  call_id    String
+  client_id  String?
+  speaker    Speaker
+  text       String
+  start_ms   Int
+  end_ms     Int
+  created_at DateTime @default(now())
 
   call Call @relation(fields: [call_id], references: [id], onDelete: Cascade)
 
@@ -386,19 +489,19 @@ model TranscriptSegment {
 }
 
 model Suggestion {
-  id            String              @id @default(uuid())
-  call_id       String
-  type          SuggestionType
-  text          String
-  alternatives  Json                @default("[]")
-  reason        String?
-  info_card     Json?
-  at_ms         Int
-  status        SuggestionStatus    @default(SHOWN)
-  feedback      SuggestionFeedback?
-  model         String?
-  latency_ms    Int?
-  created_at    DateTime            @default(now())
+  id           String              @id @default(uuid())
+  call_id      String
+  type         SuggestionType
+  text         String
+  alternatives Json                @default("[]")
+  reason       String?
+  info_card    Json?
+  at_ms        Int
+  status       SuggestionStatus    @default(SHOWN)
+  feedback     SuggestionFeedback?
+  model        String?
+  latency_ms   Int?
+  created_at   DateTime            @default(now())
 
   call Call @relation(fields: [call_id], references: [id], onDelete: Cascade)
 
@@ -420,26 +523,26 @@ model Bookmark {
 }
 
 model CallAnalysis {
-  id                     String   @id @default(uuid())
-  call_id                String   @unique
-  model                  String
-  overall_score          Int
-  verdict                String
-  category_scores        Json     @default("[]")
-  mistakes               Json     @default("[]")
-  strengths              Json     @default("[]")
-  improvements           Json     @default("[]")
-  metrics                Json     @default("{}")
-  prospect_insights      Json     @default("{}")
-  summary                String
-  next_steps             Json     @default("[]")
-  follow_up_draft        String?
-  suggested_practice     Json     @default("[]")
-  practice_result        Json?
-  suggestion_usage       Json?
-  error                  String?
-  created_at             DateTime @default(now())
-  updated_at             DateTime @updatedAt
+  id                 String   @id @default(uuid())
+  call_id            String   @unique
+  model              String
+  overall_score      Int
+  verdict            String
+  category_scores    Json     @default("[]")
+  mistakes           Json     @default("[]")
+  strengths          Json     @default("[]")
+  improvements       Json     @default("[]")
+  metrics            Json     @default("{}")
+  prospect_insights  Json     @default("{}")
+  summary            String
+  next_steps         Json     @default("[]")
+  follow_up_draft    String?
+  suggested_practice Json     @default("[]")
+  practice_result    Json?
+  suggestion_usage   Json?
+  error              String?
+  created_at         DateTime @default(now())
+  updated_at         DateTime @updatedAt
 
   call Call @relation(fields: [call_id], references: [id], onDelete: Cascade)
 
@@ -447,23 +550,33 @@ model CallAnalysis {
 }
 
 model UsageEvent {
-  id              String    @id @default(uuid())
-  organisation_id String
-  user_id         String
-  call_id        String?
-  kind           UsageKind
-  model          String?
-  input_tokens   Int       @default(0)
-  output_tokens  Int       @default(0)
-  audio_seconds  Int       @default(0)
-  cost_usd       Float     @default(0)
-  created_at     DateTime  @default(now())
+  id                  String         @id @default(uuid())
+  organisation_id     String
+  user_id             String
+  call_id             String?
+  kind                UsageKind
+  model               String?
+  input_tokens        Int            @default(0)
+  output_tokens       Int            @default(0)
+  audio_seconds       Int            @default(0)
+  // Base provider cost, without markup.
+  cost_usd            Float          @default(0)
+  // Cost including the markup in force when the event was recorded.
+  charged_cost_usd    Float          @default(0)
+  markup_percent      Float          @default(0)
+  cached_input_tokens Int            @default(0)
+  reasoning_tokens    Int            @default(0)
+  pricing_source      PricingSource?
+  // Snapshot of the unit prices used (USD per 1M tokens, or per minute), so every cost is reproducible.
+  unit_prices         Json?
+  created_at          DateTime       @default(now())
 
   organisation Organisation @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
   user         User         @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   @@index([organisation_id, created_at])
   @@index([user_id, created_at])
+  @@index([call_id])
   @@map("usage_events")
 }
 
@@ -473,24 +586,33 @@ model Organisation {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  memberships      Membership[]
-  role_permissions RolePermission[]
-  invitations      Invitation[]
-  assistant_agents AssistantAgent[]
-  practice_agents  PracticeAgent[]
-  calls            Call[]
-  usage_events     UsageEvent[]
+  memberships         Membership[]
+  role_permissions    RolePermission[]
+  invitations         Invitation[]
+  assistant_agents    AssistantAgent[]
+  practice_agents     PracticeAgent[]
+  calls               Call[]
+  usage_events        UsageEvent[]
+  subscription        Subscription?
+  usage_credits       UsageCredit[]
+  assignments         PracticeAssignment[]
+  notifications       Notification[]
+  coach_digests       CoachDigest[]
+  billing_invoices    BillingInvoice[]
+  subscription_events SubscriptionEvent[]
 
   @@map("organisations")
 }
 
 model Membership {
-  id              String   @id @default(uuid())
-  organisation_id String
-  user_id         String
-  role            OrgRole  @default(MEMBER)
-  created_at      DateTime @default(now())
-  updated_at      DateTime @updatedAt
+  id                           String    @id @default(uuid())
+  organisation_id              String
+  user_id                      String
+  role                         OrgRole   @default(MEMBER)
+  // Set when the member accepted an invitation to a coach organisation (privacy notice, §10.1a).
+  coach_access_acknowledged_at DateTime?
+  created_at                   DateTime  @default(now())
+  updated_at                   DateTime  @updatedAt
 
   organisation Organisation @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
   user         User         @relation(fields: [user_id], references: [id], onDelete: Cascade)
@@ -535,4 +657,333 @@ model Invitation {
   @@index([organisation_id, status])
   @@index([email])
   @@map("invitations")
+}
+
+// Runtime configuration editable by platform admins. Each key's JSON value is validated by a Zod schema
+// registered in code (modules/app-config/registry).
+model AppConfig {
+  key           String   @id
+  value         Json
+  version       Int      @default(1)
+  updated_by_id String?
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+
+  updated_by User? @relation(fields: [updated_by_id], references: [id], onDelete: SetNull)
+
+  @@map("app_config")
+}
+
+model AppConfigHistory {
+  id            String   @id @default(uuid())
+  key           String
+  old_value     Json?
+  new_value     Json
+  changed_by_id String?
+  created_at    DateTime @default(now())
+
+  @@index([key, created_at])
+  @@map("app_config_history")
+}
+
+// Cache of the last successful models.dev sync. Never edited by hand: admins correct prices through the
+// pricing.model_overrides AppConfig key.
+model ModelPrice {
+  model_id      String        @id
+  provider      String
+  source        PricingSource
+  resolved_from String?
+  cost          Json
+  is_reasoning  Boolean       @default(false)
+  modalities    Json          @default("{}")
+  stale         Boolean       @default(false)
+  fetched_at    DateTime
+
+  @@map("model_prices")
+}
+
+model Subscription {
+  id                     String             @id @default(uuid())
+  organisation_id        String             @unique
+  plan                   PlanKey
+  status                 SubscriptionStatus
+  source                 SubscriptionSource @default(STRIPE)
+  billing_interval       String?
+  extra_seats            Int                @default(0)
+  stripe_customer_id     String?            @unique
+  stripe_subscription_id String?            @unique
+  current_period_start   DateTime
+  current_period_end     DateTime
+  trial_ends_at          DateTime?
+  cancel_at_period_end   Boolean            @default(false)
+  past_due_since         DateTime?
+  manual_note            String?
+  // Snapshot of what is being paid, for revenue figures (integer cents).
+  unit_amount_cents      Int?
+  currency               String             @default("usd")
+  pending_plan           PlanKey?
+  pending_interval       String?
+  pending_extra_seats    Int?
+  pending_change_at      DateTime?
+  stripe_schedule_id     String?
+  canceled_at            DateTime?
+  cancel_reason          String?
+  // { brand, last4, exp_month, exp_year } of the default card.
+  payment_method         Json?
+  last_synced_at         DateTime?
+  drift_detected_at      DateTime?
+  created_at             DateTime           @default(now())
+  updated_at             DateTime           @updatedAt
+
+  organisation Organisation @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
+
+  @@index([plan, status])
+  @@map("subscriptions")
+}
+
+// A top-up purchase or admin grant. Never expires; drawn down oldest first once the plan allowance is used.
+// user_id null = team pool credit; set = personal credit usable only by that user in that organisation.
+model UsageCredit {
+  id                         String   @id @default(uuid())
+  organisation_id            String
+  user_id                    String?
+  pack_id                    String?
+  live_seconds_granted       Int      @default(0)
+  practice_seconds_granted   Int      @default(0)
+  live_seconds_remaining     Int      @default(0)
+  practice_seconds_remaining Int      @default(0)
+  stripe_payment_id          String?  @unique
+  granted_by_id              String?
+  note                       String?
+  created_at                 DateTime @default(now())
+
+  organisation Organisation             @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
+  user         User?                    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  consumptions UsageCreditConsumption[]
+
+  @@index([organisation_id, created_at])
+  @@index([organisation_id, user_id])
+  @@map("usage_credits")
+}
+
+model UsageCreditConsumption {
+  id               String   @id @default(uuid())
+  credit_id        String
+  call_id          String?
+  live_seconds     Int      @default(0)
+  practice_seconds Int      @default(0)
+  created_at       DateTime @default(now())
+
+  credit UsageCredit @relation(fields: [credit_id], references: [id], onDelete: Cascade)
+
+  @@index([credit_id])
+  @@index([call_id])
+  @@map("usage_credit_consumptions")
+}
+
+model PracticeAssignment {
+  id                   String    @id @default(uuid())
+  organisation_id      String
+  created_by_id        String?
+  practice_agent_id    String?
+  // Snapshot: survives deletion of the prospect.
+  practice_agent_name  String
+  title                String
+  instructions         String?
+  due_at               DateTime?
+  target_score         Int?
+  required_attempts    Int       @default(1)
+  // Also applies to members who join later.
+  all_members          Boolean   @default(false)
+  due_soon_notified_at DateTime?
+  archived_at          DateTime?
+  created_at           DateTime  @default(now())
+  updated_at           DateTime  @updatedAt
+
+  organisation   Organisation       @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
+  created_by     User?              @relation(fields: [created_by_id], references: [id], onDelete: SetNull)
+  practice_agent PracticeAgent?     @relation(fields: [practice_agent_id], references: [id], onDelete: SetNull)
+  targets        AssignmentTarget[]
+  calls          Call[]
+
+  @@index([organisation_id, archived_at])
+  @@index([due_at])
+  @@map("practice_assignments")
+}
+
+model AssignmentTarget {
+  id               String    @id @default(uuid())
+  assignment_id    String
+  user_id          String
+  attempts_count   Int       @default(0)
+  best_score       Int?
+  last_attempt_at  DateTime?
+  // Calls already counted, so a re-run analysis never counts twice.
+  counted_call_ids String[]  @default([])
+  completed_at     DateTime?
+  created_at       DateTime  @default(now())
+
+  assignment PracticeAssignment @relation(fields: [assignment_id], references: [id], onDelete: Cascade)
+  user       User               @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([assignment_id, user_id])
+  @@index([user_id, completed_at])
+  @@map("assignment_targets")
+}
+
+model CallComment {
+  id              String    @id @default(uuid())
+  call_id         String
+  organisation_id String
+  author_id       String?
+  // One level of replies.
+  parent_id       String?
+  // Optional position in the recording.
+  at_ms           Int?
+  body            String
+  edited_at       DateTime?
+  deleted_at      DateTime?
+  created_at      DateTime  @default(now())
+
+  call    Call          @relation(fields: [call_id], references: [id], onDelete: Cascade)
+  author  User?         @relation(fields: [author_id], references: [id], onDelete: SetNull)
+  parent  CallComment?  @relation("CommentReplies", fields: [parent_id], references: [id], onDelete: Cascade)
+  replies CallComment[] @relation("CommentReplies")
+
+  @@index([call_id, created_at])
+  @@map("call_comments")
+}
+
+// Weekly coach report. Numbers and ids only; the app renders the text in the reader's language.
+model CoachDigest {
+  id              String   @id @default(uuid())
+  organisation_id String
+  period_start    DateTime
+  period_end      DateTime
+  data            Json
+  created_at      DateTime @default(now())
+
+  organisation Organisation @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
+
+  @@unique([organisation_id, period_start])
+  @@index([organisation_id, period_end])
+  @@map("coach_digests")
+}
+
+// In-app notification. Holds a type and parameters only (never display text).
+model Notification {
+  id              String           @id @default(uuid())
+  organisation_id String
+  user_id         String
+  type            NotificationType
+  params          Json             @default("{}")
+  dedupe_key      String?
+  read_at         DateTime?
+  created_at      DateTime         @default(now())
+
+  organisation Organisation @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
+  user         User         @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_id, dedupe_key])
+  @@index([user_id, read_at, created_at])
+  @@index([user_id, organisation_id, created_at])
+  @@map("notifications")
+}
+
+model AssistantAgentAccess {
+  id                 String   @id @default(uuid())
+  assistant_agent_id String
+  user_id            String
+  granted_by_id      String?
+  created_at         DateTime @default(now())
+
+  assistant_agent AssistantAgent @relation(fields: [assistant_agent_id], references: [id], onDelete: Cascade)
+  user            User           @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([assistant_agent_id, user_id])
+  @@index([user_id])
+  @@map("assistant_agent_access")
+}
+
+model PracticeAgentAccess {
+  id                String   @id @default(uuid())
+  practice_agent_id String
+  user_id           String
+  granted_by_id     String?
+  created_at        DateTime @default(now())
+
+  practice_agent PracticeAgent @relation(fields: [practice_agent_id], references: [id], onDelete: Cascade)
+  user           User          @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([practice_agent_id, user_id])
+  @@index([user_id])
+  @@map("practice_agent_access")
+}
+
+// Mirror of Stripe invoices, kept in sync by webhooks so billing pages never call Stripe on view.
+model BillingInvoice {
+  id                    String             @id
+  organisation_id       String
+  user_id               String?
+  stripe_customer_id    String
+  subscription_id       String?
+  kind                  BillingInvoiceKind
+  // plan, interval, seats, pack id: used to build translated descriptions.
+  params                Json               @default("{}")
+  number                String?
+  status                String
+  amount_due_cents      Int
+  amount_paid_cents     Int                @default(0)
+  amount_refunded_cents Int                @default(0)
+  currency              String             @default("usd")
+  period_start          DateTime?
+  period_end            DateTime?
+  hosted_invoice_url    String?
+  invoice_pdf_url       String?
+  payment_intent_id     String?
+  charge_id             String?
+  requires_action       Boolean            @default(false)
+  attempt_count         Int                @default(0)
+  last_error            String?
+  stripe_updated_at     DateTime?
+  created_at            DateTime
+  paid_at               DateTime?
+  updated_at            DateTime           @updatedAt
+
+  organisation Organisation @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
+
+  @@index([organisation_id, created_at])
+  @@index([user_id, created_at])
+  @@index([status])
+  @@index([charge_id])
+  @@map("billing_invoices")
+}
+
+model SubscriptionEvent {
+  id              String                @id @default(uuid())
+  organisation_id String
+  type            SubscriptionEventType
+  from_plan       PlanKey?
+  to_plan         PlanKey?
+  // USER, ADMIN, STRIPE, SYSTEM
+  actor_kind      String
+  actor_id        String?
+  note            String?
+  data            Json                  @default("{}")
+  created_at      DateTime              @default(now())
+
+  organisation Organisation @relation(fields: [organisation_id], references: [id], onDelete: Cascade)
+
+  @@index([organisation_id, created_at])
+  @@index([type, created_at])
+  @@map("subscription_events")
+}
+
+// Processed Stripe webhook events, so a replayed event is never applied twice.
+model StripeEvent {
+  id           String   @id
+  type         String
+  processed_at DateTime @default(now())
+
+  @@map("stripe_events")
 }

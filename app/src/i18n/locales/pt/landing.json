@@ -6,7 +6,8 @@
     "practice": "Treino",
     "reviews": "Análises de chamadas",
     "teams": "Equipas",
-    "createAccount": "Criar conta"
+    "createAccount": "Criar conta",
+    "pricing": "Preços"
   },
   "actions": {
     "openDashboard": "Abrir o painel",
@@ -177,5 +178,75 @@
   "closing": {
     "title": "Faça a sua próxima chamada com um copiloto.",
     "copy": "Configure o seu primeiro copiloto, inicie uma chamada e veja as sugestões chegarem enquanto o potencial cliente ainda está a falar."
+  },
+  "salesDemo": {
+    "aria": "Chamada de vendas simulada com o copiloto do CallZen",
+    "intro": "Ouça uma chamada de vendas simulada e veja o copiloto a orientar o vendedor em tempo real.",
+    "play": "Reproduzir a demonstração com som",
+    "playSilent": "Reproduzir sem som",
+    "soundOn": "Ativar o som",
+    "soundOff": "Desativar o som",
+    "skip": "Saltar para a análise",
+    "replay": "Repetir",
+    "ended": "Chamada terminada",
+    "analysing": "A analisar a chamada…",
+    "reviewTitle": "Depois, a análise, em segundos",
+    "reviewLead": "A mesma análise que recebe após cada chamada real: uma pontuação, os erros e os pontos fortes, e os números que os sustentam."
+  },
+  "pricing": {
+    "title": "Planos simples para comerciais e coaches",
+    "copy": "Todos os planos incluem o copiloto ao vivo, prospects de treino com IA e análise de chamadas em todos os idiomas suportados. Pague mensalmente, ou anualmente e ganhe dois meses grátis.",
+    "trial": "Comece com um período experimental gratuito de 14 dias. Sem cartão.",
+    "cta": "Começar o período experimental",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "tagline": "Para comerciais individuais que estão a começar.",
+        "points": {
+          "live": "2 horas de chamadas ao vivo por mês",
+          "practice": "30 minutos de treino com IA",
+          "copilots": "1 copiloto",
+          "basicAnalysis": "Pontuação, pontuações por categoria e próximos passos após cada chamada"
+        }
+      },
+      "pro": {
+        "name": "Pro",
+        "tagline": "Para profissionais que fazem muitas chamadas e treinam muito.",
+        "points": {
+          "live": "10 horas de chamadas ao vivo por mês",
+          "practice": "5 horas de treino com IA",
+          "copilots": "5 copilotos e 25 prospects de treino",
+          "fullAnalysis": "A análise completa: momentos, métricas, conclusões e rascunhos de seguimento",
+          "knowledge": "Importação de documentos de conhecimento"
+        }
+      },
+      "coach": {
+        "name": "Coach",
+        "tagline": "Para coaches e os seus alunos.",
+        "points": {
+          "seats": "O coach e mais 10 alunos, com lugares adicionais disponíveis",
+          "pool": "Minutos partilhados com uma reserva para o coach e limites por aluno",
+          "tools": "Painel da turma, tarefas, comentários e relatórios semanais",
+          "access": "Escolha que alunos podem usar cada copiloto e prospect"
+        }
+      }
+    },
+    "live": {
+      "students_one": "O utilizador mais {{count}} aluno.",
+      "students_other": "O utilizador mais {{count}} alunos.",
+      "moreSeats": "Mais lugares disponíveis.",
+      "liveMinutes_one": "{{count}} minuto de chamadas ao vivo por mês",
+      "liveMinutes_other": "{{count}} minutos de chamadas ao vivo por mês",
+      "liveUnlimited": "Chamadas ao vivo ilimitadas",
+      "practiceMinutes_one": "{{count}} minuto de treino com IA por mês",
+      "practiceMinutes_other": "{{count}} minutos de treino com IA por mês",
+      "practiceUnlimited": "Treino com IA ilimitado",
+      "agentsUnlimited": "Copilotos e prospects de treino ilimitados",
+      "perMonth": "{{price}} / mês",
+      "trial_one": "Comece com um período experimental gratuito de {{count}} dia. Sem cartão.",
+      "trial_other": "Comece com um período experimental gratuito de {{count}} dias. Sem cartão.",
+      "agents_one": "{{count}} copiloto e {{prospects}} prospects de treino",
+      "agents_other": "{{count}} copilotos e {{prospects}} prospects de treino"
+    }
   }
 }

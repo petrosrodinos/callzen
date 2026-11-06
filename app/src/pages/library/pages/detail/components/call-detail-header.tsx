@@ -36,6 +36,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { formatDateTime, formatDuration } from "@/lib/date";
+import { formatCost } from "@/lib/format";
 import {
   CallKinds,
   isCallProcessing,
@@ -229,6 +230,15 @@ export function CallDetailHeader({
             {!call.owner.is_you &&
               ` · ${t("detail.header.by", { name: call.owner.name })}`}
           </p>
+          {/* AI cost of the session: only sent to platform admins (§6.2). */}
+          {call.session_cost && (
+            <p className="text-xs text-muted-foreground">
+              {t("detail.header.sessionCost", {
+                charged: formatCost(call.session_cost.charged_usd),
+                base: formatCost(call.session_cost.base_usd),
+              })}
+            </p>
+          )}
         </div>
 
         <div className="flex flex-wrap items-center gap-2">

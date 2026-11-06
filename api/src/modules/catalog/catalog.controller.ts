@@ -27,8 +27,9 @@ export class CatalogController {
   })
   get(
     @CurrentUser('id') userId: string,
+    @CurrentUser('role') role: string,
     @Query('language') language?: string,
   ) {
-    return this.catalogService.get(userId, language);
+    return this.catalogService.get(userId, language, role);
   }
 }

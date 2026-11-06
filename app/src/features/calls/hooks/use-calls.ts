@@ -1,6 +1,7 @@
 import i18n from "@/i18n";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "@/hooks/use-toast";
+import { ApiError } from "@/lib/api-error";
 import { CallStatuses, isCallProcessing, type Call, type CallQuery, type UploadCallDto } from "../interfaces/calls.interfaces";
 import {
     addBookmark,
@@ -66,7 +67,13 @@ export const useStartLiveCall = () => {
             toast({ title: i18n.t("common:toasts.calls.callStarted"), description: i18n.t("common:toasts.calls.theCoPilotIsListening"), duration: 1500 });
         },
         onError: (error) => {
-            toast({ title: i18n.t("common:toasts.calls.couldNotStartTheCall"), description: error.message, variant: "error" });
+            // Nothing shared with this member (§10.1h): explain instead of the raw API message.
+            const noCopilot = error instanceof ApiError && error.code === "NO_SHARED_COPILOT";
+            toast({
+                title: i18n.t("common:toasts.calls.couldNotStartTheCall"),
+                description: noCopilot ? i18n.t("access:empty.noSharedCopilotCall") : error.message,
+                variant: "error",
+            });
         },
     });
 };

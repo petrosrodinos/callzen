@@ -1,0 +1,45 @@
+{
+  "title": "Notifications",
+  "description": "Devoirs, commentaires, rapports et alertes de facturation pour cette organisation.",
+  "markAllRead": "Tout marquer comme lu",
+  "empty": "Vous êtes à jour",
+  "emptyHint": "Les nouveaux devoirs, commentaires et rapports apparaîtront ici.",
+  "seeAll": "Voir toutes les notifications",
+  "otherOrganisations_one": "Vous avez {{count}} notification non lue dans une autre organisation.",
+  "otherOrganisations_other": "Vous avez {{count}} notifications non lues dans d'autres organisations.",
+  "bell": {
+    "aria_one": "Notifications, {{count}} non lue",
+    "aria_other": "Notifications, {{count}} non lues"
+  },
+  "filters": {
+    "all": "Toutes",
+    "unread": "Non lues"
+  },
+  "errors": {
+    "load": "Impossible de charger les notifications. Veuillez réessayer.",
+    "markRead": "Impossible de mettre à jour les notifications. Veuillez réessayer."
+  },
+  "toasts": {
+    "allRead": "Toutes les notifications ont été marquées comme lues",
+    "couldNotMarkRead": "Impossible de mettre à jour les notifications"
+  },
+  "items": {
+    "untitledAssignment": "un devoir",
+    "someone": "Quelqu'un",
+    "assignmentNew": "Nouveau devoir d'entraînement : {{title}}",
+    "assignmentDueSoon": "« {{title}} » est à rendre le {{date}}",
+    "assignmentCompleted_one": "{{count}} élève a terminé « {{title}} »",
+    "assignmentCompleted_other": "{{count}} élèves ont terminé « {{title}} »",
+    "commentNew": "{{name}} a commenté votre appel",
+    "commentReply": "{{name}} a répondu à votre commentaire",
+    "coachReport": "Votre rapport de coaching hebdomadaire pour la semaine du {{date}} est prêt",
+    "prospectShared": "Un prospect d'entraînement a été partagé avec vous",
+    "copilotShared": "Un copilote a été partagé avec vous",
+    "billingPaymentFailed": "Un paiement a échoué. Mettez à jour votre moyen de paiement pour conserver votre forfait.",
+    "billingTrialEnding": "Votre essai se termine bientôt. Choisissez un forfait pour continuer.",
+    "billingActionRequired": "Un paiement nécessite votre confirmation.",
+    "billingPlanCanceled": "Votre forfait a pris fin. Vos données sont conservées ; abonnez-vous pour continuer.",
+    "billingGeneric": "Il y a du nouveau concernant votre forfait.",
+    "generic": "Vous avez une nouvelle notification"
+  }
+}

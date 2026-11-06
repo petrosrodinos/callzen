@@ -326,6 +326,38 @@
       "accountDeleted": "Kontot har tagits bort",
       "allYourDataWasPermanentlyRemoved": "All din data har tagits bort permanent.",
       "couldNotDeleteYourAccount": "Det gick inte att ta bort ditt konto"
+    },
+    "billing": {
+      "planChanged": "Abonnemanget uppdaterades",
+      "changeScheduled": "Ändringen är schemalagd till slutet av perioden",
+      "couldNotChangePlan": "Det gick inte att byta abonnemang",
+      "cancelScheduled": "Ditt abonnemang upphör vid periodens slut",
+      "couldNotCancel": "Det gick inte att säga upp abonnemanget",
+      "resumed": "Ditt abonnemang fortsätter",
+      "couldNotResume": "Det gick inte att återuppta abonnemanget",
+      "redirecting": "Öppnar säker betalningssida…",
+      "couldNotOpenPortal": "Det gick inte att öppna betalningsinställningarna",
+      "couldNotStartCheckout": "Det gick inte att starta betalningen"
+    },
+    "appConfig": {
+      "saved": "Inställningen sparades",
+      "reset": "Inställningen återställdes till standard",
+      "couldNotSave": "Det gick inte att spara inställningen",
+      "conflict": "Någon annan har ändrat den här inställningen. Det senaste värdet har lästs in.",
+      "synced": "Priserna synkades från models.dev",
+      "syncFailed": "Prissynkningen misslyckades"
+    },
+    "adminSubscriptions": {
+      "exported": "CSV-filen har laddats ned",
+      "actionFailed": "Åtgärden misslyckades",
+      "planAssigned": "Abonnemanget tilldelades",
+      "minutesGranted": "Minuterna beviljades",
+      "trialExtended": "Provperioden förlängdes",
+      "discountApplied": "Rabatten tillämpades",
+      "canceled": "Prenumerationen sades upp",
+      "resumed": "Prenumerationen återupptogs",
+      "synced": "Synkat med Stripe",
+      "refunded": "Återbetalningen genomfördes"
     }
   },
   "errors": {
@@ -443,6 +475,44 @@
     "websocket": {
       "notConnected": "WebSocket är inte ansluten",
       "timeout": "Tidsgräns för WebSocket-sändning överskreds"
+    },
+    "billing": {
+      "loadPlans": "Det gick inte att läsa in abonnemangen. Försök igen.",
+      "loadPlanUsage": "Det gick inte att läsa in användningen för ditt abonnemang. Försök igen.",
+      "loadBilling": "Det gick inte att läsa in faktureringsuppgifterna. Försök igen.",
+      "loadInvoices": "Det gick inte att läsa in fakturorna. Försök igen.",
+      "loadHistory": "Det gick inte att läsa in abonnemangshistoriken. Försök igen.",
+      "previewChange": "Det gick inte att förhandsgranska ändringen. Försök igen.",
+      "changePlan": "Det gick inte att byta abonnemang. Försök igen.",
+      "cancelPlan": "Det gick inte att säga upp abonnemanget. Försök igen.",
+      "resumePlan": "Det gick inte att återuppta abonnemanget. Försök igen.",
+      "openPortal": "Det gick inte att öppna betalningsinställningarna. Försök igen.",
+      "checkout": "Det gick inte att starta betalningen. Försök igen.",
+      "topup": "Det gick inte att starta köpet. Försök igen.",
+      "loadPurchases": "Det gick inte att läsa in dina köp. Försök igen."
+    },
+    "appConfig": {
+      "load": "Det gick inte att läsa in konfigurationen. Försök igen.",
+      "save": "Det gick inte att spara inställningen. Försök igen.",
+      "reset": "Det gick inte att återställa inställningen. Försök igen.",
+      "history": "Det gick inte att läsa in ändringshistoriken.",
+      "pricing": "Det gick inte att läsa in modellpriserna.",
+      "sync": "Det gick inte att synka priserna från models.dev."
+    },
+    "adminSubscriptions": {
+      "loadList": "Det gick inte att läsa in prenumerationerna. Försök igen.",
+      "export": "Det gick inte att exportera CSV-filen. Försök igen.",
+      "loadDetail": "Det gick inte att läsa in den här prenumerationen. Försök igen.",
+      "loadPayments": "Det gick inte att läsa in betalningarna. Försök igen.",
+      "assignPlan": "Det gick inte att tilldela abonnemanget.",
+      "grantMinutes": "Det gick inte att bevilja minuterna.",
+      "extendTrial": "Det gick inte att förlänga provperioden.",
+      "discount": "Det gick inte att tillämpa rabatten.",
+      "cancel": "Det gick inte att säga upp prenumerationen.",
+      "resume": "Det gick inte att återuppta prenumerationen.",
+      "sync": "Det gick inte att synka med Stripe.",
+      "refund": "Det gick inte att återbetala fakturan."
     }
-  }
+  },
+  "timeLeft": "{{time}} kvar"
 }

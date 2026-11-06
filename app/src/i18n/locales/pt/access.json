@@ -1,0 +1,79 @@
+{
+  "badge": {
+    "everyone": "Todos",
+    "sharedWith_one": "Partilhado com {{count}}",
+    "sharedWith_other": "Partilhado com {{count}}",
+    "private": "Privado",
+    "privateHint": "Só para si e para o seu coach",
+    "sharedWithYou": "Partilhado consigo"
+  },
+  "editor": {
+    "title": "Quem pode usar",
+    "description": {
+      "copilot": "Escolha se todos os membros da organização podem usar este copiloto ou apenas os alunos que selecionar.",
+      "prospect": "Escolha se todos os membros da organização podem treinar com este prospect ou apenas os alunos que selecionar."
+    },
+    "students": "Alunos",
+    "noneSelected": "Nenhum aluno selecionado: só pode ser usado por si e por outros coaches.",
+    "save": "Guardar acesso",
+    "onlyYouAndCoach": "Este prospect só é visível para si e para o seu coach.",
+    "restrictedReadOnly_one": "Restrito a {{count}} aluno. O seu plano já não inclui controlo de acesso, por isso esta definição não pode ser alterada.",
+    "restrictedReadOnly_other": "Restrito a {{count}} alunos. O seu plano já não inclui controlo de acesso, por isso esta definição não pode ser alterada."
+  },
+  "picker": {
+    "placeholder": "Escolha alunos",
+    "selected_one": "{{count}} aluno selecionado",
+    "selected_other": "{{count}} alunos selecionados",
+    "search": "Pesquisar membros",
+    "noMembers": "Nenhum membro encontrado.",
+    "remove": "Remover {{name}}",
+    "formerMember": "Antigo membro"
+  },
+  "bulk": {
+    "select": "Selecionar para partilhar",
+    "selected_one": "{{count}} selecionado",
+    "selected_other": "{{count}} selecionados",
+    "share": "Partilhar com…",
+    "cancel": "Cancelar seleção",
+    "selectItem": "Selecionar {{name}}"
+  },
+  "share": {
+    "title_one": "Partilhar {{count}} item",
+    "title_other": "Partilhar {{count}} itens",
+    "description": "Os alunos selecionados podem usá-los de imediato. Os itens já partilhados com todos ficam como estão.",
+    "cancel": "Cancelar",
+    "confirm": "Partilhar"
+  },
+  "student": {
+    "title": "Acesso",
+    "description": "Ative os copilotos e prospects que este aluno pode usar. Os itens partilhados com todos estão sempre disponíveis.",
+    "descriptionReadOnly": "Os copilotos e prospects que este aluno pode usar.",
+    "copilots": "Copilotos",
+    "prospects": "Prospects de treino",
+    "none": "Ainda não há nada aqui.",
+    "privateToStudent": "Criado por este aluno",
+    "archived": "Arquivado",
+    "toggleAria": "Acesso a {{name}}"
+  },
+  "empty": {
+    "noSharedCopilot": "O seu coach ainda não partilhou nenhum copiloto",
+    "noSharedCopilotDescription": "Os copilotos que o seu coach partilhar consigo aparecem aqui.",
+    "noSharedCopilotCall": "Ainda não foi partilhado nenhum copiloto consigo. Peça ao seu coach que partilhe um; entretanto, pode continuar a treinar.",
+    "goPractice": "Ir para o treino"
+  },
+  "toasts": {
+    "accessSaved": "Acesso atualizado",
+    "couldNotSaveAccess": "Não foi possível atualizar o acesso",
+    "shared_one": "{{count}} item partilhado",
+    "shared_other": "{{count}} itens partilhados",
+    "sharedPeople_one": "Foi dado acesso a {{count}} pessoa.",
+    "sharedPeople_other": "Foi dado acesso a {{count}} pessoas.",
+    "alreadyShared": "Todas as pessoas que escolheu já tinham acesso.",
+    "couldNotShare": "Não foi possível partilhar"
+  },
+  "errors": {
+    "updateAccess": "Não foi possível atualizar o acesso. Tente novamente.",
+    "loadStudentAccess": "Não foi possível carregar o acesso deste aluno. Tente novamente.",
+    "share": "Não foi possível partilhar. Tente novamente."
+  }
+}

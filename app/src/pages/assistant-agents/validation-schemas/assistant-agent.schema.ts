@@ -51,8 +51,9 @@ export const assistantAgentSchema = z.object({
     SuggestionLengths.MEDIUM,
   ]),
   alternatives_count: z.number().int().min(0).max(2),
-  realtime_model: z.string().min(1),
-  analysis_model: z.string().min(1),
+  // Only platform admins choose models; everyone else gets the configured defaults (§6.3).
+  realtime_model: z.string().min(1).optional(),
+  analysis_model: z.string().min(1).optional(),
   analysis_criteria: z
     .array(
       z.object({

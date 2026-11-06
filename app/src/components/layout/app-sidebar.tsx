@@ -6,10 +6,13 @@ import { sidebarData } from "./data/sidebar-data";
 import { RoleTypes, type RoleType } from "@/features/user/interfaces/user.interface";
 import { useAuthStore } from "@/stores/auth";
 import { usePermissions } from "@/features/organisations/hooks/use-organisations";
+import { useEntitlements } from "@/features/billing/hooks/use-billing";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { role } = useAuthStore();
   const { can } = usePermissions();
+  const { data: entitlements } = useEntitlements();
+  const hasFeature = (feature?: string) => !feature || !!entitlements?.features[feature as keyof typeof entitlements.features];
 
   const navGroups = sidebarData.navGroups
     .filter((group) => {
@@ -17,7 +20,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       if (!role) return false;
       return group.access.includes(role as RoleType) || role === RoleTypes.SUPER_ADMIN;
     })
-    .map((group) => ({ ...group, items: group.items.filter((item) => !item.permission || can(item.permission)) }))
+    .map((group) => ({
+      ...group,
+      items: group.items.filter((item) => (!item.permission || can(item.permission)) && hasFeature(item.feature)),
+    }))
     .filter((group) => group.items.length > 0);
 
   return (

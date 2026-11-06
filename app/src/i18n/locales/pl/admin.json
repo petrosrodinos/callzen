@@ -28,5 +28,90 @@
       "postgres": "Łączność z bazą danych przez Prisma.",
       "redis": "Łączność z pamięcią podręczną i kolejką."
     }
+  },
+  "config": {
+    "title": "Konfiguracja",
+    "subtitle": "Ceny, limity planów, widoczność analiz i modele AI. Zmiany obowiązują w ciągu kilku sekund, bez wdrożenia.",
+    "tabs": {
+      "pricing": "Ceny",
+      "plans": "Plany",
+      "analysis": "Widoczność analiz",
+      "ai": "Modele AI",
+      "coaching": "Coaching",
+      "billing": "Rozliczenia"
+    },
+    "updated": "Wersja {{version}} · {{date}}, autor: {{name}}",
+    "usingDefault": "Używana jest wbudowana wartość domyślna",
+    "system": "Systemowe",
+    "public": "Widoczne dla użytkowników",
+    "history": "Historia",
+    "historyTitle": "Historia zmian",
+    "noHistory": "Brak zmian.",
+    "before": "Przed",
+    "after": "Po",
+    "invalid": "Zapisana wartość nie odpowiada już formatowi tego ustawienia, więc używana jest wbudowana wartość domyślna. Zapisz prawidłową wartość, aby to naprawić.",
+    "invalidJson": "Nieprawidłowy JSON: {{error}}",
+    "save": "Zapisz",
+    "discard": "Odrzuć zmiany",
+    "cancel": "Anuluj",
+    "reset": "Przywróć domyślne",
+    "resetTitle": "Przywrócić wartość domyślną?",
+    "resetDescription": "{{key}} wróci do wbudowanej wartości domyślnej. Bieżąca wartość pozostanie w historii.",
+    "plans": {
+      "title": "Limity i funkcje planów",
+      "hint": "Pozostaw liczbę pustą, aby nie ustawiać limitu. Zmiany zaczynają obowiązywać w ciągu kilku sekund; nic, co już utworzono, nie zostanie usunięte.",
+      "limit": "Limit",
+      "unlimited": "Bez limitu",
+      "features": "Funkcje",
+      "none": "Brak"
+    },
+    "analysis": {
+      "title": "Widoczność analiz według planu",
+      "section": "Sekcja analizy"
+    },
+    "ai": {
+      "title": "Modele domyślne",
+      "realtime": "Podpowiedzi na żywo",
+      "analysis": "Analiza rozmów",
+      "utility": "Zadania pomocnicze",
+      "voice": "Głos w ćwiczeniach",
+      "transcription": "Transkrypcja na żywo",
+      "upload_transcription": "Transkrypcja przesłanych nagrań",
+      "shutdown": "wyłączenie {{date}}"
+    },
+    "pricing": {
+      "markupTitle": "Marża",
+      "markupHint": "Doliczana do kosztu dostawcy tylko przy nowym użyciu. Wcześniejsze użycie zachowuje marżę, z jaką zostało zarejestrowane.",
+      "pricesTitle": "Ceny modeli",
+      "pricesDescription": "Synchronizowane z models.dev, w USD za 1 mln tokenów (za minutę w przypadku modeli rozliczanych według czasu).",
+      "lastSynced": "Ostatnia synchronizacja: {{when}}",
+      "neverSynced": "Jeszcze nie zsynchronizowano",
+      "lastError": "ostatnia próba nie powiodła się: {{error}}",
+      "syncNow": "Synchronizuj teraz",
+      "snapshotOld": "Ceny nie były synchronizowane od ponad 48 godzin. Koszty są liczone według ostatnich znanych cen.",
+      "model": "Model",
+      "source": "Źródło",
+      "fetched": "Pobrano",
+      "stale": "Nieaktualne",
+      "override": "Nadpisanie",
+      "addOverride": "Dodaj nadpisanie",
+      "overrideTitle": "Ręczna cena dla {{model}}",
+      "overrideHint": "Używana, gdy models.dev nie podaje bezpośredniej ceny. Ceny tokenów to USD za 1 mln tokenów; cena za minutę to USD za minutę audio.",
+      "overridesTitle": "Ręczne nadpisania cen",
+      "unpricedTitle": "Modele bez ceny",
+      "unpricedDescription": "Te modele są rejestrowane z kosztem 0. Dodaj ręczną cenę, aby ich użycie było wyceniane.",
+      "unpricedEvents_one": "{{count}} zdarzenie w ciągu ostatnich 30 dni",
+      "unpricedEvents_few": "{{count}} zdarzenia w ciągu ostatnich 30 dni",
+      "unpricedEvents_many": "{{count}} zdarzeń w ciągu ostatnich 30 dni",
+      "unpricedEvents_other": "{{count}} zdarzenia w ciągu ostatnich 30 dni",
+      "fields": {
+        "input": "Wejście",
+        "output": "Wyjście",
+        "cache_read": "Wejście z pamięci podręcznej",
+        "input_audio": "Audio wejściowe",
+        "output_audio": "Audio wyjściowe",
+        "per_minute": "Za minutę"
+      }
+    }
   }
 }

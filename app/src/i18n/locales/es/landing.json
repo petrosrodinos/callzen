@@ -6,7 +6,8 @@
     "practice": "Práctica",
     "reviews": "Revisión de llamadas",
     "teams": "Equipos",
-    "createAccount": "Crear cuenta"
+    "createAccount": "Crear cuenta",
+    "pricing": "Precios"
   },
   "actions": {
     "openDashboard": "Abrir el panel",
@@ -177,5 +178,75 @@
   "closing": {
     "title": "Haz tu próxima llamada con un copiloto.",
     "copy": "Configura tu primer copiloto, inicia una llamada y mira cómo llegan las sugerencias mientras el cliente potencial todavía está hablando."
+  },
+  "salesDemo": {
+    "aria": "Llamada de ventas simulada con el copiloto de CallZen",
+    "intro": "Escucha una llamada de ventas simulada y mira cómo el copiloto guía al vendedor en tiempo real.",
+    "play": "Reproducir la demo con sonido",
+    "playSilent": "Reproducir sin sonido",
+    "soundOn": "Activar el sonido",
+    "soundOff": "Desactivar el sonido",
+    "skip": "Saltar al análisis",
+    "replay": "Volver a reproducir",
+    "ended": "Llamada finalizada",
+    "analysing": "Analizando la llamada…",
+    "reviewTitle": "Y luego el análisis, en segundos",
+    "reviewLead": "El mismo análisis que recibes después de cada llamada real: una puntuación, los errores y los puntos fuertes, y los datos que los respaldan."
+  },
+  "pricing": {
+    "title": "Planes sencillos para comerciales y coaches",
+    "copy": "Todos los planes incluyen el copiloto en vivo, los prospectos de práctica con IA y el análisis de llamadas en todos los idiomas disponibles. Paga mensualmente, o anualmente y llévate dos meses gratis.",
+    "trial": "Empieza con una prueba gratuita de 14 días. Sin tarjeta.",
+    "cta": "Empezar la prueba gratuita",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "tagline": "Para comerciales individuales que empiezan.",
+        "points": {
+          "live": "2 horas de llamadas en vivo al mes",
+          "practice": "30 minutos de práctica con IA",
+          "copilots": "1 copiloto",
+          "basicAnalysis": "Puntuación, puntuaciones por categoría y próximos pasos después de cada llamada"
+        }
+      },
+      "pro": {
+        "name": "Pro",
+        "tagline": "Para profesionales que llaman y practican mucho.",
+        "points": {
+          "live": "10 horas de llamadas en vivo al mes",
+          "practice": "5 horas de práctica con IA",
+          "copilots": "5 copilotos y 25 prospectos de práctica",
+          "fullAnalysis": "El análisis completo: momentos, métricas, conclusiones y borradores de seguimiento",
+          "knowledge": "Importación de documentos de conocimiento"
+        }
+      },
+      "coach": {
+        "name": "Coach",
+        "tagline": "Para coaches y sus alumnos.",
+        "points": {
+          "seats": "Tú y 10 alumnos, con plazas adicionales disponibles",
+          "pool": "Minutos compartidos con una reserva para ti y límites por alumno",
+          "tools": "Panel del grupo, tareas, comentarios e informes semanales",
+          "access": "Elige qué alumnos pueden usar cada copiloto y prospecto"
+        }
+      }
+    },
+    "live": {
+      "students_one": "Tú más {{count}} alumno.",
+      "students_other": "Tú más {{count}} alumnos.",
+      "moreSeats": "Puedes añadir más plazas.",
+      "liveMinutes_one": "{{count}} minuto de llamadas en vivo al mes",
+      "liveMinutes_other": "{{count}} minutos de llamadas en vivo al mes",
+      "liveUnlimited": "Llamadas en vivo ilimitadas",
+      "practiceMinutes_one": "{{count}} minuto de práctica con IA al mes",
+      "practiceMinutes_other": "{{count}} minutos de práctica con IA al mes",
+      "practiceUnlimited": "Práctica con IA ilimitada",
+      "agentsUnlimited": "Copilotos y prospectos de práctica ilimitados",
+      "perMonth": "{{price}} / mes",
+      "trial_one": "Empieza con una prueba gratuita de {{count}} día. Sin tarjeta.",
+      "trial_other": "Empieza con una prueba gratuita de {{count}} días. Sin tarjeta.",
+      "agents_one": "{{count}} copiloto y {{prospects}} prospectos de práctica",
+      "agents_other": "{{count}} copilotos y {{prospects}} prospectos de práctica"
+    }
   }
 }

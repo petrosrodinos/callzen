@@ -1,4 +1,5 @@
 import { useState, type FC } from "react";
+import { LockedAnalysisCard } from "@/components/billing/locked-analysis-card";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import {
@@ -39,6 +40,7 @@ import { RecommendedPracticeCard } from "./components/recommended-practice-card"
 import { OutcomesCard } from "./components/outcomes-card";
 import { PracticeProgressCard } from "./components/practice-progress-card";
 import { RecentCallsCard } from "./components/recent-calls-card";
+import { AssignedToMeCard } from "@/components/coaching/assigned-to-me-card";
 
 const DashboardPage: FC = () => {
   const { t } = useTranslation("dashboard");
@@ -108,6 +110,9 @@ const DashboardPage: FC = () => {
       <div className="mb-4 empty:hidden">
         <PendingInvitationsCard />
       </div>
+      <div className="mb-4 empty:hidden">
+        <AssignedToMeCard />
+      </div>
 
       {isPending || !data ? (
         <DashboardSkeleton />
@@ -170,15 +175,27 @@ const DashboardPage: FC = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-            <SkillsCard categories={data.categories} />
-            <RecommendedPracticeCard
-              items={data.recommended_practice}
-              canStart={can(Permissions.PROSPECTS_MANAGE)}
-            />
+            {data.locked_cards?.includes("categories") ? (
+              <LockedAnalysisCard feature="category_scores" teasers={{}} />
+            ) : (
+              <SkillsCard categories={data.categories} />
+            )}
+            {data.locked_cards?.includes("recommended_practice") ? (
+              <LockedAnalysisCard feature="suggested_practice" teasers={{}} />
+            ) : (
+              <RecommendedPracticeCard
+                items={data.recommended_practice}
+                canStart={can(Permissions.PROSPECTS_MANAGE)}
+              />
+            )}
           </div>
 
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-            <RecurringMistakesCard mistakes={data.recurring_mistakes} />
+            {data.locked_cards?.includes("recurring_mistakes") ? (
+              <LockedAnalysisCard feature="moments" teasers={{}} />
+            ) : (
+              <RecurringMistakesCard mistakes={data.recurring_mistakes} />
+            )}
             <OutcomesCard outcomes={data.outcomes} />
             <PracticeProgressCard progress={data.practice_progress} />
           </div>

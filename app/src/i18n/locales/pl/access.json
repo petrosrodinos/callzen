@@ -1,0 +1,93 @@
+{
+  "badge": {
+    "everyone": "Wszyscy",
+    "sharedWith_one": "Udostępniono {{count}} osobie",
+    "sharedWith_few": "Udostępniono {{count}} osobom",
+    "sharedWith_many": "Udostępniono {{count}} osobom",
+    "sharedWith_other": "Udostępniono {{count}} osoby",
+    "private": "Prywatne",
+    "privateHint": "Tylko Ty i Twój trener",
+    "sharedWithYou": "Udostępnione Tobie"
+  },
+  "editor": {
+    "title": "Kto może z tego korzystać",
+    "description": {
+      "copilot": "Wybierz, czy z tego współpilota może korzystać każdy w organizacji, czy tylko wybrani kursanci.",
+      "prospect": "Wybierz, czy z tym potencjalnym klientem może ćwiczyć każdy w organizacji, czy tylko wybrani kursanci."
+    },
+    "students": "Kursanci",
+    "noneSelected": "Nie wybrano kursantów: korzystać mogą tylko Ty i inni trenerzy.",
+    "save": "Zapisz dostęp",
+    "onlyYouAndCoach": "Tego potencjalnego klienta widzisz tylko Ty i Twój trener.",
+    "restrictedReadOnly_one": "Ograniczono do {{count}} kursanta. Twój plan nie obejmuje już kontroli dostępu, więc tego ustawienia nie można zmienić.",
+    "restrictedReadOnly_few": "Ograniczono do {{count}} kursantów. Twój plan nie obejmuje już kontroli dostępu, więc tego ustawienia nie można zmienić.",
+    "restrictedReadOnly_many": "Ograniczono do {{count}} kursantów. Twój plan nie obejmuje już kontroli dostępu, więc tego ustawienia nie można zmienić.",
+    "restrictedReadOnly_other": "Ograniczono do {{count}} kursanta. Twój plan nie obejmuje już kontroli dostępu, więc tego ustawienia nie można zmienić."
+  },
+  "picker": {
+    "placeholder": "Wybierz kursantów",
+    "selected_one": "Wybrano {{count}} kursanta",
+    "selected_few": "Wybrano {{count}} kursantów",
+    "selected_many": "Wybrano {{count}} kursantów",
+    "selected_other": "Wybrano {{count}} kursanta",
+    "search": "Szukaj członków",
+    "noMembers": "Nie znaleziono członków.",
+    "remove": "Usuń: {{name}}",
+    "formerMember": "Były członek"
+  },
+  "bulk": {
+    "select": "Zaznacz, aby udostępnić",
+    "selected_one": "Zaznaczono {{count}}",
+    "selected_few": "Zaznaczono {{count}}",
+    "selected_many": "Zaznaczono {{count}}",
+    "selected_other": "Zaznaczono {{count}}",
+    "share": "Udostępnij…",
+    "cancel": "Anuluj zaznaczenie",
+    "selectItem": "Zaznacz: {{name}}"
+  },
+  "share": {
+    "title_one": "Udostępnij {{count}} element",
+    "title_few": "Udostępnij {{count}} elementy",
+    "title_many": "Udostępnij {{count}} elementów",
+    "title_other": "Udostępnij {{count}} elementu",
+    "description": "Wybrani kursanci mogą od razu z nich korzystać. Elementy już udostępnione wszystkim pozostają bez zmian.",
+    "cancel": "Anuluj",
+    "confirm": "Udostępnij"
+  },
+  "student": {
+    "title": "Dostęp",
+    "description": "Włącz współpilotów i potencjalnych klientów, z których może korzystać ten kursant. Elementy udostępnione wszystkim są zawsze dostępne.",
+    "descriptionReadOnly": "Współpiloci i potencjalni klienci, z których może korzystać ten kursant.",
+    "copilots": "Współpiloci",
+    "prospects": "Potencjalni klienci do ćwiczeń",
+    "none": "Na razie nic tu nie ma.",
+    "privateToStudent": "Utworzone przez tego kursanta",
+    "archived": "Zarchiwizowane",
+    "toggleAria": "Dostęp do: {{name}}"
+  },
+  "empty": {
+    "noSharedCopilot": "Twój trener nie udostępnił jeszcze współpilota",
+    "noSharedCopilotDescription": "Tutaj pojawią się współpiloci udostępnieni Ci przez trenera.",
+    "noSharedCopilotCall": "Nie udostępniono Ci jeszcze żadnego współpilota. Poproś trenera o udostępnienie; w międzyczasie nadal możesz ćwiczyć.",
+    "goPractice": "Przejdź do ćwiczeń"
+  },
+  "toasts": {
+    "accessSaved": "Zaktualizowano dostęp",
+    "couldNotSaveAccess": "Nie udało się zaktualizować dostępu",
+    "shared_one": "Udostępniono {{count}} element",
+    "shared_few": "Udostępniono {{count}} elementy",
+    "shared_many": "Udostępniono {{count}} elementów",
+    "shared_other": "Udostępniono {{count}} elementu",
+    "sharedPeople_one": "Dostęp otrzymała {{count}} osoba.",
+    "sharedPeople_few": "Dostęp otrzymały {{count}} osoby.",
+    "sharedPeople_many": "Dostęp otrzymało {{count}} osób.",
+    "sharedPeople_other": "Dostęp otrzymało {{count}} osoby.",
+    "alreadyShared": "Wszystkie wybrane osoby miały już dostęp.",
+    "couldNotShare": "Nie udało się udostępnić"
+  },
+  "errors": {
+    "updateAccess": "Nie udało się zaktualizować dostępu. Spróbuj ponownie.",
+    "loadStudentAccess": "Nie udało się załadować dostępu tego kursanta. Spróbuj ponownie.",
+    "share": "Nie udało się udostępnić. Spróbuj ponownie."
+  }
+}

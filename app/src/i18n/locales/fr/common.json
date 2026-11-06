@@ -326,6 +326,38 @@
       "accountDeleted": "Compte supprimé",
       "allYourDataWasPermanentlyRemoved": "Toutes vos données ont été supprimées définitivement.",
       "couldNotDeleteYourAccount": "Impossible de supprimer votre compte"
+    },
+    "billing": {
+      "planChanged": "Forfait mis à jour",
+      "changeScheduled": "Changement programmé pour la fin de la période",
+      "couldNotChangePlan": "Impossible de changer de forfait",
+      "cancelScheduled": "Votre forfait prendra fin à la fin de la période",
+      "couldNotCancel": "Impossible de résilier le forfait",
+      "resumed": "Votre forfait continue",
+      "couldNotResume": "Impossible de réactiver le forfait",
+      "redirecting": "Ouverture de la page de paiement sécurisée…",
+      "couldNotOpenPortal": "Impossible d'ouvrir les paramètres de paiement",
+      "couldNotStartCheckout": "Impossible de lancer le paiement"
+    },
+    "appConfig": {
+      "saved": "Paramètre enregistré",
+      "reset": "Paramètre rétabli à sa valeur par défaut",
+      "couldNotSave": "Impossible d'enregistrer le paramètre",
+      "conflict": "Quelqu'un d'autre a modifié ce paramètre. La dernière valeur a été chargée.",
+      "synced": "Prix synchronisés depuis models.dev",
+      "syncFailed": "Échec de la synchronisation des prix"
+    },
+    "adminSubscriptions": {
+      "exported": "CSV téléchargé",
+      "actionFailed": "L'action a échoué",
+      "planAssigned": "Forfait attribué",
+      "minutesGranted": "Minutes accordées",
+      "trialExtended": "Essai prolongé",
+      "discountApplied": "Remise appliquée",
+      "canceled": "Abonnement résilié",
+      "resumed": "Abonnement réactivé",
+      "synced": "Synchronisé avec Stripe",
+      "refunded": "Remboursement effectué"
     }
   },
   "errors": {
@@ -443,6 +475,44 @@
     "websocket": {
       "notConnected": "WebSocket non connecté",
       "timeout": "Délai d'attente dépassé pour l'émission WebSocket"
+    },
+    "billing": {
+      "loadPlans": "Impossible de charger les forfaits. Veuillez réessayer.",
+      "loadPlanUsage": "Impossible de charger l'utilisation de votre forfait. Veuillez réessayer.",
+      "loadBilling": "Impossible de charger les informations de facturation. Veuillez réessayer.",
+      "loadInvoices": "Impossible de charger les factures. Veuillez réessayer.",
+      "loadHistory": "Impossible de charger l'historique du forfait. Veuillez réessayer.",
+      "previewChange": "Impossible d'afficher l'aperçu de ce changement. Veuillez réessayer.",
+      "changePlan": "Impossible de changer de forfait. Veuillez réessayer.",
+      "cancelPlan": "Impossible de résilier le forfait. Veuillez réessayer.",
+      "resumePlan": "Impossible de réactiver le forfait. Veuillez réessayer.",
+      "openPortal": "Impossible d'ouvrir les paramètres de paiement. Veuillez réessayer.",
+      "checkout": "Impossible de lancer le paiement. Veuillez réessayer.",
+      "topup": "Impossible de lancer l'achat. Veuillez réessayer.",
+      "loadPurchases": "Impossible de charger vos achats. Veuillez réessayer."
+    },
+    "appConfig": {
+      "load": "Impossible de charger la configuration. Veuillez réessayer.",
+      "save": "Impossible d'enregistrer ce paramètre. Veuillez réessayer.",
+      "reset": "Impossible de réinitialiser ce paramètre. Veuillez réessayer.",
+      "history": "Impossible de charger l'historique des modifications.",
+      "pricing": "Impossible de charger les prix des modèles.",
+      "sync": "Impossible de synchroniser les prix depuis models.dev."
+    },
+    "adminSubscriptions": {
+      "loadList": "Impossible de charger les abonnements. Veuillez réessayer.",
+      "export": "Impossible d'exporter le CSV. Veuillez réessayer.",
+      "loadDetail": "Impossible de charger cet abonnement. Veuillez réessayer.",
+      "loadPayments": "Impossible de charger les paiements. Veuillez réessayer.",
+      "assignPlan": "Impossible d'attribuer le forfait.",
+      "grantMinutes": "Impossible d'accorder les minutes.",
+      "extendTrial": "Impossible de prolonger l'essai.",
+      "discount": "Impossible d'appliquer la remise.",
+      "cancel": "Impossible de résilier l'abonnement.",
+      "resume": "Impossible de réactiver l'abonnement.",
+      "sync": "Impossible de synchroniser avec Stripe.",
+      "refund": "Impossible de rembourser la facture."
     }
-  }
+  },
+  "timeLeft": "{{time}} restantes"
 }

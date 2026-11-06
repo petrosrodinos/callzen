@@ -3,10 +3,24 @@ import { Prisma, OrgRole } from 'generated/prisma';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
 import {
   Permission,
+  Permissions,
   ROLE_PRESETS,
   sanitizePermissions,
 } from '@/shared/config/permissions/permissions.config';
 import { OrgContext } from '@/shared/interfaces/org-context.interface';
+import {
+  PlanFeature,
+  PlanFeatures,
+} from '@/shared/config/plans/plans.config';
+import { EntitlementsService } from '@/modules/billing/services/entitlements.service';
+import { SubscriptionsService } from '@/modules/billing/services/subscriptions.service';
+
+// Permissions that only take effect when the plan includes the matching feature: plan limits apply on top of
+// role permissions (§10.1a). Stored role permissions are never changed by a plan change.
+const FEATURE_GATED_PERMISSIONS: Partial<Record<Permission, PlanFeature>> = {
+  [Permissions.CALLS_VIEW_ALL]: PlanFeatures.VIEW_ALL_MEMBER_CALLS,
+  [Permissions.CALLS_MANAGE_ALL]: PlanFeatures.VIEW_ALL_MEMBER_CALLS,
+};
 
 type Tx = Prisma.TransactionClient | PrismaService;
 
@@ -14,7 +28,26 @@ type Tx = Prisma.TransactionClient | PrismaService;
 // because sign-up and the guard both need it.
 @Injectable()
 export class OrgAccessService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly entitlements: EntitlementsService,
+    private readonly subscriptions: SubscriptionsService,
+  ) {}
+
+  // What the role may do right now: its permissions, minus those the organisation's plan does not include.
+  async effectivePermissions(
+    organisationId: string,
+    role: OrgRole,
+  ): Promise<Permission[]> {
+    const [permissions, entitlements] = await Promise.all([
+      this.resolvePermissions(organisationId, role),
+      this.entitlements.getEntitlements(organisationId),
+    ]);
+    return permissions.filter((permission) => {
+      const feature = FEATURE_GATED_PERMISSIONS[permission];
+      return !feature || entitlements.features[feature];
+    });
+  }
 
   async resolvePermissions(
     organisationId: string,
@@ -53,14 +86,15 @@ export class OrgAccessService {
       userId,
       organisationId: membership.organisation_id,
       role: membership.role,
-      permissions: await this.resolvePermissions(
+      permissions: await this.effectivePermissions(
         membership.organisation_id,
         membership.role,
       ),
     };
   }
 
-  // Creates the organisation with the preset role permissions and makes the user its owner.
+  // Creates the organisation with the preset role permissions and makes the user its owner. The owner's first
+  // organisation starts the trial (§8.5).
   async createOrganisation(userId: string, name: string, db: Tx = this.prisma) {
     const organisation = await db.organisation.create({
       data: {
@@ -74,6 +108,7 @@ export class OrgAccessService {
         },
       },
     });
+    await this.subscriptions.createForNewOrganisation(organisation.id, userId, db);
     return organisation;
   }
 

@@ -24,7 +24,8 @@ export const buildTimelineMarkers = (call: Call): TimelineMarker[] => {
   const markers: TimelineMarker[] = [];
   const analysis = call.analysis;
 
-  analysis?.mistakes.forEach(
+  // Locked analysis parts are absent (§9.4): their markers simply do not appear.
+  analysis?.mistakes?.forEach(
     (m, i) =>
       m.at_ms != null &&
       markers.push({
@@ -34,7 +35,7 @@ export const buildTimelineMarkers = (call: Call): TimelineMarker[] => {
         label: m.title,
       }),
   );
-  analysis?.strengths.forEach(
+  analysis?.strengths?.forEach(
     (s, i) =>
       s.at_ms != null &&
       markers.push({

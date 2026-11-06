@@ -6,7 +6,8 @@
     "practice": "Entraînement",
     "reviews": "Analyses d’appels",
     "teams": "Équipes",
-    "createAccount": "Créer un compte"
+    "createAccount": "Créer un compte",
+    "pricing": "Tarifs"
   },
   "actions": {
     "openDashboard": "Ouvrir le tableau de bord",
@@ -177,5 +178,75 @@
   "closing": {
     "title": "Passez votre prochain appel avec un copilote.",
     "copy": "Configurez votre premier copilote, lancez un appel et regardez les suggestions arriver pendant que le prospect parle encore."
+  },
+  "salesDemo": {
+    "aria": "Appel commercial simulé avec le copilote CallZen",
+    "intro": "Écoutez un appel commercial simulé et regardez le copilote guider le vendeur en temps réel.",
+    "play": "Lancer la démo avec le son",
+    "playSilent": "Lancer sans le son",
+    "soundOn": "Activer le son",
+    "soundOff": "Couper le son",
+    "skip": "Passer à l'analyse",
+    "replay": "Rejouer",
+    "ended": "Appel terminé",
+    "analysing": "Analyse de l'appel…",
+    "reviewTitle": "Puis l'analyse, en quelques secondes",
+    "reviewLead": "La même analyse que vous obtenez après chaque appel réel : un score, les erreurs et les points forts, et les chiffres qui les étayent."
+  },
+  "pricing": {
+    "title": "Des forfaits simples pour les commerciaux et les coachs",
+    "copy": "Chaque forfait comprend le copilote en direct, les prospects d'entraînement IA et l'analyse des appels dans toutes les langues prises en charge. Payez au mois, ou à l'année et profitez de deux mois offerts.",
+    "trial": "Commencez par un essai gratuit de 14 jours. Aucune carte requise.",
+    "cta": "Commencer l'essai gratuit",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "tagline": "Pour les commerciaux indépendants qui se lancent.",
+        "points": {
+          "live": "2 heures d'appels en direct par mois",
+          "practice": "30 minutes d'entraînement IA",
+          "copilots": "1 copilote",
+          "basicAnalysis": "Score, scores par catégorie et prochaines étapes après chaque appel"
+        }
+      },
+      "pro": {
+        "name": "Pro",
+        "tagline": "Pour les professionnels exigeants qui appellent et s'entraînent beaucoup.",
+        "points": {
+          "live": "10 heures d'appels en direct par mois",
+          "practice": "5 heures d'entraînement IA",
+          "copilots": "5 copilotes et 25 prospects d'entraînement",
+          "fullAnalysis": "L'analyse complète : moments clés, indicateurs, insights et brouillons de relance",
+          "knowledge": "Importation de documents de connaissances"
+        }
+      },
+      "coach": {
+        "name": "Coach",
+        "tagline": "Pour les coachs et leurs élèves.",
+        "points": {
+          "seats": "Vous plus 10 élèves, sièges supplémentaires disponibles",
+          "pool": "Minutes partagées avec une réserve pour vous et des plafonds par élève",
+          "tools": "Tableau de bord de cohorte, devoirs, commentaires et rapports hebdomadaires",
+          "access": "Choisissez quels élèves peuvent utiliser chaque copilote et prospect"
+        }
+      }
+    },
+    "live": {
+      "students_one": "Vous et {{count}} élève.",
+      "students_other": "Vous et {{count}} élèves.",
+      "moreSeats": "Sièges supplémentaires disponibles.",
+      "liveMinutes_one": "{{count}} minute d'appels en direct par mois",
+      "liveMinutes_other": "{{count}} minutes d'appels en direct par mois",
+      "liveUnlimited": "Appels en direct illimités",
+      "practiceMinutes_one": "{{count}} minute d'entraînement IA par mois",
+      "practiceMinutes_other": "{{count}} minutes d'entraînement IA par mois",
+      "practiceUnlimited": "Entraînement IA illimité",
+      "agentsUnlimited": "Copilotes et prospects d'entraînement illimités",
+      "perMonth": "{{price}} / mois",
+      "trial_one": "Commencez par un essai gratuit de {{count}} jour. Sans carte bancaire.",
+      "trial_other": "Commencez par un essai gratuit de {{count}} jours. Sans carte bancaire.",
+      "agents_one": "{{count}} copilote et {{prospects}} prospects d'entraînement",
+      "agents_other": "{{count}} copilotes et {{prospects}} prospects d'entraînement"
+    }
   }
 }

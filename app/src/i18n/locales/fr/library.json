@@ -109,7 +109,8 @@
           "title": "Supprimer la transcription ?",
           "description": "La transcription est supprimée définitivement. L'analyse est conservée, mais vous ne pourrez pas la relancer."
         }
-      }
+      },
+      "sessionCost": "Coût de la session {{charged}} (base {{base}})"
     },
     "recording": {
       "saving": "Enregistrement en cours de sauvegarde…",

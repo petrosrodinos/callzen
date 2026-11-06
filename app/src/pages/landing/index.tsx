@@ -6,6 +6,7 @@ import { PracticeSection } from "./components/practice-section";
 import { ReviewSection } from "./components/review-section";
 import { PlaybookSection } from "./components/playbook-section";
 import { TeamsSection } from "./components/teams-section";
+import { PricingSection } from "./components/pricing-section";
 import { ClosingSection } from "./components/closing-section";
 import { SiteFooter } from "./components/site-footer";
 
@@ -20,6 +21,7 @@ export default function LandingPage() {
         <ReviewSection />
         <PlaybookSection />
         <TeamsSection />
+        <PricingSection />
         <ClosingSection />
       </main>
       <SiteFooter />

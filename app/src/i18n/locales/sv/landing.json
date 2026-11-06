@@ -6,7 +6,8 @@
     "practice": "Övning",
     "reviews": "Samtalsanalyser",
     "teams": "Team",
-    "createAccount": "Skapa konto"
+    "createAccount": "Skapa konto",
+    "pricing": "Priser"
   },
   "actions": {
     "openDashboard": "Öppna instrumentpanelen",
@@ -177,5 +178,75 @@
   "closing": {
     "title": "Ta ditt nästa samtal med en copilot.",
     "copy": "Ställ in din första copilot, starta ett samtal och se förslagen komma medan prospektet fortfarande pratar."
+  },
+  "salesDemo": {
+    "aria": "Simulerat säljsamtal med CallZens co-pilot",
+    "intro": "Lyssna på ett simulerat säljsamtal och se hur co-piloten coachar säljaren i realtid.",
+    "play": "Spela upp demon med ljud",
+    "playSilent": "Spela upp utan ljud",
+    "soundOn": "Slå på ljudet",
+    "soundOff": "Stäng av ljudet",
+    "skip": "Hoppa till genomgången",
+    "replay": "Spela igen",
+    "ended": "Samtalet avslutades",
+    "analysing": "Analyserar samtalet…",
+    "reviewTitle": "Sedan genomgången, på några sekunder",
+    "reviewLead": "Samma analys som du får efter varje riktigt samtal: ett poäng, misstagen och styrkorna, och siffrorna bakom dem."
+  },
+  "pricing": {
+    "title": "Enkla abonnemang för säljare och coacher",
+    "copy": "Alla abonnemang omfattar live-co-piloten, AI-övningsprospekt och samtalsanalys på alla språk som stöds. Betala månadsvis, eller årsvis och få två månader gratis.",
+    "trial": "Börja med en kostnadsfri provperiod på 14 dagar. Inget kort behövs.",
+    "cta": "Starta gratis provperiod",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "tagline": "För enskilda säljare som är i början.",
+        "points": {
+          "live": "2 timmar livesamtal per månad",
+          "practice": "30 minuter AI-övning",
+          "copilots": "1 co-pilot",
+          "basicAnalysis": "Poäng, kategoripoäng och nästa steg efter varje samtal"
+        }
+      },
+      "pro": {
+        "name": "Pro",
+        "tagline": "För seriösa säljare som ringer och övar mycket.",
+        "points": {
+          "live": "10 timmar livesamtal per månad",
+          "practice": "5 timmar AI-övning",
+          "copilots": "5 co-piloter och 25 övningsprospekt",
+          "fullAnalysis": "Hela analysen: ögonblick, nyckeltal, insikter och utkast till uppföljning",
+          "knowledge": "Importera kunskapsdokument"
+        }
+      },
+      "coach": {
+        "name": "Coach",
+        "tagline": "För coacher och deras elever.",
+        "points": {
+          "seats": "Du plus 10 elever, fler licenser finns att köpa",
+          "pool": "Delade minuter med en reserv för dig och tak per elev",
+          "tools": "Gruppöversikt, uppgifter, kommentarer och veckorapporter",
+          "access": "Välj vilka elever som kan använda varje co-pilot och prospekt"
+        }
+      }
+    },
+    "live": {
+      "students_one": "Du plus {{count}} elev.",
+      "students_other": "Du plus {{count}} elever.",
+      "moreSeats": "Fler licenser finns.",
+      "liveMinutes_one": "{{count}} minut livesamtal per månad",
+      "liveMinutes_other": "{{count}} minuter livesamtal per månad",
+      "liveUnlimited": "Obegränsade livesamtal",
+      "practiceMinutes_one": "{{count}} minut AI-övning per månad",
+      "practiceMinutes_other": "{{count}} minuter AI-övning per månad",
+      "practiceUnlimited": "Obegränsad AI-övning",
+      "agentsUnlimited": "Obegränsat med co-piloter och övningsprospekt",
+      "perMonth": "{{price}} / månad",
+      "trial_one": "Börja med en kostnadsfri provperiod på {{count}} dag. Inget kort behövs.",
+      "trial_other": "Börja med en kostnadsfri provperiod på {{count}} dagar. Inget kort behövs.",
+      "agents_one": "{{count}} co-pilot och {{prospects}} övningsprospekt",
+      "agents_other": "{{count}} co-piloter och {{prospects}} övningsprospekt"
+    }
   }
 }

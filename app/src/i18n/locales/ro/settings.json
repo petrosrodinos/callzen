@@ -3,9 +3,10 @@
   "save": "Salvează setările",
   "nav": {
     "profile": "Profil și preferințe",
-    "usage": "Utilizare și costuri",
+    "usage": "Utilizare",
     "privacy": "Confidențialitate și date",
-    "sections": "Secțiunile setărilor"
+    "sections": "Secțiunile setărilor",
+    "billing": "Facturare"
   },
   "validation": {
     "enterName": "Introdu numele tău",
@@ -95,6 +96,35 @@
       "input": "Intrare / 1 mil. tokeni",
       "output": "Ieșire / 1 mil. tokeni",
       "perMinute": "~{{price}} pe minut"
+    },
+    "calls": "Sesiuni",
+    "averageSession": "În medie {{minutes}} min per sesiune",
+    "empty": "Nicio utilizare în această perioadă.",
+    "sessions": {
+      "title": "Minute per sesiune",
+      "average": "În medie {{minutes}} min",
+      "session": "Sesiune",
+      "member": "Membru",
+      "kind": "Tip",
+      "date": "Dată",
+      "minutes": "Minute",
+      "untitled": "Sesiune fără titlu",
+      "you": "Tu"
+    },
+    "members": {
+      "title": "Minute per membru în această perioadă",
+      "member": "Membru",
+      "live": "Min live",
+      "practice": "Min exersare",
+      "owner": "Proprietar"
+    },
+    "admin": {
+      "title": "Administrare platformă: costuri AI",
+      "totalCost": "Cost AI (facturat)",
+      "baseCost": "Cost de bază {{cost}}",
+      "averageCost": "cost mediu {{cost}} per sesiune",
+      "cost": "Cost",
+      "chargedVsBase": "Sumele reprezintă costul facturat, inclusiv adaosul; costul de bază al furnizorului este între paranteze."
     }
   }
 }

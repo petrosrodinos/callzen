@@ -16,16 +16,18 @@
       "copilots": "Co-pilots",
       "organisation": "Organização",
       "settings": "Configurações",
-      "usage": "Uso e custos",
+      "usage": "Utilização",
       "privacy": "Privacidade e dados",
       "health": "Integridade",
       "users": "Usuários",
-      "alerts": "Alertas"
+      "alerts": "Alertas",
+      "config": "Configuração",
+      "subscriptions": "Subscrições"
     }
   },
   "userMenu": {
     "settings": "Configurações",
-    "usage": "Uso e custos",
+    "usage": "Utilização",
     "privacy": "Privacidade e dados",
     "logout": "Sair"
   },

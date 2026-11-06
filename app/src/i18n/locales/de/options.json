@@ -326,5 +326,279 @@
       "conversation": "Gleiche Sprache wie das Gespräch",
       "interface": "Meine Oberflächensprache"
     }
+  },
+  "billing": {
+    "plan": {
+      "all": "Alle Tarife",
+      "trial": "Testphase",
+      "starter": "Starter",
+      "pro": "Pro",
+      "coach": "Coach"
+    },
+    "planDescription": {
+      "trial": "Testen Sie alles mit einem kleinen Kontingent.",
+      "starter": "Für einzelne Vertriebler, die gerade anfangen.",
+      "pro": "Für ambitionierte Einzelpersonen, die viel üben und telefonieren.",
+      "coach": "Für Coaches und ihre Teilnehmer, mit gemeinsamen Minuten und Coaching-Tools."
+    },
+    "status": {
+      "all": "Alle Status",
+      "trialing": "Testphase",
+      "active": "Aktiv",
+      "pastDue": "Überfällig",
+      "canceled": "Gekündigt",
+      "incomplete": "Unvollständig",
+      "none": "Kein Tarif",
+      "cancelling": "Wird gekündigt"
+    },
+    "invoiceKind": {
+      "subscription": "Abonnement",
+      "seats": "Zusätzliche Plätze",
+      "topupTeam": "Minuten für das Team",
+      "topupPersonal": "Persönliche Minuten",
+      "other": "Sonstiges"
+    },
+    "invoiceStatus": {
+      "draft": "Entwurf",
+      "open": "Offen",
+      "paid": "Bezahlt",
+      "void": "Storniert",
+      "uncollectible": "Uneinbringlich",
+      "failed": "Fehlgeschlagen",
+      "refunded": "Erstattet"
+    },
+    "pack": {
+      "live_100": "100 Minuten für Live-Anrufe",
+      "practice_60": "60 Übungsminuten",
+      "mixed": "{{live}} Live- + {{practice}} Übungsminuten",
+      "liveFallback": "{{count}} Minuten für Live-Anrufe",
+      "practiceFallback": "{{count}} Übungsminuten"
+    },
+    "cancelReason": {
+      "tooExpensive": "Zu teuer",
+      "notUsing": "Ich nutze es nicht genug",
+      "missingFeatures": "Mir fehlen benötigte Funktionen",
+      "switching": "Wechsel zu einem anderen Tool",
+      "temporary": "Nur vorübergehend benötigt",
+      "other": "Etwas anderes"
+    },
+    "feature": {
+      "knowledgeDocumentImport": "Import von Wissensdokumenten",
+      "orgRolesPermissions": "Eigene Rollen und Berechtigungen",
+      "orgInvitations": "Team-Einladungen",
+      "viewAllMemberCalls": "Anrufe aller Mitglieder ansehen",
+      "cohortDashboard": "Gruppen-Dashboard",
+      "topupPurchases": "Zusätzliche Minuten kaufen",
+      "studentPages": "Teilnehmerseiten",
+      "practiceAssignments": "Übungsaufgaben",
+      "callComments": "Coach-Kommentare zu Anrufen",
+      "coachReports": "Wöchentliche Coach-Berichte",
+      "studentExport": "CSV-Export",
+      "agentAccessControl": "Zugriff auf Co-Piloten und Interessenten pro Teilnehmer"
+    },
+    "limit": {
+      "seatsIncluded": "Enthaltene Plätze",
+      "extraSeatsAllowed": "Zusätzliche Plätze kaufbar",
+      "liveMinutes": "Live-Minuten pro Zeitraum",
+      "practiceMinutes": "Übungsminuten pro Zeitraum",
+      "practiceSharesLivePool": "Übungen nutzen die Live-Minuten",
+      "liveOwnerReserve": "Für Inhaber reservierte Live-Minuten",
+      "practiceOwnerReserve": "Für Inhaber reservierte Übungsminuten",
+      "liveMinutesPerMember": "Live-Minuten pro Mitglied",
+      "practiceMinutesPerMember": "Übungsminuten pro Mitglied",
+      "copilotsMax": "Co-Piloten",
+      "practiceProspectsMax": "Übungs-Interessenten",
+      "practiceProspectsPerMemberMax": "Übungs-Interessenten pro Mitglied",
+      "uploadsPerPeriod": "Uploads pro Zeitraum",
+      "trialDays": "Dauer der Testphase (Tage)"
+    },
+    "pricingSource": {
+      "modelsDev": "models.dev",
+      "alias": "models.dev (Alias)",
+      "override": "Manuell",
+      "unpriced": "Ohne Preis"
+    },
+    "analysis": {
+      "overview": "Überblick und Score",
+      "categoryScores": "Fähigkeiten-Scores",
+      "moments": "Fehler und Stärken",
+      "improvements": "Verbesserungen",
+      "metrics": "Gesprächskennzahlen",
+      "prospectInsights": "Erkenntnisse zum Interessenten",
+      "nextSteps": "Nächste Schritte",
+      "followUpDraft": "Follow-up-Entwurf",
+      "practiceReveal": "Übungsauflösung",
+      "copilotUsage": "Nutzung des Co-Piloten",
+      "suggestedPractice": "Empfohlene Übungen"
+    },
+    "analysisHint": {
+      "overview": "Gesamtscore, Urteil und Zusammenfassung",
+      "categoryScores": "Score pro Fähigkeit und Fähigkeiten-Trend",
+      "moments": "Mit der Zeitleiste verknüpfte Fehler und Stärken, wiederkehrende Fehler",
+      "improvements": "Was beim nächsten Mal besser laufen sollte",
+      "metrics": "Redeanteil, Tempo, Füllwörter, Unterbrechungen, Einwände",
+      "prospectInsights": "Was dem Interessenten wichtig ist",
+      "nextSteps": "Vereinbarte nächste Schritte",
+      "followUpDraft": "Versandfertige Follow-up-Nachricht",
+      "practiceReveal": "Die verborgenen Persona-Details nach einer Übungssitzung",
+      "copilotUsage": "Wie die Vorschläge des Co-Piloten genutzt wurden",
+      "suggestedPractice": "Empfohlene Übungsszenarien"
+    },
+    "interval": {
+      "month": "Monatlich",
+      "year": "Jährlich"
+    },
+    "invoiceDescription": {
+      "seats_one": "Zusätzliche Plätze × {{count}}",
+      "seats_other": "Zusätzliche Plätze × {{count}}",
+      "topup": "Minuten: {{pack}}"
+    },
+    "eventType": {
+      "STARTED": "Tarif gestartet",
+      "PLAN_CHANGED": "Tarif geändert",
+      "CHANGE_SCHEDULED": "Änderung geplant",
+      "CHANGE_CANCELED": "Geplante Änderung rückgängig gemacht",
+      "SEATS_CHANGED": "Plätze geändert",
+      "CANCEL_SCHEDULED": "Kündigung geplant",
+      "CANCEL_REVOKED": "Kündigung rückgängig gemacht",
+      "CANCELED": "Tarif gekündigt",
+      "REACTIVATED": "Tarif reaktiviert",
+      "TRIAL_STARTED": "Testphase gestartet",
+      "TRIAL_ENDED": "Testphase beendet",
+      "TRIAL_EXTENDED": "Testphase verlängert",
+      "PAYMENT_SUCCEEDED": "Zahlung erfolgreich",
+      "PAYMENT_FAILED": "Zahlung fehlgeschlagen",
+      "REFUNDED": "Erstattet",
+      "CREDITS_GRANTED": "Minuten hinzugefügt",
+      "MANUAL_ASSIGNED": "Tarif von unserem Team eingerichtet",
+      "DISCOUNT_APPLIED": "Rabatt angewendet",
+      "SYNCED": "Mit Stripe synchronisiert"
+    },
+    "source": {
+      "stripe": "Stripe",
+      "manual": "Manuell"
+    },
+    "paymentFilter": {
+      "all": "Alle Zahlungen",
+      "failed": "Fehlgeschlagen",
+      "open": "Offen",
+      "refunded": "Erstattet",
+      "paid": "Bezahlt"
+    },
+    "cancelMode": {
+      "atPeriodEnd": "Zum Ende des Zeitraums",
+      "immediate": "Sofort"
+    },
+    "actor": {
+      "user": "Kunde",
+      "admin": "CallZen-Team",
+      "stripe": "Stripe",
+      "system": "Automatisch"
+    }
+  },
+  "access": {
+    "visibility": {
+      "organisation": "Alle in der Organisation",
+      "selected": "Ausgewählte Teilnehmer"
+    },
+    "visibilityDescription": {
+      "organisation": "Jedes Mitglied kann es sehen und nutzen.",
+      "selected": "Nur die von Ihnen gewählten Teilnehmer sowie Coaches."
+    }
+  },
+  "permissions": {
+    "agentsView": {
+      "label": "Co-Piloten ansehen",
+      "description": "Die Co-Piloten der Organisation bei Anrufen und Übungen sehen und nutzen."
+    },
+    "agentsManage": {
+      "label": "Co-Piloten verwalten",
+      "description": "Co-Piloten erstellen, bearbeiten, duplizieren, archivieren und löschen sowie festlegen, wer sie nutzen darf."
+    },
+    "prospectsManage": {
+      "label": "Eigene Übungs-Interessenten verwalten",
+      "description": "Die von Ihnen erstellten KI-Übungs-Interessenten erstellen, generieren, bearbeiten und löschen."
+    },
+    "prospectsManageAll": {
+      "label": "Übungs-Interessenten aller verwalten",
+      "description": "Übungs-Interessenten aller Mitglieder bearbeiten, löschen und festlegen, wer sie nutzen darf."
+    },
+    "callsCreate": {
+      "label": "Anrufe & Übungen starten",
+      "description": "Live-Anrufe und Übungssitzungen starten."
+    },
+    "callsViewAll": {
+      "label": "Anrufe aller ansehen",
+      "description": "Anrufe, Aufnahmen, Analysen und Teamleistung aller Mitglieder sehen. Ohne diese Berechtigung sehen Mitglieder nur ihre eigenen."
+    },
+    "callsManageAll": {
+      "label": "Anrufe aller verwalten",
+      "description": "Aufnahmen und Anrufe löschen und Analysen erneut ausführen, für jedes Mitglied."
+    },
+    "usageView": {
+      "label": "Nutzung der Organisation ansehen",
+      "description": "Die genutzten Minuten der gesamten Organisation sehen."
+    },
+    "membersView": {
+      "label": "Mitglieder ansehen",
+      "description": "Die Mitgliederliste und ihre Rollen sehen."
+    },
+    "membersInvite": {
+      "label": "Mitglieder einladen",
+      "description": "Personen einladen sowie Einladungen erneut senden und widerrufen."
+    },
+    "membersManage": {
+      "label": "Mitglieder verwalten",
+      "description": "Rollen von Mitgliedern mit niedrigerer Rolle ändern und diese entfernen."
+    },
+    "rolesManage": {
+      "label": "Rollenberechtigungen bearbeiten",
+      "description": "Ändern, was jede Rolle tun darf."
+    },
+    "orgUpdate": {
+      "label": "Organisation bearbeiten",
+      "description": "Die Organisation umbenennen."
+    },
+    "orgDelete": {
+      "label": "Organisation löschen",
+      "description": "Die Organisation und alle ihre Daten dauerhaft löschen."
+    },
+    "billingView": {
+      "label": "Abrechnung ansehen",
+      "description": "Tarif, Rechnungen und Zahlungen der Organisation sehen."
+    },
+    "billingManage": {
+      "label": "Abrechnung verwalten",
+      "description": "Den Tarif ändern oder kündigen, Plätze und Zahlungsdaten verwalten und Minuten für das Team kaufen."
+    },
+    "coachingView": {
+      "label": "Coaching ansehen",
+      "description": "Gruppen-Dashboard, Teilnehmerseiten und Wochenberichte sehen. Umfasst das Ansehen der Anrufe aller."
+    },
+    "coachingManage": {
+      "label": "Teilnehmer coachen",
+      "description": "Übungsaufgaben erstellen und Anrufe anderer Mitglieder kommentieren."
+    },
+    "coachingExport": {
+      "label": "Coaching-Daten exportieren",
+      "description": "Teilnehmer- und Anruflisten als CSV herunterladen."
+    }
+  },
+  "permissionGroups": {
+    "agents": "Co-Piloten & Übungen",
+    "calls": "Anrufe",
+    "team": "Team",
+    "coaching": "Coaching",
+    "organisation": "Organisation",
+    "billing": "Abrechnung"
+  },
+  "coaching": {
+    "assignmentStatus": {
+      "all": "Alle Status",
+      "open": "Offen",
+      "overdue": "Überfällig",
+      "completed": "Abgeschlossen",
+      "archived": "Archiviert"
+    }
   }
 }

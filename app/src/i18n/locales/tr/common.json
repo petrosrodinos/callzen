@@ -326,6 +326,38 @@
       "accountDeleted": "Hesap silindi",
       "allYourDataWasPermanentlyRemoved": "Tüm verileriniz kalıcı olarak silindi.",
       "couldNotDeleteYourAccount": "Hesabınız silinemedi"
+    },
+    "billing": {
+      "planChanged": "Plan güncellendi",
+      "changeScheduled": "Değişiklik dönem sonuna planlandı",
+      "couldNotChangePlan": "Plan değiştirilemedi",
+      "cancelScheduled": "Planınız dönem sonunda bitecek",
+      "couldNotCancel": "Plan iptal edilemedi",
+      "resumed": "Planınız devam edecek",
+      "couldNotResume": "Plan sürdürülemedi",
+      "redirecting": "Güvenli ödeme sayfası açılıyor…",
+      "couldNotOpenPortal": "Ödeme ayarları açılamadı",
+      "couldNotStartCheckout": "Ödeme başlatılamadı"
+    },
+    "appConfig": {
+      "saved": "Ayar kaydedildi",
+      "reset": "Ayar varsayılana sıfırlandı",
+      "couldNotSave": "Ayar kaydedilemedi",
+      "conflict": "Bu ayarı başka biri değiştirdi. En son değer yüklendi.",
+      "synced": "Fiyatlar models.dev üzerinden senkronize edildi",
+      "syncFailed": "Fiyat senkronizasyonu başarısız oldu"
+    },
+    "adminSubscriptions": {
+      "exported": "CSV indirildi",
+      "actionFailed": "İşlem başarısız oldu",
+      "planAssigned": "Plan atandı",
+      "minutesGranted": "Dakikalar tanımlandı",
+      "trialExtended": "Deneme süresi uzatıldı",
+      "discountApplied": "İndirim uygulandı",
+      "canceled": "Abonelik iptal edildi",
+      "resumed": "Abonelik sürdürüldü",
+      "synced": "Stripe ile senkronize edildi",
+      "refunded": "İade yapıldı"
     }
   },
   "errors": {
@@ -443,6 +475,44 @@
     "websocket": {
       "notConnected": "WebSocket bağlı değil",
       "timeout": "WebSocket gönderim zaman aşımı"
+    },
+    "billing": {
+      "loadPlans": "Planlar yüklenemedi. Lütfen tekrar deneyin.",
+      "loadPlanUsage": "Plan kullanımınız yüklenemedi. Lütfen tekrar deneyin.",
+      "loadBilling": "Faturalandırma bilgileri yüklenemedi. Lütfen tekrar deneyin.",
+      "loadInvoices": "Faturalar yüklenemedi. Lütfen tekrar deneyin.",
+      "loadHistory": "Plan geçmişi yüklenemedi. Lütfen tekrar deneyin.",
+      "previewChange": "Bu değişikliğin önizlemesi alınamadı. Lütfen tekrar deneyin.",
+      "changePlan": "Plan değiştirilemedi. Lütfen tekrar deneyin.",
+      "cancelPlan": "Plan iptal edilemedi. Lütfen tekrar deneyin.",
+      "resumePlan": "Plan sürdürülemedi. Lütfen tekrar deneyin.",
+      "openPortal": "Ödeme ayarları açılamadı. Lütfen tekrar deneyin.",
+      "checkout": "Ödeme başlatılamadı. Lütfen tekrar deneyin.",
+      "topup": "Satın alma başlatılamadı. Lütfen tekrar deneyin.",
+      "loadPurchases": "Satın aldıklarınız yüklenemedi. Lütfen tekrar deneyin."
+    },
+    "appConfig": {
+      "load": "Yapılandırma yüklenemedi. Lütfen tekrar deneyin.",
+      "save": "Bu ayar kaydedilemedi. Lütfen tekrar deneyin.",
+      "reset": "Bu ayar sıfırlanamadı. Lütfen tekrar deneyin.",
+      "history": "Değişiklik geçmişi yüklenemedi.",
+      "pricing": "Model fiyatları yüklenemedi.",
+      "sync": "Fiyatlar models.dev üzerinden senkronize edilemedi."
+    },
+    "adminSubscriptions": {
+      "loadList": "Abonelikler yüklenemedi. Lütfen tekrar deneyin.",
+      "export": "CSV dışa aktarılamadı. Lütfen tekrar deneyin.",
+      "loadDetail": "Bu abonelik yüklenemedi. Lütfen tekrar deneyin.",
+      "loadPayments": "Ödemeler yüklenemedi. Lütfen tekrar deneyin.",
+      "assignPlan": "Plan atanamadı.",
+      "grantMinutes": "Dakikalar tanımlanamadı.",
+      "extendTrial": "Deneme süresi uzatılamadı.",
+      "discount": "İndirim uygulanamadı.",
+      "cancel": "Abonelik iptal edilemedi.",
+      "resume": "Abonelik sürdürülemedi.",
+      "sync": "Stripe ile senkronize edilemedi.",
+      "refund": "Fatura iade edilemedi."
     }
-  }
+  },
+  "timeLeft": "{{time}} kaldı"
 }

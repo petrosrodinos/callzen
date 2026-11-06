@@ -6,7 +6,8 @@
     "practice": "Oefenen",
     "reviews": "Gespreksanalyses",
     "teams": "Teams",
-    "createAccount": "Account aanmaken"
+    "createAccount": "Account aanmaken",
+    "pricing": "Prijzen"
   },
   "actions": {
     "openDashboard": "Dashboard openen",
@@ -177,5 +178,75 @@
   "closing": {
     "title": "Voer je volgende gesprek met een copiloot.",
     "copy": "Stel je eerste copiloot in, start een gesprek en zie de suggesties binnenkomen terwijl de prospect nog praat."
+  },
+  "salesDemo": {
+    "aria": "Gesimuleerd verkoopgesprek met de CallZen-copiloot",
+    "intro": "Luister naar een gesimuleerd verkoopgesprek en zie hoe de copiloot de verkoper live coacht.",
+    "play": "Demo met geluid afspelen",
+    "playSilent": "Zonder geluid afspelen",
+    "soundOn": "Geluid aan",
+    "soundOff": "Geluid uit",
+    "skip": "Naar de evaluatie",
+    "replay": "Opnieuw afspelen",
+    "ended": "Gesprek beëindigd",
+    "analysing": "Gesprek wordt geanalyseerd…",
+    "reviewTitle": "Daarna de evaluatie, in enkele seconden",
+    "reviewLead": "Dezelfde analyse die je na elk echt gesprek krijgt: een score, de fouten en sterke punten, en de cijfers erachter."
+  },
+  "pricing": {
+    "title": "Eenvoudige abonnementen voor verkopers en coaches",
+    "copy": "Elk abonnement bevat de live copiloot, AI-oefenprospects en gespreksanalyse in alle ondersteunde talen. Betaal per maand, of per jaar en krijg twee maanden gratis.",
+    "trial": "Begin met een gratis proefperiode van 14 dagen. Geen kaart nodig.",
+    "cta": "Gratis proberen",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "tagline": "Voor individuele verkopers die net beginnen.",
+        "points": {
+          "live": "2 uur livegesprekken per maand",
+          "practice": "30 minuten AI-oefening",
+          "copilots": "1 copiloot",
+          "basicAnalysis": "Score, categoriescores en vervolgstappen na elk gesprek"
+        }
+      },
+      "pro": {
+        "name": "Pro",
+        "tagline": "Voor fanatieke professionals die veel bellen en oefenen.",
+        "points": {
+          "live": "10 uur livegesprekken per maand",
+          "practice": "5 uur AI-oefening",
+          "copilots": "5 copiloten en 25 oefenprospects",
+          "fullAnalysis": "De volledige analyse: momenten, statistieken, inzichten en concepten voor follow-ups",
+          "knowledge": "Kennisdocumenten importeren"
+        }
+      },
+      "coach": {
+        "name": "Coach",
+        "tagline": "Voor coaches en hun cursisten.",
+        "points": {
+          "seats": "Jij plus 10 cursisten, meer plaatsen beschikbaar",
+          "pool": "Gedeelde minuten met een reserve voor jou en limieten per cursist",
+          "tools": "Groepsdashboard, opdrachten, opmerkingen en weekrapporten",
+          "access": "Kies welke cursisten elke copiloot en prospect mogen gebruiken"
+        }
+      }
+    },
+    "live": {
+      "students_one": "Jij plus {{count}} cursist.",
+      "students_other": "Jij plus {{count}} cursisten.",
+      "moreSeats": "Meer plaatsen beschikbaar.",
+      "liveMinutes_one": "{{count}} minuut live gesprekken per maand",
+      "liveMinutes_other": "{{count}} minuten live gesprekken per maand",
+      "liveUnlimited": "Onbeperkt live gesprekken",
+      "practiceMinutes_one": "{{count}} minuut AI-oefening per maand",
+      "practiceMinutes_other": "{{count}} minuten AI-oefening per maand",
+      "practiceUnlimited": "Onbeperkt oefenen met AI",
+      "agentsUnlimited": "Onbeperkt copiloten en oefenprospects",
+      "perMonth": "{{price}} / maand",
+      "trial_one": "Begin met een gratis proefperiode van {{count}} dag. Geen kaart nodig.",
+      "trial_other": "Begin met een gratis proefperiode van {{count}} dagen. Geen kaart nodig.",
+      "agents_one": "{{count}} copiloot en {{prospects}} oefenprospects",
+      "agents_other": "{{count}} copiloten en {{prospects}} oefenprospects"
+    }
   }
 }

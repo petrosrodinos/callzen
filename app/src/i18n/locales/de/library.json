@@ -109,7 +109,8 @@
           "title": "Transkript löschen?",
           "description": "Das Transkript wird endgültig gelöscht. Die Analyse bleibt erhalten, kann aber nicht erneut ausgeführt werden."
         }
-      }
+      },
+      "sessionCost": "Sitzungskosten {{charged}} (Basis {{base}})"
     },
     "recording": {
       "saving": "Aufzeichnung wird gespeichert…",

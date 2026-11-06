@@ -3,6 +3,10 @@ import { getAuthStoreState } from '@/stores/auth'
 import { isTokenExpired } from '@/lib/token';
 import { environments } from '@/config/environments';
 import { getOrganisationStoreState } from '@/stores/organisation';
+import { getPlanPromptStoreState } from '@/stores/plan-prompt';
+
+// Plan errors open the global upgrade dialog wherever they happen (§8.6).
+const PLAN_PROMPT_CODES = new Set(['PLAN_LIMIT_REACHED', 'PLAN_FEATURE_LOCKED', 'SUBSCRIPTION_REQUIRED']);
 
 const axiosInstance = axios.create({
     baseURL: environments.API_URL,
@@ -37,6 +41,9 @@ axiosInstance.interceptors.response.use(
         // An invalid or expired session (e.g. JWT secret rotated) must not leave pages stuck loading.
         const authState = getAuthStoreState();
         if (error?.response?.status === 401 && authState.isLoggedIn) authState.logout();
+
+        const data = error?.response?.data;
+        if (error?.response?.status === 403 && PLAN_PROMPT_CODES.has(data?.code)) getPlanPromptStoreState().showError(data);
 
         // Removed from the active organisation (or it was deleted): fall back to another one.
         if (error?.response?.data?.code === "NOT_A_MEMBER" && getOrganisationStoreState().activeOrganisationId) {

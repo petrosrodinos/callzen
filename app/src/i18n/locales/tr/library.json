@@ -109,7 +109,8 @@
           "title": "Transkript silinsin mi?",
           "description": "Transkript kalıcı olarak silinir. Analiz korunur, ancak yeniden çalıştıramazsınız."
         }
-      }
+      },
+      "sessionCost": "Oturum maliyeti {{charged}} (temel {{base}})"
     },
     "recording": {
       "saving": "Kayıt kaydediliyor…",

@@ -28,5 +28,88 @@
       "postgres": "Prisma üzerinden veritabanı bağlantısı.",
       "redis": "Önbellek ve kuyruk bağlantısı."
     }
+  },
+  "config": {
+    "title": "Yapılandırma",
+    "subtitle": "Fiyatlar, plan limitleri, analiz görünürlüğü ve yapay zekâ modelleri. Değişiklikler, yeniden dağıtım gerekmeden saniyeler içinde uygulanır.",
+    "tabs": {
+      "pricing": "Fiyatlandırma",
+      "plans": "Planlar",
+      "analysis": "Analiz görünürlüğü",
+      "ai": "Yapay zekâ modelleri",
+      "coaching": "Koçluk",
+      "billing": "Faturalandırma"
+    },
+    "updated": "Sürüm {{version}} · {{date}}, {{name}} tarafından",
+    "usingDefault": "Yerleşik varsayılan kullanılıyor",
+    "system": "Sistem",
+    "public": "Kullanıcılara görünür",
+    "history": "Geçmiş",
+    "historyTitle": "Değişiklik geçmişi",
+    "noHistory": "Henüz değişiklik yok.",
+    "before": "Önce",
+    "after": "Sonra",
+    "invalid": "Kayıtlı değer artık bu ayarın biçimiyle eşleşmiyor, bu yüzden yerleşik varsayılan kullanılıyor. Düzeltmek için geçerli bir değer kaydedin.",
+    "invalidJson": "Geçersiz JSON: {{error}}",
+    "save": "Kaydet",
+    "discard": "Değişiklikleri at",
+    "cancel": "İptal",
+    "reset": "Varsayılana sıfırla",
+    "resetTitle": "Varsayılana sıfırlansın mı?",
+    "resetDescription": "{{key}} yerleşik varsayılan değerine döner. Geçerli değer geçmişte kalır.",
+    "plans": {
+      "title": "Plan limitleri ve özellikleri",
+      "hint": "Sınırsız için sayıyı boş bırakın. Değişiklikler saniyeler içinde uygulanır; daha önce oluşturulan hiçbir şey kaldırılmaz.",
+      "limit": "Limit",
+      "unlimited": "Sınırsız",
+      "features": "Özellikler",
+      "none": "Yok"
+    },
+    "analysis": {
+      "title": "Plana göre analiz görünürlüğü",
+      "section": "Analiz bölümü"
+    },
+    "ai": {
+      "title": "Varsayılan modeller",
+      "realtime": "Canlı öneriler",
+      "analysis": "Arama analizi",
+      "utility": "Yardımcı görevler",
+      "voice": "Alıştırma sesi",
+      "transcription": "Canlı transkripsiyon",
+      "upload_transcription": "Yükleme transkripsiyonu",
+      "shutdown": "{{date}} tarihinde kapanıyor"
+    },
+    "pricing": {
+      "markupTitle": "Kâr marjı",
+      "markupHint": "Yalnızca yeni kullanım için sağlayıcı maliyetinin üzerine eklenir. Geçmiş kullanım, kaydedildiği marjı korur.",
+      "pricesTitle": "Model fiyatları",
+      "pricesDescription": "models.dev üzerinden senkronize edilir; 1M token başına USD (süreye göre fiyatlandırılan modellerde dakika başına).",
+      "lastSynced": "Son senkronizasyon {{when}}",
+      "neverSynced": "Henüz senkronize edilmedi",
+      "lastError": "son deneme başarısız oldu: {{error}}",
+      "syncNow": "Şimdi senkronize et",
+      "snapshotOld": "Fiyatlar 48 saatten uzun süredir senkronize edilmedi. Maliyetler bilinen son fiyatlarla hesaplanıyor.",
+      "model": "Model",
+      "source": "Kaynak",
+      "fetched": "Alındı",
+      "stale": "Eski",
+      "override": "Manuel fiyat",
+      "addOverride": "Manuel fiyat ekle",
+      "overrideTitle": "{{model}} için manuel fiyat",
+      "overrideHint": "models.dev'de doğrudan bir fiyat olmadığında kullanılır. Token fiyatları 1M token başına USD'dir; dakika başına fiyat, ses dakikası başına USD'dir.",
+      "overridesTitle": "Manuel fiyatlar",
+      "unpricedTitle": "Fiyatı olmayan modeller",
+      "unpricedDescription": "Bu modeller 0 maliyetle kaydediliyor. Kullanımlarının maliyetlendirilmesi için manuel bir fiyat ekleyin.",
+      "unpricedEvents_one": "Son 30 günde {{count}} olay",
+      "unpricedEvents_other": "Son 30 günde {{count}} olay",
+      "fields": {
+        "input": "Girdi",
+        "output": "Çıktı",
+        "cache_read": "Önbellekteki girdi",
+        "input_audio": "Ses girdisi",
+        "output_audio": "Ses çıktısı",
+        "per_minute": "Dakika başına"
+      }
+    }
   }
 }

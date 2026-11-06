@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { getPermissionDescription, getPermissionGroupLabel, getPermissionLabel } from "@/config/constants/dropdowns/organisations/permission.options";
 import { useTranslation } from "react-i18next";
 import { Info, Lock, RotateCcw, Save } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -98,7 +99,7 @@ export function RolesTab({ organisation }: { organisation: Organisation }) {
 
       {groups.map(([group, definitions]) => (
         <Card key={group} className="p-4 sm:p-5">
-          <h3 className="mb-1 text-sm font-semibold">{group}</h3>
+          <h3 className="mb-1 text-sm font-semibold">{getPermissionGroupLabel(group)}</h3>
           <ul className="divide-y">
             {definitions.map((definition) => {
               const checked = current.includes(definition.key);
@@ -108,20 +109,20 @@ export function RolesTab({ organisation }: { organisation: Organisation }) {
                 <li key={definition.key} className="flex items-start gap-3 py-3">
                   <div className="min-w-0 flex-1">
                     <p className="flex items-center gap-2 text-sm font-medium">
-                      {definition.label}
+                      {getPermissionLabel(definition)}
                       {ownerOnly && (
                         <Badge variant="outline" className="gap-1 text-[10px] font-normal">
                           <Lock className="size-3" /> {t("roles.ownersOnly")}
                         </Badge>
                       )}
                     </p>
-                    <p className="text-xs text-muted-foreground">{definition.description}</p>
+                    <p className="text-xs text-muted-foreground">{getPermissionDescription(definition)}</p>
                   </div>
                   <Switch
                     checked={definition.owner_only ? selected === OrgRoles.OWNER : checked}
                     disabled={locked}
                     onCheckedChange={(value) => setDrafts((previous) => ({ ...previous, [selected]: applyToggle(current, definition.key, value) }))}
-                    aria-label={t("roles.toggleAria", { permission: definition.label, role: getOrgRoleLabel(selected) })}
+                    aria-label={t("roles.toggleAria", { permission: getPermissionLabel(definition), role: getOrgRoleLabel(selected) })}
                     className="mt-0.5 shrink-0"
                   />
                 </li>

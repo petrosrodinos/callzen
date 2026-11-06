@@ -7,8 +7,8 @@ import { getAiModelSpeedLabel, RelativeCostLabels } from "@/config/constants/dro
 
 interface ModelPickerProps {
   models: AiModel[];
-  value: string;
-  recommended: string;
+  value: string | undefined;
+  recommended: string | undefined;
   onChange: (id: string) => void;
   purpose: "realtime" | "analysis";
   name: string;
@@ -52,9 +52,11 @@ export function ModelPicker({ models, value, recommended, onChange, purpose, nam
                 {"★".repeat(model.quality)}
                 <span className="opacity-40">{"★".repeat(5 - model.quality)}</span>
               </span>
-              <span className="inline-flex items-center gap-1">
-                <Wallet className="size-3" /> {RelativeCostLabels[model.relative_cost]}
-              </span>
+              {model.relative_cost != null && (
+                <span className="inline-flex items-center gap-1">
+                  <Wallet className="size-3" /> {RelativeCostLabels[model.relative_cost]}
+                </span>
+              )}
               <span className="inline-flex items-center gap-1">
                 <Globe className="size-3" /> {model.languages}
               </span>

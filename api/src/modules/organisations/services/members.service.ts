@@ -11,12 +11,14 @@ import { ROLE_RANK } from '@/shared/config/permissions/permissions.config';
 import { canActOnRole, canAssignRole } from '../utils/role-rules.utils';
 import { OrganisationsService } from './organisations.service';
 import { UpdateMemberRoleDto } from '../dto/organisation.dto';
+import { EntitlementsService } from '@/modules/billing/services/entitlements.service';
 
 @Injectable()
 export class MembersService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly organisations: OrganisationsService,
+    private readonly entitlements: EntitlementsService,
   ) {}
 
   async list(ctx: OrgContext) {
@@ -80,6 +82,8 @@ export class MembersService {
       where: { id: membershipId },
       data: { role: dto.role },
     });
+    // Owners and non-owners are accounted separately (reserve, caps): a promotion applies immediately (§14).
+    await this.entitlements.invalidate(ctx.organisationId);
     return { id: updated.id, role: updated.role };
   }
 
@@ -101,6 +105,7 @@ export class MembersService {
       );
 
     await this.prisma.membership.delete({ where: { id: membershipId } });
+    await this.entitlements.invalidate(ctx.organisationId);
     return { id: membershipId, removed: true };
   }
 

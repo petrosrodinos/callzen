@@ -326,6 +326,38 @@
       "accountDeleted": "Cuenta eliminada",
       "allYourDataWasPermanentlyRemoved": "Todos tus datos se eliminaron definitivamente.",
       "couldNotDeleteYourAccount": "No se pudo eliminar tu cuenta"
+    },
+    "billing": {
+      "planChanged": "Plan actualizado",
+      "changeScheduled": "Cambio programado para el final del periodo",
+      "couldNotChangePlan": "No se pudo cambiar el plan",
+      "cancelScheduled": "Tu plan terminará al final del periodo",
+      "couldNotCancel": "No se pudo cancelar el plan",
+      "resumed": "Tu plan continuará",
+      "couldNotResume": "No se pudo reanudar el plan",
+      "redirecting": "Abriendo la página de pago segura…",
+      "couldNotOpenPortal": "No se pudieron abrir los ajustes de pago",
+      "couldNotStartCheckout": "No se pudo iniciar el pago"
+    },
+    "appConfig": {
+      "saved": "Ajuste guardado",
+      "reset": "Ajuste restablecido a su valor predeterminado",
+      "couldNotSave": "No se pudo guardar el ajuste",
+      "conflict": "Otra persona ha cambiado este ajuste. Se ha cargado el valor más reciente.",
+      "synced": "Precios sincronizados desde models.dev",
+      "syncFailed": "Error al sincronizar los precios"
+    },
+    "adminSubscriptions": {
+      "exported": "CSV descargado",
+      "actionFailed": "La acción ha fallado",
+      "planAssigned": "Plan asignado",
+      "minutesGranted": "Minutos concedidos",
+      "trialExtended": "Prueba ampliada",
+      "discountApplied": "Descuento aplicado",
+      "canceled": "Suscripción cancelada",
+      "resumed": "Suscripción reanudada",
+      "synced": "Sincronizado con Stripe",
+      "refunded": "Reembolso emitido"
     }
   },
   "errors": {
@@ -443,6 +475,44 @@
     "websocket": {
       "notConnected": "WebSocket no conectado",
       "timeout": "Tiempo de espera agotado al emitir por WebSocket"
+    },
+    "billing": {
+      "loadPlans": "No se pudieron cargar los planes. Inténtalo de nuevo.",
+      "loadPlanUsage": "No se pudo cargar el uso de tu plan. Inténtalo de nuevo.",
+      "loadBilling": "No se pudieron cargar los datos de facturación. Inténtalo de nuevo.",
+      "loadInvoices": "No se pudieron cargar las facturas. Inténtalo de nuevo.",
+      "loadHistory": "No se pudo cargar el historial del plan. Inténtalo de nuevo.",
+      "previewChange": "No se pudo previsualizar este cambio. Inténtalo de nuevo.",
+      "changePlan": "No se pudo cambiar el plan. Inténtalo de nuevo.",
+      "cancelPlan": "No se pudo cancelar el plan. Inténtalo de nuevo.",
+      "resumePlan": "No se pudo reanudar el plan. Inténtalo de nuevo.",
+      "openPortal": "No se pudieron abrir los ajustes de pago. Inténtalo de nuevo.",
+      "checkout": "No se pudo iniciar el pago. Inténtalo de nuevo.",
+      "topup": "No se pudo iniciar la compra. Inténtalo de nuevo.",
+      "loadPurchases": "No se pudieron cargar tus compras. Inténtalo de nuevo."
+    },
+    "appConfig": {
+      "load": "No se pudo cargar la configuración. Inténtalo de nuevo.",
+      "save": "No se pudo guardar este ajuste. Inténtalo de nuevo.",
+      "reset": "No se pudo restablecer este ajuste. Inténtalo de nuevo.",
+      "history": "No se pudo cargar el historial de cambios.",
+      "pricing": "No se pudieron cargar los precios de los modelos.",
+      "sync": "No se pudieron sincronizar los precios desde models.dev."
+    },
+    "adminSubscriptions": {
+      "loadList": "No se pudieron cargar las suscripciones. Inténtalo de nuevo.",
+      "export": "No se pudo exportar el CSV. Inténtalo de nuevo.",
+      "loadDetail": "No se pudo cargar esta suscripción. Inténtalo de nuevo.",
+      "loadPayments": "No se pudieron cargar los pagos. Inténtalo de nuevo.",
+      "assignPlan": "No se pudo asignar el plan.",
+      "grantMinutes": "No se pudieron conceder los minutos.",
+      "extendTrial": "No se pudo ampliar la prueba.",
+      "discount": "No se pudo aplicar el descuento.",
+      "cancel": "No se pudo cancelar la suscripción.",
+      "resume": "No se pudo reanudar la suscripción.",
+      "sync": "No se pudo sincronizar con Stripe.",
+      "refund": "No se pudo reembolsar la factura."
     }
-  }
+  },
+  "timeLeft": "Quedan {{time}}"
 }

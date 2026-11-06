@@ -1,5 +1,14 @@
+import { AiUsage } from '@/integrations/ai/interfaces/ai.interface';
+import {
+  assertWithinTimeLimit,
+  isPastTimeLimit,
+} from '../utils/call-time-limit.utils';
 import { BadRequestException, Injectable, Logger } from '@nestjs/common';
-import { OrgContext } from '@/shared/interfaces/org-context.interface';
+import { AppConfigService } from '@/modules/app-config/app-config.service';
+import {
+  isPlatformAdmin,
+  OrgContext,
+} from '@/shared/interfaces/org-context.interface';
 import { PrismaService } from '@/core/databases/prisma/prisma.service';
 import { AiService } from '@/integrations/ai/services/ai.service';
 import { UsageService } from '@/modules/usage/usage.service';
@@ -39,7 +48,6 @@ import {
   buildCallContext,
   findOwnedCall,
 } from '../utils/snapshot.utils';
-import { RECOMMENDED_REALTIME_MODEL } from '@/shared/config/ai-models/ai-models.config';
 import { DEFAULT_CONSENT_LINE } from '@/shared/config/templates/analysis-criteria.config';
 import { ErrorCodes } from '@/shared/config/error-codes';
 
@@ -51,10 +59,16 @@ export class CopilotService {
   private readonly logger = new Logger(CopilotService.name);
 
   constructor(
+    private readonly appConfig: AppConfigService,
     private readonly prisma: PrismaService,
     private readonly aiService: AiService,
     private readonly usageService: UsageService,
   ) {}
+
+  // Runtime model defaults (admin-configurable); a co-pilot's own model wins when set.
+  private get models() {
+    return this.appConfig.get('ai.default_models');
+  }
 
   // Seeds the panel with instant, no-LLM suggestions: the consent line and the script opener.
   async createInitialSuggestions(
@@ -134,6 +148,7 @@ export class CopilotService {
       suggestion: null,
       speaker_updates: [],
     };
+    if (isPastTimeLimit(call)) return { ...response, time_limit_reached: true };
     if (
       call.status !== CallStatus.IN_PROGRESS ||
       !call.copilot_enabled ||
@@ -171,6 +186,7 @@ export class CopilotService {
         message: 'Call is not in progress',
         code: ErrorCodes.Calls.NOT_IN_PROGRESS,
       });
+    assertWithinTimeLimit(call);
 
     const lastSegment = await this.prisma.transcriptSegment.findFirst({
       where: { call_id: callId },
@@ -194,6 +210,7 @@ export class CopilotService {
     const agent = call.agent_snapshot as unknown as AgentSnapshot | null;
     if (!agent)
       throw new BadRequestException('This call has no co-pilot agent');
+    assertWithinTimeLimit(call);
 
     const [user, segments] = await Promise.all([
       this.prisma.user.findUnique({ where: { id: ctx.userId } }),
@@ -202,7 +219,7 @@ export class CopilotService {
 
     const result = await this.aiService.generateStructured({
       model: agent.realtime_model,
-      fallbackModel: RECOMMENDED_REALTIME_MODEL,
+      fallbackModel: this.models.realtime,
       schema: CopilotAnswerSchema,
       schemaName: 'copilot_answer',
       system: `You are CallZen, a sales co-pilot. The salesperson is on a live call and typed a quick question. Answer instantly in 1-3 short sentences they can use right away. Use the knowledge base; if the answer is not there, say so briefly and suggest how to handle it. Answer in ${resolveOutputLanguage(user.output_language_mode, call.language, user.interface_language, agent.languages)}.\n\n${buildAgentBrief(agent)}`,
@@ -230,7 +247,9 @@ export class CopilotService {
     return {
       suggestion,
       found_in_knowledge: result.output.found_in_knowledge,
-      fallback_model: result.fallbackUsed ? result.model : null,
+      // Model names are internal: only platform admins learn which fallback model answered (§6.3).
+      fallback_model:
+        result.fallbackUsed && isPlatformAdmin(ctx) ? result.model : null,
     };
   }
 
@@ -315,7 +334,7 @@ export class CopilotService {
     try {
       const result = await this.aiService.generateStructured({
         model: agent.realtime_model,
-        fallbackModel: RECOMMENDED_REALTIME_MODEL,
+        fallbackModel: this.models.realtime,
         schema: CopilotSuggestionSchema,
         schemaName: 'copilot_suggestion',
         system: buildCopilotSystem(promptInput),
@@ -367,7 +386,9 @@ export class CopilotService {
         suggestion,
         speaker_updates: speakerUpdates,
         script_progress: progress,
-        fallback_model: result.fallbackUsed ? result.model : null,
+        // Model names are internal: only platform admins learn which fallback model answered (§6.3).
+        fallback_model:
+          result.fallbackUsed && isPlatformAdmin(ctx) ? result.model : null,
       };
     } catch (error) {
       // Suggestions are best-effort: the call and its transcript must keep going.
@@ -420,7 +441,7 @@ export class CopilotService {
     kind: UsageKind,
     result: {
       model: string;
-      usage: { inputTokens: number; outputTokens: number; costUsd: number };
+      usage: AiUsage;
     },
   ) {
     this.usageService.record({
@@ -429,9 +450,7 @@ export class CopilotService {
       callId,
       kind,
       model: result.model,
-      inputTokens: result.usage.inputTokens,
-      outputTokens: result.usage.outputTokens,
-      costUsd: result.usage.costUsd,
+      tokens: result.usage,
     });
   }
 }

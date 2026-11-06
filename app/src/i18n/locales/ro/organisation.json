@@ -31,7 +31,10 @@
     "deleteDialogTitle": "Ștergi {{name}}?",
     "deleteDialogDescription": "Scrie <strong>{{name}}</strong> pentru a confirma. Tot ce se află în această organizație este șters pentru toți membrii.",
     "confirmAria": "Scrie numele organizației pentru a confirma",
-    "deletePermanently": "Șterge definitiv"
+    "deletePermanently": "Șterge definitiv",
+    "boughtMinutesWarning_one": "{{count}} membru are încă minute cumpărate pentru sine. Acestea se vor pierde când organizația este ștearsă.",
+    "boughtMinutesWarning_few": "{{count}} membri au încă minute cumpărate pentru ei. Acestea se vor pierde când organizația este ștearsă.",
+    "boughtMinutesWarning_other": "{{count}} de membri au încă minute cumpărate pentru ei. Acestea se vor pierde când organizația este ștearsă."
   },
   "invitations": {
     "copyFailed": "Copierea a eșuat",

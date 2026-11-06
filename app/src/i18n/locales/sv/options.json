@@ -326,5 +326,279 @@
       "conversation": "Samma språk som samtalet",
       "interface": "Mitt gränssnittsspråk"
     }
+  },
+  "billing": {
+    "plan": {
+      "all": "Alla abonnemang",
+      "trial": "Provperiod",
+      "starter": "Starter",
+      "pro": "Pro",
+      "coach": "Coach"
+    },
+    "planDescription": {
+      "trial": "Prova allt med en liten kvot.",
+      "starter": "För enskilda säljare som är i början.",
+      "pro": "För seriösa säljare som övar och ringer mycket.",
+      "coach": "För coacher och deras elever, med gemensamma minuter och coachningsverktyg."
+    },
+    "status": {
+      "all": "Alla statusar",
+      "trialing": "Provperiod",
+      "active": "Aktiv",
+      "pastDue": "Förfallen",
+      "canceled": "Uppsagd",
+      "incomplete": "Ofullständig",
+      "none": "Inget abonnemang",
+      "cancelling": "Sägs upp"
+    },
+    "invoiceKind": {
+      "subscription": "Prenumeration",
+      "seats": "Extra licenser",
+      "topupTeam": "Minuter till teamet",
+      "topupPersonal": "Personliga minuter",
+      "other": "Övrigt"
+    },
+    "invoiceStatus": {
+      "draft": "Utkast",
+      "open": "Öppen",
+      "paid": "Betald",
+      "void": "Makulerad",
+      "uncollectible": "Oindrivbar",
+      "failed": "Misslyckad",
+      "refunded": "Återbetald"
+    },
+    "pack": {
+      "live_100": "100 minuter livesamtal",
+      "practice_60": "60 övningsminuter",
+      "mixed": "{{live}} live- + {{practice}} övningsminuter",
+      "liveFallback": "{{count}} minuter livesamtal",
+      "practiceFallback": "{{count}} övningsminuter"
+    },
+    "cancelReason": {
+      "tooExpensive": "För dyrt",
+      "notUsing": "Jag använder det inte tillräckligt",
+      "missingFeatures": "Saknar funktioner jag behöver",
+      "switching": "Byter till ett annat verktyg",
+      "temporary": "Behövde det bara ett tag",
+      "other": "Något annat"
+    },
+    "feature": {
+      "knowledgeDocumentImport": "Import av kunskapsdokument",
+      "orgRolesPermissions": "Anpassade roller och behörigheter",
+      "orgInvitations": "Teaminbjudningar",
+      "viewAllMemberCalls": "Visa alla medlemmars samtal",
+      "cohortDashboard": "Gruppöversikt",
+      "topupPurchases": "Köp av extra minuter",
+      "studentPages": "Elevsidor",
+      "practiceAssignments": "Övningsuppgifter",
+      "callComments": "Coachkommentarer på samtal",
+      "coachReports": "Veckorapporter för coacher",
+      "studentExport": "CSV-export",
+      "agentAccessControl": "Åtkomst per elev till co-piloter och prospekt"
+    },
+    "limit": {
+      "seatsIncluded": "Licenser som ingår",
+      "extraSeatsAllowed": "Extra licenser kan köpas",
+      "liveMinutes": "Liveminuter per period",
+      "practiceMinutes": "Övningsminuter per period",
+      "practiceSharesLivePool": "Övning använder liveminuterna",
+      "liveOwnerReserve": "Liveminuter reserverade för ägare",
+      "practiceOwnerReserve": "Övningsminuter reserverade för ägare",
+      "liveMinutesPerMember": "Liveminuter per medlem",
+      "practiceMinutesPerMember": "Övningsminuter per medlem",
+      "copilotsMax": "Co-piloter",
+      "practiceProspectsMax": "Övningsprospekt",
+      "practiceProspectsPerMemberMax": "Övningsprospekt per medlem",
+      "uploadsPerPeriod": "Uppladdningar per period",
+      "trialDays": "Provperiodens längd (dagar)"
+    },
+    "pricingSource": {
+      "modelsDev": "models.dev",
+      "alias": "models.dev (alias)",
+      "override": "Manuellt",
+      "unpriced": "Utan pris"
+    },
+    "analysis": {
+      "overview": "Översikt och poäng",
+      "categoryScores": "Färdighetspoäng",
+      "moments": "Misstag och styrkor",
+      "improvements": "Förbättringar",
+      "metrics": "Samtalsstatistik",
+      "prospectInsights": "Insikter om prospektet",
+      "nextSteps": "Nästa steg",
+      "followUpDraft": "Utkast till uppföljning",
+      "practiceReveal": "Avslöjande efter övning",
+      "copilotUsage": "Användning av co-piloten",
+      "suggestedPractice": "Föreslagen övning"
+    },
+    "analysisHint": {
+      "overview": "Totalpoäng, omdöme och sammanfattning",
+      "categoryScores": "Poäng per färdighet och utvecklingen över tid",
+      "moments": "Misstag och styrkor kopplade till tidslinjen, återkommande misstag",
+      "improvements": "Vad du kan göra bättre nästa gång",
+      "metrics": "Talfördelning, tempo, utfyllnadsord, avbrott, invändningar",
+      "prospectInsights": "Vad prospektet bryr sig om",
+      "nextSteps": "Överenskomna nästa steg",
+      "followUpDraft": "Uppföljningsmeddelande som är klart att skicka",
+      "practiceReveal": "Personans dolda detaljer efter ett övningspass",
+      "copilotUsage": "Hur co-pilotens förslag användes",
+      "suggestedPractice": "Rekommenderade övningsscenarier"
+    },
+    "interval": {
+      "month": "Månadsvis",
+      "year": "Årsvis"
+    },
+    "invoiceDescription": {
+      "seats_one": "Extra licenser × {{count}}",
+      "seats_other": "Extra licenser × {{count}}",
+      "topup": "Minuter: {{pack}}"
+    },
+    "eventType": {
+      "STARTED": "Abonnemanget startade",
+      "PLAN_CHANGED": "Abonnemanget byttes",
+      "CHANGE_SCHEDULED": "Ändring schemalagd",
+      "CHANGE_CANCELED": "Schemalagd ändring ångrades",
+      "SEATS_CHANGED": "Licenser ändrades",
+      "CANCEL_SCHEDULED": "Uppsägning schemalagd",
+      "CANCEL_REVOKED": "Uppsägning ångrades",
+      "CANCELED": "Abonnemanget sades upp",
+      "REACTIVATED": "Abonnemanget återaktiverades",
+      "TRIAL_STARTED": "Provperioden startade",
+      "TRIAL_ENDED": "Provperioden slutade",
+      "TRIAL_EXTENDED": "Provperioden förlängdes",
+      "PAYMENT_SUCCEEDED": "Betalningen lyckades",
+      "PAYMENT_FAILED": "Betalningen misslyckades",
+      "REFUNDED": "Återbetald",
+      "CREDITS_GRANTED": "Minuter tillagda",
+      "MANUAL_ASSIGNED": "Abonnemanget upplagt av vårt team",
+      "DISCOUNT_APPLIED": "Rabatt tillämpad",
+      "SYNCED": "Synkat med Stripe"
+    },
+    "source": {
+      "stripe": "Stripe",
+      "manual": "Manuellt"
+    },
+    "paymentFilter": {
+      "all": "Alla betalningar",
+      "failed": "Misslyckade",
+      "open": "Öppna",
+      "refunded": "Återbetalade",
+      "paid": "Betalda"
+    },
+    "cancelMode": {
+      "atPeriodEnd": "Vid periodens slut",
+      "immediate": "Omedelbart"
+    },
+    "actor": {
+      "user": "Kund",
+      "admin": "CallZen-teamet",
+      "stripe": "Stripe",
+      "system": "Automatiskt"
+    }
+  },
+  "access": {
+    "visibility": {
+      "organisation": "Alla i organisationen",
+      "selected": "Valda elever"
+    },
+    "visibilityDescription": {
+      "organisation": "Alla medlemmar kan se och använda det.",
+      "selected": "Bara de elever du väljer, plus coacher."
+    }
+  },
+  "permissions": {
+    "agentsView": {
+      "label": "Visa co-piloter",
+      "description": "Se och använda organisationens co-piloter i samtal och övning."
+    },
+    "agentsManage": {
+      "label": "Hantera co-piloter",
+      "description": "Skapa, redigera, duplicera, arkivera och ta bort co-piloter, och välja vem som får använda dem."
+    },
+    "prospectsManage": {
+      "label": "Hantera dina övningsprospekt",
+      "description": "Skapa, generera, redigera och ta bort de AI-övningsprospekt du har skapat."
+    },
+    "prospectsManageAll": {
+      "label": "Hantera allas övningsprospekt",
+      "description": "Redigera, ta bort och ändra vem som får använda alla medlemmars övningsprospekt."
+    },
+    "callsCreate": {
+      "label": "Starta samtal och övning",
+      "description": "Starta livesamtal och övningspass."
+    },
+    "callsViewAll": {
+      "label": "Visa allas samtal",
+      "description": "Se samtal, inspelningar, analyser och teamets resultat för alla medlemmar. Utan detta ser medlemmar bara sina egna."
+    },
+    "callsManageAll": {
+      "label": "Hantera allas samtal",
+      "description": "Ta bort inspelningar och samtal samt köra om analyser för alla medlemmar."
+    },
+    "usageView": {
+      "label": "Visa organisationens användning",
+      "description": "Se använda minuter för hela organisationen."
+    },
+    "membersView": {
+      "label": "Visa medlemmar",
+      "description": "Se medlemslistan och medlemmarnas roller."
+    },
+    "membersInvite": {
+      "label": "Bjuda in medlemmar",
+      "description": "Bjuda in personer samt skicka om och återkalla inbjudningar."
+    },
+    "membersManage": {
+      "label": "Hantera medlemmar",
+      "description": "Ändra roll för och ta bort medlemmar med lägre roll."
+    },
+    "rolesManage": {
+      "label": "Redigera rollbehörigheter",
+      "description": "Ändra vad varje roll får göra."
+    },
+    "orgUpdate": {
+      "label": "Redigera organisation",
+      "description": "Byta namn på organisationen."
+    },
+    "orgDelete": {
+      "label": "Ta bort organisation",
+      "description": "Ta bort organisationen och alla dess data permanent."
+    },
+    "billingView": {
+      "label": "Visa fakturering",
+      "description": "Se organisationens abonnemang, fakturor och betalningar."
+    },
+    "billingManage": {
+      "label": "Hantera fakturering",
+      "description": "Byta eller säga upp abonnemanget, hantera licenser och betalningsuppgifter samt köpa minuter till teamet."
+    },
+    "coachingView": {
+      "label": "Visa coachning",
+      "description": "Se gruppöversikten, elevsidor och veckorapporter. Inkluderar att se allas samtal."
+    },
+    "coachingManage": {
+      "label": "Coacha elever",
+      "description": "Skapa övningsuppgifter och kommentera andra medlemmars samtal."
+    },
+    "coachingExport": {
+      "label": "Exportera coachningsdata",
+      "description": "Ladda ned elev- och samtalslistor som CSV."
+    }
+  },
+  "permissionGroups": {
+    "agents": "Co-piloter och övning",
+    "calls": "Samtal",
+    "team": "Team",
+    "coaching": "Coachning",
+    "organisation": "Organisation",
+    "billing": "Fakturering"
+  },
+  "coaching": {
+    "assignmentStatus": {
+      "all": "Alla statusar",
+      "open": "Öppen",
+      "overdue": "Försenad",
+      "completed": "Slutförd",
+      "archived": "Arkiverad"
+    }
   }
 }

@@ -15,6 +15,7 @@ import { Routes } from "@/routes/routes";
 // Invitations addressed to the signed-in user's email, shown wherever they land first.
 export function PendingInvitationsCard() {
   const { t } = useTranslation("dashboard");
+  const { t: tCoaching } = useTranslation("coaching");
   const navigate = useNavigate();
   const { data: invitations } = useMyInvitations();
   const accept = useAcceptInvitationById();
@@ -46,6 +47,11 @@ export function PendingInvitationsCard() {
                   when: formatRelative(invitation.expires_at),
                 })}
               </p>
+              {invitation.coach_org && (
+                <p className="mt-1 text-xs text-primary">
+                  {tCoaching("privacyNotice")}
+                </p>
+              )}
             </div>
             <Button
               size="sm"
